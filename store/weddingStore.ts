@@ -1,0 +1,474 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { create } from 'zustand';
+import { createJSONStorage, persist } from 'zustand/middleware';
+import { DEFAULT_GUEST_CATEGORIES } from '@/constants/guestCategories';
+import { stripLegacyDefaultSides, resolveGuestSide } from '@/constants/guestSides';
+import { generateId } from '@/lib/generateId';
+import { getDefaultLanguage } from '@/lib/i18n';
+import { canAssignGuestToTable, getTablesForEvent } from '@/lib/seatingStats';
+import {
+  AttendanceStatus,
+  BulkTableBatch,
+  CelebrationThemeId,
+  Guest,
+  Language,
+  SeatingTable,
+  WeddingEvent,
+  Expense,
+} from '@/types/models';
+
+type LegacyRelationship = 'family' | 'friend' | 'work' | 'other';
+
+type LegacyGuest = {
+  id: string;
+  eventId: unknown;
+  name?: string;
+  firstName?: string;
+  lastName?: string;
+  confirmed?: boolean;
+  attendanceStatus?: AttendanceStatus;
+  phone?: string;
+  relationship?: LegacyRelationship;
+  category?: string;
+  side?: unknown;
+  partySize?: number;
+  tableId?: string;
+  note?: string;
+};
+
+const RELATIONSHIP_TO_CATEGORY: Record<LegacyRelationship, string> = {
+  family: 'Porodica',
+  friend: 'Prijatelji',
+  work: 'Posao',
+  other: 'Ostalo',
+};
+
+function normalizeEventId(value: unknown): string {
+  if (Array.isArray(value)) return String(value[0] ?? '');
+  return String(value ?? '');
+}
+
+function resolveGuestCategory(raw: LegacyGuest): string {
+  if (raw.category) return raw.category;
+  if (raw.relationship) return RELATIONSHIP_TO_CATEGORY[raw.relationship];
+  return DEFAULT_GUEST_CATEGORIES[0];
+}
+
+type PersistedState = {
+  events: Array<
+    WeddingEvent & {
+      theme?: CelebrationThemeId;
+      guestCategories?: string[];
+      guestSides?: string[];
+    }
+  >;
+  guests: LegacyGuest[];
+  tables?: Array<Omit<SeatingTable, 'eventId'> & { eventId: unknown }>;
+  expenses: Array<Omit<Expense, 'eventId'> & { eventId: unknown }>;
+  language: Language;
+};
+
+function migrateGuest(raw: LegacyGuest): Guest {
+  if (raw.firstName && raw.lastName !== undefined) {
+    return {
+      id: raw.id,
+      eventId: normalizeEventId(raw.eventId),
+      firstName: raw.firstName.trim(),
+      lastName: raw.lastName.trim(),
+      phone: raw.phone,
+      category: resolveGuestCategory(raw),
+      side: resolveGuestSide(raw.side),
+      attendanceStatus:
+        raw.attendanceStatus ?? (raw.confirmed ? 'confirmed' : 'pending'),
+      partySize: raw.partySize ?? 1,
+      tableId: raw.tableId,
+      note: raw.note,
+    };
+  }
+
+  const nameParts = (raw.name ?? '').trim().split(/\s+/);
+  const firstName = nameParts[0] ?? '';
+  const lastName = nameParts.slice(1).join(' ');
+
+  return {
+    id: raw.id,
+    eventId: normalizeEventId(raw.eventId),
+    firstName,
+    lastName,
+    phone: raw.phone,
+    category: resolveGuestCategory(raw),
+    side: resolveGuestSide(raw.side),
+    attendanceStatus:
+      raw.attendanceStatus ?? (raw.confirmed ? 'confirmed' : 'pending'),
+    partySize: raw.partySize ?? 1,
+    tableId: raw.tableId,
+    note: raw.note,
+  };
+}
+
+type WeddingState = {
+  events: WeddingEvent[];
+  guests: Guest[];
+  tables: SeatingTable[];
+  expenses: Expense[];
+  language: Language;
+  _hasHydrated: boolean;
+  setHasHydrated: (value: boolean) => void;
+  setLanguage: (language: Language) => void;
+  addEvent: (
+    data: Omit<WeddingEvent, 'id' | 'createdAt' | 'guestCategories' | 'guestSides'> & {
+      guestCategories?: string[];
+      guestSides?: string[];
+    }
+  ) => string;
+  updateEvent: (id: string, data: Partial<Omit<WeddingEvent, 'id' | 'createdAt'>>) => void;
+  deleteEvent: (id: string) => void;
+  addGuestCategory: (eventId: string, name: string) => void;
+  addGuestSide: (eventId: string, name: string) => void;
+  addGuest: (data: Omit<Guest, 'id'>) => string | null;
+  updateGuest: (id: string, data: Partial<Omit<Guest, 'id' | 'eventId'>>) => boolean;
+  deleteGuest: (id: string) => void;
+  setGuestAttendance: (id: string, status: AttendanceStatus) => void;
+  assignGuestToTable: (guestId: string, tableId: string | null) => boolean;
+  isGuestDuplicate: (
+    eventId: string,
+    firstName: string,
+    lastName: string,
+    excludeId?: string
+  ) => boolean;
+  addTable: (data: Omit<SeatingTable, 'id' | 'createdAt' | 'sortOrder'>) => string;
+  updateTable: (
+    id: string,
+    data: Partial<Omit<SeatingTable, 'id' | 'eventId' | 'createdAt'>>
+  ) => void;
+  deleteTable: (id: string) => void;
+  bulkCreateTables: (eventId: string, batches: BulkTableBatch[]) => string[];
+  addExpense: (data: Omit<Expense, 'id'>) => string;
+  updateExpense: (id: string, data: Partial<Omit<Expense, 'id' | 'eventId'>>) => void;
+  deleteExpense: (id: string) => void;
+};
+
+export const useWeddingStore = create<WeddingState>()(
+  persist(
+    (set, get) => ({
+      events: [],
+      guests: [],
+      tables: [],
+      expenses: [],
+      language: getDefaultLanguage(),
+      _hasHydrated: false,
+      setHasHydrated: (value) => set({ _hasHydrated: value }),
+
+      setLanguage: (language) => set({ language }),
+
+      addEvent: (data) => {
+        const id = generateId();
+        const event: WeddingEvent = {
+          ...data,
+          guestCategories: data.guestCategories ?? [...DEFAULT_GUEST_CATEGORIES],
+          guestSides: data.guestSides ?? [],
+          id,
+          createdAt: new Date().toISOString(),
+        };
+        set((state) => ({ events: [event, ...state.events] }));
+        return id;
+      },
+
+      addGuestCategory: (eventId, name) => {
+        const trimmed = name.trim();
+        if (!trimmed) return;
+
+        set((state) => ({
+          events: state.events.map((event) => {
+            if (event.id !== eventId) return event;
+            if (event.guestCategories.includes(trimmed)) return event;
+            return {
+              ...event,
+              guestCategories: [...event.guestCategories, trimmed],
+            };
+          }),
+        }));
+      },
+
+      addGuestSide: (eventId, name) => {
+        const trimmed = name.trim();
+        if (!trimmed) return;
+
+        set((state) => ({
+          events: state.events.map((event) => {
+            if (event.id !== eventId) return event;
+            if (event.guestSides.includes(trimmed)) return event;
+            return {
+              ...event,
+              guestSides: [...event.guestSides, trimmed],
+            };
+          }),
+        }));
+      },
+
+      updateEvent: (id, data) => {
+        set((state) => ({
+          events: state.events.map((event) =>
+            event.id === id ? { ...event, ...data } : event
+          ),
+        }));
+      },
+
+      deleteEvent: (id) => {
+        set((state) => ({
+          events: state.events.filter((event) => event.id !== id),
+          guests: state.guests.filter((guest) => guest.eventId !== id),
+          tables: state.tables.filter((table) => table.eventId !== id),
+          expenses: state.expenses.filter((expense) => expense.eventId !== id),
+        }));
+      },
+
+      addGuest: (data) => {
+        const firstName = data.firstName.trim();
+        const lastName = data.lastName.trim();
+        if (!firstName) return null;
+        if (get().isGuestDuplicate(data.eventId, firstName, lastName)) return null;
+
+        const id = generateId();
+        const guest: Guest = {
+          ...data,
+          id,
+          firstName,
+          lastName,
+          partySize: Math.max(1, data.partySize),
+        };
+
+        if (guest.tableId) {
+          const table = get().tables.find((t) => t.id === guest.tableId);
+          if (!table || !canAssignGuestToTable(guest, table, get().guests, guest.tableId)) {
+            guest.tableId = undefined;
+          }
+        }
+
+        set((state) => ({ guests: [...state.guests, guest] }));
+        return id;
+      },
+
+      updateGuest: (id, data) => {
+        const existing = get().guests.find((g) => g.id === id);
+        if (!existing) return false;
+
+        const firstName =
+          data.firstName !== undefined ? data.firstName.trim() : existing.firstName;
+        const lastName =
+          data.lastName !== undefined ? data.lastName.trim() : existing.lastName;
+
+        if (!firstName) return false;
+        if (get().isGuestDuplicate(existing.eventId, firstName, lastName, id)) return false;
+
+        const nextGuest: Guest = {
+          ...existing,
+          ...data,
+          firstName,
+          lastName,
+          partySize: Math.max(1, data.partySize ?? existing.partySize),
+        };
+
+        if (nextGuest.tableId) {
+          const table = get().tables.find((t) => t.id === nextGuest.tableId);
+          if (
+            !table ||
+            !canAssignGuestToTable(nextGuest, table, get().guests, nextGuest.tableId)
+          ) {
+            return false;
+          }
+        }
+
+        set((state) => ({
+          guests: state.guests.map((guest) => (guest.id === id ? nextGuest : guest)),
+        }));
+        return true;
+      },
+
+      deleteGuest: (id) => {
+        set((state) => ({
+          guests: state.guests.filter((guest) => guest.id !== id),
+        }));
+      },
+
+      setGuestAttendance: (id, status) => {
+        set((state) => ({
+          guests: state.guests.map((guest) =>
+            guest.id === id ? { ...guest, attendanceStatus: status } : guest
+          ),
+        }));
+      },
+
+      assignGuestToTable: (guestId, tableId) => {
+        const guest = get().guests.find((g) => g.id === guestId);
+        if (!guest) return false;
+
+        if (!tableId) {
+          set((state) => ({
+            guests: state.guests.map((g) =>
+              g.id === guestId ? { ...g, tableId: undefined } : g
+            ),
+          }));
+          return true;
+        }
+
+        const table = get().tables.find((t) => t.id === tableId);
+        if (!table || !canAssignGuestToTable(guest, table, get().guests, tableId)) {
+          return false;
+        }
+
+        set((state) => ({
+          guests: state.guests.map((g) =>
+            g.id === guestId ? { ...g, tableId } : g
+          ),
+        }));
+        return true;
+      },
+
+      isGuestDuplicate: (eventId, firstName, lastName, excludeId) => {
+        const normalizedFirst = firstName.trim().toLowerCase();
+        const normalizedLast = lastName.trim().toLowerCase();
+        return get().guests.some(
+          (guest) =>
+            guest.eventId === eventId &&
+            guest.id !== excludeId &&
+            guest.firstName.trim().toLowerCase() === normalizedFirst &&
+            guest.lastName.trim().toLowerCase() === normalizedLast
+        );
+      },
+
+      addTable: (data) => {
+        const id = generateId();
+        const eventTables = getTablesForEvent(get().tables, data.eventId);
+        const maxOrder = eventTables.reduce((max, t) => Math.max(max, t.sortOrder), 0);
+        const table: SeatingTable = {
+          ...data,
+          id,
+          capacity: Math.max(1, data.capacity),
+          sortOrder: maxOrder + 1,
+          createdAt: new Date().toISOString(),
+        };
+        set((state) => ({ tables: [...state.tables, table] }));
+        return id;
+      },
+
+      updateTable: (id, data) => {
+        const existing = get().tables.find((t) => t.id === id);
+        if (!existing) return;
+
+        const nextCapacity = Math.max(1, data.capacity ?? existing.capacity);
+        const occupied = get()
+          .guests.filter((g) => g.tableId === id)
+          .reduce((sum, g) => sum + g.partySize, 0);
+        if (nextCapacity < occupied) return;
+
+        set((state) => ({
+          tables: state.tables.map((table) =>
+            table.id === id
+              ? { ...table, ...data, capacity: nextCapacity }
+              : table
+          ),
+        }));
+      },
+
+      deleteTable: (id) => {
+        set((state) => ({
+          tables: state.tables.filter((table) => table.id !== id),
+          guests: state.guests.map((guest) =>
+            guest.tableId === id ? { ...guest, tableId: undefined } : guest
+          ),
+        }));
+      },
+
+      bulkCreateTables: (eventId, batches) => {
+        const ids: string[] = [];
+        let sortOrder = getTablesForEvent(get().tables, eventId).reduce(
+          (max, t) => Math.max(max, t.sortOrder),
+          0
+        );
+        let tableNumber = getTablesForEvent(get().tables, eventId).length;
+
+        const newTables: SeatingTable[] = [];
+
+        for (const batch of batches) {
+          for (let i = 0; i < batch.count; i++) {
+            tableNumber += 1;
+            sortOrder += 1;
+            const id = generateId();
+            ids.push(id);
+            newTables.push({
+              id,
+              eventId,
+              name: `Table ${tableNumber}`,
+              capacity: Math.max(1, batch.capacity),
+              sortOrder,
+              createdAt: new Date().toISOString(),
+            });
+          }
+        }
+
+        set((state) => ({ tables: [...state.tables, ...newTables] }));
+        return ids;
+      },
+
+      addExpense: (data) => {
+        const id = generateId();
+        const expense: Expense = { ...data, id };
+        set((state) => ({ expenses: [...state.expenses, expense] }));
+        return id;
+      },
+
+      updateExpense: (id, data) => {
+        set((state) => ({
+          expenses: state.expenses.map((expense) =>
+            expense.id === id ? { ...expense, ...data } : expense
+          ),
+        }));
+      },
+
+      deleteExpense: (id) => {
+        set((state) => ({
+          expenses: state.expenses.filter((expense) => expense.id !== id),
+        }));
+      },
+    }),
+    {
+      name: 'wedding-planner-bh-storage',
+      storage: createJSONStorage(() => AsyncStorage),
+      partialize: (state) => ({
+        events: state.events,
+        guests: state.guests,
+        tables: state.tables,
+        expenses: state.expenses,
+        language: state.language,
+      }),
+      merge: (persisted, current) => {
+        const saved = persisted as PersistedState | undefined;
+        if (!saved) return current;
+
+        return {
+          ...current,
+          ...saved,
+          events: (saved.events ?? []).map((event) => ({
+            ...event,
+            theme: (event.theme ?? 'wedding') as CelebrationThemeId,
+            guestCategories: event.guestCategories ?? [...DEFAULT_GUEST_CATEGORIES],
+            guestSides: stripLegacyDefaultSides(event.guestSides),
+          })),
+          guests: (saved.guests ?? []).map(migrateGuest),
+          tables: (saved.tables ?? []).map((table) => ({
+            ...table,
+            eventId: normalizeEventId(table.eventId),
+          })),
+          expenses: (saved.expenses ?? []).map((expense) => ({
+            ...expense,
+            eventId: normalizeEventId(expense.eventId),
+          })),
+        };
+      },
+      onRehydrateStorage: () => (state) => {
+        state?.setHasHydrated(true);
+      },
+    }
+  )
+);

@@ -1,0 +1,329 @@
+import { Ionicons } from '@expo/vector-icons';
+import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
+import { useEffect, useMemo, useState } from 'react';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+
+import { OptionChips } from '@/components/FilterChips';
+import { GuestCategoryPicker } from '@/components/GuestCategoryPicker';
+import { GuestSidePicker } from '@/components/GuestSidePicker';
+import { Button, TextInputField } from '@/components/ui';
+import { DEFAULT_GUEST_CATEGORIES } from '@/constants/guestCategories';
+import { getAssignableTables } from '@/lib/seatingStats';
+import { useTranslation } from '@/lib/i18n';
+import { getRouteParam } from '@/lib/routeParams';
+import { useWeddingStore } from '@/store/weddingStore';
+import { useThemeColors } from '@/theme/EventThemeContext';
+import { AttendanceStatus } from '@/types/models';
+import { radius, spacing } from '@/theme/colors';
+
+export default function GuestFormModal() {
+  const router = useRouter();
+  const params = useLocalSearchParams<{ eventId: string; guestId?: string }>();
+  const eventId = getRouteParam(params.eventId);
+  const guestId = getRouteParam(params.guestId);
+  const language = useWeddingStore((s) => s.language);
+  const event = useWeddingStore((s) => s.events.find((e) => e.id === eventId));
+  const allGuests = useWeddingStore((s) => s.guests);
+  const tables = useWeddingStore((s) => s.tables);
+  const addGuest = useWeddingStore((s) => s.addGuest);
+  const updateGuest = useWeddingStore((s) => s.updateGuest);
+  const { t } = useTranslation(language);
+  const theme = useThemeColors();
+
+  const defaultCategory =
+    event?.guestCategories[0] ?? DEFAULT_GUEST_CATEGORIES[0];
+  const defaultSide = event?.guestSides[0] ?? '';
+
+  const existingGuest = useMemo(
+    () => (guestId ? allGuests.find((g) => g.id === guestId) : undefined),
+    [allGuests, guestId]
+  );
+
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [category, setCategory] = useState(defaultCategory);
+  const [side, setSide] = useState(defaultSide);
+  const [attendanceStatus, setAttendanceStatus] = useState<AttendanceStatus>('pending');
+  const [partySize, setPartySize] = useState('1');
+  const [tableId, setTableId] = useState<string | undefined>(undefined);
+  const [note, setNote] = useState('');
+  const [firstNameError, setFirstNameError] = useState('');
+  const [tableError, setTableError] = useState('');
+
+  useEffect(() => {
+    if (existingGuest) {
+      setFirstName(existingGuest.firstName);
+      setLastName(existingGuest.lastName);
+      setPhone(existingGuest.phone ?? '');
+      setCategory(existingGuest.category);
+      setSide(existingGuest.side);
+      setAttendanceStatus(existingGuest.attendanceStatus);
+      setPartySize(String(existingGuest.partySize));
+      setTableId(existingGuest.tableId);
+      setNote(existingGuest.note ?? '');
+    } else {
+      setCategory(defaultCategory);
+      setSide(defaultSide);
+    }
+  }, [existingGuest, defaultCategory, defaultSide]);
+
+  const assignableTables = useMemo(() => {
+    if (!eventId || !firstName.trim()) return [];
+
+    const previewGuest = {
+      id: existingGuest?.id ?? 'draft',
+      eventId,
+      firstName: firstName.trim(),
+      lastName: lastName.trim(),
+      category,
+      side,
+      attendanceStatus,
+      partySize: Math.max(1, parseInt(partySize, 10) || 1),
+      tableId,
+    };
+
+    return getAssignableTables(tables, allGuests, eventId, previewGuest);
+  }, [
+    tables,
+    allGuests,
+    eventId,
+    firstName,
+    lastName,
+    category,
+    side,
+    attendanceStatus,
+    partySize,
+    tableId,
+    existingGuest?.id,
+  ]);
+
+  const handleSave = () => {
+    if (!firstName.trim()) {
+      setFirstNameError(t('guests.firstNameRequired'));
+      return;
+    }
+    if (!eventId) return;
+
+    const parsedPartySize = Math.max(1, parseInt(partySize, 10) || 1);
+    const payload = {
+      eventId,
+      firstName: firstName.trim(),
+      lastName: lastName.trim(),
+      phone: phone.trim() || undefined,
+      category,
+      side,
+      attendanceStatus,
+      partySize: parsedPartySize,
+      tableId: tableId || undefined,
+      note: note.trim() || undefined,
+    };
+
+    if (existingGuest) {
+      const success = updateGuest(existingGuest.id, payload);
+      if (!success) {
+        if (tableId) setTableError(t('seating.capacityError'));
+        else setFirstNameError(t('guests.duplicateName'));
+        return;
+      }
+    } else {
+      const result = addGuest(payload);
+      if (!result) {
+        if (tableId) setTableError(t('seating.capacityError'));
+        else setFirstNameError(t('guests.duplicateName'));
+        return;
+      }
+    }
+
+    router.back();
+  };
+
+  const tableOptions = useMemo(() => {
+    const options = assignableTables.map((table) => ({
+      value: table.id,
+      label: `${table.name} (${table.capacity})`,
+    }));
+
+    if (tableId && !options.some((option) => option.value === tableId)) {
+      const currentTable = tables.find((table) => table.id === tableId);
+      if (currentTable) {
+        options.unshift({
+          value: currentTable.id,
+          label: `${currentTable.name} (${currentTable.capacity})`,
+        });
+      }
+    }
+
+    return [{ value: 'none', label: t('guests.noTable') }, ...options];
+  }, [assignableTables, tableId, tables, t]);
+
+  if (!eventId) return null;
+
+  const parsedPartySize = Math.max(1, parseInt(partySize, 10) || 1);
+
+  return (
+    <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+      <Stack.Screen
+        options={{ title: existingGuest ? t('guests.edit') : t('guests.add') }}
+      />
+
+      <TextInputField
+        label={t('guests.firstName')}
+        value={firstName}
+        onChangeText={(text) => {
+          setFirstName(text);
+          setFirstNameError('');
+        }}
+        placeholder={t('guests.firstNamePlaceholder')}
+        error={firstNameError}
+      />
+      <TextInputField
+        label={t('guests.lastName')}
+        value={lastName}
+        onChangeText={setLastName}
+        placeholder={t('guests.lastNamePlaceholder')}
+      />
+      <TextInputField
+        label={`${t('guests.phone')} (${t('common.optional')})`}
+        value={phone}
+        onChangeText={setPhone}
+        placeholder={t('guests.phonePlaceholder')}
+        keyboardType="default"
+      />
+
+      <GuestCategoryPicker eventId={eventId} selected={category} onSelect={setCategory} />
+
+      <GuestSidePicker eventId={eventId} selected={side} onSelect={setSide} />
+
+      <OptionChips
+        label={t('guests.attendance')}
+        selected={attendanceStatus}
+        onSelect={setAttendanceStatus}
+        options={(
+          ['pending', 'confirmed', 'declined'] as AttendanceStatus[]
+        ).map((value) => ({
+          value,
+          label: t(`guests.${value}`),
+        }))}
+      />
+
+      <View style={styles.stepperRow}>
+        <Text style={styles.stepperLabel}>{t('guests.partySize')}</Text>
+        <View style={styles.stepper}>
+          <Pressable
+            onPress={() => setPartySize(String(Math.max(1, parsedPartySize - 1)))}
+            disabled={parsedPartySize <= 1}
+            style={({ pressed }) => [
+              styles.stepperBtn,
+              {
+                backgroundColor: theme.primaryLight,
+                borderColor: theme.border,
+              },
+              parsedPartySize <= 1 && styles.stepperBtnDisabled,
+              pressed && styles.stepperBtnPressed,
+            ]}
+            accessibilityRole="button"
+            accessibilityLabel={t('guests.partySize')}
+          >
+            <Ionicons name="remove" size={22} color={theme.primaryDark} />
+          </Pressable>
+          <Text style={styles.stepperValue}>{partySize}</Text>
+          <Pressable
+            onPress={() => setPartySize(String(Math.min(10, parsedPartySize + 1)))}
+            disabled={parsedPartySize >= 10}
+            style={({ pressed }) => [
+              styles.stepperBtn,
+              {
+                backgroundColor: theme.primaryLight,
+                borderColor: theme.border,
+              },
+              parsedPartySize >= 10 && styles.stepperBtnDisabled,
+              pressed && styles.stepperBtnPressed,
+            ]}
+            accessibilityRole="button"
+            accessibilityLabel={t('guests.partySize')}
+          >
+            <Ionicons name="add" size={22} color={theme.primaryDark} />
+          </Pressable>
+        </View>
+        <Text style={styles.hint}>{t('guests.partySizeHint')}</Text>
+      </View>
+
+      <OptionChips<string>
+        label={t('guests.assignTable')}
+        selected={tableId ?? 'none'}
+        onSelect={(value) => {
+          setTableError('');
+          setTableId(value === 'none' ? undefined : value);
+        }}
+        options={tableOptions}
+      />
+      {tableError ? <Text style={styles.error}>{tableError}</Text> : null}
+
+      <TextInputField
+        label={`${t('guests.note')} (${t('common.optional')})`}
+        value={note}
+        onChangeText={setNote}
+        placeholder={t('guests.notePlaceholder')}
+        multiline
+      />
+
+      <View style={styles.actions}>
+        <Button label={t('common.save')} onPress={handleSave} />
+        <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
+      </View>
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    padding: spacing.md,
+  },
+  stepperRow: {
+    marginBottom: spacing.md,
+  },
+  stepperLabel: {
+    marginBottom: spacing.xs,
+    fontWeight: '600',
+  },
+  stepper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+  },
+  stepperBtn: {
+    width: 44,
+    height: 44,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  stepperBtnPressed: {
+    opacity: 0.85,
+  },
+  stepperBtnDisabled: {
+    opacity: 0.5,
+  },
+  stepperValue: {
+    fontSize: 18,
+    fontWeight: '700',
+    minWidth: 32,
+    textAlign: 'center',
+  },
+  hint: {
+    marginTop: spacing.xs,
+    fontSize: 12,
+    color: '#9C9590',
+  },
+  error: {
+    color: '#C75B5B',
+    marginBottom: spacing.md,
+    fontSize: 12,
+  },
+  actions: {
+    gap: spacing.sm,
+    marginTop: spacing.md,
+  },
+});

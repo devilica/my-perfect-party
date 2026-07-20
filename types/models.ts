@@ -1,0 +1,118 @@
+export type PredefinedCategory =
+  | 'music'
+  | 'food'
+  | 'photography'
+  | 'venue'
+  | 'decoration'
+  | 'attire'
+  | 'transport'
+  | 'other';
+
+export type ExpenseCategory = PredefinedCategory | string;
+
+export type Language = 'bs' | 'en';
+
+export type CelebrationThemeId =
+  | 'wedding'
+  | 'birthday'
+  | 'baptism'
+  | 'newYear'
+  | 'christmas'
+  | 'graduation'
+  | 'anniversary'
+  | 'engagement';
+
+export type WeddingEvent = {
+  id: string;
+  name: string;
+  date?: string;
+  location?: string;
+  theme: CelebrationThemeId;
+  guestCategories: string[];
+  guestSides: string[];
+  createdAt: string;
+};
+
+export type AttendanceStatus = 'pending' | 'confirmed' | 'declined';
+
+export type Guest = {
+  id: string;
+  eventId: string;
+  firstName: string;
+  lastName: string;
+  phone?: string;
+  category: string;
+  side: string;
+  attendanceStatus: AttendanceStatus;
+  partySize: number;
+  tableId?: string;
+  note?: string;
+};
+
+export type SeatingTable = {
+  id: string;
+  eventId: string;
+  name: string;
+  capacity: number;
+  sortOrder: number;
+  createdAt: string;
+};
+
+export type TableOccupancy = 'available' | 'almostFull' | 'full';
+
+export type GuestFilter =
+  | 'all'
+  | 'confirmed'
+  | 'unconfirmed'
+  | 'unassigned'
+  | `category:${string}`;
+
+export type GuestStats = {
+  totalInvites: number;
+  totalPeople: number;
+  confirmedPeople: number;
+  pendingPeople: number;
+  declinedPeople: number;
+  assignedPeople: number;
+  unassignedPeople: number;
+  confirmationRate: number;
+};
+
+export type SeatingStats = {
+  totalTables: number;
+  fullTables: number;
+  almostFullTables: number;
+  availableTables: number;
+};
+
+export type Expense = {
+  id: string;
+  eventId: string;
+  title: string;
+  amount: number;
+  category: ExpenseCategory;
+  coveredByOther: boolean;
+  payerName?: string;
+};
+
+export type ExpenseSummary = {
+  total: number;
+  coveredByOthers: number;
+  yourShare: number;
+};
+
+export type CategoryBreakdownItem = {
+  category: ExpenseCategory;
+  amount: number;
+  color: string;
+  labelKey?: string;
+};
+
+export function getGuestFullName(guest: Guest): string {
+  return `${guest.firstName} ${guest.lastName}`.trim();
+}
+
+export type BulkTableBatch = {
+  count: number;
+  capacity: number;
+};

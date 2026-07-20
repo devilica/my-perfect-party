@@ -1,0 +1,59 @@
+{
+  "expo": {
+    "name": "Moja savršena proslava",
+    "slug": "wedding-planner-bh",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "weddingplannerbh",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFF8F5"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.weddingplanner.bh"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#FFF8F5"
+      },
+      "package": "com.weddingplanner.bh"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#FFF8F5",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200
+        }
+      ],
+      "expo-localization",
+      "expo-asset",
+      "@react-native-community/datetimepicker"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "7ce9023d-6786-4cdd-8359-c02efee636f5"
+      }
+    },
+    "owner": "devilica"
+  }
+}
