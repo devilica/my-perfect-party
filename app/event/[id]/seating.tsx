@@ -10,13 +10,17 @@ import {
   Text,
   View,
 } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { GuestFilterBar } from '@/components/GuestFilterBar';
 import { SeatingAssignmentModal } from '@/components/SeatingAssignmentModal';
 import { TableCard } from '@/components/TableCard';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { EmptyState, Fab, StatCard } from '@/components/ui';
+import {
+  FAB_SIZE,
+  useFabBottomOffset,
+  useFabScrollPadding,
+} from '@/hooks/useFabBottomOffset';
 import { filterGuests } from '@/lib/guestStats';
 import { getSeatingStats, getTablesForEvent } from '@/lib/seatingStats';
 import { useTranslation } from '@/lib/i18n';
@@ -29,7 +33,6 @@ import { radius, spacing, typography } from '@/theme/colors';
 export default function SeatingScreen() {
   const eventId = useEventId();
   const router = useRouter();
-  const insets = useSafeAreaInsets();
   const [filter, setFilter] = useState<GuestFilter>('all');
   const [fabOpen, setFabOpen] = useState(false);
   const [assignGuest, setAssignGuest] = useState<Guest | null>(null);
@@ -41,6 +44,9 @@ export default function SeatingScreen() {
   const deleteTable = useWeddingStore((s) => s.deleteTable);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
+  const fabScrollPadding = useFabScrollPadding();
+  const fabBottomOffset = useFabBottomOffset();
+  const fabMenuBottom = fabBottomOffset + FAB_SIZE;
 
   const eventGuests = useMemo(
     () => allGuests.filter((guest) => guest.eventId === eventId),
@@ -86,7 +92,7 @@ export default function SeatingScreen() {
   return (
     <ThemedScreenContainer>
       <ScrollView
-        contentContainerStyle={{ paddingBottom: insets.bottom + 120 }}
+        contentContainerStyle={{ paddingBottom: fabScrollPadding + spacing.xl }}
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.summaryRow}>
@@ -161,7 +167,7 @@ export default function SeatingScreen() {
           style={[styles.fabOverlay, { backgroundColor: theme.overlay }]}
           onPress={() => setFabOpen(false)}
         >
-          <View style={[styles.fabMenu, { backgroundColor: theme.surface }]}>
+          <View style={[styles.fabMenu, { backgroundColor: theme.surface, marginBottom: fabMenuBottom }]}>
             <Pressable
               style={styles.fabMenuItem}
               onPress={() => {
@@ -235,7 +241,6 @@ const styles = StyleSheet.create({
   fabMenu: {
     borderRadius: radius.lg,
     padding: spacing.sm,
-    marginBottom: 80,
     gap: spacing.xs,
   },
   fabMenuItem: {

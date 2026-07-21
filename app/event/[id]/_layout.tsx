@@ -121,6 +121,16 @@ export default function EventLayout() {
             ),
           }}
         />
+        <Tabs.Screen
+          name="obligations"
+          options={{
+            title: t('obligations.title'),
+            tabBarLabel: t('tabs.obligations'),
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="clipboard-outline" size={size} color={color} />
+            ),
+          }}
+        />
       </Tabs>
     </EventThemeProvider>
   );

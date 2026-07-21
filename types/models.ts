@@ -33,7 +33,11 @@ export type WeddingEvent = {
   createdAt: string;
 };
 
-export type AttendanceStatus = 'pending' | 'confirmed' | 'declined';
+export type AttendanceStatus =
+  | 'needs_invite'
+  | 'invitation_sent'
+  | 'confirmed'
+  | 'declined';
 
 export type Guest = {
   id: string;
@@ -115,4 +119,26 @@ export function getGuestFullName(guest: Guest): string {
 export type BulkTableBatch = {
   count: number;
   capacity: number;
+};
+
+export type ObligationStatus = 'not_scheduled' | 'scheduled' | 'confirmed';
+
+export type Obligation = {
+  id: string;
+  eventId: string;
+  title: string;
+  date?: string;
+  note?: string;
+  contact?: string;
+  status: ObligationStatus;
+  sortOrder: number;
+  createdAt: string;
+};
+
+export type ObligationStats = {
+  total: number;
+  confirmed: number;
+  scheduled: number;
+  notScheduled: number;
+  completionRate: number;
 };

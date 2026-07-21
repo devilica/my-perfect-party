@@ -27,7 +27,7 @@
     "add": "Novi događaj",
     "edit": "Uredi događaj",
     "delete": "Obriši događaj",
-    "deleteConfirm": "Da li ste sigurni da želite obrisati ovaj događaj? Svi gosti, stolovi i troškovi će biti obrisani.",
+    "deleteConfirm": "Da li ste sigurni da želite obrisati ovaj događaj? Svi gosti, stolovi, troškovi i obaveze će biti obrisani.",
     "emptyTitle": "Nema događaja",
     "emptySubtitle": "Dodajte prvi događaj i počnite planirati vašu proslavu.",
     "name": "Naziv događaja",
@@ -64,7 +64,8 @@
     "overview": "Pregled",
     "guests": "Gosti",
     "seating": "Raspored",
-    "expenses": "Troškovi"
+    "expenses": "Troškovi",
+    "obligations": "Obaveze"
   },
   "overview": {
     "title": "Pregled",
@@ -87,7 +88,11 @@
     "quickActions": "Brze akcije",
     "addGuest": "Dodaj gosta",
     "addExpense": "Dodaj trošak",
-    "manageSeating": "Upravljaj rasporedom"
+    "manageSeating": "Upravljaj rasporedom",
+    "obligationStats": "Obaveze",
+    "obligationsConfirmed": "{{confirmed}} / {{total}} potvrđeno",
+    "obligationCompletionRate": "Stopa završenosti",
+    "manageObligations": "Upravljaj obavezama"
   },
   "guests": {
     "title": "Gosti",
@@ -114,12 +119,20 @@
     "partySizeHint": "Uključujući pratnju",
     "assignTable": "Dodijeli sto",
     "noTable": "Bez stola",
+    "noTablesHintTitle": "Nema stolova",
+    "noTablesHintMessage": "Još nema stolova za ovaj događaj. Dodajte stolove u tabu Raspored, pa se ovdje mogu dodijeliti gostima.",
     "note": "Napomena",
     "notePlaceholder": "npr. Vegetarijanac",
     "confirmed": "Potvrđeno",
     "pending": "Na čekanju",
     "declined": "Odbijeno",
-    "tapStatus": "Dodirnite za promjenu statusa",
+    "status": {
+      "needs_invite": "Potrebno pozvati",
+      "invitation_sent": "Poslana pozivnica",
+      "confirmed": "Potvrđeno",
+      "declined": "Ne dolazi"
+    },
+    "tapStatus": "Dodirnite za promjenu",
     "firstNameRequired": "Ime je obavezno.",
     "duplicateName": "Gost sa ovim imenom već postoji.",
     "searchPlaceholder": "Pretraži goste...",
@@ -128,7 +141,7 @@
     "filters": {
       "all": "Svi",
       "confirmed": "Potvrđeni",
-      "unconfirmed": "Nepotvrđeni",
+      "unconfirmed": "Bez potvrde",
       "unassigned": "Neraspoređeni"
     },
     "sides": {
@@ -194,6 +207,86 @@
     "payerRequired": "Unesite ko pokriva trošak.",
     "coveredBy": "Pokriva: {{name}}",
     "yourExpense": "Vaš trošak"
+  },
+  "obligations": {
+    "title": "Obaveze",
+    "add": "Nova obaveza",
+    "edit": "Uredi obavezu",
+    "delete": "Obriši obavezu",
+    "deleteConfirm": "Da li ste sigurni da želite obrisati ovu obavezu?",
+    "emptyTitle": "Nema obaveza",
+    "emptySubtitle": "Dodajte stavke koje treba dogovoriti prije proslave.",
+    "addTemplates": "Dodaj predloške",
+    "templates": "Predlošci",
+    "templatesAlreadyAdded": "Svi predlošci za ovu temu su već dodani.",
+    "total": "Ukupno",
+    "confirmedCount": "Potvrđeno",
+    "titleLabel": "Naziv",
+    "titlePlaceholder": "npr. Probna haljina",
+    "titleRequired": "Naziv je obavezan.",
+    "date": "Datum",
+    "statusLabel": "Status",
+    "contact": "Kontakt",
+    "contactPlaceholder": "npr. Salon Ana, 061 123 456",
+    "note": "Napomena",
+    "notePlaceholder": "npr. Ponedjeljak u 17h",
+    "status": {
+      "notScheduled": "Nije dogovoreno",
+      "scheduled": "Dogovoreno",
+      "confirmed": "Potvrđeno"
+    },
+    "presets": {
+      "wedding": {
+        "dress": "Probna haljina",
+        "registrar": "Matičar",
+        "venue": "Restoran / sala",
+        "photographer": "Fotograf",
+        "flowers": "Cvijeće",
+        "music": "Muzika / bend"
+      },
+      "birthday": {
+        "venue": "Restoran / lokacija",
+        "cake": "Torta",
+        "decor": "Dekoracija",
+        "invitations": "Pozivnice"
+      },
+      "baptism": {
+        "church": "Crkva",
+        "venue": "Restoran",
+        "godparents": "Kumovi",
+        "photographer": "Fotograf"
+      },
+      "newYear": {
+        "venue": "Lokacija",
+        "decor": "Dekoracija",
+        "music": "Muzika",
+        "catering": "Hrana i piće"
+      },
+      "christmas": {
+        "venue": "Lokacija",
+        "decor": "Dekoracija",
+        "catering": "Hrana i piće",
+        "gifts": "Pokloni"
+      },
+      "graduation": {
+        "venue": "Restoran / lokacija",
+        "catering": "Hrana i piće",
+        "photographer": "Fotograf",
+        "invitations": "Pozivnice"
+      },
+      "anniversary": {
+        "venue": "Restoran / lokacija",
+        "catering": "Hrana i piće",
+        "photographer": "Fotograf",
+        "decor": "Dekoracija"
+      },
+      "engagement": {
+        "venue": "Restoran / lokacija",
+        "photographer": "Fotograf",
+        "catering": "Hrana i piće",
+        "invitations": "Pozivnice"
+      }
+    }
   },
   "categories": {
     "music": "Muzika",

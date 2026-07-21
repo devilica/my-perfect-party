@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { DEFAULT_GUEST_CATEGORIES } from '@/constants/guestCategories';
+import { normalizeAttendanceStatus } from '@/constants/guestAttendance';
 import { stripLegacyDefaultSides, resolveGuestSide } from '@/constants/guestSides';
 import { generateId } from '@/lib/generateId';
 import { getDefaultLanguage } from '@/lib/i18n';
@@ -15,6 +16,8 @@ import {
   SeatingTable,
   WeddingEvent,
   Expense,
+  Obligation,
+  ObligationStatus,
 } from '@/types/models';
 
 type LegacyRelationship = 'family' | 'friend' | 'work' | 'other';
@@ -26,7 +29,7 @@ type LegacyGuest = {
   firstName?: string;
   lastName?: string;
   confirmed?: boolean;
-  attendanceStatus?: AttendanceStatus;
+  attendanceStatus?: AttendanceStatus | 'pending';
   phone?: string;
   relationship?: LegacyRelationship;
   category?: string;
@@ -65,6 +68,7 @@ type PersistedState = {
   guests: LegacyGuest[];
   tables?: Array<Omit<SeatingTable, 'eventId'> & { eventId: unknown }>;
   expenses: Array<Omit<Expense, 'eventId'> & { eventId: unknown }>;
+  obligations?: Array<Omit<Obligation, 'eventId'> & { eventId: unknown }>;
   language: Language;
 };
 
@@ -78,8 +82,7 @@ function migrateGuest(raw: LegacyGuest): Guest {
       phone: raw.phone,
       category: resolveGuestCategory(raw),
       side: resolveGuestSide(raw.side),
-      attendanceStatus:
-        raw.attendanceStatus ?? (raw.confirmed ? 'confirmed' : 'pending'),
+      attendanceStatus: normalizeAttendanceStatus(raw.attendanceStatus, raw.confirmed),
       partySize: raw.partySize ?? 1,
       tableId: raw.tableId,
       note: raw.note,
@@ -98,8 +101,7 @@ function migrateGuest(raw: LegacyGuest): Guest {
     phone: raw.phone,
     category: resolveGuestCategory(raw),
     side: resolveGuestSide(raw.side),
-    attendanceStatus:
-      raw.attendanceStatus ?? (raw.confirmed ? 'confirmed' : 'pending'),
+    attendanceStatus: normalizeAttendanceStatus(raw.attendanceStatus, raw.confirmed),
     partySize: raw.partySize ?? 1,
     tableId: raw.tableId,
     note: raw.note,
@@ -111,6 +113,7 @@ type WeddingState = {
   guests: Guest[];
   tables: SeatingTable[];
   expenses: Expense[];
+  obligations: Obligation[];
   language: Language;
   _hasHydrated: boolean;
   setHasHydrated: (value: boolean) => void;
@@ -146,6 +149,14 @@ type WeddingState = {
   addExpense: (data: Omit<Expense, 'id'>) => string;
   updateExpense: (id: string, data: Partial<Omit<Expense, 'id' | 'eventId'>>) => void;
   deleteExpense: (id: string) => void;
+  addObligation: (data: Omit<Obligation, 'id' | 'sortOrder' | 'createdAt'>) => string;
+  updateObligation: (
+    id: string,
+    data: Partial<Omit<Obligation, 'id' | 'eventId' | 'createdAt'>>
+  ) => void;
+  deleteObligation: (id: string) => void;
+  setObligationStatus: (id: string, status: ObligationStatus) => void;
+  addObligationTemplates: (eventId: string, titles: string[]) => number;
 };
 
 export const useWeddingStore = create<WeddingState>()(
@@ -155,6 +166,7 @@ export const useWeddingStore = create<WeddingState>()(
       guests: [],
       tables: [],
       expenses: [],
+      obligations: [],
       language: getDefaultLanguage(),
       _hasHydrated: false,
       setHasHydrated: (value) => set({ _hasHydrated: value }),
@@ -220,6 +232,7 @@ export const useWeddingStore = create<WeddingState>()(
           guests: state.guests.filter((guest) => guest.eventId !== id),
           tables: state.tables.filter((table) => table.eventId !== id),
           expenses: state.expenses.filter((expense) => expense.eventId !== id),
+          obligations: state.obligations.filter((obligation) => obligation.eventId !== id),
         }));
       },
 
@@ -431,6 +444,88 @@ export const useWeddingStore = create<WeddingState>()(
           expenses: state.expenses.filter((expense) => expense.id !== id),
         }));
       },
+
+      addObligation: (data) => {
+        const id = generateId();
+        const eventObligations = get().obligations.filter((o) => o.eventId === data.eventId);
+        const maxOrder = eventObligations.reduce((max, o) => Math.max(max, o.sortOrder), 0);
+        const obligation: Obligation = {
+          ...data,
+          id,
+          title: data.title.trim(),
+          sortOrder: maxOrder + 1,
+          createdAt: new Date().toISOString(),
+        };
+        set((state) => ({ obligations: [...state.obligations, obligation] }));
+        return id;
+      },
+
+      updateObligation: (id, data) => {
+        set((state) => ({
+          obligations: state.obligations.map((obligation) =>
+            obligation.id === id
+              ? {
+                  ...obligation,
+                  ...data,
+                  title: data.title !== undefined ? data.title.trim() : obligation.title,
+                }
+              : obligation
+          ),
+        }));
+      },
+
+      deleteObligation: (id) => {
+        set((state) => ({
+          obligations: state.obligations.filter((obligation) => obligation.id !== id),
+        }));
+      },
+
+      setObligationStatus: (id, status) => {
+        set((state) => ({
+          obligations: state.obligations.map((obligation) =>
+            obligation.id === id ? { ...obligation, status } : obligation
+          ),
+        }));
+      },
+
+      addObligationTemplates: (eventId, titles) => {
+        const existingTitles = new Set(
+          get()
+            .obligations.filter((o) => o.eventId === eventId)
+            .map((o) => o.title.trim().toLowerCase())
+        );
+        let added = 0;
+        let sortOrder = get()
+          .obligations.filter((o) => o.eventId === eventId)
+          .reduce((max, o) => Math.max(max, o.sortOrder), 0);
+        const newObligations: Obligation[] = [];
+
+        for (const rawTitle of titles) {
+          const title = rawTitle.trim();
+          if (!title) continue;
+          const key = title.toLowerCase();
+          if (existingTitles.has(key)) continue;
+
+          existingTitles.add(key);
+          sortOrder += 1;
+          added += 1;
+          newObligations.push({
+            id: generateId(),
+            eventId,
+            title,
+            status: 'not_scheduled',
+            sortOrder,
+            createdAt: new Date().toISOString(),
+          });
+        }
+
+        if (newObligations.length === 0) return 0;
+
+        set((state) => ({
+          obligations: [...state.obligations, ...newObligations],
+        }));
+        return added;
+      },
     }),
     {
       name: 'wedding-planner-bh-storage',
@@ -440,6 +535,7 @@ export const useWeddingStore = create<WeddingState>()(
         guests: state.guests,
         tables: state.tables,
         expenses: state.expenses,
+        obligations: state.obligations,
         language: state.language,
       }),
       merge: (persisted, current) => {
@@ -463,6 +559,12 @@ export const useWeddingStore = create<WeddingState>()(
           expenses: (saved.expenses ?? []).map((expense) => ({
             ...expense,
             eventId: normalizeEventId(expense.eventId),
+          })),
+          obligations: (saved.obligations ?? []).map((obligation) => ({
+            ...obligation,
+            eventId: normalizeEventId(obligation.eventId),
+            status: obligation.status ?? 'not_scheduled',
+            sortOrder: obligation.sortOrder ?? 0,
           })),
         };
       },

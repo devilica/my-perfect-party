@@ -4,6 +4,7 @@ import { ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
 
 import { CategoryPicker } from '@/components/CategoryPicker';
 import { Button, TextInputField } from '@/components/ui';
+import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -17,6 +18,7 @@ export default function AddExpenseModal() {
   const language = useWeddingStore((s) => s.language);
   const addExpense = useWeddingStore((s) => s.addExpense);
   const { t } = useTranslation(language);
+  const modalScrollPadding = useModalScrollPadding();
 
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
@@ -65,7 +67,10 @@ export default function AddExpenseModal() {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+    <ScrollView
+      contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
+      keyboardShouldPersistTaps="handled"
+    >
       <Stack.Screen options={{ title: t('expenses.add') }} />
 
       <TextInputField

@@ -27,7 +27,7 @@
     "add": "New event",
     "edit": "Edit event",
     "delete": "Delete event",
-    "deleteConfirm": "Are you sure you want to delete this event? All guests, tables, and expenses will be removed.",
+    "deleteConfirm": "Are you sure you want to delete this event? All guests, tables, expenses, and tasks will be removed.",
     "emptyTitle": "No events yet",
     "emptySubtitle": "Add your first event and start planning your wedding.",
     "name": "Event name",
@@ -64,7 +64,8 @@
     "overview": "Overview",
     "guests": "Guests",
     "seating": "Seating",
-    "expenses": "Expenses"
+    "expenses": "Expenses",
+    "obligations": "Tasks"
   },
   "overview": {
     "title": "Overview",
@@ -87,7 +88,11 @@
     "quickActions": "Quick actions",
     "addGuest": "Add guest",
     "addExpense": "Add expense",
-    "manageSeating": "Manage seating"
+    "manageSeating": "Manage seating",
+    "obligationStats": "Tasks",
+    "obligationsConfirmed": "{{confirmed}} / {{total}} confirmed",
+    "obligationCompletionRate": "Completion rate",
+    "manageObligations": "Manage tasks"
   },
   "guests": {
     "title": "Guests",
@@ -114,12 +119,20 @@
     "partySizeHint": "Including plus ones",
     "assignTable": "Assign table",
     "noTable": "No table",
+    "noTablesHintTitle": "No tables yet",
+    "noTablesHintMessage": "There are no tables for this event yet. Add tables in the Seating tab, then assign guests here.",
     "note": "Note",
     "notePlaceholder": "e.g. Vegetarian",
     "confirmed": "Confirmed",
     "pending": "Pending",
     "declined": "Declined",
-    "tapStatus": "Tap to change status",
+    "status": {
+      "needs_invite": "Need to invite",
+      "invitation_sent": "Invitation sent",
+      "confirmed": "Confirmed",
+      "declined": "Not coming"
+    },
+    "tapStatus": "Tap to change",
     "firstNameRequired": "First name is required.",
     "duplicateName": "A guest with this name already exists.",
     "searchPlaceholder": "Search guests...",
@@ -128,7 +141,7 @@
     "filters": {
       "all": "All",
       "confirmed": "Confirmed",
-      "unconfirmed": "Unconfirmed",
+      "unconfirmed": "Awaiting response",
       "unassigned": "Not assigned"
     },
     "sides": {
@@ -194,6 +207,86 @@
     "payerRequired": "Please enter who covers this expense.",
     "coveredBy": "Covered by: {{name}}",
     "yourExpense": "Your expense"
+  },
+  "obligations": {
+    "title": "Tasks",
+    "add": "New task",
+    "edit": "Edit task",
+    "delete": "Delete task",
+    "deleteConfirm": "Are you sure you want to delete this task?",
+    "emptyTitle": "No tasks yet",
+    "emptySubtitle": "Add items you need to arrange before the celebration.",
+    "addTemplates": "Add templates",
+    "templates": "Templates",
+    "templatesAlreadyAdded": "All templates for this theme are already added.",
+    "total": "Total",
+    "confirmedCount": "Confirmed",
+    "titleLabel": "Title",
+    "titlePlaceholder": "e.g. Dress fitting",
+    "titleRequired": "Title is required.",
+    "date": "Date",
+    "statusLabel": "Status",
+    "contact": "Contact",
+    "contactPlaceholder": "e.g. Ana Salon, 061 123 456",
+    "note": "Note",
+    "notePlaceholder": "e.g. Monday at 5 PM",
+    "status": {
+      "notScheduled": "Not scheduled",
+      "scheduled": "Scheduled",
+      "confirmed": "Confirmed"
+    },
+    "presets": {
+      "wedding": {
+        "dress": "Dress fitting",
+        "registrar": "Registrar",
+        "venue": "Venue / restaurant",
+        "photographer": "Photographer",
+        "flowers": "Flowers",
+        "music": "Music / band"
+      },
+      "birthday": {
+        "venue": "Venue / location",
+        "cake": "Cake",
+        "decor": "Decoration",
+        "invitations": "Invitations"
+      },
+      "baptism": {
+        "church": "Church",
+        "venue": "Restaurant",
+        "godparents": "Godparents",
+        "photographer": "Photographer"
+      },
+      "newYear": {
+        "venue": "Venue",
+        "decor": "Decoration",
+        "music": "Music",
+        "catering": "Food and drinks"
+      },
+      "christmas": {
+        "venue": "Venue",
+        "decor": "Decoration",
+        "catering": "Food and drinks",
+        "gifts": "Gifts"
+      },
+      "graduation": {
+        "venue": "Venue / restaurant",
+        "catering": "Food and drinks",
+        "photographer": "Photographer",
+        "invitations": "Invitations"
+      },
+      "anniversary": {
+        "venue": "Venue / restaurant",
+        "catering": "Food and drinks",
+        "photographer": "Photographer",
+        "decor": "Decoration"
+      },
+      "engagement": {
+        "venue": "Venue / restaurant",
+        "photographer": "Photographer",
+        "catering": "Food and drinks",
+        "invitations": "Invitations"
+      }
+    }
   },
   "categories": {
     "music": "Music",

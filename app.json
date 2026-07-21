@@ -41,7 +41,22 @@
       ],
       "expo-localization",
       "expo-asset",
-      "@react-native-community/datetimepicker"
+      "@react-native-community/datetimepicker",
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-5452343649745884~9366452184",
+          "iosAppId": "ca-app-pub-5452343649745884~9366452184"
+        }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Ionicons.ttf"
+          ]
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

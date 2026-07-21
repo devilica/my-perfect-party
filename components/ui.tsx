@@ -11,6 +11,7 @@ import {
   ViewStyle,
 } from 'react-native';
 
+import { useFabBottomOffset } from '@/hooks/useFabBottomOffset';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
 
@@ -129,6 +130,7 @@ export function Fab({
   icon?: keyof typeof Ionicons.glyphMap;
 }) {
   const theme = useThemeColors();
+  const fabBottom = useFabBottomOffset();
 
   return (
     <Pressable
@@ -138,6 +140,7 @@ export function Fab({
         {
           backgroundColor: theme.primary,
           shadowColor: theme.text,
+          bottom: fabBottom,
         },
         pressed && { opacity: 0.9 },
       ]}
@@ -151,7 +154,6 @@ const fabStyles = StyleSheet.create({
   fab: {
     position: 'absolute',
     right: spacing.lg,
-    bottom: spacing.lg,
     width: 56,
     height: 56,
     borderRadius: radius.full,

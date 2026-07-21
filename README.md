@@ -42,6 +42,8 @@ npm install
 
 ### Run
 
+Scripts use `--offline` because Expo's online dependency check can fail on some Windows/network setups (SSL/proxy issues).
+
 ```bash
 # Start dev server
 npm start
@@ -51,6 +53,8 @@ npm run ios
 npm run android
 npm run web
 ```
+
+**Android with Expo Go:** Open the Expo Go app on your phone (SDK 54), then scan the QR code from the terminal. Pressing `a` does not work with `--offline` — use QR scan instead.
 
 Scan the QR code with Expo Go (mobile) or press `w` for web.
 
@@ -70,7 +74,7 @@ theme/               # Colors and spacing
 
 ## Tech Stack
 
-- Expo SDK 52 + Expo Router
+- Expo SDK 54 + Expo Router
 - TypeScript
 - Zustand + AsyncStorage
 - react-native-gifted-charts

@@ -1,24 +1,30 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Stack, useRouter } from 'expo-router';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { EventCard } from '@/components/EventCard';
 import { ScreenContainer } from '@/components/ScreenContainer';
 import { EmptyState, Fab } from '@/components/ui';
+import { useFabScrollPadding } from '@/hooks/useFabBottomOffset';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
 import { colors, spacing, typography } from '@/theme/colors';
 
 export default function HomeScreen() {
   const router = useRouter();
-  const insets = useSafeAreaInsets();
   const events = useWeddingStore((s) => s.events);
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
+  const fabScrollPadding = useFabScrollPadding();
 
   return (
-    <ScreenContainer style={{ flex: 1, paddingTop: spacing.sm }}>
+    <ScreenContainer
+      style={{
+        flex: 1,
+        paddingTop: spacing.sm,
+        ...(events.length === 0 ? { paddingBottom: fabScrollPadding } : null),
+      }}
+    >
       <Stack.Screen
         options={{
           title: t('app.name'),
@@ -51,7 +57,7 @@ export default function HomeScreen() {
               onEdit={() => router.push(`/modals/add-event?eventId=${item.id}`)}
             />
           )}
-          contentContainerStyle={{ paddingBottom: insets.bottom + 88 }}
+          contentContainerStyle={{ paddingBottom: fabScrollPadding }}
           showsVerticalScrollIndicator={false}
         />
       )}

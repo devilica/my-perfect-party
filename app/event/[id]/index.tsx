@@ -6,9 +6,11 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { Button, Card, ProgressBar, StatCard } from '@/components/ui';
+import { useBannerClearance } from '@/hooks/useBannerClearance';
 import { formatDisplayDate } from '@/lib/dateUtils';
 import { formatAmount, getExpenseSummary } from '@/lib/expenseStats';
 import { getGuestStats } from '@/lib/guestStats';
+import { getObligationStats } from '@/lib/obligationStats';
 import { getSeatingStats } from '@/lib/seatingStats';
 import { useTranslation } from '@/lib/i18n';
 import { useEventId } from '@/lib/useEventId';
@@ -25,8 +27,10 @@ export default function EventOverviewScreen() {
   const guests = useWeddingStore((s) => s.guests);
   const tables = useWeddingStore((s) => s.tables);
   const expenses = useWeddingStore((s) => s.expenses);
+  const obligations = useWeddingStore((s) => s.obligations);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
+  const bannerClearance = useBannerClearance();
 
   const event = useMemo(
     () => events.find((item) => item.id === eventId),
@@ -41,13 +45,17 @@ export default function EventOverviewScreen() {
     () => getExpenseSummary(expenses, eventId),
     [expenses, eventId]
   );
+  const obligationStats = useMemo(
+    () => getObligationStats(obligations, eventId),
+    [obligations, eventId]
+  );
 
   if (!event) return null;
 
   return (
     <ThemedScreenContainer>
       <ScrollView
-        contentContainerStyle={{ paddingBottom: insets.bottom + spacing.xl }}
+        contentContainerStyle={{ paddingBottom: insets.bottom + spacing.xl + bannerClearance }}
         showsVerticalScrollIndicator={false}
       >
         <Card style={styles.hero}>
@@ -113,6 +121,33 @@ export default function EventOverviewScreen() {
             {t('overview.confirmationRate')}: {guestStats.confirmationRate}%
           </Text>
         </Card>
+
+        {obligationStats.total > 0 ? (
+          <>
+            <Text style={[styles.sectionTitle, { color: theme.text }]}>
+              {t('overview.obligationStats')}
+            </Text>
+            <Card style={styles.statsCard}>
+              <Text style={[styles.statMain, { color: theme.text }]}>
+                {t('overview.obligationsConfirmed', {
+                  confirmed: obligationStats.confirmed,
+                  total: obligationStats.total,
+                })}
+              </Text>
+              <ProgressBar progress={obligationStats.completionRate} />
+              <Text style={[styles.statSecondary, { color: theme.textSecondary }]}>
+                {t('overview.obligationCompletionRate')}: {obligationStats.completionRate}%
+              </Text>
+            </Card>
+            <Button
+              label={t('overview.manageObligations')}
+              icon="clipboard-outline"
+              variant="secondary"
+              onPress={() => router.push(`/event/${eventId}/obligations`)}
+              style={styles.obligationBtn}
+            />
+          </>
+        ) : null}
 
         <Text style={[styles.sectionTitle, { color: theme.text }]}>
           {t('overview.seatingStats')}
@@ -236,5 +271,9 @@ const styles = StyleSheet.create({
   },
   actionBtn: {
     width: '100%',
+  },
+  obligationBtn: {
+    width: '100%',
+    marginBottom: spacing.lg,
   },
 });

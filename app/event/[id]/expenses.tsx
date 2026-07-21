@@ -1,12 +1,12 @@
 import { useRouter } from 'expo-router';
 import { useMemo } from 'react';
 import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ExpenseCharts } from '@/components/ExpenseCharts';
 import { ExpenseRow } from '@/components/ExpenseRow';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { EmptyState, Fab, StatCard } from '@/components/ui';
+import { useFabScrollPadding } from '@/hooks/useFabBottomOffset';
 import {
   formatAmount,
   getExpenseBreakdown,
@@ -21,12 +21,12 @@ import { spacing, typography } from '@/theme/colors';
 export default function ExpensesScreen() {
   const eventId = useEventId();
   const router = useRouter();
-  const insets = useSafeAreaInsets();
   const language = useWeddingStore((s) => s.language);
   const allExpenses = useWeddingStore((s) => s.expenses);
   const deleteExpense = useWeddingStore((s) => s.deleteExpense);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
+  const fabScrollPadding = useFabScrollPadding();
 
   const expenses = useMemo(
     () =>
@@ -58,7 +58,7 @@ export default function ExpensesScreen() {
   return (
     <ThemedScreenContainer>
       <ScrollView
-        contentContainerStyle={{ paddingBottom: insets.bottom + 88 }}
+        contentContainerStyle={{ paddingBottom: fabScrollPadding }}
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.summaryRow}>

@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { ScrollView, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { GuestFilter } from '@/types/models';
@@ -111,11 +112,13 @@ const styles = StyleSheet.create({
 
 export function OptionChips<T extends string>({
   label,
+  labelRight,
   options,
   selected,
   onSelect,
 }: {
   label: string;
+  labelRight?: ReactNode;
   options: { value: T; label: string }[];
   selected: T;
   onSelect: (value: T) => void;
@@ -124,7 +127,10 @@ export function OptionChips<T extends string>({
 
   return (
     <View style={optionStyles.wrap}>
-      <Text style={[optionStyles.label, { color: theme.textSecondary }]}>{label}</Text>
+      <View style={optionStyles.labelRow}>
+        <Text style={[optionStyles.label, { color: theme.textSecondary }]}>{label}</Text>
+        {labelRight}
+      </View>
       <View style={optionStyles.row}>
         {options.map((option) => {
           const active = selected === option.value;
@@ -163,9 +169,14 @@ const optionStyles = StyleSheet.create({
   wrap: {
     marginBottom: spacing.md,
   },
+  labelRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs,
+    marginBottom: spacing.xs,
+  },
   label: {
     ...typography.caption,
-    marginBottom: spacing.xs,
     fontWeight: '600',
   },
   row: {

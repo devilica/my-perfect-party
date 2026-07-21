@@ -2,6 +2,7 @@ import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { ScrollView, StyleSheet } from 'react-native';
 
 import { TableCreationModal } from '@/components/TableCreationModal';
+import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -14,9 +15,13 @@ export default function BulkTablesModal() {
   const language = useWeddingStore((s) => s.language);
   const bulkCreateTables = useWeddingStore((s) => s.bulkCreateTables);
   const { t } = useTranslation(language);
+  const modalScrollPadding = useModalScrollPadding();
 
   return (
-    <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+    <ScrollView
+      contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
+      keyboardShouldPersistTaps="handled"
+    >
       <Stack.Screen options={{ title: t('seating.bulkCreateTitle') }} />
       <TableCreationModal
         onCreate={(batches) => {

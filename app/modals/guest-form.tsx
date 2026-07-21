@@ -1,13 +1,14 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { OptionChips } from '@/components/FilterChips';
 import { GuestCategoryPicker } from '@/components/GuestCategoryPicker';
 import { GuestSidePicker } from '@/components/GuestSidePicker';
 import { Button, TextInputField } from '@/components/ui';
-import { DEFAULT_GUEST_CATEGORIES } from '@/constants/guestCategories';
+import { ATTENDANCE_STATUSES } from '@/constants/guestAttendance';
+import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
 import { getAssignableTables } from '@/lib/seatingStats';
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
@@ -29,10 +30,12 @@ export default function GuestFormModal() {
   const updateGuest = useWeddingStore((s) => s.updateGuest);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
+  const modalScrollPadding = useModalScrollPadding();
 
-  const defaultCategory =
-    event?.guestCategories[0] ?? DEFAULT_GUEST_CATEGORIES[0];
-  const defaultSide = event?.guestSides[0] ?? '';
+  const hasGuestCategories = (event?.guestCategories?.length ?? 0) > 0;
+  const hasGuestSides = (event?.guestSides?.length ?? 0) > 0;
+  const defaultCategory = hasGuestCategories ? event!.guestCategories[0] : '';
+  const defaultSide = hasGuestSides ? event!.guestSides[0] : '';
 
   const existingGuest = useMemo(
     () => (guestId ? allGuests.find((g) => g.id === guestId) : undefined),
@@ -44,7 +47,7 @@ export default function GuestFormModal() {
   const [phone, setPhone] = useState('');
   const [category, setCategory] = useState(defaultCategory);
   const [side, setSide] = useState(defaultSide);
-  const [attendanceStatus, setAttendanceStatus] = useState<AttendanceStatus>('pending');
+  const [attendanceStatus, setAttendanceStatus] = useState<AttendanceStatus>('needs_invite');
   const [partySize, setPartySize] = useState('1');
   const [tableId, setTableId] = useState<string | undefined>(undefined);
   const [note, setNote] = useState('');
@@ -111,8 +114,8 @@ export default function GuestFormModal() {
       firstName: firstName.trim(),
       lastName: lastName.trim(),
       phone: phone.trim() || undefined,
-      category,
-      side,
+      category: hasGuestCategories ? category : '',
+      side: hasGuestSides ? side : '',
       attendanceStatus,
       partySize: parsedPartySize,
       tableId: tableId || undefined,
@@ -157,12 +160,23 @@ export default function GuestFormModal() {
     return [{ value: 'none', label: t('guests.noTable') }, ...options];
   }, [assignableTables, tableId, tables, t]);
 
+  const showTableHint = tableOptions.length === 1;
+
+  const showNoTablesHint = () => {
+    Alert.alert(t('guests.noTablesHintTitle'), t('guests.noTablesHintMessage'), [
+      { text: t('common.close'), style: 'cancel' },
+    ]);
+  };
+
   if (!eventId) return null;
 
   const parsedPartySize = Math.max(1, parseInt(partySize, 10) || 1);
 
   return (
-    <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+    <ScrollView
+      contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
+      keyboardShouldPersistTaps="handled"
+    >
       <Stack.Screen
         options={{ title: existingGuest ? t('guests.edit') : t('guests.add') }}
       />
@@ -191,19 +205,21 @@ export default function GuestFormModal() {
         keyboardType="default"
       />
 
-      <GuestCategoryPicker eventId={eventId} selected={category} onSelect={setCategory} />
+      {hasGuestCategories ? (
+        <GuestCategoryPicker eventId={eventId} selected={category} onSelect={setCategory} />
+      ) : null}
 
-      <GuestSidePicker eventId={eventId} selected={side} onSelect={setSide} />
+      {hasGuestSides ? (
+        <GuestSidePicker eventId={eventId} selected={side} onSelect={setSide} />
+      ) : null}
 
       <OptionChips
         label={t('guests.attendance')}
         selected={attendanceStatus}
         onSelect={setAttendanceStatus}
-        options={(
-          ['pending', 'confirmed', 'declined'] as AttendanceStatus[]
-        ).map((value) => ({
+        options={ATTENDANCE_STATUSES.map((value) => ({
           value,
-          label: t(`guests.${value}`),
+          label: t(`guests.status.${value}`),
         }))}
       />
 
@@ -251,6 +267,18 @@ export default function GuestFormModal() {
 
       <OptionChips<string>
         label={t('guests.assignTable')}
+        labelRight={
+          showTableHint ? (
+            <Pressable
+              onPress={showNoTablesHint}
+              hitSlop={8}
+              accessibilityRole="button"
+              accessibilityLabel={t('guests.noTablesHintTitle')}
+            >
+              <Ionicons name="information-circle-outline" size={18} color={theme.primary} />
+            </Pressable>
+          ) : undefined
+        }
         selected={tableId ?? 'none'}
         onSelect={(value) => {
           setTableError('');

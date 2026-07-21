@@ -4,6 +4,7 @@ import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { ThemePicker } from '@/components/ThemePicker';
 import { Button, TextInputField } from '@/components/ui';
 import { DEFAULT_GUEST_CATEGORIES } from '@/constants/guestCategories';
+import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -28,6 +29,7 @@ export default function AddEventModal() {
     [events, eventId]
   );
   const { t } = useTranslation(language);
+  const modalScrollPadding = useModalScrollPadding();
 
   const [name, setName] = useState('');
   const [date, setDate] = useState('');
@@ -78,7 +80,10 @@ export default function AddEventModal() {
   return (
     <EventThemeProvider themeId={theme}>
       <ThemedScreenContainer padded={false} style={styles.screen}>
-        <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+        <ScrollView
+          contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
+          keyboardShouldPersistTaps="handled"
+        >
           <Stack.Screen
             options={{
               title: existingEvent ? t('events.edit') : t('events.add'),

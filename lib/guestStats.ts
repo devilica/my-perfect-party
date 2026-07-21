@@ -1,3 +1,4 @@
+import { ATTENDANCE_STATUSES } from '@/constants/guestAttendance';
 import { Guest, GuestFilter, GuestStats } from '@/types/models';
 
 import { getCategoryFromFilter, isCategoryFilter } from '@/constants/guestCategories';
@@ -20,7 +21,10 @@ export function getGuestStats(guests: Guest[], eventId: string): GuestStats {
     .filter((g) => g.attendanceStatus === 'confirmed')
     .reduce((sum, g) => sum + g.partySize, 0);
   const pendingPeople = eventGuests
-    .filter((g) => g.attendanceStatus === 'pending')
+    .filter(
+      (g) =>
+        g.attendanceStatus === 'needs_invite' || g.attendanceStatus === 'invitation_sent'
+    )
     .reduce((sum, g) => sum + g.partySize, 0);
   const declinedPeople = eventGuests
     .filter((g) => g.attendanceStatus === 'declined')
@@ -57,7 +61,10 @@ export function filterGuests(
       result = result.filter((g) => g.attendanceStatus === 'confirmed');
       break;
     case 'unconfirmed':
-      result = result.filter((g) => g.attendanceStatus === 'pending');
+      result = result.filter(
+        (g) =>
+          g.attendanceStatus === 'needs_invite' || g.attendanceStatus === 'invitation_sent'
+      );
       break;
     case 'unassigned':
       result = result.filter((g) => !g.tableId);
@@ -84,7 +91,7 @@ export function filterGuests(
 export function getNextAttendanceStatus(
   current: Guest['attendanceStatus']
 ): Guest['attendanceStatus'] {
-  if (current === 'pending') return 'confirmed';
-  if (current === 'confirmed') return 'declined';
-  return 'pending';
+  const index = ATTENDANCE_STATUSES.indexOf(current);
+  if (index === -1) return ATTENDANCE_STATUSES[0];
+  return ATTENDANCE_STATUSES[(index + 1) % ATTENDANCE_STATUSES.length];
 }

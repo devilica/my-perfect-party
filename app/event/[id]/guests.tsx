@@ -1,12 +1,12 @@
 import { useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { Alert, FlatList, StyleSheet, TextInput, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { GuestFilterBar } from '@/components/GuestFilterBar';
 import { GuestCard } from '@/components/GuestCard';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { EmptyState, Fab } from '@/components/ui';
+import { useFabScrollPadding } from '@/hooks/useFabBottomOffset';
 import { filterGuests } from '@/lib/guestStats';
 import { getTablesForEvent } from '@/lib/seatingStats';
 import { useTranslation } from '@/lib/i18n';
@@ -19,7 +19,6 @@ import { radius, spacing, typography } from '@/theme/colors';
 export default function GuestsScreen() {
   const eventId = useEventId();
   const router = useRouter();
-  const insets = useSafeAreaInsets();
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState<GuestFilter>('all');
   const language = useWeddingStore((s) => s.language);
@@ -29,6 +28,7 @@ export default function GuestsScreen() {
   const deleteGuest = useWeddingStore((s) => s.deleteGuest);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
+  const fabScrollPadding = useFabScrollPadding();
 
   const tables = useMemo(
     () => getTablesForEvent(allTables, eventId),
@@ -108,7 +108,7 @@ export default function GuestsScreen() {
           contentContainerStyle={{
             flexGrow: 1,
             paddingHorizontal: spacing.md,
-            paddingBottom: insets.bottom + 88,
+            paddingBottom: fabScrollPadding,
             paddingTop: spacing.sm,
           }}
           showsVerticalScrollIndicator={false}

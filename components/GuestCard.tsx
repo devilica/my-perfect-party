@@ -36,11 +36,17 @@ function getStatusColors(status: AttendanceStatus, theme: ReturnType<typeof useT
         text: theme.danger,
         icon: 'close-circle' as const,
       };
-    default:
+    case 'invitation_sent':
       return {
         bg: theme.pendingLight,
-        text: theme.textSecondary,
-        icon: 'time-outline' as const,
+        text: theme.seatAlmostFull,
+        icon: 'mail-outline' as const,
+      };
+    default:
+      return {
+        bg: theme.surface,
+        text: theme.textMuted,
+        icon: 'call-outline' as const,
       };
   }
 }
@@ -53,12 +59,7 @@ export function GuestCard({ guest, table, onPress, onDelete }: GuestCardProps) {
 
   const statusColors = getStatusColors(guest.attendanceStatus, theme);
 
-  const statusLabel =
-    guest.attendanceStatus === 'confirmed'
-      ? t('guests.confirmed')
-      : guest.attendanceStatus === 'declined'
-        ? t('guests.declined')
-        : t('guests.pending');
+  const statusLabel = t(`guests.status.${guest.attendanceStatus}`);
 
   const handleStatusPress = () => {
     if (Platform.OS !== 'web') {
