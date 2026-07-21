@@ -1,3 +1,4 @@
+import { isLanguage } from '@/constants/languages';
 import { CelebrationThemeId, Language } from '@/types/models';
 
 export const BACKUP_APP_ID = 'wedding-planner-bh';
@@ -55,11 +56,6 @@ export function createBackupPayload(data: BackupData): AppBackup {
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
-
-function isLanguage(value: unknown): value is Language {
-  return value === 'sr' || value === 'bs' || value === 'hr' || value === 'en';
-}
-
 export function parseBackupFile(raw: string): AppBackup {
   let parsed: unknown;
   try {

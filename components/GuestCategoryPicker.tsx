@@ -1,5 +1,5 @@
 import { SelectField } from '@/components/SelectField';
-import { DEFAULT_GUEST_CATEGORIES } from '@/constants/guestCategories';
+import { DEFAULT_GUEST_CATEGORIES, getGuestCategoryLabel } from '@/constants/guestCategories';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
 
@@ -20,7 +20,10 @@ export function GuestCategoryPicker({ eventId, selected, onSelect }: GuestCatego
     <SelectField
       label={t('guests.category')}
       value={selected}
-      options={categories.map((category) => ({ value: category, label: category }))}
+      options={categories.map((category) => ({
+        value: category,
+        label: getGuestCategoryLabel(category, t),
+      }))}
       onChange={onSelect}
     />
   );

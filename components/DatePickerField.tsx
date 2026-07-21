@@ -13,6 +13,7 @@ import {
   parseIsoDate,
   parseIsoDateTime,
 } from '@/lib/dateUtils';
+import { getDefaultLanguage } from '@/lib/i18n';
 import { colors, radius, spacing, typography } from '@/theme/colors';
 
 import type { DatePickerFieldProps } from './DatePickerField.types';
@@ -45,7 +46,7 @@ export function DatePickerField({
   onChange,
   placeholder,
   clearLabel,
-  locale = 'sr',
+  locale = getDefaultLanguage(),
   error,
   mode = 'date',
   clearable = true,

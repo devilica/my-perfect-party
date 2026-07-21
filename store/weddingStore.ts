@@ -1,7 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import { DEFAULT_GUEST_CATEGORIES } from '@/constants/guestCategories';
+import { DEFAULT_GUEST_CATEGORIES, normalizeGuestCategories, normalizeGuestCategory } from '@/constants/guestCategories';
+import { isLanguage } from '@/constants/languages';
 import { normalizeAttendanceStatus } from '@/constants/guestAttendance';
 import { stripLegacyDefaultSides, resolveGuestSide } from '@/constants/guestSides';
 import { BackupData } from '@/lib/backup';
@@ -41,10 +42,10 @@ type LegacyGuest = {
 };
 
 const RELATIONSHIP_TO_CATEGORY: Record<LegacyRelationship, string> = {
-  family: 'Porodica',
-  friend: 'Prijatelji',
-  work: 'Posao',
-  other: 'Ostalo',
+  family: 'family',
+  friend: 'friends',
+  work: 'work',
+  other: 'other',
 };
 
 function normalizeEventId(value: unknown): string {
@@ -53,7 +54,7 @@ function normalizeEventId(value: unknown): string {
 }
 
 function resolveGuestCategory(raw: LegacyGuest): string {
-  if (raw.category) return raw.category;
+  if (raw.category) return normalizeGuestCategory(raw.category);
   if (raw.relationship) return RELATIONSHIP_TO_CATEGORY[raw.relationship];
   return DEFAULT_GUEST_CATEGORIES[0];
 }
@@ -78,16 +79,11 @@ type PersistedState = {
   lastBackupAt?: string;
 };
 
-const LOCALE_VERSION = 2;
+const LOCALE_VERSION = 3;
 
 function normalizePersistedLanguage(saved: PersistedState): Language {
-  if (saved.localeVersion === LOCALE_VERSION) {
-    const lang = saved.language;
-    if (lang === 'sr' || lang === 'bs' || lang === 'hr' || lang === 'en') return lang;
-    return getDefaultLanguage();
-  }
-
-  return 'sr';
+  if (isLanguage(saved.language)) return saved.language;
+  return getDefaultLanguage();
 }
 
 function migrateGuest(raw: LegacyGuest): Guest {
@@ -205,7 +201,9 @@ function normalizeImportedState(data: BackupData): {
     events: (saved.events ?? []).map((event) => ({
       ...event,
       theme: (event.theme ?? 'wedding') as CelebrationThemeId,
-      guestCategories: event.guestCategories ?? [...DEFAULT_GUEST_CATEGORIES],
+      guestCategories: normalizeGuestCategories(
+        event.guestCategories ?? [...DEFAULT_GUEST_CATEGORIES]
+      ),
       guestSides: stripLegacyDefaultSides(event.guestSides),
     })),
     guests: (saved.guests ?? []).map(migrateGuest),
@@ -344,7 +342,9 @@ export const useWeddingStore = create<WeddingState>()(
         const id = generateId();
         const event: WeddingEvent = {
           ...data,
-          guestCategories: data.guestCategories ?? [...DEFAULT_GUEST_CATEGORIES],
+          guestCategories: normalizeGuestCategories(
+            data.guestCategories ?? [...DEFAULT_GUEST_CATEGORIES]
+          ),
           guestSides: data.guestSides ?? [],
           id,
           createdAt: new Date().toISOString(),
@@ -386,9 +386,17 @@ export const useWeddingStore = create<WeddingState>()(
       },
 
       updateEvent: (id, data) => {
+        const normalizedData =
+          data.guestCategories !== undefined
+            ? {
+                ...data,
+                guestCategories: normalizeGuestCategories(data.guestCategories),
+              }
+            : data;
+
         set((state) => ({
           events: state.events.map((event) =>
-            event.id === id ? { ...event, ...data } : event
+            event.id === id ? { ...event, ...normalizedData } : event
           ),
         }));
       },

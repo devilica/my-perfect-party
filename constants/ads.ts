@@ -1,5 +1,5 @@
 /** Postavi na false da ugasi sve reklame (banner + rewarded) u cijeloj app */
-export const ADS_ENABLED = true;
+export const ADS_ENABLED = false;
 
 export const ADMOB_APP_ID = 'ca-app-pub-5483258571608850~3245032438';
 

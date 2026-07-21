@@ -129,6 +129,12 @@
     "category": "Kategorija",
     "addCategory": "Dodaj kategoriju",
     "customCategoryPlaceholder": "npr. Komšiluk",
+    "categories": {
+      "family": "Porodica",
+      "friends": "Prijatelji",
+      "work": "Posao",
+      "other": "Ostalo"
+    },
     "addSide": "Dodaj stranu",
     "customSidePlaceholder": "npr. Strana mlade",
     "side": "Strana",

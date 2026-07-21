@@ -10,7 +10,7 @@ export type PredefinedCategory =
 
 export type ExpenseCategory = PredefinedCategory | string;
 
-export type Language = 'sr' | 'bs' | 'hr' | 'en';
+export type { Language } from '@/constants/languages';
 
 export type CelebrationThemeId =
   | 'wedding'

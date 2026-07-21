@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { getGuestCategoryLabel } from '@/constants/guestCategories';
 import { Card } from '@/components/ui';
 import { getNextAttendanceStatus } from '@/lib/guestStats';
 import { useTranslation } from '@/lib/i18n';
@@ -82,7 +83,7 @@ export function GuestCard({ guest, table, onPress, onDelete }: GuestCardProps) {
           {guest.category.trim() ? (
             <View style={[styles.chip, { backgroundColor: theme.primaryLight }]}>
               <Text style={[styles.chipText, { color: theme.primaryDark }]}>
-                {guest.category}
+                {getGuestCategoryLabel(guest.category, t)}
               </Text>
             </View>
           ) : null}

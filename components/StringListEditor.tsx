@@ -11,6 +11,7 @@ type StringListEditorProps = {
   onChange: (items: string[]) => void;
   addLabel: string;
   placeholder: string;
+  getItemLabel?: (item: string) => string;
 };
 
 export function StringListEditor({
@@ -19,6 +20,7 @@ export function StringListEditor({
   onChange,
   addLabel,
   placeholder,
+  getItemLabel = (item) => item,
 }: StringListEditorProps) {
   const [customInput, setCustomInput] = useState('');
 
@@ -39,7 +41,7 @@ export function StringListEditor({
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.scroll}>
         {items.map((item) => (
           <View key={item} style={styles.chip}>
-            <Text style={styles.chipText}>{item}</Text>
+            <Text style={styles.chipText}>{getItemLabel(item)}</Text>
             <Pressable onPress={() => removeItem(item)} hitSlop={8} style={styles.removeButton}>
               <Ionicons name="close-circle" size={16} color={colors.primaryDark} />
             </Pressable>

@@ -129,6 +129,12 @@
     "category": "Category",
     "addCategory": "Add category",
     "customCategoryPlaceholder": "e.g. Neighbors",
+    "categories": {
+      "family": "Family",
+      "friends": "Friends",
+      "work": "Work",
+      "other": "Other"
+    },
     "addSide": "Add side",
     "customSidePlaceholder": "e.g. Bride's side",
     "side": "Side",

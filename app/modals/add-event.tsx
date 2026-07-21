@@ -3,7 +3,7 @@ import { StringListEditor } from '@/components/StringListEditor';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { ThemePicker } from '@/components/ThemePicker';
 import { Button, TextInputField } from '@/components/ui';
-import { DEFAULT_GUEST_CATEGORIES } from '@/constants/guestCategories';
+import { DEFAULT_GUEST_CATEGORIES, getGuestCategoryLabel } from '@/constants/guestCategories';
 import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
 import {
   formatIsoDateTime,
@@ -165,6 +165,7 @@ export default function AddEventModal() {
             onChange={setGuestCategories}
             addLabel={t('events.addGuestCategory')}
             placeholder={t('events.guestCategoryPlaceholder')}
+            getItemLabel={(item) => getGuestCategoryLabel(item, t)}
           />
           <StringListEditor
             label={t('events.guestSides')}

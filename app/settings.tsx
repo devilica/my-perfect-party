@@ -1,12 +1,14 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { ScreenContainer } from '@/components/ScreenContainer';
+import { SelectField } from '@/components/SelectField';
 import { ThemePicker } from '@/components/ThemePicker';
 import { Button, Card, TextInputField } from '@/components/ui';
 import { useBannerClearance } from '@/hooks/useBannerClearance';
+import { getLanguageSelectOptions } from '@/constants/languages';
 import { validateBackupEmail } from '@/lib/backup';
 import { formatDisplayDateTime } from '@/lib/dateUtils';
 import { useTranslation } from '@/lib/i18n';
@@ -65,12 +67,7 @@ export default function SettingsScreen() {
     }
   };
 
-  const options: { value: Language; label: string }[] = [
-    { value: 'sr', label: t('settings.languageSr') },
-    { value: 'bs', label: t('settings.languageBs') },
-    { value: 'hr', label: t('settings.languageHr') },
-    { value: 'en', label: t('settings.languageEn') },
-  ];
+  const languageOptions = getLanguageSelectOptions();
 
   const handleSaveEmail = () => {
     const trimmed = emailDraft.trim();
@@ -168,36 +165,13 @@ export default function SettingsScreen() {
         />
       </Card>
 
-      <Text style={[styles.sectionLabel, { color: theme.textSecondary }]}>
-        {t('settings.language')}
-      </Text>
       <Card style={styles.languageCard}>
-        {options.map((option) => {
-          const active = language === option.value;
-          return (
-            <Pressable
-              key={option.value}
-              onPress={() => setLanguage(option.value)}
-              style={[
-                styles.languageOption,
-                active && { backgroundColor: theme.primaryLight },
-              ]}
-            >
-              <Text
-                style={[
-                  styles.languageText,
-                  { color: theme.text },
-                  active && { color: theme.primaryDark, fontWeight: '600' },
-                ]}
-              >
-                {option.label}
-              </Text>
-              {active ? (
-                <Ionicons name="checkmark-circle" size={22} color={theme.primary} />
-              ) : null}
-            </Pressable>
-          );
-        })}
+        <SelectField<Language>
+          label={t('settings.language')}
+          value={language}
+          options={languageOptions}
+          onChange={setLanguage}
+        />
       </Card>
 
       <Text style={[styles.sectionLabel, { color: theme.textSecondary }]}>
@@ -297,20 +271,7 @@ const styles = StyleSheet.create({
   },
   languageCard: {
     padding: spacing.sm,
-    gap: spacing.xs,
-  },
-  languageOption: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.sm,
-    borderRadius: radius.md,
-  },
-  languageText: {
-    ...typography.body,
-    flex: 1,
-    paddingRight: spacing.sm,
+    marginTop: spacing.md,
   },
   backupCard: {
     gap: spacing.sm,
