@@ -1,13 +1,12 @@
 import { useRouter } from 'expo-router';
 import { useMemo } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import { Ionicons } from '@expo/vector-icons';
-
+import { EventCountdown } from '@/components/EventCountdown';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
+import { GuestAttendanceChart } from '@/components/GuestAttendanceChart';
 import { Button, Card, ProgressBar, StatCard } from '@/components/ui';
 import { useBannerClearance } from '@/hooks/useBannerClearance';
-import { formatDisplayDate } from '@/lib/dateUtils';
 import { formatAmount, getExpenseSummary } from '@/lib/expenseStats';
 import { getGuestStats } from '@/lib/guestStats';
 import { getObligationStats } from '@/lib/obligationStats';
@@ -57,55 +56,23 @@ export default function EventOverviewScreen() {
         contentContainerStyle={{ paddingBottom: spacing.xl + bannerClearance }}
         showsVerticalScrollIndicator={false}
       >
-        <Card style={styles.hero}>
-          <View style={styles.heroHeader}>
-            <View style={styles.heroContent}>
-              <Text style={[styles.eventName, { color: theme.text }]}>{event.name}</Text>
-              {event.date ? (
-                <Text style={[styles.meta, { color: theme.textSecondary }]}>
-                  {formatDisplayDate(event.date, language)}
-                </Text>
-              ) : null}
-              {event.location ? (
-                <Text style={[styles.meta, { color: theme.textSecondary }]}>{event.location}</Text>
-              ) : null}
-            </View>
-            <Pressable
-              onPress={() => router.push(`/modals/add-event?eventId=${eventId}`)}
-              hitSlop={8}
-            >
-              <Ionicons name="pencil-outline" size={20} color={theme.primary} />
-            </Pressable>
-          </View>
-        </Card>
+        <EventCountdown date={event.date} location={event.location} />
 
         <Text style={[styles.sectionTitle, { color: theme.text }]}>
           {t('overview.guestStats')}
         </Text>
-        <View style={styles.statRows}>
-          <View style={styles.statRow}>
-            <StatCard
-              label={t('overview.totalPeople')}
-              value={String(guestStats.totalPeople)}
-            />
-            <StatCard
-              label={t('overview.confirmedPeople')}
-              value={String(guestStats.confirmedPeople)}
-              accent={theme.success}
-            />
-          </View>
-          <View style={styles.statRow}>
-            <StatCard
-              label={t('overview.assignedPeople')}
-              value={String(guestStats.assignedPeople)}
-              accent={theme.primaryDark}
-            />
-            <StatCard
-              label={t('overview.unassignedPeople')}
-              value={String(guestStats.unassignedPeople)}
-              accent={theme.seatAlmostFull}
-            />
-          </View>
+        <GuestAttendanceChart stats={guestStats} />
+        <View style={styles.statRow}>
+          <StatCard
+            label={t('overview.assignedPeople')}
+            value={String(guestStats.assignedPeople)}
+            accent={theme.primaryDark}
+          />
+          <StatCard
+            label={t('overview.unassignedPeople')}
+            value={String(guestStats.unassignedPeople)}
+            accent={theme.seatAlmostFull}
+          />
         </View>
 
         <Card style={styles.statsCard}>
@@ -216,25 +183,6 @@ export default function EventOverviewScreen() {
 }
 
 const styles = StyleSheet.create({
-  hero: {
-    marginTop: spacing.sm,
-    marginBottom: spacing.lg,
-  },
-  heroHeader: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: spacing.sm,
-  },
-  heroContent: {
-    flex: 1,
-    gap: spacing.xs,
-  },
-  eventName: {
-    ...typography.heading,
-  },
-  meta: {
-    ...typography.caption,
-  },
   sectionTitle: {
     ...typography.subheading,
     marginBottom: spacing.sm,
@@ -249,14 +197,11 @@ const styles = StyleSheet.create({
   statSecondary: {
     ...typography.small,
   },
-  statRows: {
-    gap: spacing.sm,
-    marginBottom: spacing.lg,
-  },
   statRow: {
     flexDirection: 'row',
     alignItems: 'stretch',
     gap: spacing.sm,
+    marginBottom: spacing.lg,
   },
   statGrid: {
     flexDirection: 'row',

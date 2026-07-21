@@ -1,14 +1,43 @@
 import { Ionicons } from '@expo/vector-icons';
-import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
+import DateTimePicker, {
+  DateTimePickerAndroid,
+  DateTimePickerEvent,
+} from '@react-native-community/datetimepicker';
 import { useState } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { formatDisplayDate, formatIsoDate, parseIsoDate } from '@/lib/dateUtils';
+import {
+  formatDisplayDate,
+  formatIsoDate,
+  formatIsoDateTime,
+  parseIsoDate,
+  parseIsoDateTime,
+} from '@/lib/dateUtils';
 import { colors, radius, spacing, typography } from '@/theme/colors';
 
 import type { DatePickerFieldProps } from './DatePickerField.types';
 
 export type { DatePickerFieldProps } from './DatePickerField.types';
+
+function openAndroidDateTimePicker(value: Date, onSelect: (iso: string) => void) {
+  DateTimePickerAndroid.open({
+    value,
+    mode: 'date',
+    onChange: (event, selectedDate) => {
+      if (event.type === 'dismissed' || !selectedDate) return;
+
+      DateTimePickerAndroid.open({
+        value: selectedDate,
+        mode: 'time',
+        is24Hour: true,
+        onChange: (timeEvent, selectedTime) => {
+          if (timeEvent.type === 'dismissed' || !selectedTime) return;
+          onSelect(formatIsoDateTime(selectedTime));
+        },
+      });
+    },
+  });
+}
 
 export function DatePickerField({
   label,
@@ -16,12 +45,17 @@ export function DatePickerField({
   onChange,
   placeholder,
   clearLabel,
-  locale = 'bs',
+  locale = 'sr',
+  error,
+  mode = 'date',
+  clearable = true,
 }: DatePickerFieldProps) {
   const [showPicker, setShowPicker] = useState(false);
-  const parsed = parseIsoDate(value);
+  const isDateTime = mode === 'datetime';
+  const parsed = isDateTime ? parseIsoDateTime(value) : parseIsoDate(value);
   const display = parsed ? formatDisplayDate(value, locale) : '';
   const pickerDate = parsed ?? new Date();
+  const useAndroidDateTimeFlow = Platform.OS === 'android' && isDateTime;
 
   const handleChange = (event: DateTimePickerEvent, selected?: Date) => {
     if (Platform.OS === 'android') {
@@ -29,16 +63,24 @@ export function DatePickerField({
     }
 
     if (event.type === 'dismissed' || !selected) return;
-    onChange(formatIsoDate(selected));
+    onChange(isDateTime ? formatIsoDateTime(selected) : formatIsoDate(selected));
   };
 
   const openPicker = () => {
+    if (useAndroidDateTimeFlow) {
+      openAndroidDateTimePicker(pickerDate, (iso) => onChange(iso));
+      return;
+    }
+
     if (Platform.OS === 'android') {
       setShowPicker(true);
       return;
     }
+
     setShowPicker((current) => !current);
   };
+
+  const pickerMode = isDateTime && Platform.OS === 'ios' ? 'datetime' : 'date';
 
   return (
     <View style={styles.container}>
@@ -46,14 +88,18 @@ export function DatePickerField({
       <View style={styles.row}>
         <Pressable
           onPress={openPicker}
-          style={({ pressed }) => [styles.input, pressed && styles.pressed]}
+          style={({ pressed }) => [
+            styles.input,
+            error ? styles.inputError : null,
+            pressed && styles.pressed,
+          ]}
         >
           <Ionicons name="calendar-outline" size={20} color={colors.textMuted} />
           <Text style={[styles.value, !display && styles.placeholderText]}>
             {display || placeholder}
           </Text>
         </Pressable>
-        {value ? (
+        {clearable && value ? (
           <Pressable
             onPress={() => onChange(undefined)}
             style={styles.clearBtn}
@@ -64,14 +110,15 @@ export function DatePickerField({
           </Pressable>
         ) : null}
       </View>
-      {showPicker ? (
+      {showPicker && !useAndroidDateTimeFlow ? (
         <DateTimePicker
           value={pickerDate}
-          mode="date"
+          mode={pickerMode}
           display={Platform.OS === 'ios' ? 'spinner' : 'default'}
           onChange={handleChange}
         />
       ) : null}
+      {error ? <Text style={styles.error}>{error}</Text> : null}
     </View>
   );
 }
@@ -117,5 +164,13 @@ const styles = StyleSheet.create({
   },
   clearBtn: {
     padding: spacing.xs,
+  },
+  inputError: {
+    borderColor: colors.danger,
+  },
+  error: {
+    ...typography.small,
+    color: colors.danger,
+    marginTop: spacing.xs,
   },
 });

@@ -4,8 +4,9 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 import { DEFAULT_GUEST_CATEGORIES } from '@/constants/guestCategories';
 import { normalizeAttendanceStatus } from '@/constants/guestAttendance';
 import { stripLegacyDefaultSides, resolveGuestSide } from '@/constants/guestSides';
+import { BackupData } from '@/lib/backup';
 import { generateId } from '@/lib/generateId';
-import { getDefaultLanguage } from '@/lib/i18n';
+import { getDefaultLanguage, translate } from '@/lib/i18n';
 import { canAssignGuestToTable, getTablesForEvent } from '@/lib/seatingStats';
 import {
   AttendanceStatus,
@@ -69,8 +70,24 @@ type PersistedState = {
   tables?: Array<Omit<SeatingTable, 'eventId'> & { eventId: unknown }>;
   expenses: Array<Omit<Expense, 'eventId'> & { eventId: unknown }>;
   obligations?: Array<Omit<Obligation, 'eventId'> & { eventId: unknown }>;
-  language: Language;
+  language?: Language;
+  localeVersion?: number;
+  appTheme?: CelebrationThemeId;
+  backupEmail?: string;
+  lastBackupAt?: string;
 };
+
+const LOCALE_VERSION = 2;
+
+function normalizePersistedLanguage(saved: PersistedState): Language {
+  if (saved.localeVersion === LOCALE_VERSION) {
+    const lang = saved.language;
+    if (lang === 'sr' || lang === 'bs' || lang === 'hr' || lang === 'en') return lang;
+    return getDefaultLanguage();
+  }
+
+  return 'sr';
+}
 
 function migrateGuest(raw: LegacyGuest): Guest {
   if (raw.firstName && raw.lastName !== undefined) {
@@ -108,6 +125,62 @@ function migrateGuest(raw: LegacyGuest): Guest {
   };
 }
 
+function normalizeAppTheme(value: unknown): CelebrationThemeId {
+  const valid: CelebrationThemeId[] = [
+    'wedding',
+    'birthday',
+    'baptism',
+    'newYear',
+    'christmas',
+    'graduation',
+    'anniversary',
+    'engagement',
+    'other',
+  ];
+  if (typeof value === 'string' && valid.includes(value as CelebrationThemeId)) {
+    return value as CelebrationThemeId;
+  }
+  return 'wedding';
+}
+
+function normalizeImportedState(data: BackupData): {
+  events: WeddingEvent[];
+  guests: Guest[];
+  tables: SeatingTable[];
+  expenses: Expense[];
+  obligations: Obligation[];
+  language: Language;
+  appTheme: CelebrationThemeId;
+} {
+  const saved = data as PersistedState;
+
+  return {
+    language: saved.language ?? getDefaultLanguage(),
+    appTheme: normalizeAppTheme(saved.appTheme),
+    events: (saved.events ?? []).map((event) => ({
+      ...event,
+      theme: (event.theme ?? 'wedding') as CelebrationThemeId,
+      guestCategories: event.guestCategories ?? [...DEFAULT_GUEST_CATEGORIES],
+      guestSides: stripLegacyDefaultSides(event.guestSides),
+    })),
+    guests: (saved.guests ?? []).map(migrateGuest),
+    tables: (saved.tables ?? []).map((table) => ({
+      ...table,
+      eventId: normalizeEventId(table.eventId),
+    })),
+    expenses: (saved.expenses ?? []).map((expense) => ({
+      ...expense,
+      eventId: normalizeEventId(expense.eventId),
+    })),
+    obligations: (saved.obligations ?? []).map((obligation) => ({
+      ...obligation,
+      eventId: normalizeEventId(obligation.eventId),
+      status: obligation.status ?? 'not_scheduled',
+      sortOrder: obligation.sortOrder ?? 0,
+    })),
+  };
+}
+
 type WeddingState = {
   events: WeddingEvent[];
   guests: Guest[];
@@ -115,9 +188,17 @@ type WeddingState = {
   expenses: Expense[];
   obligations: Obligation[];
   language: Language;
+  appTheme: CelebrationThemeId;
+  backupEmail: string;
+  lastBackupAt?: string;
   _hasHydrated: boolean;
   setHasHydrated: (value: boolean) => void;
   setLanguage: (language: Language) => void;
+  setAppTheme: (themeId: CelebrationThemeId) => void;
+  setBackupEmail: (email: string) => void;
+  markBackupCompleted: () => void;
+  exportBackupData: () => BackupData;
+  importBackupData: (data: BackupData) => void;
   addEvent: (
     data: Omit<WeddingEvent, 'id' | 'createdAt' | 'guestCategories' | 'guestSides'> & {
       guestCategories?: string[];
@@ -168,10 +249,37 @@ export const useWeddingStore = create<WeddingState>()(
       expenses: [],
       obligations: [],
       language: getDefaultLanguage(),
+      appTheme: 'wedding' as CelebrationThemeId,
+      backupEmail: '',
+      lastBackupAt: undefined,
       _hasHydrated: false,
       setHasHydrated: (value) => set({ _hasHydrated: value }),
 
       setLanguage: (language) => set({ language }),
+
+      setAppTheme: (appTheme) => set({ appTheme }),
+
+      setBackupEmail: (email) => set({ backupEmail: email.trim() }),
+
+      markBackupCompleted: () => set({ lastBackupAt: new Date().toISOString() }),
+
+      exportBackupData: () => {
+        const state = get();
+        return {
+          events: state.events,
+          guests: state.guests,
+          tables: state.tables,
+          expenses: state.expenses,
+          obligations: state.obligations,
+          language: state.language,
+          appTheme: state.appTheme,
+        };
+      },
+
+      importBackupData: (data) => {
+        const normalized = normalizeImportedState(data);
+        set(normalized);
+      },
 
       addEvent: (data) => {
         const id = generateId();
@@ -412,7 +520,7 @@ export const useWeddingStore = create<WeddingState>()(
             newTables.push({
               id,
               eventId,
-              name: `Table ${tableNumber}`,
+              name: translate(get().language, 'seating.defaultTableName', { number: tableNumber }),
               capacity: Math.max(1, batch.capacity),
               sortOrder,
               createdAt: new Date().toISOString(),
@@ -537,35 +645,25 @@ export const useWeddingStore = create<WeddingState>()(
         expenses: state.expenses,
         obligations: state.obligations,
         language: state.language,
+        localeVersion: LOCALE_VERSION,
+        appTheme: state.appTheme,
+        backupEmail: state.backupEmail,
+        lastBackupAt: state.lastBackupAt,
       }),
       merge: (persisted, current) => {
         const saved = persisted as PersistedState | undefined;
         if (!saved) return current;
 
+        const normalized = normalizeImportedState(saved as BackupData);
+
         return {
           ...current,
           ...saved,
-          events: (saved.events ?? []).map((event) => ({
-            ...event,
-            theme: (event.theme ?? 'wedding') as CelebrationThemeId,
-            guestCategories: event.guestCategories ?? [...DEFAULT_GUEST_CATEGORIES],
-            guestSides: stripLegacyDefaultSides(event.guestSides),
-          })),
-          guests: (saved.guests ?? []).map(migrateGuest),
-          tables: (saved.tables ?? []).map((table) => ({
-            ...table,
-            eventId: normalizeEventId(table.eventId),
-          })),
-          expenses: (saved.expenses ?? []).map((expense) => ({
-            ...expense,
-            eventId: normalizeEventId(expense.eventId),
-          })),
-          obligations: (saved.obligations ?? []).map((obligation) => ({
-            ...obligation,
-            eventId: normalizeEventId(obligation.eventId),
-            status: obligation.status ?? 'not_scheduled',
-            sortOrder: obligation.sortOrder ?? 0,
-          })),
+          ...normalized,
+          language: normalizePersistedLanguage(saved),
+          appTheme: normalizeAppTheme(saved.appTheme),
+          backupEmail: saved.backupEmail ?? current.backupEmail ?? '',
+          lastBackupAt: saved.lastBackupAt ?? current.lastBackupAt,
         };
       },
       onRehydrateStorage: () => (state) => {

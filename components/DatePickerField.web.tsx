@@ -13,21 +13,29 @@ export function DatePickerField({
   onChange,
   placeholder,
   clearLabel,
+  error,
+  mode = 'date',
+  clearable = true,
 }: DatePickerFieldProps) {
+  const isDateTime = mode === 'datetime';
+
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>
       <View style={styles.row}>
         {createElement('input', {
-          type: 'date',
+          type: isDateTime ? 'datetime-local' : 'date',
           value: value ?? '',
           onChange: (event: { target: { value: string } }) => {
             onChange(event.target.value || undefined);
           },
-          style: webInputStyle,
+          style: {
+            ...webInputStyle,
+            borderColor: error ? colors.danger : colors.border,
+          },
           'aria-label': label,
         })}
-        {value ? (
+        {clearable && value ? (
           <Pressable
             onPress={() => onChange(undefined)}
             style={styles.clearBtn}
@@ -38,6 +46,7 @@ export function DatePickerField({
         ) : null}
       </View>
       {!value && placeholder ? <Text style={styles.hint}>{placeholder}</Text> : null}
+      {error ? <Text style={styles.error}>{error}</Text> : null}
     </View>
   );
 }
@@ -87,6 +96,11 @@ const styles = StyleSheet.create({
   hint: {
     ...typography.small,
     color: colors.textMuted,
+    marginTop: spacing.xs,
+  },
+  error: {
+    ...typography.small,
+    color: colors.danger,
     marginTop: spacing.xs,
   },
 });

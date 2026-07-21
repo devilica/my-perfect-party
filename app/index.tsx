@@ -8,7 +8,8 @@ import { EmptyState, Fab } from '@/components/ui';
 import { useFabScrollPadding } from '@/hooks/useFabBottomOffset';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
-import { colors, spacing, typography } from '@/theme/colors';
+import { useThemeColors } from '@/theme/EventThemeContext';
+import { spacing, typography } from '@/theme/colors';
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -16,6 +17,7 @@ export default function HomeScreen() {
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
   const fabScrollPadding = useFabScrollPadding();
+  const theme = useThemeColors();
 
   return (
     <ScreenContainer
@@ -30,14 +32,14 @@ export default function HomeScreen() {
           title: t('app.name'),
           headerRight: () => (
             <Pressable onPress={() => router.push('/settings')} hitSlop={8}>
-              <Ionicons name="settings-outline" size={24} color={colors.primary} />
+              <Ionicons name="settings-outline" size={24} color={theme.primary} />
             </Pressable>
           ),
         }}
       />
 
-      <Text style={styles.tagline}>{t('app.tagline')}</Text>
-      <Text style={styles.sectionTitle}>{t('events.myEvents')}</Text>
+      <Text style={[styles.tagline, { color: theme.textSecondary }]}>{t('app.tagline')}</Text>
+      <Text style={[styles.sectionTitle, { color: theme.text }]}>{t('events.myEvents')}</Text>
 
       {events.length === 0 ? (
         <EmptyState
@@ -70,12 +72,10 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   tagline: {
     ...typography.caption,
-    color: colors.textSecondary,
     marginBottom: spacing.lg,
   },
   sectionTitle: {
     ...typography.subheading,
-    color: colors.text,
     marginBottom: spacing.md,
   },
 });

@@ -174,6 +174,7 @@ export function TextInputField({
   error,
   multiline,
   keyboardType = 'default',
+  autoCapitalize,
 }: {
   label: string;
   value: string;
@@ -181,7 +182,8 @@ export function TextInputField({
   placeholder?: string;
   error?: string;
   multiline?: boolean;
-  keyboardType?: 'default' | 'numeric' | 'decimal-pad';
+  keyboardType?: 'default' | 'numeric' | 'decimal-pad' | 'email-address';
+  autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
 }) {
   const theme = useThemeColors();
 
@@ -195,6 +197,7 @@ export function TextInputField({
         placeholderTextColor={theme.textMuted}
         multiline={multiline}
         keyboardType={keyboardType}
+        autoCapitalize={autoCapitalize}
         style={[
           inputStyles.input,
           {

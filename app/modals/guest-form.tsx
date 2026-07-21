@@ -19,7 +19,7 @@ import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
 import { useWeddingStore } from '@/store/weddingStore';
 import { AttendanceStatus } from '@/types/models';
-import { radius, spacing } from '@/theme/colors';
+import { radius, spacing, typography } from '@/theme/colors';
 
 export default function GuestFormModal() {
   const router = useRouter();
@@ -233,45 +233,49 @@ export default function GuestFormModal() {
       />
 
       <View style={styles.stepperRow}>
-        <Text style={styles.stepperLabel}>{t('guests.partySize')}</Text>
-        <View style={styles.stepper}>
-          <Pressable
-            onPress={() => setPartySize(String(Math.max(1, parsedPartySize - 1)))}
-            disabled={parsedPartySize <= 1}
-            style={({ pressed }) => [
-              styles.stepperBtn,
-              {
-                backgroundColor: theme.primaryLight,
-                borderColor: theme.border,
-              },
-              parsedPartySize <= 1 && styles.stepperBtnDisabled,
-              pressed && styles.stepperBtnPressed,
-            ]}
-            accessibilityRole="button"
-            accessibilityLabel={t('guests.partySize')}
-          >
-            <Ionicons name="remove" size={22} color={theme.primaryDark} />
-          </Pressable>
-          <Text style={styles.stepperValue}>{partySize}</Text>
-          <Pressable
-            onPress={() => setPartySize(String(Math.min(10, parsedPartySize + 1)))}
-            disabled={parsedPartySize >= 10}
-            style={({ pressed }) => [
-              styles.stepperBtn,
-              {
-                backgroundColor: theme.primaryLight,
-                borderColor: theme.border,
-              },
-              parsedPartySize >= 10 && styles.stepperBtnDisabled,
-              pressed && styles.stepperBtnPressed,
-            ]}
-            accessibilityRole="button"
-            accessibilityLabel={t('guests.partySize')}
-          >
-            <Ionicons name="add" size={22} color={theme.primaryDark} />
-          </Pressable>
+        <Text style={[styles.stepperLabel, { color: theme.textSecondary }]}>
+          {t('guests.partySize')}
+        </Text>
+        <View style={styles.stepperContent}>
+          <View style={styles.stepper}>
+            <Pressable
+              onPress={() => setPartySize(String(Math.max(1, parsedPartySize - 1)))}
+              disabled={parsedPartySize <= 1}
+              style={({ pressed }) => [
+                styles.stepperBtn,
+                {
+                  backgroundColor: theme.primaryLight,
+                  borderColor: theme.border,
+                },
+                parsedPartySize <= 1 && styles.stepperBtnDisabled,
+                pressed && styles.stepperBtnPressed,
+              ]}
+              accessibilityRole="button"
+              accessibilityLabel={t('guests.partySize')}
+            >
+              <Ionicons name="remove" size={22} color={theme.primaryDark} />
+            </Pressable>
+            <Text style={styles.stepperValue}>{partySize}</Text>
+            <Pressable
+              onPress={() => setPartySize(String(Math.min(10, parsedPartySize + 1)))}
+              disabled={parsedPartySize >= 10}
+              style={({ pressed }) => [
+                styles.stepperBtn,
+                {
+                  backgroundColor: theme.primaryLight,
+                  borderColor: theme.border,
+                },
+                parsedPartySize >= 10 && styles.stepperBtnDisabled,
+                pressed && styles.stepperBtnPressed,
+              ]}
+              accessibilityRole="button"
+              accessibilityLabel={t('guests.partySize')}
+            >
+              <Ionicons name="add" size={22} color={theme.primaryDark} />
+            </Pressable>
+          </View>
+          <Text style={styles.hint}>{t('guests.partySizeHint')}</Text>
         </View>
-        <Text style={styles.hint}>{t('guests.partySizeHint')}</Text>
       </View>
 
       <SelectField
@@ -322,12 +326,17 @@ const styles = StyleSheet.create({
     marginBottom: spacing.md,
   },
   stepperLabel: {
+    ...typography.caption,
     marginBottom: spacing.xs,
     fontWeight: '600',
+  },
+  stepperContent: {
+    alignItems: 'center',
   },
   stepper: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     gap: spacing.md,
   },
   stepperBtn: {
@@ -354,6 +363,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.xs,
     fontSize: 12,
     color: '#9C9590',
+    textAlign: 'center',
   },
   actions: {
     gap: spacing.sm,

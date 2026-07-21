@@ -1,6 +1,6 @@
 import { useRouter } from 'expo-router';
-import { useMemo } from 'react';
-import { Alert, FlatList, StyleSheet, View } from 'react-native';
+import { useMemo, useState } from 'react';
+import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
 
 import { ObligationCard } from '@/components/ObligationCard';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
@@ -12,7 +12,7 @@ import { useTranslation } from '@/lib/i18n';
 import { useEventId } from '@/lib/useEventId';
 import { useWeddingStore } from '@/store/weddingStore';
 import { useThemeColors } from '@/theme/EventThemeContext';
-import { spacing } from '@/theme/colors';
+import { radius, spacing, typography } from '@/theme/colors';
 
 export default function ObligationsScreen() {
   const eventId = useEventId();
@@ -25,6 +25,7 @@ export default function ObligationsScreen() {
   const { t } = useTranslation(language);
   const theme = useThemeColors();
   const fabScrollPadding = useFabScrollPadding();
+  const [showTemplates, setShowTemplates] = useState(false);
 
   const obligations = useMemo(
     () => getObligationsForEvent(allObligations, eventId),
@@ -35,6 +36,20 @@ export default function ObligationsScreen() {
     () => getObligationStats(allObligations, eventId),
     [allObligations, eventId]
   );
+
+  const templateTitles = useMemo(() => {
+    const keys = OBLIGATION_TEMPLATE_KEYS[event?.theme ?? 'wedding'] ?? [];
+    return keys.map((key) => t(key));
+  }, [event?.theme, t]);
+
+  const hasAvailableTemplates = useMemo(() => {
+    const existingTitles = new Set(
+      obligations.map((o) => o.title.trim().toLowerCase())
+    );
+    return templateTitles.some((title) => !existingTitles.has(title.toLowerCase()));
+  }, [obligations, templateTitles]);
+
+  const showTemplatesButton = hasAvailableTemplates || showTemplates;
 
   const handleDelete = (obligationId: string) => {
     Alert.alert(t('obligations.delete'), t('obligations.deleteConfirm'), [
@@ -49,13 +64,41 @@ export default function ObligationsScreen() {
 
   const handleAddTemplates = () => {
     if (!eventId || !event) return;
-    const keys = OBLIGATION_TEMPLATE_KEYS[event.theme] ?? [];
-    const titles = keys.map((key) => t(key));
-    const added = addObligationTemplates(eventId, titles);
+
+    if (showTemplates) {
+      setShowTemplates(false);
+      return;
+    }
+
+    setShowTemplates(true);
+    const added = addObligationTemplates(eventId, templateTitles);
     if (added === 0) {
       Alert.alert(t('obligations.templates'), t('obligations.templatesAlreadyAdded'));
     }
   };
+
+  const templatesPanel = showTemplates ? (
+    <View style={[styles.templatesPanel, { backgroundColor: theme.primaryLight, borderColor: theme.border }]}>
+      <Text style={[styles.templatesTitle, { color: theme.primaryDark }]}>
+        {t('obligations.templates')}
+      </Text>
+      {templateTitles.map((title) => (
+        <Text key={title} style={[styles.templateItem, { color: theme.textSecondary }]}>
+          {title}
+        </Text>
+      ))}
+    </View>
+  ) : null;
+
+  const templatesButton = showTemplatesButton ? (
+    <Button
+      label={t('obligations.addTemplates')}
+      variant="secondary"
+      icon="list-outline"
+      onPress={handleAddTemplates}
+      style={styles.templateBtn}
+    />
+  ) : null;
 
   const listHeader = (
     <View style={styles.header}>
@@ -67,12 +110,8 @@ export default function ObligationsScreen() {
           accent={theme.success}
         />
       </View>
-      <Button
-        label={t('obligations.addTemplates')}
-        variant="secondary"
-        icon="list-outline"
-        onPress={handleAddTemplates}
-      />
+      {templatesButton}
+      {templatesPanel}
     </View>
   );
 
@@ -83,13 +122,8 @@ export default function ObligationsScreen() {
         title={t('obligations.emptyTitle')}
         subtitle={t('obligations.emptySubtitle')}
       />
-      <Button
-        label={t('obligations.addTemplates')}
-        variant="secondary"
-        icon="list-outline"
-        onPress={handleAddTemplates}
-        style={styles.templateBtn}
-      />
+      {templatesButton}
+      {templatesPanel}
     </View>
   );
 
@@ -148,5 +182,21 @@ const styles = StyleSheet.create({
   },
   templateBtn: {
     alignSelf: 'stretch',
+  },
+  templatesPanel: {
+    gap: spacing.xs,
+    padding: spacing.md,
+    borderRadius: radius.md,
+    borderWidth: 1,
+  },
+  templatesTitle: {
+    ...typography.caption,
+    fontWeight: '600',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+    marginBottom: spacing.xs,
+  },
+  templateItem: {
+    ...typography.body,
   },
 });

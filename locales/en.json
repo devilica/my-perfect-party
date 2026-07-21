@@ -33,8 +33,10 @@
     "name": "Event name",
     "namePlaceholder": "e.g. Ana & Marko Wedding",
     "date": "Date",
+    "dateTime": "Date and time",
     "datePlaceholder": "Select date",
     "selectDate": "Select date",
+    "selectDateTime": "Select date and time",
     "clearDate": "Clear date",
     "location": "Location",
     "locationPlaceholder": "e.g. Sarajevo",
@@ -42,6 +44,9 @@
     "peopleBadge": "{{count}} people",
     "tablesBadge": "{{count}} tables",
     "nameRequired": "Name must be at least 2 characters.",
+    "dateRequired": "Date is required.",
+    "dateTimeRequired": "Date and time are required.",
+    "locationRequired": "Location is required.",
     "theme": "Celebration theme",
     "guestCategories": "Guest categories",
     "addGuestCategory": "Add category",
@@ -57,7 +62,8 @@
       "christmas": "Christmas",
       "graduation": "Graduation",
       "anniversary": "Anniversary",
-      "engagement": "Engagement"
+      "engagement": "Engagement",
+      "other": "Other"
     }
   },
   "tabs": {
@@ -70,6 +76,17 @@
   "overview": {
     "title": "Overview",
     "guestStats": "Guests",
+    "attendanceChartTitle": "Invitation status",
+    "attendanceChartTotal": "Total",
+    "attendanceChartEmpty": "No guests added yet.",
+    "countdownLabel": "Time left",
+    "countdownDay": "{{count}} day left",
+    "countdownDays": "{{count}} days left",
+    "countdownRemaining": "{{days}} days {{hours}} hours {{minutes}} minutes",
+    "countdownNow": "Starting now!",
+    "countdownPastTitle": "Past celebration",
+    "countdownPastHint": "Delete the event (trash icon above) to free up space on your device.",
+    "countdownNoDate": "Add the event date and time to see the countdown.",
     "seatingStats": "Tables",
     "confirmed": "{{confirmed}} / {{total}} confirmed",
     "pending": "{{count}} pending",
@@ -163,6 +180,7 @@
     "bulkPreview": "Will create {{count}} tables",
     "tableName": "Table name",
     "tableNamePlaceholder": "e.g. Table 1",
+    "defaultTableName": "Table {{number}}",
     "capacity": "Capacity",
     "capacityPlaceholder": "e.g. 10",
     "count": "Number of tables",
@@ -287,6 +305,12 @@
         "photographer": "Photographer",
         "catering": "Food and drinks",
         "invitations": "Invitations"
+      },
+      "other": {
+        "venue": "Venue / location",
+        "catering": "Food and drinks",
+        "photographer": "Photographer",
+        "decor": "Decoration"
       }
     }
   },
@@ -308,11 +332,34 @@
   },
   "settings": {
     "title": "Settings",
+    "appTheme": "App theme",
+    "appThemeHint": "Colors for the home screen and settings.",
     "language": "Language",
-    "languageBs": "Bosnian / Serbian / Croatian",
+    "languageSr": "Serbian",
+    "languageBs": "Bosnian",
+    "languageHr": "Croatian",
     "languageEn": "English",
     "about": "About",
-    "aboutText": "My perfect party — plan your party locally on your device. All data stays on your device only.",
-    "dataStorage": "Data is stored locally on your device."
+    "aboutText": "My perfect party — plan your party locally on your device. All data stays on your device, with optional email backup.",
+    "dataStorage": "Data is stored locally on your device.",
+    "backupTitle": "Email backup",
+    "backupDescription": "Send a backup of your data to your email as a JSON attachment. After reinstalling the app, download the attachment from your email and import it here.",
+    "backupEmail": "Backup email",
+    "backupEmailPlaceholder": "e.g. name@email.com",
+    "backupEmailInvalid": "Enter a valid email address.",
+    "backupLastSync": "Last sync",
+    "backupNeverSynced": "Never synced",
+    "backupSyncNow": "Sync now",
+    "backupImport": "Import backup",
+    "backupSyncing": "Preparing backup...",
+    "backupSyncSuccess": "Backup was prepared and sent.",
+    "backupSyncCancelled": "Backup sending was cancelled.",
+    "backupSyncFailed": "Backup failed. Please try again.",
+    "backupImportConfirmTitle": "Import backup?",
+    "backupImportConfirmMessage": "This will replace all existing app data with the data from the backup file.",
+    "backupImportSuccess": "Backup imported successfully.",
+    "backupImportFailed": "Backup import failed.",
+    "backupInvalidFile": "The selected file is not a valid backup.",
+    "backupMailUnavailable": "Mail app is unavailable. Backup was shared via the system share sheet."
   }
 }

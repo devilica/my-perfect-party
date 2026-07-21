@@ -51,4 +51,10 @@ export const OBLIGATION_TEMPLATE_KEYS: Record<CelebrationThemeId, string[]> = {
     'obligations.presets.engagement.catering',
     'obligations.presets.engagement.invitations',
   ],
+  other: [
+    'obligations.presets.other.venue',
+    'obligations.presets.other.catering',
+    'obligations.presets.other.photographer',
+    'obligations.presets.other.decor',
+  ],
 };

@@ -203,6 +203,33 @@ const engagementTheme: CelebrationTheme = {
   }),
 };
 
+const otherTheme: CelebrationTheme = {
+  id: 'other',
+  labelKey: 'events.themes.other',
+  icon: 'balloon-outline',
+  backgroundImage: require('@/assets/themes/other.png'),
+  overlayColors: ['rgba(255,252,240,0.88)', 'rgba(255,245,230,0.82)'],
+  colors: palette({
+    background: '#FFFCF0',
+    surface: 'rgba(255,255,255,0.93)',
+    primary: '#FF8C42',
+    primaryDark: '#E06B20',
+    primaryLight: '#FFE8D4',
+    text: '#3D3028',
+    textSecondary: '#7A6558',
+    textMuted: '#A89080',
+    border: '#FFD4B8',
+    success: '#5ECFB8',
+    successLight: '#E0FAF4',
+    brideSide: '#F06292',
+    brideSideLight: '#FCE4EC',
+    groomSide: '#5ECFB8',
+    groomSideLight: '#E0FAF4',
+    sharedSide: '#FFB74D',
+    sharedSideLight: '#FFF3E0',
+  }),
+};
+
 export const CELEBRATION_THEMES: Record<CelebrationThemeId, CelebrationTheme> = {
   wedding: weddingTheme,
   birthday: birthdayTheme,
@@ -212,6 +239,7 @@ export const CELEBRATION_THEMES: Record<CelebrationThemeId, CelebrationTheme> = 
   graduation: graduationTheme,
   anniversary: anniversaryTheme,
   engagement: engagementTheme,
+  other: otherTheme,
 };
 
 export const CELEBRATION_THEME_IDS: CelebrationThemeId[] = [
@@ -223,6 +251,7 @@ export const CELEBRATION_THEME_IDS: CelebrationThemeId[] = [
   'graduation',
   'anniversary',
   'engagement',
+  'other',
 ];
 
 export function getCelebrationTheme(id: CelebrationThemeId): CelebrationTheme {

@@ -1,5 +1,7 @@
 import bs from '@/locales/bs.json';
 import en from '@/locales/en.json';
+import hr from '@/locales/hr.json';
+import sr from '@/locales/sr.json';
 import { Language } from '@/types/models';
 
 type TranslationTree = {
@@ -7,7 +9,9 @@ type TranslationTree = {
 };
 
 const translations: Record<Language, TranslationTree> = {
+  sr: sr as TranslationTree,
   bs: bs as TranslationTree,
+  hr: hr as TranslationTree,
   en: en as TranslationTree,
 };
 
@@ -38,14 +42,21 @@ export function translate(
   const value = getNestedValue(translations[language], key);
   if (value) return interpolate(value, params);
 
-  const fallback = getNestedValue(translations.bs, key);
-  if (fallback) return interpolate(fallback, params);
+  if (language !== 'sr') {
+    const srFallback = getNestedValue(translations.sr, key);
+    if (srFallback) return interpolate(srFallback, params);
+  }
+
+  if (language !== 'en') {
+    const enFallback = getNestedValue(translations.en, key);
+    if (enFallback) return interpolate(enFallback, params);
+  }
 
   return key;
 }
 
 export function getDefaultLanguage(): Language {
-  return 'bs';
+  return 'sr';
 }
 
 export function useTranslation(language: Language) {

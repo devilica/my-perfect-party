@@ -18,6 +18,12 @@ export function getGuestStats(guests: Guest[], eventId: string): GuestStats {
   const confirmedPeople = eventGuests
     .filter((g) => g.attendanceStatus === 'confirmed')
     .reduce((sum, g) => sum + g.partySize, 0);
+  const needsInvitePeople = eventGuests
+    .filter((g) => g.attendanceStatus === 'needs_invite')
+    .reduce((sum, g) => sum + g.partySize, 0);
+  const invitationSentPeople = eventGuests
+    .filter((g) => g.attendanceStatus === 'invitation_sent')
+    .reduce((sum, g) => sum + g.partySize, 0);
   const pendingPeople = eventGuests
     .filter(
       (g) =>
@@ -33,16 +39,21 @@ export function getGuestStats(guests: Guest[], eventId: string): GuestStats {
   const unassignedPeople = totalPeople - assignedPeople;
   const confirmationRate =
     totalPeople === 0 ? 0 : Math.round((confirmedPeople / totalPeople) * 100);
+  const attendanceChartTotal =
+    needsInvitePeople + invitationSentPeople + confirmedPeople + declinedPeople;
 
   return {
     totalInvites,
     totalPeople,
     confirmedPeople,
     pendingPeople,
+    needsInvitePeople,
+    invitationSentPeople,
     declinedPeople,
     assignedPeople,
     unassignedPeople,
     confirmationRate,
+    attendanceChartTotal,
   };
 }
 

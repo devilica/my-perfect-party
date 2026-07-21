@@ -5,6 +5,11 @@ import { ThemePicker } from '@/components/ThemePicker';
 import { Button, TextInputField } from '@/components/ui';
 import { DEFAULT_GUEST_CATEGORIES } from '@/constants/guestCategories';
 import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
+import {
+  formatIsoDateTime,
+  hasEventTime,
+  parseIsoDateTime,
+} from '@/lib/dateUtils';
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -38,6 +43,8 @@ export default function AddEventModal() {
   const [guestCategories, setGuestCategories] = useState<string[]>([...DEFAULT_GUEST_CATEGORIES]);
   const [guestSides, setGuestSides] = useState<string[]>([]);
   const [nameError, setNameError] = useState('');
+  const [dateError, setDateError] = useState('');
+  const [locationError, setLocationError] = useState('');
 
   const previewTheme = getCelebrationTheme(theme);
 
@@ -53,15 +60,33 @@ export default function AddEventModal() {
   }, [existingEvent]);
 
   const handleSave = () => {
+    let hasError = false;
+
     if (name.trim().length < 2) {
       setNameError(t('events.nameRequired'));
-      return;
+      hasError = true;
     }
+
+    const parsedDate = parseIsoDateTime(date.trim());
+    if (!parsedDate) {
+      setDateError(t('events.dateTimeRequired'));
+      hasError = true;
+    } else if (!existingEvent && !hasEventTime(date.trim())) {
+      setDateError(t('events.dateTimeRequired'));
+      hasError = true;
+    }
+
+    if (location.trim().length < 2) {
+      setLocationError(t('events.locationRequired'));
+      hasError = true;
+    }
+
+    if (hasError) return;
 
     const payload = {
       name: name.trim(),
-      date: date.trim() || undefined,
-      location: location.trim() || undefined,
+      date: parsedDate ? formatIsoDateTime(parsedDate) : undefined,
+      location: location.trim(),
       theme,
       guestCategories,
       guestSides,
@@ -104,6 +129,30 @@ export default function AddEventModal() {
             placeholder={t('events.namePlaceholder')}
             error={nameError}
           />
+          <DatePickerField
+            label={t('events.dateTime')}
+            value={date || undefined}
+            onChange={(iso) => {
+              setDate(iso ?? '');
+              setDateError('');
+            }}
+            placeholder={t('events.selectDateTime')}
+            clearLabel={t('events.clearDate')}
+            locale={language}
+            error={dateError}
+            mode="datetime"
+            clearable={false}
+          />
+          <TextInputField
+            label={t('events.location')}
+            value={location}
+            onChangeText={(text) => {
+              setLocation(text);
+              setLocationError('');
+            }}
+            placeholder={t('events.locationPlaceholder')}
+            error={locationError}
+          />
           <ThemePicker
             label={t('events.theme')}
             selected={theme}
@@ -123,20 +172,6 @@ export default function AddEventModal() {
             onChange={setGuestSides}
             addLabel={t('events.addGuestSide')}
             placeholder={t('events.guestSidePlaceholder')}
-          />
-          <DatePickerField
-            label={`${t('events.date')} (${t('common.optional')})`}
-            value={date || undefined}
-            onChange={(iso) => setDate(iso ?? '')}
-            placeholder={t('events.selectDate')}
-            clearLabel={t('events.clearDate')}
-            locale={language}
-          />
-          <TextInputField
-            label={`${t('events.location')} (${t('common.optional')})`}
-            value={location}
-            onChangeText={setLocation}
-            placeholder={t('events.locationPlaceholder')}
           />
 
           <View style={styles.actions}>

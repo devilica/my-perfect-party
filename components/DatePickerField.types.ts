@@ -7,4 +7,7 @@ export type DatePickerFieldProps = {
   placeholder?: string;
   clearLabel?: string;
   locale?: Language;
+  error?: string;
+  mode?: 'date' | 'datetime';
+  clearable?: boolean;
 };

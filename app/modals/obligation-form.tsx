@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 
 import { DatePickerField } from '@/components/DatePickerField';
-import { OptionChips } from '@/components/FilterChips';
+import { SelectField } from '@/components/SelectField';
 import {
   getThemedModalScreenOptions,
   ThemedEventModal,
@@ -115,11 +115,11 @@ export default function ObligationFormModal() {
         locale={language}
       />
 
-      <OptionChips<ObligationStatus>
+      <SelectField<ObligationStatus>
         label={t('obligations.statusLabel')}
-        selected={status}
-        onSelect={setStatus}
+        value={status}
         options={statusOptions}
+        onChange={setStatus}
       />
 
       <TextInputField

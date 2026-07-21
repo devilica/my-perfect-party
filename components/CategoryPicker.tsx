@@ -1,11 +1,13 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useMemo } from 'react';
+import { StyleSheet, View } from 'react-native';
 
+import { SelectField } from '@/components/SelectField';
 import { TextInputField } from '@/components/ui';
 import { PREDEFINED_CATEGORIES } from '@/constants/categories';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
 import { ExpenseCategory, PredefinedCategory } from '@/types/models';
-import { colors, radius, spacing, typography } from '@/theme/colors';
+import { spacing } from '@/theme/colors';
 
 type CategoryPickerProps = {
   selected: ExpenseCategory;
@@ -13,6 +15,8 @@ type CategoryPickerProps = {
   onSelect: (category: ExpenseCategory) => void;
   onCustomChange: (value: string) => void;
 };
+
+type CategoryOption = PredefinedCategory | 'other';
 
 export function CategoryPicker({
   selected,
@@ -23,28 +27,38 @@ export function CategoryPicker({
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
 
-  const showCustom =
-    selected === 'other' || !PREDEFINED_CATEGORIES.includes(selected as PredefinedCategory);
+  const selectValue: CategoryOption = useMemo(() => {
+    if (PREDEFINED_CATEGORIES.includes(selected as PredefinedCategory)) {
+      return selected as PredefinedCategory;
+    }
+    return 'other';
+  }, [selected]);
+
+  const options = useMemo(
+    () =>
+      PREDEFINED_CATEGORIES.map((category) => ({
+        value: category as CategoryOption,
+        label: t(`categories.${category}`),
+      })),
+    [t]
+  );
+
+  const showCustom = selectValue === 'other';
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>{t('expenses.category')}</Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.scroll}>
-        {PREDEFINED_CATEGORIES.map((category) => {
-          const active = selected === category;
-          return (
-            <Pressable
-              key={category}
-              onPress={() => onSelect(category)}
-              style={[styles.chip, active && styles.chipActive]}
-            >
-              <Text style={[styles.chipText, active && styles.chipTextActive]}>
-                {t(`categories.${category}`)}
-              </Text>
-            </Pressable>
-          );
-        })}
-      </ScrollView>
+      <SelectField<CategoryOption>
+        label={t('expenses.category')}
+        value={selectValue}
+        options={options}
+        onChange={(category) => {
+          if (category === 'other') {
+            onSelect('other');
+            return;
+          }
+          onSelect(category);
+        }}
+      />
       {showCustom ? (
         <TextInputField
           label={t('expenses.customCategory')}
@@ -63,35 +77,5 @@ export function CategoryPicker({
 const styles = StyleSheet.create({
   container: {
     marginBottom: spacing.sm,
-  },
-  label: {
-    ...typography.caption,
-    color: colors.textSecondary,
-    marginBottom: spacing.xs,
-    fontWeight: '600',
-  },
-  scroll: {
-    marginBottom: spacing.md,
-  },
-  chip: {
-    backgroundColor: colors.surface,
-    borderWidth: 1,
-    borderColor: colors.border,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    borderRadius: radius.full,
-    marginRight: spacing.sm,
-  },
-  chipActive: {
-    backgroundColor: colors.primaryLight,
-    borderColor: colors.primary,
-  },
-  chipText: {
-    ...typography.caption,
-    color: colors.textSecondary,
-  },
-  chipTextActive: {
-    color: colors.primaryDark,
-    fontWeight: '600',
   },
 });

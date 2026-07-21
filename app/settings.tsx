@@ -1,30 +1,146 @@
 import { Ionicons } from '@expo/vector-icons';
-import { Stack, useRouter } from 'expo-router';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Stack } from 'expo-router';
+import { useEffect, useState } from 'react';
+import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { ScreenContainer } from '@/components/ScreenContainer';
-import { Card } from '@/components/ui';
+import { ThemePicker } from '@/components/ThemePicker';
+import { Button, Card, TextInputField } from '@/components/ui';
+import { useBannerClearance } from '@/hooks/useBannerClearance';
+import { validateBackupEmail } from '@/lib/backup';
+import { formatDisplayDateTime } from '@/lib/dateUtils';
 import { useTranslation } from '@/lib/i18n';
+import { restoreBackup } from '@/lib/restoreBackup';
+import { sendBackupEmail } from '@/lib/sendBackupEmail';
 import { useWeddingStore } from '@/store/weddingStore';
 import { Language } from '@/types/models';
-import { colors, radius, spacing, typography } from '@/theme/colors';
+import { useThemeColors } from '@/theme/EventThemeContext';
+import { radius, spacing, typography } from '@/theme/colors';
 
 export default function SettingsScreen() {
-  const router = useRouter();
   const language = useWeddingStore((s) => s.language);
+  const appTheme = useWeddingStore((s) => s.appTheme);
+  const backupEmail = useWeddingStore((s) => s.backupEmail);
+  const lastBackupAt = useWeddingStore((s) => s.lastBackupAt);
   const setLanguage = useWeddingStore((s) => s.setLanguage);
+  const setAppTheme = useWeddingStore((s) => s.setAppTheme);
+  const setBackupEmail = useWeddingStore((s) => s.setBackupEmail);
   const { t } = useTranslation(language);
+  const theme = useThemeColors();
+  const bannerClearance = useBannerClearance();
+
+  const [emailDraft, setEmailDraft] = useState(backupEmail);
+  const [emailError, setEmailError] = useState<string | undefined>();
+  const [syncing, setSyncing] = useState(false);
+  const [importing, setImporting] = useState(false);
+
+  useEffect(() => {
+    setEmailDraft(backupEmail);
+  }, [backupEmail]);
 
   const options: { value: Language; label: string }[] = [
+    { value: 'sr', label: t('settings.languageSr') },
     { value: 'bs', label: t('settings.languageBs') },
+    { value: 'hr', label: t('settings.languageHr') },
     { value: 'en', label: t('settings.languageEn') },
   ];
+
+  const handleSaveEmail = () => {
+    const trimmed = emailDraft.trim();
+    if (trimmed && !validateBackupEmail(trimmed)) {
+      setEmailError(t('settings.backupEmailInvalid'));
+      return;
+    }
+
+    setEmailError(undefined);
+    setBackupEmail(trimmed);
+  };
+
+  const handleSyncNow = async () => {
+    const trimmed = emailDraft.trim();
+    if (!trimmed || !validateBackupEmail(trimmed)) {
+      setEmailError(t('settings.backupEmailInvalid'));
+      return;
+    }
+
+    if (trimmed !== backupEmail) {
+      setBackupEmail(trimmed);
+    }
+
+    setSyncing(true);
+    try {
+      const result = await sendBackupEmail({
+        email: trimmed,
+        subject: t('settings.backupTitle'),
+        body: t('settings.backupDescription'),
+      });
+
+      if (result === 'sent' || result === 'saved') {
+        Alert.alert(t('common.success'), t('settings.backupSyncSuccess'));
+      } else if (result === 'shared') {
+        Alert.alert(t('common.success'), t('settings.backupMailUnavailable'));
+      } else if (result === 'cancelled') {
+        Alert.alert(t('settings.backupSyncCancelled'));
+      } else {
+        Alert.alert(t('common.error'), t('settings.backupSyncFailed'));
+      }
+    } catch {
+      Alert.alert(t('common.error'), t('settings.backupSyncFailed'));
+    } finally {
+      setSyncing(false);
+    }
+  };
+
+  const handleImportBackup = async () => {
+    setImporting(true);
+    try {
+      await restoreBackup({
+        importConfirmTitle: t('settings.backupImportConfirmTitle'),
+        importConfirmMessage: t('settings.backupImportConfirmMessage'),
+        importSuccess: t('settings.backupImportSuccess'),
+        importFailed: t('settings.backupImportFailed'),
+        invalidFile: t('settings.backupInvalidFile'),
+        cancel: t('common.cancel'),
+        confirm: t('common.confirm'),
+      });
+    } finally {
+      setImporting(false);
+    }
+  };
+
+  const lastSyncLabel = lastBackupAt
+    ? formatDisplayDateTime(lastBackupAt, language)
+    : t('settings.backupNeverSynced');
+
+  const canSync = validateBackupEmail(emailDraft.trim());
 
   return (
     <ScreenContainer style={{ paddingTop: spacing.md }}>
       <Stack.Screen options={{ title: t('settings.title') }} />
 
-      <Text style={styles.sectionLabel}>{t('settings.language')}</Text>
+      <ScrollView
+        contentContainerStyle={{ paddingBottom: bannerClearance + spacing.lg }}
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
+      >
+      <Text style={[styles.sectionLabel, { color: theme.textSecondary }]}>
+        {t('settings.appTheme')}
+      </Text>
+      <Card style={styles.themeCard}>
+        <Text style={[styles.themeHint, { color: theme.textSecondary }]}>
+          {t('settings.appThemeHint')}
+        </Text>
+        <ThemePicker
+          label=""
+          selected={appTheme}
+          onSelect={setAppTheme}
+          getLabel={(themeId) => t(`events.themes.${themeId}`)}
+        />
+      </Card>
+
+      <Text style={[styles.sectionLabel, { color: theme.textSecondary }]}>
+        {t('settings.language')}
+      </Text>
       <Card style={styles.languageCard}>
         {options.map((option) => {
           const active = language === option.value;
@@ -32,27 +148,104 @@ export default function SettingsScreen() {
             <Pressable
               key={option.value}
               onPress={() => setLanguage(option.value)}
-              style={[styles.languageOption, active && styles.languageOptionActive]}
+              style={[
+                styles.languageOption,
+                active && { backgroundColor: theme.primaryLight },
+              ]}
             >
-              <Text style={[styles.languageText, active && styles.languageTextActive]}>
+              <Text
+                style={[
+                  styles.languageText,
+                  { color: theme.text },
+                  active && { color: theme.primaryDark, fontWeight: '600' },
+                ]}
+              >
                 {option.label}
               </Text>
               {active ? (
-                <Ionicons name="checkmark-circle" size={22} color={colors.primary} />
+                <Ionicons name="checkmark-circle" size={22} color={theme.primary} />
               ) : null}
             </Pressable>
           );
         })}
       </Card>
 
-      <Text style={styles.sectionLabel}>{t('settings.about')}</Text>
+      <Text style={[styles.sectionLabel, { color: theme.textSecondary }]}>
+        {t('settings.backupTitle')}
+      </Text>
+      <Card style={styles.backupCard}>
+        <Text style={[styles.backupDescription, { color: theme.textSecondary }]}>
+          {t('settings.backupDescription')}
+        </Text>
+
+        <TextInputField
+          label={t('settings.backupEmail')}
+          value={emailDraft}
+          onChangeText={(text) => {
+            setEmailDraft(text);
+            if (emailError) setEmailError(undefined);
+          }}
+          placeholder={t('settings.backupEmailPlaceholder')}
+          keyboardType="email-address"
+          autoCapitalize="none"
+          error={emailError}
+        />
+
+        <Button
+          label={t('common.save')}
+          onPress={handleSaveEmail}
+          variant="secondary"
+          icon="save-outline"
+          style={styles.backupAction}
+        />
+
+        <View style={[styles.lastSyncRow, { backgroundColor: theme.background }]}>
+          <Ionicons name="time-outline" size={18} color={theme.textSecondary} />
+          <View style={styles.lastSyncTextWrap}>
+            <Text style={[styles.lastSyncLabel, { color: theme.textSecondary }]}>
+              {t('settings.backupLastSync')}
+            </Text>
+            <Text style={[styles.lastSyncValue, { color: theme.text }]}>
+              {lastSyncLabel}
+            </Text>
+          </View>
+        </View>
+
+        <Button
+          label={syncing ? t('settings.backupSyncing') : t('settings.backupSyncNow')}
+          onPress={handleSyncNow}
+          icon="cloud-upload-outline"
+          disabled={!canSync || syncing}
+          loading={syncing}
+          style={styles.backupAction}
+        />
+
+        <Button
+          label={t('settings.backupImport')}
+          onPress={handleImportBackup}
+          variant="secondary"
+          icon="cloud-download-outline"
+          disabled={importing}
+          loading={importing}
+          style={styles.backupAction}
+        />
+      </Card>
+
+      <Text style={[styles.sectionLabel, { color: theme.textSecondary }]}>
+        {t('settings.about')}
+      </Text>
       <Card>
-        <Text style={styles.aboutText}>{t('settings.aboutText')}</Text>
-        <View style={styles.storageRow}>
-          <Ionicons name="phone-portrait-outline" size={18} color={colors.primary} />
-          <Text style={styles.storageText}>{t('settings.dataStorage')}</Text>
+        <Text style={[styles.aboutText, { color: theme.textSecondary }]}>
+          {t('settings.aboutText')}
+        </Text>
+        <View style={[styles.storageRow, { backgroundColor: theme.primaryLight }]}>
+          <Ionicons name="phone-portrait-outline" size={18} color={theme.primary} />
+          <Text style={[styles.storageText, { color: theme.primaryDark }]}>
+            {t('settings.dataStorage')}
+          </Text>
         </View>
       </Card>
+      </ScrollView>
     </ScreenContainer>
   );
 }
@@ -60,10 +253,17 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
   sectionLabel: {
     ...typography.caption,
-    color: colors.textSecondary,
     fontWeight: '600',
     marginBottom: spacing.sm,
     marginTop: spacing.md,
+  },
+  themeCard: {
+    gap: spacing.xs,
+  },
+  themeHint: {
+    ...typography.caption,
+    lineHeight: 18,
+    marginBottom: spacing.xs,
   },
   languageCard: {
     padding: spacing.sm,
@@ -77,22 +277,41 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.sm,
     borderRadius: radius.md,
   },
-  languageOptionActive: {
-    backgroundColor: colors.primaryLight,
-  },
   languageText: {
     ...typography.body,
-    color: colors.text,
     flex: 1,
     paddingRight: spacing.sm,
   },
-  languageTextActive: {
-    color: colors.primaryDark,
+  backupCard: {
+    gap: spacing.sm,
+  },
+  backupDescription: {
+    ...typography.body,
+    lineHeight: 22,
+  },
+  backupAction: {
+    marginTop: spacing.xs,
+  },
+  lastSyncRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    padding: spacing.sm,
+    borderRadius: radius.md,
+    marginTop: spacing.xs,
+  },
+  lastSyncTextWrap: {
+    flex: 1,
+  },
+  lastSyncLabel: {
+    ...typography.caption,
+  },
+  lastSyncValue: {
+    ...typography.body,
     fontWeight: '600',
   },
   aboutText: {
     ...typography.body,
-    color: colors.textSecondary,
     lineHeight: 22,
     marginBottom: spacing.md,
   },
@@ -100,13 +319,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.sm,
-    backgroundColor: colors.primaryLight,
     padding: spacing.sm,
     borderRadius: radius.md,
   },
   storageText: {
     ...typography.caption,
-    color: colors.primaryDark,
     flex: 1,
   },
 });

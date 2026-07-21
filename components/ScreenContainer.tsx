@@ -1,7 +1,9 @@
+import { LinearGradient } from 'expo-linear-gradient';
 import { ReactNode } from 'react';
-import { Platform, StyleSheet, View, ViewStyle } from 'react-native';
+import { ImageBackground, Platform, StyleSheet, View, ViewStyle } from 'react-native';
 
-import { colors, radius, spacing } from '@/theme/colors';
+import { useActiveTheme } from '@/theme/EventThemeContext';
+import { colors, spacing } from '@/theme/colors';
 
 type ScreenContainerProps = {
   children: ReactNode;
@@ -10,17 +12,46 @@ type ScreenContainerProps = {
 };
 
 export function ScreenContainer({ children, style, padded = true }: ScreenContainerProps) {
+  const activeTheme = useActiveTheme();
+
+  if (!activeTheme) {
+    return (
+      <View style={[styles.outer, styles.defaultBackground, padded && styles.padded, style]}>
+        <View style={styles.inner}>{children}</View>
+      </View>
+    );
+  }
+
   return (
-    <View style={[styles.outer, padded && styles.padded, style]}>
-      <View style={styles.inner}>{children}</View>
-    </View>
+    <ImageBackground
+      source={activeTheme.backgroundImage}
+      style={[styles.outer, style]}
+      imageStyle={styles.backgroundImage}
+      resizeMode="cover"
+    >
+      <LinearGradient colors={activeTheme.overlayColors} style={StyleSheet.absoluteFillObject} />
+      <View style={[styles.content, padded && styles.padded]}>
+        <View style={styles.inner}>{children}</View>
+      </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   outer: {
     flex: 1,
+  },
+  defaultBackground: {
     backgroundColor: colors.background,
+  },
+  backgroundImage: {
+    ...Platform.select({
+      web: { objectFit: 'cover' as const },
+      default: {},
+    }),
+  },
+  content: {
+    flex: 1,
   },
   padded: {
     paddingHorizontal: spacing.md,

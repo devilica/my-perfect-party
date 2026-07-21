@@ -10,7 +10,7 @@ export type PredefinedCategory =
 
 export type ExpenseCategory = PredefinedCategory | string;
 
-export type Language = 'bs' | 'en';
+export type Language = 'sr' | 'bs' | 'hr' | 'en';
 
 export type CelebrationThemeId =
   | 'wedding'
@@ -20,7 +20,8 @@ export type CelebrationThemeId =
   | 'christmas'
   | 'graduation'
   | 'anniversary'
-  | 'engagement';
+  | 'engagement'
+  | 'other';
 
 export type WeddingEvent = {
   id: string;
@@ -76,10 +77,13 @@ export type GuestStats = {
   totalPeople: number;
   confirmedPeople: number;
   pendingPeople: number;
+  needsInvitePeople: number;
+  invitationSentPeople: number;
   declinedPeople: number;
   assignedPeople: number;
   unassignedPeople: number;
   confirmationRate: number;
+  attendanceChartTotal: number;
 };
 
 export type SeatingStats = {

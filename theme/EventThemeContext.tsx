@@ -4,7 +4,7 @@ import { getCelebrationTheme, ThemePalette } from '@/theme/celebrations';
 import { colors as globalColors } from '@/theme/colors';
 import { CelebrationThemeId } from '@/types/models';
 
-type EventThemeContextValue = {
+export type ThemeContextValue = {
   themeId: CelebrationThemeId;
   colors: ThemePalette;
   backgroundImage: ReturnType<typeof getCelebrationTheme>['backgroundImage'];
@@ -12,7 +12,19 @@ type EventThemeContextValue = {
   icon: ReturnType<typeof getCelebrationTheme>['icon'];
 };
 
-const EventThemeContext = createContext<EventThemeContextValue | null>(null);
+const EventThemeContext = createContext<ThemeContextValue | null>(null);
+const AppThemeContext = createContext<ThemeContextValue | null>(null);
+
+function buildThemeValue(themeId: CelebrationThemeId): ThemeContextValue {
+  const theme = getCelebrationTheme(themeId);
+  return {
+    themeId: theme.id,
+    colors: theme.colors,
+    backgroundImage: theme.backgroundImage,
+    overlayColors: theme.overlayColors,
+    icon: theme.icon,
+  };
+}
 
 export function EventThemeProvider({
   themeId,
@@ -21,27 +33,39 @@ export function EventThemeProvider({
   themeId: CelebrationThemeId;
   children: ReactNode;
 }) {
-  const value = useMemo(() => {
-    const theme = getCelebrationTheme(themeId);
-    return {
-      themeId: theme.id,
-      colors: theme.colors,
-      backgroundImage: theme.backgroundImage,
-      overlayColors: theme.overlayColors,
-      icon: theme.icon,
-    };
-  }, [themeId]);
+  const value = useMemo(() => buildThemeValue(themeId), [themeId]);
 
   return (
     <EventThemeContext.Provider value={value}>{children}</EventThemeContext.Provider>
   );
 }
 
-export function useEventTheme(): EventThemeContextValue | null {
+export function AppThemeProvider({
+  themeId,
+  children,
+}: {
+  themeId: CelebrationThemeId;
+  children: ReactNode;
+}) {
+  const value = useMemo(() => buildThemeValue(themeId), [themeId]);
+
+  return <AppThemeContext.Provider value={value}>{children}</AppThemeContext.Provider>;
+}
+
+export function useEventTheme(): ThemeContextValue | null {
   return useContext(EventThemeContext);
+}
+
+export function useAppTheme(): ThemeContextValue | null {
+  return useContext(AppThemeContext);
+}
+
+export function useActiveTheme(): ThemeContextValue | null {
+  return useEventTheme() ?? useAppTheme();
 }
 
 export function useThemeColors(): ThemePalette {
   const eventTheme = useEventTheme();
-  return eventTheme?.colors ?? globalColors;
+  const appTheme = useAppTheme();
+  return eventTheme?.colors ?? appTheme?.colors ?? globalColors;
 }

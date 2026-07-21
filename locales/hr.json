@@ -1,6 +1,6 @@
 {
   "common": {
-    "save": "Sačuvaj",
+    "save": "Spremi",
     "cancel": "Otkaži",
     "delete": "Obriši",
     "edit": "Uredi",
@@ -34,9 +34,9 @@
     "namePlaceholder": "npr. Proslava Ana & Marko",
     "date": "Datum",
     "dateTime": "Datum i vrijeme",
-    "datePlaceholder": "Izaberi datum",
-    "selectDate": "Izaberi datum",
-    "selectDateTime": "Izaberi datum i vrijeme",
+    "datePlaceholder": "Odaberi datum",
+    "selectDate": "Odaberi datum",
+    "selectDateTime": "Odaberi datum i vrijeme",
     "clearDate": "Ukloni datum",
     "location": "Lokacija",
     "locationPlaceholder": "npr. Restoran MG",
@@ -50,7 +50,7 @@
     "theme": "Tema proslave",
     "guestCategories": "Kategorije gostiju",
     "addGuestCategory": "Dodaj kategoriju",
-    "guestCategoryPlaceholder": "npr. Porodica, Prijatelji, Komšije",
+    "guestCategoryPlaceholder": "npr. Porodica, Prijatelji, Susjedi",
     "guestSides": "Strane gostiju",
     "addGuestSide": "Dodaj stranu",
     "guestSidePlaceholder": "npr. Strana mlade",
@@ -127,7 +127,7 @@
     "phonePlaceholder": "npr. 066 123 456",
     "category": "Kategorija",
     "addCategory": "Dodaj kategoriju",
-    "customCategoryPlaceholder": "npr. Komšije",
+    "customCategoryPlaceholder": "npr. Susjedi",
     "addSide": "Dodaj stranu",
     "customSidePlaceholder": "npr. Strana mlade",
     "side": "Strana",
@@ -137,7 +137,7 @@
     "assignTable": "Dodijeli sto",
     "noTable": "Bez stola",
     "noTablesHintTitle": "Nema stolova",
-    "noTablesHintMessage": "Još nema stolova za ovaj događaj. Dodaj stolove u tabu Raspored, pa se ovdje mogu dodijeliti gostima.",
+    "noTablesHintMessage": "Još nema stolova za ovaj događaj. Dodaj stolove u kartici Raspored sjedenja, pa se ovdje mogu dodijeliti gostima.",
     "note": "Napomena",
     "notePlaceholder": "npr. Vegetarijanac",
     "confirmed": "Potvrđeno",
@@ -165,7 +165,7 @@
     },
     "sides": {
       "bride": "Strana mlade",
-      "groom": "Strana mladoženja",
+      "groom": "Strana zaručnika",
       "shared": "Zajedničko"
     }
   },
@@ -180,7 +180,7 @@
     "bulkPreview": "Kreirati {{count}} stolova",
     "tableName": "Naziv stola",
     "tableNamePlaceholder": "npr. Stol 1",
-    "defaultTableName": "Sto {{number}}",
+    "defaultTableName": "Stol {{number}}",
     "capacity": "Kapacitet",
     "capacityPlaceholder": "npr. 10",
     "count": "Broj stolova",
@@ -195,7 +195,7 @@
     "noGuestsAtTable": "Nema dodijeljenih gostiju",
     "assignGuest": "Dodijeli gosta",
     "assignGuestTitle": "Dodjela stola",
-    "selectTable": "Izaberi sto",
+    "selectTable": "Odaberi sto",
     "unassign": "Ukloni sa stola",
     "capacityError": "Sto nema dovoljno slobodnih mjesta.",
     "nameRequired": "Naziv stola je obavezan.",
@@ -327,7 +327,7 @@
   "charts": {
     "byCategory": "Po kategorijama",
     "topCategories": "Najveći troškovi",
-    "empty": "Dodaj troškove da vidiš grafikon",
+    "empty": "Dodaj troškove da vidiš graf",
     "total": "Ukupno: {{amount}}"
   },
   "settings": {
@@ -349,7 +349,7 @@
     "backupEmailInvalid": "Unesi ispravnu email adresu.",
     "backupLastSync": "Zadnja sinhronizacija",
     "backupNeverSynced": "Nikad sinhronizovano",
-    "backupSyncNow": "Sinhronizuj sada",
+    "backupSyncNow": "Sinkroniziraj sada",
     "backupImport": "Uvezi backup",
     "backupSyncing": "Priprema backupa...",
     "backupSyncSuccess": "Backup je spreman i poslan.",
