@@ -1,7 +1,7 @@
-import { isNativeAdsSupported } from '@/lib/adsEnvironment';
+import { areAdsEnabled } from '@/lib/adsEnvironment';
 
 export function BottomBannerAd() {
-  if (!isNativeAdsSupported()) return null;
+  if (!areAdsEnabled()) return null;
 
   const { BottomBannerAdImpl } = require('./BottomBannerAdImpl') as typeof import('./BottomBannerAdImpl');
   return <BottomBannerAdImpl />;

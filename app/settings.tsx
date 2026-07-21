@@ -10,20 +10,23 @@ import { useBannerClearance } from '@/hooks/useBannerClearance';
 import { validateBackupEmail } from '@/lib/backup';
 import { formatDisplayDateTime } from '@/lib/dateUtils';
 import { useTranslation } from '@/lib/i18n';
+import { preloadRewardedThemeAd, showRewardedThemeAd } from '@/lib/rewardedThemeAd';
 import { restoreBackup } from '@/lib/restoreBackup';
 import { sendBackupEmail } from '@/lib/sendBackupEmail';
 import { useWeddingStore } from '@/store/weddingStore';
-import { Language } from '@/types/models';
+import { CelebrationThemeId, Language } from '@/types/models';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
 
 export default function SettingsScreen() {
   const language = useWeddingStore((s) => s.language);
   const appTheme = useWeddingStore((s) => s.appTheme);
+  const unlockedAppThemes = useWeddingStore((s) => s.unlockedAppThemes);
   const backupEmail = useWeddingStore((s) => s.backupEmail);
   const lastBackupAt = useWeddingStore((s) => s.lastBackupAt);
   const setLanguage = useWeddingStore((s) => s.setLanguage);
   const setAppTheme = useWeddingStore((s) => s.setAppTheme);
+  const unlockAppTheme = useWeddingStore((s) => s.unlockAppTheme);
   const setBackupEmail = useWeddingStore((s) => s.setBackupEmail);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
@@ -33,10 +36,34 @@ export default function SettingsScreen() {
   const [emailError, setEmailError] = useState<string | undefined>();
   const [syncing, setSyncing] = useState(false);
   const [importing, setImporting] = useState(false);
+  const [themeAdLoading, setThemeAdLoading] = useState(false);
 
+  useEffect(() => {
+    preloadRewardedThemeAd();
+  }, []);
   useEffect(() => {
     setEmailDraft(backupEmail);
   }, [backupEmail]);
+
+  const handleUnlockTheme = async (themeId: CelebrationThemeId) => {
+    if (themeAdLoading || unlockedAppThemes.includes(themeId)) return;
+
+    setThemeAdLoading(true);
+    try {
+      const result = await showRewardedThemeAd();
+
+      if (result === 'rewarded') {
+        unlockAppTheme(themeId);
+        setAppTheme(themeId);
+        Alert.alert(t('common.success'), t('settings.themeUnlocked'));
+        preloadRewardedThemeAd();
+      } else if (result === 'unavailable' || result === 'failed') {
+        Alert.alert(t('common.error'), t('settings.themeAdUnavailable'));
+      }
+    } finally {
+      setThemeAdLoading(false);
+    }
+  };
 
   const options: { value: Language; label: string }[] = [
     { value: 'sr', label: t('settings.languageSr') },
@@ -128,12 +155,15 @@ export default function SettingsScreen() {
       </Text>
       <Card style={styles.themeCard}>
         <Text style={[styles.themeHint, { color: theme.textSecondary }]}>
-          {t('settings.appThemeHint')}
+          {t('settings.appThemeHint')} {t('settings.themeUnlockHint')}
         </Text>
         <ThemePicker
           label=""
+          mode="unlockable"
+          unlockedThemes={unlockedAppThemes}
           selected={appTheme}
           onSelect={setAppTheme}
+          onLockedThemePress={handleUnlockTheme}
           getLabel={(themeId) => t(`events.themes.${themeId}`)}
         />
       </Card>

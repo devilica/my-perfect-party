@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { BottomBannerAd } from '@/components/BottomBannerAd';
 import { BannerLayoutProvider } from '@/hooks/BannerLayoutContext';
 import { useIsOnline } from '@/hooks/useIsOnline';
-import { isNativeAdsSupported } from '@/lib/adsEnvironment';
+import { areAdsEnabled } from '@/lib/adsEnvironment';
 
 type AppShellProps = {
   children: ReactNode;
@@ -13,7 +13,7 @@ type AppShellProps = {
 
 export function AppShell({ children, showBanner = true }: AppShellProps) {
   const isOnline = useIsOnline();
-  const bannerVisible = showBanner && isOnline && isNativeAdsSupported();
+  const bannerVisible = showBanner && isOnline && areAdsEnabled();
 
   return (
     <BannerLayoutProvider>

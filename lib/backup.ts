@@ -11,6 +11,7 @@ export type BackupData = {
   obligations: unknown[];
   language: Language;
   appTheme?: CelebrationThemeId;
+  unlockedAppThemes?: CelebrationThemeId[];
 };
 
 export type AppBackup = {
@@ -46,6 +47,7 @@ export function createBackupPayload(data: BackupData): AppBackup {
       obligations: data.obligations,
       language: data.language,
       ...(data.appTheme ? { appTheme: data.appTheme } : {}),
+      ...(data.unlockedAppThemes ? { unlockedAppThemes: data.unlockedAppThemes } : {}),
     },
   };
 }

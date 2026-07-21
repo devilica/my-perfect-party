@@ -1,7 +1,7 @@
-import { isNativeAdsSupported } from '@/lib/adsEnvironment';
+import { areAdsEnabled } from '@/lib/adsEnvironment';
 
 export function initMobileAds() {
-  if (!isNativeAdsSupported()) return Promise.resolve();
+  if (!areAdsEnabled()) return Promise.resolve();
 
   const mobileAds = require('react-native-google-mobile-ads').default;
   return mobileAds()

@@ -73,6 +73,7 @@ type PersistedState = {
   language?: Language;
   localeVersion?: number;
   appTheme?: CelebrationThemeId;
+  unlockedAppThemes?: CelebrationThemeId[];
   backupEmail?: string;
   lastBackupAt?: string;
 };
@@ -143,6 +144,47 @@ function normalizeAppTheme(value: unknown): CelebrationThemeId {
   return 'wedding';
 }
 
+const DEFAULT_UNLOCKED_APP_THEMES: CelebrationThemeId[] = ['wedding'];
+
+const VALID_THEME_IDS: CelebrationThemeId[] = [
+  'wedding',
+  'birthday',
+  'baptism',
+  'newYear',
+  'christmas',
+  'graduation',
+  'anniversary',
+  'engagement',
+  'other',
+];
+
+function normalizeUnlockedAppThemes(
+  saved: unknown,
+  appTheme: CelebrationThemeId
+): CelebrationThemeId[] {
+  let themes = DEFAULT_UNLOCKED_APP_THEMES;
+
+  if (Array.isArray(saved)) {
+    const filtered = saved.filter(
+      (id): id is CelebrationThemeId =>
+        typeof id === 'string' && VALID_THEME_IDS.includes(id as CelebrationThemeId)
+    );
+    if (filtered.length > 0) {
+      themes = filtered;
+    }
+  }
+
+  if (!themes.includes('wedding')) {
+    themes = ['wedding', ...themes];
+  }
+
+  if (!themes.includes(appTheme)) {
+    themes = [...themes, appTheme];
+  }
+
+  return themes;
+}
+
 function normalizeImportedState(data: BackupData): {
   events: WeddingEvent[];
   guests: Guest[];
@@ -151,12 +193,15 @@ function normalizeImportedState(data: BackupData): {
   obligations: Obligation[];
   language: Language;
   appTheme: CelebrationThemeId;
+  unlockedAppThemes: CelebrationThemeId[];
 } {
   const saved = data as PersistedState;
+  const appTheme = normalizeAppTheme(saved.appTheme);
 
   return {
     language: saved.language ?? getDefaultLanguage(),
-    appTheme: normalizeAppTheme(saved.appTheme),
+    appTheme,
+    unlockedAppThemes: normalizeUnlockedAppThemes(saved.unlockedAppThemes, appTheme),
     events: (saved.events ?? []).map((event) => ({
       ...event,
       theme: (event.theme ?? 'wedding') as CelebrationThemeId,
@@ -189,12 +234,15 @@ type WeddingState = {
   obligations: Obligation[];
   language: Language;
   appTheme: CelebrationThemeId;
+  unlockedAppThemes: CelebrationThemeId[];
   backupEmail: string;
   lastBackupAt?: string;
   _hasHydrated: boolean;
   setHasHydrated: (value: boolean) => void;
   setLanguage: (language: Language) => void;
   setAppTheme: (themeId: CelebrationThemeId) => void;
+  unlockAppTheme: (themeId: CelebrationThemeId) => void;
+  isAppThemeUnlocked: (themeId: CelebrationThemeId) => boolean;
   setBackupEmail: (email: string) => void;
   markBackupCompleted: () => void;
   exportBackupData: () => BackupData;
@@ -250,6 +298,7 @@ export const useWeddingStore = create<WeddingState>()(
       obligations: [],
       language: getDefaultLanguage(),
       appTheme: 'wedding' as CelebrationThemeId,
+      unlockedAppThemes: [...DEFAULT_UNLOCKED_APP_THEMES],
       backupEmail: '',
       lastBackupAt: undefined,
       _hasHydrated: false,
@@ -258,6 +307,15 @@ export const useWeddingStore = create<WeddingState>()(
       setLanguage: (language) => set({ language }),
 
       setAppTheme: (appTheme) => set({ appTheme }),
+
+      unlockAppTheme: (themeId) => {
+        set((state) => {
+          if (state.unlockedAppThemes.includes(themeId)) return state;
+          return { unlockedAppThemes: [...state.unlockedAppThemes, themeId] };
+        });
+      },
+
+      isAppThemeUnlocked: (themeId) => get().unlockedAppThemes.includes(themeId),
 
       setBackupEmail: (email) => set({ backupEmail: email.trim() }),
 
@@ -273,6 +331,7 @@ export const useWeddingStore = create<WeddingState>()(
           obligations: state.obligations,
           language: state.language,
           appTheme: state.appTheme,
+          unlockedAppThemes: state.unlockedAppThemes,
         };
       },
 
@@ -647,6 +706,7 @@ export const useWeddingStore = create<WeddingState>()(
         language: state.language,
         localeVersion: LOCALE_VERSION,
         appTheme: state.appTheme,
+        unlockedAppThemes: state.unlockedAppThemes,
         backupEmail: state.backupEmail,
         lastBackupAt: state.lastBackupAt,
       }),
@@ -662,6 +722,10 @@ export const useWeddingStore = create<WeddingState>()(
           ...normalized,
           language: normalizePersistedLanguage(saved),
           appTheme: normalizeAppTheme(saved.appTheme),
+          unlockedAppThemes: normalizeUnlockedAppThemes(
+            saved.unlockedAppThemes,
+            normalizeAppTheme(saved.appTheme)
+          ),
           backupEmail: saved.backupEmail ?? current.backupEmail ?? '',
           lastBackupAt: saved.lastBackupAt ?? current.lastBackupAt,
         };

@@ -1,10 +1,13 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Tabs, useRouter } from 'expo-router';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Alert, Pressable, View } from 'react-native';
 
 import { useBannerHeight } from '@/hooks/BannerLayoutContext';
+import { useIsOnline } from '@/hooks/useIsOnline';
+import { areAdsEnabled } from '@/lib/adsEnvironment';
 import { useTranslation } from '@/lib/i18n';
+import { preloadRewardedThemeAd, showRewardedThemeAd } from '@/lib/rewardedThemeAd';
 import { useEventId } from '@/lib/useEventId';
 import { useWeddingStore } from '@/store/weddingStore';
 import { getCelebrationTheme } from '@/theme/celebrations';
@@ -18,6 +21,8 @@ export default function EventLayout() {
   const deleteEvent = useWeddingStore((s) => s.deleteEvent);
   const { t } = useTranslation(language);
   const bannerHeight = useBannerHeight();
+  const isOnline = useIsOnline();
+  const [deleteAdLoading, setDeleteAdLoading] = useState(false);
 
   const event = useMemo(
     () => events.find((item) => item.id === (id ?? '')),
@@ -35,16 +40,45 @@ export default function EventLayout() {
     }
   }, [event, id, router]);
 
+  useEffect(() => {
+    if (areAdsEnabled() && isOnline) {
+      preloadRewardedThemeAd();
+    }
+  }, [isOnline]);
+
   const handleDelete = () => {
+    if (deleteAdLoading) return;
+
     Alert.alert(t('events.delete'), t('events.deleteConfirm'), [
       { text: t('common.cancel'), style: 'cancel' },
       {
         text: t('common.delete'),
         style: 'destructive',
-        onPress: () => {
-          if (id) {
+        onPress: async () => {
+          if (!id) return;
+
+          const performDelete = () => {
             deleteEvent(id);
             router.replace('/');
+          };
+
+          if (!areAdsEnabled() || !isOnline) {
+            performDelete();
+            return;
+          }
+
+          setDeleteAdLoading(true);
+          try {
+            const result = await showRewardedThemeAd();
+
+            if (result === 'rewarded') {
+              performDelete();
+              preloadRewardedThemeAd();
+            } else if (result === 'unavailable' || result === 'failed') {
+              Alert.alert(t('common.error'), t('events.deleteAdUnavailable'));
+            }
+          } finally {
+            setDeleteAdLoading(false);
           }
         },
       },
@@ -78,7 +112,7 @@ export default function EventLayout() {
               >
                 <Ionicons name="pencil-outline" size={22} color={theme.colors.primary} />
               </Pressable>
-              <Pressable onPress={handleDelete} hitSlop={8}>
+              <Pressable onPress={handleDelete} hitSlop={8} disabled={deleteAdLoading}>
                 <Ionicons name="trash-outline" size={22} color={theme.colors.danger} />
               </Pressable>
             </View>

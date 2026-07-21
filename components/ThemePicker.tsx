@@ -11,10 +11,26 @@ type ThemePickerProps = {
   selected: CelebrationThemeId;
   onSelect: (themeId: CelebrationThemeId) => void;
   getLabel: (themeId: CelebrationThemeId) => string;
+  mode?: 'free' | 'unlockable';
+  unlockedThemes?: CelebrationThemeId[];
+  onLockedThemePress?: (themeId: CelebrationThemeId) => void;
 };
 
-export function ThemePicker({ label, selected, onSelect, getLabel }: ThemePickerProps) {
+export function ThemePicker({
+  label,
+  selected,
+  onSelect,
+  getLabel,
+  mode = 'free',
+  unlockedThemes,
+  onLockedThemePress,
+}: ThemePickerProps) {
   const theme = useThemeColors();
+
+  const isUnlocked = (themeId: CelebrationThemeId) => {
+    if (mode !== 'unlockable') return true;
+    return unlockedThemes?.includes(themeId) ?? false;
+  };
 
   return (
     <View style={[styles.wrap, !label && styles.wrapCompact]}>
@@ -29,15 +45,23 @@ export function ThemePicker({ label, selected, onSelect, getLabel }: ThemePicker
         {CELEBRATION_THEME_IDS.map((themeId) => {
           const celebrationTheme = getCelebrationTheme(themeId);
           const active = selected === themeId;
+          const unlocked = isUnlocked(themeId);
 
           return (
             <Pressable
               key={themeId}
-              onPress={() => onSelect(themeId)}
+              onPress={() => {
+                if (unlocked) {
+                  onSelect(themeId);
+                } else {
+                  onLockedThemePress?.(themeId);
+                }
+              }}
               style={[
                 styles.card,
                 { borderColor: theme.border, backgroundColor: theme.surface },
-                active && { borderColor: theme.primary },
+                active && unlocked && { borderColor: theme.primary },
+                !unlocked && styles.cardLocked,
               ]}
             >
               <ImageBackground
@@ -45,15 +69,25 @@ export function ThemePicker({ label, selected, onSelect, getLabel }: ThemePicker
                 style={styles.preview}
                 imageStyle={styles.previewImage}
               >
-                <View style={styles.previewOverlay}>
-                  <Ionicons name={celebrationTheme.icon} size={22} color="#FFFFFF" />
+                <View
+                  style={[
+                    styles.previewOverlay,
+                    !unlocked && styles.previewOverlayLocked,
+                  ]}
+                >
+                  {unlocked ? (
+                    <Ionicons name={celebrationTheme.icon} size={22} color="#FFFFFF" />
+                  ) : (
+                    <Ionicons name="lock-closed" size={22} color="#FFFFFF" />
+                  )}
                 </View>
               </ImageBackground>
               <Text
                 style={[
                   styles.cardLabel,
                   { color: theme.textSecondary },
-                  active && { color: theme.primaryDark },
+                  active && unlocked && { color: theme.primaryDark },
+                  !unlocked && { color: theme.textMuted },
                 ]}
               >
                 {getLabel(themeId)}
@@ -88,6 +122,9 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     overflow: 'hidden',
   },
+  cardLocked: {
+    opacity: 0.85,
+  },
   preview: {
     height: 72,
     justifyContent: 'center',
@@ -102,6 +139,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.25)',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  previewOverlayLocked: {
+    backgroundColor: 'rgba(0,0,0,0.45)',
   },
   cardLabel: {
     ...typography.small,
