@@ -7,6 +7,7 @@
     "android": "expo start --android --offline",
     "ios": "expo start --ios --offline",
     "web": "expo start --web --offline",
+    "build:web": "expo export -p web",
     "build:apk": "eas build -p android --profile preview",
     "build:apk:prod": "eas build -p android --profile production"
   },
