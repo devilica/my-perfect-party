@@ -4,6 +4,11 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 
 import { DatePickerField } from '@/components/DatePickerField';
 import { OptionChips } from '@/components/FilterChips';
+import {
+  getThemedModalScreenOptions,
+  ThemedEventModal,
+  useEventCelebrationTheme,
+} from '@/components/ThemedEventModal';
 import { Button, TextInputField } from '@/components/ui';
 import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
 import { useTranslation } from '@/lib/i18n';
@@ -23,6 +28,7 @@ export default function ObligationFormModal() {
   const updateObligation = useWeddingStore((s) => s.updateObligation);
   const { t } = useTranslation(language);
   const modalScrollPadding = useModalScrollPadding();
+  const celebrationTheme = useEventCelebrationTheme(eventId ?? '');
 
   const existingObligation = useMemo(
     () => (obligationId ? obligations.find((o) => o.id === obligationId) : undefined),
@@ -77,15 +83,17 @@ export default function ObligationFormModal() {
   };
 
   return (
-    <ScrollView
-      contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
-      keyboardShouldPersistTaps="handled"
-    >
-      <Stack.Screen
-        options={{
-          title: existingObligation ? t('obligations.edit') : t('obligations.add'),
-        }}
-      />
+    <ThemedEventModal eventId={eventId ?? ''}>
+      <ScrollView
+        contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
+        keyboardShouldPersistTaps="handled"
+      >
+        <Stack.Screen
+          options={getThemedModalScreenOptions(
+            celebrationTheme,
+            existingObligation ? t('obligations.edit') : t('obligations.add')
+          )}
+        />
 
       <TextInputField
         label={t('obligations.titleLabel')}
@@ -133,7 +141,8 @@ export default function ObligationFormModal() {
         <Button label={t('common.save')} onPress={handleSave} />
         <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
       </View>
-    </ScrollView>
+      </ScrollView>
+    </ThemedEventModal>
   );
 }
 

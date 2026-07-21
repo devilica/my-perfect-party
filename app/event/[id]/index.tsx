@@ -1,8 +1,8 @@
 import { useRouter } from 'expo-router';
 import { useMemo } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+
 import { Ionicons } from '@expo/vector-icons';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { Button, Card, ProgressBar, StatCard } from '@/components/ui';
@@ -21,7 +21,6 @@ import { spacing, typography } from '@/theme/colors';
 export default function EventOverviewScreen() {
   const eventId = useEventId();
   const router = useRouter();
-  const insets = useSafeAreaInsets();
   const language = useWeddingStore((s) => s.language);
   const events = useWeddingStore((s) => s.events);
   const guests = useWeddingStore((s) => s.guests);
@@ -55,7 +54,7 @@ export default function EventOverviewScreen() {
   return (
     <ThemedScreenContainer>
       <ScrollView
-        contentContainerStyle={{ paddingBottom: insets.bottom + spacing.xl + bannerClearance }}
+        contentContainerStyle={{ paddingBottom: spacing.xl + bannerClearance }}
         showsVerticalScrollIndicator={false}
       >
         <Card style={styles.hero}>

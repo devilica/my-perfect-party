@@ -22,7 +22,6 @@ export default function GuestsScreen() {
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState<GuestFilter>('all');
   const language = useWeddingStore((s) => s.language);
-  const event = useWeddingStore((s) => s.events.find((e) => e.id === eventId));
   const allGuests = useWeddingStore((s) => s.guests);
   const allTables = useWeddingStore((s) => s.tables);
   const deleteGuest = useWeddingStore((s) => s.deleteGuest);
@@ -38,11 +37,6 @@ export default function GuestsScreen() {
   const filteredGuests = useMemo(
     () => filterGuests(allGuests, eventId, filter, search),
     [allGuests, eventId, filter, search]
-  );
-
-  const categoryFilters = useMemo(
-    () => event?.guestCategories ?? [],
-    [event?.guestCategories]
   );
 
   const handleDelete = (guestId: string) => {
@@ -72,11 +66,7 @@ export default function GuestsScreen() {
           },
         ]}
       />
-      <GuestFilterBar
-        categories={categoryFilters}
-        selected={filter}
-        onSelect={setFilter}
-      />
+      <GuestFilterBar selected={filter} onSelect={setFilter} />
     </View>
   );
 

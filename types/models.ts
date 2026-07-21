@@ -66,10 +66,10 @@ export type TableOccupancy = 'available' | 'almostFull' | 'full';
 
 export type GuestFilter =
   | 'all'
+  | 'invitation_sent'
   | 'confirmed'
-  | 'unconfirmed'
-  | 'unassigned'
-  | `category:${string}`;
+  | 'declined'
+  | 'unassigned';
 
 export type GuestStats = {
   totalInvites: number;

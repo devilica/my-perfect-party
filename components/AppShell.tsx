@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { BottomBannerAd } from '@/components/BottomBannerAd';
+import { BannerLayoutProvider } from '@/hooks/BannerLayoutContext';
 import { useIsOnline } from '@/hooks/useIsOnline';
 import { isNativeAdsSupported } from '@/lib/adsEnvironment';
 
@@ -15,10 +16,16 @@ export function AppShell({ children, showBanner = true }: AppShellProps) {
   const bannerVisible = showBanner && isOnline && isNativeAdsSupported();
 
   return (
-    <View style={styles.root}>
-      <View style={styles.content}>{children}</View>
-      {bannerVisible ? <BottomBannerAd /> : null}
-    </View>
+    <BannerLayoutProvider>
+      <View style={styles.root}>
+        {children}
+        {bannerVisible ? (
+          <View style={styles.bannerOverlay} pointerEvents="box-none">
+            <BottomBannerAd />
+          </View>
+        ) : null}
+      </View>
+    </BannerLayoutProvider>
   );
 }
 
@@ -26,7 +33,7 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
-  content: {
-    flex: 1,
+  bannerOverlay: {
+    ...StyleSheet.absoluteFillObject,
   },
 });

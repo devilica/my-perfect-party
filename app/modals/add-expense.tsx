@@ -3,13 +3,18 @@ import { useState } from 'react';
 import { ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
 
 import { CategoryPicker } from '@/components/CategoryPicker';
+import {
+  getThemedModalScreenOptions,
+  ThemedEventModal,
+  useEventCelebrationTheme,
+} from '@/components/ThemedEventModal';
 import { Button, TextInputField } from '@/components/ui';
 import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
 import { useWeddingStore } from '@/store/weddingStore';
 import { ExpenseCategory } from '@/types/models';
-import { colors, spacing, typography } from '@/theme/colors';
+import { spacing, typography } from '@/theme/colors';
 
 export default function AddExpenseModal() {
   const router = useRouter();
@@ -18,6 +23,8 @@ export default function AddExpenseModal() {
   const language = useWeddingStore((s) => s.language);
   const addExpense = useWeddingStore((s) => s.addExpense);
   const { t } = useTranslation(language);
+  const celebrationTheme = useEventCelebrationTheme(eventId ?? '');
+  const theme = celebrationTheme.colors;
   const modalScrollPadding = useModalScrollPadding();
 
   const [title, setTitle] = useState('');
@@ -67,11 +74,14 @@ export default function AddExpenseModal() {
   };
 
   return (
-    <ScrollView
-      contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
-      keyboardShouldPersistTaps="handled"
-    >
-      <Stack.Screen options={{ title: t('expenses.add') }} />
+    <ThemedEventModal eventId={eventId ?? ''}>
+      <ScrollView
+        contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
+        keyboardShouldPersistTaps="handled"
+      >
+        <Stack.Screen
+          options={getThemedModalScreenOptions(celebrationTheme, t('expenses.add'))}
+        />
 
       <TextInputField
         label={t('expenses.expenseTitle')}
@@ -103,12 +113,12 @@ export default function AddExpenseModal() {
       />
 
       <View style={styles.switchRow}>
-        <Text style={styles.switchLabel}>{t('expenses.coveredByOther')}</Text>
+        <Text style={[styles.switchLabel, { color: theme.text }]}>{t('expenses.coveredByOther')}</Text>
         <Switch
           value={coveredByOther}
           onValueChange={setCoveredByOther}
-          trackColor={{ false: colors.border, true: colors.primaryLight }}
-          thumbColor={coveredByOther ? colors.primary : colors.surface}
+          trackColor={{ false: theme.border, true: theme.primaryLight }}
+          thumbColor={coveredByOther ? theme.primary : theme.surface}
         />
       </View>
 
@@ -129,7 +139,8 @@ export default function AddExpenseModal() {
         <Button label={t('common.save')} onPress={handleSave} />
         <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
       </View>
-    </ScrollView>
+      </ScrollView>
+    </ThemedEventModal>
   );
 }
 
@@ -146,7 +157,6 @@ const styles = StyleSheet.create({
   },
   switchLabel: {
     ...typography.body,
-    color: colors.text,
     flex: 1,
     paddingRight: spacing.md,
   },

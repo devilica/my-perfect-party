@@ -79,16 +79,20 @@ export function GuestCard({ guest, table, onPress, onDelete }: GuestCardProps) {
         </View>
 
         <View style={styles.metaRow}>
-          <View style={[styles.chip, { backgroundColor: theme.primaryLight }]}>
-            <Text style={[styles.chipText, { color: theme.primaryDark }]}>
-              {guest.category}
-            </Text>
-          </View>
-          <View style={[styles.chip, { backgroundColor: theme.pendingLight }]}>
-            <Text style={[styles.chipText, { color: theme.textSecondary }]}>
-              {guest.side}
-            </Text>
-          </View>
+          {guest.category.trim() ? (
+            <View style={[styles.chip, { backgroundColor: theme.primaryLight }]}>
+              <Text style={[styles.chipText, { color: theme.primaryDark }]}>
+                {guest.category}
+              </Text>
+            </View>
+          ) : null}
+          {guest.side.trim() ? (
+            <View style={[styles.chip, { backgroundColor: theme.pendingLight }]}>
+              <Text style={[styles.chipText, { color: theme.textSecondary }]}>
+                {guest.side}
+              </Text>
+            </View>
+          ) : null}
           <View style={[styles.chip, { backgroundColor: theme.pendingLight }]}>
             <Text style={[styles.chipText, { color: theme.textSecondary }]}>
               {t('guests.guestsCount', { count: guest.partySize })}

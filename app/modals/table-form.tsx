@@ -3,6 +3,11 @@ import { useEffect, useMemo, useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 
 import { Button, TextInputField } from '@/components/ui';
+import {
+  getThemedModalScreenOptions,
+  ThemedEventModal,
+  useEventCelebrationTheme,
+} from '@/components/ThemedEventModal';
 import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
@@ -20,6 +25,7 @@ export default function TableFormModal() {
   const updateTable = useWeddingStore((s) => s.updateTable);
   const { t } = useTranslation(language);
   const modalScrollPadding = useModalScrollPadding();
+  const celebrationTheme = useEventCelebrationTheme(eventId ?? '');
 
   const existingTable = useMemo(
     () => (tableId ? tables.find((table) => table.id === tableId) : undefined),
@@ -62,13 +68,17 @@ export default function TableFormModal() {
   };
 
   return (
-    <ScrollView
-      contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
-      keyboardShouldPersistTaps="handled"
-    >
-      <Stack.Screen
-        options={{ title: existingTable ? t('seating.editTable') : t('seating.addTable') }}
-      />
+    <ThemedEventModal eventId={eventId ?? ''}>
+      <ScrollView
+        contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
+        keyboardShouldPersistTaps="handled"
+      >
+        <Stack.Screen
+          options={getThemedModalScreenOptions(
+            celebrationTheme,
+            existingTable ? t('seating.editTable') : t('seating.addTable')
+          )}
+        />
 
       <TextInputField
         label={t('seating.tableName')}
@@ -92,7 +102,8 @@ export default function TableFormModal() {
         <Button label={t('common.save')} onPress={handleSave} />
         <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
       </View>
-    </ScrollView>
+      </ScrollView>
+    </ThemedEventModal>
   );
 }
 

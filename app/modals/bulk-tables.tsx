@@ -2,6 +2,11 @@ import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { ScrollView, StyleSheet } from 'react-native';
 
 import { TableCreationModal } from '@/components/TableCreationModal';
+import {
+  getThemedModalScreenOptions,
+  ThemedEventModal,
+  useEventCelebrationTheme,
+} from '@/components/ThemedEventModal';
 import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
@@ -16,23 +21,28 @@ export default function BulkTablesModal() {
   const bulkCreateTables = useWeddingStore((s) => s.bulkCreateTables);
   const { t } = useTranslation(language);
   const modalScrollPadding = useModalScrollPadding();
+  const celebrationTheme = useEventCelebrationTheme(eventId ?? '');
+
+  if (!eventId) return null;
 
   return (
-    <ScrollView
-      contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
-      keyboardShouldPersistTaps="handled"
-    >
-      <Stack.Screen options={{ title: t('seating.bulkCreateTitle') }} />
-      <TableCreationModal
-        onCreate={(batches) => {
-          if (eventId) {
+    <ThemedEventModal eventId={eventId}>
+      <ScrollView
+        contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
+        keyboardShouldPersistTaps="handled"
+      >
+        <Stack.Screen
+          options={getThemedModalScreenOptions(celebrationTheme, t('seating.bulkCreateTitle'))}
+        />
+        <TableCreationModal
+          onCreate={(batches) => {
             bulkCreateTables(eventId, batches);
-          }
-          router.back();
-        }}
-        onCancel={() => router.back()}
-      />
-    </ScrollView>
+            router.back();
+          }}
+          onCancel={() => router.back()}
+        />
+      </ScrollView>
+    </ThemedEventModal>
   );
 }
 

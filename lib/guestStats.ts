@@ -1,8 +1,6 @@
 import { ATTENDANCE_STATUSES } from '@/constants/guestAttendance';
 import { Guest, GuestFilter, GuestStats } from '@/types/models';
 
-import { getCategoryFromFilter, isCategoryFilter } from '@/constants/guestCategories';
-
 export function getGuestsForEvent(guests: Guest[], eventId: string): Guest[] {
   return guests
     .filter((g) => g.eventId === eventId)
@@ -57,23 +55,19 @@ export function filterGuests(
   let result = getGuestsForEvent(guests, eventId);
 
   switch (filter) {
+    case 'invitation_sent':
+      result = result.filter((g) => g.attendanceStatus === 'invitation_sent');
+      break;
     case 'confirmed':
       result = result.filter((g) => g.attendanceStatus === 'confirmed');
       break;
-    case 'unconfirmed':
-      result = result.filter(
-        (g) =>
-          g.attendanceStatus === 'needs_invite' || g.attendanceStatus === 'invitation_sent'
-      );
+    case 'declined':
+      result = result.filter((g) => g.attendanceStatus === 'declined');
       break;
     case 'unassigned':
       result = result.filter((g) => !g.tableId);
       break;
     default:
-      if (isCategoryFilter(filter)) {
-        const category = getCategoryFromFilter(filter);
-        result = result.filter((g) => g.category === category);
-      }
       break;
   }
 

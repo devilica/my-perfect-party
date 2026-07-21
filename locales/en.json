@@ -107,7 +107,7 @@
     "lastName": "Last name",
     "lastNamePlaceholder": "e.g. Petrović",
     "phone": "Phone",
-    "phonePlaceholder": "e.g. 061 123 456",
+    "phonePlaceholder": "e.g. 066 123 456",
     "category": "Category",
     "addCategory": "Add category",
     "customCategoryPlaceholder": "e.g. Neighbors",
@@ -136,12 +136,14 @@
     "firstNameRequired": "First name is required.",
     "duplicateName": "A guest with this name already exists.",
     "searchPlaceholder": "Search guests...",
+    "filterLabel": "Show",
     "guestsCount": "{{count}} people",
     "atTable": "Table: {{name}}",
     "filters": {
       "all": "All",
+      "invitation_sent": "Invitation sent",
       "confirmed": "Confirmed",
-      "unconfirmed": "Awaiting response",
+      "declined": "Not coming",
       "unassigned": "Not assigned"
     },
     "sides": {
@@ -227,7 +229,7 @@
     "date": "Date",
     "statusLabel": "Status",
     "contact": "Contact",
-    "contactPlaceholder": "e.g. Ana Salon, 061 123 456",
+    "contactPlaceholder": "e.g. Ana Salon, 066 123 456",
     "note": "Note",
     "notePlaceholder": "e.g. Monday at 5 PM",
     "status": {

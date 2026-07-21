@@ -4,8 +4,9 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Button, TextInputField } from '@/components/ui';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
+import { useThemeColors } from '@/theme/EventThemeContext';
 import { BulkTableBatch } from '@/types/models';
-import { colors, radius, spacing, typography } from '@/theme/colors';
+import { radius, spacing, typography } from '@/theme/colors';
 
 type BatchRow = {
   id: string;
@@ -27,6 +28,7 @@ function createBatchRow(count = '1', capacity = '10'): BatchRow {
 export function TableCreationModal({ onCreate, onCancel }: TableCreationModalProps) {
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
+  const theme = useThemeColors();
   const [rows, setRows] = useState<BatchRow[]>([createBatchRow()]);
   const [error, setError] = useState('');
 
@@ -63,15 +65,27 @@ export function TableCreationModal({ onCreate, onCancel }: TableCreationModalPro
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{t('seating.bulkCreateTitle')}</Text>
-      <Text style={styles.preview}>{t('seating.bulkPreview', { count: totalTables })}</Text>
+      <Text style={[styles.title, { color: theme.text }]}>{t('seating.bulkCreateTitle')}</Text>
+      <Text style={[styles.preview, { color: theme.textSecondary }]}>
+        {t('seating.bulkPreview', { count: totalTables })}
+      </Text>
 
       <View style={styles.presets}>
-        <Pressable style={styles.presetBtn} onPress={() => applyPreset(3, 10)}>
-          <Text style={styles.presetText}>{t('seating.preset310')}</Text>
+        <Pressable
+          style={[styles.presetBtn, { backgroundColor: theme.primaryLight }]}
+          onPress={() => applyPreset(3, 10)}
+        >
+          <Text style={[styles.presetText, { color: theme.primaryDark }]}>
+            {t('seating.preset310')}
+          </Text>
         </Pressable>
-        <Pressable style={styles.presetBtn} onPress={() => applyPreset(5, 7)}>
-          <Text style={styles.presetText}>{t('seating.preset57')}</Text>
+        <Pressable
+          style={[styles.presetBtn, { backgroundColor: theme.primaryLight }]}
+          onPress={() => applyPreset(5, 7)}
+        >
+          <Text style={[styles.presetText, { color: theme.primaryDark }]}>
+            {t('seating.preset57')}
+          </Text>
         </Pressable>
       </View>
 
@@ -105,13 +119,13 @@ export function TableCreationModal({ onCreate, onCancel }: TableCreationModalPro
           </View>
           {rows.length > 1 ? (
             <Pressable onPress={() => removeRow(row.id)} style={styles.removeBtn}>
-              <Text style={styles.removeText}>×</Text>
+              <Text style={[styles.removeText, { color: theme.danger }]}>×</Text>
             </Pressable>
           ) : null}
         </View>
       ))}
 
-      {error ? <Text style={styles.error}>{error}</Text> : null}
+      {error ? <Text style={[styles.error, { color: theme.danger }]}>{error}</Text> : null}
 
       <Button label={t('seating.addBatch')} variant="secondary" onPress={addRow} />
       <View style={styles.actions}>
@@ -128,11 +142,9 @@ const styles = StyleSheet.create({
   },
   title: {
     ...typography.subheading,
-    color: colors.text,
   },
   preview: {
     ...typography.caption,
-    color: colors.textSecondary,
     marginBottom: spacing.sm,
   },
   presets: {
@@ -145,11 +157,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
     borderRadius: radius.full,
-    backgroundColor: colors.primaryLight,
   },
   presetText: {
     ...typography.small,
-    color: colors.primaryDark,
     fontWeight: '600',
   },
   row: {
@@ -169,11 +179,9 @@ const styles = StyleSheet.create({
   },
   removeText: {
     fontSize: 24,
-    color: colors.danger,
   },
   error: {
     ...typography.small,
-    color: colors.danger,
   },
   actions: {
     gap: spacing.sm,

@@ -3,6 +3,7 @@ import { Tabs, useRouter } from 'expo-router';
 import { useEffect, useMemo } from 'react';
 import { Alert, Pressable, View } from 'react-native';
 
+import { useBannerHeight } from '@/hooks/BannerLayoutContext';
 import { useTranslation } from '@/lib/i18n';
 import { useEventId } from '@/lib/useEventId';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -16,6 +17,7 @@ export default function EventLayout() {
   const events = useWeddingStore((s) => s.events);
   const deleteEvent = useWeddingStore((s) => s.deleteEvent);
   const { t } = useTranslation(language);
+  const bannerHeight = useBannerHeight();
 
   const event = useMemo(
     () => events.find((item) => item.id === (id ?? '')),
@@ -56,12 +58,14 @@ export default function EventLayout() {
   return (
     <EventThemeProvider themeId={event.theme}>
       <Tabs
+        safeAreaInsets={bannerHeight > 0 ? { bottom: 0 } : undefined}
         screenOptions={{
           tabBarActiveTintColor: theme.colors.primary,
           tabBarInactiveTintColor: theme.colors.textMuted,
           tabBarStyle: {
             backgroundColor: theme.colors.surface,
             borderTopColor: theme.colors.border,
+            marginBottom: bannerHeight,
           },
           headerStyle: { backgroundColor: theme.colors.background },
           headerTintColor: theme.colors.primary,

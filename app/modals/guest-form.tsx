@@ -3,9 +3,14 @@ import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import { OptionChips } from '@/components/FilterChips';
 import { GuestCategoryPicker } from '@/components/GuestCategoryPicker';
 import { GuestSidePicker } from '@/components/GuestSidePicker';
+import { SelectField } from '@/components/SelectField';
+import {
+  getThemedModalScreenOptions,
+  ThemedEventModal,
+  useEventCelebrationTheme,
+} from '@/components/ThemedEventModal';
 import { Button, TextInputField } from '@/components/ui';
 import { ATTENDANCE_STATUSES } from '@/constants/guestAttendance';
 import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
@@ -13,7 +18,6 @@ import { getAssignableTables } from '@/lib/seatingStats';
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
 import { useWeddingStore } from '@/store/weddingStore';
-import { useThemeColors } from '@/theme/EventThemeContext';
 import { AttendanceStatus } from '@/types/models';
 import { radius, spacing } from '@/theme/colors';
 
@@ -29,7 +33,8 @@ export default function GuestFormModal() {
   const addGuest = useWeddingStore((s) => s.addGuest);
   const updateGuest = useWeddingStore((s) => s.updateGuest);
   const { t } = useTranslation(language);
-  const theme = useThemeColors();
+  const celebrationTheme = useEventCelebrationTheme(eventId ?? '');
+  const theme = celebrationTheme.colors;
   const modalScrollPadding = useModalScrollPadding();
 
   const hasGuestCategories = (event?.guestCategories?.length ?? 0) > 0;
@@ -173,13 +178,17 @@ export default function GuestFormModal() {
   const parsedPartySize = Math.max(1, parseInt(partySize, 10) || 1);
 
   return (
-    <ScrollView
-      contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
-      keyboardShouldPersistTaps="handled"
-    >
-      <Stack.Screen
-        options={{ title: existingGuest ? t('guests.edit') : t('guests.add') }}
-      />
+    <ThemedEventModal eventId={eventId}>
+      <ScrollView
+        contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
+        keyboardShouldPersistTaps="handled"
+      >
+        <Stack.Screen
+          options={getThemedModalScreenOptions(
+            celebrationTheme,
+            existingGuest ? t('guests.edit') : t('guests.add')
+          )}
+        />
 
       <TextInputField
         label={t('guests.firstName')}
@@ -213,14 +222,14 @@ export default function GuestFormModal() {
         <GuestSidePicker eventId={eventId} selected={side} onSelect={setSide} />
       ) : null}
 
-      <OptionChips
+      <SelectField
         label={t('guests.attendance')}
-        selected={attendanceStatus}
-        onSelect={setAttendanceStatus}
+        value={attendanceStatus}
         options={ATTENDANCE_STATUSES.map((value) => ({
           value,
           label: t(`guests.status.${value}`),
         }))}
+        onChange={setAttendanceStatus}
       />
 
       <View style={styles.stepperRow}>
@@ -265,7 +274,7 @@ export default function GuestFormModal() {
         <Text style={styles.hint}>{t('guests.partySizeHint')}</Text>
       </View>
 
-      <OptionChips<string>
+      <SelectField
         label={t('guests.assignTable')}
         labelRight={
           showTableHint ? (
@@ -279,14 +288,14 @@ export default function GuestFormModal() {
             </Pressable>
           ) : undefined
         }
-        selected={tableId ?? 'none'}
-        onSelect={(value) => {
+        value={tableId ?? 'none'}
+        options={tableOptions}
+        onChange={(value) => {
           setTableError('');
           setTableId(value === 'none' ? undefined : value);
         }}
-        options={tableOptions}
+        error={tableError}
       />
-      {tableError ? <Text style={styles.error}>{tableError}</Text> : null}
 
       <TextInputField
         label={`${t('guests.note')} (${t('common.optional')})`}
@@ -300,7 +309,8 @@ export default function GuestFormModal() {
         <Button label={t('common.save')} onPress={handleSave} />
         <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
       </View>
-    </ScrollView>
+      </ScrollView>
+    </ThemedEventModal>
   );
 }
 
@@ -344,11 +354,6 @@ const styles = StyleSheet.create({
     marginTop: spacing.xs,
     fontSize: 12,
     color: '#9C9590',
-  },
-  error: {
-    color: '#C75B5B',
-    marginBottom: spacing.md,
-    fontSize: 12,
   },
   actions: {
     gap: spacing.sm,

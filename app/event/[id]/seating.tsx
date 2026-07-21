@@ -38,7 +38,6 @@ export default function SeatingScreen() {
   const [assignGuest, setAssignGuest] = useState<Guest | null>(null);
 
   const language = useWeddingStore((s) => s.language);
-  const event = useWeddingStore((s) => s.events.find((e) => e.id === eventId));
   const allGuests = useWeddingStore((s) => s.guests);
   const allTables = useWeddingStore((s) => s.tables);
   const deleteTable = useWeddingStore((s) => s.deleteTable);
@@ -66,11 +65,6 @@ export default function SeatingScreen() {
   const unassignedGuests = useMemo(
     () => eventGuests.filter((guest) => !guest.tableId),
     [eventGuests]
-  );
-
-  const categoryFilters = useMemo(
-    () => event?.guestCategories ?? [],
-    [event?.guestCategories]
   );
 
   const filteredUnassigned = useMemo(
@@ -117,11 +111,7 @@ export default function SeatingScreen() {
             <Text style={[styles.sectionTitle, { color: theme.text }]}>
               {t('seating.unassignedGuests')}
             </Text>
-            <GuestFilterBar
-              categories={categoryFilters}
-              selected={filter}
-              onSelect={setFilter}
-            />
+            <GuestFilterBar selected={filter} onSelect={setFilter} />
             <View style={styles.chipWrap}>
               {filteredUnassigned.map((guest) => (
                 <Pressable
