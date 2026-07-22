@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native';
 
+import { useBottomSheetPadding } from '@/hooks/useBottomSheetPadding';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
 
@@ -26,6 +27,7 @@ export function SelectField<T extends string>({
   error,
 }: SelectFieldProps<T>) {
   const theme = useThemeColors();
+  const bottomSheetPadding = useBottomSheetPadding();
   const [open, setOpen] = useState(false);
 
   const selectedLabel = useMemo(
@@ -78,7 +80,11 @@ export function SelectField<T extends string>({
                 <Ionicons name="close" size={22} color={theme.textMuted} />
               </Pressable>
             </View>
-            <ScrollView style={styles.optionsList} keyboardShouldPersistTaps="handled">
+            <ScrollView
+              style={styles.optionsList}
+              contentContainerStyle={{ paddingBottom: bottomSheetPadding }}
+              keyboardShouldPersistTaps="handled"
+            >
               {options.map((option) => {
                 const active = option.value === value;
                 return (

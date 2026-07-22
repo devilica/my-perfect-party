@@ -13,6 +13,7 @@ import {
   getExpenseBreakdown,
   getExpenseSummary,
 } from '@/lib/expenseStats';
+import { flexFill } from '@/lib/webLayout';
 import { useTranslation } from '@/lib/i18n';
 import { useEventId } from '@/lib/useEventId';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -57,47 +58,56 @@ export default function ExpensesScreen() {
   };
 
   return (
-    <ThemedScreenContainer>
-      <FormScrollView
-        contentContainerStyle={{ paddingBottom: fabScrollPadding }}
-        showsVerticalScrollIndicator={false}
-      >
-        <View style={styles.summaryRow}>
-          <StatCard label={t('overview.totalExpenses')} value={formatAmount(summary.total)} />
-          <StatCard
-            label={t('overview.yourShare')}
-            value={formatAmount(summary.yourShare)}
-            accent={theme.primaryDark}
-          />
-        </View>
-
-        <ExpenseCharts breakdown={breakdown} summary={summary} />
-
-        <Text style={[styles.sectionTitle, { color: theme.text }]}>{t('expenses.title')}</Text>
-
-        {expenses.length === 0 ? (
-          <EmptyState
-            icon="wallet-outline"
-            title={t('expenses.emptyTitle')}
-            subtitle={t('expenses.emptySubtitle')}
-          />
-        ) : (
-          expenses.map((expense) => (
-            <ExpenseRow
-              key={expense.id}
-              expense={expense}
-              onDelete={() => handleDelete(expense.id)}
+    <ThemedScreenContainer padded={false}>
+      <View style={styles.screen}>
+        <FormScrollView
+          contentContainerStyle={{
+            paddingHorizontal: spacing.md,
+            paddingTop: spacing.sm,
+            paddingBottom: fabScrollPadding,
+          }}
+          showsVerticalScrollIndicator={false}
+        >
+          <View style={styles.summaryRow}>
+            <StatCard label={t('overview.totalExpenses')} value={formatAmount(summary.total)} />
+            <StatCard
+              label={t('overview.yourShare')}
+              value={formatAmount(summary.yourShare)}
+              accent={theme.primaryDark}
             />
-          ))
-        )}
-      </FormScrollView>
+          </View>
 
-      <Fab onPress={() => router.push(`/modals/add-expense?eventId=${eventId}`)} />
+          <ExpenseCharts breakdown={breakdown} summary={summary} />
+
+          <Text style={[styles.sectionTitle, { color: theme.text }]}>{t('expenses.title')}</Text>
+
+          {expenses.length === 0 ? (
+            <EmptyState
+              icon="wallet-outline"
+              title={t('expenses.emptyTitle')}
+              subtitle={t('expenses.emptySubtitle')}
+            />
+          ) : (
+            expenses.map((expense) => (
+              <ExpenseRow
+                key={expense.id}
+                expense={expense}
+                onDelete={() => handleDelete(expense.id)}
+              />
+            ))
+          )}
+        </FormScrollView>
+
+        <Fab onPress={() => router.push(`/modals/add-expense?eventId=${eventId}`)} />
+      </View>
     </ThemedScreenContainer>
   );
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    ...flexFill,
+  },
   summaryRow: {
     flexDirection: 'row',
     alignItems: 'stretch',

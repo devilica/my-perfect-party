@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Alert, Linking, StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { FormScrollView } from '@/components/FormScrollView';
 
@@ -36,6 +37,7 @@ export default function SettingsScreen() {
   const { t } = useTranslation(language);
   const theme = useThemeColors();
   const bannerClearance = useBannerClearance();
+  const insets = useSafeAreaInsets();
 
   const [emailDraft, setEmailDraft] = useState(backupEmail);
   const [emailError, setEmailError] = useState<string | undefined>();
@@ -154,7 +156,9 @@ export default function SettingsScreen() {
       <Stack.Screen options={{ title: t('settings.title') }} />
 
       <FormScrollView
-        contentContainerStyle={{ paddingBottom: bannerClearance + spacing.lg }}
+        contentContainerStyle={{
+          paddingBottom: bannerClearance + spacing.lg + insets.bottom,
+        }}
         showsVerticalScrollIndicator={false}
       >
       <Text style={[styles.sectionLabel, { color: theme.textSecondary }]}>

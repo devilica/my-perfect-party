@@ -153,6 +153,7 @@
     "downloadSuccess": "Invitation saved to your gallery.",
     "downloadDenied": "Gallery access was denied. Enable it in settings to save invitations.",
     "downloadUnavailableWeb": "Download to gallery is available on mobile devices.",
+    "adUnavailable": "Ad is not available right now. Try again later.",
     "prevTemplate": "Previous template",
     "nextTemplate": "Next template",
     "defaults": {
@@ -460,5 +461,8 @@
     "contactSupport": "Contact support",
     "supportEmailSubject": "My perfect party — support",
     "supportMailUnavailable": "Could not open mail app. Copy the support email address below."
+  },
+  "ads": {
+    "sponsored": "Ad"
   }
 }

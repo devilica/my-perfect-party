@@ -153,6 +153,7 @@
     "downloadSuccess": "Pozivnica je sačuvana u galeriju.",
     "downloadDenied": "Pristup galeriji nije odobren. Omogući ga u postavkama da sačuvaš pozivnicu.",
     "downloadUnavailableWeb": "Preuzimanje u galeriju je dostupno na mobilnom uređaju.",
+    "adUnavailable": "Reklama trenutno nije dostupna. Pokušaj ponovo kasnije.",
     "prevTemplate": "Prethodni template",
     "nextTemplate": "Sljedeći template",
     "defaults": {
@@ -460,5 +461,8 @@
     "contactSupport": "Kontaktiraj podršku",
     "supportEmailSubject": "Moja savršena proslava — podrška",
     "supportMailUnavailable": "Nije moguće otvoriti mail aplikaciju. Kopiraj email adresu ispod."
+  },
+  "ads": {
+    "sponsored": "Reklama"
   }
 }

@@ -28,11 +28,17 @@ import {
   INVITATION_TEMPLATES,
 } from '@/constants/invitationTemplates';
 import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
+import { useIsOnline } from '@/hooks/useIsOnline';
+import { areAdsEnabled } from '@/lib/adsEnvironment';
 import { createDefaultInvitation } from '@/lib/invitationDefaults';
 import { generateId } from '@/lib/generateId';
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
 import { downloadInvitationImage } from '@/lib/downloadInvitationImage';
+import {
+  preloadRewardedInvitationAd,
+  showRewardedInvitationAd,
+} from '@/lib/rewardedInvitationAd';
 import { shareInvitationImage } from '@/lib/shareInvitationImage';
 import { useWeddingStore } from '@/store/weddingStore';
 import {
@@ -114,6 +120,7 @@ export default function InvitationEditorModal() {
   const theme = useThemeColors();
   const celebrationTheme = useEventCelebrationTheme(eventId ?? '');
   const modalScrollPadding = useModalScrollPadding();
+  const isOnline = useIsOnline();
   const previewRef = useRef<View>(null);
   const initializedRef = useRef<string | null>(null);
   const [sharing, setSharing] = useState(false);
@@ -133,6 +140,12 @@ export default function InvitationEditorModal() {
     initializedRef.current = key;
     setInvitation(event.invitation ?? createDefaultInvitation(event, t));
   }, [event?.id, event?.invitation?.updatedAt, language]);
+
+  useEffect(() => {
+    if (areAdsEnabled() && isOnline) {
+      preloadRewardedInvitationAd();
+    }
+  }, [isOnline]);
 
   const screenOptions = useMemo(
     () => getThemedModalScreenOptions(celebrationTheme, t('invitation.editorTitle')),
@@ -161,10 +174,26 @@ export default function InvitationEditorModal() {
     router.back();
   };
 
+  const ensureInvitationReward = async (): Promise<boolean> => {
+    if (!areAdsEnabled() || !isOnline) return true;
+
+    const result = await showRewardedInvitationAd();
+    if (result === 'rewarded') {
+      preloadRewardedInvitationAd();
+      return true;
+    }
+    if (result === 'unavailable' || result === 'failed') {
+      Alert.alert(t('common.error'), t('invitation.adUnavailable'));
+    }
+    return false;
+  };
+
   const handleShare = async () => {
     if (!invitation) return;
     setSharing(true);
     try {
+      if (!(await ensureInvitationReward())) return;
+
       const result = await shareInvitationImage(
         previewRef,
         t('invitation.shareUnavailableWeb')
@@ -181,6 +210,8 @@ export default function InvitationEditorModal() {
     if (!invitation) return;
     setDownloading(true);
     try {
+      if (!(await ensureInvitationReward())) return;
+
       const result = await downloadInvitationImage(previewRef);
       if (result === 'saved') {
         Alert.alert(t('invitation.downloadSuccess'));

@@ -23,6 +23,7 @@ import {
 } from '@/hooks/useFabBottomOffset';
 import { filterGuests } from '@/lib/guestStats';
 import { getSeatingStats, getTablesForEvent } from '@/lib/seatingStats';
+import { flexFill } from '@/lib/webLayout';
 import { useTranslation } from '@/lib/i18n';
 import { useEventId } from '@/lib/useEventId';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -84,11 +85,16 @@ export default function SeatingScreen() {
   };
 
   return (
-    <ThemedScreenContainer>
-      <FormScrollView
-        contentContainerStyle={{ paddingBottom: fabScrollPadding + spacing.xl }}
-        showsVerticalScrollIndicator={false}
-      >
+    <ThemedScreenContainer padded={false}>
+      <View style={styles.screen}>
+        <FormScrollView
+          contentContainerStyle={{
+            paddingHorizontal: spacing.md,
+            paddingTop: spacing.sm,
+            paddingBottom: fabScrollPadding,
+          }}
+          showsVerticalScrollIndicator={false}
+        >
         <View style={styles.summaryRow}>
           <StatCard
             label={t('overview.tablesTotal')}
@@ -151,51 +157,55 @@ export default function SeatingScreen() {
             />
           ))
         )}
-      </FormScrollView>
+        </FormScrollView>
 
-      <Fab onPress={() => setFabOpen(true)} icon="add" />
+        <Fab onPress={() => setFabOpen(true)} icon="add" />
 
-      <Modal visible={fabOpen} transparent animationType="fade" onRequestClose={() => setFabOpen(false)}>
-        <Pressable
-          style={[styles.fabOverlay, { backgroundColor: theme.overlay }]}
-          onPress={() => setFabOpen(false)}
-        >
-          <View style={[styles.fabMenu, { backgroundColor: theme.surface, marginBottom: fabMenuBottom }]}>
-            <Pressable
-              style={styles.fabMenuItem}
-              onPress={() => {
-                setFabOpen(false);
-                router.push(`/modals/table-form?eventId=${eventId}`);
-              }}
-            >
-              <Ionicons name="add-circle-outline" size={20} color={theme.primary} />
-              <Text style={[styles.fabMenuText, { color: theme.text }]}>{t('seating.addTable')}</Text>
-            </Pressable>
-            <Pressable
-              style={styles.fabMenuItem}
-              onPress={() => {
-                setFabOpen(false);
-                router.push(`/modals/bulk-tables?eventId=${eventId}`);
-              }}
-            >
-              <Ionicons name="grid-outline" size={20} color={theme.primary} />
-              <Text style={[styles.fabMenuText, { color: theme.text }]}>{t('seating.bulkCreate')}</Text>
-            </Pressable>
-          </View>
-        </Pressable>
-      </Modal>
+        <Modal visible={fabOpen} transparent animationType="fade" onRequestClose={() => setFabOpen(false)}>
+          <Pressable
+            style={[styles.fabOverlay, { backgroundColor: theme.overlay }]}
+            onPress={() => setFabOpen(false)}
+          >
+            <View style={[styles.fabMenu, { backgroundColor: theme.surface, marginBottom: fabMenuBottom }]}>
+              <Pressable
+                style={styles.fabMenuItem}
+                onPress={() => {
+                  setFabOpen(false);
+                  router.push(`/modals/table-form?eventId=${eventId}`);
+                }}
+              >
+                <Ionicons name="add-circle-outline" size={20} color={theme.primary} />
+                <Text style={[styles.fabMenuText, { color: theme.text }]}>{t('seating.addTable')}</Text>
+              </Pressable>
+              <Pressable
+                style={styles.fabMenuItem}
+                onPress={() => {
+                  setFabOpen(false);
+                  router.push(`/modals/bulk-tables?eventId=${eventId}`);
+                }}
+              >
+                <Ionicons name="grid-outline" size={20} color={theme.primary} />
+                <Text style={[styles.fabMenuText, { color: theme.text }]}>{t('seating.bulkCreate')}</Text>
+              </Pressable>
+            </View>
+          </Pressable>
+        </Modal>
 
-      <SeatingAssignmentModal
-        visible={!!assignGuest}
-        guest={assignGuest}
-        eventId={eventId}
-        onClose={() => setAssignGuest(null)}
-      />
+        <SeatingAssignmentModal
+          visible={!!assignGuest}
+          guest={assignGuest}
+          eventId={eventId}
+          onClose={() => setAssignGuest(null)}
+        />
+      </View>
     </ThemedScreenContainer>
   );
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    ...flexFill,
+  },
   summaryRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',

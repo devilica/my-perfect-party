@@ -1,6 +1,7 @@
 import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { Button } from '@/components/ui';
+import { useBottomSheetPadding } from '@/hooks/useBottomSheetPadding';
 import { getAssignableTables } from '@/lib/seatingStats';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -25,6 +26,7 @@ export function SeatingAssignmentModal({
   const allGuests = useWeddingStore((s) => s.guests);
   const assignGuestToTable = useWeddingStore((s) => s.assignGuestToTable);
   const { t } = useTranslation(language);
+  const bottomSheetPadding = useBottomSheetPadding();
 
   if (!guest) return null;
 
@@ -40,7 +42,10 @@ export function SeatingAssignmentModal({
   return (
     <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
       <Pressable style={styles.overlay} onPress={onClose}>
-        <Pressable style={styles.sheet} onPress={(e) => e.stopPropagation()}>
+        <Pressable
+          style={[styles.sheet, { paddingBottom: bottomSheetPadding }]}
+          onPress={(e) => e.stopPropagation()}
+        >
           <Text style={styles.title}>{t('seating.assignGuestTitle')}</Text>
           <Text style={styles.guestName}>{getGuestFullName(guest)}</Text>
           <Text style={styles.partySize}>
@@ -48,7 +53,11 @@ export function SeatingAssignmentModal({
           </Text>
 
           <Text style={styles.label}>{t('seating.selectTable')}</Text>
-          <ScrollView style={styles.list} nestedScrollEnabled>
+          <ScrollView
+            style={styles.list}
+            contentContainerStyle={{ paddingBottom: spacing.sm }}
+            nestedScrollEnabled
+          >
             {guest.tableId ? (
               <Pressable style={styles.option} onPress={() => handleAssign(null)}>
                 <Text style={styles.optionText}>{t('seating.unassign')}</Text>

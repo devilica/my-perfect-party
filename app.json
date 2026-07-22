@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "weddingplannerbh",
+    "scheme": "mojasavrsenaproslava",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
@@ -15,7 +15,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.weddingplanner.bh",
+      "bundleIdentifier": "com.mojasavrsenaproslava.app",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -25,7 +25,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#FFF8F5"
       },
-      "package": "com.weddingplanner.bh"
+      "package": "com.mojasavrsenaproslava.app"
     },
     "web": {
       "bundler": "metro",
@@ -48,8 +48,8 @@
       [
         "react-native-google-mobile-ads",
         {
-          "androidAppId": "ca-app-pub-5483258571608850~3245032438",
-          "iosAppId": "ca-app-pub-5483258571608850~3245032438"
+          "androidAppId": "ca-app-pub-5452343649745884~9366452184",
+          "iosAppId": "ca-app-pub-5452343649745884~9366452184"
         }
       ],
       [

@@ -6,6 +6,7 @@ import { EventCountdown } from '@/components/EventCountdown';
 import { FormScrollView } from '@/components/FormScrollView';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { GuestAttendanceChart } from '@/components/GuestAttendanceChart';
+import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 import { Button, Card, ProgressBar, StatCard } from '@/components/ui';
 import { useBannerClearance } from '@/hooks/useBannerClearance';
 import { formatAmount, getExpenseSummary } from '@/lib/expenseStats';
@@ -187,6 +188,8 @@ export default function EventOverviewScreen() {
             style={styles.actionBtn}
           />
         </View>
+
+        <OverviewNativeAd />
       </FormScrollView>
     </ThemedScreenContainer>
   );
