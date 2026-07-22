@@ -23,6 +23,32 @@ export type CelebrationThemeId =
   | 'engagement'
   | 'other';
 
+export type InvitationFontFamily = 'script' | 'serif' | 'sans';
+
+export type InvitationSubEvent = {
+  id: string;
+  icon: string;
+  time?: string;
+  title: string;
+  location?: string;
+};
+
+export type EventInvitation = {
+  templateId: string;
+  backgroundOpacity: number;
+  lineSpacing: number;
+  headerIcon: string;
+  headerTitle: string;
+  hostNames: string;
+  namesFontFamily: InvitationFontFamily;
+  fontSize: number;
+  fontColor: string;
+  eventDateText: string;
+  subEvents: InvitationSubEvent[];
+  rsvpMessage: string;
+  updatedAt: string;
+};
+
 export type WeddingEvent = {
   id: string;
   name: string;
@@ -32,6 +58,7 @@ export type WeddingEvent = {
   guestCategories: string[];
   guestSides: string[];
   createdAt: string;
+  invitation?: EventInvitation;
 };
 
 export type AttendanceStatus =
@@ -67,6 +94,7 @@ export type TableOccupancy = 'available' | 'almostFull' | 'full';
 
 export type GuestFilter =
   | 'all'
+  | 'needs_invite'
   | 'invitation_sent'
   | 'confirmed'
   | 'declined'

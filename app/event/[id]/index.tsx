@@ -59,9 +59,18 @@ export default function EventOverviewScreen() {
       >
         <EventCountdown date={event.date} location={event.location} />
 
-        <Text style={[styles.sectionTitle, { color: theme.text }]}>
-          {t('overview.guestStats')}
-        </Text>
+        <View style={styles.sectionHeaderRow}>
+          <Text style={[styles.sectionTitle, styles.sectionTitleInline, { color: theme.text }]}>
+            {t('overview.guestStats')}
+          </Text>
+          <Button
+            label={t('invitation.create')}
+            variant="secondary"
+            icon="mail-outline"
+            onPress={() => router.push(`/modals/invitation-editor?eventId=${eventId}`)}
+            style={styles.sectionActionBtn}
+          />
+        </View>
         <GuestAttendanceChart stats={guestStats} />
         <View style={styles.statRow}>
           <StatCard
@@ -184,9 +193,25 @@ export default function EventOverviewScreen() {
 }
 
 const styles = StyleSheet.create({
+  sectionHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+    marginBottom: spacing.sm,
+  },
   sectionTitle: {
     ...typography.subheading,
     marginBottom: spacing.sm,
+  },
+  sectionTitleInline: {
+    marginBottom: 0,
+    flex: 1,
+  },
+  sectionActionBtn: {
+    flexShrink: 0,
+    minHeight: 40,
+    paddingHorizontal: spacing.md,
   },
   statsCard: {
     marginBottom: spacing.lg,

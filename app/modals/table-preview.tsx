@@ -1,20 +1,26 @@
+import { Ionicons } from '@expo/vector-icons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { FormScrollView } from '@/components/FormScrollView';
 import { TablePreviewDiagram } from '@/components/TablePreviewDiagram';
+import { Card } from '@/components/ui';
 import {
   getThemedModalScreenOptions,
   ThemedEventModal,
   useEventCelebrationTheme,
 } from '@/components/ThemedEventModal';
+import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
 import {
   buildTableSeatSlots,
+  getGuestsAtTable,
   getTableOccupiedSeats,
 } from '@/lib/seatingStats';
 import { useWeddingStore } from '@/store/weddingStore';
+import { getGuestFullName } from '@/types/models';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
 
@@ -29,6 +35,7 @@ export default function TablePreviewModal() {
   const { t } = useTranslation(language);
   const theme = useThemeColors();
   const celebrationTheme = useEventCelebrationTheme(eventId ?? '');
+  const modalScrollPadding = useModalScrollPadding();
 
   const table = useMemo(
     () => (tableId ? tables.find((item) => item.id === tableId) : undefined),
@@ -38,6 +45,11 @@ export default function TablePreviewModal() {
   const eventGuests = useMemo(
     () => guests.filter((guest) => guest.eventId === eventId),
     [guests, eventId]
+  );
+
+  const tableGuests = useMemo(
+    () => (table ? getGuestsAtTable(eventGuests, table.id) : []),
+    [table, eventGuests]
   );
 
   const seats = useMemo(
@@ -62,13 +74,17 @@ export default function TablePreviewModal() {
       <Stack.Screen
         options={getThemedModalScreenOptions(celebrationTheme, t('seating.previewTitle'))}
       />
-      <View style={styles.content}>
+      <FormScrollView
+        contentContainerStyle={[styles.content, { paddingBottom: modalScrollPadding }]}
+        showsVerticalScrollIndicator={false}
+      >
         <TablePreviewDiagram
           tableName={table.name}
           occupied={occupied}
           capacity={table.capacity}
           seats={seats}
         />
+
         <View style={styles.legend}>
           <View style={styles.legendItem}>
             <View style={[styles.legendDot, { backgroundColor: theme.seatFull }]} />
@@ -83,17 +99,38 @@ export default function TablePreviewModal() {
             </Text>
           </View>
         </View>
-      </View>
+
+        <Card style={styles.guestCard}>
+          <Text style={[styles.guestSectionTitle, { color: theme.textSecondary }]}>
+            {t('seating.guestsAtTable')}
+          </Text>
+          {tableGuests.length === 0 ? (
+            <Text style={[styles.emptyGuests, { color: theme.textMuted }]}>
+              {t('seating.noGuestsAtTable')}
+            </Text>
+          ) : (
+            tableGuests.map((guest) => (
+              <View key={guest.id} style={styles.guestRow}>
+                <Ionicons name="person-outline" size={16} color={theme.textSecondary} />
+                <Text style={[styles.guestName, { color: theme.text }]}>
+                  {getGuestFullName(guest)}
+                  {guest.partySize > 1 ? ` (+${guest.partySize - 1})` : ''}
+                </Text>
+              </View>
+            ))
+          )}
+        </Card>
+      </FormScrollView>
     </ThemedEventModal>
   );
 }
 
 const styles = StyleSheet.create({
   content: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: spacing.lg,
-    gap: spacing.xl,
+    flexGrow: 1,
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.lg,
+    gap: spacing.lg,
   },
   legend: {
     flexDirection: 'row',
@@ -113,5 +150,26 @@ const styles = StyleSheet.create({
   legendText: {
     ...typography.caption,
     fontWeight: '600',
+  },
+  guestCard: {
+    gap: spacing.sm,
+  },
+  guestSectionTitle: {
+    ...typography.caption,
+    fontWeight: '600',
+  },
+  emptyGuests: {
+    ...typography.caption,
+    fontStyle: 'italic',
+  },
+  guestRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    paddingVertical: spacing.xs,
+  },
+  guestName: {
+    ...typography.body,
+    flex: 1,
   },
 });

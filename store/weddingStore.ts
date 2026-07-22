@@ -20,6 +20,7 @@ import {
   Expense,
   Obligation,
   ObligationStatus,
+  EventInvitation,
 } from '@/types/models';
 
 type LegacyRelationship = 'family' | 'friend' | 'work' | 'other';
@@ -255,6 +256,7 @@ type WeddingState = {
     }
   ) => string;
   updateEvent: (id: string, data: Partial<Omit<WeddingEvent, 'id' | 'createdAt'>>) => void;
+  updateEventInvitation: (eventId: string, data: Partial<EventInvitation>) => void;
   deleteEvent: (id: string) => void;
   addGuestCategory: (eventId: string, name: string) => void;
   addGuestSide: (eventId: string, name: string) => void;
@@ -405,6 +407,35 @@ export const useWeddingStore = create<WeddingState>()(
           events: state.events.map((event) =>
             event.id === id ? { ...event, ...normalizedData } : event
           ),
+        }));
+      },
+
+      updateEventInvitation: (eventId, data) => {
+        set((state) => ({
+          events: state.events.map((event) => {
+            if (event.id !== eventId) return event;
+            const current = event.invitation;
+            const merged: EventInvitation = {
+              ...(current ?? {
+                templateId: 'classic-gold',
+                backgroundOpacity: 0.85,
+                lineSpacing: 1,
+                headerIcon: 'heart-outline',
+                headerTitle: '',
+                hostNames: event.name,
+                namesFontFamily: 'script',
+                fontSize: 36,
+                fontColor: '#3D3D3D',
+                eventDateText: '',
+                subEvents: [],
+                rsvpMessage: '',
+                updatedAt: new Date().toISOString(),
+              }),
+              ...data,
+              updatedAt: new Date().toISOString(),
+            };
+            return { ...event, invitation: merged };
+          }),
         }));
       },
 

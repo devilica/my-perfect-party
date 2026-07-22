@@ -66,6 +66,9 @@ export function filterGuests(
   let result = getGuestsForEvent(guests, eventId);
 
   switch (filter) {
+    case 'needs_invite':
+      result = result.filter((g) => g.attendanceStatus === 'needs_invite');
+      break;
     case 'invitation_sent':
       result = result.filter((g) => g.attendanceStatus === 'invitation_sent');
       break;

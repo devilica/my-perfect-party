@@ -60,7 +60,14 @@
           ]
         }
       ],
-      "expo-mail-composer"
+      "expo-mail-composer",
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow access to save invitation images.",
+          "savePhotosPermission": "Allow saving invitation images to your gallery."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

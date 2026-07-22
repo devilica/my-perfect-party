@@ -2,6 +2,7 @@ import { GuestFilter } from '@/types/models';
 
 export const ATTENDANCE_FILTERS: GuestFilter[] = [
   'all',
+  'needs_invite',
   'invitation_sent',
   'confirmed',
   'declined',

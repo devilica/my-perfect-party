@@ -1,4 +1,5 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { GreatVibes_400Regular } from '@expo-google-fonts/great-vibes';
 import { Stack, useSegments } from 'expo-router';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
@@ -71,12 +72,19 @@ function ThemedRootStack() {
         name="modals/obligation-form"
         options={{ presentation: 'modal', title: 'Task' }}
       />
+      <Stack.Screen
+        name="modals/invitation-editor"
+        options={{ presentation: 'modal', title: 'Invitation' }}
+      />
     </Stack>
   );
 }
 
 export default function RootLayout() {
-  const [fontsLoaded] = useFonts({ ...Ionicons.font });
+  const [fontsLoaded] = useFonts({
+    ...Ionicons.font,
+    'GreatVibes-Regular': GreatVibes_400Regular,
+  });
   const hasHydrated = useWeddingStore((s) => s._hasHydrated);
   const hasSelectedLanguage = useWeddingStore((s) => s.hasSelectedLanguage);
   const appTheme = useWeddingStore((s) => s.appTheme);
