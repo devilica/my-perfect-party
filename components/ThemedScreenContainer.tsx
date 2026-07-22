@@ -4,6 +4,7 @@ import { ImageBackground, ImageStyle, Platform, StyleSheet, View, ViewStyle } fr
 
 import { useEventTheme } from '@/theme/EventThemeContext';
 import { spacing } from '@/theme/colors';
+import { flexFill, webViewportHeight } from '@/lib/webLayout';
 
 type ThemedScreenContainerProps = {
   children: ReactNode;
@@ -48,20 +49,20 @@ export function ThemedScreenContainer({
 
 const styles = StyleSheet.create({
   outer: {
-    flex: 1,
+    ...flexFill,
   },
   backgroundLayer: {
     ...StyleSheet.absoluteFillObject,
   },
   content: {
-    flex: 1,
+    ...flexFill,
     zIndex: 1,
   },
   padded: {
     paddingHorizontal: spacing.md,
   },
   inner: {
-    flex: 1,
+    ...flexFill,
     width: '100%',
     maxWidth: 480,
     alignSelf: 'center',
@@ -72,6 +73,7 @@ const webStyles = {
   outer: {
     position: 'relative',
     overflow: 'hidden',
+    ...webViewportHeight,
   } as ViewStyle,
   backgroundLayerWeb: {
     position: 'fixed',

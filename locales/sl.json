@@ -40,7 +40,7 @@
     "selectDateTime": "Izberite datum in uro",
     "clearDate": "Počisti datum",
     "location": "Lokacija",
-    "locationPlaceholder": "npr. Sarajevo",
+    "locationPlaceholder": "npr. Atina",
     "guestsBadge": "{{confirmed}} / {{total}} potrjeno",
     "peopleBadge": "{{count}} oseb",
     "tablesBadge": "{{count}} miz",

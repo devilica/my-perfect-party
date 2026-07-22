@@ -4,11 +4,14 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
+import { View } from 'react-native';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AnimatedSplashScreen } from '@/components/AnimatedSplashScreen';
 import { AppShell } from '@/components/AppShell';
+import { LanguageSetupScreen } from '@/components/LanguageSetupScreen';
 import { initMobileAds } from '@/lib/initMobileAds';
+import { flexFill, webViewportHeight } from '@/lib/webLayout';
 import { useWeddingStore } from '@/store/weddingStore';
 import { AppThemeProvider, useThemeColors } from '@/theme/EventThemeContext';
 
@@ -28,7 +31,7 @@ function ThemedRootStack() {
           color: theme.text,
         },
         headerShadowVisible: false,
-        contentStyle: { backgroundColor: theme.background },
+        contentStyle: { backgroundColor: theme.background, flex: 1 },
       }}
     >
       <Stack.Screen
@@ -47,6 +50,10 @@ function ThemedRootStack() {
       <Stack.Screen
         name="modals/table-form"
         options={{ presentation: 'modal', title: 'Table' }}
+      />
+      <Stack.Screen
+        name="modals/table-preview"
+        options={{ presentation: 'modal', title: 'Preview' }}
       />
       <Stack.Screen
         name="modals/bulk-tables"
@@ -71,6 +78,7 @@ function ThemedRootStack() {
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({ ...Ionicons.font });
   const hasHydrated = useWeddingStore((s) => s._hasHydrated);
+  const hasSelectedLanguage = useWeddingStore((s) => s.hasSelectedLanguage);
   const appTheme = useWeddingStore((s) => s.appTheme);
   const [animationDone, setAnimationDone] = useState(false);
   const ready = fontsLoaded && hasHydrated && animationDone;
@@ -79,8 +87,10 @@ export default function RootLayout() {
   const showBanner = !segments.some((segment) => segment === 'modals');
 
   useEffect(() => {
-    initMobileAds();
-  }, []);
+    if (hasSelectedLanguage) {
+      initMobileAds();
+    }
+  }, [hasSelectedLanguage]);
 
   if (!fontsLoaded) {
     return null;
@@ -95,16 +105,31 @@ export default function RootLayout() {
     );
   }
 
+  if (!hasSelectedLanguage) {
+    return (
+      <SafeAreaProvider>
+        <View style={[flexFill, webViewportHeight]}>
+          <AppThemeProvider themeId="wedding">
+            <LanguageSetupScreen />
+          </AppThemeProvider>
+        </View>
+        <StatusBar style="dark" />
+      </SafeAreaProvider>
+    );
+  }
+
   return (
     <SafeAreaProvider>
-      <KeyboardProvider>
-        <StatusBar style="dark" />
-        <AppThemeProvider themeId={appTheme}>
-          <AppShell showBanner={showBanner}>
-            <ThemedRootStack />
-          </AppShell>
-        </AppThemeProvider>
-      </KeyboardProvider>
+      <View style={[flexFill, webViewportHeight]}>
+        <KeyboardProvider>
+          <StatusBar style="dark" />
+          <AppThemeProvider themeId={appTheme}>
+            <AppShell showBanner={showBanner}>
+              <ThemedRootStack />
+            </AppShell>
+          </AppThemeProvider>
+        </KeyboardProvider>
+      </View>
     </SafeAreaProvider>
   );
 }

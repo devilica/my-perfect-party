@@ -21,6 +21,10 @@
     "name": "My perfect party",
     "tagline": "Plan your perfect party"
   },
+  "onboarding": {
+    "selectLanguage": "Choose your language",
+    "continue": "Continue"
+  },
   "events": {
     "title": "Events",
     "myEvents": "My events",
@@ -40,7 +44,7 @@
     "selectDateTime": "Select date and time",
     "clearDate": "Clear date",
     "location": "Location",
-    "locationPlaceholder": "e.g. Sarajevo",
+    "locationPlaceholder": "e.g. Atina",
     "guestsBadge": "{{confirmed}} / {{total}} confirmed",
     "peopleBadge": "{{count}} people",
     "tablesBadge": "{{count}} tables",
@@ -207,6 +211,9 @@
     "capacityError": "Table does not have enough free seats.",
     "nameRequired": "Table name is required.",
     "unassignedGuests": "Unassigned guests",
+    "previewTitle": "Table preview",
+    "previewOccupied": "Occupied",
+    "previewFree": "Free",
     "addBatch": "Add batch",
     "preset310": "3 tables × 10 seats",
     "preset57": "5 tables × 7 seats"
@@ -370,6 +377,11 @@
     "backupImportSuccess": "Backup imported successfully.",
     "backupImportFailed": "Backup import failed.",
     "backupInvalidFile": "The selected file is not a valid backup.",
-    "backupMailUnavailable": "Mail app is unavailable. Backup was shared via the system share sheet."
+    "backupMailUnavailable": "Mail app is unavailable. Backup was shared via the system share sheet.",
+    "supportTitle": "Support",
+    "supportDescription": "Questions, tips, or a bug? Get in touch.",
+    "contactSupport": "Contact support",
+    "supportEmailSubject": "My perfect party — support",
+    "supportMailUnavailable": "Could not open mail app. Copy the support email address below."
   }
 }

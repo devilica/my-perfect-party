@@ -5,12 +5,12 @@ import {
   Alert,
   Modal,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 
+import { FormScrollView } from '@/components/FormScrollView';
 import { GuestFilterBar } from '@/components/GuestFilterBar';
 import { SeatingAssignmentModal } from '@/components/SeatingAssignmentModal';
 import { TableCard } from '@/components/TableCard';
@@ -85,7 +85,7 @@ export default function SeatingScreen() {
 
   return (
     <ThemedScreenContainer>
-      <ScrollView
+      <FormScrollView
         contentContainerStyle={{ paddingBottom: fabScrollPadding + spacing.xl }}
         showsVerticalScrollIndicator={false}
       >
@@ -140,6 +140,9 @@ export default function SeatingScreen() {
               key={table.id}
               table={table}
               guests={eventGuests}
+              onPreview={() =>
+                router.push(`/modals/table-preview?eventId=${eventId}&tableId=${table.id}`)
+              }
               onEdit={() =>
                 router.push(`/modals/table-form?eventId=${eventId}&tableId=${table.id}`)
               }
@@ -148,7 +151,7 @@ export default function SeatingScreen() {
             />
           ))
         )}
-      </ScrollView>
+      </FormScrollView>
 
       <Fab onPress={() => setFabOpen(true)} icon="add" />
 

@@ -72,6 +72,7 @@ type PersistedState = {
   expenses: Array<Omit<Expense, 'eventId'> & { eventId: unknown }>;
   obligations?: Array<Omit<Obligation, 'eventId'> & { eventId: unknown }>;
   language?: Language;
+  hasSelectedLanguage?: boolean;
   localeVersion?: number;
   appTheme?: CelebrationThemeId;
   unlockedAppThemes?: CelebrationThemeId[];
@@ -231,6 +232,7 @@ type WeddingState = {
   expenses: Expense[];
   obligations: Obligation[];
   language: Language;
+  hasSelectedLanguage: boolean;
   appTheme: CelebrationThemeId;
   unlockedAppThemes: CelebrationThemeId[];
   backupEmail: string;
@@ -238,6 +240,7 @@ type WeddingState = {
   _hasHydrated: boolean;
   setHasHydrated: (value: boolean) => void;
   setLanguage: (language: Language) => void;
+  confirmLanguageSelection: (language: Language) => void;
   setAppTheme: (themeId: CelebrationThemeId) => void;
   unlockAppTheme: (themeId: CelebrationThemeId) => void;
   isAppThemeUnlocked: (themeId: CelebrationThemeId) => boolean;
@@ -295,6 +298,7 @@ export const useWeddingStore = create<WeddingState>()(
       expenses: [],
       obligations: [],
       language: getDefaultLanguage(),
+      hasSelectedLanguage: false,
       appTheme: 'wedding' as CelebrationThemeId,
       unlockedAppThemes: [...DEFAULT_UNLOCKED_APP_THEMES],
       backupEmail: '',
@@ -303,6 +307,9 @@ export const useWeddingStore = create<WeddingState>()(
       setHasHydrated: (value) => set({ _hasHydrated: value }),
 
       setLanguage: (language) => set({ language }),
+
+      confirmLanguageSelection: (language) =>
+        set({ language, hasSelectedLanguage: true }),
 
       setAppTheme: (appTheme) => set({ appTheme }),
 
@@ -712,6 +719,7 @@ export const useWeddingStore = create<WeddingState>()(
         expenses: state.expenses,
         obligations: state.obligations,
         language: state.language,
+        hasSelectedLanguage: state.hasSelectedLanguage,
         localeVersion: LOCALE_VERSION,
         appTheme: state.appTheme,
         unlockedAppThemes: state.unlockedAppThemes,
@@ -729,6 +737,8 @@ export const useWeddingStore = create<WeddingState>()(
           ...saved,
           ...normalized,
           language: normalizePersistedLanguage(saved),
+          hasSelectedLanguage:
+            saved.hasSelectedLanguage ?? saved.localeVersion !== undefined,
           appTheme: normalizeAppTheme(saved.appTheme),
           unlockedAppThemes: normalizeUnlockedAppThemes(
             saved.unlockedAppThemes,

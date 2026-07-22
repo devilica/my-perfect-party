@@ -2,6 +2,8 @@ import { ComponentProps } from 'react';
 import { Platform, ScrollView, StyleSheet } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 
+import { flexFill } from '@/lib/webLayout';
+
 type FormScrollViewProps = ComponentProps<typeof ScrollView>;
 
 const BOTTOM_OFFSET = 120;
@@ -29,6 +31,6 @@ export function FormScrollView({ style, ...props }: FormScrollViewProps) {
 
 const styles = StyleSheet.create({
   scroll: {
-    flex: 1,
+    ...flexFill,
   },
 });

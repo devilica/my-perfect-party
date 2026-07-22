@@ -7,6 +7,7 @@ import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { Button, EmptyState, Fab, StatCard } from '@/components/ui';
 import { OBLIGATION_TEMPLATE_KEYS } from '@/constants/obligationTemplates';
 import { useFabScrollPadding } from '@/hooks/useFabBottomOffset';
+import { flexFill } from '@/lib/webLayout';
 import { getObligationStats, getObligationsForEvent } from '@/lib/obligationStats';
 import { useTranslation } from '@/lib/i18n';
 import { useEventId } from '@/lib/useEventId';
@@ -161,10 +162,10 @@ export default function ObligationsScreen() {
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
+    ...flexFill,
   },
   list: {
-    flex: 1,
+    ...flexFill,
   },
   header: {
     gap: spacing.md,

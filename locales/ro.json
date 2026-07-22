@@ -40,7 +40,7 @@
     "selectDateTime": "Selectează data și ora",
     "clearDate": "Șterge data",
     "location": "Locație",
-    "locationPlaceholder": "ex. Sarajevo",
+    "locationPlaceholder": "ex. Atina",
     "guestsBadge": "{{confirmed}} / {{total}} confirmați",
     "peopleBadge": "{{count}} persoane",
     "tablesBadge": "{{count}} mese",

@@ -18,6 +18,7 @@ import { getCelebrationTheme } from '@/theme/celebrations';
 import { EventThemeProvider } from '@/theme/EventThemeContext';
 import { spacing } from '@/theme/colors';
 import { CelebrationThemeId } from '@/types/models';
+import { flexFill } from '@/lib/webLayout';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -187,7 +188,7 @@ export default function AddEventModal() {
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
+    ...flexFill,
   },
   container: {
     flexGrow: 1,

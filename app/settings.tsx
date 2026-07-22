@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Alert, StyleSheet, Text, View } from 'react-native';
+import { Alert, Linking, StyleSheet, Text, View } from 'react-native';
 
 import { FormScrollView } from '@/components/FormScrollView';
 
@@ -11,6 +11,7 @@ import { ThemePicker } from '@/components/ThemePicker';
 import { Button, Card, TextInputField } from '@/components/ui';
 import { useBannerClearance } from '@/hooks/useBannerClearance';
 import { getLanguageSelectOptions } from '@/constants/languages';
+import { SUPPORT_EMAIL } from '@/constants/support';
 import { validateBackupEmail } from '@/lib/backup';
 import { formatDisplayDateTime } from '@/lib/dateUtils';
 import { useTranslation } from '@/lib/i18n';
@@ -134,6 +135,14 @@ export default function SettingsScreen() {
     }
   };
 
+  const handleContactSupport = () => {
+    Linking.openURL(
+      `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(t('settings.supportEmailSubject'))}`
+    ).catch(() => {
+      Alert.alert(t('common.error'), t('settings.supportMailUnavailable'));
+    });
+  };
+
   const lastSyncLabel = lastBackupAt
     ? formatDisplayDateTime(lastBackupAt, language)
     : t('settings.backupNeverSynced');
@@ -250,6 +259,22 @@ export default function SettingsScreen() {
           </Text>
         </View>
       </Card>
+
+      <Text style={[styles.sectionLabel, { color: theme.textSecondary }]}>
+        {t('settings.supportTitle')}
+      </Text>
+      <Card style={styles.supportCard}>
+        <Text style={[styles.supportDescription, { color: theme.textSecondary }]}>
+          {t('settings.supportDescription')}
+        </Text>
+        <Button
+          label={t('settings.contactSupport')}
+          onPress={handleContactSupport}
+          variant="secondary"
+          icon="mail-outline"
+        />
+        <Text style={[styles.supportEmail, { color: theme.textMuted }]}>{SUPPORT_EMAIL}</Text>
+      </Card>
       </FormScrollView>
     </ScreenContainer>
   );
@@ -317,5 +342,16 @@ const styles = StyleSheet.create({
   storageText: {
     ...typography.caption,
     flex: 1,
+  },
+  supportCard: {
+    gap: spacing.sm,
+  },
+  supportDescription: {
+    ...typography.body,
+    lineHeight: 22,
+  },
+  supportEmail: {
+    ...typography.caption,
+    textAlign: 'center',
   },
 });

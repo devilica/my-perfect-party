@@ -21,6 +21,10 @@
     "name": "Moja savršena proslava",
     "tagline": "Planiraj savršenu proslavu"
   },
+  "onboarding": {
+    "selectLanguage": "Izaberite jezik",
+    "continue": "Nastavi"
+  },
   "events": {
     "title": "Događaji",
     "myEvents": "Moji događaji",
@@ -207,6 +211,9 @@
     "capacityError": "Sto nema dovoljno slobodnih mjesta.",
     "nameRequired": "Naziv stola je obavezan.",
     "unassignedGuests": "Neraspoređeni gosti",
+    "previewTitle": "Pregled stola",
+    "previewOccupied": "Zauzeto",
+    "previewFree": "Slobodno",
     "addBatch": "Dodaj grupu",
     "preset310": "3 stola × 10 mjesta",
     "preset57": "5 stolova × 7 mjesta"
@@ -370,6 +377,11 @@
     "backupImportSuccess": "Backup je uspješno uvezen.",
     "backupImportFailed": "Uvoz backupa nije uspio.",
     "backupInvalidFile": "Odabrani fajl nije ispravan backup.",
-    "backupMailUnavailable": "Mail aplikacija nije dostupna. Backup je podijeljen putem dijela sistema."
+    "backupMailUnavailable": "Mail aplikacija nije dostupna. Backup je podijeljen putem dijela sistema.",
+    "supportTitle": "Podrška",
+    "supportDescription": "Imaš pitanje, savjet ili grešku? Javi nam se.",
+    "contactSupport": "Kontaktiraj podršku",
+    "supportEmailSubject": "Moja savršena proslava — podrška",
+    "supportMailUnavailable": "Nije moguće otvoriti mail aplikaciju. Kopiraj email adresu ispod."
   }
 }

@@ -1,8 +1,9 @@
 import { useRouter } from 'expo-router';
 import { useMemo } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import { EventCountdown } from '@/components/EventCountdown';
+import { FormScrollView } from '@/components/FormScrollView';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { GuestAttendanceChart } from '@/components/GuestAttendanceChart';
 import { Button, Card, ProgressBar, StatCard } from '@/components/ui';
@@ -52,7 +53,7 @@ export default function EventOverviewScreen() {
 
   return (
     <ThemedScreenContainer>
-      <ScrollView
+      <FormScrollView
         contentContainerStyle={{ paddingBottom: spacing.xl + bannerClearance }}
         showsVerticalScrollIndicator={false}
       >
@@ -177,7 +178,7 @@ export default function EventOverviewScreen() {
             style={styles.actionBtn}
           />
         </View>
-      </ScrollView>
+      </FormScrollView>
     </ThemedScreenContainer>
   );
 }

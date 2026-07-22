@@ -7,6 +7,7 @@ import { GuestCard } from '@/components/GuestCard';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { EmptyState, Fab } from '@/components/ui';
 import { useFabScrollPadding } from '@/hooks/useFabBottomOffset';
+import { flexFill } from '@/lib/webLayout';
 import { filterGuests } from '@/lib/guestStats';
 import { getTablesForEvent } from '@/lib/seatingStats';
 import { useTranslation } from '@/lib/i18n';
@@ -111,7 +112,7 @@ export default function GuestsScreen() {
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
+    ...flexFill,
   },
   search: {
     borderWidth: 1,
@@ -123,6 +124,6 @@ const styles = StyleSheet.create({
     marginBottom: spacing.md,
   },
   list: {
-    flex: 1,
+    ...flexFill,
   },
 });

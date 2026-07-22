@@ -40,7 +40,7 @@
     "selectDateTime": "Sélectionner la date et l'heure",
     "clearDate": "Effacer la date",
     "location": "Lieu",
-    "locationPlaceholder": "ex. Sarajevo",
+    "locationPlaceholder": "ex. Atina",
     "guestsBadge": "{{confirmed}} / {{total}} confirmés",
     "peopleBadge": "{{count}} personnes",
     "tablesBadge": "{{count}} tables",

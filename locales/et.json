@@ -40,7 +40,7 @@
     "selectDateTime": "Vali kuupäev ja kellaaeg",
     "clearDate": "Tühjenda kuupäev",
     "location": "Asukoht",
-    "locationPlaceholder": "nt Sarajevo",
+    "locationPlaceholder": "nt Atina",
     "guestsBadge": "{{confirmed}} / {{total}} kinnitatud",
     "peopleBadge": "{{count}} inimest",
     "tablesBadge": "{{count}} lauda",

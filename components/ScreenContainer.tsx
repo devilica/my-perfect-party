@@ -4,6 +4,7 @@ import { ImageBackground, ImageStyle, Platform, StyleSheet, View, ViewStyle } fr
 
 import { useActiveTheme } from '@/theme/EventThemeContext';
 import { colors, spacing } from '@/theme/colors';
+import { flexFill, webViewportHeight } from '@/lib/webLayout';
 
 type ScreenContainerProps = {
   children: ReactNode;
@@ -41,7 +42,7 @@ export function ScreenContainer({ children, style, padded = true }: ScreenContai
 
 const styles = StyleSheet.create({
   outer: {
-    flex: 1,
+    ...flexFill,
   },
   defaultBackground: {
     backgroundColor: colors.background,
@@ -50,14 +51,14 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
   },
   content: {
-    flex: 1,
+    ...flexFill,
     zIndex: 1,
   },
   padded: {
     paddingHorizontal: spacing.md,
   },
   inner: {
-    flex: 1,
+    ...flexFill,
     width: '100%',
     maxWidth: 480,
     alignSelf: 'center',
@@ -68,6 +69,7 @@ const webStyles = {
   outer: {
     position: 'relative',
     overflow: 'hidden',
+    ...webViewportHeight,
   } as ViewStyle,
   backgroundLayerWeb: {
     position: 'fixed',

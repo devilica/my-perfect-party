@@ -1,9 +1,34 @@
 import {
+  getGuestFullName,
   Guest,
   SeatingStats,
   SeatingTable,
   TableOccupancy,
 } from '@/types/models';
+
+export type TableSeatSlot = {
+  occupied: boolean;
+  guestName?: string;
+};
+
+export function buildTableSeatSlots(table: SeatingTable, guests: Guest[]): TableSeatSlot[] {
+  const slots: TableSeatSlot[] = Array.from({ length: table.capacity }, () => ({
+    occupied: false,
+  }));
+
+  let seatIndex = 0;
+  for (const guest of getGuestsAtTable(guests, table.id)) {
+    for (let i = 0; i < guest.partySize && seatIndex < table.capacity; i += 1) {
+      slots[seatIndex] = {
+        occupied: true,
+        guestName: i === 0 ? getGuestFullName(guest) : undefined,
+      };
+      seatIndex += 1;
+    }
+  }
+
+  return slots;
+}
 
 export function getTablesForEvent(tables: SeatingTable[], eventId: string): SeatingTable[] {
   return tables

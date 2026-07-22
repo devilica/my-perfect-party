@@ -5,6 +5,7 @@ import { BottomBannerAd } from '@/components/BottomBannerAd';
 import { BannerLayoutProvider } from '@/hooks/BannerLayoutContext';
 import { useIsOnline } from '@/hooks/useIsOnline';
 import { areAdsEnabled } from '@/lib/adsEnvironment';
+import { flexFill, webViewportHeight } from '@/lib/webLayout';
 
 type AppShellProps = {
   children: ReactNode;
@@ -31,7 +32,8 @@ export function AppShell({ children, showBanner = true }: AppShellProps) {
 
 const styles = StyleSheet.create({
   root: {
-    flex: 1,
+    ...flexFill,
+    ...webViewportHeight,
   },
   bannerOverlay: {
     ...StyleSheet.absoluteFillObject,

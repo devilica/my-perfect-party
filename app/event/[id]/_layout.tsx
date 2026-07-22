@@ -6,6 +6,7 @@ import { Alert, Pressable, View } from 'react-native';
 import { useBannerHeight } from '@/hooks/BannerLayoutContext';
 import { useIsOnline } from '@/hooks/useIsOnline';
 import { areAdsEnabled } from '@/lib/adsEnvironment';
+import { flexFill } from '@/lib/webLayout';
 import { useTranslation } from '@/lib/i18n';
 import { preloadRewardedThemeAd, showRewardedThemeAd } from '@/lib/rewardedThemeAd';
 import { useEventId } from '@/lib/useEventId';
@@ -91,6 +92,7 @@ export default function EventLayout() {
 
   return (
     <EventThemeProvider themeId={event.theme}>
+      <View style={flexFill}>
       <Tabs
         safeAreaInsets={bannerHeight > 0 ? { bottom: 0 } : undefined}
         screenOptions={{
@@ -170,6 +172,7 @@ export default function EventLayout() {
           }}
         />
       </Tabs>
+      </View>
     </EventThemeProvider>
   );
 }

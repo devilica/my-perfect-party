@@ -6,6 +6,7 @@ import { EventCard } from '@/components/EventCard';
 import { ScreenContainer } from '@/components/ScreenContainer';
 import { EmptyState, Fab } from '@/components/ui';
 import { useFabScrollPadding } from '@/hooks/useFabBottomOffset';
+import { flexFill } from '@/lib/webLayout';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
 import { useThemeColors } from '@/theme/EventThemeContext';
@@ -20,13 +21,7 @@ export default function HomeScreen() {
   const theme = useThemeColors();
 
   return (
-    <ScreenContainer
-      style={{
-        flex: 1,
-        paddingTop: spacing.sm,
-        ...(events.length === 0 ? { paddingBottom: fabScrollPadding } : null),
-      }}
-    >
+    <ScreenContainer style={{ flex: 1, paddingTop: spacing.sm }}>
       <Stack.Screen
         options={{
           title: t('app.name'),
@@ -41,28 +36,30 @@ export default function HomeScreen() {
       <Text style={[styles.tagline, { color: theme.textSecondary }]}>{t('app.tagline')}</Text>
       <Text style={[styles.sectionTitle, { color: theme.text }]}>{t('events.myEvents')}</Text>
 
-      {events.length === 0 ? (
-        <EmptyState
-          icon="heart-outline"
-          title={t('events.emptyTitle')}
-          subtitle={t('events.emptySubtitle')}
-        />
-      ) : (
-        <FlatList
-          data={events}
-          keyExtractor={(item) => item.id}
-          style={{ flex: 1 }}
-          renderItem={({ item }) => (
-            <EventCard
-              event={item}
-              onPress={() => router.push(`/event/${item.id}`)}
-              onEdit={() => router.push(`/modals/add-event?eventId=${item.id}`)}
-            />
-          )}
-          contentContainerStyle={{ paddingBottom: fabScrollPadding }}
-          showsVerticalScrollIndicator={false}
-        />
-      )}
+      <View style={flexFill}>
+        {events.length === 0 ? (
+          <EmptyState
+            icon="heart-outline"
+            title={t('events.emptyTitle')}
+            subtitle={t('events.emptySubtitle')}
+          />
+        ) : (
+          <FlatList
+            data={events}
+            keyExtractor={(item) => item.id}
+            style={flexFill}
+            renderItem={({ item }) => (
+              <EventCard
+                event={item}
+                onPress={() => router.push(`/event/${item.id}`)}
+                onEdit={() => router.push(`/modals/add-event?eventId=${item.id}`)}
+              />
+            )}
+            contentContainerStyle={{ paddingBottom: fabScrollPadding }}
+            showsVerticalScrollIndicator={false}
+          />
+        )}
+      </View>
 
       <Fab onPress={() => router.push('/modals/add-event')} />
     </ScreenContainer>

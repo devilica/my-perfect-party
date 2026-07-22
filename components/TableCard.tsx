@@ -17,12 +17,13 @@ import { getOccupancyColors, radius, spacing, typography } from '@/theme/colors'
 type TableCardProps = {
   table: SeatingTable;
   guests: Guest[];
+  onPreview: () => void;
   onEdit: () => void;
   onDelete: () => void;
   onGuestPress: (guest: Guest) => void;
 };
 
-export function TableCard({ table, guests, onEdit, onDelete, onGuestPress }: TableCardProps) {
+export function TableCard({ table, guests, onPreview, onEdit, onDelete, onGuestPress }: TableCardProps) {
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
@@ -49,6 +50,9 @@ export function TableCard({ table, guests, onEdit, onDelete, onGuestPress }: Tab
           <Text style={[styles.title, { color: theme.text }]}>{table.name}</Text>
         </View>
         <View style={styles.actions}>
+          <Pressable onPress={onPreview} hitSlop={8}>
+            <Ionicons name="eye-outline" size={20} color={theme.primary} />
+          </Pressable>
           <Pressable onPress={onEdit} hitSlop={8}>
             <Ionicons name="create-outline" size={20} color={theme.primary} />
           </Pressable>

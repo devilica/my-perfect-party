@@ -40,7 +40,7 @@
     "selectDateTime": "Vyberte dátum a čas",
     "clearDate": "Vymazať dátum",
     "location": "Miesto",
-    "locationPlaceholder": "napr. Sarajevo",
+    "locationPlaceholder": "napr. Atina",
     "guestsBadge": "{{confirmed}} / {{total}} potvrdené",
     "peopleBadge": "{{count}} osôb",
     "tablesBadge": "{{count}} stolov",

@@ -1,9 +1,10 @@
 import { useRouter } from 'expo-router';
 import { useMemo } from 'react';
-import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, StyleSheet, Text, View } from 'react-native';
 
 import { ExpenseCharts } from '@/components/ExpenseCharts';
 import { ExpenseRow } from '@/components/ExpenseRow';
+import { FormScrollView } from '@/components/FormScrollView';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { EmptyState, Fab, StatCard } from '@/components/ui';
 import { useFabScrollPadding } from '@/hooks/useFabBottomOffset';
@@ -57,7 +58,7 @@ export default function ExpensesScreen() {
 
   return (
     <ThemedScreenContainer>
-      <ScrollView
+      <FormScrollView
         contentContainerStyle={{ paddingBottom: fabScrollPadding }}
         showsVerticalScrollIndicator={false}
       >
@@ -89,7 +90,7 @@ export default function ExpensesScreen() {
             />
           ))
         )}
-      </ScrollView>
+      </FormScrollView>
 
       <Fab onPress={() => router.push(`/modals/add-expense?eventId=${eventId}`)} />
     </ThemedScreenContainer>
