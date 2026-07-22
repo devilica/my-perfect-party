@@ -1,6 +1,8 @@
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
-import { ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
+import { StyleSheet, Switch, Text, View } from 'react-native';
+
+import { FormScrollView } from '@/components/FormScrollView';
 
 import { CategoryPicker } from '@/components/CategoryPicker';
 import {
@@ -75,9 +77,8 @@ export default function AddExpenseModal() {
 
   return (
     <ThemedEventModal eventId={eventId ?? ''}>
-      <ScrollView
+      <FormScrollView
         contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
-        keyboardShouldPersistTaps="handled"
       >
         <Stack.Screen
           options={getThemedModalScreenOptions(celebrationTheme, t('expenses.add'))}
@@ -139,7 +140,7 @@ export default function AddExpenseModal() {
         <Button label={t('common.save')} onPress={handleSave} />
         <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
       </View>
-      </ScrollView>
+      </FormScrollView>
     </ThemedEventModal>
   );
 }

@@ -1,6 +1,8 @@
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+
+import { FormScrollView } from '@/components/FormScrollView';
 
 import { DatePickerField } from '@/components/DatePickerField';
 import { SelectField } from '@/components/SelectField';
@@ -84,9 +86,8 @@ export default function ObligationFormModal() {
 
   return (
     <ThemedEventModal eventId={eventId ?? ''}>
-      <ScrollView
+      <FormScrollView
         contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
-        keyboardShouldPersistTaps="handled"
       >
         <Stack.Screen
           options={getThemedModalScreenOptions(
@@ -141,7 +142,7 @@ export default function ObligationFormModal() {
         <Button label={t('common.save')} onPress={handleSave} />
         <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
       </View>
-      </ScrollView>
+      </FormScrollView>
     </ThemedEventModal>
   );
 }

@@ -1,6 +1,8 @@
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+
+import { FormScrollView } from '@/components/FormScrollView';
 
 import { Button, TextInputField } from '@/components/ui';
 import {
@@ -69,9 +71,8 @@ export default function TableFormModal() {
 
   return (
     <ThemedEventModal eventId={eventId ?? ''}>
-      <ScrollView
+      <FormScrollView
         contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
-        keyboardShouldPersistTaps="handled"
       >
         <Stack.Screen
           options={getThemedModalScreenOptions(
@@ -102,7 +103,7 @@ export default function TableFormModal() {
         <Button label={t('common.save')} onPress={handleSave} />
         <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
       </View>
-      </ScrollView>
+      </FormScrollView>
     </ThemedEventModal>
   );
 }

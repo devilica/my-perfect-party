@@ -1,6 +1,6 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { ReactNode } from 'react';
-import { ImageBackground, Platform, StyleSheet, View, ViewStyle } from 'react-native';
+import { ImageBackground, ImageStyle, Platform, StyleSheet, View, ViewStyle } from 'react-native';
 
 import { useEventTheme } from '@/theme/EventThemeContext';
 import { spacing } from '@/theme/colors';
@@ -27,20 +27,22 @@ export function ThemedScreenContainer({
   }
 
   return (
-    <ImageBackground
-      source={eventTheme.backgroundImage}
-      style={[styles.outer, style]}
-      imageStyle={styles.backgroundImage}
-      resizeMode="cover"
-    >
-      <LinearGradient
-        colors={eventTheme.overlayColors}
-        style={StyleSheet.absoluteFillObject}
-      />
+    <View style={[styles.outer, Platform.OS === 'web' && webStyles.outer, style]}>
+      <ImageBackground
+        source={eventTheme.backgroundImage}
+        style={[styles.backgroundLayer, Platform.OS === 'web' && webStyles.backgroundLayerWeb]}
+        imageStyle={Platform.OS === 'web' ? webStyles.backgroundImage : undefined}
+        resizeMode="cover"
+      >
+        <LinearGradient
+          colors={eventTheme.overlayColors}
+          style={StyleSheet.absoluteFillObject}
+        />
+      </ImageBackground>
       <View style={[styles.content, padded && styles.padded]}>
         <View style={styles.inner}>{children}</View>
       </View>
-    </ImageBackground>
+    </View>
   );
 }
 
@@ -48,14 +50,12 @@ const styles = StyleSheet.create({
   outer: {
     flex: 1,
   },
-  backgroundImage: {
-    ...Platform.select({
-      web: { objectFit: 'cover' as const },
-      default: {},
-    }),
+  backgroundLayer: {
+    ...StyleSheet.absoluteFillObject,
   },
   content: {
     flex: 1,
+    zIndex: 1,
   },
   padded: {
     paddingHorizontal: spacing.md,
@@ -67,3 +67,21 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
 });
+
+const webStyles = {
+  outer: {
+    position: 'relative',
+    overflow: 'hidden',
+  } as ViewStyle,
+  backgroundLayerWeb: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100vw',
+    height: '100vh',
+  } as unknown as ViewStyle,
+  backgroundImage: {
+    objectFit: 'cover',
+    transform: [{ scale: 1.05 }],
+  } as ImageStyle,
+};

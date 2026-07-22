@@ -4,6 +4,7 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
+import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AnimatedSplashScreen } from '@/components/AnimatedSplashScreen';
 import { AppShell } from '@/components/AppShell';
@@ -30,8 +31,14 @@ function ThemedRootStack() {
         contentStyle: { backgroundColor: theme.background },
       }}
     >
-      <Stack.Screen name="index" options={{ title: 'Moja savršena proslava' }} />
-      <Stack.Screen name="settings" options={{ title: 'Postavke' }} />
+      <Stack.Screen
+        name="index"
+        options={{ title: 'Moja savršena proslava', contentStyle: { backgroundColor: 'transparent' } }}
+      />
+      <Stack.Screen
+        name="settings"
+        options={{ title: 'Postavke', contentStyle: { backgroundColor: 'transparent' } }}
+      />
       <Stack.Screen name="event/[id]" options={{ headerShown: false }} />
       <Stack.Screen
         name="modals/guest-form"
@@ -90,12 +97,14 @@ export default function RootLayout() {
 
   return (
     <SafeAreaProvider>
-      <StatusBar style="dark" />
-      <AppThemeProvider themeId={appTheme}>
-        <AppShell showBanner={showBanner}>
-          <ThemedRootStack />
-        </AppShell>
-      </AppThemeProvider>
+      <KeyboardProvider>
+        <StatusBar style="dark" />
+        <AppThemeProvider themeId={appTheme}>
+          <AppShell showBanner={showBanner}>
+            <ThemedRootStack />
+          </AppShell>
+        </AppThemeProvider>
+      </KeyboardProvider>
     </SafeAreaProvider>
   );
 }

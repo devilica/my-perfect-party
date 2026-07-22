@@ -1,5 +1,6 @@
 import { DatePickerField } from '@/components/DatePickerField';
 import { StringListEditor } from '@/components/StringListEditor';
+import { FormScrollView } from '@/components/FormScrollView';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { ThemePicker } from '@/components/ThemePicker';
 import { Button, TextInputField } from '@/components/ui';
@@ -19,7 +20,7 @@ import { spacing } from '@/theme/colors';
 import { CelebrationThemeId } from '@/types/models';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 export default function AddEventModal() {
   const router = useRouter();
@@ -105,10 +106,9 @@ export default function AddEventModal() {
   return (
     <EventThemeProvider themeId={theme}>
       <ThemedScreenContainer padded={false} style={styles.screen}>
-        <ScrollView
-          contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
-          keyboardShouldPersistTaps="handled"
-        >
+          <FormScrollView
+            contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
+          >
           <Stack.Screen
             options={{
               title: existingEvent ? t('events.edit') : t('events.add'),
@@ -179,7 +179,7 @@ export default function AddEventModal() {
             <Button label={t('common.save')} onPress={handleSave} />
             <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
           </View>
-        </ScrollView>
+        </FormScrollView>
       </ThemedScreenContainer>
     </EventThemeProvider>
   );

@@ -1,7 +1,9 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, StyleSheet, Text, View } from 'react-native';
+
+import { FormScrollView } from '@/components/FormScrollView';
 
 import { ScreenContainer } from '@/components/ScreenContainer';
 import { SelectField } from '@/components/SelectField';
@@ -142,9 +144,8 @@ export default function SettingsScreen() {
     <ScreenContainer style={{ paddingTop: spacing.md }}>
       <Stack.Screen options={{ title: t('settings.title') }} />
 
-      <ScrollView
+      <FormScrollView
         contentContainerStyle={{ paddingBottom: bannerClearance + spacing.lg }}
-        keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
       >
       <Text style={[styles.sectionLabel, { color: theme.textSecondary }]}>
@@ -249,7 +250,7 @@ export default function SettingsScreen() {
           </Text>
         </View>
       </Card>
-      </ScrollView>
+      </FormScrollView>
     </ScreenContainer>
   );
 }

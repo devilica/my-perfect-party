@@ -1,5 +1,7 @@
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { ScrollView, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+
+import { FormScrollView } from '@/components/FormScrollView';
 
 import { TableCreationModal } from '@/components/TableCreationModal';
 import {
@@ -27,9 +29,8 @@ export default function BulkTablesModal() {
 
   return (
     <ThemedEventModal eventId={eventId}>
-      <ScrollView
+      <FormScrollView
         contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
-        keyboardShouldPersistTaps="handled"
       >
         <Stack.Screen
           options={getThemedModalScreenOptions(celebrationTheme, t('seating.bulkCreateTitle'))}
@@ -41,7 +42,7 @@ export default function BulkTablesModal() {
           }}
           onCancel={() => router.back()}
         />
-      </ScrollView>
+      </FormScrollView>
     </ThemedEventModal>
   );
 }

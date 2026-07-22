@@ -1,7 +1,9 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
-import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+
+import { FormScrollView } from '@/components/FormScrollView';
 
 import { GuestCategoryPicker } from '@/components/GuestCategoryPicker';
 import { GuestSidePicker } from '@/components/GuestSidePicker';
@@ -179,9 +181,8 @@ export default function GuestFormModal() {
 
   return (
     <ThemedEventModal eventId={eventId}>
-      <ScrollView
+      <FormScrollView
         contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
-        keyboardShouldPersistTaps="handled"
       >
         <Stack.Screen
           options={getThemedModalScreenOptions(
@@ -313,7 +314,7 @@ export default function GuestFormModal() {
         <Button label={t('common.save')} onPress={handleSave} />
         <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
       </View>
-      </ScrollView>
+      </FormScrollView>
     </ThemedEventModal>
   );
 }
