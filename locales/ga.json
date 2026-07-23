@@ -21,6 +21,10 @@
     "name": "Mo chóisir foirfe",
     "tagline": "Pleanáil do chóisir foirfe"
   },
+  "onboarding": {
+    "selectLanguage": "Roghnaigh do theanga",
+    "continue": "Lean ar aghaidh"
+  },
   "events": {
     "title": "Imeachtaí",
     "myEvents": "Mo chuid imeachtaí",
@@ -40,7 +44,7 @@
     "selectDateTime": "Roghnaigh dáta agus am",
     "clearDate": "Glan dáta",
     "location": "Suíomh",
-    "locationPlaceholder": "m.sh. Atina",
+    "locationPlaceholder": "m.sh. Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} deimhnithe",
     "peopleBadge": "{{count}} duine",
     "tablesBadge": "{{count}} boird",
@@ -51,7 +55,7 @@
     "theme": "Téama na ceiliúrtha",
     "guestCategories": "Catagóirí aoí",
     "addGuestCategory": "Cuir catagóir leis",
-    "guestCategoryPlaceholder": "m.sh. Teaghlach, Cairde, Comharsana",
+    "guestCategoryPlaceholder": "m.sh. Comharsana",
     "guestSides": "Taobhanna aoí",
     "addGuestSide": "Cuir taobh leis",
     "guestSidePlaceholder": "m.sh. Taobh na ban-aí, Taobh an fhir-aí",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 galánta",
       "birthday18Modern": "18 nua-aoiseach",
       "birthday18Gold": "18 ór"
-    }
+    },
+    "adUnavailable": "Níl an fógra ar fáil faoi láthair. Bain triail eile as níos déanaí."
   },
   "guests": {
     "title": "Aoi",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} duine",
     "atTable": "Bord: {{name}}",
     "filters": {
+      "needs_invite": "Cuireadh riachtanach",
       "all": "Gach",
       "invitation_sent": "Cuireadh seolta",
       "confirmed": "Deimhnithe",
@@ -250,6 +256,15 @@
       "bride": "Taobh na ban-aí",
       "groom": "Taobh an fhir-aí",
       "shared": "Comhroinnte / Neodrach"
+    },
+    "sortLabel": "Sórtáil",
+    "sort": {
+      "added_desc": "An ceann is déanaí curtha leis",
+      "added_asc": "An chéad duine curtha leis",
+      "name_asc": "Ainm (A-Z)",
+      "name_desc": "Ainm (Z-A)",
+      "partySize_desc": "Líon daoine (is mó ar dtús)",
+      "partySize_asc": "Líon daoine (is lú ar dtús)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Níl go leor suíochán saor sa bhord.",
     "nameRequired": "Tá ainm an bhoird riachtanach.",
     "unassignedGuests": "Aoi gan sannadh",
+    "previewTitle": "Réamhamharc ar an mbord",
+    "previewOccupied": "Glactha",
+    "previewFree": "Saor",
     "addBatch": "Cuir baisc leis",
     "preset310": "3 bord × 10 suíochán",
     "preset57": "5 bord × 7 suíochán"
@@ -446,6 +464,14 @@
     "backupImportSuccess": "Iompórtáladh an cúltaca go rathúil.",
     "backupImportFailed": "Theip ar iompórtáil an chúltaca.",
     "backupInvalidFile": "Ní comhad cúltaca bailí é an comhad roghnaithe.",
-    "backupMailUnavailable": "Níl an aip ríomhphoist ar fáil. Roinneadh an cúltaca tríd an bhfógra comhroinnte an chórais."
+    "backupMailUnavailable": "Níl an aip ríomhphoist ar fáil. Roinneadh an cúltaca tríd an bhfógra comhroinnte an chórais.",
+    "supportTitle": "Tacaíocht",
+    "supportDescription": "Ceisteanna, leideanna nó fabht? Déan teagmháil linn.",
+    "contactSupport": "Déan teagmháil le tacaíocht",
+    "supportEmailSubject": "Mo chóisir foirfe — tacaíocht",
+    "supportMailUnavailable": "Níorbh fhéidir an aip ríomhphoist a oscailt. Cóipeáil an seoladh ríomhphoist thíos."
+  },
+  "ads": {
+    "sponsored": "Fógra"
   }
 }

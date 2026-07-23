@@ -21,6 +21,10 @@
     "name": "Moje idealne przyjęcie",
     "tagline": "Zaplanuj swoje idealne przyjęcie"
   },
+  "onboarding": {
+    "selectLanguage": "Wybierz język",
+    "continue": "Kontynuuj"
+  },
   "events": {
     "title": "Wydarzenia",
     "myEvents": "Moje wydarzenia",
@@ -40,7 +44,7 @@
     "selectDateTime": "Wybierz datę i godzinę",
     "clearDate": "Wyczyść datę",
     "location": "Lokalizacja",
-    "locationPlaceholder": "np. Warszawa",
+    "locationPlaceholder": "np. Gmina",
     "guestsBadge": "{{confirmed}} / {{total}} potwierdzonych",
     "peopleBadge": "{{count}} osób",
     "tablesBadge": "{{count}} stołów",
@@ -51,7 +55,7 @@
     "theme": "Motyw uroczystości",
     "guestCategories": "Kategorie gości",
     "addGuestCategory": "Dodaj kategorię",
-    "guestCategoryPlaceholder": "np. Rodzina, Przyjaciele, Sąsiedzi",
+    "guestCategoryPlaceholder": "np. Sąsiedzi",
     "guestSides": "Strony gości",
     "addGuestSide": "Dodaj stronę",
     "guestSidePlaceholder": "np. Strona panny młodej, Strona pana młodego",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 elegancki",
       "birthday18Modern": "18 nowoczesny",
       "birthday18Gold": "18 złoty"
-    }
+    },
+    "adUnavailable": "Reklama jest teraz niedostępna. Spróbuj ponownie później."
   },
   "guests": {
     "title": "Goście",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} osób",
     "atTable": "Stół: {{name}}",
     "filters": {
+      "needs_invite": "Do zaproszenia",
       "all": "Wszyscy",
       "invitation_sent": "Zaproszenie wysłane",
       "confirmed": "Potwierdzeni",
@@ -250,6 +256,15 @@
       "bride": "Strona panny młodej",
       "groom": "Strona pana młodego",
       "shared": "Wspólne / Neutralne"
+    },
+    "sortLabel": "Sortowanie",
+    "sort": {
+      "added_desc": "Ostatnio dodani",
+      "added_asc": "Pierwsi dodani",
+      "name_asc": "Imię (A-Z)",
+      "name_desc": "Imię (Z-A)",
+      "partySize_desc": "Liczba osób (więcej najpierw)",
+      "partySize_asc": "Liczba osób (mniej najpierw)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Stół nie ma wystarczającej liczby wolnych miejsc.",
     "nameRequired": "Nazwa stołu jest wymagana.",
     "unassignedGuests": "Nieprzypisani goście",
+    "previewTitle": "Podgląd stołu",
+    "previewOccupied": "Zajęte",
+    "previewFree": "Wolne",
     "addBatch": "Dodaj partię",
     "preset310": "3 stoły × 10 miejsc",
     "preset57": "5 stołów × 7 miejsc"
@@ -446,6 +464,14 @@
     "backupImportSuccess": "Kopia zapasowa została pomyślnie zaimportowana.",
     "backupImportFailed": "Import kopii zapasowej nie powiódł się.",
     "backupInvalidFile": "Wybrany plik nie jest prawidłową kopią zapasową.",
-    "backupMailUnavailable": "Aplikacja pocztowa jest niedostępna. Kopia zapasowa została udostępniona przez systemowy arkusz udostępniania."
+    "backupMailUnavailable": "Aplikacja pocztowa jest niedostępna. Kopia zapasowa została udostępniona przez systemowy arkusz udostępniania.",
+    "supportTitle": "Wsparcie",
+    "supportDescription": "Pytania, wskazówki lub błąd? Skontaktuj się z nami.",
+    "contactSupport": "Skontaktuj się ze wsparciem",
+    "supportEmailSubject": "Moje idealne przyjęcie — wsparcie",
+    "supportMailUnavailable": "Nie można otworzyć aplikacji poczty. Skopiuj adres e-mail poniżej."
+  },
+  "ads": {
+    "sponsored": "Reklama"
   }
 }

@@ -21,6 +21,10 @@
     "name": "Mans ideālais baliņš",
     "tagline": "Plāno savu ideālo baliņu"
   },
+  "onboarding": {
+    "selectLanguage": "Izvēlieties valodu",
+    "continue": "Turpināt"
+  },
   "events": {
     "title": "Pasākumi",
     "myEvents": "Mani pasākumi",
@@ -40,7 +44,7 @@
     "selectDateTime": "Izvēlieties datumu un laiku",
     "clearDate": "Notīrīt datumu",
     "location": "Vieta",
-    "locationPlaceholder": "piem. Sarajeva",
+    "locationPlaceholder": "piem. Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} apstiprināti",
     "peopleBadge": "{{count}} cilvēki",
     "tablesBadge": "{{count}} galdi",
@@ -51,7 +55,7 @@
     "theme": "Svinību tēma",
     "guestCategories": "Viesu kategorijas",
     "addGuestCategory": "Pievienot kategoriju",
-    "guestCategoryPlaceholder": "piem. Ģimene, Draugi, Kaimiņi",
+    "guestCategoryPlaceholder": "piem. Kaimiņi",
     "guestSides": "Viesu puses",
     "addGuestSide": "Pievienot pusi",
     "guestSidePlaceholder": "piem. Līgavas puse, Līgavaiņa puse",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 elegants",
       "birthday18Modern": "18 moderns",
       "birthday18Gold": "18 zelta"
-    }
+    },
+    "adUnavailable": "Reklāma pašlaik nav pieejama. Mēģiniet vēlāk."
   },
   "guests": {
     "title": "Viesi",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} cilvēki",
     "atTable": "Galds: {{name}}",
     "filters": {
+      "needs_invite": "Jāuzaicina",
       "all": "Visi",
       "invitation_sent": "Ielūgums nosūtīts",
       "confirmed": "Apstiprināts",
@@ -250,6 +256,15 @@
       "bride": "Līgavas puse",
       "groom": "Līgavaiņa puse",
       "shared": "Kopīgs / Neitrāls"
+    },
+    "sortLabel": "Kārtošana",
+    "sort": {
+      "added_desc": "Pēdējie pievienotie",
+      "added_asc": "Pirmie pievienotie",
+      "name_asc": "Vārds (A-Z)",
+      "name_desc": "Vārds (Z-A)",
+      "partySize_desc": "Personu skaits (vairāk vispirms)",
+      "partySize_asc": "Personu skaits (mazāk vispirms)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Galda nav pietiekami brīvu vietu.",
     "nameRequired": "Galda nosaukums ir obligāts.",
     "unassignedGuests": "Nepiešķirti viesi",
+    "previewTitle": "Galda priekšskatījums",
+    "previewOccupied": "Aizņemts",
+    "previewFree": "Brīvs",
     "addBatch": "Pievienot grupu",
     "preset310": "3 galdi × 10 vietas",
     "preset57": "5 galdi × 7 vietas"
@@ -446,6 +464,14 @@
     "backupImportSuccess": "Rezerves kopija veiksmīgi importēta.",
     "backupImportFailed": "Rezerves kopijas imports neizdevās.",
     "backupInvalidFile": "Izvēlētais fails nav derīga rezerves kopija.",
-    "backupMailUnavailable": "Pasta lietotne nav pieejama. Rezerves kopija tika kopīgota, izmantojot sistēmas kopīgošanas paneli."
+    "backupMailUnavailable": "Pasta lietotne nav pieejama. Rezerves kopija tika kopīgota, izmantojot sistēmas kopīgošanas paneli.",
+    "supportTitle": "Atbalsts",
+    "supportDescription": "Jautājumi, padomi vai kļūda? Sazinieties ar mums.",
+    "contactSupport": "Sazināties ar atbalstu",
+    "supportEmailSubject": "Mans ideālais baliņš — atbalsts",
+    "supportMailUnavailable": "Nevarēja atvērt e-pasta lietotni. Nokopējiet e-pasta adresi zemāk."
+  },
+  "ads": {
+    "sponsored": "Reklāma"
   }
 }

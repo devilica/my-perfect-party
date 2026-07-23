@@ -14,6 +14,7 @@ type CategoryPickerProps = {
   customCategory: string;
   onSelect: (category: ExpenseCategory) => void;
   onCustomChange: (value: string) => void;
+  customRequired?: boolean;
 };
 
 type CategoryOption = PredefinedCategory | 'other';
@@ -23,6 +24,7 @@ export function CategoryPicker({
   customCategory,
   onSelect,
   onCustomChange,
+  customRequired,
 }: CategoryPickerProps) {
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
@@ -62,6 +64,7 @@ export function CategoryPicker({
       {showCustom ? (
         <TextInputField
           label={t('expenses.customCategory')}
+          required={customRequired}
           value={customCategory}
           onChangeText={(text: string) => {
             onCustomChange(text);

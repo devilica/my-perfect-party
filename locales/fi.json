@@ -21,6 +21,10 @@
     "name": "Täydellinen juhlani",
     "tagline": "Suunnittele täydellinen juhlasi"
   },
+  "onboarding": {
+    "selectLanguage": "Valitse kieli",
+    "continue": "Jatka"
+  },
   "events": {
     "title": "Tapahtumat",
     "myEvents": "Omat tapahtumat",
@@ -40,7 +44,7 @@
     "selectDateTime": "Valitse päivämäärä ja aika",
     "clearDate": "Tyhjennä päivämäärä",
     "location": "Paikka",
-    "locationPlaceholder": "esim. Helsinki",
+    "locationPlaceholder": "esim. Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} vahvistettu",
     "peopleBadge": "{{count}} henkilöä",
     "tablesBadge": "{{count}} pöytää",
@@ -51,7 +55,7 @@
     "theme": "Juhlateema",
     "guestCategories": "Vieraskategoriat",
     "addGuestCategory": "Lisää kategoria",
-    "guestCategoryPlaceholder": "esim. Perhe, Ystävät, Naapurit",
+    "guestCategoryPlaceholder": "esim. Naapurit",
     "guestSides": "Vieraspuolet",
     "addGuestSide": "Lisää puoli",
     "guestSidePlaceholder": "esim. Morsiamen puoli, Sulhasen puoli",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 elegantti",
       "birthday18Modern": "18 moderni",
       "birthday18Gold": "18 kulta"
-    }
+    },
+    "adUnavailable": "Mainos ei ole juuri nyt saatavilla. Yritä myöhemmin uudelleen."
   },
   "guests": {
     "title": "Vieraat",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} henkilöä",
     "atTable": "Pöytä: {{name}}",
     "filters": {
+      "needs_invite": "Kutsuttava",
       "all": "Kaikki",
       "invitation_sent": "Kutsu lähetetty",
       "confirmed": "Vahvistetut",
@@ -250,6 +256,15 @@
       "bride": "Morsiamen puoli",
       "groom": "Sulhasen puoli",
       "shared": "Yhteinen / Neutraali"
+    },
+    "sortLabel": "Lajittelu",
+    "sort": {
+      "added_desc": "Viimeksi lisätyt",
+      "added_asc": "Ensin lisätyt",
+      "name_asc": "Nimi (A-Ö)",
+      "name_desc": "Nimi (Ö-A)",
+      "partySize_desc": "Henkilömäärä (eniten ensin)",
+      "partySize_asc": "Henkilömäärä (vähiten ensin)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Pöydässä ei ole tarpeeksi vapaita paikkoja.",
     "nameRequired": "Pöydän nimi on pakollinen.",
     "unassignedGuests": "Osoittamattomat vieraat",
+    "previewTitle": "Pöydän esikatselu",
+    "previewOccupied": "Varattu",
+    "previewFree": "Vapaa",
     "addBatch": "Lisää erä",
     "preset310": "3 pöytää × 10 paikkaa",
     "preset57": "5 pöytää × 7 paikkaa"
@@ -446,6 +464,14 @@
     "backupImportSuccess": "Varmuuskopio tuotiin onnistuneesti.",
     "backupImportFailed": "Varmuuskopion tuonti epäonnistui.",
     "backupInvalidFile": "Valittu tiedosto ei ole kelvollinen varmuuskopio.",
-    "backupMailUnavailable": "Sähköpostisovellus ei ole käytettävissä. Varmuuskopio jaettiin järjestelmän jakovalikon kautta."
+    "backupMailUnavailable": "Sähköpostisovellus ei ole käytettävissä. Varmuuskopio jaettiin järjestelmän jakovalikon kautta.",
+    "supportTitle": "Tuki",
+    "supportDescription": "Kysymyksiä, vinkkejä tai virhe? Ota yhteyttä.",
+    "contactSupport": "Ota yhteyttä tukeen",
+    "supportEmailSubject": "Täydellinen juhlani — tuki",
+    "supportMailUnavailable": "Sähköpostisovellusta ei voitu avata. Kopioi tukisähköpostiosoite alta."
+  },
+  "ads": {
+    "sponsored": "Mainos"
   }
 }

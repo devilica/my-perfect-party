@@ -21,6 +21,10 @@
     "name": "Mit perfekte fest",
     "tagline": "Planlæg din perfekte fest"
   },
+  "onboarding": {
+    "selectLanguage": "Vælg sprog",
+    "continue": "Fortsæt"
+  },
   "events": {
     "title": "Begivenheder",
     "myEvents": "Mine begivenheder",
@@ -40,7 +44,7 @@
     "selectDateTime": "Vælg dato og tid",
     "clearDate": "Ryd dato",
     "location": "Sted",
-    "locationPlaceholder": "f.eks. København",
+    "locationPlaceholder": "f.eks. Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} bekræftet",
     "peopleBadge": "{{count}} personer",
     "tablesBadge": "{{count}} borde",
@@ -51,7 +55,7 @@
     "theme": "Festtema",
     "guestCategories": "Gæstekategorier",
     "addGuestCategory": "Tilføj kategori",
-    "guestCategoryPlaceholder": "f.eks. Familie, Venner, Naboer",
+    "guestCategoryPlaceholder": "f.eks. Naboer",
     "guestSides": "Gæstesider",
     "addGuestSide": "Tilføj side",
     "guestSidePlaceholder": "f.eks. Brudens side, Brudgommens side",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 elegant",
       "birthday18Modern": "18 moderne",
       "birthday18Gold": "18 guld"
-    }
+    },
+    "adUnavailable": "Reklamen er ikke tilgængelig lige nu. Prøv igen senere."
   },
   "guests": {
     "title": "Gæster",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} personer",
     "atTable": "Bord: {{name}}",
     "filters": {
+      "needs_invite": "Skal inviteres",
       "all": "Alle",
       "invitation_sent": "Invitation sendt",
       "confirmed": "Bekræftet",
@@ -250,6 +256,15 @@
       "bride": "Brudens side",
       "groom": "Brudgommens side",
       "shared": "Fælles / Neutral"
+    },
+    "sortLabel": "Sortering",
+    "sort": {
+      "added_desc": "Sidst tilføjet",
+      "added_asc": "Først tilføjet",
+      "name_asc": "Navn (A-Å)",
+      "name_desc": "Navn (Å-A)",
+      "partySize_desc": "Antal personer (flest først)",
+      "partySize_asc": "Antal personer (færrest først)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Bordet har ikke nok ledige pladser.",
     "nameRequired": "Bordnavn er påkrævet.",
     "unassignedGuests": "Ikke-tildelte gæster",
+    "previewTitle": "Bordforhåndsvisning",
+    "previewOccupied": "Optaget",
+    "previewFree": "Ledig",
     "addBatch": "Tilføj batch",
     "preset310": "3 borde × 10 pladser",
     "preset57": "5 borde × 7 pladser"
@@ -426,26 +444,34 @@
     "languageHr": "Kroatisk",
     "languageEn": "Engelsk",
     "about": "Om",
-    "aboutText": "Mit perfekte fest — planlæg din fest lokalt på enheden. Alle data forbliver på enheden, med valgfri e-mailbackup.",
+    "aboutText": "Mit perfekte fest — planlæg din fest lokalt på enheden. Alle data forbliver på enheden, med valgfri e-mail-sikkerhedskopi.",
     "dataStorage": "Data gemmes lokalt på enheden.",
-    "backupTitle": "E-mailbackup",
-    "backupDescription": "Send en backup af dine data til din e-mail som JSON-vedhæftning. Efter geninstallation af appen downloader du vedhæftningen fra e-mailen og importerer den her.",
-    "backupEmail": "Backup-e-mail",
+    "backupTitle": "E-mail-sikkerhedskopi",
+    "backupDescription": "Send en sikkerhedskopi af dine data til din e-mail som JSON-vedhæftning. Efter geninstallation af appen downloader du vedhæftningen fra e-mailen og importerer den her.",
+    "backupEmail": "E-mail til sikkerhedskopi",
     "backupEmailPlaceholder": "f.eks. navn@email.com",
     "backupEmailInvalid": "Indtast en gyldig e-mailadresse.",
     "backupLastSync": "Seneste synkronisering",
     "backupNeverSynced": "Aldrig synkroniseret",
     "backupSyncNow": "Synkroniser nu",
-    "backupImport": "Importer backup",
-    "backupSyncing": "Forbereder backup...",
-    "backupSyncSuccess": "Backup blev forberedt og sendt.",
-    "backupSyncCancelled": "Afsendelse af backup blev annulleret.",
-    "backupSyncFailed": "Backup mislykkedes. Prøv igen.",
-    "backupImportConfirmTitle": "Importer backup?",
-    "backupImportConfirmMessage": "Dette erstatter alle eksisterende appdata med data fra backupfilen.",
-    "backupImportSuccess": "Backup blev importeret.",
-    "backupImportFailed": "Import af backup mislykkedes.",
-    "backupInvalidFile": "Den valgte fil er ikke en gyldig backup.",
-    "backupMailUnavailable": "Mail-appen er ikke tilgængelig. Backup blev delt via systemets deleark."
+    "backupImport": "Importer sikkerhedskopi",
+    "backupSyncing": "Forbereder sikkerhedskopi...",
+    "backupSyncSuccess": "Sikkerhedskopi blev forberedt og sendt.",
+    "backupSyncCancelled": "Afsendelse af sikkerhedskopi blev annulleret.",
+    "backupSyncFailed": "Sikkerhedskopi mislykkedes. Prøv igen.",
+    "backupImportConfirmTitle": "Importer sikkerhedskopi?",
+    "backupImportConfirmMessage": "Dette erstatter alle eksisterende appdata med data fra sikkerhedskopifilen.",
+    "backupImportSuccess": "Sikkerhedskopi blev importeret.",
+    "backupImportFailed": "Import af sikkerhedskopi mislykkedes.",
+    "backupInvalidFile": "Den valgte fil er ikke en gyldig sikkerhedskopi.",
+    "backupMailUnavailable": "E-mail-appen er ikke tilgængelig. Sikkerhedskopi blev delt via systemets deleark.",
+    "supportTitle": "Support",
+    "supportDescription": "Spørgsmål, tips eller en fejl? Kontakt os.",
+    "contactSupport": "Kontakt support",
+    "supportEmailSubject": "Mit perfekte fest — support",
+    "supportMailUnavailable": "Kunne ikke åbne mail-appen. Kopiér support-e-mailadressen nedenfor."
+  },
+  "ads": {
+    "sponsored": "Annonce"
   }
 }

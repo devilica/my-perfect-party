@@ -21,6 +21,10 @@
     "name": "Minu täiuslik pidu",
     "tagline": "Planeeri oma täiuslik pidu"
   },
+  "onboarding": {
+    "selectLanguage": "Vali keel",
+    "continue": "Jätka"
+  },
   "events": {
     "title": "Sündmused",
     "myEvents": "Minu sündmused",
@@ -40,7 +44,7 @@
     "selectDateTime": "Vali kuupäev ja kellaaeg",
     "clearDate": "Tühjenda kuupäev",
     "location": "Asukoht",
-    "locationPlaceholder": "nt Atina",
+    "locationPlaceholder": "nt Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} kinnitatud",
     "peopleBadge": "{{count}} inimest",
     "tablesBadge": "{{count}} lauda",
@@ -51,7 +55,7 @@
     "theme": "Pidu teema",
     "guestCategories": "Külaliste kategooriad",
     "addGuestCategory": "Lisa kategooria",
-    "guestCategoryPlaceholder": "nt Pere, Sõbrad, Naabrid",
+    "guestCategoryPlaceholder": "nt Naabrid",
     "guestSides": "Külaliste pooled",
     "addGuestSide": "Lisa pool",
     "guestSidePlaceholder": "nt Pruudi pool, Peigmehe pool",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 elegantne",
       "birthday18Modern": "18 modernne",
       "birthday18Gold": "18 kuldne"
-    }
+    },
+    "adUnavailable": "Reklaam pole praegu saadaval. Proovi hiljem uuesti."
   },
   "guests": {
     "title": "Külalised",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} inimest",
     "atTable": "Laud: {{name}}",
     "filters": {
+      "needs_invite": "Tuleb kutsuda",
       "all": "Kõik",
       "invitation_sent": "Kutse saadetud",
       "confirmed": "Kinnitatud",
@@ -250,6 +256,15 @@
       "bride": "Pruudi pool",
       "groom": "Peigmehe pool",
       "shared": "Ühine / Neutraalne"
+    },
+    "sortLabel": "Sorteerimine",
+    "sort": {
+      "added_desc": "Viimati lisatud",
+      "added_asc": "Esimesena lisatud",
+      "name_asc": "Nimi (A-Z)",
+      "name_desc": "Nimi (Z-A)",
+      "partySize_desc": "Inimeste arv (rohkem esimesena)",
+      "partySize_asc": "Inimeste arv (vähem esimesena)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Laual pole piisavalt vabu kohti.",
     "nameRequired": "Laua nimi on kohustuslik.",
     "unassignedGuests": "Määramata külalised",
+    "previewTitle": "Laua eelvaade",
+    "previewOccupied": "Hõivatud",
+    "previewFree": "Vaba",
     "addBatch": "Lisa grupp",
     "preset310": "3 lauda × 10 kohta",
     "preset57": "5 lauda × 7 kohta"
@@ -446,6 +464,14 @@
     "backupImportSuccess": "Varukoopia edukalt imporditud.",
     "backupImportFailed": "Varukoopia import ebaõnnestus.",
     "backupInvalidFile": "Valitud fail ei ole kehtiv varukoopia.",
-    "backupMailUnavailable": "Meilirakendus pole saadaval. Varukoopia jagati süsteemi jagamislehe kaudu."
+    "backupMailUnavailable": "Meilirakendus pole saadaval. Varukoopia jagati süsteemi jagamislehe kaudu.",
+    "supportTitle": "Tugi",
+    "supportDescription": "Küsimused, nõuanded või viga? Võta ühendust.",
+    "contactSupport": "Võta ühendust toega",
+    "supportEmailSubject": "Minu täiuslik pidu — tugi",
+    "supportMailUnavailable": "Meilirakendust ei saanud avada. Kopeeri allpool toetuse e-posti aadress."
+  },
+  "ads": {
+    "sponsored": "Reklaam"
   }
 }

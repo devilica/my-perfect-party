@@ -21,6 +21,10 @@
     "name": "Моја савршена прослава",
     "tagline": "Планирај савршену прославу"
   },
+  "onboarding": {
+    "selectLanguage": "Изаберите језик",
+    "continue": "Настави"
+  },
   "events": {
     "title": "Догађаји",
     "myEvents": "Моји догађаји",
@@ -40,7 +44,7 @@
     "selectDateTime": "Изабери датум и време",
     "clearDate": "Уклони датум",
     "location": "Локација",
-    "locationPlaceholder": "нпр. Ресторан МГ",
+    "locationPlaceholder": "нпр. Општина",
     "guestsBadge": "{{confirmed}} / {{total}} потврђено",
     "peopleBadge": "{{count}} особа",
     "tablesBadge": "{{count}} столова",
@@ -51,7 +55,7 @@
     "theme": "Тема прославе",
     "guestCategories": "Категорије гостију",
     "addGuestCategory": "Додај категорију",
-    "guestCategoryPlaceholder": "нпр. Породица, Пријатељи, Комшилук",
+    "guestCategoryPlaceholder": "нпр. Комшије",
     "guestSides": "Стране гостију",
     "addGuestSide": "Додај страну",
     "guestSidePlaceholder": "нпр. Страна младе",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18. елегантно",
       "birthday18Modern": "18. модерно",
       "birthday18Gold": "18. златно"
-    }
+    },
+    "adUnavailable": "Реклама тренутно није доступна. Покушај касније."
   },
   "guests": {
     "title": "Гости",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} особа",
     "atTable": "{{name}}",
     "filters": {
+      "needs_invite": "Потребно позвати",
       "all": "Сви",
       "invitation_sent": "Послана позивница",
       "confirmed": "Потврђени",
@@ -250,6 +256,15 @@
       "bride": "Страна младе",
       "groom": "Страна младожења",
       "shared": "Заједничко"
+    },
+    "sortLabel": "Сортирање",
+    "sort": {
+      "added_desc": "Последњи додати",
+      "added_asc": "Први додати",
+      "name_asc": "Име (А-Ш)",
+      "name_desc": "Име (Ш-А)",
+      "partySize_desc": "Број особа (више прво)",
+      "partySize_asc": "Број особа (мање прво)"
     }
   },
   "seating": {
@@ -262,7 +277,7 @@
     "bulkCreateTitle": "Креирај више столова",
     "bulkPreview": "Креирати {{count}} столова",
     "tableName": "Назив стола",
-    "tableNamePlaceholder": "нпр. Стол 1",
+    "tableNamePlaceholder": "нпр. Сто 1",
     "defaultTableName": "Сто {{number}}",
     "capacity": "Капацитет",
     "capacityPlaceholder": "нпр. 10",
@@ -283,6 +298,9 @@
     "capacityError": "Сто нема довољно слободних места.",
     "nameRequired": "Назив стола је обавезан.",
     "unassignedGuests": "Нераспоређени гости",
+    "previewTitle": "Преглед стола",
+    "previewOccupied": "Заузето",
+    "previewFree": "Слободно",
     "addBatch": "Додај групу",
     "preset310": "3 стола × 10 места",
     "preset57": "5 столова × 7 места"
@@ -426,26 +444,34 @@
     "languageHr": "Хрватски",
     "languageEn": "Енглисх",
     "about": "О апликацији",
-    "aboutText": "Моја савршена прослава — планирај прославу локално на твом уређају. Подаци се чувају само на уређају, уз опционални емаил бацкуп.",
+    "aboutText": "Моја савршена прослава — планирај прославу локално на твом уређају. Подаци се чувају само на уређају, уз опционалну емаил резервну копију.",
     "dataStorage": "Подаци се чувају локално на уређају.",
-    "backupTitle": "Емаил бацкуп",
+    "backupTitle": "Резервна копија",
     "backupDescription": "Пошаљи сигурносну копију података на твој емаил као ЈСОН прилог. Након реинсталације апликације, преузми прилог из емаила и увези га овдје.",
-    "backupEmail": "Емаил за бацкуп",
-    "backupEmailPlaceholder": "нпр. име@емаил.цом",
+    "backupEmail": "Емаил за резервну копију",
+    "backupEmailPlaceholder": "нпр. ime@email.com",
     "backupEmailInvalid": "Унеси исправну емаил адресу.",
     "backupLastSync": "Задња синхронизација",
     "backupNeverSynced": "Никада синхронизовано",
     "backupSyncNow": "Синхронизуј сада",
-    "backupImport": "Увези бацкуп",
-    "backupSyncing": "Припрема бацкупа...",
-    "backupSyncSuccess": "Бацкуп је спреман и послан.",
-    "backupSyncCancelled": "Слање бацкупа је отказано.",
-    "backupSyncFailed": "Бацкуп није успио. Покушај поново.",
-    "backupImportConfirmTitle": "Увести бацкуп?",
-    "backupImportConfirmMessage": "Ово ће заменити све постојеће податке у апликацији подацима из бацкуп датотеке.",
-    "backupImportSuccess": "Бацкуп је успешно увезен.",
-    "backupImportFailed": "Увоз бацкупа није успио.",
-    "backupInvalidFile": "Одабрани фајл није исправна бацкуп датотека.",
-    "backupMailUnavailable": "Маил апликација није доступна. Бацкуп је подељен преко дијалога за дељење."
+    "backupImport": "Увези резервну копију",
+    "backupSyncing": "Припрема резервне копије...",
+    "backupSyncSuccess": "Резервна копија је спремна и послата.",
+    "backupSyncCancelled": "Слање резервне копије је отказано.",
+    "backupSyncFailed": "Резервна копија није успела. Покушај поново.",
+    "backupImportConfirmTitle": "Увести резервну копију?",
+    "backupImportConfirmMessage": "Ово ће заменити све постојеће податке у апликацији подацима из датотеке резервне копије.",
+    "backupImportSuccess": "Резервна копија је успешно увезена.",
+    "backupImportFailed": "Увоз резервне копије није успео.",
+    "backupInvalidFile": "Одабрани фајл није исправна датотека резервне копије.",
+    "backupMailUnavailable": "Е-пошта апликација није доступна. Резервна копија је подељена преко дијалога за дељење.",
+    "supportTitle": "Подршка",
+    "supportDescription": "Имате питање, савет или грешку? Јавите нам се.",
+    "contactSupport": "Контактирајте подршку",
+    "supportEmailSubject": "Моја савршена прослава — подршка",
+    "supportMailUnavailable": "Није могуће отворити е-пошта апликацију. Копирајте е-пошта адресу испод."
+  },
+  "ads": {
+    "sponsored": "Реклама"
   }
 }

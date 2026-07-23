@@ -21,7 +21,9 @@ import {
   useFabBottomOffset,
   useFabScrollPadding,
 } from '@/hooks/useFabBottomOffset';
+import { useScrollRestoration } from '@/hooks/useScrollRestoration';
 import { filterGuests } from '@/lib/guestStats';
+import { makeScrollKey } from '@/lib/scrollRestoration';
 import { getSeatingStats, getTablesForEvent } from '@/lib/seatingStats';
 import { flexFill } from '@/lib/webLayout';
 import { useTranslation } from '@/lib/i18n';
@@ -47,6 +49,9 @@ export default function SeatingScreen() {
   const fabScrollPadding = useFabScrollPadding();
   const fabBottomOffset = useFabBottomOffset();
   const fabMenuBottom = fabBottomOffset + FAB_SIZE;
+  const { scrollRef, onScroll, scrollEventThrottle } = useScrollRestoration(
+    makeScrollKey('seating', eventId)
+  );
 
   const eventGuests = useMemo(
     () => allGuests.filter((guest) => guest.eventId === eventId),
@@ -88,6 +93,9 @@ export default function SeatingScreen() {
     <ThemedScreenContainer padded={false}>
       <View style={styles.screen}>
         <FormScrollView
+          ref={scrollRef}
+          onScroll={onScroll}
+          scrollEventThrottle={scrollEventThrottle}
           contentContainerStyle={{
             paddingHorizontal: spacing.md,
             paddingTop: spacing.sm,

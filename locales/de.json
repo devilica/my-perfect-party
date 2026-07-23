@@ -21,6 +21,10 @@
     "name": "Meine perfekte Feier",
     "tagline": "Planen Sie Ihre perfekte Feier"
   },
+  "onboarding": {
+    "selectLanguage": "Sprache wählen",
+    "continue": "Weiter"
+  },
   "events": {
     "title": "Veranstaltungen",
     "myEvents": "Meine Veranstaltungen",
@@ -40,7 +44,7 @@
     "selectDateTime": "Datum und Uhrzeit auswählen",
     "clearDate": "Datum löschen",
     "location": "Ort",
-    "locationPlaceholder": "z. B. Atina",
+    "locationPlaceholder": "z. B. Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} bestätigt",
     "peopleBadge": "{{count}} Personen",
     "tablesBadge": "{{count}} Tische",
@@ -51,7 +55,7 @@
     "theme": "Feier-Thema",
     "guestCategories": "Gästekategorien",
     "addGuestCategory": "Kategorie hinzufügen",
-    "guestCategoryPlaceholder": "z. B. Familie, Freunde, Nachbarn",
+    "guestCategoryPlaceholder": "z. B. Nachbarn",
     "guestSides": "Gästeseiten",
     "addGuestSide": "Seite hinzufügen",
     "guestSidePlaceholder": "z. B. Brautseite, Bräutigamseite",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18. elegant",
       "birthday18Modern": "18. modern",
       "birthday18Gold": "18. gold"
-    }
+    },
+    "adUnavailable": "Werbung ist derzeit nicht verfügbar. Bitte versuchen Sie es später erneut."
   },
   "guests": {
     "title": "Gäste",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} Personen",
     "atTable": "Tisch: {{name}}",
     "filters": {
+      "needs_invite": "Einladung erforderlich",
       "all": "Alle",
       "invitation_sent": "Einladung gesendet",
       "confirmed": "Bestätigt",
@@ -250,6 +256,15 @@
       "bride": "Brautseite",
       "groom": "Bräutigamseite",
       "shared": "Gemeinsam / Neutral"
+    },
+    "sortLabel": "Sortierung",
+    "sort": {
+      "added_desc": "Zuletzt hinzugefügt",
+      "added_asc": "Zuerst hinzugefügt",
+      "name_asc": "Name (A-Z)",
+      "name_desc": "Name (Z-A)",
+      "partySize_desc": "Personenzahl (mehr zuerst)",
+      "partySize_asc": "Personenzahl (weniger zuerst)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Der Tisch hat nicht genügend freie Plätze.",
     "nameRequired": "Tischname ist erforderlich.",
     "unassignedGuests": "Nicht zugewiesene Gäste",
+    "previewTitle": "Tischvorschau",
+    "previewOccupied": "Belegt",
+    "previewFree": "Frei",
     "addBatch": "Stapel hinzufügen",
     "preset310": "3 Tische × 10 Plätze",
     "preset57": "5 Tische × 7 Plätze"
@@ -426,26 +444,34 @@
     "languageHr": "Kroatisch",
     "languageEn": "Englisch",
     "about": "Über",
-    "aboutText": "Meine perfekte Feier — planen Sie Ihre Feier lokal auf Ihrem Gerät. Alle Daten bleiben auf Ihrem Gerät, mit optionalem E-Mail-Backup.",
+    "aboutText": "Meine perfekte Feier — planen Sie Ihre Feier lokal auf Ihrem Gerät. Alle Daten bleiben auf Ihrem Gerät, mit optionaler E-Mail-Sicherungskopie.",
     "dataStorage": "Daten werden lokal auf Ihrem Gerät gespeichert.",
-    "backupTitle": "E-Mail-Backup",
-    "backupDescription": "Senden Sie ein Backup Ihrer Daten als JSON-Anhang an Ihre E-Mail. Nach der Neuinstallation der App laden Sie den Anhang aus Ihrer E-Mail herunter und importieren ihn hier.",
-    "backupEmail": "Backup-E-Mail",
+    "backupTitle": "E-Mail-Sicherungskopie",
+    "backupDescription": "Senden Sie eine Sicherungskopie Ihrer Daten als JSON-Anhang an Ihre E-Mail. Nach der Neuinstallation der App laden Sie den Anhang aus Ihrer E-Mail herunter und importieren ihn hier.",
+    "backupEmail": "E-Mail für Sicherungskopie",
     "backupEmailPlaceholder": "z. B. name@email.com",
     "backupEmailInvalid": "Geben Sie eine gültige E-Mail-Adresse ein.",
     "backupLastSync": "Letzte Synchronisation",
     "backupNeverSynced": "Nie synchronisiert",
     "backupSyncNow": "Jetzt synchronisieren",
-    "backupImport": "Backup importieren",
-    "backupSyncing": "Backup wird vorbereitet...",
-    "backupSyncSuccess": "Backup wurde vorbereitet und gesendet.",
-    "backupSyncCancelled": "Das Senden des Backups wurde abgebrochen.",
-    "backupSyncFailed": "Backup fehlgeschlagen. Bitte versuchen Sie es erneut.",
-    "backupImportConfirmTitle": "Backup importieren?",
-    "backupImportConfirmMessage": "Dies ersetzt alle vorhandenen App-Daten durch die Daten aus der Backup-Datei.",
-    "backupImportSuccess": "Backup erfolgreich importiert.",
-    "backupImportFailed": "Backup-Import fehlgeschlagen.",
-    "backupInvalidFile": "Die ausgewählte Datei ist kein gültiges Backup.",
-    "backupMailUnavailable": "E-Mail-App nicht verfügbar. Backup wurde über das System-Freigabemenü geteilt."
+    "backupImport": "Sicherungskopie importieren",
+    "backupSyncing": "Sicherungskopie wird vorbereitet...",
+    "backupSyncSuccess": "Sicherungskopie wurde vorbereitet und gesendet.",
+    "backupSyncCancelled": "Das Senden der Sicherungskopie wurde abgebrochen.",
+    "backupSyncFailed": "Sicherungskopie fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "backupImportConfirmTitle": "Sicherungskopie importieren?",
+    "backupImportConfirmMessage": "Dies ersetzt alle vorhandenen App-Daten durch die Daten aus der Sicherungskopie-Datei.",
+    "backupImportSuccess": "Sicherungskopie erfolgreich importiert.",
+    "backupImportFailed": "Import der Sicherungskopie fehlgeschlagen.",
+    "backupInvalidFile": "Die ausgewählte Datei ist keine gültige Sicherungskopie.",
+    "backupMailUnavailable": "E-Mail-App nicht verfügbar. Sicherungskopie wurde über das System-Freigabemenü geteilt.",
+    "supportTitle": "Support",
+    "supportDescription": "Fragen, Tipps oder ein Fehler? Kontaktieren Sie uns.",
+    "contactSupport": "Support kontaktieren",
+    "supportEmailSubject": "Meine perfekte Feier — Support",
+    "supportMailUnavailable": "E-Mail-App konnte nicht geöffnet werden. Kopieren Sie die Support-E-Mail-Adresse unten."
+  },
+  "ads": {
+    "sponsored": "Werbung"
   }
 }

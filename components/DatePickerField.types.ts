@@ -2,6 +2,7 @@ import { Language } from '@/types/models';
 
 export type DatePickerFieldProps = {
   label: string;
+  required?: boolean;
   value?: string;
   onChange: (iso: string | undefined) => void;
   placeholder?: string;

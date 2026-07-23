@@ -94,6 +94,7 @@ export function TableCreationModal({ onCreate, onCancel }: TableCreationModalPro
           <View style={styles.rowField}>
             <TextInputField
               label={t('seating.count')}
+              required
               value={row.count}
               onChangeText={(text) => {
                 setError('');
@@ -107,6 +108,7 @@ export function TableCreationModal({ onCreate, onCancel }: TableCreationModalPro
           <View style={styles.rowField}>
             <TextInputField
               label={t('seating.capacity')}
+              required
               value={row.capacity}
               onChangeText={(text) => {
                 setError('');

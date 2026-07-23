@@ -3,12 +3,15 @@ import { useMemo, useState } from 'react';
 import { Alert, FlatList, StyleSheet, TextInput, View } from 'react-native';
 
 import { GuestFilterBar } from '@/components/GuestFilterBar';
+import { GuestSortBar } from '@/components/GuestSortBar';
 import { GuestCard } from '@/components/GuestCard';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { EmptyState, Fab } from '@/components/ui';
 import { useFabScrollPadding } from '@/hooks/useFabBottomOffset';
+import { useScrollRestoration } from '@/hooks/useScrollRestoration';
 import { flexFill } from '@/lib/webLayout';
 import { filterGuests } from '@/lib/guestStats';
+import { makeScrollKey } from '@/lib/scrollRestoration';
 import { getTablesForEvent } from '@/lib/seatingStats';
 import { useTranslation } from '@/lib/i18n';
 import { useEventId } from '@/lib/useEventId';
@@ -26,9 +29,14 @@ export default function GuestsScreen() {
   const allGuests = useWeddingStore((s) => s.guests);
   const allTables = useWeddingStore((s) => s.tables);
   const deleteGuest = useWeddingStore((s) => s.deleteGuest);
+  const guestSort = useWeddingStore((s) => s.getGuestSort(eventId));
+  const setGuestSort = useWeddingStore((s) => s.setGuestSort);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
   const fabScrollPadding = useFabScrollPadding();
+  const { scrollRef, onScroll, scrollEventThrottle } = useScrollRestoration(
+    makeScrollKey('guests', eventId)
+  );
 
   const tables = useMemo(
     () => getTablesForEvent(allTables, eventId),
@@ -36,8 +44,8 @@ export default function GuestsScreen() {
   );
 
   const filteredGuests = useMemo(
-    () => filterGuests(allGuests, eventId, filter, search),
-    [allGuests, eventId, filter, search]
+    () => filterGuests(allGuests, eventId, filter, search, guestSort),
+    [allGuests, eventId, filter, search, guestSort]
   );
 
   const handleDelete = (guestId: string) => {
@@ -68,6 +76,7 @@ export default function GuestsScreen() {
         ]}
       />
       <GuestFilterBar selected={filter} onSelect={setFilter} />
+      <GuestSortBar selected={guestSort} onSelect={(sort) => setGuestSort(eventId, sort)} />
     </View>
   );
 
@@ -75,9 +84,12 @@ export default function GuestsScreen() {
     <ThemedScreenContainer padded={false}>
       <View style={styles.screen}>
         <FlatList
+          ref={scrollRef}
           data={filteredGuests}
           keyExtractor={(item) => item.id}
           style={styles.list}
+          onScroll={onScroll}
+          scrollEventThrottle={scrollEventThrottle}
           ListHeaderComponent={listHeader}
           ListEmptyComponent={
             <EmptyState

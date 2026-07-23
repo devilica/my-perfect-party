@@ -21,6 +21,10 @@
     "name": "Mano tobulas vakarėlis",
     "tagline": "Planuok savo tobulą vakarėlį"
   },
+  "onboarding": {
+    "selectLanguage": "Pasirinkite kalbą",
+    "continue": "Tęsti"
+  },
   "events": {
     "title": "Renginiai",
     "myEvents": "Mano renginiai",
@@ -40,7 +44,7 @@
     "selectDateTime": "Pasirinkite datą ir laiką",
     "clearDate": "Išvalyti datą",
     "location": "Vieta",
-    "locationPlaceholder": "pvz. Sarajevas",
+    "locationPlaceholder": "pvz. Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} patvirtinta",
     "peopleBadge": "{{count}} žmonių",
     "tablesBadge": "{{count}} stalų",
@@ -51,7 +55,7 @@
     "theme": "Šventės tema",
     "guestCategories": "Svečių kategorijos",
     "addGuestCategory": "Pridėti kategoriją",
-    "guestCategoryPlaceholder": "pvz. Šeima, Draugai, Kaimynai",
+    "guestCategoryPlaceholder": "pvz. Kaimynai",
     "guestSides": "Svečių pusės",
     "addGuestSide": "Pridėti pusę",
     "guestSidePlaceholder": "pvz. Nuotakos pusė, Jaunikio pusė",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 elegantiškas",
       "birthday18Modern": "18 modernus",
       "birthday18Gold": "18 auksinis"
-    }
+    },
+    "adUnavailable": "Reklama šiuo metu nepasiekiama. Bandykite vėliau."
   },
   "guests": {
     "title": "Svečiai",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} žmonių",
     "atTable": "Stalas: {{name}}",
     "filters": {
+      "needs_invite": "Reikia pakviesti",
       "all": "Visi",
       "invitation_sent": "Kvietimas išsiųstas",
       "confirmed": "Patvirtinta",
@@ -250,6 +256,15 @@
       "bride": "Nuotakos pusė",
       "groom": "Jaunikio pusė",
       "shared": "Bendra / Neutrali"
+    },
+    "sortLabel": "Rikiavimas",
+    "sort": {
+      "added_desc": "Paskutiniai pridėti",
+      "added_asc": "Pirmieji pridėti",
+      "name_asc": "Vardas (A-Ž)",
+      "name_desc": "Vardas (Ž-A)",
+      "partySize_desc": "Asmenų skaičius (daugiau pirmiausia)",
+      "partySize_asc": "Asmenų skaičius (mažiau pirmiausia)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Stale nepakanka laisvų vietų.",
     "nameRequired": "Stalo pavadinimas privalomas.",
     "unassignedGuests": "Nepriskirti svečiai",
+    "previewTitle": "Stalo peržiūra",
+    "previewOccupied": "Užimta",
+    "previewFree": "Laisva",
     "addBatch": "Pridėti grupę",
     "preset310": "3 stalai × 10 vietų",
     "preset57": "5 stalai × 7 vietos"
@@ -446,6 +464,14 @@
     "backupImportSuccess": "Atsarginė kopija sėkmingai importuota.",
     "backupImportFailed": "Atsarginės kopijos importas nepavyko.",
     "backupInvalidFile": "Pasirinktas failas nėra galiojanti atsarginė kopija.",
-    "backupMailUnavailable": "Pašto programa nepasiekiama. Atsarginė kopija bendrinama per sistemos bendrinimo langą."
+    "backupMailUnavailable": "Pašto programa nepasiekiama. Atsarginė kopija bendrinama per sistemos bendrinimo langą.",
+    "supportTitle": "Pagalba",
+    "supportDescription": "Klausimai, patarimai ar klaida? Susisiekite.",
+    "contactSupport": "Susisiekti su pagalba",
+    "supportEmailSubject": "Mano tobulas vakarėlis — pagalba",
+    "supportMailUnavailable": "Nepavyko atidaryti pašto programos. Nukopijuokite el. pašto adresą žemiau."
+  },
+  "ads": {
+    "sponsored": "Reklama"
   }
 }

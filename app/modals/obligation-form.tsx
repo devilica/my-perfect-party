@@ -98,6 +98,7 @@ export default function ObligationFormModal() {
 
       <TextInputField
         label={t('obligations.titleLabel')}
+        required
         value={title}
         onChangeText={(text) => {
           setTitle(text);
@@ -108,7 +109,7 @@ export default function ObligationFormModal() {
       />
 
       <DatePickerField
-        label={`${t('obligations.date')} (${t('common.optional')})`}
+        label={t('obligations.date')}
         value={date || undefined}
         onChange={(iso) => setDate(iso ?? '')}
         placeholder={t('events.selectDate')}
@@ -124,14 +125,14 @@ export default function ObligationFormModal() {
       />
 
       <TextInputField
-        label={`${t('obligations.contact')} (${t('common.optional')})`}
+        label={t('obligations.contact')}
         value={contact}
         onChangeText={setContact}
         placeholder={t('obligations.contactPlaceholder')}
       />
 
       <TextInputField
-        label={`${t('obligations.note')} (${t('common.optional')})`}
+        label={t('obligations.note')}
         value={note}
         onChangeText={setNote}
         placeholder={t('obligations.notePlaceholder')}

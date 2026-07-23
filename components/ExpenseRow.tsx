@@ -12,10 +12,11 @@ import { radius, spacing, typography } from '@/theme/colors';
 
 type ExpenseRowProps = {
   expense: Expense;
+  onPress: () => void;
   onDelete: () => void;
 };
 
-export function ExpenseRow({ expense, onDelete }: ExpenseRowProps) {
+export function ExpenseRow({ expense, onPress, onDelete }: ExpenseRowProps) {
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
@@ -26,7 +27,7 @@ export function ExpenseRow({ expense, onDelete }: ExpenseRowProps) {
 
   return (
     <Card style={styles.card}>
-      <View style={styles.main}>
+      <Pressable onPress={onPress} style={styles.main}>
         <View style={styles.topRow}>
           <Text style={[styles.title, { color: theme.text }]} numberOfLines={1}>
             {expense.title}
@@ -54,7 +55,7 @@ export function ExpenseRow({ expense, onDelete }: ExpenseRowProps) {
             </Text>
           )}
         </View>
-      </View>
+      </Pressable>
       <Pressable onPress={onDelete} style={styles.deleteBtn} hitSlop={8}>
         <Ionicons name="trash-outline" size={18} color={theme.danger} />
       </Pressable>

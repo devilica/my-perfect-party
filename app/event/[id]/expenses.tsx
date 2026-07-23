@@ -8,11 +8,13 @@ import { FormScrollView } from '@/components/FormScrollView';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { EmptyState, Fab, StatCard } from '@/components/ui';
 import { useFabScrollPadding } from '@/hooks/useFabBottomOffset';
+import { useScrollRestoration } from '@/hooks/useScrollRestoration';
 import {
   formatAmount,
   getExpenseBreakdown,
   getExpenseSummary,
 } from '@/lib/expenseStats';
+import { makeScrollKey } from '@/lib/scrollRestoration';
 import { flexFill } from '@/lib/webLayout';
 import { useTranslation } from '@/lib/i18n';
 import { useEventId } from '@/lib/useEventId';
@@ -29,6 +31,9 @@ export default function ExpensesScreen() {
   const { t } = useTranslation(language);
   const theme = useThemeColors();
   const fabScrollPadding = useFabScrollPadding();
+  const { scrollRef, onScroll, scrollEventThrottle } = useScrollRestoration(
+    makeScrollKey('expenses', eventId)
+  );
 
   const expenses = useMemo(
     () =>
@@ -61,6 +66,9 @@ export default function ExpensesScreen() {
     <ThemedScreenContainer padded={false}>
       <View style={styles.screen}>
         <FormScrollView
+          ref={scrollRef}
+          onScroll={onScroll}
+          scrollEventThrottle={scrollEventThrottle}
           contentContainerStyle={{
             paddingHorizontal: spacing.md,
             paddingTop: spacing.sm,
@@ -92,6 +100,11 @@ export default function ExpensesScreen() {
               <ExpenseRow
                 key={expense.id}
                 expense={expense}
+                onPress={() =>
+                  router.push(
+                    `/modals/add-expense?eventId=${eventId}&expenseId=${expense.id}`
+                  )
+                }
                 onDelete={() => handleDelete(expense.id)}
               />
             ))

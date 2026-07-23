@@ -21,6 +21,10 @@
     "name": "La mia festa perfetta",
     "tagline": "Organizza la tua festa perfetta"
   },
+  "onboarding": {
+    "selectLanguage": "Scegli la lingua",
+    "continue": "Continua"
+  },
   "events": {
     "title": "Eventi",
     "myEvents": "I miei eventi",
@@ -40,7 +44,7 @@
     "selectDateTime": "Seleziona data e ora",
     "clearDate": "Cancella data",
     "location": "Luogo",
-    "locationPlaceholder": "es. Atina",
+    "locationPlaceholder": "es. Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} confermati",
     "peopleBadge": "{{count}} persone",
     "tablesBadge": "{{count}} tavoli",
@@ -51,7 +55,7 @@
     "theme": "Tema della festa",
     "guestCategories": "Categorie invitati",
     "addGuestCategory": "Aggiungi categoria",
-    "guestCategoryPlaceholder": "es. Famiglia, Amici, Vicini",
+    "guestCategoryPlaceholder": "es. Vicini",
     "guestSides": "Lati invitati",
     "addGuestSide": "Aggiungi lato",
     "guestSidePlaceholder": "es. Lato sposa, Lato sposo",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 elegante",
       "birthday18Modern": "18 moderno",
       "birthday18Gold": "18 oro"
-    }
+    },
+    "adUnavailable": "L'annuncio non è disponibile al momento. Riprova più tardi."
   },
   "guests": {
     "title": "Invitati",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} persone",
     "atTable": "Tavolo: {{name}}",
     "filters": {
+      "needs_invite": "Da invitare",
       "all": "Tutti",
       "invitation_sent": "Invito inviato",
       "confirmed": "Confermato",
@@ -250,6 +256,15 @@
       "bride": "Lato sposa",
       "groom": "Lato sposo",
       "shared": "Condiviso / Neutrale"
+    },
+    "sortLabel": "Ordinamento",
+    "sort": {
+      "added_desc": "Ultimi aggiunti",
+      "added_asc": "Primi aggiunti",
+      "name_asc": "Nome (A-Z)",
+      "name_desc": "Nome (Z-A)",
+      "partySize_desc": "Numero persone (più prima)",
+      "partySize_asc": "Numero persone (meno prima)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Il tavolo non ha abbastanza posti liberi.",
     "nameRequired": "Il nome del tavolo è obbligatorio.",
     "unassignedGuests": "Invitati non assegnati",
+    "previewTitle": "Anteprima tavolo",
+    "previewOccupied": "Occupato",
+    "previewFree": "Libero",
     "addBatch": "Aggiungi gruppo",
     "preset310": "3 tavoli × 10 posti",
     "preset57": "5 tavoli × 7 posti"
@@ -426,26 +444,34 @@
     "languageHr": "Croato",
     "languageEn": "Inglese",
     "about": "Informazioni",
-    "aboutText": "La mia festa perfetta — organizza la tua festa localmente sul dispositivo. Tutti i dati restano sul dispositivo, con backup e-mail opzionale.",
+    "aboutText": "La mia festa perfetta — organizza la tua festa localmente sul dispositivo. Tutti i dati restano sul dispositivo, con copia di sicurezza e-mail opzionale.",
     "dataStorage": "I dati sono memorizzati localmente sul dispositivo.",
-    "backupTitle": "Backup e-mail",
-    "backupDescription": "Invia un backup dei tuoi dati alla tua e-mail come allegato JSON. Dopo la reinstallazione dell'app, scarica l'allegato dalla tua e-mail e importalo qui.",
-    "backupEmail": "E-mail di backup",
+    "backupTitle": "Copia di sicurezza e-mail",
+    "backupDescription": "Invia una copia di sicurezza dei tuoi dati alla tua e-mail come allegato JSON. Dopo la reinstallazione dell'app, scarica l'allegato dalla tua e-mail e importalo qui.",
+    "backupEmail": "E-mail per copia di sicurezza",
     "backupEmailPlaceholder": "es. nome@email.com",
     "backupEmailInvalid": "Inserisci un indirizzo e-mail valido.",
     "backupLastSync": "Ultima sincronizzazione",
     "backupNeverSynced": "Mai sincronizzato",
     "backupSyncNow": "Sincronizza ora",
-    "backupImport": "Importa backup",
-    "backupSyncing": "Preparazione backup...",
-    "backupSyncSuccess": "Il backup è stato preparato e inviato.",
-    "backupSyncCancelled": "Invio del backup annullato.",
-    "backupSyncFailed": "Backup non riuscito. Riprova.",
-    "backupImportConfirmTitle": "Importare il backup?",
-    "backupImportConfirmMessage": "Questo sostituirà tutti i dati esistenti dell'app con quelli del file di backup.",
-    "backupImportSuccess": "Backup importato con successo.",
-    "backupImportFailed": "Importazione backup non riuscita.",
-    "backupInvalidFile": "Il file selezionato non è un backup valido.",
-    "backupMailUnavailable": "App e-mail non disponibile. Il backup è stato condiviso tramite il menu di condivisione di sistema."
+    "backupImport": "Importa copia di sicurezza",
+    "backupSyncing": "Preparazione copia di sicurezza...",
+    "backupSyncSuccess": "La copia di sicurezza è stata preparata e inviata.",
+    "backupSyncCancelled": "Invio della copia di sicurezza annullato.",
+    "backupSyncFailed": "Copia di sicurezza non riuscita. Riprova.",
+    "backupImportConfirmTitle": "Importare la copia di sicurezza?",
+    "backupImportConfirmMessage": "Questo sostituirà tutti i dati esistenti dell'app con quelli del file di copia di sicurezza.",
+    "backupImportSuccess": "Copia di sicurezza importata con successo.",
+    "backupImportFailed": "Importazione copia di sicurezza non riuscita.",
+    "backupInvalidFile": "Il file selezionato non è una copia di sicurezza valida.",
+    "backupMailUnavailable": "App e-mail non disponibile. La copia di sicurezza è stata condivisa tramite il menu di condivisione di sistema.",
+    "supportTitle": "Supporto",
+    "supportDescription": "Domande, suggerimenti o un bug? Contattaci.",
+    "contactSupport": "Contatta il supporto",
+    "supportEmailSubject": "La mia festa perfetta — supporto",
+    "supportMailUnavailable": "Impossibile aprire l'app di posta. Copia l'indirizzo e-mail qui sotto."
+  },
+  "ads": {
+    "sponsored": "Annuncio"
   }
 }

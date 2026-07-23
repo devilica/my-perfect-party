@@ -21,6 +21,10 @@
     "name": "Festa ime e përsosur",
     "tagline": "Planifiko festën tënde të përsosur"
   },
+  "onboarding": {
+    "selectLanguage": "Zgjidhni gjuhën",
+    "continue": "Vazhdo"
+  },
   "events": {
     "title": "Ngjarjet",
     "myEvents": "Ngjarjet e mia",
@@ -40,7 +44,7 @@
     "selectDateTime": "Zgjidh datën dhe orën",
     "clearDate": "Pastro datën",
     "location": "Vendndodhja",
-    "locationPlaceholder": "p.sh. Sarajevë",
+    "locationPlaceholder": "p.sh. Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} të konfirmuar",
     "peopleBadge": "{{count}} persona",
     "tablesBadge": "{{count}} tavolina",
@@ -51,7 +55,7 @@
     "theme": "Tema e festës",
     "guestCategories": "Kategoritë e mysafirëve",
     "addGuestCategory": "Shto kategori",
-    "guestCategoryPlaceholder": "p.sh. Familja, Miq, Fqinj",
+    "guestCategoryPlaceholder": "p.sh. Fqinj",
     "guestSides": "Anët e mysafirëve",
     "addGuestSide": "Shto anë",
     "guestSidePlaceholder": "p.sh. Ana e nuses, Ana e dhëndrit",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 elegant",
       "birthday18Modern": "18 modern",
       "birthday18Gold": "18 ar"
-    }
+    },
+    "adUnavailable": "Reklama nuk është e disponueshme tani. Provo përsëri më vonë."
   },
   "guests": {
     "title": "Mysafirë",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} persona",
     "atTable": "Tavolina: {{name}}",
     "filters": {
+      "needs_invite": "Duhet ftuar",
       "all": "Të gjithë",
       "invitation_sent": "Ftesa u dërgua",
       "confirmed": "I konfirmuar",
@@ -250,6 +256,15 @@
       "bride": "Ana e nuses",
       "groom": "Ana e dhëndrit",
       "shared": "E përbashkët / Neutrale"
+    },
+    "sortLabel": "Renditja",
+    "sort": {
+      "added_desc": "Shtuar së fundmi",
+      "added_asc": "Shtuar së pari",
+      "name_asc": "Emri (A-Z)",
+      "name_desc": "Emri (Z-A)",
+      "partySize_desc": "Numri i personave (më shumë së pari)",
+      "partySize_asc": "Numri i personave (më pak së pari)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Tavolina nuk ka mjaft vende të lira.",
     "nameRequired": "Emri i tavolinës është i detyrueshëm.",
     "unassignedGuests": "Mysafirë të pacaktuar",
+    "previewTitle": "Parapamje e tavolinës",
+    "previewOccupied": "E zënë",
+    "previewFree": "E lirë",
     "addBatch": "Shto grup",
     "preset310": "3 tavolina × 10 vende",
     "preset57": "5 tavolina × 7 vende"
@@ -446,6 +464,14 @@
     "backupImportSuccess": "Kopja rezervë u importua me sukses.",
     "backupImportFailed": "Importimi i kopjes rezervë dështoi.",
     "backupInvalidFile": "Skedari i zgjedhur nuk është një kopje rezervë e vlefshme.",
-    "backupMailUnavailable": "Aplikacioni i emailit nuk është i disponueshëm. Kopja rezervë u nda përmes fletës së ndarjes së sistemit."
+    "backupMailUnavailable": "Aplikacioni i emailit nuk është i disponueshëm. Kopja rezervë u nda përmes fletës së ndarjes së sistemit.",
+    "supportTitle": "Mbështetje",
+    "supportDescription": "Pyetje, këshilla apo një gabim? Na kontaktoni.",
+    "contactSupport": "Kontakto mbështetjen",
+    "supportEmailSubject": "Festa ime e përsosur — mbështetje",
+    "supportMailUnavailable": "Nuk u hap aplikacioni i emailit. Kopjoni adresën e emailit më poshtë."
+  },
+  "ads": {
+    "sponsored": "Reklamë"
   }
 }

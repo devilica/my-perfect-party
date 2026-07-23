@@ -21,6 +21,10 @@
     "name": "Ma fête parfaite",
     "tagline": "Planifiez votre fête parfaite"
   },
+  "onboarding": {
+    "selectLanguage": "Choisir la langue",
+    "continue": "Continuer"
+  },
   "events": {
     "title": "Événements",
     "myEvents": "Mes événements",
@@ -40,7 +44,7 @@
     "selectDateTime": "Sélectionner la date et l'heure",
     "clearDate": "Effacer la date",
     "location": "Lieu",
-    "locationPlaceholder": "ex. Atina",
+    "locationPlaceholder": "ex. Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} confirmés",
     "peopleBadge": "{{count}} personnes",
     "tablesBadge": "{{count}} tables",
@@ -51,7 +55,7 @@
     "theme": "Thème de la fête",
     "guestCategories": "Catégories d'invités",
     "addGuestCategory": "Ajouter une catégorie",
-    "guestCategoryPlaceholder": "ex. Famille, Amis, Voisins",
+    "guestCategoryPlaceholder": "ex. Voisins",
     "guestSides": "Côtés des invités",
     "addGuestSide": "Ajouter un côté",
     "guestSidePlaceholder": "ex. Côté de la mariée, Côté du marié",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 ans élégant",
       "birthday18Modern": "18 ans moderne",
       "birthday18Gold": "18 ans or"
-    }
+    },
+    "adUnavailable": "La publicité n'est pas disponible pour le moment. Réessayez plus tard."
   },
   "guests": {
     "title": "Invités",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} personnes",
     "atTable": "Table : {{name}}",
     "filters": {
+      "needs_invite": "À inviter",
       "all": "Tous",
       "invitation_sent": "Invitation envoyée",
       "confirmed": "Confirmé",
@@ -250,6 +256,15 @@
       "bride": "Côté mariée",
       "groom": "Côté marié",
       "shared": "Commun / Neutre"
+    },
+    "sortLabel": "Tri",
+    "sort": {
+      "added_desc": "Derniers ajoutés",
+      "added_asc": "Premiers ajoutés",
+      "name_asc": "Nom (A-Z)",
+      "name_desc": "Nom (Z-A)",
+      "partySize_desc": "Nombre de personnes (plus en premier)",
+      "partySize_asc": "Nombre de personnes (moins en premier)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "La table n'a pas assez de places libres.",
     "nameRequired": "Le nom de la table est obligatoire.",
     "unassignedGuests": "Invités non assignés",
+    "previewTitle": "Aperçu de la table",
+    "previewOccupied": "Occupé",
+    "previewFree": "Libre",
     "addBatch": "Ajouter un lot",
     "preset310": "3 tables × 10 places",
     "preset57": "5 tables × 7 places"
@@ -446,6 +464,14 @@
     "backupImportSuccess": "Sauvegarde importée avec succès.",
     "backupImportFailed": "Échec de l'importation de la sauvegarde.",
     "backupInvalidFile": "Le fichier sélectionné n'est pas une sauvegarde valide.",
-    "backupMailUnavailable": "Application de messagerie indisponible. La sauvegarde a été partagée via le menu de partage système."
+    "backupMailUnavailable": "Application de messagerie indisponible. La sauvegarde a été partagée via le menu de partage système.",
+    "supportTitle": "Assistance",
+    "supportDescription": "Des questions, des conseils ou un bug ? Contactez-nous.",
+    "contactSupport": "Contacter l'assistance",
+    "supportEmailSubject": "Ma fête parfaite — assistance",
+    "supportMailUnavailable": "Impossible d'ouvrir l'application mail. Copiez l'adresse e-mail ci-dessous."
+  },
+  "ads": {
+    "sponsored": "Publicité"
   }
 }

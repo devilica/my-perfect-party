@@ -1,5 +1,5 @@
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { StyleSheet, Switch, Text, View } from 'react-native';
 
 import { FormScrollView } from '@/components/FormScrollView';
@@ -11,6 +11,7 @@ import {
   useEventCelebrationTheme,
 } from '@/components/ThemedEventModal';
 import { Button, TextInputField } from '@/components/ui';
+import { isPredefinedCategory } from '@/constants/categories';
 import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
@@ -20,10 +21,13 @@ import { spacing, typography } from '@/theme/colors';
 
 export default function AddExpenseModal() {
   const router = useRouter();
-  const params = useLocalSearchParams<{ eventId: string }>();
+  const params = useLocalSearchParams<{ eventId: string; expenseId?: string }>();
   const eventId = getRouteParam(params.eventId);
+  const expenseId = getRouteParam(params.expenseId);
   const language = useWeddingStore((s) => s.language);
+  const expenses = useWeddingStore((s) => s.expenses);
   const addExpense = useWeddingStore((s) => s.addExpense);
+  const updateExpense = useWeddingStore((s) => s.updateExpense);
   const { t } = useTranslation(language);
   const celebrationTheme = useEventCelebrationTheme(eventId ?? '');
   const theme = celebrationTheme.colors;
@@ -38,6 +42,28 @@ export default function AddExpenseModal() {
   const [titleError, setTitleError] = useState('');
   const [amountError, setAmountError] = useState('');
   const [payerError, setPayerError] = useState('');
+
+  const existingExpense = useMemo(
+    () => (expenseId ? expenses.find((expense) => expense.id === expenseId) : undefined),
+    [expenses, expenseId]
+  );
+
+  useEffect(() => {
+    if (!existingExpense) return;
+
+    setTitle(existingExpense.title);
+    setAmount(String(existingExpense.amount));
+    setCoveredByOther(existingExpense.coveredByOther);
+    setPayerName(existingExpense.payerName ?? '');
+
+    if (isPredefinedCategory(existingExpense.category)) {
+      setCategory(existingExpense.category);
+      setCustomCategory('');
+    } else {
+      setCategory('other');
+      setCustomCategory(existingExpense.category);
+    }
+  }, [existingExpense]);
 
   const resolvedCategory =
     category === 'other' && customCategory.trim() ? customCategory.trim() : category;
@@ -63,14 +89,19 @@ export default function AddExpenseModal() {
 
     if (!valid || !eventId) return;
 
-    addExpense({
-      eventId,
+    const payload = {
       title: title.trim(),
       amount: parsedAmount,
       category: resolvedCategory,
       coveredByOther,
       payerName: coveredByOther ? payerName.trim() : undefined,
-    });
+    };
+
+    if (existingExpense) {
+      updateExpense(existingExpense.id, payload);
+    } else {
+      addExpense({ eventId, ...payload });
+    }
 
     router.back();
   };
@@ -81,11 +112,15 @@ export default function AddExpenseModal() {
         contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
       >
         <Stack.Screen
-          options={getThemedModalScreenOptions(celebrationTheme, t('expenses.add'))}
+          options={getThemedModalScreenOptions(
+            celebrationTheme,
+            existingExpense ? t('expenses.edit') : t('expenses.add')
+          )}
         />
 
       <TextInputField
         label={t('expenses.expenseTitle')}
+        required
         value={title}
         onChangeText={(text) => {
           setTitle(text);
@@ -96,6 +131,7 @@ export default function AddExpenseModal() {
       />
       <TextInputField
         label={t('expenses.amount')}
+        required
         value={amount}
         onChangeText={(text) => {
           setAmount(text);
@@ -111,6 +147,7 @@ export default function AddExpenseModal() {
         customCategory={customCategory}
         onSelect={setCategory}
         onCustomChange={setCustomCategory}
+        customRequired={category === 'other'}
       />
 
       <View style={styles.switchRow}>
@@ -126,6 +163,7 @@ export default function AddExpenseModal() {
       {coveredByOther ? (
         <TextInputField
           label={t('expenses.payerName')}
+          required
           value={payerName}
           onChangeText={(text) => {
             setPayerName(text);

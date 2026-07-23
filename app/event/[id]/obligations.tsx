@@ -7,8 +7,10 @@ import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { Button, EmptyState, Fab, StatCard } from '@/components/ui';
 import { OBLIGATION_TEMPLATE_KEYS } from '@/constants/obligationTemplates';
 import { useFabScrollPadding } from '@/hooks/useFabBottomOffset';
-import { flexFill } from '@/lib/webLayout';
+import { useScrollRestoration } from '@/hooks/useScrollRestoration';
 import { getObligationStats, getObligationsForEvent } from '@/lib/obligationStats';
+import { makeScrollKey } from '@/lib/scrollRestoration';
+import { flexFill } from '@/lib/webLayout';
 import { useTranslation } from '@/lib/i18n';
 import { useEventId } from '@/lib/useEventId';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -26,6 +28,9 @@ export default function ObligationsScreen() {
   const { t } = useTranslation(language);
   const theme = useThemeColors();
   const fabScrollPadding = useFabScrollPadding();
+  const { scrollRef, onScroll, scrollEventThrottle } = useScrollRestoration(
+    makeScrollKey('obligations', eventId)
+  );
   const [showTemplates, setShowTemplates] = useState(false);
 
   const obligations = useMemo(
@@ -132,9 +137,12 @@ export default function ObligationsScreen() {
     <ThemedScreenContainer padded={false}>
       <View style={styles.screen}>
         <FlatList
+          ref={scrollRef}
           data={obligations}
           keyExtractor={(item) => item.id}
           style={styles.list}
+          onScroll={onScroll}
+          scrollEventThrottle={scrollEventThrottle}
           ListHeaderComponent={obligations.length > 0 ? listHeader : null}
           ListEmptyComponent={emptyComponent}
           renderItem={({ item }) => (

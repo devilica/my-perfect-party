@@ -21,6 +21,10 @@
     "name": "A minha festa perfeita",
     "tagline": "Planeie a sua festa perfeita"
   },
+  "onboarding": {
+    "selectLanguage": "Escolha o idioma",
+    "continue": "Continuar"
+  },
   "events": {
     "title": "Eventos",
     "myEvents": "Os meus eventos",
@@ -40,7 +44,7 @@
     "selectDateTime": "Selecionar data e hora",
     "clearDate": "Limpar data",
     "location": "Local",
-    "locationPlaceholder": "p. ex. Atina",
+    "locationPlaceholder": "p. ex. Comuna",
     "guestsBadge": "{{confirmed}} / {{total}} confirmados",
     "peopleBadge": "{{count}} pessoas",
     "tablesBadge": "{{count}} mesas",
@@ -51,7 +55,7 @@
     "theme": "Tema da festa",
     "guestCategories": "Categorias de convidados",
     "addGuestCategory": "Adicionar categoria",
-    "guestCategoryPlaceholder": "p. ex. Família, Amigos, Vizinhos",
+    "guestCategoryPlaceholder": "p. ex. Vizinhos",
     "guestSides": "Lados dos convidados",
     "addGuestSide": "Adicionar lado",
     "guestSidePlaceholder": "p. ex. Lado da noiva, Lado do noivo",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 elegante",
       "birthday18Modern": "18 moderno",
       "birthday18Gold": "18 ouro"
-    }
+    },
+    "adUnavailable": "O anúncio não está disponível de momento. Tente novamente mais tarde."
   },
   "guests": {
     "title": "Convidados",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} pessoas",
     "atTable": "Mesa: {{name}}",
     "filters": {
+      "needs_invite": "Por convidar",
       "all": "Todos",
       "invitation_sent": "Convite enviado",
       "confirmed": "Confirmado",
@@ -250,6 +256,15 @@
       "bride": "Lado da noiva",
       "groom": "Lado do noivo",
       "shared": "Partilhado / Neutro"
+    },
+    "sortLabel": "Ordenação",
+    "sort": {
+      "added_desc": "Últimos adicionados",
+      "added_asc": "Primeiros adicionados",
+      "name_asc": "Nome (A-Z)",
+      "name_desc": "Nome (Z-A)",
+      "partySize_desc": "Número de pessoas (mais primeiro)",
+      "partySize_asc": "Número de pessoas (menos primeiro)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "A mesa não tem lugares livres suficientes.",
     "nameRequired": "O nome da mesa é obrigatório.",
     "unassignedGuests": "Convidados não atribuídos",
+    "previewTitle": "Pré-visualização da mesa",
+    "previewOccupied": "Ocupado",
+    "previewFree": "Livre",
     "addBatch": "Adicionar lote",
     "preset310": "3 mesas × 10 lugares",
     "preset57": "5 mesas × 7 lugares"
@@ -446,6 +464,14 @@
     "backupImportSuccess": "Cópia de segurança importada com sucesso.",
     "backupImportFailed": "Falha ao importar a cópia de segurança.",
     "backupInvalidFile": "O ficheiro selecionado não é uma cópia de segurança válida.",
-    "backupMailUnavailable": "Aplicação de e-mail indisponível. A cópia de segurança foi partilhada através do menu de partilha do sistema."
+    "backupMailUnavailable": "Aplicação de e-mail indisponível. A cópia de segurança foi partilhada através do menu de partilha do sistema.",
+    "supportTitle": "Suporte",
+    "supportDescription": "Perguntas, dicas ou um erro? Entre em contacto.",
+    "contactSupport": "Contactar suporte",
+    "supportEmailSubject": "A minha festa perfeita — suporte",
+    "supportMailUnavailable": "Não foi possível abrir a app de email. Copie o endereço de suporte abaixo."
+  },
+  "ads": {
+    "sponsored": "Anúncio"
   }
 }

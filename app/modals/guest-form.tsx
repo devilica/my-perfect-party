@@ -193,6 +193,7 @@ export default function GuestFormModal() {
 
       <TextInputField
         label={t('guests.firstName')}
+        required
         value={firstName}
         onChangeText={(text) => {
           setFirstName(text);
@@ -208,7 +209,7 @@ export default function GuestFormModal() {
         placeholder={t('guests.lastNamePlaceholder')}
       />
       <TextInputField
-        label={`${t('guests.phone')} (${t('common.optional')})`}
+        label={t('guests.phone')}
         value={phone}
         onChangeText={setPhone}
         placeholder={t('guests.phonePlaceholder')}
@@ -303,7 +304,7 @@ export default function GuestFormModal() {
       />
 
       <TextInputField
-        label={`${t('guests.note')} (${t('common.optional')})`}
+        label={t('guests.note')}
         value={note}
         onChangeText={setNote}
         placeholder={t('guests.notePlaceholder')}

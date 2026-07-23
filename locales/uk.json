@@ -21,6 +21,10 @@
     "name": "Моє ідеальне свято",
     "tagline": "Плануй своє ідеальне свято"
   },
+  "onboarding": {
+    "selectLanguage": "Оберіть мову",
+    "continue": "Продовжити"
+  },
   "events": {
     "title": "Події",
     "myEvents": "Мої події",
@@ -40,7 +44,7 @@
     "selectDateTime": "Оберіть дату та час",
     "clearDate": "Очистити дату",
     "location": "Місце",
-    "locationPlaceholder": "напр. Сараєво",
+    "locationPlaceholder": "напр. Општина",
     "guestsBadge": "{{confirmed}} / {{total}} підтверджено",
     "peopleBadge": "{{count}} осіб",
     "tablesBadge": "{{count}} столів",
@@ -51,7 +55,7 @@
     "theme": "Тема святкування",
     "guestCategories": "Категорії гостей",
     "addGuestCategory": "Додати категорію",
-    "guestCategoryPlaceholder": "напр. Родина, Друзі, Сусіди",
+    "guestCategoryPlaceholder": "напр. Сусіди",
     "guestSides": "Сторони гостей",
     "addGuestSide": "Додати сторону",
     "guestSidePlaceholder": "напр. Сторона нареченої, Сторона нареченого",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 елегантний",
       "birthday18Modern": "18 сучасний",
       "birthday18Gold": "18 золотий"
-    }
+    },
+    "adUnavailable": "Реклама зараз недоступна. Спробуйте пізніше."
   },
   "guests": {
     "title": "Гості",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} осіб",
     "atTable": "Стіл: {{name}}",
     "filters": {
+      "needs_invite": "Потрібно запросити",
       "all": "Усі",
       "invitation_sent": "Запрошення надіслано",
       "confirmed": "Підтверджено",
@@ -250,6 +256,15 @@
       "bride": "Сторона нареченої",
       "groom": "Сторона нареченого",
       "shared": "Спільна / Нейтральна"
+    },
+    "sortLabel": "Сортування",
+    "sort": {
+      "added_desc": "Останні додані",
+      "added_asc": "Перші додані",
+      "name_asc": "Ім'я (А-Я)",
+      "name_desc": "Ім'я (Я-А)",
+      "partySize_desc": "Кількість осіб (більше спочатку)",
+      "partySize_asc": "Кількість осіб (менше спочатку)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "На столі недостатньо вільних місць.",
     "nameRequired": "Назва столу обов'язкова.",
     "unassignedGuests": "Нерозміщені гості",
+    "previewTitle": "Перегляд столу",
+    "previewOccupied": "Зайнято",
+    "previewFree": "Вільно",
     "addBatch": "Додати групу",
     "preset310": "3 столи × 10 місць",
     "preset57": "5 столів × 7 місць"
@@ -446,6 +464,14 @@
     "backupImportSuccess": "Резервну копію успішно імпортовано.",
     "backupImportFailed": "Імпорт резервної копії не вдався.",
     "backupInvalidFile": "Обраний файл не є дійсною резервною копією.",
-    "backupMailUnavailable": "Застосунок пошти недоступний. Резервну копію надіслано через системне меню «Поділитися»."
+    "backupMailUnavailable": "Застосунок пошти недоступний. Резервну копію надіслано через системне меню «Поділитися».",
+    "supportTitle": "Підтримка",
+    "supportDescription": "Питання, поради чи помилка? Зв'яжіться з нами.",
+    "contactSupport": "Зв'язатися з підтримкою",
+    "supportEmailSubject": "Моє ідеальне свято — підтримка",
+    "supportMailUnavailable": "Не вдалося відкрити поштовий застосунок. Скопіюйте адресу електронної пошти нижче."
+  },
+  "ads": {
+    "sponsored": "Реклама"
   }
 }

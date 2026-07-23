@@ -15,6 +15,8 @@ import { useFabBottomOffset } from '@/hooks/useFabBottomOffset';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
 
+import { FieldLabel } from '@/components/FieldLabel';
+
 type ButtonProps = {
   label: string;
   onPress: () => void;
@@ -168,6 +170,7 @@ const fabStyles = StyleSheet.create({
 
 export function TextInputField({
   label,
+  required,
   value,
   onChangeText,
   placeholder,
@@ -177,6 +180,7 @@ export function TextInputField({
   autoCapitalize,
 }: {
   label: string;
+  required?: boolean;
   value: string;
   onChangeText: (text: string) => void;
   placeholder?: string;
@@ -189,7 +193,7 @@ export function TextInputField({
 
   return (
     <>
-      <Text style={[inputStyles.label, { color: theme.textSecondary }]}>{label}</Text>
+      <FieldLabel label={label} required={required} />
       <TextInput
         value={value}
         onChangeText={onChangeText}
@@ -216,11 +220,6 @@ export function TextInputField({
 }
 
 const inputStyles = StyleSheet.create({
-  label: {
-    ...typography.caption,
-    marginBottom: spacing.xs,
-    fontWeight: '600',
-  },
   input: {
     borderWidth: 1,
     borderRadius: radius.md,

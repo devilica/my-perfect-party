@@ -44,7 +44,7 @@
     "selectDateTime": "Select date and time",
     "clearDate": "Clear date",
     "location": "Location",
-    "locationPlaceholder": "e.g. Atina",
+    "locationPlaceholder": "e.g. Municipality",
     "guestsBadge": "{{confirmed}} / {{total}} confirmed",
     "peopleBadge": "{{count}} people",
     "tablesBadge": "{{count}} tables",
@@ -55,7 +55,7 @@
     "theme": "Celebration theme",
     "guestCategories": "Guest categories",
     "addGuestCategory": "Add category",
-    "guestCategoryPlaceholder": "e.g. Family, Friends, Neighbors",
+    "guestCategoryPlaceholder": "e.g. Neighbors",
     "guestSides": "Guest sides",
     "addGuestSide": "Add side",
     "guestSidePlaceholder": "e.g. Bride's side, Groom's side",
@@ -256,6 +256,15 @@
       "bride": "Bride side",
       "groom": "Groom side",
       "shared": "Shared / Neutral"
+    },
+    "sortLabel": "Sort",
+    "sort": {
+      "added_desc": "Last added",
+      "added_asc": "First added",
+      "name_asc": "Name (A-Z)",
+      "name_desc": "Name (Z-A)",
+      "partySize_desc": "Party size (largest first)",
+      "partySize_asc": "Party size (smallest first)"
     }
   },
   "seating": {

@@ -21,6 +21,10 @@
     "name": "Mitt perfekta kalas",
     "tagline": "Planera ditt perfekta kalas"
   },
+  "onboarding": {
+    "selectLanguage": "Välj språk",
+    "continue": "Fortsätt"
+  },
   "events": {
     "title": "Evenemang",
     "myEvents": "Mina evenemang",
@@ -40,7 +44,7 @@
     "selectDateTime": "Välj datum och tid",
     "clearDate": "Rensa datum",
     "location": "Plats",
-    "locationPlaceholder": "t.ex. Stockholm",
+    "locationPlaceholder": "t.ex. Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} bekräftade",
     "peopleBadge": "{{count}} personer",
     "tablesBadge": "{{count}} bord",
@@ -51,7 +55,7 @@
     "theme": "Festtema",
     "guestCategories": "Gästkategorier",
     "addGuestCategory": "Lägg till kategori",
-    "guestCategoryPlaceholder": "t.ex. Familj, Vänner, Grannar",
+    "guestCategoryPlaceholder": "t.ex. Grannar",
     "guestSides": "Gästsidor",
     "addGuestSide": "Lägg till sida",
     "guestSidePlaceholder": "t.ex. Brudens sida, Brudgummens sida",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 elegant",
       "birthday18Modern": "18 modern",
       "birthday18Gold": "18 guld"
-    }
+    },
+    "adUnavailable": "Annonsen är inte tillgänglig just nu. Försök igen senare."
   },
   "guests": {
     "title": "Gäster",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} personer",
     "atTable": "Bord: {{name}}",
     "filters": {
+      "needs_invite": "Behöver bjudas in",
       "all": "Alla",
       "invitation_sent": "Inbjudan skickad",
       "confirmed": "Bekräftade",
@@ -250,6 +256,15 @@
       "bride": "Brudens sida",
       "groom": "Brudgummens sida",
       "shared": "Gemensam / Neutral"
+    },
+    "sortLabel": "Sortering",
+    "sort": {
+      "added_desc": "Senast tillagda",
+      "added_asc": "Först tillagda",
+      "name_asc": "Namn (A-Ö)",
+      "name_desc": "Namn (Ö-A)",
+      "partySize_desc": "Antal personer (flest först)",
+      "partySize_asc": "Antal personer (minst först)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Bordet har inte tillräckligt med lediga platser.",
     "nameRequired": "Bordsnamn krävs.",
     "unassignedGuests": "Ej tilldelade gäster",
+    "previewTitle": "Bordsförhandsvisning",
+    "previewOccupied": "Upptagen",
+    "previewFree": "Ledig",
     "addBatch": "Lägg till batch",
     "preset310": "3 bord × 10 platser",
     "preset57": "5 bord × 7 platser"
@@ -426,26 +444,34 @@
     "languageHr": "Kroatiska",
     "languageEn": "Engelska",
     "about": "Om",
-    "aboutText": "Mitt perfekta kalas — planera ditt kalas lokalt på enheten. All data stannar på enheten, med valfri e-postbackup.",
+    "aboutText": "Mitt perfekta kalas — planera ditt kalas lokalt på enheten. All data stannar på enheten, med valfri e-postsäkerhetskopia.",
     "dataStorage": "Data lagras lokalt på enheten.",
-    "backupTitle": "E-postbackup",
-    "backupDescription": "Skicka en backup av dina data till din e-post som JSON-bilaga. Efter ominstallation av appen laddar du ner bilagan från e-posten och importerar den här.",
-    "backupEmail": "Backup-e-post",
+    "backupTitle": "E-postsäkerhetskopia",
+    "backupDescription": "Skicka en säkerhetskopia av dina data till din e-post som JSON-bilaga. Efter ominstallation av appen laddar du ner bilagan från e-posten och importerar den här.",
+    "backupEmail": "E-post för säkerhetskopia",
     "backupEmailPlaceholder": "t.ex. namn@email.com",
     "backupEmailInvalid": "Ange en giltig e-postadress.",
     "backupLastSync": "Senaste synkronisering",
     "backupNeverSynced": "Aldrig synkroniserad",
     "backupSyncNow": "Synka nu",
-    "backupImport": "Importera backup",
-    "backupSyncing": "Förbereder backup...",
-    "backupSyncSuccess": "Backup har förberetts och skickats.",
-    "backupSyncCancelled": "Skickande av backup avbröts.",
-    "backupSyncFailed": "Backup misslyckades. Försök igen.",
-    "backupImportConfirmTitle": "Importera backup?",
-    "backupImportConfirmMessage": "Detta ersätter all befintlig appdata med data från backupfilen.",
-    "backupImportSuccess": "Backup importerades.",
-    "backupImportFailed": "Import av backup misslyckades.",
-    "backupInvalidFile": "Den valda filen är inte en giltig backup.",
-    "backupMailUnavailable": "E-postappen är inte tillgänglig. Backup delades via systemets delningsmeny."
+    "backupImport": "Importera säkerhetskopia",
+    "backupSyncing": "Förbereder säkerhetskopia...",
+    "backupSyncSuccess": "Säkerhetskopian har förberetts och skickats.",
+    "backupSyncCancelled": "Skickande av säkerhetskopia avbröts.",
+    "backupSyncFailed": "Säkerhetskopian misslyckades. Försök igen.",
+    "backupImportConfirmTitle": "Importera säkerhetskopia?",
+    "backupImportConfirmMessage": "Detta ersätter all befintlig appdata med data från säkerhetskopian.",
+    "backupImportSuccess": "Säkerhetskopian importerades.",
+    "backupImportFailed": "Import av säkerhetskopia misslyckades.",
+    "backupInvalidFile": "Den valda filen är inte en giltig säkerhetskopia.",
+    "backupMailUnavailable": "E-postappen är inte tillgänglig. Säkerhetskopian delades via systemets delningsmeny.",
+    "supportTitle": "Support",
+    "supportDescription": "Frågor, tips eller ett fel? Kontakta oss.",
+    "contactSupport": "Kontakta support",
+    "supportEmailSubject": "Mitt perfekta kalas — support",
+    "supportMailUnavailable": "Kunde inte öppna e-postappen. Kopiera support-e-postadressen nedan."
+  },
+  "ads": {
+    "sponsored": "Annons"
   }
 }

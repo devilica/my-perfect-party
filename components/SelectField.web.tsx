@@ -4,12 +4,15 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
 
+import { FieldLabel } from '@/components/FieldLabel';
+
 import type { SelectFieldProps } from './SelectField.types';
 
 export type { SelectFieldProps } from './SelectField.types';
 
 export function SelectField<T extends string>({
   label,
+  required,
   labelRight,
   value,
   options,
@@ -21,10 +24,7 @@ export function SelectField<T extends string>({
 
   return (
     <View style={styles.container}>
-      <View style={styles.labelRow}>
-        <Text style={[styles.label, { color: theme.textSecondary }]}>{label}</Text>
-        {labelRight}
-      </View>
+      <FieldLabel label={label} required={required} labelRight={labelRight} />
       {createElement(
         'select',
         {
@@ -71,16 +71,6 @@ const webSelectStyle = {
 const styles = StyleSheet.create({
   container: {
     marginBottom: spacing.md,
-  },
-  labelRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.xs,
-    marginBottom: spacing.xs,
-  },
-  label: {
-    ...typography.caption,
-    fontWeight: '600',
   },
   hint: {
     ...typography.small,

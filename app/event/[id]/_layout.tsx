@@ -94,6 +94,7 @@ export default function EventLayout() {
     <EventThemeProvider themeId={event.theme}>
       <View style={flexFill}>
       <Tabs
+        detachInactiveScreens={false}
         safeAreaInsets={bannerHeight > 0 ? { bottom: 0 } : undefined}
         screenOptions={{
           tabBarActiveTintColor: theme.colors.primary,

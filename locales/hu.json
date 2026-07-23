@@ -21,6 +21,10 @@
     "name": "Tökéletes bulim",
     "tagline": "Tervezd meg a tökéletes bulit"
   },
+  "onboarding": {
+    "selectLanguage": "Válassz nyelvet",
+    "continue": "Folytatás"
+  },
   "events": {
     "title": "Események",
     "myEvents": "Eseményeim",
@@ -40,7 +44,7 @@
     "selectDateTime": "Válassz dátumot és időt",
     "clearDate": "Dátum törlése",
     "location": "Helyszín",
-    "locationPlaceholder": "pl. Szarajevó",
+    "locationPlaceholder": "pl. Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} visszajelzett",
     "peopleBadge": "{{count}} fő",
     "tablesBadge": "{{count}} asztal",
@@ -51,7 +55,7 @@
     "theme": "Ünnepség témája",
     "guestCategories": "Vendégkategóriák",
     "addGuestCategory": "Kategória hozzáadása",
-    "guestCategoryPlaceholder": "pl. Család, Barátok, Szomszédok",
+    "guestCategoryPlaceholder": "pl. Szomszédok",
     "guestSides": "Vendégoldalak",
     "addGuestSide": "Oldal hozzáadása",
     "guestSidePlaceholder": "pl. Menyasszony oldala, Vőlegény oldala",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 elegáns",
       "birthday18Modern": "18 modern",
       "birthday18Gold": "18 arany"
-    }
+    },
+    "adUnavailable": "A reklám jelenleg nem érhető el. Próbáld újra később."
   },
   "guests": {
     "title": "Vendégek",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} fő",
     "atTable": "Asztal: {{name}}",
     "filters": {
+      "needs_invite": "Meghívandó",
       "all": "Mind",
       "invitation_sent": "Meghívó elküldve",
       "confirmed": "Visszajelzett",
@@ -250,6 +256,15 @@
       "bride": "Menyasszony oldala",
       "groom": "Vőlegény oldala",
       "shared": "Közös / Semleges"
+    },
+    "sortLabel": "Rendezés",
+    "sort": {
+      "added_desc": "Utoljára hozzáadott",
+      "added_asc": "Először hozzáadott",
+      "name_asc": "Név (A-Z)",
+      "name_desc": "Név (Z-A)",
+      "partySize_desc": "Létszám (több elöl)",
+      "partySize_asc": "Létszám (kevesebb elöl)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Az asztalon nincs elég szabad hely.",
     "nameRequired": "Az asztal neve kötelező.",
     "unassignedGuests": "Hozzá nem rendelt vendégek",
+    "previewTitle": "Asztelőnézet",
+    "previewOccupied": "Foglalt",
+    "previewFree": "Szabad",
     "addBatch": "Csoport hozzáadása",
     "preset310": "3 asztal × 10 hely",
     "preset57": "5 asztal × 7 hely"
@@ -446,6 +464,14 @@
     "backupImportSuccess": "A biztonsági mentés sikeresen importálva.",
     "backupImportFailed": "A biztonsági mentés importálása sikertelen.",
     "backupInvalidFile": "A kiválasztott fájl nem érvényes biztonsági mentés.",
-    "backupMailUnavailable": "Az e-mail alkalmazás nem érhető el. A biztonsági mentés a rendszer megosztó panelen keresztül lett megosztva."
+    "backupMailUnavailable": "Az e-mail alkalmazás nem érhető el. A biztonsági mentés a rendszer megosztó panelen keresztül lett megosztva.",
+    "supportTitle": "Támogatás",
+    "supportDescription": "Kérdésed, tipp vagy hiba? Lépj kapcsolatba velünk.",
+    "contactSupport": "Kapcsolatfelvétel",
+    "supportEmailSubject": "Tökéletes bulim — támogatás",
+    "supportMailUnavailable": "Nem sikerült megnyitni a levelezőalkalmazást. Másold ki az e-mail címet alább."
+  },
+  "ads": {
+    "sponsored": "Reklám"
   }
 }

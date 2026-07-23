@@ -1,14 +1,53 @@
 import { ATTENDANCE_STATUSES } from '@/constants/guestAttendance';
-import { Guest, GuestFilter, GuestStats } from '@/types/models';
+import { DEFAULT_GUEST_SORT } from '@/constants/guestSort';
+import { Guest, GuestFilter, GuestSort, GuestStats } from '@/types/models';
+
+function compareGuestNames(a: Guest, b: Guest): number {
+  const nameA = `${a.lastName} ${a.firstName}`.toLowerCase();
+  const nameB = `${b.lastName} ${b.firstName}`.toLowerCase();
+  return nameA.localeCompare(nameB);
+}
+
+function compareGuestCreatedAt(a: Guest, b: Guest): number {
+  const timeA = a.createdAt ? Date.parse(a.createdAt) : 0;
+  const timeB = b.createdAt ? Date.parse(b.createdAt) : 0;
+  return timeA - timeB;
+}
+
+export function sortGuests(guests: Guest[], sort: GuestSort = DEFAULT_GUEST_SORT): Guest[] {
+  const sorted = [...guests];
+
+  sorted.sort((a, b) => {
+    switch (sort) {
+      case 'added_desc': {
+        const byDate = compareGuestCreatedAt(b, a);
+        return byDate !== 0 ? byDate : compareGuestNames(a, b);
+      }
+      case 'added_asc': {
+        const byDate = compareGuestCreatedAt(a, b);
+        return byDate !== 0 ? byDate : compareGuestNames(a, b);
+      }
+      case 'name_desc':
+        return compareGuestNames(b, a);
+      case 'partySize_desc': {
+        const bySize = b.partySize - a.partySize;
+        return bySize !== 0 ? bySize : compareGuestNames(a, b);
+      }
+      case 'partySize_asc': {
+        const bySize = a.partySize - b.partySize;
+        return bySize !== 0 ? bySize : compareGuestNames(a, b);
+      }
+      case 'name_asc':
+      default:
+        return compareGuestNames(a, b);
+    }
+  });
+
+  return sorted;
+}
 
 export function getGuestsForEvent(guests: Guest[], eventId: string): Guest[] {
-  return guests
-    .filter((g) => g.eventId === eventId)
-    .sort((a, b) => {
-      const nameA = `${a.lastName} ${a.firstName}`.toLowerCase();
-      const nameB = `${b.lastName} ${b.firstName}`.toLowerCase();
-      return nameA.localeCompare(nameB);
-    });
+  return guests.filter((g) => g.eventId === eventId);
 }
 
 export function getGuestStats(guests: Guest[], eventId: string): GuestStats {
@@ -61,7 +100,8 @@ export function filterGuests(
   guests: Guest[],
   eventId: string,
   filter: GuestFilter,
-  searchQuery?: string
+  searchQuery?: string,
+  sort: GuestSort = DEFAULT_GUEST_SORT
 ): Guest[] {
   let result = getGuestsForEvent(guests, eventId);
 
@@ -93,7 +133,7 @@ export function filterGuests(
     });
   }
 
-  return result;
+  return sortGuests(result, sort);
 }
 
 export function getNextAttendanceStatus(

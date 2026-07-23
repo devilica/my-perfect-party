@@ -21,6 +21,10 @@
     "name": "Моја совршена прослава",
     "tagline": "Планирај ја твојата совршена прослава"
   },
+  "onboarding": {
+    "selectLanguage": "Изберете јазик",
+    "continue": "Продолжи"
+  },
   "events": {
     "title": "Настани",
     "myEvents": "Мои настани",
@@ -40,7 +44,7 @@
     "selectDateTime": "Избери датум и време",
     "clearDate": "Отстрани датум",
     "location": "Локација",
-    "locationPlaceholder": "напр. Сараево",
+    "locationPlaceholder": "напр. Општина",
     "guestsBadge": "{{confirmed}} / {{total}} потврдени",
     "peopleBadge": "{{count}} луѓе",
     "tablesBadge": "{{count}} маси",
@@ -51,7 +55,7 @@
     "theme": "Тема на прославата",
     "guestCategories": "Категории на гости",
     "addGuestCategory": "Додај категорија",
-    "guestCategoryPlaceholder": "напр. Семејство, Пријатели, Соседи",
+    "guestCategoryPlaceholder": "напр. Соседи",
     "guestSides": "Страни на гости",
     "addGuestSide": "Додај страна",
     "guestSidePlaceholder": "напр. Страна на невестата, Страна на младоженецот",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18. елегантно",
       "birthday18Modern": "18. модерно",
       "birthday18Gold": "18. златно"
-    }
+    },
+    "adUnavailable": "Рекламата моментално не е достапна. Обиди се повторно подоцна."
   },
   "guests": {
     "title": "Гости",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} луѓе",
     "atTable": "Маса: {{name}}",
     "filters": {
+      "needs_invite": "Треба да се покани",
       "all": "Сите",
       "invitation_sent": "Поканата е испратена",
       "confirmed": "Потврден",
@@ -250,6 +256,15 @@
       "bride": "Страна на невестата",
       "groom": "Страна на младоженецот",
       "shared": "Заедничка / Неутрална"
+    },
+    "sortLabel": "Сортирање",
+    "sort": {
+      "added_desc": "Последно додадени",
+      "added_asc": "Прво додадени",
+      "name_asc": "Име (А-Ш)",
+      "name_desc": "Име (Ш-А)",
+      "partySize_desc": "Број на лица (повеќе прво)",
+      "partySize_asc": "Број на лица (помалку прво)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Масата нема доволно слободни места.",
     "nameRequired": "Името на масата е задолжително.",
     "unassignedGuests": "Недоделени гости",
+    "previewTitle": "Преглед на масата",
+    "previewOccupied": "Зафатено",
+    "previewFree": "Слободно",
     "addBatch": "Додај група",
     "preset310": "3 маси × 10 места",
     "preset57": "5 маси × 7 места"
@@ -446,6 +464,14 @@
     "backupImportSuccess": "Резервната копија е успешно увезена.",
     "backupImportFailed": "Увезувањето на резервната копија не успеа.",
     "backupInvalidFile": "Избраната датотека не е валидна резервна копија.",
-    "backupMailUnavailable": "Апликацијата за е-пошта не е достапна. Резервната копија е споделена преку системскиот лист за споделување."
+    "backupMailUnavailable": "Апликацијата за е-пошта не е достапна. Резервната копија е споделена преку системскиот лист за споделување.",
+    "supportTitle": "Поддршка",
+    "supportDescription": "Прашања, совети или грешка? Контактирајте не.",
+    "contactSupport": "Контактирај поддршка",
+    "supportEmailSubject": "Моја совршена прослава — поддршка",
+    "supportMailUnavailable": "Не може да се отвори е-пошта апликацијата. Копирајте ја е-пошта адресата подолу."
+  },
+  "ads": {
+    "sponsored": "Реклама"
   }
 }

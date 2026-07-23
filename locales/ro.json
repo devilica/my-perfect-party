@@ -21,6 +21,10 @@
     "name": "Petrecerea mea perfectă",
     "tagline": "Planifică-ți petrecerea perfectă"
   },
+  "onboarding": {
+    "selectLanguage": "Alege limba",
+    "continue": "Continuă"
+  },
   "events": {
     "title": "Evenimente",
     "myEvents": "Evenimentele mele",
@@ -40,7 +44,7 @@
     "selectDateTime": "Selectează data și ora",
     "clearDate": "Șterge data",
     "location": "Locație",
-    "locationPlaceholder": "ex. Atina",
+    "locationPlaceholder": "ex. Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} confirmați",
     "peopleBadge": "{{count}} persoane",
     "tablesBadge": "{{count}} mese",
@@ -51,7 +55,7 @@
     "theme": "Tema sărbătorii",
     "guestCategories": "Categorii de invitați",
     "addGuestCategory": "Adaugă categorie",
-    "guestCategoryPlaceholder": "ex. Familie, Prieteni, Vecini",
+    "guestCategoryPlaceholder": "ex. Vecini",
     "guestSides": "Părți ale invitaților",
     "addGuestSide": "Adaugă parte",
     "guestSidePlaceholder": "ex. Partea miresei, Partea mirelui",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 elegant",
       "birthday18Modern": "18 modern",
       "birthday18Gold": "18 auriu"
-    }
+    },
+    "adUnavailable": "Reclama nu este disponibilă momentan. Încearcă din nou mai târziu."
   },
   "guests": {
     "title": "Invitați",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} persoane",
     "atTable": "Masă: {{name}}",
     "filters": {
+      "needs_invite": "De invitat",
       "all": "Toți",
       "invitation_sent": "Invitație trimisă",
       "confirmed": "Confirmat",
@@ -250,6 +256,15 @@
       "bride": "Partea miresei",
       "groom": "Partea mirelui",
       "shared": "Comun / Neutru"
+    },
+    "sortLabel": "Sortare",
+    "sort": {
+      "added_desc": "Ultimii adăugați",
+      "added_asc": "Primii adăugați",
+      "name_asc": "Nume (A-Z)",
+      "name_desc": "Nume (Z-A)",
+      "partySize_desc": "Număr persoane (mai multe întâi)",
+      "partySize_asc": "Număr persoane (mai puține întâi)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Masa nu are suficiente locuri libere.",
     "nameRequired": "Numele mesei este obligatoriu.",
     "unassignedGuests": "Invitați nealocați",
+    "previewTitle": "Previzualizare masă",
+    "previewOccupied": "Ocupat",
+    "previewFree": "Liber",
     "addBatch": "Adaugă lot",
     "preset310": "3 mese × 10 locuri",
     "preset57": "5 mese × 7 locuri"
@@ -426,26 +444,34 @@
     "languageHr": "Croată",
     "languageEn": "Engleză",
     "about": "Despre",
-    "aboutText": "Petrecerea mea perfectă — planifică-ți petrecerea local pe dispozitiv. Toate datele rămân pe dispozitiv, cu backup opțional prin e-mail.",
+    "aboutText": "Petrecerea mea perfectă — planifică-ți petrecerea local pe dispozitiv. Toate datele rămân pe dispozitiv, cu copie de rezervă opțională prin e-mail.",
     "dataStorage": "Datele sunt stocate local pe dispozitiv.",
-    "backupTitle": "Backup prin e-mail",
-    "backupDescription": "Trimite un backup al datelor pe e-mail ca atașament JSON. După reinstalarea aplicației, descarcă atașamentul din e-mail și importă-l aici.",
-    "backupEmail": "E-mail pentru backup",
+    "backupTitle": "Copie de rezervă prin e-mail",
+    "backupDescription": "Trimite o copie de rezervă a datelor pe e-mail ca atașament JSON. După reinstalarea aplicației, descarcă atașamentul din e-mail și importă-l aici.",
+    "backupEmail": "E-mail pentru copie de rezervă",
     "backupEmailPlaceholder": "ex. nume@email.com",
     "backupEmailInvalid": "Introdu o adresă de e-mail validă.",
     "backupLastSync": "Ultima sincronizare",
     "backupNeverSynced": "Niciodată sincronizat",
     "backupSyncNow": "Sincronizează acum",
-    "backupImport": "Importă backup",
-    "backupSyncing": "Se pregătește backup-ul...",
-    "backupSyncSuccess": "Backup-ul a fost pregătit și trimis.",
-    "backupSyncCancelled": "Trimiterea backup-ului a fost anulată.",
-    "backupSyncFailed": "Backup-ul a eșuat. Încearcă din nou.",
-    "backupImportConfirmTitle": "Importă backup?",
-    "backupImportConfirmMessage": "Aceasta va înlocui toate datele existente ale aplicației cu datele din fișierul de backup.",
-    "backupImportSuccess": "Backup importat cu succes.",
-    "backupImportFailed": "Importul backup-ului a eșuat.",
-    "backupInvalidFile": "Fișierul selectat nu este un backup valid.",
-    "backupMailUnavailable": "Aplicația de e-mail nu este disponibilă. Backup-ul a fost partajat prin foaia de partajare a sistemului."
+    "backupImport": "Importă copie de rezervă",
+    "backupSyncing": "Se pregătește copia de rezervă...",
+    "backupSyncSuccess": "Copia de rezervă a fost pregătită și trimisă.",
+    "backupSyncCancelled": "Trimiterea copiei de rezervă a fost anulată.",
+    "backupSyncFailed": "Copia de rezervă a eșuat. Încearcă din nou.",
+    "backupImportConfirmTitle": "Importă copie de rezervă?",
+    "backupImportConfirmMessage": "Aceasta va înlocui toate datele existente ale aplicației cu datele din fișierul de copie de rezervă.",
+    "backupImportSuccess": "Copie de rezervă importată cu succes.",
+    "backupImportFailed": "Importul copiei de rezervă a eșuat.",
+    "backupInvalidFile": "Fișierul selectat nu este o copie de rezervă validă.",
+    "backupMailUnavailable": "Aplicația de e-mail nu este disponibilă. Copia de rezervă a fost partajată prin foaia de partajare a sistemului.",
+    "supportTitle": "Suport",
+    "supportDescription": "Întrebări, sfaturi sau o eroare? Contactează-ne.",
+    "contactSupport": "Contactează suportul",
+    "supportEmailSubject": "Petrecerea mea perfectă — suport",
+    "supportMailUnavailable": "Nu s-a putut deschide aplicația de email. Copiază adresa de email de mai jos."
+  },
+  "ads": {
+    "sponsored": "Reclamă"
   }
 }

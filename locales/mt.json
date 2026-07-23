@@ -21,6 +21,10 @@
     "name": "Il-festa perfetta tiegħi",
     "tagline": "Ippjana l-festa perfetta tiegħek"
   },
+  "onboarding": {
+    "selectLanguage": "Agħżel il-lingwa",
+    "continue": "Kompli"
+  },
   "events": {
     "title": "Avvenimenti",
     "myEvents": "L-avvenimenti tiegħi",
@@ -40,7 +44,7 @@
     "selectDateTime": "Agħżel data u ħin",
     "clearDate": "Neħħi d-data",
     "location": "Post",
-    "locationPlaceholder": "eż. Atina",
+    "locationPlaceholder": "eż. Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} ikkonfermati",
     "peopleBadge": "{{count}} persuni",
     "tablesBadge": "{{count}} mejda",
@@ -51,7 +55,7 @@
     "theme": "Tema taċ-ċelebrazzjoni",
     "guestCategories": "Kategoriji tal-mistiedna",
     "addGuestCategory": "Żid kategorija",
-    "guestCategoryPlaceholder": "eż. Familja, Ħbieb, Ġirien",
+    "guestCategoryPlaceholder": "eż. Ġirien",
     "guestSides": "Naħat tal-mistiedna",
     "addGuestSide": "Żid naħa",
     "guestSidePlaceholder": "eż. Naħa tal-għarusa, Naħa tal-għarus",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 eleganti",
       "birthday18Modern": "18 modern",
       "birthday18Gold": "18 deheb"
-    }
+    },
+    "adUnavailable": "Ir-reklam mhux disponibbli bħalissa. Erġa' pprova aktar tard."
   },
   "guests": {
     "title": "Mistiedna",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} persuni",
     "atTable": "Mejda: {{name}}",
     "filters": {
+      "needs_invite": "Għandu bżonn stedina",
       "all": "Kollha",
       "invitation_sent": "Stedina mibgħuta",
       "confirmed": "Ikkonfermat",
@@ -250,6 +256,15 @@
       "bride": "Naħa tal-għarusa",
       "groom": "Naħa tal-għarus",
       "shared": "Kondiviż / Neutru"
+    },
+    "sortLabel": "Issortja",
+    "sort": {
+      "added_desc": "L-aħħar miżjud",
+      "added_asc": "L-ewwel miżjud",
+      "name_asc": "Isem (A-Z)",
+      "name_desc": "Isem (Z-A)",
+      "partySize_desc": "Numru ta' persuni (aktar l-ewwel)",
+      "partySize_asc": "Numru ta' persuni (inqas l-ewwel)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Il-mejda m'għandhiex biżżejjed siġġu liberi.",
     "nameRequired": "L-isem tal-mejda huwa obbligatorju.",
     "unassignedGuests": "Mistiedna mhux assenjati",
+    "previewTitle": "Previżjoni tal-mejda",
+    "previewOccupied": "Okkupat",
+    "previewFree": "B'xejn",
     "addBatch": "Żid lot",
     "preset310": "3 mejda × 10 siġġu",
     "preset57": "5 mejda × 7 siġġu"
@@ -426,26 +444,34 @@
     "languageHr": "Kroat",
     "languageEn": "Ingliż",
     "about": "Dwar",
-    "aboutText": "Il-festa perfetta tiegħi — ippjana l-festa tiegħek lokali fuq it-tagħmir tiegħek. Id-dejta kollha tibqa' fuq it-tagħmir tiegħek, b'backup bl-email opzjonali.",
+    "aboutText": "Il-festa perfetta tiegħi — ippjana l-festa tiegħek lokali fuq it-tagħmir tiegħek. Id-dejta kollha tibqa' fuq it-tagħmir tiegħek, b'kopja ta' riżerva bl-email opzjonali.",
     "dataStorage": "Id-dejta tinħażen lokali fuq it-tagħmir tiegħek.",
-    "backupTitle": "Backup bl-email",
-    "backupDescription": "Ibgħat backup tad-dejta tiegħek bl-email tiegħek bħala attachment JSON. Wara li terġa' tinstalla l-app, niżżel l-attachment mill-email tiegħek u importah hawn.",
-    "backupEmail": "Email tal-backup",
+    "backupTitle": "Kopja ta' riżerva bl-email",
+    "backupDescription": "Ibgħat kopja ta' riżerva tad-dejta tiegħek bl-email tiegħek bħala attachment JSON. Wara li terġa' tinstalla l-app, niżżel l-attachment mill-email tiegħek u importah hawn.",
+    "backupEmail": "Email għal kopja ta' riżerva",
     "backupEmailPlaceholder": "eż. isem@email.com",
     "backupEmailInvalid": "Daħħal indirizz email validu.",
     "backupLastSync": "L-aħħar sinkronizzazzjoni",
     "backupNeverSynced": "Qatt ma ġie sinkronizzat",
     "backupSyncNow": "Sinkronizza issa",
-    "backupImport": "Importa backup",
-    "backupSyncing": "Qed jiġi ppreparat il-backup...",
-    "backupSyncSuccess": "Il-backup ġie ppreparat u mibgħut.",
-    "backupSyncCancelled": "It-tbaħħir tal-backup ġie kkanċellat.",
-    "backupSyncFailed": "Il-backup falla. Erġa' pprova.",
-    "backupImportConfirmTitle": "Importa backup?",
-    "backupImportConfirmMessage": "Dan se jissostitwixxi d-dejta kollha tal-app eżistenti bid-dejta mill-fajl tal-backup.",
-    "backupImportSuccess": "Il-backup ġie importat b'suċċess.",
-    "backupImportFailed": "L-import tal-backup falla.",
-    "backupInvalidFile": "Il-fajl magħżul mhuwiex backup validu.",
-    "backupMailUnavailable": "L-app tal-email mhix disponibbli. Il-backup ġie kondiviż permezz tal-share sheet tas-sistema."
+    "backupImport": "Importa kopja ta' riżerva",
+    "backupSyncing": "Qed tiġi ppreparata kopja ta' riżerva...",
+    "backupSyncSuccess": "Kopja ta' riżerva ġiet ppreparata u mibgħuta.",
+    "backupSyncCancelled": "It-tbaħħir tal-kopja ta' riżerva ġie kkanċellat.",
+    "backupSyncFailed": "Kopja ta' riżerva falliet. Erġa' pprova.",
+    "backupImportConfirmTitle": "Importa kopja ta' riżerva?",
+    "backupImportConfirmMessage": "Dan se jissostitwixxi d-dejta kollha tal-app eżistenti bid-dejta mill-fajl tal-kopja ta' riżerva.",
+    "backupImportSuccess": "Kopja ta' riżerva ġiet importata b'suċċess.",
+    "backupImportFailed": "L-import tal-kopja ta' riżerva falla.",
+    "backupInvalidFile": "Il-fajl magħżul mhuwiex kopja ta' riżerva valida.",
+    "backupMailUnavailable": "L-app tal-email mhix disponibbli. Kopja ta' riżerva ġiet kondiviża permezz tal-menu ta' kondiviżjoni tas-sistema.",
+    "supportTitle": "Appoġġ",
+    "supportDescription": "Mistoqsijiet, pariri jew bug? Ikkuntattjana.",
+    "contactSupport": "Ikkuntattja l-appoġġ",
+    "supportEmailSubject": "Il-festa perfetta tiegħi — appoġġ",
+    "supportMailUnavailable": "Ma setax jinfetaħ l-app tal-posta. Kopja l-indirizz tal-email hawn taħt."
+  },
+  "ads": {
+    "sponsored": "Reklam"
   }
 }

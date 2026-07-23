@@ -21,6 +21,10 @@
     "name": "Moja dokonalá oslava",
     "tagline": "Naplánujte si dokonalú oslavu"
   },
+  "onboarding": {
+    "selectLanguage": "Vyberte jazyk",
+    "continue": "Pokračovať"
+  },
   "events": {
     "title": "Udalosti",
     "myEvents": "Moje udalosti",
@@ -40,7 +44,7 @@
     "selectDateTime": "Vyberte dátum a čas",
     "clearDate": "Vymazať dátum",
     "location": "Miesto",
-    "locationPlaceholder": "napr. Atina",
+    "locationPlaceholder": "napr. Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} potvrdené",
     "peopleBadge": "{{count}} osôb",
     "tablesBadge": "{{count}} stolov",
@@ -51,7 +55,7 @@
     "theme": "Téma oslavy",
     "guestCategories": "Kategórie hostí",
     "addGuestCategory": "Pridať kategóriu",
-    "guestCategoryPlaceholder": "napr. Rodina, Priatelia, Susedia",
+    "guestCategoryPlaceholder": "napr. Susedia",
     "guestSides": "Strany hostí",
     "addGuestSide": "Pridať stranu",
     "guestSidePlaceholder": "napr. Strana nevesty, Strana ženícha",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 elegantné",
       "birthday18Modern": "18 moderné",
       "birthday18Gold": "18 zlaté"
-    }
+    },
+    "adUnavailable": "Reklama momentálne nie je k dispozícii. Skúste to neskôr."
   },
   "guests": {
     "title": "Hostia",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} osôb",
     "atTable": "Stôl: {{name}}",
     "filters": {
+      "needs_invite": "Treba pozvať",
       "all": "Všetko",
       "invitation_sent": "Pozvánka odoslaná",
       "confirmed": "Potvrdené",
@@ -250,6 +256,15 @@
       "bride": "Strana nevesty",
       "groom": "Strana ženícha",
       "shared": "Spoločné / Neutrálne"
+    },
+    "sortLabel": "Zoradenie",
+    "sort": {
+      "added_desc": "Naposledy pridaní",
+      "added_asc": "Najskôr pridaní",
+      "name_asc": "Meno (A-Z)",
+      "name_desc": "Meno (Z-A)",
+      "partySize_desc": "Počet osôb (viac najprv)",
+      "partySize_asc": "Počet osôb (menej najprv)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Stôl nemá dostatok voľných miest.",
     "nameRequired": "Názov stola je povinný.",
     "unassignedGuests": "Nepriradení hostia",
+    "previewTitle": "Náhľad stola",
+    "previewOccupied": "Obsadené",
+    "previewFree": "Voľné",
     "addBatch": "Pridať sadu",
     "preset310": "3 stoly × 10 miest",
     "preset57": "5 stolov × 7 miest"
@@ -446,6 +464,14 @@
     "backupImportSuccess": "Záloha bola úspešne importovaná.",
     "backupImportFailed": "Import zálohy zlyhal.",
     "backupInvalidFile": "Vybraný súbor nie je platná záloha.",
-    "backupMailUnavailable": "E-mailová aplikácia nie je k dispozícii. Záloha bola zdieľaná cez systémové zdieľanie."
+    "backupMailUnavailable": "E-mailová aplikácia nie je k dispozícii. Záloha bola zdieľaná cez systémové zdieľanie.",
+    "supportTitle": "Podpora",
+    "supportDescription": "Máte otázku, tip alebo chybu? Kontaktujte nás.",
+    "contactSupport": "Kontaktovať podporu",
+    "supportEmailSubject": "Moja dokonalá oslava — podpora",
+    "supportMailUnavailable": "Nepodarilo sa otvoriť poštovú aplikáciu. Skopírujte e-mailovú adresu nižšie."
+  },
+  "ads": {
+    "sponsored": "Reklama"
   }
 }

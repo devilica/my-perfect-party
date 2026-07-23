@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { DEFAULT_GUEST_CATEGORIES, normalizeGuestCategories, normalizeGuestCategory } from '@/constants/guestCategories';
+import { DEFAULT_GUEST_SORT, isGuestSort } from '@/constants/guestSort';
 import { isLanguage } from '@/constants/languages';
 import { normalizeAttendanceStatus } from '@/constants/guestAttendance';
 import { stripLegacyDefaultSides, resolveGuestSide } from '@/constants/guestSides';
@@ -14,6 +15,7 @@ import {
   BulkTableBatch,
   CelebrationThemeId,
   Guest,
+  GuestSort,
   Language,
   SeatingTable,
   WeddingEvent,
@@ -40,6 +42,7 @@ type LegacyGuest = {
   partySize?: number;
   tableId?: string;
   note?: string;
+  createdAt?: string;
 };
 
 const RELATIONSHIP_TO_CATEGORY: Record<LegacyRelationship, string> = {
@@ -79,6 +82,7 @@ type PersistedState = {
   unlockedAppThemes?: CelebrationThemeId[];
   backupEmail?: string;
   lastBackupAt?: string;
+  guestSortByEvent?: Record<string, GuestSort>;
 };
 
 const LOCALE_VERSION = 3;
@@ -102,6 +106,7 @@ function migrateGuest(raw: LegacyGuest): Guest {
       partySize: raw.partySize ?? 1,
       tableId: raw.tableId,
       note: raw.note,
+      createdAt: raw.createdAt,
     };
   }
 
@@ -121,7 +126,20 @@ function migrateGuest(raw: LegacyGuest): Guest {
     partySize: raw.partySize ?? 1,
     tableId: raw.tableId,
     note: raw.note,
+    createdAt: raw.createdAt,
   };
+}
+
+function normalizeGuestSortByEvent(
+  saved: Record<string, unknown> | undefined
+): Record<string, GuestSort> {
+  if (!saved || typeof saved !== 'object') return {};
+
+  return Object.fromEntries(
+    Object.entries(saved).filter((entry): entry is [string, GuestSort] =>
+      isGuestSort(entry[1])
+    )
+  );
 }
 
 function normalizeAppTheme(value: unknown): CelebrationThemeId {
@@ -238,6 +256,7 @@ type WeddingState = {
   unlockedAppThemes: CelebrationThemeId[];
   backupEmail: string;
   lastBackupAt?: string;
+  guestSortByEvent: Record<string, GuestSort>;
   _hasHydrated: boolean;
   setHasHydrated: (value: boolean) => void;
   setLanguage: (language: Language) => void;
@@ -260,9 +279,11 @@ type WeddingState = {
   deleteEvent: (id: string) => void;
   addGuestCategory: (eventId: string, name: string) => void;
   addGuestSide: (eventId: string, name: string) => void;
-  addGuest: (data: Omit<Guest, 'id'>) => string | null;
-  updateGuest: (id: string, data: Partial<Omit<Guest, 'id' | 'eventId'>>) => boolean;
+  addGuest: (data: Omit<Guest, 'id' | 'createdAt'>) => string | null;
+  updateGuest: (id: string, data: Partial<Omit<Guest, 'id' | 'eventId' | 'createdAt'>>) => boolean;
   deleteGuest: (id: string) => void;
+  setGuestSort: (eventId: string, sort: GuestSort) => void;
+  getGuestSort: (eventId: string) => GuestSort;
   setGuestAttendance: (id: string, status: AttendanceStatus) => void;
   assignGuestToTable: (guestId: string, tableId: string | null) => boolean;
   isGuestDuplicate: (
@@ -305,6 +326,7 @@ export const useWeddingStore = create<WeddingState>()(
       unlockedAppThemes: [...DEFAULT_UNLOCKED_APP_THEMES],
       backupEmail: '',
       lastBackupAt: undefined,
+      guestSortByEvent: {},
       _hasHydrated: false,
       setHasHydrated: (value) => set({ _hasHydrated: value }),
 
@@ -462,6 +484,7 @@ export const useWeddingStore = create<WeddingState>()(
           firstName,
           lastName,
           partySize: Math.max(1, data.partySize),
+          createdAt: new Date().toISOString(),
         };
 
         if (guest.tableId) {
@@ -516,6 +539,17 @@ export const useWeddingStore = create<WeddingState>()(
           guests: state.guests.filter((guest) => guest.id !== id),
         }));
       },
+
+      setGuestSort: (eventId, sort) => {
+        set((state) => ({
+          guestSortByEvent: {
+            ...state.guestSortByEvent,
+            [eventId]: sort,
+          },
+        }));
+      },
+
+      getGuestSort: (eventId) => get().guestSortByEvent[eventId] ?? DEFAULT_GUEST_SORT,
 
       setGuestAttendance: (id, status) => {
         set((state) => ({
@@ -756,6 +790,7 @@ export const useWeddingStore = create<WeddingState>()(
         unlockedAppThemes: state.unlockedAppThemes,
         backupEmail: state.backupEmail,
         lastBackupAt: state.lastBackupAt,
+        guestSortByEvent: state.guestSortByEvent,
       }),
       merge: (persisted, current) => {
         const saved = persisted as PersistedState | undefined;
@@ -777,6 +812,7 @@ export const useWeddingStore = create<WeddingState>()(
           ),
           backupEmail: saved.backupEmail ?? current.backupEmail ?? '',
           lastBackupAt: saved.lastBackupAt ?? current.lastBackupAt,
+          guestSortByEvent: normalizeGuestSortByEvent(saved.guestSortByEvent),
         };
       },
       onRehydrateStorage: () => (state) => {

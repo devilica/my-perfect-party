@@ -83,6 +83,7 @@ export default function TableFormModal() {
 
       <TextInputField
         label={t('seating.tableName')}
+        required
         value={name}
         onChangeText={(text) => {
           setName(text);
@@ -93,6 +94,7 @@ export default function TableFormModal() {
       />
       <TextInputField
         label={t('seating.capacity')}
+        required
         value={capacity}
         onChangeText={setCapacity}
         placeholder={t('seating.capacityPlaceholder')}

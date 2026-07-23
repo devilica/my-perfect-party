@@ -21,6 +21,10 @@
     "name": "Моето перфектно парти",
     "tagline": "Планирай перфектното си парти"
   },
+  "onboarding": {
+    "selectLanguage": "Изберете език",
+    "continue": "Продължи"
+  },
   "events": {
     "title": "Събития",
     "myEvents": "Моите събития",
@@ -40,7 +44,7 @@
     "selectDateTime": "Изберете дата и час",
     "clearDate": "Изчисти датата",
     "location": "Местоположение",
-    "locationPlaceholder": "напр. Сараево",
+    "locationPlaceholder": "напр. Община",
     "guestsBadge": "{{confirmed}} / {{total}} потвърдени",
     "peopleBadge": "{{count}} души",
     "tablesBadge": "{{count}} маси",
@@ -51,7 +55,7 @@
     "theme": "Тема на празненството",
     "guestCategories": "Категории гости",
     "addGuestCategory": "Добави категория",
-    "guestCategoryPlaceholder": "напр. Семейство, Приятели, Съседи",
+    "guestCategoryPlaceholder": "напр. Съседи",
     "guestSides": "Страни на гостите",
     "addGuestSide": "Добави страна",
     "guestSidePlaceholder": "напр. Страна на булката, Страна на младоженеца",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 елегантен",
       "birthday18Modern": "18 модерен",
       "birthday18Gold": "18 златен"
-    }
+    },
+    "adUnavailable": "Рекламата не е налична в момента. Опитайте по-късно."
   },
   "guests": {
     "title": "Гости",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} души",
     "atTable": "Маса: {{name}}",
     "filters": {
+      "needs_invite": "Трябва да поканя",
       "all": "Всички",
       "invitation_sent": "Поканата е изпратена",
       "confirmed": "Потвърден",
@@ -250,6 +256,15 @@
       "bride": "Страна на булката",
       "groom": "Страна на младоженеца",
       "shared": "Общо / Неутрално"
+    },
+    "sortLabel": "Сортиране",
+    "sort": {
+      "added_desc": "Последно добавени",
+      "added_asc": "Първо добавени",
+      "name_asc": "Име (А-Я)",
+      "name_desc": "Име (Я-А)",
+      "partySize_desc": "Брой хора (повече първо)",
+      "partySize_asc": "Брой хора (по-малко първо)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Масата няма достатъчно свободни места.",
     "nameRequired": "Името на масата е задължително.",
     "unassignedGuests": "Неразпределени гости",
+    "previewTitle": "Преглед на масата",
+    "previewOccupied": "Заето",
+    "previewFree": "Свободно",
     "addBatch": "Добави група",
     "preset310": "3 маси × 10 места",
     "preset57": "5 маси × 7 места"
@@ -446,6 +464,14 @@
     "backupImportSuccess": "Резервното копие беше импортирано успешно.",
     "backupImportFailed": "Импортирането на резервното копие не успя.",
     "backupInvalidFile": "Избраният файл не е валидно резервно копие.",
-    "backupMailUnavailable": "Пощенското приложение не е налично. Резервното копие беше споделено чрез системния прозорец за споделяне."
+    "backupMailUnavailable": "Пощенското приложение не е налично. Резервното копие беше споделено чрез системния прозорец за споделяне.",
+    "supportTitle": "Поддръжка",
+    "supportDescription": "Въпроси, съвети или грешка? Свържете се с нас.",
+    "contactSupport": "Свържете се с поддръжката",
+    "supportEmailSubject": "Моето перфектно парти — поддръжка",
+    "supportMailUnavailable": "Не може да се отвори пощенското приложение. Копирайте имейл адреса по-долу."
+  },
+  "ads": {
+    "sponsored": "Реклама"
   }
 }

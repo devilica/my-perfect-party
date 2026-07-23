@@ -3,12 +3,15 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { colors, radius, spacing, typography } from '@/theme/colors';
 
+import { FieldLabel } from '@/components/FieldLabel';
+
 import type { DatePickerFieldProps } from './DatePickerField.types';
 
 export type { DatePickerFieldProps } from './DatePickerField.types';
 
 export function DatePickerField({
   label,
+  required,
   value,
   onChange,
   placeholder,
@@ -21,7 +24,7 @@ export function DatePickerField({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
+      <FieldLabel label={label} required={required} />
       <View style={styles.row}>
         {createElement('input', {
           type: isDateTime ? 'datetime-local' : 'date',
@@ -73,12 +76,6 @@ const webInputStyle = {
 const styles = StyleSheet.create({
   container: {
     marginBottom: spacing.md,
-  },
-  label: {
-    ...typography.caption,
-    color: colors.textSecondary,
-    marginBottom: spacing.xs,
-    fontWeight: '600',
   },
   row: {
     flexDirection: 'row',

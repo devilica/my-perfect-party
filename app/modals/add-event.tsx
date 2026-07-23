@@ -122,6 +122,7 @@ export default function AddEventModal() {
 
           <TextInputField
             label={t('events.name')}
+            required
             value={name}
             onChangeText={(text) => {
               setName(text);
@@ -132,6 +133,7 @@ export default function AddEventModal() {
           />
           <DatePickerField
             label={t('events.dateTime')}
+            required
             value={date || undefined}
             onChange={(iso) => {
               setDate(iso ?? '');
@@ -146,6 +148,7 @@ export default function AddEventModal() {
           />
           <TextInputField
             label={t('events.location')}
+            required
             value={location}
             onChangeText={(text) => {
               setLocation(text);

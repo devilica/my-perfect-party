@@ -21,6 +21,10 @@
     "name": "Moja popolna proslava",
     "tagline": "Načrtnite popolno proslavo"
   },
+  "onboarding": {
+    "selectLanguage": "Izberite jezik",
+    "continue": "Nadaljuj"
+  },
   "events": {
     "title": "Dogodki",
     "myEvents": "Moji dogodki",
@@ -40,7 +44,7 @@
     "selectDateTime": "Izberite datum in uro",
     "clearDate": "Počisti datum",
     "location": "Lokacija",
-    "locationPlaceholder": "npr. Atina",
+    "locationPlaceholder": "npr. Komuna",
     "guestsBadge": "{{confirmed}} / {{total}} potrjeno",
     "peopleBadge": "{{count}} oseb",
     "tablesBadge": "{{count}} miz",
@@ -51,7 +55,7 @@
     "theme": "Tema proslave",
     "guestCategories": "Kategorije gostov",
     "addGuestCategory": "Dodaj kategorijo",
-    "guestCategoryPlaceholder": "npr. Družina, Prijatelji, Sosedje",
+    "guestCategoryPlaceholder": "npr. Sosedje",
     "guestSides": "Strani gostov",
     "addGuestSide": "Dodaj stran",
     "guestSidePlaceholder": "npr. Stran neveste, Stran ženina",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18. elegantno",
       "birthday18Modern": "18. moderno",
       "birthday18Gold": "18. zlato"
-    }
+    },
+    "adUnavailable": "Oglas trenutno ni na voljo. Poskusite znova pozneje."
   },
   "guests": {
     "title": "Gostje",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} oseb",
     "atTable": "Miza: {{name}}",
     "filters": {
+      "needs_invite": "Potrebno povabiti",
       "all": "Vse",
       "invitation_sent": "Vabilo poslano",
       "confirmed": "Potrjeno",
@@ -250,6 +256,15 @@
       "bride": "Stran neveste",
       "groom": "Stran ženina",
       "shared": "Skupno / Nevtralno"
+    },
+    "sortLabel": "Razvrščanje",
+    "sort": {
+      "added_desc": "Nazadnje dodani",
+      "added_asc": "Najprej dodani",
+      "name_asc": "Ime (A-Ž)",
+      "name_desc": "Ime (Ž-A)",
+      "partySize_desc": "Število oseb (več najprej)",
+      "partySize_asc": "Število oseb (manj najprej)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Miza nima dovolj prostih mest.",
     "nameRequired": "Ime mize je obvezno.",
     "unassignedGuests": "Nedodeljeni gostje",
+    "previewTitle": "Predogled mize",
+    "previewOccupied": "Zasedeno",
+    "previewFree": "Prosto",
     "addBatch": "Dodaj skupino",
     "preset310": "3 mize × 10 mest",
     "preset57": "5 miz × 7 mest"
@@ -446,6 +464,14 @@
     "backupImportSuccess": "Varnostna kopija je bila uspešno uvožena.",
     "backupImportFailed": "Uvoz varnostne kopije ni uspel.",
     "backupInvalidFile": "Izbrana datoteka ni veljavna varnostna kopija.",
-    "backupMailUnavailable": "E-poštna aplikacija ni na voljo. Varnostna kopija je bila deljena prek sistemskega deljenja."
+    "backupMailUnavailable": "E-poštna aplikacija ni na voljo. Varnostna kopija je bila deljena prek sistemskega deljenja.",
+    "supportTitle": "Podpora",
+    "supportDescription": "Vprašanja, nasveti ali napaka? Stopite v stik.",
+    "contactSupport": "Kontaktiraj podporo",
+    "supportEmailSubject": "Moja popolna proslava — podpora",
+    "supportMailUnavailable": "Poštne aplikacije ni bilo mogoče odpreti. Kopirajte e-poštni naslov spodaj."
+  },
+  "ads": {
+    "sponsored": "Oglas"
   }
 }

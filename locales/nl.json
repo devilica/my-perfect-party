@@ -21,6 +21,10 @@
     "name": "Mijn perfecte feest",
     "tagline": "Plan je perfecte feest"
   },
+  "onboarding": {
+    "selectLanguage": "Kies je taal",
+    "continue": "Doorgaan"
+  },
   "events": {
     "title": "Evenementen",
     "myEvents": "Mijn evenementen",
@@ -40,7 +44,7 @@
     "selectDateTime": "Selecteer datum en tijd",
     "clearDate": "Datum wissen",
     "location": "Locatie",
-    "locationPlaceholder": "bijv. Amsterdam",
+    "locationPlaceholder": "bijv. Gemeente",
     "guestsBadge": "{{confirmed}} / {{total}} bevestigd",
     "peopleBadge": "{{count}} personen",
     "tablesBadge": "{{count}} tafels",
@@ -51,7 +55,7 @@
     "theme": "Feestthema",
     "guestCategories": "Gastcategorieën",
     "addGuestCategory": "Categorie toevoegen",
-    "guestCategoryPlaceholder": "bijv. Familie, Vrienden, Buren",
+    "guestCategoryPlaceholder": "bijv. Buren",
     "guestSides": "Gastzijden",
     "addGuestSide": "Zijde toevoegen",
     "guestSidePlaceholder": "bijv. Kant bruid, Kant bruidegom",
@@ -186,7 +190,8 @@
       "birthday18Elegant": "18 elegant",
       "birthday18Modern": "18 modern",
       "birthday18Gold": "18 goud"
-    }
+    },
+    "adUnavailable": "Advertentie is momenteel niet beschikbaar. Probeer het later opnieuw."
   },
   "guests": {
     "title": "Gasten",
@@ -240,6 +245,7 @@
     "guestsCount": "{{count}} personen",
     "atTable": "Tafel: {{name}}",
     "filters": {
+      "needs_invite": "Moet uitnodigen",
       "all": "Alle",
       "invitation_sent": "Uitnodiging verzonden",
       "confirmed": "Bevestigd",
@@ -250,6 +256,15 @@
       "bride": "Kant bruid",
       "groom": "Kant bruidegom",
       "shared": "Gedeeld / Neutraal"
+    },
+    "sortLabel": "Sorteren",
+    "sort": {
+      "added_desc": "Laatst toegevoegd",
+      "added_asc": "Eerst toegevoegd",
+      "name_asc": "Naam (A-Z)",
+      "name_desc": "Naam (Z-A)",
+      "partySize_desc": "Aantal personen (meer eerst)",
+      "partySize_asc": "Aantal personen (minder eerst)"
     }
   },
   "seating": {
@@ -283,6 +298,9 @@
     "capacityError": "Tafel heeft niet genoeg vrije plaatsen.",
     "nameRequired": "Tafelnaam is verplicht.",
     "unassignedGuests": "Niet-toegewezen gasten",
+    "previewTitle": "Tafelvoorbeeld",
+    "previewOccupied": "Bezet",
+    "previewFree": "Vrij",
     "addBatch": "Batch toevoegen",
     "preset310": "3 tafels × 10 plaatsen",
     "preset57": "5 tafels × 7 plaatsen"
@@ -426,26 +444,34 @@
     "languageHr": "Kroatisch",
     "languageEn": "Engels",
     "about": "Over",
-    "aboutText": "Mijn perfecte feest — plan je feest lokaal op je apparaat. Alle gegevens blijven op je apparaat, met optionele e-mailback-up.",
+    "aboutText": "Mijn perfecte feest — plan je feest lokaal op je apparaat. Alle gegevens blijven op je apparaat, met optionele e-mailreservekopie.",
     "dataStorage": "Gegevens worden lokaal op je apparaat opgeslagen.",
-    "backupTitle": "E-mailback-up",
-    "backupDescription": "Stuur een back-up van je gegevens naar je e-mail als JSON-bijlage. Na het opnieuw installeren van de app download je de bijlage uit je e-mail en importeer je die hier.",
-    "backupEmail": "Back-up e-mail",
+    "backupTitle": "E-mailreservekopie",
+    "backupDescription": "Stuur een reservekopie van je gegevens naar je e-mail als JSON-bijlage. Na het opnieuw installeren van de app download je de bijlage uit je e-mail en importeer je die hier.",
+    "backupEmail": "E-mail voor reservekopie",
     "backupEmailPlaceholder": "bijv. naam@email.com",
     "backupEmailInvalid": "Voer een geldig e-mailadres in.",
     "backupLastSync": "Laatste synchronisatie",
     "backupNeverSynced": "Nooit gesynchroniseerd",
     "backupSyncNow": "Nu synchroniseren",
-    "backupImport": "Back-up importeren",
-    "backupSyncing": "Back-up voorbereiden...",
-    "backupSyncSuccess": "Back-up is voorbereid en verzonden.",
-    "backupSyncCancelled": "Verzenden van back-up is geannuleerd.",
-    "backupSyncFailed": "Back-up mislukt. Probeer het opnieuw.",
-    "backupImportConfirmTitle": "Back-up importeren?",
-    "backupImportConfirmMessage": "Dit vervangt alle bestaande app-gegevens door de gegevens uit het back-upbestand.",
-    "backupImportSuccess": "Back-up succesvol geïmporteerd.",
-    "backupImportFailed": "Back-up importeren mislukt.",
-    "backupInvalidFile": "Het geselecteerde bestand is geen geldige back-up.",
-    "backupMailUnavailable": "Mail-app is niet beschikbaar. Back-up is gedeeld via het systeemdeelvenster."
+    "backupImport": "Reservekopie importeren",
+    "backupSyncing": "Reservekopie voorbereiden...",
+    "backupSyncSuccess": "Reservekopie is voorbereid en verzonden.",
+    "backupSyncCancelled": "Verzenden van reservekopie is geannuleerd.",
+    "backupSyncFailed": "Reservekopie mislukt. Probeer het opnieuw.",
+    "backupImportConfirmTitle": "Reservekopie importeren?",
+    "backupImportConfirmMessage": "Dit vervangt alle bestaande app-gegevens door de gegevens uit het reservekopiebestand.",
+    "backupImportSuccess": "Reservekopie succesvol geïmporteerd.",
+    "backupImportFailed": "Reservekopie importeren mislukt.",
+    "backupInvalidFile": "Het geselecteerde bestand is geen geldige reservekopie.",
+    "backupMailUnavailable": "E-mailapp is niet beschikbaar. Reservekopie is gedeeld via het systeemdeelvenster.",
+    "supportTitle": "Ondersteuning",
+    "supportDescription": "Vragen, tips of een bug? Neem contact op.",
+    "contactSupport": "Contact opnemen",
+    "supportEmailSubject": "Mijn perfecte feest — ondersteuning",
+    "supportMailUnavailable": "Kon de e-mailapp niet openen. Kopieer het e-mailadres hieronder."
+  },
+  "ads": {
+    "sponsored": "Advertentie"
   }
 }

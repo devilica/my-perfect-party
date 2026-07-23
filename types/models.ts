@@ -67,6 +67,22 @@ export type AttendanceStatus =
   | 'confirmed'
   | 'declined';
 
+export type GuestFilter =
+  | 'all'
+  | 'needs_invite'
+  | 'invitation_sent'
+  | 'confirmed'
+  | 'declined'
+  | 'unassigned';
+
+export type GuestSort =
+  | 'added_desc'
+  | 'added_asc'
+  | 'name_asc'
+  | 'name_desc'
+  | 'partySize_desc'
+  | 'partySize_asc';
+
 export type Guest = {
   id: string;
   eventId: string;
@@ -79,6 +95,7 @@ export type Guest = {
   partySize: number;
   tableId?: string;
   note?: string;
+  createdAt?: string;
 };
 
 export type SeatingTable = {
@@ -91,14 +108,6 @@ export type SeatingTable = {
 };
 
 export type TableOccupancy = 'available' | 'almostFull' | 'full';
-
-export type GuestFilter =
-  | 'all'
-  | 'needs_invite'
-  | 'invitation_sent'
-  | 'confirmed'
-  | 'declined'
-  | 'unassigned';
 
 export type GuestStats = {
   totalInvites: number;

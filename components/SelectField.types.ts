@@ -7,6 +7,7 @@ export type SelectOption<T extends string = string> = {
 
 export type SelectFieldProps<T extends string = string> = {
   label: string;
+  required?: boolean;
   labelRight?: ReactNode;
   value: T;
   options: SelectOption<T>[];
