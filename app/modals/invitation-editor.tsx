@@ -183,7 +183,7 @@ export default function InvitationEditorModal() {
       return true;
     }
     if (result === 'unavailable' || result === 'failed') {
-      Alert.alert(t('common.error'), t('invitation.adUnavailable'));
+      return true;
     }
     return false;
   };
