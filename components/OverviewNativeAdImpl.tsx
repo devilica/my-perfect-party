@@ -9,6 +9,7 @@ import {
   TestIds,
 } from 'react-native-google-mobile-ads';
 
+import { OverviewNativeAdPlacement } from '@/components/OverviewNativeAdPlacement';
 import { OVERVIEW_NATIVE_AD_UNIT_ID } from '@/constants/ads';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -17,7 +18,18 @@ import { radius, spacing, typography } from '@/theme/colors';
 
 const adUnitId = __DEV__ ? TestIds.NATIVE : OVERVIEW_NATIVE_AD_UNIT_ID;
 
-export function OverviewNativeAdImpl() {
+type OverviewNativeAdImplProps = {
+  placement?: OverviewNativeAdPlacement;
+};
+
+function getWrapperSpacing(placement: OverviewNativeAdPlacement) {
+  return {
+    marginTop: placement === 'modal' ? spacing.xl : spacing.lg,
+    marginBottom: spacing.md,
+  };
+}
+
+export function OverviewNativeAdImpl({ placement = 'list' }: OverviewNativeAdImplProps) {
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
@@ -51,7 +63,7 @@ export function OverviewNativeAdImpl() {
   }
 
   return (
-    <View style={styles.wrapper}>
+    <View style={[styles.wrapper, getWrapperSpacing(placement)]}>
       <View
         style={[
           styles.card,
@@ -106,16 +118,6 @@ export function OverviewNativeAdImpl() {
           {nativeAd.mediaContent ? (
             <NativeMediaView style={styles.media} resizeMode="cover" />
           ) : null}
-
-          {nativeAd.callToAction ? (
-            <NativeAsset assetType={NativeAssetType.CALL_TO_ACTION}>
-              <View style={[styles.cta, { backgroundColor: theme.primaryLight }]}>
-                <Text style={[styles.ctaText, { color: theme.primaryDark }]}>
-                  {nativeAd.callToAction}
-                </Text>
-              </View>
-            </NativeAsset>
-          ) : null}
         </NativeAdView>
       </View>
     </View>
@@ -123,10 +125,7 @@ export function OverviewNativeAdImpl() {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    marginTop: spacing.lg,
-    marginBottom: spacing.md,
-  },
+  wrapper: {},
   card: {
     borderRadius: radius.lg,
     borderWidth: 1,
@@ -179,16 +178,5 @@ const styles = StyleSheet.create({
     height: 140,
     borderRadius: radius.md,
     overflow: 'hidden',
-  },
-  cta: {
-    alignSelf: 'flex-start',
-    borderRadius: radius.md,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    marginTop: spacing.xs,
-  },
-  ctaText: {
-    ...typography.caption,
-    fontWeight: '600',
   },
 });

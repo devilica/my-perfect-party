@@ -8,7 +8,6 @@ import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { GuestAttendanceChart } from '@/components/GuestAttendanceChart';
 import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 import { Button, Card, ProgressBar, StatCard } from '@/components/ui';
-import { useBannerClearance } from '@/hooks/useBannerClearance';
 import { formatAmount, getExpenseSummary } from '@/lib/expenseStats';
 import { getGuestStats } from '@/lib/guestStats';
 import { getObligationStats } from '@/lib/obligationStats';
@@ -30,7 +29,6 @@ export default function EventOverviewScreen() {
   const obligations = useWeddingStore((s) => s.obligations);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
-  const bannerClearance = useBannerClearance();
 
   const event = useMemo(
     () => events.find((item) => item.id === eventId),
@@ -55,7 +53,7 @@ export default function EventOverviewScreen() {
   return (
     <ThemedScreenContainer>
       <FormScrollView
-        contentContainerStyle={{ paddingBottom: spacing.xl + bannerClearance }}
+        contentContainerStyle={{ paddingBottom: spacing.xl }}
         showsVerticalScrollIndicator={false}
       >
         <EventCountdown date={event.date} location={event.location} />

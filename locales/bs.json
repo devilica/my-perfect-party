@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Moja savršena proslava",
-    "tagline": "Planiraj savršenu proslavu"
+    "tagline": "Slavi bez stresa"
   },
   "onboarding": {
     "selectLanguage": "Izaberite jezik",
@@ -303,7 +303,22 @@
     "previewFree": "Slobodno",
     "addBatch": "Dodaj grupu",
     "preset310": "3 stola × 10 mjesta",
-    "preset57": "5 stolova × 7 mjesta"
+    "preset57": "5 stolova × 7 mjesta",
+    "hallOverviewTitle": "Pregled sale",
+    "hallOverviewHint": "Prevucite prikaz gore, dolje, lijevo i desno. Štipaj ili koristi +/− za zoom. Prevucite sto da promijenite poziciju.",
+    "hallOverviewEmpty": "Prvo dodajte stolove da vidite pregled sale.",
+    "hallOverviewZoomIn": "Uvećaj",
+    "hallOverviewZoomOut": "Umanji",
+    "tableShape": "Tip stola",
+    "tableShapeRound": "Okrugli",
+    "tableShapeSingleSided": "Jednostrani",
+    "tableShapeRectangular": "Pravougaoni",
+    "tableShapeSquare": "Četvrtasti",
+    "squareCapacityError": "Kapacitet četvrtastog stola mora biti djeljiv sa 4.",
+    "seatsOccupied": "Popunjenost mjesta",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Slobodna mjesta",
+    "viewHall": "Vidi salu"
   },
   "expenses": {
     "title": "Troškovi",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Uvoz sigurnosne kopije nije uspio.",
     "backupInvalidFile": "Odabrani fajl nije ispravna datoteka sigurnosne kopije.",
     "backupMailUnavailable": "Email aplikacija nije dostupna. Sigurnosna kopija je podijeljena putem dijela sistema.",
+    "instagramTitle": "Prati nas na Instagramu",
+    "instagramUnavailable": "Nije moguće otvoriti Instagram.",
     "supportTitle": "Podrška",
     "supportDescription": "Imaš pitanje, savjet ili grešku? Javi nam se.",
     "contactSupport": "Kontaktiraj podršku",

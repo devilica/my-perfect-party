@@ -1,20 +1,26 @@
 import { StyleSheet, Text, View } from 'react-native';
 
+import {
+  getScaledLabelWidth,
+  getScaledSeatSize,
+  getSeatPositions,
+  getTableBodyDimensions,
+} from '@/lib/tableShapeLayout';
 import { TableSeatSlot } from '@/lib/seatingStats';
+import { DEFAULT_TABLE_SHAPE } from '@/constants/tableShapes';
 import { useThemeColors } from '@/theme/EventThemeContext';
-import { radius, spacing, typography } from '@/theme/colors';
+import { TableShape } from '@/types/models';
+import { spacing, typography } from '@/theme/colors';
 
-const DIAGRAM_SIZE = 320;
-const TABLE_SIZE = 120;
-const SEAT_SIZE = 28;
-const ORBIT_RADIUS = 118;
-const LABEL_OFFSET = 22;
+const BASE_DIAGRAM_SIZE = 320;
 
 type TablePreviewDiagramProps = {
   tableName: string;
   occupied: number;
   capacity: number;
   seats: TableSeatSlot[];
+  shape?: TableShape;
+  size?: number;
 };
 
 export function TablePreviewDiagram({
@@ -22,40 +28,63 @@ export function TablePreviewDiagram({
   occupied,
   capacity,
   seats,
+  shape = DEFAULT_TABLE_SHAPE,
+  size = BASE_DIAGRAM_SIZE,
 }: TablePreviewDiagramProps) {
   const theme = useThemeColors();
-  const center = DIAGRAM_SIZE / 2;
+  const scale = size / BASE_DIAGRAM_SIZE;
+  const tableBody = getTableBodyDimensions(shape, size);
+  const seatSize = getScaledSeatSize(size);
+  const labelWidth = getScaledLabelWidth(size);
+  const seatPositions = getSeatPositions(shape, capacity, size);
 
   return (
-    <View style={[styles.diagram, { width: DIAGRAM_SIZE, height: DIAGRAM_SIZE }]}>
+    <View style={[styles.diagram, { width: size, height: size }]}>
       <View
         style={[
           styles.table,
           {
-            width: TABLE_SIZE,
-            height: TABLE_SIZE,
-            borderRadius: TABLE_SIZE / 2,
+            width: tableBody.width,
+            height: tableBody.height,
+            borderRadius: tableBody.borderRadius,
             backgroundColor: theme.primaryLight,
             borderColor: theme.primary,
-            left: center - TABLE_SIZE / 2,
-            top: center - TABLE_SIZE / 2,
+            left: tableBody.left,
+            top: tableBody.top,
+            borderWidth: Math.max(1, 2 * scale),
+            paddingHorizontal: spacing.sm * scale,
           },
         ]}
       >
-        <Text style={[styles.tableName, { color: theme.text }]} numberOfLines={2}>
+        <Text
+          style={[
+            styles.tableName,
+            {
+              color: theme.text,
+              fontSize: Math.max(10, typography.subheading.fontSize * scale),
+            },
+          ]}
+          numberOfLines={2}
+        >
           {tableName}
         </Text>
-        <Text style={[styles.tableCount, { color: theme.textSecondary }]}>
+        <Text
+          style={[
+            styles.tableCount,
+            {
+              color: theme.textSecondary,
+              fontSize: Math.max(8, typography.caption.fontSize * scale),
+              marginTop: spacing.xs * scale,
+            },
+          ]}
+        >
           {occupied}/{capacity}
         </Text>
       </View>
 
       {seats.map((seat, index) => {
-        const angle = (2 * Math.PI * index) / Math.max(seats.length, 1) - Math.PI / 2;
-        const seatX = center + ORBIT_RADIUS * Math.cos(angle) - SEAT_SIZE / 2;
-        const seatY = center + ORBIT_RADIUS * Math.sin(angle) - SEAT_SIZE / 2;
-        const labelX = center + (ORBIT_RADIUS + LABEL_OFFSET) * Math.cos(angle);
-        const labelY = center + (ORBIT_RADIUS + LABEL_OFFSET) * Math.sin(angle);
+        const position = seatPositions[index];
+        if (!position) return null;
 
         return (
           <View key={index}>
@@ -63,13 +92,14 @@ export function TablePreviewDiagram({
               style={[
                 styles.seat,
                 {
-                  width: SEAT_SIZE,
-                  height: SEAT_SIZE,
-                  borderRadius: SEAT_SIZE / 2,
-                  left: seatX,
-                  top: seatY,
+                  width: seatSize,
+                  height: seatSize,
+                  borderRadius: seatSize / 2,
+                  left: position.seatX,
+                  top: position.seatY,
                   backgroundColor: seat.occupied ? theme.seatFull : theme.seatAvailable,
                   borderColor: seat.occupied ? theme.seatFull : theme.seatAvailable,
+                  borderWidth: Math.max(1, 2 * scale),
                 },
               ]}
             />
@@ -79,8 +109,10 @@ export function TablePreviewDiagram({
                   styles.label,
                   {
                     color: theme.text,
-                    left: labelX - 40,
-                    top: labelY - 8,
+                    left: position.labelX - labelWidth / 2,
+                    top: position.labelY - 8 * scale,
+                    width: labelWidth,
+                    fontSize: Math.max(7, typography.small.fontSize * scale),
                   },
                 ]}
                 numberOfLines={1}
@@ -104,27 +136,19 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 2,
-    paddingHorizontal: spacing.sm,
   },
   tableName: {
-    ...typography.subheading,
     textAlign: 'center',
     fontWeight: '700',
   },
   tableCount: {
-    ...typography.caption,
-    marginTop: spacing.xs,
     textAlign: 'center',
   },
   seat: {
     position: 'absolute',
-    borderWidth: 2,
   },
   label: {
     position: 'absolute',
-    width: 80,
-    ...typography.small,
     fontWeight: '600',
     textAlign: 'center',
   },

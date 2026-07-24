@@ -18,8 +18,8 @@
     "close": "Close"
   },
   "app": {
-    "name": "My perfect party",
-    "tagline": "Plan your perfect party"
+    "name": "My Perfect Party",
+    "tagline": "Celebrate stress-free"
   },
   "onboarding": {
     "selectLanguage": "Choose your language",
@@ -301,9 +301,24 @@
     "previewTitle": "Table preview",
     "previewOccupied": "Occupied",
     "previewFree": "Free",
+    "hallOverviewTitle": "Hall overview",
+    "viewHall": "View hall",
+    "hallOverviewHint": "Swipe to move up, down, left and right. Pinch or use +/− to zoom. Drag a table to reposition it.",
+    "hallOverviewEmpty": "Add tables first to see the hall overview.",
+    "hallOverviewZoomIn": "Zoom in",
+    "hallOverviewZoomOut": "Zoom out",
     "addBatch": "Add batch",
     "preset310": "3 tables × 10 seats",
-    "preset57": "5 tables × 7 seats"
+    "preset57": "5 tables × 7 seats",
+    "tableShape": "Table type",
+    "tableShapeRound": "Round",
+    "tableShapeSingleSided": "Single-sided",
+    "tableShapeRectangular": "Rectangular",
+    "tableShapeSquare": "Square",
+    "squareCapacityError": "Square table capacity must be divisible by 4.",
+    "seatsOccupied": "Seats occupied",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Free seats"
   },
   "expenses": {
     "title": "Expenses",
@@ -444,7 +459,7 @@
     "languageHr": "Croatian",
     "languageEn": "English",
     "about": "About",
-    "aboutText": "My perfect party — plan your party locally on your device. All data stays on your device, with optional email backup.",
+    "aboutText": "My Perfect Party — plan your party locally on your device. All data stays on your device, with optional email backup.",
     "dataStorage": "Data is stored locally on your device.",
     "backupTitle": "Email backup",
     "backupDescription": "Send a backup of your data to your email as a JSON attachment. After reinstalling the app, download the attachment from your email and import it here.",
@@ -465,13 +480,23 @@
     "backupImportFailed": "Backup import failed.",
     "backupInvalidFile": "The selected file is not a valid backup.",
     "backupMailUnavailable": "Mail app is unavailable. Backup was shared via the system share sheet.",
+    "instagramTitle": "Follow us on Instagram",
+    "instagramUnavailable": "Could not open Instagram.",
     "supportTitle": "Support",
     "supportDescription": "Questions, tips, or a bug? Get in touch.",
     "contactSupport": "Contact support",
-    "supportEmailSubject": "My perfect party — support",
+    "supportEmailSubject": "My Perfect Party — support",
     "supportMailUnavailable": "Could not open mail app. Copy the support email address below."
   },
   "ads": {
-    "sponsored": "Ad"
+    "sponsored": "Ad",
+    "testHeadline": "Test Ad",
+    "bannerTestSubtitle": "Sample banner preview for Expo Go.",
+    "testBody": "Sample native ad preview for Expo Go.",
+    "testCta": "Install",
+    "rewardedTitle": "Test rewarded ad",
+    "rewardedPreviewNote": "Expo preview — real ads appear in APK builds.",
+    "rewardedPlaying": "Ad playing…",
+    "rewardedClose": "Close"
   }
 }

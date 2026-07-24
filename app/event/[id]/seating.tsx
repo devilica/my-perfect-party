@@ -12,10 +12,11 @@ import {
 
 import { FormScrollView } from '@/components/FormScrollView';
 import { GuestFilterBar } from '@/components/GuestFilterBar';
+import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 import { SeatingAssignmentModal } from '@/components/SeatingAssignmentModal';
 import { TableCard } from '@/components/TableCard';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
-import { EmptyState, Fab, StatCard } from '@/components/ui';
+import { EmptyState, Fab, StatCard, Card } from '@/components/ui';
 import {
   FAB_SIZE,
   useFabBottomOffset,
@@ -103,6 +104,35 @@ export default function SeatingScreen() {
           }}
           showsVerticalScrollIndicator={false}
         >
+        <View style={styles.seatsSummary}>
+          <Card style={styles.seatsSummaryCard}>
+            <View style={styles.seatsSummaryRow}>
+              <Text
+                style={[styles.seatsSummaryLabel, { color: theme.textSecondary }]}
+                numberOfLines={1}
+              >
+                {t('seating.seatsOccupied')}
+              </Text>
+              <Text style={[styles.seatsSummaryValue, { color: theme.text }]}>
+                {t('seating.seatsOccupiedValue', {
+                  occupied: seatingStats.occupiedSeats,
+                  total: seatingStats.totalCapacity,
+                })}
+              </Text>
+            </View>
+            <View style={styles.seatsSummaryRow}>
+              <Text
+                style={[styles.seatsSummaryLabel, { color: theme.textSecondary }]}
+                numberOfLines={1}
+              >
+                {t('seating.seatsFree')}
+              </Text>
+              <Text style={[styles.seatsSummaryValue, { color: theme.seatAvailable }]}>
+                {Math.max(0, seatingStats.totalCapacity - seatingStats.occupiedSeats)}
+              </Text>
+            </View>
+          </Card>
+        </View>
         <View style={styles.summaryRow}>
           <StatCard
             label={t('overview.tablesTotal')}
@@ -165,6 +195,8 @@ export default function SeatingScreen() {
             />
           ))
         )}
+
+        <OverviewNativeAd />
         </FormScrollView>
 
         <Fab onPress={() => setFabOpen(true)} icon="add" />
@@ -219,8 +251,30 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'stretch',
     gap: spacing.sm,
-    marginTop: spacing.sm,
     marginBottom: spacing.md,
+  },
+  seatsSummary: {
+    marginTop: spacing.sm,
+    marginBottom: spacing.sm,
+  },
+  seatsSummaryCard: {
+    padding: spacing.sm,
+    gap: spacing.xs,
+  },
+  seatsSummaryRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
+  seatsSummaryLabel: {
+    ...typography.small,
+    fontWeight: '600',
+    flex: 1,
+  },
+  seatsSummaryValue: {
+    ...typography.body,
+    fontWeight: '700',
   },
   section: {
     marginBottom: spacing.lg,

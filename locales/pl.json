@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Moje idealne przyjęcie",
-    "tagline": "Zaplanuj swoje idealne przyjęcie"
+    "tagline": "Świętuj bez stresu"
   },
   "onboarding": {
     "selectLanguage": "Wybierz język",
@@ -303,7 +303,22 @@
     "previewFree": "Wolne",
     "addBatch": "Dodaj partię",
     "preset310": "3 stoły × 10 miejsc",
-    "preset57": "5 stołów × 7 miejsc"
+    "preset57": "5 stołów × 7 miejsc",
+    "hallOverviewTitle": "Podgląd sali",
+    "hallOverviewHint": "Przesuń w górę, w dół, w lewo i w prawo. Uszczypnij lub użyj +/− do powiększenia. Przeciągnij stół, aby zmienić jego pozycję.",
+    "hallOverviewEmpty": "Najpierw dodaj stoły, aby zobaczyć podgląd sali.",
+    "hallOverviewZoomIn": "Powiększ",
+    "hallOverviewZoomOut": "Pomniejsz",
+    "tableShape": "Typ stołu",
+    "tableShapeRound": "Okrągły",
+    "tableShapeSingleSided": "Jednostronny",
+    "tableShapeRectangular": "Prostokątny",
+    "tableShapeSquare": "Kwadratowy",
+    "squareCapacityError": "Pojemność stołu kwadratowego musi być podzielna przez 4.",
+    "seatsOccupied": "Zajęte miejsca",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Wolne miejsca",
+    "viewHall": "Zobacz salę"
   },
   "expenses": {
     "title": "Wydatki",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Import kopii zapasowej nie powiódł się.",
     "backupInvalidFile": "Wybrany plik nie jest prawidłową kopią zapasową.",
     "backupMailUnavailable": "Aplikacja pocztowa jest niedostępna. Kopia zapasowa została udostępniona przez systemowy arkusz udostępniania.",
+    "instagramTitle": "Obserwuj nas na Instagramie",
+    "instagramUnavailable": "Nie można otworzyć Instagrama.",
     "supportTitle": "Wsparcie",
     "supportDescription": "Pytania, wskazówki lub błąd? Skontaktuj się z nami.",
     "contactSupport": "Skontaktuj się ze wsparciem",

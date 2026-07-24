@@ -1,9 +1,8 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Tabs, useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
-import { Alert, Pressable, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { useBannerHeight } from '@/hooks/BannerLayoutContext';
 import { useIsOnline } from '@/hooks/useIsOnline';
 import { areAdsEnabled } from '@/lib/adsEnvironment';
 import { flexFill } from '@/lib/webLayout';
@@ -21,7 +20,6 @@ export default function EventLayout() {
   const events = useWeddingStore((s) => s.events);
   const deleteEvent = useWeddingStore((s) => s.deleteEvent);
   const { t } = useTranslation(language);
-  const bannerHeight = useBannerHeight();
   const isOnline = useIsOnline();
   const [deleteAdLoading, setDeleteAdLoading] = useState(false);
 
@@ -90,36 +88,71 @@ export default function EventLayout() {
     return null;
   }
 
+  const renderHeaderRight = (options?: {
+    showEdit?: boolean;
+    showDelete?: boolean;
+    showSeatingPreview?: boolean;
+  }) => () => {
+    if (!options?.showEdit && !options?.showDelete && !options?.showSeatingPreview) {
+      return null;
+    }
+
+    return (
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginRight: 16 }}>
+        {options?.showSeatingPreview ? (
+          <Pressable
+            onPress={() => router.push(`/modals/seating-overview?eventId=${id}`)}
+            hitSlop={8}
+            accessibilityRole="button"
+            accessibilityLabel={t('seating.viewHall')}
+            style={[
+              styles.viewHallButton,
+              { backgroundColor: theme.colors.primaryLight },
+            ]}
+          >
+            <Ionicons name="eye" size={18} color={theme.colors.primary} />
+            <Text
+              style={[styles.viewHallLabel, { color: theme.colors.primary }]}
+              numberOfLines={1}
+            >
+              {t('seating.viewHall')}
+            </Text>
+          </Pressable>
+        ) : null}
+        {options?.showEdit ? (
+          <Pressable
+            onPress={() => router.push(`/modals/add-event?eventId=${id}`)}
+            hitSlop={8}
+            accessibilityRole="button"
+            accessibilityLabel={t('events.edit')}
+          >
+            <Ionicons name="pencil-outline" size={22} color={theme.colors.primary} />
+          </Pressable>
+        ) : null}
+        {options?.showDelete ? (
+          <Pressable onPress={handleDelete} hitSlop={8} disabled={deleteAdLoading}>
+            <Ionicons name="trash-outline" size={22} color={theme.colors.danger} />
+          </Pressable>
+        ) : null}
+      </View>
+    );
+  };
+
   return (
     <EventThemeProvider themeId={event.theme}>
       <View style={flexFill}>
       <Tabs
         detachInactiveScreens={false}
-        safeAreaInsets={bannerHeight > 0 ? { bottom: 0 } : undefined}
         screenOptions={{
           tabBarActiveTintColor: theme.colors.primary,
           tabBarInactiveTintColor: theme.colors.textMuted,
           tabBarStyle: {
             backgroundColor: theme.colors.surface,
             borderTopColor: theme.colors.border,
-            marginBottom: bannerHeight,
           },
           headerStyle: { backgroundColor: theme.colors.background },
           headerTintColor: theme.colors.primary,
           headerShadowVisible: false,
-          headerRight: () => (
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginRight: 16 }}>
-              <Pressable
-                onPress={() => router.push(`/modals/add-event?eventId=${id}`)}
-                hitSlop={8}
-              >
-                <Ionicons name="pencil-outline" size={22} color={theme.colors.primary} />
-              </Pressable>
-              <Pressable onPress={handleDelete} hitSlop={8} disabled={deleteAdLoading}>
-                <Ionicons name="trash-outline" size={22} color={theme.colors.danger} />
-              </Pressable>
-            </View>
-          ),
         }}
       >
         <Tabs.Screen
@@ -127,6 +160,24 @@ export default function EventLayout() {
           options={{
             title: event.name,
             tabBarLabel: t('tabs.overview'),
+            headerLeft: () => (
+              <Pressable
+                onPress={() => {
+                  if (router.canGoBack()) {
+                    router.back();
+                  } else {
+                    router.replace('/');
+                  }
+                }}
+                hitSlop={8}
+                accessibilityRole="button"
+                accessibilityLabel={t('common.back')}
+                style={{ marginLeft: 16 }}
+              >
+                <Ionicons name="arrow-back" size={24} color={theme.colors.primary} />
+              </Pressable>
+            ),
+            headerRight: renderHeaderRight({ showEdit: true, showDelete: true }),
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="stats-chart-outline" size={size} color={color} />
             ),
@@ -147,6 +198,7 @@ export default function EventLayout() {
           options={{
             title: t('seating.title'),
             tabBarLabel: t('tabs.seating'),
+            headerRight: renderHeaderRight({ showSeatingPreview: true }),
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="restaurant-outline" size={size} color={color} />
             ),
@@ -177,3 +229,20 @@ export default function EventLayout() {
     </EventThemeProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  viewHallButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 7,
+    borderRadius: 20,
+    maxWidth: 160,
+  },
+  viewHallLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    flexShrink: 1,
+  },
+});

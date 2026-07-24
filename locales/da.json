@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Mit perfekte fest",
-    "tagline": "Planlæg din perfekte fest"
+    "tagline": "Fejr stressfrit"
   },
   "onboarding": {
     "selectLanguage": "Vælg sprog",
@@ -303,7 +303,22 @@
     "previewFree": "Ledig",
     "addBatch": "Tilføj batch",
     "preset310": "3 borde × 10 pladser",
-    "preset57": "5 borde × 7 pladser"
+    "preset57": "5 borde × 7 pladser",
+    "hallOverviewTitle": "Oversigt over salen",
+    "hallOverviewHint": "Stryg op, ned, til venstre og højre. Knib eller brug +/− for zoom. Træk et bord for at flytte det.",
+    "hallOverviewEmpty": "Tilføj borde først for at se oversigten over salen.",
+    "hallOverviewZoomIn": "Zoom ind",
+    "hallOverviewZoomOut": "Zoom ud",
+    "tableShape": "Bordtype",
+    "tableShapeRound": "Rund",
+    "tableShapeSingleSided": "Enkelt siddende",
+    "tableShapeRectangular": "Rektangulær",
+    "tableShapeSquare": "Firkantet",
+    "squareCapacityError": "Kapaciteten for et firkantet bord skal være delelig med 4.",
+    "seatsOccupied": "Optagede pladser",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Ledige pladser",
+    "viewHall": "Se salen"
   },
   "expenses": {
     "title": "Udgifter",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Import af sikkerhedskopi mislykkedes.",
     "backupInvalidFile": "Den valgte fil er ikke en gyldig sikkerhedskopi.",
     "backupMailUnavailable": "E-mail-appen er ikke tilgængelig. Sikkerhedskopi blev delt via systemets deleark.",
+    "instagramTitle": "Følg os på Instagram",
+    "instagramUnavailable": "Kunne ikke åbne Instagram.",
     "supportTitle": "Support",
     "supportDescription": "Spørgsmål, tips eller en fejl? Kontakt os.",
     "contactSupport": "Kontakt support",

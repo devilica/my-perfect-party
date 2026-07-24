@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Moja popolna proslava",
-    "tagline": "Načrtnite popolno proslavo"
+    "tagline": "Slavite brez stresa"
   },
   "onboarding": {
     "selectLanguage": "Izberite jezik",
@@ -303,7 +303,22 @@
     "previewFree": "Prosto",
     "addBatch": "Dodaj skupino",
     "preset310": "3 mize × 10 mest",
-    "preset57": "5 miz × 7 mest"
+    "preset57": "5 miz × 7 mest",
+    "hallOverviewTitle": "Pregled dvorane",
+    "hallOverviewHint": "Povlecite gor, dol, levo in desno. Stisnite ali uporabite +/− za povečavo. Povlecite mizo, da spremenite položaj.",
+    "hallOverviewEmpty": "Najprej dodajte mize za ogled dvorane.",
+    "hallOverviewZoomIn": "Povečaj",
+    "hallOverviewZoomOut": "Pomanjšaj",
+    "tableShape": "Tip mize",
+    "tableShapeRound": "Okrogla",
+    "tableShapeSingleSided": "Enostranska",
+    "tableShapeRectangular": "Pravokotna",
+    "tableShapeSquare": "Kvadratna",
+    "squareCapacityError": "Kapaciteta kvadratne mize mora biti deljiva s 4.",
+    "seatsOccupied": "Zasedena mesta",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Prosta mesta",
+    "viewHall": "Poglej dvorano"
   },
   "expenses": {
     "title": "Stroški",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Uvoz varnostne kopije ni uspel.",
     "backupInvalidFile": "Izbrana datoteka ni veljavna varnostna kopija.",
     "backupMailUnavailable": "E-poštna aplikacija ni na voljo. Varnostna kopija je bila deljena prek sistemskega deljenja.",
+    "instagramTitle": "Sledite nam na Instagramu",
+    "instagramUnavailable": "Instagrama ni mogoče odpreti.",
     "supportTitle": "Podpora",
     "supportDescription": "Vprašanja, nasveti ali napaka? Stopite v stik.",
     "contactSupport": "Kontaktiraj podporo",

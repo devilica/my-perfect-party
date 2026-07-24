@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Моето перфектно парти",
-    "tagline": "Планирай перфектното си парти"
+    "tagline": "Празнувай без стрес"
   },
   "onboarding": {
     "selectLanguage": "Изберете език",
@@ -128,7 +128,7 @@
     "headerTitle": "Заглавие",
     "headerTitlePlaceholder": "Заедно със своите семейства",
     "hostNames": "Имена на домакините",
-    "hostNamesPlaceholder": "напр. Амина и Емир",
+    "hostNamesPlaceholder": "напр. Ивайло и Мария",
     "eventDate": "Дата на събитието",
     "eventDatePlaceholder": "30 ЮЛИ 2026",
     "namesFont": "Шрифт на имената",
@@ -303,7 +303,22 @@
     "previewFree": "Свободно",
     "addBatch": "Добави група",
     "preset310": "3 маси × 10 места",
-    "preset57": "5 маси × 7 места"
+    "preset57": "5 маси × 7 места",
+    "hallOverviewTitle": "Преглед на залата",
+    "hallOverviewHint": "Плъзнете нагоре, надолу, наляво и надясно. Щипнете или използвайте +/− за мащаб. Плъзнете маса, за да я преместите.",
+    "hallOverviewEmpty": "Първо добавете маси, за да видите прегледа на залата.",
+    "hallOverviewZoomIn": "Увеличаване",
+    "hallOverviewZoomOut": "Намаляване",
+    "tableShape": "Тип маса",
+    "tableShapeRound": "Кръгла",
+    "tableShapeSingleSided": "Едностранна",
+    "tableShapeRectangular": "Правоъгълна",
+    "tableShapeSquare": "Квадратна",
+    "squareCapacityError": "Капацитетът на квадратна маса трябва да е делим на 4.",
+    "seatsOccupied": "Заети места",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Свободни места",
+    "viewHall": "Виж залата"
   },
   "expenses": {
     "title": "Разходи",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Импортирането на резервното копие не успя.",
     "backupInvalidFile": "Избраният файл не е валидно резервно копие.",
     "backupMailUnavailable": "Пощенското приложение не е налично. Резервното копие беше споделено чрез системния прозорец за споделяне.",
+    "instagramTitle": "Последвайте ни в Instagram",
+    "instagramUnavailable": "Instagram не може да бъде отворен.",
     "supportTitle": "Поддръжка",
     "supportDescription": "Въпроси, съвети или грешка? Свържете се с нас.",
     "contactSupport": "Свържете се с поддръжката",

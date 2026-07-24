@@ -2,7 +2,7 @@
   "expo": {
     "name": "Moja savršena proslava",
     "slug": "wedding-planner-bh",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "mojasavrsenaproslava",
@@ -21,6 +21,7 @@
       }
     },
     "android": {
+      "versionCode": 3,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#FFF8F5"

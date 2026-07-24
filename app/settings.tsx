@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Alert, Linking, StyleSheet, Text, View } from 'react-native';
+import { Alert, Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { FormScrollView } from '@/components/FormScrollView';
@@ -10,8 +10,8 @@ import { ScreenContainer } from '@/components/ScreenContainer';
 import { SelectField } from '@/components/SelectField';
 import { ThemePicker } from '@/components/ThemePicker';
 import { Button, Card, TextInputField } from '@/components/ui';
-import { useBannerClearance } from '@/hooks/useBannerClearance';
 import { getLanguageSelectOptions } from '@/constants/languages';
+import { INSTAGRAM_APP_URL, INSTAGRAM_USERNAME, INSTAGRAM_WEB_URL } from '@/constants/social';
 import { SUPPORT_EMAIL } from '@/constants/support';
 import { validateBackupEmail } from '@/lib/backup';
 import { formatDisplayDateTime } from '@/lib/dateUtils';
@@ -36,7 +36,6 @@ export default function SettingsScreen() {
   const setBackupEmail = useWeddingStore((s) => s.setBackupEmail);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
-  const bannerClearance = useBannerClearance();
   const insets = useSafeAreaInsets();
 
   const [emailDraft, setEmailDraft] = useState(backupEmail);
@@ -145,6 +144,15 @@ export default function SettingsScreen() {
     });
   };
 
+  const handleOpenInstagram = async () => {
+    try {
+      const canOpenApp = await Linking.canOpenURL(INSTAGRAM_APP_URL);
+      await Linking.openURL(canOpenApp ? INSTAGRAM_APP_URL : INSTAGRAM_WEB_URL);
+    } catch {
+      Alert.alert(t('common.error'), t('settings.instagramUnavailable'));
+    }
+  };
+
   const lastSyncLabel = lastBackupAt
     ? formatDisplayDateTime(lastBackupAt, language)
     : t('settings.backupNeverSynced');
@@ -157,7 +165,7 @@ export default function SettingsScreen() {
 
       <FormScrollView
         contentContainerStyle={{
-          paddingBottom: bannerClearance + spacing.lg + insets.bottom,
+          paddingBottom: spacing.lg + insets.bottom,
         }}
         showsVerticalScrollIndicator={false}
       >
@@ -265,6 +273,31 @@ export default function SettingsScreen() {
       </Card>
 
       <Text style={[styles.sectionLabel, { color: theme.textSecondary }]}>
+        {t('settings.instagramTitle')}
+      </Text>
+      <Pressable
+        onPress={handleOpenInstagram}
+        style={({ pressed }) => [pressed && styles.pressed]}
+      >
+        <Card style={styles.instagramCard}>
+          <View style={styles.instagramRow}>
+            <View style={[styles.instagramIconWrap, { backgroundColor: theme.primaryLight }]}>
+              <Ionicons name="logo-instagram" size={22} color={theme.primaryDark} />
+            </View>
+            <View style={styles.instagramTextWrap}>
+              <Text style={[styles.instagramTitle, { color: theme.text }]}>
+                {t('settings.instagramTitle')}
+              </Text>
+              <Text style={[styles.instagramUsername, { color: theme.textSecondary }]}>
+                @{INSTAGRAM_USERNAME}
+              </Text>
+            </View>
+            <Ionicons name="open-outline" size={20} color={theme.textMuted} />
+          </View>
+        </Card>
+      </Pressable>
+
+      <Text style={[styles.sectionLabel, { color: theme.textSecondary }]}>
         {t('settings.supportTitle')}
       </Text>
       <Card style={styles.supportCard}>
@@ -346,6 +379,35 @@ const styles = StyleSheet.create({
   storageText: {
     ...typography.caption,
     flex: 1,
+  },
+  pressed: {
+    opacity: 0.85,
+  },
+  instagramCard: {
+    padding: spacing.sm,
+  },
+  instagramRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  instagramIconWrap: {
+    width: 40,
+    height: 40,
+    borderRadius: radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  instagramTextWrap: {
+    flex: 1,
+    gap: 2,
+  },
+  instagramTitle: {
+    ...typography.body,
+    fontWeight: '600',
+  },
+  instagramUsername: {
+    ...typography.caption,
   },
   supportCard: {
     gap: spacing.sm,

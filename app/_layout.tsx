@@ -1,6 +1,6 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { GreatVibes_400Regular } from '@expo-google-fonts/great-vibes';
-import { Stack, useSegments } from 'expo-router';
+import { Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
@@ -57,6 +57,10 @@ function ThemedRootStack() {
         options={{ presentation: 'modal', title: 'Preview' }}
       />
       <Stack.Screen
+        name="modals/seating-overview"
+        options={{ presentation: 'modal', title: 'Seating overview' }}
+      />
+      <Stack.Screen
         name="modals/bulk-tables"
         options={{ presentation: 'modal', title: 'Tables' }}
       />
@@ -91,8 +95,6 @@ export default function RootLayout() {
   const [animationDone, setAnimationDone] = useState(false);
   const ready = fontsLoaded && hasHydrated && animationDone;
   const handleSplashFinish = useCallback(() => setAnimationDone(true), []);
-  const segments = useSegments();
-  const showBanner = !segments.some((segment) => segment === 'modals');
 
   useEffect(() => {
     if (hasSelectedLanguage) {
@@ -132,7 +134,7 @@ export default function RootLayout() {
         <KeyboardProvider>
           <StatusBar style="dark" />
           <AppThemeProvider themeId={appTheme}>
-            <AppShell showBanner={showBanner}>
+            <AppShell>
               <ThemedRootStack />
             </AppShell>
           </AppThemeProvider>

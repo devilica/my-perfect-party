@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Il-festa perfetta tiegħi",
-    "tagline": "Ippjana l-festa perfetta tiegħek"
+    "tagline": "Iċċelebra mingħajr stress"
   },
   "onboarding": {
     "selectLanguage": "Agħżel il-lingwa",
@@ -303,7 +303,22 @@
     "previewFree": "B'xejn",
     "addBatch": "Żid lot",
     "preset310": "3 mejda × 10 siġġu",
-    "preset57": "5 mejda × 7 siġġu"
+    "preset57": "5 mejda × 7 siġġu",
+    "hallOverviewTitle": "Viżjoni ġenerali tal-sala",
+    "hallOverviewHint": "Iddreggja 'l fuq, 'l isfel, xellug u lemin. Aqleb jew uża +/− għall-zoom. Iddreggja mejda biex tbiddel il-pożizzjoni.",
+    "hallOverviewEmpty": "Żid l-ewwel il-mejdiet biex tara l-viżjoni ġenerali tas-sala.",
+    "hallOverviewZoomIn": "Zoom 'l ġewwa",
+    "hallOverviewZoomOut": "Zoom 'l barra",
+    "tableShape": "Tip ta' mejda",
+    "tableShapeRound": "Tonda",
+    "tableShapeSingleSided": "Ta' naħa waħda",
+    "tableShapeRectangular": "Rettangolari",
+    "tableShapeSquare": "Kwadrata",
+    "squareCapacityError": "Il-kapacità ta' mejda kwadrata trid tkun diviżibbli b'4.",
+    "seatsOccupied": "Postijiet okkupati",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Postijiet liberi",
+    "viewHall": "Ara s-sala"
   },
   "expenses": {
     "title": "Spejseż",
@@ -465,6 +480,8 @@
     "backupImportFailed": "L-import tal-kopja ta' riżerva falla.",
     "backupInvalidFile": "Il-fajl magħżul mhuwiex kopja ta' riżerva valida.",
     "backupMailUnavailable": "L-app tal-email mhix disponibbli. Kopja ta' riżerva ġiet kondiviża permezz tal-menu ta' kondiviżjoni tas-sistema.",
+    "instagramTitle": "Segwina fuq Instagram",
+    "instagramUnavailable": "Ma setax jinfetaħ Instagram.",
     "supportTitle": "Appoġġ",
     "supportDescription": "Mistoqsijiet, pariri jew bug? Ikkuntattjana.",
     "contactSupport": "Ikkuntattja l-appoġġ",

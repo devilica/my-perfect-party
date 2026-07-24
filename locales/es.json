@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Mi fiesta perfecta",
-    "tagline": "Planifica tu fiesta perfecta"
+    "tagline": "Celebra sin estrés"
   },
   "onboarding": {
     "selectLanguage": "Elige tu idioma",
@@ -303,7 +303,22 @@
     "previewFree": "Libre",
     "addBatch": "Añadir lote",
     "preset310": "3 mesas × 10 plazas",
-    "preset57": "5 mesas × 7 plazas"
+    "preset57": "5 mesas × 7 plazas",
+    "hallOverviewTitle": "Vista general del salón",
+    "hallOverviewHint": "Desliza arriba, abajo, izquierda y derecha. Pellizca o usa +/− para zoom. Arrastra una mesa para reposicionarla.",
+    "hallOverviewEmpty": "Añade mesas primero para ver la vista general del salón.",
+    "hallOverviewZoomIn": "Acercar",
+    "hallOverviewZoomOut": "Alejar",
+    "tableShape": "Tipo de mesa",
+    "tableShapeRound": "Redonda",
+    "tableShapeSingleSided": "Unilateral",
+    "tableShapeRectangular": "Rectangular",
+    "tableShapeSquare": "Cuadrada",
+    "squareCapacityError": "La capacidad de una mesa cuadrada debe ser divisible por 4.",
+    "seatsOccupied": "Asientos ocupados",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Asientos libres",
+    "viewHall": "Ver salón"
   },
   "expenses": {
     "title": "Gastos",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Error al importar la copia de seguridad.",
     "backupInvalidFile": "El archivo seleccionado no es una copia de seguridad válida.",
     "backupMailUnavailable": "La app de correo no está disponible. La copia de seguridad se compartió mediante el menú de compartir del sistema.",
+    "instagramTitle": "Síguenos en Instagram",
+    "instagramUnavailable": "No se pudo abrir Instagram.",
     "supportTitle": "Soporte",
     "supportDescription": "¿Preguntas, consejos o un error? Contáctanos.",
     "contactSupport": "Contactar soporte",

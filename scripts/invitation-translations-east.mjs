@@ -307,7 +307,7 @@ export const INVITATION_TRANSLATIONS_EAST = {
     headerTitle: 'Заглавие',
     headerTitlePlaceholder: 'Заедно със своите семейства',
     hostNames: 'Имена на домакините',
-    hostNamesPlaceholder: 'напр. Амина и Емир',
+    hostNamesPlaceholder: 'напр. Ивайло и Мария',
     eventDate: 'Дата на събитието',
     eventDatePlaceholder: '30 ЮЛИ 2026',
     namesFont: 'Шрифт на имената',

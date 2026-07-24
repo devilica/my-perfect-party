@@ -28,7 +28,7 @@ export default function BulkTablesModal() {
   if (!eventId) return null;
 
   return (
-    <ThemedEventModal eventId={eventId}>
+    <ThemedEventModal eventId={eventId} showBottomBanner>
       <FormScrollView
         contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
       >

@@ -16,6 +16,7 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import { getDefaultLanguage, translate } from '@/lib/i18n';
+import { SplashCelebrationEffects } from '@/components/SplashCelebrationEffects';
 import { colors, radius, spacing, typography } from '@/theme/colors';
 
 const FADE_OUT_DELAY_MS = 2200;
@@ -40,6 +41,9 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
   const titleTranslateY = useSharedValue(8);
   const taglineOpacity = useSharedValue(0);
   const sparkleOpacity = useSharedValue(0.5);
+  const sparkleLeftOpacity = useSharedValue(0.35);
+  const glowScale = useSharedValue(0.9);
+  const glowOpacity = useSharedValue(0.35);
 
   useEffect(() => {
     SplashScreen.hideAsync().catch(() => {});
@@ -70,6 +74,39 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
         true
       )
     );
+    sparkleLeftOpacity.value = withDelay(
+      350,
+      withRepeat(
+        withSequence(
+          withTiming(0.85, { duration: 900 }),
+          withTiming(0.25, { duration: 900 })
+        ),
+        -1,
+        true
+      )
+    );
+    glowScale.value = withDelay(
+      150,
+      withRepeat(
+        withSequence(
+          withTiming(1.08, { duration: 900, easing: Easing.inOut(Easing.ease) }),
+          withTiming(0.92, { duration: 900, easing: Easing.inOut(Easing.ease) })
+        ),
+        -1,
+        true
+      )
+    );
+    glowOpacity.value = withDelay(
+      150,
+      withRepeat(
+        withSequence(
+          withTiming(0.5, { duration: 900, easing: Easing.inOut(Easing.ease) }),
+          withTiming(0.25, { duration: 900, easing: Easing.inOut(Easing.ease) })
+        ),
+        -1,
+        true
+      )
+    );
 
     const fadeTimer = setTimeout(() => {
       containerOpacity.value = withTiming(
@@ -84,7 +121,18 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
     }, FADE_OUT_DELAY_MS);
 
     return () => clearTimeout(fadeTimer);
-  }, [containerOpacity, iconPulse, iconScale, sparkleOpacity, taglineOpacity, titleOpacity, titleTranslateY]);
+  }, [
+    containerOpacity,
+    glowOpacity,
+    glowScale,
+    iconPulse,
+    iconScale,
+    sparkleLeftOpacity,
+    sparkleOpacity,
+    taglineOpacity,
+    titleOpacity,
+    titleTranslateY,
+  ]);
 
   const containerStyle = useAnimatedStyle(() => ({
     flex: 1,
@@ -108,6 +156,15 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
     opacity: sparkleOpacity.value,
   }));
 
+  const sparkleLeftStyle = useAnimatedStyle(() => ({
+    opacity: sparkleLeftOpacity.value,
+  }));
+
+  const glowStyle = useAnimatedStyle(() => ({
+    opacity: glowOpacity.value,
+    transform: [{ scale: glowScale.value }],
+  }));
+
   return (
     <Animated.View style={containerStyle}>
       <LinearGradient
@@ -116,13 +173,20 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
         start={{ x: 0.5, y: 0 }}
         end={{ x: 0.5, y: 1 }}
       >
+        <SplashCelebrationEffects />
         <View style={styles.content}>
-          <Animated.View style={[styles.iconWrap, iconStyle]}>
-            <Ionicons name="heart" size={40} color={colors.primary} />
-            <Animated.View style={[styles.sparkle, sparkleStyle]}>
-              <Ionicons name="sparkles" size={22} color={colors.primaryDark} />
+          <View style={styles.iconCluster}>
+            <Animated.View style={[styles.iconGlow, glowStyle]} />
+            <Animated.View style={[styles.iconWrap, iconStyle]}>
+              <Ionicons name="heart" size={40} color={colors.primary} />
+              <Animated.View style={[styles.sparkle, sparkleStyle]}>
+                <Ionicons name="sparkles" size={22} color={colors.primaryDark} />
+              </Animated.View>
+              <Animated.View style={[styles.sparkleLeft, sparkleLeftStyle]}>
+                <Ionicons name="sparkles" size={18} color={colors.seatAlmostFull} />
+              </Animated.View>
             </Animated.View>
-          </Animated.View>
+          </View>
 
           <Animated.Text style={[styles.title, titleStyle]}>{title}</Animated.Text>
           <Animated.Text style={[styles.tagline, taglineStyle]}>{tagline}</Animated.Text>
@@ -141,6 +205,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: spacing.xl,
+    zIndex: 1,
+  },
+  iconCluster: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: spacing.lg,
+  },
+  iconGlow: {
+    position: 'absolute',
+    width: 120,
+    height: 120,
+    borderRadius: radius.full,
+    backgroundColor: colors.primaryLight,
   },
   iconWrap: {
     width: 88,
@@ -149,7 +226,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: spacing.lg,
     shadowColor: colors.shadow,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.15,
@@ -160,6 +236,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -4,
     right: -4,
+  },
+  sparkleLeft: {
+    position: 'absolute',
+    bottom: -2,
+    left: -6,
   },
   title: {
     ...typography.title,

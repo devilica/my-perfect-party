@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { StyleSheet, Switch, Text, View } from 'react-native';
 
 import { FormScrollView } from '@/components/FormScrollView';
+import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 
 import { CategoryPicker } from '@/components/CategoryPicker';
 import {
@@ -107,7 +108,7 @@ export default function AddExpenseModal() {
   };
 
   return (
-    <ThemedEventModal eventId={eventId ?? ''}>
+    <ThemedEventModal eventId={eventId ?? ''} showBottomBanner>
       <FormScrollView
         contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
       >
@@ -178,6 +179,7 @@ export default function AddExpenseModal() {
         <Button label={t('common.save')} onPress={handleSave} />
         <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
       </View>
+      <OverviewNativeAd placement="modal" />
       </FormScrollView>
     </ThemedEventModal>
   );

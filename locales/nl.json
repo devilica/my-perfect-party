@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Mijn perfecte feest",
-    "tagline": "Plan je perfecte feest"
+    "tagline": "Vier stressvrij"
   },
   "onboarding": {
     "selectLanguage": "Kies je taal",
@@ -303,7 +303,22 @@
     "previewFree": "Vrij",
     "addBatch": "Batch toevoegen",
     "preset310": "3 tafels × 10 plaatsen",
-    "preset57": "5 tafels × 7 plaatsen"
+    "preset57": "5 tafels × 7 plaatsen",
+    "hallOverviewTitle": "Zaaltoverzicht",
+    "hallOverviewHint": "Veeg omhoog, omlaag, links en rechts. Knijp of gebruik +/− om te zoomen. Sleep een tafel om deze te verplaatsen.",
+    "hallOverviewEmpty": "Voeg eerst tafels toe om het zaaltoverzicht te zien.",
+    "hallOverviewZoomIn": "Inzoomen",
+    "hallOverviewZoomOut": "Uitzoomen",
+    "tableShape": "Tafeltype",
+    "tableShapeRound": "Rond",
+    "tableShapeSingleSided": "Eenzijdig",
+    "tableShapeRectangular": "Rechthoekig",
+    "tableShapeSquare": "Vierkant",
+    "squareCapacityError": "De capaciteit van een vierkante tafel moet deelbaar zijn door 4.",
+    "seatsOccupied": "Bezette plaatsen",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Vrije plaatsen",
+    "viewHall": "Bekijk zaal"
   },
   "expenses": {
     "title": "Uitgaven",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Reservekopie importeren mislukt.",
     "backupInvalidFile": "Het geselecteerde bestand is geen geldige reservekopie.",
     "backupMailUnavailable": "E-mailapp is niet beschikbaar. Reservekopie is gedeeld via het systeemdeelvenster.",
+    "instagramTitle": "Volg ons op Instagram",
+    "instagramUnavailable": "Instagram kon niet worden geopend.",
     "supportTitle": "Ondersteuning",
     "supportDescription": "Vragen, tips of een bug? Neem contact op.",
     "contactSupport": "Contact opnemen",

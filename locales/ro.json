@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Petrecerea mea perfectă",
-    "tagline": "Planifică-ți petrecerea perfectă"
+    "tagline": "Sărbătorește fără stres"
   },
   "onboarding": {
     "selectLanguage": "Alege limba",
@@ -303,7 +303,22 @@
     "previewFree": "Liber",
     "addBatch": "Adaugă lot",
     "preset310": "3 mese × 10 locuri",
-    "preset57": "5 mese × 7 locuri"
+    "preset57": "5 mese × 7 locuri",
+    "hallOverviewTitle": "Prezentare generală a sălii",
+    "hallOverviewHint": "Glisați sus, jos, stânga și dreapta. Ciupiți sau folosiți +/− pentru zoom. Trageți o masă pentru a o repoziționa.",
+    "hallOverviewEmpty": "Adăugați mai întâi mese pentru a vedea prezentarea generală a sălii.",
+    "hallOverviewZoomIn": "Mărește",
+    "hallOverviewZoomOut": "Micșorează",
+    "tableShape": "Tip masă",
+    "tableShapeRound": "Rotundă",
+    "tableShapeSingleSided": "Unilaterală",
+    "tableShapeRectangular": "Dreptunghiulară",
+    "tableShapeSquare": "Pătrată",
+    "squareCapacityError": "Capacitatea unei mese pătrate trebuie să fie divizibilă cu 4.",
+    "seatsOccupied": "Locuri ocupate",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Locuri libere",
+    "viewHall": "Vezi sala"
   },
   "expenses": {
     "title": "Cheltuieli",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Importul copiei de rezervă a eșuat.",
     "backupInvalidFile": "Fișierul selectat nu este o copie de rezervă validă.",
     "backupMailUnavailable": "Aplicația de e-mail nu este disponibilă. Copia de rezervă a fost partajată prin foaia de partajare a sistemului.",
+    "instagramTitle": "Urmărește-ne pe Instagram",
+    "instagramUnavailable": "Instagram nu a putut fi deschis.",
     "supportTitle": "Suport",
     "supportDescription": "Întrebări, sfaturi sau o eroare? Contactează-ne.",
     "contactSupport": "Contactează suportul",

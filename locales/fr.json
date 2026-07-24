@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Ma fête parfaite",
-    "tagline": "Planifiez votre fête parfaite"
+    "tagline": "Célébrez sans stress"
   },
   "onboarding": {
     "selectLanguage": "Choisir la langue",
@@ -303,7 +303,22 @@
     "previewFree": "Libre",
     "addBatch": "Ajouter un lot",
     "preset310": "3 tables × 10 places",
-    "preset57": "5 tables × 7 places"
+    "preset57": "5 tables × 7 places",
+    "hallOverviewTitle": "Vue d'ensemble de la salle",
+    "hallOverviewHint": "Glissez vers le haut, le bas, la gauche et la droite. Pincez ou utilisez +/− pour zoomer. Faites glisser une table pour la repositionner.",
+    "hallOverviewEmpty": "Ajoutez d'abord des tables pour voir la vue d'ensemble de la salle.",
+    "hallOverviewZoomIn": "Zoom avant",
+    "hallOverviewZoomOut": "Zoom arrière",
+    "tableShape": "Type de table",
+    "tableShapeRound": "Ronde",
+    "tableShapeSingleSided": "Unilatérale",
+    "tableShapeRectangular": "Rectangulaire",
+    "tableShapeSquare": "Carrée",
+    "squareCapacityError": "La capacité d'une table carrée doit être divisible par 4.",
+    "seatsOccupied": "Places occupées",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Places libres",
+    "viewHall": "Voir la salle"
   },
   "expenses": {
     "title": "Dépenses",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Échec de l'importation de la sauvegarde.",
     "backupInvalidFile": "Le fichier sélectionné n'est pas une sauvegarde valide.",
     "backupMailUnavailable": "Application de messagerie indisponible. La sauvegarde a été partagée via le menu de partage système.",
+    "instagramTitle": "Suivez-nous sur Instagram",
+    "instagramUnavailable": "Impossible d'ouvrir Instagram.",
     "supportTitle": "Assistance",
     "supportDescription": "Des questions, des conseils ou un bug ? Contactez-nous.",
     "contactSupport": "Contacter l'assistance",

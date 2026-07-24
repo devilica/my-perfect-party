@@ -98,12 +98,17 @@ export type Guest = {
   createdAt?: string;
 };
 
+export type TableShape = 'round' | 'singleSided' | 'rectangular' | 'square';
+
 export type SeatingTable = {
   id: string;
   eventId: string;
   name: string;
   capacity: number;
   sortOrder: number;
+  shape?: TableShape;
+  layoutX?: number;
+  layoutY?: number;
   createdAt: string;
 };
 
@@ -128,6 +133,8 @@ export type SeatingStats = {
   fullTables: number;
   almostFullTables: number;
   availableTables: number;
+  totalCapacity: number;
+  occupiedSeats: number;
 };
 
 export type Expense = {
@@ -160,6 +167,7 @@ export function getGuestFullName(guest: Guest): string {
 export type BulkTableBatch = {
   count: number;
   capacity: number;
+  shape?: TableShape;
 };
 
 export type ObligationStatus = 'not_scheduled' | 'scheduled' | 'confirmed';

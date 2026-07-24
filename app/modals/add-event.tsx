@@ -1,4 +1,5 @@
 import { DatePickerField } from '@/components/DatePickerField';
+import { BottomSystemBarFill } from '@/components/BottomSystemBarFill';
 import { StringListEditor } from '@/components/StringListEditor';
 import { FormScrollView } from '@/components/FormScrollView';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
@@ -184,6 +185,7 @@ export default function AddEventModal() {
             <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
           </View>
         </FormScrollView>
+        <BottomSystemBarFill color={previewTheme.colors.background} />
       </ThemedScreenContainer>
     </EventThemeProvider>
   );

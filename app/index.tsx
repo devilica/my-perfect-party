@@ -3,6 +3,7 @@ import { Stack, useRouter } from 'expo-router';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { EventCard } from '@/components/EventCard';
+import { BottomSystemBarFill } from '@/components/BottomSystemBarFill';
 import { ScreenContainer } from '@/components/ScreenContainer';
 import { EmptyState, Fab } from '@/components/ui';
 import { useFabScrollPadding } from '@/hooks/useFabBottomOffset';
@@ -21,7 +22,8 @@ export default function HomeScreen() {
   const theme = useThemeColors();
 
   return (
-    <ScreenContainer style={{ flex: 1, paddingTop: spacing.sm }}>
+    <View style={styles.root}>
+      <ScreenContainer style={{ flex: 1, paddingTop: spacing.sm }}>
       <Stack.Screen
         options={{
           title: t('app.name'),
@@ -62,14 +64,19 @@ export default function HomeScreen() {
       </View>
 
       <Fab onPress={() => router.push('/modals/add-event')} />
-    </ScreenContainer>
+      </ScreenContainer>
+      <BottomSystemBarFill color={theme.background} />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
   tagline: {
     ...typography.caption,
-    marginBottom: spacing.lg,
+    marginBottom: spacing.xs,
   },
   sectionTitle: {
     ...typography.subheading,

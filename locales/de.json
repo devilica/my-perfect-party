@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Meine perfekte Feier",
-    "tagline": "Planen Sie Ihre perfekte Feier"
+    "tagline": "Feiern ohne Stress"
   },
   "onboarding": {
     "selectLanguage": "Sprache wählen",
@@ -303,7 +303,22 @@
     "previewFree": "Frei",
     "addBatch": "Stapel hinzufügen",
     "preset310": "3 Tische × 10 Plätze",
-    "preset57": "5 Tische × 7 Plätze"
+    "preset57": "5 Tische × 7 Plätze",
+    "hallOverviewTitle": "Saalübersicht",
+    "hallOverviewHint": "Wischen Sie nach oben, unten, links und rechts. Ziehen Sie zum Zoomen oder nutzen Sie +/−. Ziehen Sie einen Tisch, um ihn zu verschieben.",
+    "hallOverviewEmpty": "Fügen Sie zuerst Tische hinzu, um die Saalübersicht zu sehen.",
+    "hallOverviewZoomIn": "Vergrößern",
+    "hallOverviewZoomOut": "Verkleinern",
+    "tableShape": "Tischtyp",
+    "tableShapeRound": "Rund",
+    "tableShapeSingleSided": "Einseitig",
+    "tableShapeRectangular": "Rechteckig",
+    "tableShapeSquare": "Quadratisch",
+    "squareCapacityError": "Die Kapazität eines quadratischen Tisches muss durch 4 teilbar sein.",
+    "seatsOccupied": "Belegte Plätze",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Freie Plätze",
+    "viewHall": "Saal ansehen"
   },
   "expenses": {
     "title": "Ausgaben",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Import der Sicherungskopie fehlgeschlagen.",
     "backupInvalidFile": "Die ausgewählte Datei ist keine gültige Sicherungskopie.",
     "backupMailUnavailable": "E-Mail-App nicht verfügbar. Sicherungskopie wurde über das System-Freigabemenü geteilt.",
+    "instagramTitle": "Folge uns auf Instagram",
+    "instagramUnavailable": "Instagram konnte nicht geöffnet werden.",
     "supportTitle": "Support",
     "supportDescription": "Fragen, Tipps oder ein Fehler? Kontaktieren Sie uns.",
     "contactSupport": "Support kontaktieren",

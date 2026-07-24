@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Mo chóisir foirfe",
-    "tagline": "Pleanáil do chóisir foirfe"
+    "tagline": "Ceiliúraigh gan strus"
   },
   "onboarding": {
     "selectLanguage": "Roghnaigh do theanga",
@@ -303,7 +303,22 @@
     "previewFree": "Saor",
     "addBatch": "Cuir baisc leis",
     "preset310": "3 bord × 10 suíochán",
-    "preset57": "5 bord × 7 suíochán"
+    "preset57": "5 bord × 7 suíochán",
+    "hallOverviewTitle": "Foramharc an halla",
+    "hallOverviewHint": "Svaidhpeáil suas, síos, ar chlé agus ar dheis. Pinch nó úsáid +/− le haghaidh súmála. Tarraing boird chun í a athshuíomh.",
+    "hallOverviewEmpty": "Cuir boird leis ar dtús chun forbairc an halla a fheiceáil.",
+    "hallOverviewZoomIn": "Súmáil isteach",
+    "hallOverviewZoomOut": "Súmáil amach",
+    "tableShape": "Cineál boird",
+    "tableShapeRound": "Cruinn",
+    "tableShapeSingleSided": "Taobh amháin",
+    "tableShapeRectangular": "Dronuilleogach",
+    "tableShapeSquare": "Cearnach",
+    "squareCapacityError": "Caithfidh acmhainn boird chearnach a bheith inroinnte faoi 4.",
+    "seatsOccupied": "Suíocháin líonta",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Suíocháin saora",
+    "viewHall": "Féach ar an halla"
   },
   "expenses": {
     "title": "Costais",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Theip ar iompórtáil an chúltaca.",
     "backupInvalidFile": "Ní comhad cúltaca bailí é an comhad roghnaithe.",
     "backupMailUnavailable": "Níl an aip ríomhphoist ar fáil. Roinneadh an cúltaca tríd an bhfógra comhroinnte an chórais.",
+    "instagramTitle": "Lean muid ar Instagram",
+    "instagramUnavailable": "Níorbh fhéidir Instagram a oscailt.",
     "supportTitle": "Tacaíocht",
     "supportDescription": "Ceisteanna, leideanna nó fabht? Déan teagmháil linn.",
     "contactSupport": "Déan teagmháil le tacaíocht",

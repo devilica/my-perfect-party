@@ -2,16 +2,19 @@ import { useMemo, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { Button, TextInputField } from '@/components/ui';
+import { TableShapePicker } from '@/components/TableShapePicker';
+import { DEFAULT_TABLE_SHAPE, isSquareTableCapacityValid } from '@/constants/tableShapes';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
 import { useThemeColors } from '@/theme/EventThemeContext';
-import { BulkTableBatch } from '@/types/models';
+import { BulkTableBatch, TableShape } from '@/types/models';
 import { radius, spacing, typography } from '@/theme/colors';
 
 type BatchRow = {
   id: string;
   count: string;
   capacity: string;
+  shape: TableShape;
 };
 
 type TableCreationModalProps = {
@@ -20,9 +23,9 @@ type TableCreationModalProps = {
 };
 
 let batchIdCounter = 0;
-function createBatchRow(count = '1', capacity = '10'): BatchRow {
+function createBatchRow(count = '1', capacity = '10', shape: TableShape = DEFAULT_TABLE_SHAPE): BatchRow {
   batchIdCounter += 1;
-  return { id: `batch-${batchIdCounter}`, count, capacity };
+  return { id: `batch-${batchIdCounter}`, count, capacity, shape };
 }
 
 export function TableCreationModal({ onCreate, onCancel }: TableCreationModalProps) {
@@ -58,7 +61,11 @@ export function TableCreationModal({ onCreate, onCancel }: TableCreationModalPro
         setError(t('seating.capacityError'));
         return;
       }
-      batches.push({ count, capacity });
+      if (row.shape === 'square' && !isSquareTableCapacityValid(capacity)) {
+        setError(t('seating.squareCapacityError'));
+        return;
+      }
+      batches.push({ count, capacity, shape: row.shape });
     }
     onCreate(batches);
   };
@@ -89,43 +96,67 @@ export function TableCreationModal({ onCreate, onCancel }: TableCreationModalPro
         </Pressable>
       </View>
 
-      {rows.map((row) => (
-        <View key={row.id} style={styles.row}>
-          <View style={styles.rowField}>
-            <TextInputField
-              label={t('seating.count')}
-              required
-              value={row.count}
-              onChangeText={(text) => {
-                setError('');
-                setRows((prev) =>
-                  prev.map((r) => (r.id === row.id ? { ...r, count: text } : r))
-                );
-              }}
-              keyboardType="numeric"
-            />
+      {rows.map((row) => {
+        const rowCapacity = parseInt(row.capacity, 10);
+        const parsedRowCapacity = Number.isNaN(rowCapacity) ? 0 : rowCapacity;
+
+        return (
+        <View key={row.id} style={styles.batchBlock}>
+          <TableShapePicker
+            variant="compact"
+            value={row.shape}
+            capacity={parsedRowCapacity}
+            onChange={(shape) =>
+              setRows((prev) => prev.map((r) => (r.id === row.id ? { ...r, shape } : r)))
+            }
+          />
+          <View style={styles.row}>
+            <View style={styles.rowField}>
+              <TextInputField
+                label={t('seating.count')}
+                required
+                value={row.count}
+                onChangeText={(text) => {
+                  setError('');
+                  setRows((prev) =>
+                    prev.map((r) => (r.id === row.id ? { ...r, count: text } : r))
+                  );
+                }}
+                keyboardType="numeric"
+              />
+            </View>
+            <View style={styles.rowField}>
+              <TextInputField
+                label={t('seating.capacity')}
+                required
+                value={row.capacity}
+                onChangeText={(text) => {
+                  setError('');
+                  setRows((prev) =>
+                    prev.map((r) => {
+                      if (r.id !== row.id) return r;
+                      const nextCapacity = parseInt(text, 10);
+                      const validCapacity = Number.isNaN(nextCapacity) ? 0 : nextCapacity;
+                      const nextShape =
+                        r.shape === 'square' && !isSquareTableCapacityValid(validCapacity)
+                          ? DEFAULT_TABLE_SHAPE
+                          : r.shape;
+                      return { ...r, capacity: text, shape: nextShape };
+                    })
+                  );
+                }}
+                keyboardType="numeric"
+              />
+            </View>
+            {rows.length > 1 ? (
+              <Pressable onPress={() => removeRow(row.id)} style={styles.removeBtn}>
+                <Text style={[styles.removeText, { color: theme.danger }]}>×</Text>
+              </Pressable>
+            ) : null}
           </View>
-          <View style={styles.rowField}>
-            <TextInputField
-              label={t('seating.capacity')}
-              required
-              value={row.capacity}
-              onChangeText={(text) => {
-                setError('');
-                setRows((prev) =>
-                  prev.map((r) => (r.id === row.id ? { ...r, capacity: text } : r))
-                );
-              }}
-              keyboardType="numeric"
-            />
-          </View>
-          {rows.length > 1 ? (
-            <Pressable onPress={() => removeRow(row.id)} style={styles.removeBtn}>
-              <Text style={[styles.removeText, { color: theme.danger }]}>×</Text>
-            </Pressable>
-          ) : null}
         </View>
-      ))}
+        );
+      })}
 
       {error ? <Text style={[styles.error, { color: theme.danger }]}>{error}</Text> : null}
 
@@ -163,6 +194,10 @@ const styles = StyleSheet.create({
   presetText: {
     ...typography.small,
     fontWeight: '600',
+  },
+  batchBlock: {
+    gap: spacing.xs,
+    marginBottom: spacing.sm,
   },
   row: {
     flexDirection: 'row',

@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Моја совршена прослава",
-    "tagline": "Планирај ја твојата совршена прослава"
+    "tagline": "Слави без стрес"
   },
   "onboarding": {
     "selectLanguage": "Изберете јазик",
@@ -128,7 +128,7 @@
     "headerTitle": "Наслов",
     "headerTitlePlaceholder": "Заедно со своите семејства",
     "hostNames": "Име на домаќин",
-    "hostNamesPlaceholder": "на пр. Амина и Емир",
+    "hostNamesPlaceholder": "на пр. Марко и Ана",
     "eventDate": "Датум на настан",
     "eventDatePlaceholder": "30 ЈУЛИ 2026",
     "namesFont": "Фонт на имиња",
@@ -303,7 +303,22 @@
     "previewFree": "Слободно",
     "addBatch": "Додај група",
     "preset310": "3 маси × 10 места",
-    "preset57": "5 маси × 7 места"
+    "preset57": "5 маси × 7 места",
+    "hallOverviewTitle": "Преглед на салата",
+    "hallOverviewHint": "Поминете нагоре, надолу, лево и десно. Стиснете или користете +/− за зум. Повлечете маса за да ја преместите.",
+    "hallOverviewEmpty": "Прво додадете маси за да го видите прегледот на салата.",
+    "hallOverviewZoomIn": "Зголеми",
+    "hallOverviewZoomOut": "Намали",
+    "tableShape": "Тип на маса",
+    "tableShapeRound": "Кругла",
+    "tableShapeSingleSided": "Еднострана",
+    "tableShapeRectangular": "Правоаголна",
+    "tableShapeSquare": "Квадратна",
+    "squareCapacityError": "Капацитетот на квадратна маса мора да биде делив со 4.",
+    "seatsOccupied": "Зафатени места",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Слободни места",
+    "viewHall": "Види ја салата"
   },
   "expenses": {
     "title": "Трошоци",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Увезувањето на резервната копија не успеа.",
     "backupInvalidFile": "Избраната датотека не е валидна резервна копија.",
     "backupMailUnavailable": "Апликацијата за е-пошта не е достапна. Резервната копија е споделена преку системскиот лист за споделување.",
+    "instagramTitle": "Следете не на Instagram",
+    "instagramUnavailable": "Не може да се отвори Instagram.",
     "supportTitle": "Поддршка",
     "supportDescription": "Прашања, совети или грешка? Контактирајте не.",
     "contactSupport": "Контактирај поддршка",

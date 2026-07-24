@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { FormScrollView } from '@/components/FormScrollView';
+import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 
 import { GuestCategoryPicker } from '@/components/GuestCategoryPicker';
 import { GuestSidePicker } from '@/components/GuestSidePicker';
@@ -180,7 +181,7 @@ export default function GuestFormModal() {
   const parsedPartySize = Math.max(1, parseInt(partySize, 10) || 1);
 
   return (
-    <ThemedEventModal eventId={eventId}>
+    <ThemedEventModal eventId={eventId} showBottomBanner>
       <FormScrollView
         contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
       >
@@ -315,6 +316,7 @@ export default function GuestFormModal() {
         <Button label={t('common.save')} onPress={handleSave} />
         <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
       </View>
+      <OverviewNativeAd placement="modal" />
       </FormScrollView>
     </ThemedEventModal>
   );

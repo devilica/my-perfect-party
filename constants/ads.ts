@@ -1,4 +1,4 @@
-/** Postavi na false da ugasi sve reklame (banner + rewarded) u cijeloj app */
+/** Postavi na false da ugasi sve reklame (native + rewarded) u cijeloj app */
 export const ADS_ENABLED = true;
 
 export const ADMOB_APP_ID = 'ca-app-pub-5452343649745884~9366452184';
@@ -12,6 +12,3 @@ export const REWARDED_INVITATION_UNIT_ID =
 
 export const OVERVIEW_NATIVE_AD_UNIT_ID =
   'ca-app-pub-5452343649745884/4944775261';
-
-/** Approximate height of anchored adaptive banner + safe area clearance for scroll padding */
-export const BANNER_CLEARANCE = 60;

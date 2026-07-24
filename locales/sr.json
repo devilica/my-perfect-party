@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Moja savršena proslava",
-    "tagline": "Planiraj savršenu proslavu"
+    "tagline": "Slavi bez stresa"
   },
   "onboarding": {
     "selectLanguage": "Izaberite jezik",
@@ -301,9 +301,24 @@
     "previewTitle": "Pregled stola",
     "previewOccupied": "Zauzeto",
     "previewFree": "Slobodno",
+    "hallOverviewTitle": "Pregled sale",
+    "viewHall": "Vidi salu",
+    "hallOverviewHint": "Prevuci prikaz gore, dolje, lijevo i desno. Štipaj ili koristi +/− za zoom. Prevuci sto da promijeniš poziciju.",
+    "hallOverviewEmpty": "Prvo dodaj stolove da vidiš pregled sale.",
+    "hallOverviewZoomIn": "Uvećaj",
+    "hallOverviewZoomOut": "Umanji",
     "addBatch": "Dodaj grupu",
     "preset310": "3 stola × 10 mjesta",
-    "preset57": "5 stolova × 7 mjesta"
+    "preset57": "5 stolova × 7 mjesta",
+    "tableShape": "Tip stola",
+    "tableShapeRound": "Okrugli",
+    "tableShapeSingleSided": "Jednostrani",
+    "tableShapeRectangular": "Pravougaoni",
+    "tableShapeSquare": "Četvrtasti",
+    "squareCapacityError": "Kapacitet četvrtastog stola mora biti djeljiv sa 4.",
+    "seatsOccupied": "Popunjenost mjesta",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Slobodna mjesta"
   },
   "expenses": {
     "title": "Troškovi",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Uvoz sigurnosne kopije nije uspio.",
     "backupInvalidFile": "Odabrani fajl nije ispravna datoteka sigurnosne kopije.",
     "backupMailUnavailable": "Email aplikacija nije dostupna. Sigurnosna kopija je podijeljena preko dijaloga za deljenje.",
+    "instagramTitle": "Prati nas na Instagramu",
+    "instagramUnavailable": "Nije moguće otvoriti Instagram.",
     "supportTitle": "Podrška",
     "supportDescription": "Imaš pitanje, savjet ili grešku? Javi nam se.",
     "contactSupport": "Kontaktiraj podršku",
@@ -472,6 +489,14 @@
     "supportMailUnavailable": "Nije moguće otvoriti email aplikaciju. Kopiraj email adresu ispod."
   },
   "ads": {
-    "sponsored": "Reklama"
+    "sponsored": "Reklama",
+    "testHeadline": "Test oglas",
+    "bannerTestSubtitle": "Primjer banner oglasa za Expo Go.",
+    "testBody": "Primjer native oglasa za Expo Go.",
+    "testCta": "Instaliraj",
+    "rewardedTitle": "Test rewarded oglas",
+    "rewardedPreviewNote": "Expo pregled — pravi oglasi u APK buildu.",
+    "rewardedPlaying": "Oglas se reprodukuje…",
+    "rewardedClose": "Zatvori"
   }
 }

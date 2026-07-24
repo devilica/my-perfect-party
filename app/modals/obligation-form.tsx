@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { FormScrollView } from '@/components/FormScrollView';
+import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 
 import { DatePickerField } from '@/components/DatePickerField';
 import { SelectField } from '@/components/SelectField';
@@ -85,7 +86,7 @@ export default function ObligationFormModal() {
   };
 
   return (
-    <ThemedEventModal eventId={eventId ?? ''}>
+    <ThemedEventModal eventId={eventId ?? ''} showBottomBanner>
       <FormScrollView
         contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
       >
@@ -143,6 +144,7 @@ export default function ObligationFormModal() {
         <Button label={t('common.save')} onPress={handleSave} />
         <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
       </View>
+      <OverviewNativeAd placement="modal" />
       </FormScrollView>
     </ThemedEventModal>
   );

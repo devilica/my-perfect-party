@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Mitt perfekta kalas",
-    "tagline": "Planera ditt perfekta kalas"
+    "tagline": "Fira stressfritt"
   },
   "onboarding": {
     "selectLanguage": "Välj språk",
@@ -303,7 +303,22 @@
     "previewFree": "Ledig",
     "addBatch": "Lägg till batch",
     "preset310": "3 bord × 10 platser",
-    "preset57": "5 bord × 7 platser"
+    "preset57": "5 bord × 7 platser",
+    "hallOverviewTitle": "Salöversikt",
+    "hallOverviewHint": "Svep uppåt, nedåt, vänster och höger. Nyp eller använd +/− för att zooma. Dra ett bord för att flytta det.",
+    "hallOverviewEmpty": "Lägg till bord först för att se salöversikten.",
+    "hallOverviewZoomIn": "Zooma in",
+    "hallOverviewZoomOut": "Zooma ut",
+    "tableShape": "Bordstyp",
+    "tableShapeRound": "Rund",
+    "tableShapeSingleSided": "Ensidig",
+    "tableShapeRectangular": "Rektangulärt",
+    "tableShapeSquare": "Fyrkantigt",
+    "squareCapacityError": "Kapaciteten för ett fyrkantigt bord måste vara delbar med 4.",
+    "seatsOccupied": "Upptagna platser",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Lediga platser",
+    "viewHall": "Visa salen"
   },
   "expenses": {
     "title": "Utgifter",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Import av säkerhetskopia misslyckades.",
     "backupInvalidFile": "Den valda filen är inte en giltig säkerhetskopia.",
     "backupMailUnavailable": "E-postappen är inte tillgänglig. Säkerhetskopian delades via systemets delningsmeny.",
+    "instagramTitle": "Följ oss på Instagram",
+    "instagramUnavailable": "Det gick inte att öppna Instagram.",
     "supportTitle": "Support",
     "supportDescription": "Frågor, tips eller ett fel? Kontakta oss.",
     "contactSupport": "Kontakta support",

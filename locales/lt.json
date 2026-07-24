@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Mano tobulas vakarėlis",
-    "tagline": "Planuok savo tobulą vakarėlį"
+    "tagline": "Švęsk be streso"
   },
   "onboarding": {
     "selectLanguage": "Pasirinkite kalbą",
@@ -303,7 +303,22 @@
     "previewFree": "Laisva",
     "addBatch": "Pridėti grupę",
     "preset310": "3 stalai × 10 vietų",
-    "preset57": "5 stalai × 7 vietos"
+    "preset57": "5 stalai × 7 vietos",
+    "hallOverviewTitle": "Salės apžvalga",
+    "hallOverviewHint": "Braukite aukštyn, žemyn, kairėn ir dešinėn. Spustelėkite arba naudokite +/− priartinimui. Vilkite stalą, kad pakeistumėte jo vietą.",
+    "hallOverviewEmpty": "Pirmiausia pridėkite stalų, kad pamatytumėte salės apžvalgą.",
+    "hallOverviewZoomIn": "Priartinti",
+    "hallOverviewZoomOut": "Nutolinti",
+    "tableShape": "Stalo tipas",
+    "tableShapeRound": "Apvalus",
+    "tableShapeSingleSided": "Vienpusis",
+    "tableShapeRectangular": "Stačiakampis",
+    "tableShapeSquare": "Kvadratinis",
+    "squareCapacityError": "Kvadratinio stalo talpa turi būti dalijama iš 4.",
+    "seatsOccupied": "Užimtos vietos",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Laisvos vietos",
+    "viewHall": "Žiūrėti salę"
   },
   "expenses": {
     "title": "Išlaidos",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Atsarginės kopijos importas nepavyko.",
     "backupInvalidFile": "Pasirinktas failas nėra galiojanti atsarginė kopija.",
     "backupMailUnavailable": "Pašto programa nepasiekiama. Atsarginė kopija bendrinama per sistemos bendrinimo langą.",
+    "instagramTitle": "Sekite mus Instagram",
+    "instagramUnavailable": "Nepavyko atidaryti Instagram.",
     "supportTitle": "Pagalba",
     "supportDescription": "Klausimai, patarimai ar klaida? Susisiekite.",
     "contactSupport": "Susisiekti su pagalba",

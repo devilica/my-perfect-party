@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Mans ideālais baliņš",
-    "tagline": "Plāno savu ideālo baliņu"
+    "tagline": "Svinē bez stresa"
   },
   "onboarding": {
     "selectLanguage": "Izvēlieties valodu",
@@ -303,7 +303,22 @@
     "previewFree": "Brīvs",
     "addBatch": "Pievienot grupu",
     "preset310": "3 galdi × 10 vietas",
-    "preset57": "5 galdi × 7 vietas"
+    "preset57": "5 galdi × 7 vietas",
+    "hallOverviewTitle": "Zāles pārskats",
+    "hallOverviewHint": "Velciet augšup, lejup, pa kreisi un pa labi. Sašpiniet vai izmantojiet +/− tālummaiņai. Velciet galdu, lai mainītu tā pozīciju.",
+    "hallOverviewEmpty": "Vispirms pievienojiet galdus, lai redzētu zāles pārskatu.",
+    "hallOverviewZoomIn": "Pietuvināt",
+    "hallOverviewZoomOut": "Attālināt",
+    "tableShape": "Galda tips",
+    "tableShapeRound": "Apaļš",
+    "tableShapeSingleSided": "Vienpusējs",
+    "tableShapeRectangular": "Taisnstūris",
+    "tableShapeSquare": "Kvadrāts",
+    "squareCapacityError": "Kvadrātveida galda ietilpībai jādalās ar 4.",
+    "seatsOccupied": "Aizņemtās vietas",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Brīvās vietas",
+    "viewHall": "Skatīt zāli"
   },
   "expenses": {
     "title": "Izdevumi",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Rezerves kopijas imports neizdevās.",
     "backupInvalidFile": "Izvēlētais fails nav derīga rezerves kopija.",
     "backupMailUnavailable": "Pasta lietotne nav pieejama. Rezerves kopija tika kopīgota, izmantojot sistēmas kopīgošanas paneli.",
+    "instagramTitle": "Sekojiet mums Instagram",
+    "instagramUnavailable": "Neizdevās atvērt Instagram.",
     "supportTitle": "Atbalsts",
     "supportDescription": "Jautājumi, padomi vai kļūda? Sazinieties ar mums.",
     "contactSupport": "Sazināties ar atbalstu",

@@ -1,4 +1,5 @@
-import { areAdsEnabled } from '@/lib/adsEnvironment';
+import { areAdsEnabled, shouldShowAdPreviews } from '@/lib/adsEnvironment';
+import { showRewardedAdPreview } from '@/lib/rewardedAdPreviewController';
 
 export type RewardedInvitationAdResult =
   | 'rewarded'
@@ -15,6 +16,10 @@ export function preloadRewardedInvitationAd() {
 }
 
 export function showRewardedInvitationAd(): Promise<RewardedInvitationAdResult> {
+  if (shouldShowAdPreviews()) {
+    return showRewardedAdPreview();
+  }
+
   if (!areAdsEnabled()) {
     return Promise.resolve('rewarded');
   }

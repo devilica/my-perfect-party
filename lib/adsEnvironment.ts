@@ -12,3 +12,7 @@ export function isNativeAdsSupported(): boolean {
 export function areAdsEnabled(): boolean {
   return ADS_ENABLED && isNativeAdsSupported();
 }
+
+export function shouldShowAdPreviews(): boolean {
+  return ADS_ENABLED && Constants.appOwnership === 'expo' && Platform.OS !== 'web';
+}

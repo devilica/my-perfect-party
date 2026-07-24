@@ -1,8 +1,19 @@
-import { areAdsEnabled } from '@/lib/adsEnvironment';
+import { BottomBannerAdPreview } from '@/components/BottomBannerAdPreview';
+import { useIsOnline } from '@/hooks/useIsOnline';
+import { areAdsEnabled, shouldShowAdPreviews } from '@/lib/adsEnvironment';
 
 export function BottomBannerAd() {
-  if (!areAdsEnabled()) return null;
+  const isOnline = useIsOnline();
 
-  const { BottomBannerAdImpl } = require('./BottomBannerAdImpl') as typeof import('./BottomBannerAdImpl');
+  if (shouldShowAdPreviews()) {
+    return <BottomBannerAdPreview />;
+  }
+
+  if (!areAdsEnabled() || !isOnline) {
+    return null;
+  }
+
+  const { BottomBannerAdImpl } =
+    require('./BottomBannerAdImpl') as typeof import('./BottomBannerAdImpl');
   return <BottomBannerAdImpl />;
 }

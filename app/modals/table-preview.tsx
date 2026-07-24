@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { FormScrollView } from '@/components/FormScrollView';
 import { TablePreviewDiagram } from '@/components/TablePreviewDiagram';
@@ -12,6 +13,8 @@ import {
   useEventCelebrationTheme,
 } from '@/components/ThemedEventModal';
 import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
+import { getEffectiveBottomInset } from '@/lib/safeAreaInsets';
+import { DEFAULT_TABLE_SHAPE } from '@/constants/tableShapes';
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
 import {
@@ -36,6 +39,7 @@ export default function TablePreviewModal() {
   const theme = useThemeColors();
   const celebrationTheme = useEventCelebrationTheme(eventId ?? '');
   const modalScrollPadding = useModalScrollPadding();
+  const bottomInset = getEffectiveBottomInset(useSafeAreaInsets());
 
   const table = useMemo(
     () => (tableId ? tables.find((item) => item.id === tableId) : undefined),
@@ -74,58 +78,64 @@ export default function TablePreviewModal() {
       <Stack.Screen
         options={getThemedModalScreenOptions(celebrationTheme, t('seating.previewTitle'))}
       />
-      <FormScrollView
-        contentContainerStyle={[styles.content, { paddingBottom: modalScrollPadding }]}
-        showsVerticalScrollIndicator={false}
-      >
-        <TablePreviewDiagram
-          tableName={table.name}
-          occupied={occupied}
-          capacity={table.capacity}
-          seats={seats}
-        />
+      <View style={[styles.safeArea, { paddingBottom: bottomInset }]}>
+        <FormScrollView
+          contentContainerStyle={[styles.content, { paddingBottom: modalScrollPadding }]}
+          showsVerticalScrollIndicator={false}
+        >
+          <TablePreviewDiagram
+            tableName={table.name}
+            occupied={occupied}
+            capacity={table.capacity}
+            seats={seats}
+            shape={table.shape ?? DEFAULT_TABLE_SHAPE}
+          />
 
-        <View style={styles.legend}>
-          <View style={styles.legendItem}>
-            <View style={[styles.legendDot, { backgroundColor: theme.seatFull }]} />
-            <Text style={[styles.legendText, { color: theme.textSecondary }]}>
-              {t('seating.previewOccupied')}
-            </Text>
+          <View style={styles.legend}>
+            <View style={styles.legendItem}>
+              <View style={[styles.legendDot, { backgroundColor: theme.seatFull }]} />
+              <Text style={[styles.legendText, { color: theme.textSecondary }]}>
+                {t('seating.previewOccupied')}
+              </Text>
+            </View>
+            <View style={styles.legendItem}>
+              <View style={[styles.legendDot, { backgroundColor: theme.seatAvailable }]} />
+              <Text style={[styles.legendText, { color: theme.textSecondary }]}>
+                {t('seating.previewFree')}
+              </Text>
+            </View>
           </View>
-          <View style={styles.legendItem}>
-            <View style={[styles.legendDot, { backgroundColor: theme.seatAvailable }]} />
-            <Text style={[styles.legendText, { color: theme.textSecondary }]}>
-              {t('seating.previewFree')}
-            </Text>
-          </View>
-        </View>
 
-        <Card style={styles.guestCard}>
-          <Text style={[styles.guestSectionTitle, { color: theme.textSecondary }]}>
-            {t('seating.guestsAtTable')}
-          </Text>
-          {tableGuests.length === 0 ? (
-            <Text style={[styles.emptyGuests, { color: theme.textMuted }]}>
-              {t('seating.noGuestsAtTable')}
+          <Card style={styles.guestCard}>
+            <Text style={[styles.guestSectionTitle, { color: theme.textSecondary }]}>
+              {t('seating.guestsAtTable')}
             </Text>
-          ) : (
-            tableGuests.map((guest) => (
-              <View key={guest.id} style={styles.guestRow}>
-                <Ionicons name="person-outline" size={16} color={theme.textSecondary} />
-                <Text style={[styles.guestName, { color: theme.text }]}>
-                  {getGuestFullName(guest)}
-                  {guest.partySize > 1 ? ` (+${guest.partySize - 1})` : ''}
-                </Text>
-              </View>
-            ))
-          )}
-        </Card>
-      </FormScrollView>
+            {tableGuests.length === 0 ? (
+              <Text style={[styles.emptyGuests, { color: theme.textMuted }]}>
+                {t('seating.noGuestsAtTable')}
+              </Text>
+            ) : (
+              tableGuests.map((guest) => (
+                <View key={guest.id} style={styles.guestRow}>
+                  <Ionicons name="person-outline" size={16} color={theme.textSecondary} />
+                  <Text style={[styles.guestName, { color: theme.text }]}>
+                    {getGuestFullName(guest)}
+                    {guest.partySize > 1 ? ` (+${guest.partySize - 1})` : ''}
+                  </Text>
+                </View>
+              ))
+            )}
+          </Card>
+        </FormScrollView>
+      </View>
     </ThemedEventModal>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
   content: {
     flexGrow: 1,
     paddingHorizontal: spacing.lg,

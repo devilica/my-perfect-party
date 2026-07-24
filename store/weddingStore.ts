@@ -6,6 +6,7 @@ import { DEFAULT_GUEST_SORT, isGuestSort } from '@/constants/guestSort';
 import { isLanguage } from '@/constants/languages';
 import { normalizeAttendanceStatus } from '@/constants/guestAttendance';
 import { stripLegacyDefaultSides, resolveGuestSide } from '@/constants/guestSides';
+import { normalizeTableShape } from '@/constants/tableShapes';
 import { BackupData } from '@/lib/backup';
 import { generateId } from '@/lib/generateId';
 import { getDefaultLanguage, translate } from '@/lib/i18n';
@@ -230,6 +231,7 @@ function normalizeImportedState(data: BackupData): {
     tables: (saved.tables ?? []).map((table) => ({
       ...table,
       eventId: normalizeEventId(table.eventId),
+      shape: normalizeTableShape(table.shape),
     })),
     expenses: (saved.expenses ?? []).map((expense) => ({
       ...expense,
@@ -605,6 +607,7 @@ export const useWeddingStore = create<WeddingState>()(
           ...data,
           id,
           capacity: Math.max(1, data.capacity),
+          shape: normalizeTableShape(data.shape),
           sortOrder: maxOrder + 1,
           createdAt: new Date().toISOString(),
         };
@@ -661,6 +664,7 @@ export const useWeddingStore = create<WeddingState>()(
               eventId,
               name: translate(get().language, 'seating.defaultTableName', { number: tableNumber }),
               capacity: Math.max(1, batch.capacity),
+              shape: normalizeTableShape(batch.shape),
               sortOrder,
               createdAt: new Date().toISOString(),
             });

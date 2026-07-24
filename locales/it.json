@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "La mia festa perfetta",
-    "tagline": "Organizza la tua festa perfetta"
+    "tagline": "Festeggia senza stress"
   },
   "onboarding": {
     "selectLanguage": "Scegli la lingua",
@@ -303,7 +303,22 @@
     "previewFree": "Libero",
     "addBatch": "Aggiungi gruppo",
     "preset310": "3 tavoli × 10 posti",
-    "preset57": "5 tavoli × 7 posti"
+    "preset57": "5 tavoli × 7 posti",
+    "hallOverviewTitle": "Panoramica della sala",
+    "hallOverviewHint": "Scorri su, giù, sinistra e destra. Pizzica o usa +/− per lo zoom. Trascina un tavolo per riposizionarlo.",
+    "hallOverviewEmpty": "Aggiungi prima i tavoli per vedere la panoramica della sala.",
+    "hallOverviewZoomIn": "Ingrandisci",
+    "hallOverviewZoomOut": "Riduci",
+    "tableShape": "Tipo di tavolo",
+    "tableShapeRound": "Rotondo",
+    "tableShapeSingleSided": "Monolaterale",
+    "tableShapeRectangular": "Rettangolare",
+    "tableShapeSquare": "Quadrato",
+    "squareCapacityError": "La capienza di un tavolo quadrato deve essere divisibile per 4.",
+    "seatsOccupied": "Posti occupati",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Posti liberi",
+    "viewHall": "Vedi sala"
   },
   "expenses": {
     "title": "Spese",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Importazione copia di sicurezza non riuscita.",
     "backupInvalidFile": "Il file selezionato non è una copia di sicurezza valida.",
     "backupMailUnavailable": "App e-mail non disponibile. La copia di sicurezza è stata condivisa tramite il menu di condivisione di sistema.",
+    "instagramTitle": "Seguici su Instagram",
+    "instagramUnavailable": "Impossibile aprire Instagram.",
     "supportTitle": "Supporto",
     "supportDescription": "Domande, suggerimenti o un bug? Contattaci.",
     "contactSupport": "Contatta il supporto",

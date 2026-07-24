@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Το τέλειο πάρτι μου",
-    "tagline": "Σχεδίασε το τέλειο πάρτι σου"
+    "tagline": "Γιόρτασε χωρίς άγχος"
   },
   "onboarding": {
     "selectLanguage": "Επιλέξτε γλώσσα",
@@ -303,7 +303,22 @@
     "previewFree": "Ελεύθερο",
     "addBatch": "Προσθήκη ομάδας",
     "preset310": "3 τραπέζια × 10 θέσεις",
-    "preset57": "5 τραπέζια × 7 θέσεις"
+    "preset57": "5 τραπέζια × 7 θέσεις",
+    "hallOverviewTitle": "Επισκόπηση αίθουσας",
+    "hallOverviewHint": "Σύρετε πάνω, κάτω, αριστερά και δεξιά. Τσιμπήστε ή χρησιμοποιήστε +/− για zoom. Σύρετε τραπέζι για να το μετακινήσετε.",
+    "hallOverviewEmpty": "Προσθέστε πρώτα τραπέζια για να δείτε την επισκόπηση της αίθουσας.",
+    "hallOverviewZoomIn": "Μεγέθυνση",
+    "hallOverviewZoomOut": "Σμίκρυνση",
+    "tableShape": "Τύπος τραπεζιού",
+    "tableShapeRound": "Στρογγυλό",
+    "tableShapeSingleSided": "Μονόπλευρο",
+    "tableShapeRectangular": "Ορθογώνιο",
+    "tableShapeSquare": "Τετράγωνο",
+    "squareCapacityError": "Η χωρητικότητα τετράγωνου τραπεζιού πρέπει να διαιρείται με το 4.",
+    "seatsOccupied": "Κατειλημμένες θέσεις",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Ελεύθερες θέσεις",
+    "viewHall": "Δείτε την αίθουσα"
   },
   "expenses": {
     "title": "Έξοδα",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Η εισαγωγή αντιγράφου ασφαλείας απέτυχε.",
     "backupInvalidFile": "Το επιλεγμένο αρχείο δεν είναι έγκυρο αντίγραφο ασφαλείας.",
     "backupMailUnavailable": "Η εφαρμογή ηλεκτρονικού ταχυδρομείου δεν είναι διαθέσιμη. Το αντίγραφο ασφαλείας κοινοποιήθηκε μέσω του συστήματος κοινοποίησης.",
+    "instagramTitle": "Ακολουθήστε μας στο Instagram",
+    "instagramUnavailable": "Δεν ήταν δυνατό το άνοιγμα του Instagram.",
     "supportTitle": "Υποστήριξη",
     "supportDescription": "Ερωτήσεις, συμβουλές ή σφάλμα; Επικοινωνήστε μαζί μας.",
     "contactSupport": "Επικοινωνία με την υποστήριξη",

@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Tökéletes bulim",
-    "tagline": "Tervezd meg a tökéletes bulit"
+    "tagline": "Ünnepelj stressz nélkül"
   },
   "onboarding": {
     "selectLanguage": "Válassz nyelvet",
@@ -303,7 +303,22 @@
     "previewFree": "Szabad",
     "addBatch": "Csoport hozzáadása",
     "preset310": "3 asztal × 10 hely",
-    "preset57": "5 asztal × 7 hely"
+    "preset57": "5 asztal × 7 hely",
+    "hallOverviewTitle": "Terem áttekintése",
+    "hallOverviewHint": "Húzza fel, le, balra és jobbra. Csípje össze vagy használja a +/− gombokat nagyításhoz. Húzza az asztalt az áthelyezéshez.",
+    "hallOverviewEmpty": "Először adjon hozzá asztalokat a terem áttekintéséhez.",
+    "hallOverviewZoomIn": "Nagyítás",
+    "hallOverviewZoomOut": "Kicsinyítés",
+    "tableShape": "Asztaltípus",
+    "tableShapeRound": "Kerek",
+    "tableShapeSingleSided": "Egyoldalas",
+    "tableShapeRectangular": "Téglalap",
+    "tableShapeSquare": "Négyzet",
+    "squareCapacityError": "A négyzetalakú asztal kapacitásának oszthatónak kell lennie 4-gyel.",
+    "seatsOccupied": "Foglalt helyek",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Szabad helyek",
+    "viewHall": "Terem megtekintése"
   },
   "expenses": {
     "title": "Kiadások",
@@ -465,6 +480,8 @@
     "backupImportFailed": "A biztonsági mentés importálása sikertelen.",
     "backupInvalidFile": "A kiválasztott fájl nem érvényes biztonsági mentés.",
     "backupMailUnavailable": "Az e-mail alkalmazás nem érhető el. A biztonsági mentés a rendszer megosztó panelen keresztül lett megosztva.",
+    "instagramTitle": "Kövess minket Instagramon",
+    "instagramUnavailable": "Az Instagram nem nyitható meg.",
     "supportTitle": "Támogatás",
     "supportDescription": "Kérdésed, tipp vagy hiba? Lépj kapcsolatba velünk.",
     "contactSupport": "Kapcsolatfelvétel",

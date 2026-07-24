@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Moje dokonalá oslava",
-    "tagline": "Naplánujte si dokonalou oslavu"
+    "tagline": "Oslavuj bez stresu"
   },
   "onboarding": {
     "selectLanguage": "Vyberte jazyk",
@@ -303,7 +303,22 @@
     "previewFree": "Volné",
     "addBatch": "Přidat sadu",
     "preset310": "3 stoly × 10 míst",
-    "preset57": "5 stolů × 7 míst"
+    "preset57": "5 stolů × 7 míst",
+    "hallOverviewTitle": "Přehled sálu",
+    "hallOverviewHint": "Přejeďte nahoru, dolů, vlevo a vpravo. Pinch nebo použijte +/− pro zoom. Přetáhněte stůl pro změnu pozice.",
+    "hallOverviewEmpty": "Nejprve přidejte stoly pro zobrazení přehledu sálu.",
+    "hallOverviewZoomIn": "Přiblížit",
+    "hallOverviewZoomOut": "Oddálit",
+    "tableShape": "Typ stolu",
+    "tableShapeRound": "Kulatý",
+    "tableShapeSingleSided": "Jednostranný",
+    "tableShapeRectangular": "Obdélníkový",
+    "tableShapeSquare": "Čtvercový",
+    "squareCapacityError": "Kapacita čtvercového stolu musí být dělitelná 4.",
+    "seatsOccupied": "Obsazená místa",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Volná místa",
+    "viewHall": "Zobrazit sál"
   },
   "expenses": {
     "title": "Výdaje",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Import zálohy se nezdařil.",
     "backupInvalidFile": "Vybraný soubor není platná záloha.",
     "backupMailUnavailable": "E-mailová aplikace není k dispozici. Záloha byla sdílena přes systémové sdílení.",
+    "instagramTitle": "Sledujte nás na Instagramu",
+    "instagramUnavailable": "Instagram nelze otevřít.",
     "supportTitle": "Podpora",
     "supportDescription": "Máte dotaz, tip nebo chybu? Kontaktujte nás.",
     "contactSupport": "Kontaktovat podporu",

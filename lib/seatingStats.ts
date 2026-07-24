@@ -85,12 +85,16 @@ export function getSeatingStats(
   let fullTables = 0;
   let almostFullTables = 0;
   let availableTables = 0;
+  let totalCapacity = 0;
+  let occupiedSeats = 0;
 
   for (const table of eventTables) {
     const status = getTableOccupancyStatus(table, guests);
     if (status === 'full') fullTables += 1;
     else if (status === 'almostFull') almostFullTables += 1;
     else availableTables += 1;
+    totalCapacity += table.capacity;
+    occupiedSeats += getTableOccupiedSeats(guests, table.id);
   }
 
   return {
@@ -98,6 +102,8 @@ export function getSeatingStats(
     fullTables,
     almostFullTables,
     availableTables,
+    totalCapacity,
+    occupiedSeats,
   };
 }
 

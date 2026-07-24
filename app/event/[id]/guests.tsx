@@ -5,6 +5,7 @@ import { Alert, FlatList, StyleSheet, TextInput, View } from 'react-native';
 import { GuestFilterBar } from '@/components/GuestFilterBar';
 import { GuestSortBar } from '@/components/GuestSortBar';
 import { GuestCard } from '@/components/GuestCard';
+import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { EmptyState, Fab } from '@/components/ui';
 import { useFabScrollPadding } from '@/hooks/useFabBottomOffset';
@@ -91,6 +92,7 @@ export default function GuestsScreen() {
           onScroll={onScroll}
           scrollEventThrottle={scrollEventThrottle}
           ListHeaderComponent={listHeader}
+          ListFooterComponent={OverviewNativeAd}
           ListEmptyComponent={
             <EmptyState
               icon="people-outline"

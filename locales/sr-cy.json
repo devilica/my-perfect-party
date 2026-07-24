@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Моја савршена прослава",
-    "tagline": "Планирај савршену прославу"
+    "tagline": "Слави без стреса"
   },
   "onboarding": {
     "selectLanguage": "Изаберите језик",
@@ -128,7 +128,7 @@
     "headerTitle": "Наслов",
     "headerTitlePlaceholder": "Заједно са својим породицама",
     "hostNames": "Име домаћина",
-    "hostNamesPlaceholder": "нпр. Амина и Емир",
+    "hostNamesPlaceholder": "нпр. Марко и Ана",
     "eventDate": "Датум догађаја",
     "eventDatePlaceholder": "30 ЈУЛ 2026",
     "namesFont": "Фонт имена",
@@ -303,7 +303,22 @@
     "previewFree": "Слободно",
     "addBatch": "Додај групу",
     "preset310": "3 стола × 10 места",
-    "preset57": "5 столова × 7 места"
+    "preset57": "5 столова × 7 места",
+    "hallOverviewTitle": "Преглед сале",
+    "hallOverviewHint": "Превуците приказ горе, доле, лево и десно. Стисните или користите +/− за зум. Превуците сто да промените позицију.",
+    "hallOverviewEmpty": "Прво додајте столове да видите преглед сале.",
+    "hallOverviewZoomIn": "Увећај",
+    "hallOverviewZoomOut": "Умањи",
+    "tableShape": "Тип стола",
+    "tableShapeRound": "Округли",
+    "tableShapeSingleSided": "Једнострани",
+    "tableShapeRectangular": "Правоугаони",
+    "tableShapeSquare": "Четвртасти",
+    "squareCapacityError": "Капацитет четврастог стола мора бити дељив са 4.",
+    "seatsOccupied": "Попуњеност места",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Слободна места",
+    "viewHall": "Види салу"
   },
   "expenses": {
     "title": "Трошкови",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Увоз резервне копије није успео.",
     "backupInvalidFile": "Одабрани фајл није исправна датотека резервне копије.",
     "backupMailUnavailable": "Е-пошта апликација није доступна. Резервна копија је подељена преко дијалога за дељење.",
+    "instagramTitle": "Пратите нас на Instagramu",
+    "instagramUnavailable": "Није могуће отворити Instagram.",
     "supportTitle": "Подршка",
     "supportDescription": "Имате питање, савет или грешку? Јавите нам се.",
     "contactSupport": "Контактирајте подршку",

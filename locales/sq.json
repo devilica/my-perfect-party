@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Festa ime e përsosur",
-    "tagline": "Planifiko festën tënde të përsosur"
+    "tagline": "Festo pa stres"
   },
   "onboarding": {
     "selectLanguage": "Zgjidhni gjuhën",
@@ -303,7 +303,22 @@
     "previewFree": "E lirë",
     "addBatch": "Shto grup",
     "preset310": "3 tavolina × 10 vende",
-    "preset57": "5 tavolina × 7 vende"
+    "preset57": "5 tavolina × 7 vende",
+    "hallOverviewTitle": "Pamje e sallës",
+    "hallOverviewHint": "Rrëshqit lart, poshtë, majtas dhe djathtas. Shtyp ose përdor +/− për zoom. Tërhiq një tavolinë për ta zhvendosur.",
+    "hallOverviewEmpty": "Shto fillimisht tavolinat për të parë pamjen e sallës.",
+    "hallOverviewZoomIn": "Zmadho",
+    "hallOverviewZoomOut": "Zvogëlo",
+    "tableShape": "Lloji i tavolinës",
+    "tableShapeRound": "Rrethore",
+    "tableShapeSingleSided": "Njëanëshme",
+    "tableShapeRectangular": "Drejtkëndore",
+    "tableShapeSquare": "Katror",
+    "squareCapacityError": "Kapaciteti i tavolinës katrore duhet të jetë i pjestueshëm me 4.",
+    "seatsOccupied": "Vende të zëna",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Vende të lira",
+    "viewHall": "Shiko sallën"
   },
   "expenses": {
     "title": "Shpenzime",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Importimi i kopjes rezervë dështoi.",
     "backupInvalidFile": "Skedari i zgjedhur nuk është një kopje rezervë e vlefshme.",
     "backupMailUnavailable": "Aplikacioni i emailit nuk është i disponueshëm. Kopja rezervë u nda përmes fletës së ndarjes së sistemit.",
+    "instagramTitle": "Na ndiqni në Instagram",
+    "instagramUnavailable": "Nuk u hap dot Instagram.",
     "supportTitle": "Mbështetje",
     "supportDescription": "Pyetje, këshilla apo një gabim? Na kontaktoni.",
     "contactSupport": "Kontakto mbështetjen",

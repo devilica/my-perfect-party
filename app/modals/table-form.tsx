@@ -3,6 +3,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { FormScrollView } from '@/components/FormScrollView';
+import { OverviewNativeAd } from '@/components/OverviewNativeAd';
+import { TableShapePicker } from '@/components/TableShapePicker';
 
 import { Button, TextInputField } from '@/components/ui';
 import {
@@ -11,9 +13,11 @@ import {
   useEventCelebrationTheme,
 } from '@/components/ThemedEventModal';
 import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
+import { DEFAULT_TABLE_SHAPE, isSquareTableCapacityValid } from '@/constants/tableShapes';
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
 import { useWeddingStore } from '@/store/weddingStore';
+import { TableShape } from '@/types/models';
 import { spacing } from '@/theme/colors';
 
 export default function TableFormModal() {
@@ -36,14 +40,28 @@ export default function TableFormModal() {
 
   const [name, setName] = useState('');
   const [capacity, setCapacity] = useState('10');
+  const [shape, setShape] = useState<TableShape>(DEFAULT_TABLE_SHAPE);
   const [nameError, setNameError] = useState('');
+  const [capacityError, setCapacityError] = useState('');
+
+  const parsedCapacity = useMemo(() => {
+    const value = parseInt(capacity, 10);
+    return Number.isNaN(value) ? 0 : value;
+  }, [capacity]);
 
   useEffect(() => {
     if (existingTable) {
       setName(existingTable.name);
       setCapacity(String(existingTable.capacity));
+      setShape(existingTable.shape ?? DEFAULT_TABLE_SHAPE);
     }
   }, [existingTable]);
+
+  useEffect(() => {
+    if (shape === 'square' && !isSquareTableCapacityValid(parsedCapacity)) {
+      setShape(DEFAULT_TABLE_SHAPE);
+    }
+  }, [parsedCapacity, shape]);
 
   const handleSave = () => {
     if (!name.trim()) {
@@ -53,16 +71,23 @@ export default function TableFormModal() {
     const parsedCapacity = parseInt(capacity, 10);
     if (!eventId || Number.isNaN(parsedCapacity) || parsedCapacity <= 0) return;
 
+    if (shape === 'square' && !isSquareTableCapacityValid(parsedCapacity)) {
+      setCapacityError(t('seating.squareCapacityError'));
+      return;
+    }
+
     if (existingTable) {
       updateTable(existingTable.id, {
         name: name.trim(),
         capacity: parsedCapacity,
+        shape,
       });
     } else {
       addTable({
         eventId,
         name: name.trim(),
         capacity: parsedCapacity,
+        shape,
       });
     }
 
@@ -70,7 +95,7 @@ export default function TableFormModal() {
   };
 
   return (
-    <ThemedEventModal eventId={eventId ?? ''}>
+    <ThemedEventModal eventId={eventId ?? ''} showBottomBanner>
       <FormScrollView
         contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
       >
@@ -96,15 +121,22 @@ export default function TableFormModal() {
         label={t('seating.capacity')}
         required
         value={capacity}
-        onChangeText={setCapacity}
+        onChangeText={(text) => {
+          setCapacity(text);
+          setCapacityError('');
+        }}
         placeholder={t('seating.capacityPlaceholder')}
         keyboardType="numeric"
+        error={capacityError}
       />
+
+      <TableShapePicker value={shape} onChange={setShape} capacity={parsedCapacity} />
 
       <View style={styles.actions}>
         <Button label={t('common.save')} onPress={handleSave} />
         <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
       </View>
+      <OverviewNativeAd placement="modal" />
       </FormScrollView>
     </ThemedEventModal>
   );

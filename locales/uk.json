@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Моє ідеальне свято",
-    "tagline": "Плануй своє ідеальне свято"
+    "tagline": "Святкуй без стресу"
   },
   "onboarding": {
     "selectLanguage": "Оберіть мову",
@@ -303,7 +303,22 @@
     "previewFree": "Вільно",
     "addBatch": "Додати групу",
     "preset310": "3 столи × 10 місць",
-    "preset57": "5 столів × 7 місць"
+    "preset57": "5 столів × 7 місць",
+    "hallOverviewTitle": "Огляд залу",
+    "hallOverviewHint": "Проведіть пальцем вгору, вниз, ліворуч і праворуч. Зведіть пальці або використовуйте +/− для масштабу. Перетягніть стіл, щоб змінити його позицію.",
+    "hallOverviewEmpty": "Спочатку додайте столи, щоб побачити огляд залу.",
+    "hallOverviewZoomIn": "Збільшити",
+    "hallOverviewZoomOut": "Зменшити",
+    "tableShape": "Тип столу",
+    "tableShapeRound": "Круглий",
+    "tableShapeSingleSided": "Односторонній",
+    "tableShapeRectangular": "Прямокутний",
+    "tableShapeSquare": "Квадратний",
+    "squareCapacityError": "Місткість квадратного столу має бути кратною 4.",
+    "seatsOccupied": "Зайняті місця",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Вільні місця",
+    "viewHall": "Дивитися зал"
   },
   "expenses": {
     "title": "Витрати",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Імпорт резервної копії не вдався.",
     "backupInvalidFile": "Обраний файл не є дійсною резервною копією.",
     "backupMailUnavailable": "Застосунок пошти недоступний. Резервну копію надіслано через системне меню «Поділитися».",
+    "instagramTitle": "Слідкуйте за нами в Instagram",
+    "instagramUnavailable": "Неможливо відкрити Instagram.",
     "supportTitle": "Підтримка",
     "supportDescription": "Питання, поради чи помилка? Зв'яжіться з нами.",
     "contactSupport": "Зв'язатися з підтримкою",

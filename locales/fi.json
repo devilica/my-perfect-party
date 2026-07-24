@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Täydellinen juhlani",
-    "tagline": "Suunnittele täydellinen juhlasi"
+    "tagline": "Juhli stressittä"
   },
   "onboarding": {
     "selectLanguage": "Valitse kieli",
@@ -303,7 +303,22 @@
     "previewFree": "Vapaa",
     "addBatch": "Lisää erä",
     "preset310": "3 pöytää × 10 paikkaa",
-    "preset57": "5 pöytää × 7 paikkaa"
+    "preset57": "5 pöytää × 7 paikkaa",
+    "hallOverviewTitle": "Salin yleiskuva",
+    "hallOverviewHint": "Pyyhkäise ylös, alas, vasemmalle ja oikealle. Nipistä tai käytä +/− zoomaukseen. Vedä pöytää siirtääksesi sitä.",
+    "hallOverviewEmpty": "Lisää ensin pöydät nähdäksesi salin yleiskuvan.",
+    "hallOverviewZoomIn": "Lähennä",
+    "hallOverviewZoomOut": "Loitonna",
+    "tableShape": "Pöydän tyyppi",
+    "tableShapeRound": "Pyöreä",
+    "tableShapeSingleSided": "Yksipuolinen",
+    "tableShapeRectangular": "Suorakulmainen",
+    "tableShapeSquare": "Neliö",
+    "squareCapacityError": "Neliöpöydän kapasiteetin on oltava jaollinen luvulla 4.",
+    "seatsOccupied": "Varatut paikat",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Vapaat paikat",
+    "viewHall": "Näytä sali"
   },
   "expenses": {
     "title": "Kulut",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Varmuuskopion tuonti epäonnistui.",
     "backupInvalidFile": "Valittu tiedosto ei ole kelvollinen varmuuskopio.",
     "backupMailUnavailable": "Sähköpostisovellus ei ole käytettävissä. Varmuuskopio jaettiin järjestelmän jakovalikon kautta.",
+    "instagramTitle": "Seuraa meitä Instagramissa",
+    "instagramUnavailable": "Instagramia ei voitu avata.",
     "supportTitle": "Tuki",
     "supportDescription": "Kysymyksiä, vinkkejä tai virhe? Ota yhteyttä.",
     "contactSupport": "Ota yhteyttä tukeen",

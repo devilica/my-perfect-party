@@ -19,7 +19,7 @@
   },
   "app": {
     "name": "Minu täiuslik pidu",
-    "tagline": "Planeeri oma täiuslik pidu"
+    "tagline": "Tähista stressivabalt"
   },
   "onboarding": {
     "selectLanguage": "Vali keel",
@@ -303,7 +303,22 @@
     "previewFree": "Vaba",
     "addBatch": "Lisa grupp",
     "preset310": "3 lauda × 10 kohta",
-    "preset57": "5 lauda × 7 kohta"
+    "preset57": "5 lauda × 7 kohta",
+    "hallOverviewTitle": "Saali ülevaade",
+    "hallOverviewHint": "Libista üles, alla, vasakule ja paremale. Näpista või kasuta +/− suumimiseks. Lohista lauda, et seda liigutada.",
+    "hallOverviewEmpty": "Lisa esmalt lauad, et näha saali ülevaadet.",
+    "hallOverviewZoomIn": "Suumi sisse",
+    "hallOverviewZoomOut": "Suumi välja",
+    "tableShape": "Laua tüüp",
+    "tableShapeRound": "Ümmargune",
+    "tableShapeSingleSided": "Ühepoolne",
+    "tableShapeRectangular": "Ristkülikukujuline",
+    "tableShapeSquare": "Ruudukujuline",
+    "squareCapacityError": "Ruudukujulise laua mahutavus peab olema jagatav 4-ga.",
+    "seatsOccupied": "Hõivatud kohad",
+    "seatsOccupiedValue": "{{occupied}} / {{total}}",
+    "seatsFree": "Vabad kohad",
+    "viewHall": "Vaata saali"
   },
   "expenses": {
     "title": "Kulud",
@@ -465,6 +480,8 @@
     "backupImportFailed": "Varukoopia import ebaõnnestus.",
     "backupInvalidFile": "Valitud fail ei ole kehtiv varukoopia.",
     "backupMailUnavailable": "Meilirakendus pole saadaval. Varukoopia jagati süsteemi jagamislehe kaudu.",
+    "instagramTitle": "Jälgi meid Instagramis",
+    "instagramUnavailable": "Instagrami ei saanud avada.",
     "supportTitle": "Tugi",
     "supportDescription": "Küsimused, nõuanded või viga? Võta ühendust.",
     "contactSupport": "Võta ühendust toega",

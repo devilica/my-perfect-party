@@ -54,15 +54,17 @@ function SubEventRow({
 
   return (
     <View style={[styles.subEventRow, { marginBottom: spacing }]}>
-      <Ionicons
-        name={iconName}
-        size={16}
-        color={accentColor}
-        style={styles.subEventIcon}
-      />
-      <Text style={[styles.subEventText, { color: textColor }]} numberOfLines={2}>
-        {detail.toUpperCase()}
-      </Text>
+      <View style={styles.subEventContent}>
+        <Ionicons
+          name={iconName}
+          size={16}
+          color={accentColor}
+          style={styles.subEventIcon}
+        />
+        <Text style={[styles.subEventText, { color: textColor }]} numberOfLines={2}>
+          {detail.toUpperCase()}
+        </Text>
+      </View>
     </View>
   );
 }
@@ -113,6 +115,7 @@ export const InvitationPreview = forwardRef<View, InvitationPreviewProps>(
                   {
                     color: invitation.fontColor,
                     fontSize: invitation.fontSize,
+                    lineHeight: Math.round(invitation.fontSize * 1.25),
                     fontFamily: getNamesFontFamily(invitation.namesFontFamily),
                     marginBottom: BASE_SPACING.afterNames * spacingMul,
                   },
@@ -199,8 +202,8 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   hostNames: {
+    width: '100%',
     textAlign: 'center',
-    lineHeight: 44,
   },
   eventDate: {
     fontSize: 13,
@@ -213,19 +216,25 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   subEventRow: {
+    width: '100%',
+    alignItems: 'center',
+    paddingHorizontal: 4,
+  },
+  subEventContent: {
     flexDirection: 'row',
     alignItems: 'center',
-    width: '100%',
-    paddingHorizontal: 4,
+    justifyContent: 'center',
+    maxWidth: '100%',
   },
   subEventIcon: {
     marginRight: 8,
   },
   subEventText: {
-    flex: 1,
     fontSize: 9,
     letterSpacing: 0.8,
     fontWeight: '500',
+    textAlign: 'center',
+    flexShrink: 1,
   },
   rsvp: {
     fontSize: 8,

@@ -5,6 +5,7 @@ import { Alert, StyleSheet, Text, View } from 'react-native';
 import { ExpenseCharts } from '@/components/ExpenseCharts';
 import { ExpenseRow } from '@/components/ExpenseRow';
 import { FormScrollView } from '@/components/FormScrollView';
+import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { EmptyState, Fab, StatCard } from '@/components/ui';
 import { useFabScrollPadding } from '@/hooks/useFabBottomOffset';
@@ -109,6 +110,8 @@ export default function ExpensesScreen() {
               />
             ))
           )}
+
+          <OverviewNativeAd />
         </FormScrollView>
 
         <Fab onPress={() => router.push(`/modals/add-expense?eventId=${eventId}`)} />
