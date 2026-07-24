@@ -22,6 +22,12 @@ plugins {
   id("expo-autolinking-settings")
 }
 
+// Force-delete autolinking cache on non-Windows builders so paths are regenerated for Linux (EAS).
+def autolinkingCacheDir = new File(rootDir, "build/generated/autolinking")
+if (!System.getProperty("os.name").toLowerCase().contains("windows")) {
+  autolinkingCacheDir.deleteDir()
+}
+
 extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
   if (System.getenv('EXPO_USE_COMMUNITY_AUTOLINKING') == '1') {
     ex.autolinkLibrariesFromCommand()
