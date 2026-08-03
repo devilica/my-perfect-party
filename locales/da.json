@@ -69,7 +69,10 @@
       "anniversary": "Jubilæum",
       "engagement": "Forlovelse",
       "other": "Andet"
-    }
+    },
+    "exportPdf": "Eksporter PDF",
+    "exportFailed": "PDF kunne ikke eksporteres. Prøv igen.",
+    "exportSharingUnavailable": "Deling er ikke tilgængelig på denne enhed."
   },
   "tabs": {
     "overview": "Overblik",
@@ -305,7 +308,7 @@
     "preset310": "3 borde × 10 pladser",
     "preset57": "5 borde × 7 pladser",
     "hallOverviewTitle": "Oversigt over salen",
-    "hallOverviewHint": "Stryg op, ned, til venstre og højre. Knib eller brug +/− for zoom. Træk et bord for at flytte det.",
+    "hallOverviewHint": "Knib eller brug +/− for zoom. Træk salen for at panorere. Træk et bord for at flytte det.",
     "hallOverviewEmpty": "Tilføj borde først for at se oversigten over salen.",
     "hallOverviewZoomIn": "Zoom ind",
     "hallOverviewZoomOut": "Zoom ud",
@@ -486,7 +489,15 @@
     "supportDescription": "Spørgsmål, tips eller en fejl? Kontakt os.",
     "contactSupport": "Kontakt support",
     "supportEmailSubject": "Mit perfekte fest — support",
-    "supportMailUnavailable": "Kunne ikke åbne mail-appen. Kopiér support-e-mailadressen nedenfor."
+    "supportMailUnavailable": "Kunne ikke åbne mail-appen. Kopiér support-e-mailadressen nedenfor.",
+    "themeChangeAdHint": "Se en reklame for at skifte tema.",
+    "reviewTitle": "Bedøm appen",
+    "reviewDescription": "Kan du lide appen? Skriv en anmeldelse på Google Play.",
+    "reviewUnavailable": "Kunne ikke åbne Google Play.",
+    "reviewPromptTitle": "Kan du lide appen?",
+    "reviewPromptMessage": "Hvis My Perfect Party hjælper dig med at planlægge, ville en kort anmeldelse på Google Play betyde meget.",
+    "reviewPromptRate": "Bedøm nu",
+    "reviewPromptLater": "Senere"
   },
   "ads": {
     "sponsored": "Annonce"

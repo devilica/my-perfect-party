@@ -84,6 +84,7 @@ type PersistedState = {
   backupEmail?: string;
   lastBackupAt?: string;
   guestSortByEvent?: Record<string, GuestSort>;
+  reviewPromptDone?: boolean;
 };
 
 const LOCALE_VERSION = 3;
@@ -259,6 +260,7 @@ type WeddingState = {
   backupEmail: string;
   lastBackupAt?: string;
   guestSortByEvent: Record<string, GuestSort>;
+  reviewPromptDone: boolean;
   _hasHydrated: boolean;
   setHasHydrated: (value: boolean) => void;
   setLanguage: (language: Language) => void;
@@ -268,6 +270,7 @@ type WeddingState = {
   isAppThemeUnlocked: (themeId: CelebrationThemeId) => boolean;
   setBackupEmail: (email: string) => void;
   markBackupCompleted: () => void;
+  markReviewPromptDone: () => void;
   exportBackupData: () => BackupData;
   importBackupData: (data: BackupData) => void;
   addEvent: (
@@ -329,6 +332,7 @@ export const useWeddingStore = create<WeddingState>()(
       backupEmail: '',
       lastBackupAt: undefined,
       guestSortByEvent: {},
+      reviewPromptDone: false,
       _hasHydrated: false,
       setHasHydrated: (value) => set({ _hasHydrated: value }),
 
@@ -338,6 +342,8 @@ export const useWeddingStore = create<WeddingState>()(
         set({ language, hasSelectedLanguage: true }),
 
       setAppTheme: (appTheme) => set({ appTheme }),
+
+      markReviewPromptDone: () => set({ reviewPromptDone: true }),
 
       unlockAppTheme: (themeId) => {
         set((state) => {
@@ -795,6 +801,7 @@ export const useWeddingStore = create<WeddingState>()(
         backupEmail: state.backupEmail,
         lastBackupAt: state.lastBackupAt,
         guestSortByEvent: state.guestSortByEvent,
+        reviewPromptDone: state.reviewPromptDone,
       }),
       merge: (persisted, current) => {
         const saved = persisted as PersistedState | undefined;
@@ -817,6 +824,7 @@ export const useWeddingStore = create<WeddingState>()(
           backupEmail: saved.backupEmail ?? current.backupEmail ?? '',
           lastBackupAt: saved.lastBackupAt ?? current.lastBackupAt,
           guestSortByEvent: normalizeGuestSortByEvent(saved.guestSortByEvent),
+          reviewPromptDone: saved.reviewPromptDone ?? current.reviewPromptDone ?? false,
         };
       },
       onRehydrateStorage: () => (state) => {

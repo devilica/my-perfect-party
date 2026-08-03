@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.md,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.md,
-    minHeight: 52,
+    minHeight: 44,
   },
   optionText: {
     ...typography.body,

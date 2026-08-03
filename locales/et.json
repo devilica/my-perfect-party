@@ -69,7 +69,10 @@
       "anniversary": "Aastapäev",
       "engagement": "Kihlus",
       "other": "Muu"
-    }
+    },
+    "exportPdf": "Ekspordi PDF",
+    "exportFailed": "PDF-i ei õnnestunud eksportida. Proovi uuesti.",
+    "exportSharingUnavailable": "Jagamine pole sellel seadmel saadaval."
   },
   "tabs": {
     "overview": "Ülevaade",
@@ -202,9 +205,9 @@
     "emptyTitle": "Külalisi pole veel",
     "emptySubtitle": "Lisa külalised ja jälgi, kes on osalemise kinnitanud.",
     "firstName": "Eesnimi",
-    "firstNamePlaceholder": "nt Ana",
+    "firstNamePlaceholder": "nt Mari",
     "lastName": "Perekonnanimi",
-    "lastNamePlaceholder": "nt Petrović",
+    "lastNamePlaceholder": "nt Tamm",
     "phone": "Telefon",
     "phonePlaceholder": "nt 066 123 456",
     "category": "Kategooria",
@@ -305,7 +308,7 @@
     "preset310": "3 lauda × 10 kohta",
     "preset57": "5 lauda × 7 kohta",
     "hallOverviewTitle": "Saali ülevaade",
-    "hallOverviewHint": "Libista üles, alla, vasakule ja paremale. Näpista või kasuta +/− suumimiseks. Lohista lauda, et seda liigutada.",
+    "hallOverviewHint": "Näpista või kasuta +/− suumimiseks. Lohista saali vaate liigutamiseks. Lohista lauda, et seda liigutada.",
     "hallOverviewEmpty": "Lisa esmalt lauad, et näha saali ülevaadet.",
     "hallOverviewZoomIn": "Suumi sisse",
     "hallOverviewZoomOut": "Suumi välja",
@@ -486,7 +489,15 @@
     "supportDescription": "Küsimused, nõuanded või viga? Võta ühendust.",
     "contactSupport": "Võta ühendust toega",
     "supportEmailSubject": "Minu täiuslik pidu — tugi",
-    "supportMailUnavailable": "Meilirakendust ei saanud avada. Kopeeri allpool toetuse e-posti aadress."
+    "supportMailUnavailable": "Meilirakendust ei saanud avada. Kopeeri allpool toetuse e-posti aadress.",
+    "themeChangeAdHint": "Vaata reklaami, et teemat vahetada.",
+    "reviewTitle": "Hinda rakendust",
+    "reviewDescription": "Meeldib rakendus? Jäta arvustus Google Playsse.",
+    "reviewUnavailable": "Google Playd ei saanud avada.",
+    "reviewPromptTitle": "Kas rakendus meeldib?",
+    "reviewPromptMessage": "Kui Minu täiuslik pidu aitab sul planeerida, oleks lühike arvustus Google Plays suureks toeks.",
+    "reviewPromptRate": "Hinda kohe",
+    "reviewPromptLater": "Hiljem"
   },
   "ads": {
     "sponsored": "Reklaam"

@@ -69,7 +69,10 @@
       "anniversary": "Jubileja",
       "engagement": "Līgavas",
       "other": "Cits"
-    }
+    },
+    "exportPdf": "Eksportēt PDF",
+    "exportFailed": "Neizdevās eksportēt PDF. Mēģiniet vēlreiz.",
+    "exportSharingUnavailable": "Kopīgošana šajā ierīcē nav pieejama."
   },
   "tabs": {
     "overview": "Pārskats",
@@ -202,9 +205,9 @@
     "emptyTitle": "Vēl nav viesu",
     "emptySubtitle": "Pievienojiet viesus un sekojiet, kas apstiprināja ierašanos.",
     "firstName": "Vārds",
-    "firstNamePlaceholder": "piem. Ana",
+    "firstNamePlaceholder": "piem. Anna",
     "lastName": "Uzvārds",
-    "lastNamePlaceholder": "piem. Petrović",
+    "lastNamePlaceholder": "piem. Bērziņa",
     "phone": "Tālrunis",
     "phonePlaceholder": "piem. 066 123 456",
     "category": "Kategorija",
@@ -305,7 +308,7 @@
     "preset310": "3 galdi × 10 vietas",
     "preset57": "5 galdi × 7 vietas",
     "hallOverviewTitle": "Zāles pārskats",
-    "hallOverviewHint": "Velciet augšup, lejup, pa kreisi un pa labi. Sašpiniet vai izmantojiet +/− tālummaiņai. Velciet galdu, lai mainītu tā pozīciju.",
+    "hallOverviewHint": "Sašpiniet vai izmantojiet +/− tālummaiņai. Velciet zāli, lai pārvietotu skatu. Velciet galdu, lai mainītu tā pozīciju.",
     "hallOverviewEmpty": "Vispirms pievienojiet galdus, lai redzētu zāles pārskatu.",
     "hallOverviewZoomIn": "Pietuvināt",
     "hallOverviewZoomOut": "Attālināt",
@@ -486,7 +489,15 @@
     "supportDescription": "Jautājumi, padomi vai kļūda? Sazinieties ar mums.",
     "contactSupport": "Sazināties ar atbalstu",
     "supportEmailSubject": "Mans ideālais baliņš — atbalsts",
-    "supportMailUnavailable": "Nevarēja atvērt e-pasta lietotni. Nokopējiet e-pasta adresi zemāk."
+    "supportMailUnavailable": "Nevarēja atvērt e-pasta lietotni. Nokopējiet e-pasta adresi zemāk.",
+    "themeChangeAdHint": "Noskatieties reklāmu, lai mainītu tēmu.",
+    "reviewTitle": "Novērtēt lietotni",
+    "reviewDescription": "Patīk lietotne? Atstāj atsauksmi Google Play.",
+    "reviewUnavailable": "Neizdevās atvērt Google Play.",
+    "reviewPromptTitle": "Patīk lietotne?",
+    "reviewPromptMessage": "Ja Mana ideālā svinēšana palīdz plānot, īsa atsauksme Google Play mums ļoti palīdzētu.",
+    "reviewPromptRate": "Novērtēt tagad",
+    "reviewPromptLater": "Vēlāk"
   },
   "ads": {
     "sponsored": "Reklāma"

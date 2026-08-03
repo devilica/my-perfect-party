@@ -24,6 +24,7 @@ import {
   INVITATION_FONT_COLORS,
 } from '@/constants/invitationIcons';
 import {
+  getSuggestedFontColor,
   getTemplateIndex,
   INVITATION_TEMPLATES,
 } from '@/constants/invitationTemplates';
@@ -159,13 +160,22 @@ export default function InvitationEditorModal() {
     setInvitation((current) => (current ? { ...current, [key]: value } : current));
   };
 
+  const selectTemplate = (templateId: string) => {
+    if (!invitation) return;
+    setInvitation({
+      ...invitation,
+      templateId,
+      fontColor: getSuggestedFontColor(templateId),
+    });
+  };
+
   const cycleTemplate = (direction: -1 | 1) => {
     if (!invitation) return;
     const currentIndex = getTemplateIndex(invitation.templateId);
     const nextIndex =
       (currentIndex + direction + INVITATION_TEMPLATES.length) %
       INVITATION_TEMPLATES.length;
-    updateField('templateId', INVITATION_TEMPLATES[nextIndex].id);
+    selectTemplate(INVITATION_TEMPLATES[nextIndex].id);
   };
 
   const handleSave = () => {
@@ -289,7 +299,7 @@ export default function InvitationEditorModal() {
 
         <InvitationTemplatePicker
           selectedId={invitation.templateId}
-          onSelect={(templateId) => updateField('templateId', templateId)}
+          onSelect={selectTemplate}
         />
 
         <Text style={[styles.fieldLabel, { color: theme.textSecondary }]}>
@@ -306,6 +316,44 @@ export default function InvitationEditorModal() {
           thumbTintColor={theme.primary}
           style={styles.slider}
         />
+
+        <Text style={[styles.fieldLabel, { color: theme.textSecondary }]}>
+          {t('invitation.fontSize')}: {Math.round(invitation.fontSize)}
+        </Text>
+        <Slider
+          minimumValue={24}
+          maximumValue={48}
+          step={1}
+          value={invitation.fontSize}
+          onValueChange={(value) => updateField('fontSize', value)}
+          minimumTrackTintColor={theme.primary}
+          maximumTrackTintColor={theme.border}
+          thumbTintColor={theme.primary}
+          style={styles.slider}
+        />
+
+        <Text style={[styles.fieldLabel, { color: theme.textSecondary }]}>
+          {t('invitation.fontColor')}
+        </Text>
+        <View style={styles.colorRow}>
+          {INVITATION_FONT_COLORS.map((color) => {
+            const selected = invitation.fontColor === color;
+            return (
+              <Pressable
+                key={color}
+                onPress={() => updateField('fontColor', color)}
+                style={[
+                  styles.colorSwatch,
+                  {
+                    backgroundColor: color,
+                    borderColor: selected ? theme.primary : theme.border,
+                    borderWidth: selected ? 3 : 1,
+                  },
+                ]}
+              />
+            );
+          })}
+        </View>
 
         <Text style={[styles.fieldLabel, { color: theme.textSecondary }]}>
           {t('invitation.lineSpacing')}
@@ -379,44 +427,6 @@ export default function InvitationEditorModal() {
           })}
         </View>
 
-        <Text style={[styles.fieldLabel, { color: theme.textSecondary }]}>
-          {t('invitation.fontSize')}: {Math.round(invitation.fontSize)}
-        </Text>
-        <Slider
-          minimumValue={24}
-          maximumValue={48}
-          step={1}
-          value={invitation.fontSize}
-          onValueChange={(value) => updateField('fontSize', value)}
-          minimumTrackTintColor={theme.primary}
-          maximumTrackTintColor={theme.border}
-          thumbTintColor={theme.primary}
-          style={styles.slider}
-        />
-
-        <Text style={[styles.fieldLabel, { color: theme.textSecondary }]}>
-          {t('invitation.fontColor')}
-        </Text>
-        <View style={styles.colorRow}>
-          {INVITATION_FONT_COLORS.map((color) => {
-            const selected = invitation.fontColor === color;
-            return (
-              <Pressable
-                key={color}
-                onPress={() => updateField('fontColor', color)}
-                style={[
-                  styles.colorSwatch,
-                  {
-                    backgroundColor: color,
-                    borderColor: selected ? theme.primary : theme.border,
-                    borderWidth: selected ? 3 : 1,
-                  },
-                ]}
-              />
-            );
-          })}
-        </View>
-
         <View style={styles.subEventsHeader}>
           <Text style={[styles.sectionTitle, { color: theme.text }]}>
             {t('invitation.subEvents')}
@@ -480,13 +490,13 @@ export default function InvitationEditorModal() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: spacing.lg,
+    padding: spacing.md,
   },
   previewSection: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: spacing.lg,
+    marginBottom: spacing.md,
     gap: spacing.sm,
   },
   navBtn: {
@@ -522,7 +532,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: spacing.sm,
-    marginBottom: spacing.lg,
+    marginBottom: spacing.md,
   },
   colorSwatch: {
     width: 32,

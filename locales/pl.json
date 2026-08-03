@@ -69,7 +69,10 @@
       "anniversary": "Rocznica",
       "engagement": "Zaręczyny",
       "other": "Inne"
-    }
+    },
+    "exportPdf": "Eksportuj PDF",
+    "exportFailed": "Nie udało się wyeksportować PDF. Spróbuj ponownie.",
+    "exportSharingUnavailable": "Udostępnianie nie jest dostępne na tym urządzeniu."
   },
   "tabs": {
     "overview": "Przegląd",
@@ -305,7 +308,7 @@
     "preset310": "3 stoły × 10 miejsc",
     "preset57": "5 stołów × 7 miejsc",
     "hallOverviewTitle": "Podgląd sali",
-    "hallOverviewHint": "Przesuń w górę, w dół, w lewo i w prawo. Uszczypnij lub użyj +/− do powiększenia. Przeciągnij stół, aby zmienić jego pozycję.",
+    "hallOverviewHint": "Uszczypnij lub użyj +/− do powiększenia. Przeciągnij salę, aby przesunąć widok. Przeciągnij stół, aby zmienić jego pozycję.",
     "hallOverviewEmpty": "Najpierw dodaj stoły, aby zobaczyć podgląd sali.",
     "hallOverviewZoomIn": "Powiększ",
     "hallOverviewZoomOut": "Pomniejsz",
@@ -486,7 +489,15 @@
     "supportDescription": "Pytania, wskazówki lub błąd? Skontaktuj się z nami.",
     "contactSupport": "Skontaktuj się ze wsparciem",
     "supportEmailSubject": "Moje idealne przyjęcie — wsparcie",
-    "supportMailUnavailable": "Nie można otworzyć aplikacji poczty. Skopiuj adres e-mail poniżej."
+    "supportMailUnavailable": "Nie można otworzyć aplikacji poczty. Skopiuj adres e-mail poniżej.",
+    "themeChangeAdHint": "Obejrzyj reklamę, aby zmienić motyw.",
+    "reviewTitle": "Oceń aplikację",
+    "reviewDescription": "Podoba Ci się aplikacja? Zostaw opinię w Google Play.",
+    "reviewUnavailable": "Nie udało się otworzyć Google Play.",
+    "reviewPromptTitle": "Podoba Ci się aplikacja?",
+    "reviewPromptMessage": "Jeśli Moja idealna impreza pomaga Ci planować, krótka opinia w Google Play wiele by dla nas znaczyła.",
+    "reviewPromptRate": "Oceń teraz",
+    "reviewPromptLater": "Później"
   },
   "ads": {
     "sponsored": "Reklama"

@@ -69,7 +69,10 @@
       "anniversary": "Godišnjica",
       "engagement": "Veridba",
       "other": "Ostalo"
-    }
+    },
+    "exportPdf": "Izvezi PDF",
+    "exportFailed": "PDF se nije mogao izvesti. Pokušajte ponovo.",
+    "exportSharingUnavailable": "Deljenje nije dostupno na ovom uređaju."
   },
   "tabs": {
     "overview": "Pregled",
@@ -136,7 +139,7 @@
     "fontSerif": "Serif",
     "fontSans": "Sans",
     "fontSize": "Veličina fonta",
-    "fontColor": "Boja fonta",
+    "fontColor": "Boja teksta",
     "subEvents": "Poddogađaji",
     "subEventTitle": "Naslov poddogađaja",
     "subEventTime": "Vreme",
@@ -303,7 +306,7 @@
     "previewFree": "Slobodno",
     "hallOverviewTitle": "Pregled sale",
     "viewHall": "Vidi salu",
-    "hallOverviewHint": "Prevuci prikaz gore, dolje, lijevo i desno. Štipaj ili koristi +/− za zoom. Prevuci sto da promijeniš poziciju.",
+    "hallOverviewHint": "Prevuci prikaz lijevo i desno. Štipaj ili koristi +/− za zoom. Prevuci sto da promijeniš poziciju.",
     "hallOverviewEmpty": "Prvo dodaj stolove da vidiš pregled sale.",
     "hallOverviewZoomIn": "Uvećaj",
     "hallOverviewZoomOut": "Umanji",
@@ -451,6 +454,7 @@
     "appTheme": "Tema aplikacije",
     "appThemeHint": "Boje početne stranice i postavki.",
     "themeUnlockHint": "Pogledaj reklamu da otključaš zaključane teme.",
+    "themeChangeAdHint": "Pogledaj reklamu da promijeniš temu.",
     "themeUnlocked": "Tema je otključana!",
     "themeAdUnavailable": "Reklama trenutno nije dostupna. Pokušaj kasnije.",
     "language": "Jezik",
@@ -486,7 +490,14 @@
     "supportDescription": "Imaš pitanje, savjet ili grešku? Javi nam se.",
     "contactSupport": "Kontaktiraj podršku",
     "supportEmailSubject": "Moja savršena proslava — podrška",
-    "supportMailUnavailable": "Nije moguće otvoriti email aplikaciju. Kopiraj email adresu ispod."
+    "supportMailUnavailable": "Nije moguće otvoriti email aplikaciju. Kopiraj email adresu ispod.",
+    "reviewTitle": "Oceni aplikaciju",
+    "reviewDescription": "Sviđa ti se aplikacija? Ostavi recenziju na Google Play-u.",
+    "reviewUnavailable": "Nije moguće otvoriti Google Play.",
+    "reviewPromptTitle": "Sviđa ti se aplikacija?",
+    "reviewPromptMessage": "Ako ti Moja savršena proslava pomaže u planiranju, kratka recenzija na Google Playu bi nam puno značila.",
+    "reviewPromptRate": "Oceni sada",
+    "reviewPromptLater": "Kasnije"
   },
   "ads": {
     "sponsored": "Reklama",

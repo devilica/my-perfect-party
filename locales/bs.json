@@ -69,7 +69,10 @@
       "anniversary": "Godišnjica",
       "engagement": "Veridba",
       "other": "Ostalo"
-    }
+    },
+    "exportPdf": "Izvezi PDF",
+    "exportFailed": "PDF se nije mogao izvesti. Pokušajte ponovo.",
+    "exportSharingUnavailable": "Dijeljenje nije dostupno na ovom uređaju."
   },
   "tabs": {
     "overview": "Pregled",
@@ -204,7 +207,7 @@
     "firstName": "Ime",
     "firstNamePlaceholder": "npr. Ana",
     "lastName": "Prezime",
-    "lastNamePlaceholder": "npr. Petrović",
+    "lastNamePlaceholder": "npr. Hodžić",
     "phone": "Telefon",
     "phonePlaceholder": "npr. 066 123 456",
     "category": "Kategorija",
@@ -305,7 +308,7 @@
     "preset310": "3 stola × 10 mjesta",
     "preset57": "5 stolova × 7 mjesta",
     "hallOverviewTitle": "Pregled sale",
-    "hallOverviewHint": "Prevucite prikaz gore, dolje, lijevo i desno. Štipaj ili koristi +/− za zoom. Prevucite sto da promijenite poziciju.",
+    "hallOverviewHint": "Štipaj ili koristi +/− za zoom. Prevuci salu da pomjeriš prikaz. Prevuci sto da promijeniš poziciju.",
     "hallOverviewEmpty": "Prvo dodajte stolove da vidite pregled sale.",
     "hallOverviewZoomIn": "Uvećaj",
     "hallOverviewZoomOut": "Umanji",
@@ -486,7 +489,15 @@
     "supportDescription": "Imaš pitanje, savjet ili grešku? Javi nam se.",
     "contactSupport": "Kontaktiraj podršku",
     "supportEmailSubject": "Moja savršena proslava — podrška",
-    "supportMailUnavailable": "Nije moguće otvoriti email aplikaciju. Kopiraj email adresu ispod."
+    "supportMailUnavailable": "Nije moguće otvoriti email aplikaciju. Kopiraj email adresu ispod.",
+    "themeChangeAdHint": "Pogledaj reklamu da promijeniš temu.",
+    "reviewTitle": "Ocijeni aplikaciju",
+    "reviewDescription": "Sviđa ti se aplikacija? Ostavi recenziju na Google Play-u.",
+    "reviewUnavailable": "Nije moguće otvoriti Google Play.",
+    "reviewPromptTitle": "Sviđa ti se aplikacija?",
+    "reviewPromptMessage": "Ako ti Moja savršena proslava pomaže u planiranju, kratka recenzija na Google Playu bi nam puno značila.",
+    "reviewPromptRate": "Ocijeni sada",
+    "reviewPromptLater": "Kasnije"
   },
   "ads": {
     "sponsored": "Reklama"

@@ -69,7 +69,10 @@
       "anniversary": "Річниця",
       "engagement": "Заручини",
       "other": "Інше"
-    }
+    },
+    "exportPdf": "Експорт PDF",
+    "exportFailed": "Не вдалося експортувати PDF. Спробуйте ще раз.",
+    "exportSharingUnavailable": "Поширення недоступне на цьому пристрої."
   },
   "tabs": {
     "overview": "Огляд",
@@ -202,9 +205,9 @@
     "emptyTitle": "Гостей ще немає",
     "emptySubtitle": "Додайте гостей і відстежуйте, хто підтвердив присутність.",
     "firstName": "Ім'я",
-    "firstNamePlaceholder": "напр. Ana",
+    "firstNamePlaceholder": "напр. Олена",
     "lastName": "Прізвище",
-    "lastNamePlaceholder": "напр. Petrović",
+    "lastNamePlaceholder": "напр. Коваленко",
     "phone": "Телефон",
     "phonePlaceholder": "напр. 066 123 456",
     "category": "Категорія",
@@ -305,7 +308,7 @@
     "preset310": "3 столи × 10 місць",
     "preset57": "5 столів × 7 місць",
     "hallOverviewTitle": "Огляд залу",
-    "hallOverviewHint": "Проведіть пальцем вгору, вниз, ліворуч і праворуч. Зведіть пальці або використовуйте +/− для масштабу. Перетягніть стіл, щоб змінити його позицію.",
+    "hallOverviewHint": "Зведіть пальці або використовуйте +/− для масштабу. Перетягніть зал, щоб перемістити перегляд. Перетягніть стіл, щоб змінити його позицію.",
     "hallOverviewEmpty": "Спочатку додайте столи, щоб побачити огляд залу.",
     "hallOverviewZoomIn": "Збільшити",
     "hallOverviewZoomOut": "Зменшити",
@@ -486,7 +489,15 @@
     "supportDescription": "Питання, поради чи помилка? Зв'яжіться з нами.",
     "contactSupport": "Зв'язатися з підтримкою",
     "supportEmailSubject": "Моє ідеальне свято — підтримка",
-    "supportMailUnavailable": "Не вдалося відкрити поштовий застосунок. Скопіюйте адресу електронної пошти нижче."
+    "supportMailUnavailable": "Не вдалося відкрити поштовий застосунок. Скопіюйте адресу електронної пошти нижче.",
+    "themeChangeAdHint": "Перегляньте рекламу, щоб змінити тему.",
+    "reviewTitle": "Оцінити застосунок",
+    "reviewDescription": "Подобається застосунок? Залиште відгук у Google Play.",
+    "reviewUnavailable": "Не вдалося відкрити Google Play.",
+    "reviewPromptTitle": "Подобається застосунок?",
+    "reviewPromptMessage": "Якщо Мій ідеальний празник допомагає вам планувати, короткий відгук у Google Play дуже допоможе.",
+    "reviewPromptRate": "Оцінити зараз",
+    "reviewPromptLater": "Пізніше"
   },
   "ads": {
     "sponsored": "Реклама"

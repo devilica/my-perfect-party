@@ -69,7 +69,10 @@
       "anniversary": "Anniversarju",
       "engagement": "Imħabba",
       "other": "Oħrajn"
-    }
+    },
+    "exportPdf": "Esporta PDF",
+    "exportFailed": "Il-PDF ma setax jiġi esportat. Erġa’ pprova.",
+    "exportSharingUnavailable": "Il-qsim mhux disponibbli fuq dan l-apparat."
   },
   "tabs": {
     "overview": "Ħarsa ġenerali",
@@ -202,9 +205,9 @@
     "emptyTitle": "Għad m'hemmx mistiedna",
     "emptySubtitle": "Żid mistiedna u ssegwi min ikkonferma l-attendenza.",
     "firstName": "Isem",
-    "firstNamePlaceholder": "eż. Ana",
+    "firstNamePlaceholder": "eż. Maria",
     "lastName": "Kunjom",
-    "lastNamePlaceholder": "eż. Petrović",
+    "lastNamePlaceholder": "eż. Borg",
     "phone": "Telefon",
     "phonePlaceholder": "eż. 066 123 456",
     "category": "Kategorija",
@@ -305,7 +308,7 @@
     "preset310": "3 mejda × 10 siġġu",
     "preset57": "5 mejda × 7 siġġu",
     "hallOverviewTitle": "Viżjoni ġenerali tal-sala",
-    "hallOverviewHint": "Iddreggja 'l fuq, 'l isfel, xellug u lemin. Aqleb jew uża +/− għall-zoom. Iddreggja mejda biex tbiddel il-pożizzjoni.",
+    "hallOverviewHint": "Aqleb jew uża +/− għall-zoom. Iddreggja s-sala biex tmexxi l-vista. Iddreggja mejda biex tbiddel il-pożizzjoni.",
     "hallOverviewEmpty": "Żid l-ewwel il-mejdiet biex tara l-viżjoni ġenerali tas-sala.",
     "hallOverviewZoomIn": "Zoom 'l ġewwa",
     "hallOverviewZoomOut": "Zoom 'l barra",
@@ -486,7 +489,15 @@
     "supportDescription": "Mistoqsijiet, pariri jew bug? Ikkuntattjana.",
     "contactSupport": "Ikkuntattja l-appoġġ",
     "supportEmailSubject": "Il-festa perfetta tiegħi — appoġġ",
-    "supportMailUnavailable": "Ma setax jinfetaħ l-app tal-posta. Kopja l-indirizz tal-email hawn taħt."
+    "supportMailUnavailable": "Ma setax jinfetaħ l-app tal-posta. Kopja l-indirizz tal-email hawn taħt.",
+    "themeChangeAdHint": "Ara reklam biex tbiddel it-tema.",
+    "reviewTitle": "Irrevedi l-app",
+    "reviewDescription": "Tħobb l-app? Ħalli reviżjoni fuq Google Play.",
+    "reviewUnavailable": "Ma setax jinfetaħ Google Play.",
+    "reviewPromptTitle": "Tħobb l-app?",
+    "reviewPromptMessage": "Jekk Il-Festa Perfetta Tiegħi tgħinek tippjana, reviżjoni qasira fuq Google Play tfisser ħafna.",
+    "reviewPromptRate": "Irrevedi issa",
+    "reviewPromptLater": "Aktar tard"
   },
   "ads": {
     "sponsored": "Reklam"

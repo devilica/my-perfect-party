@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     borderTopLeftRadius: radius.xl,
     borderTopRightRadius: radius.xl,
-    padding: spacing.lg,
+    padding: spacing.md,
     maxHeight: '70%',
   },
   title: {

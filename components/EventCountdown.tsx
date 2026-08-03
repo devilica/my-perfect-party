@@ -76,10 +76,10 @@ export function EventCountdown({ date, location }: EventCountdownProps) {
 const styles = StyleSheet.create({
   card: {
     marginTop: spacing.sm,
-    marginBottom: spacing.lg,
+    marginBottom: spacing.md,
     alignItems: 'center',
     gap: spacing.xs,
-    paddingVertical: spacing.lg,
+    paddingVertical: spacing.md,
   },
   label: {
     ...typography.caption,

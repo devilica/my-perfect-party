@@ -16,13 +16,24 @@ import {
 } from '@/components/ThemedEventModal';
 import { Button, TextInputField } from '@/components/ui';
 import { ATTENDANCE_STATUSES } from '@/constants/guestAttendance';
+import { useIsOnline } from '@/hooks/useIsOnline';
 import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
+import { areAdsEnabled, shouldShowAdPreviews } from '@/lib/adsEnvironment';
+import { didCrossGuestAdMilestone, getGuestStats } from '@/lib/guestStats';
 import { getAssignableTables } from '@/lib/seatingStats';
 import { useTranslation } from '@/lib/i18n';
+import {
+  preloadRewardedGuestAd,
+  showRewardedGuestAd,
+} from '@/lib/rewardedGuestAd';
 import { getRouteParam } from '@/lib/routeParams';
 import { useWeddingStore } from '@/store/weddingStore';
 import { AttendanceStatus } from '@/types/models';
 import { radius, spacing, typography } from '@/theme/colors';
+
+function canShowGuestMilestoneAd(isOnline: boolean): boolean {
+  return isOnline && (areAdsEnabled() || shouldShowAdPreviews());
+}
 
 export default function GuestFormModal() {
   const router = useRouter();
@@ -39,6 +50,7 @@ export default function GuestFormModal() {
   const celebrationTheme = useEventCelebrationTheme(eventId ?? '');
   const theme = celebrationTheme.colors;
   const modalScrollPadding = useModalScrollPadding();
+  const isOnline = useIsOnline();
 
   const hasGuestCategories = (event?.guestCategories?.length ?? 0) > 0;
   const hasGuestSides = (event?.guestSides?.length ?? 0) > 0;
@@ -79,6 +91,12 @@ export default function GuestFormModal() {
     }
   }, [existingGuest, defaultCategory, defaultSide]);
 
+  useEffect(() => {
+    if (areAdsEnabled() && isOnline) {
+      preloadRewardedGuestAd();
+    }
+  }, [isOnline]);
+
   const assignableTables = useMemo(() => {
     if (!eventId || !firstName.trim()) return [];
 
@@ -109,7 +127,7 @@ export default function GuestFormModal() {
     existingGuest?.id,
   ]);
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!firstName.trim()) {
       setFirstNameError(t('guests.firstNameRequired'));
       return;
@@ -117,6 +135,8 @@ export default function GuestFormModal() {
     if (!eventId) return;
 
     const parsedPartySize = Math.max(1, parseInt(partySize, 10) || 1);
+    const oldTotalPeople = getGuestStats(allGuests, eventId).totalPeople;
+    const oldPartySize = existingGuest?.partySize ?? 0;
     const payload = {
       eventId,
       firstName: firstName.trim(),
@@ -144,6 +164,15 @@ export default function GuestFormModal() {
         else setFirstNameError(t('guests.duplicateName'));
         return;
       }
+    }
+
+    const newTotalPeople = oldTotalPeople - oldPartySize + parsedPartySize;
+    if (
+      didCrossGuestAdMilestone(oldTotalPeople, newTotalPeople) &&
+      canShowGuestMilestoneAd(isOnline)
+    ) {
+      await showRewardedGuestAd();
+      preloadRewardedGuestAd();
     }
 
     router.back();

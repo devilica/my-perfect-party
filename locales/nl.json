@@ -69,7 +69,10 @@
       "anniversary": "Jubileum",
       "engagement": "Verloving",
       "other": "Overig"
-    }
+    },
+    "exportPdf": "PDF exporteren",
+    "exportFailed": "PDF kon niet worden geëxporteerd. Probeer het opnieuw.",
+    "exportSharingUnavailable": "Delen is niet beschikbaar op dit apparaat."
   },
   "tabs": {
     "overview": "Overzicht",
@@ -305,7 +308,7 @@
     "preset310": "3 tafels × 10 plaatsen",
     "preset57": "5 tafels × 7 plaatsen",
     "hallOverviewTitle": "Zaaltoverzicht",
-    "hallOverviewHint": "Veeg omhoog, omlaag, links en rechts. Knijp of gebruik +/− om te zoomen. Sleep een tafel om deze te verplaatsen.",
+    "hallOverviewHint": "Knijp of gebruik +/− om te zoomen. Sleep de zaal om te pannen. Sleep een tafel om deze te verplaatsen.",
     "hallOverviewEmpty": "Voeg eerst tafels toe om het zaaltoverzicht te zien.",
     "hallOverviewZoomIn": "Inzoomen",
     "hallOverviewZoomOut": "Uitzoomen",
@@ -486,7 +489,15 @@
     "supportDescription": "Vragen, tips of een bug? Neem contact op.",
     "contactSupport": "Contact opnemen",
     "supportEmailSubject": "Mijn perfecte feest — ondersteuning",
-    "supportMailUnavailable": "Kon de e-mailapp niet openen. Kopieer het e-mailadres hieronder."
+    "supportMailUnavailable": "Kon de e-mailapp niet openen. Kopieer het e-mailadres hieronder.",
+    "themeChangeAdHint": "Bekijk een advertentie om het thema te wijzigen.",
+    "reviewTitle": "Beoordeel de app",
+    "reviewDescription": "Vind je de app leuk? Laat een recensie achter op Google Play.",
+    "reviewUnavailable": "Google Play kon niet worden geopend.",
+    "reviewPromptTitle": "Vind je de app leuk?",
+    "reviewPromptMessage": "Als Mijn perfecte feest je helpt plannen, zou een korte recensie op Google Play veel betekenen.",
+    "reviewPromptRate": "Nu beoordelen",
+    "reviewPromptLater": "Later"
   },
   "ads": {
     "sponsored": "Advertentie"

@@ -69,7 +69,10 @@
       "anniversary": "Comóradh",
       "engagement": "Gealltanas pósta",
       "other": "Eile"
-    }
+    },
+    "exportPdf": "Easpórtáil PDF",
+    "exportFailed": "Níorbh fhéidir an PDF a easpórtáil. Bain triail eile as.",
+    "exportSharingUnavailable": "Níl comhroinnt ar fáil ar an ngléas seo."
   },
   "tabs": {
     "overview": "Forléargas",
@@ -202,9 +205,9 @@
     "emptyTitle": "Níl aon aoi fós",
     "emptySubtitle": "Cuir aoi leis agus rianaigh cé a dheimhnigh freastal.",
     "firstName": "Ainm baiste",
-    "firstNamePlaceholder": "m.sh. Ana",
+    "firstNamePlaceholder": "m.sh. Aoife",
     "lastName": "Sloinne",
-    "lastNamePlaceholder": "m.sh. Petrović",
+    "lastNamePlaceholder": "m.sh. Murphy",
     "phone": "Fón",
     "phonePlaceholder": "m.sh. 066 123 456",
     "category": "Catagóir",
@@ -305,7 +308,7 @@
     "preset310": "3 bord × 10 suíochán",
     "preset57": "5 bord × 7 suíochán",
     "hallOverviewTitle": "Foramharc an halla",
-    "hallOverviewHint": "Svaidhpeáil suas, síos, ar chlé agus ar dheis. Pinch nó úsáid +/− le haghaidh súmála. Tarraing boird chun í a athshuíomh.",
+    "hallOverviewHint": "Pinch nó úsáid +/− le haghaidh súmála. Tarraing an halla chun scrolláil. Tarraing boird chun í a athshuíomh.",
     "hallOverviewEmpty": "Cuir boird leis ar dtús chun forbairc an halla a fheiceáil.",
     "hallOverviewZoomIn": "Súmáil isteach",
     "hallOverviewZoomOut": "Súmáil amach",
@@ -486,7 +489,15 @@
     "supportDescription": "Ceisteanna, leideanna nó fabht? Déan teagmháil linn.",
     "contactSupport": "Déan teagmháil le tacaíocht",
     "supportEmailSubject": "Mo chóisir foirfe — tacaíocht",
-    "supportMailUnavailable": "Níorbh fhéidir an aip ríomhphoist a oscailt. Cóipeáil an seoladh ríomhphoist thíos."
+    "supportMailUnavailable": "Níorbh fhéidir an aip ríomhphoist a oscailt. Cóipeáil an seoladh ríomhphoist thíos.",
+    "themeChangeAdHint": "Féach ar fhógra chun an téama a athrú.",
+    "reviewTitle": "Tabhair léirmheas ar an aip",
+    "reviewDescription": "An bhfuil an aip go maith? Fág léirmheas ar Google Play.",
+    "reviewUnavailable": "Níorbh fhéidir Google Play a oscailt.",
+    "reviewPromptTitle": "An bhfuil an aip go maith?",
+    "reviewPromptMessage": "Má chuidíonn Mo Cheiliúradh Foirfe leat pleanáil, bheadh léirmheas gairid ar Google Play an-luachmhar.",
+    "reviewPromptRate": "Tabhair léirmheas anois",
+    "reviewPromptLater": "Níos déanaí"
   },
   "ads": {
     "sponsored": "Fógra"

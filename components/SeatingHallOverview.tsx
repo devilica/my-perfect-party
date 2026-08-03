@@ -14,10 +14,13 @@ import { TablePreviewDiagram } from '@/components/TablePreviewDiagram';
 import { DEFAULT_TABLE_SHAPE } from '@/constants/tableShapes';
 import {
   clampLayout,
+  getDefaultHallZoom,
+  getHallTableDiagramSize,
   getTableLayoutPosition,
+  HALL_TABLE_SIZE_BASE_ZOOM,
   pixelsToLayout,
-  SEATING_CANVAS_SIZE,
-  SEATING_TABLE_DIAGRAM_SIZE,
+  SEATING_CANVAS_HEIGHT,
+  SEATING_CANVAS_WIDTH,
 } from '@/lib/seatingLayout';
 import {
   buildTableSeatSlots,
@@ -30,9 +33,9 @@ import { Guest, SeatingTable } from '@/types/models';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
 
-const MIN_ZOOM = 0.35;
+const MIN_ZOOM = 0.1;
 const MAX_ZOOM = 1.4;
-const ZOOM_STEP = 0.1;
+const ZOOM_STEP = 0.05;
 
 type SeatingHallOverviewProps = {
   eventId: string;
@@ -44,7 +47,8 @@ type DraggableTableProps = {
   total: number;
   guests: Guest[];
   zoom: number;
-  canvasSize: number;
+  canvasWidth: number;
+  canvasHeight: number;
   onDragStart: () => void;
   onDragEnd: () => void;
   onMove: (tableId: string, x: number, y: number) => void;
@@ -56,21 +60,24 @@ function DraggableTable({
   total,
   guests,
   zoom,
-  canvasSize,
+  canvasWidth,
+  canvasHeight,
   onDragStart,
   onDragEnd,
   onMove,
 }: DraggableTableProps) {
-  const scaledCanvas = canvasSize * zoom;
-  const half = SEATING_TABLE_DIAGRAM_SIZE / 2;
+  const scaledWidth = canvasWidth * zoom;
+  const scaledHeight = canvasHeight * zoom;
+  const tableSize = getHallTableDiagramSize(zoom);
+  const half = tableSize / 2;
 
   const computePosition = useCallback(() => {
     const nextLayout = getTableLayoutPosition(table, index, total);
     return {
-      left: nextLayout.x * scaledCanvas - half,
-      top: nextLayout.y * scaledCanvas - half,
+      left: nextLayout.x * scaledWidth - half,
+      top: nextLayout.y * scaledHeight - half,
     };
-  }, [half, index, scaledCanvas, table, total]);
+  }, [half, index, scaledHeight, scaledWidth, table, total, tableSize]);
 
   const offsetRef = useRef(computePosition());
   const dragStartRef = useRef(computePosition());
@@ -95,10 +102,11 @@ function DraggableTable({
           dragStartRef.current = { ...offsetRef.current };
         },
         onPanResponderMove: (_, gesture) => {
-          const max = scaledCanvas - SEATING_TABLE_DIAGRAM_SIZE;
+          const maxLeft = scaledWidth - tableSize;
+          const maxTop = scaledHeight - tableSize;
           const next = {
-            left: Math.min(max, Math.max(0, dragStartRef.current.left + gesture.dx)),
-            top: Math.min(max, Math.max(0, dragStartRef.current.top + gesture.dy)),
+            left: Math.min(maxLeft, Math.max(0, dragStartRef.current.left + gesture.dx)),
+            top: Math.min(maxTop, Math.max(0, dragStartRef.current.top + gesture.dy)),
           };
           offsetRef.current = next;
           forceRender((value) => value + 1);
@@ -107,7 +115,13 @@ function DraggableTable({
           const { left, top } = offsetRef.current;
           const centerLeft = left + half;
           const centerTop = top + half;
-          const next = pixelsToLayout(centerLeft, centerTop, canvasSize, zoom);
+          const next = pixelsToLayout(
+            centerLeft,
+            centerTop,
+            canvasWidth,
+            canvasHeight,
+            zoom
+          );
           onMove(table.id, next.x, next.y);
           onDragEnd();
         },
@@ -115,7 +129,19 @@ function DraggableTable({
           onDragEnd();
         },
       }),
-    [canvasSize, half, onDragEnd, onDragStart, onMove, scaledCanvas, table.id, zoom]
+    [
+      canvasHeight,
+      canvasWidth,
+      half,
+      onDragEnd,
+      onDragStart,
+      onMove,
+      scaledHeight,
+      scaledWidth,
+      table.id,
+      tableSize,
+      zoom,
+    ]
   );
 
   const offset = offsetRef.current;
@@ -128,8 +154,8 @@ function DraggableTable({
         {
           left: offset.left,
           top: offset.top,
-          width: SEATING_TABLE_DIAGRAM_SIZE,
-          height: SEATING_TABLE_DIAGRAM_SIZE,
+          width: tableSize,
+          height: tableSize,
         },
       ]}
     >
@@ -139,7 +165,9 @@ function DraggableTable({
         capacity={table.capacity}
         seats={seats}
         shape={table.shape ?? DEFAULT_TABLE_SHAPE}
-        size={SEATING_TABLE_DIAGRAM_SIZE}
+        size={tableSize}
+        roundSeatSpacing="compact"
+        compactHallText={zoom < HALL_TABLE_SIZE_BASE_ZOOM}
       />
     </View>
   );
@@ -153,29 +181,36 @@ export function SeatingHallOverview({ eventId }: SeatingHallOverviewProps) {
   const { t } = useTranslation(language);
   const theme = useThemeColors();
 
-  const [zoom, setZoom] = useState(0.55);
-  const [scrollEnabled, setScrollEnabled] = useState(true);
-  const [viewport, setViewport] = useState({ width: 0, height: 0 });
-
   const tables = useMemo(
     () => getTablesForEvent(allTables, eventId),
     [allTables, eventId]
   );
+
+  const defaultZoom = getDefaultHallZoom(tables.length);
+
+  const [zoom, setZoom] = useState(defaultZoom);
+  const [scrollEnabled, setScrollEnabled] = useState(true);
+  const [viewport, setViewport] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    setZoom(defaultZoom);
+  }, [defaultZoom]);
 
   const eventGuests = useMemo(
     () => allGuests.filter((guest) => guest.eventId === eventId),
     [allGuests, eventId]
   );
 
-  const scaledSize = SEATING_CANVAS_SIZE * zoom;
-  const contentWidth = Math.max(viewport.width, scaledSize + spacing.lg * 2);
-  const contentHeight = Math.max(viewport.height, scaledSize + spacing.lg * 2);
+  const scaledWidth = SEATING_CANVAS_WIDTH * zoom;
+  const scaledHeight = SEATING_CANVAS_HEIGHT * zoom;
+  const contentWidth = Math.max(viewport.width, scaledWidth + spacing.lg * 2);
+  const contentHeight = Math.max(viewport.height, scaledHeight + spacing.lg * 2);
 
   const handleMove = useCallback(
     (tableId: string, x: number, y: number) => {
       updateTable(tableId, {
-        layoutX: clampLayout(x),
-        layoutY: clampLayout(y),
+        layoutX: clampLayout(x, 'x'),
+        layoutY: clampLayout(y, 'y'),
       });
     },
     [updateTable]
@@ -183,7 +218,9 @@ export function SeatingHallOverview({ eventId }: SeatingHallOverviewProps) {
 
   const zoomIn = () => setZoom((value) => Math.min(MAX_ZOOM, Number((value + ZOOM_STEP).toFixed(2))));
   const zoomOut = () => setZoom((value) => Math.max(MIN_ZOOM, Number((value - ZOOM_STEP).toFixed(2))));
-  const resetZoom = () => setZoom(0.55);
+  const resetZoom = () => setZoom(defaultZoom);
+  const canZoomOut = zoom > MIN_ZOOM;
+  const canZoomIn = zoom < MAX_ZOOM;
 
   const onViewportLayout = (event: LayoutChangeEvent) => {
     const { width, height } = event.nativeEvent.layout;
@@ -205,10 +242,19 @@ export function SeatingHallOverview({ eventId }: SeatingHallOverviewProps) {
       <View style={[styles.toolbar, { backgroundColor: theme.surface, borderColor: theme.border }]}>
         <Pressable
           onPress={zoomOut}
-          style={[styles.toolBtn, { backgroundColor: theme.background }]}
+          disabled={!canZoomOut}
+          style={[
+            styles.toolBtn,
+            { backgroundColor: theme.background, opacity: canZoomOut ? 1 : 0.4 },
+          ]}
           accessibilityLabel={t('seating.hallOverviewZoomOut')}
+          accessibilityState={{ disabled: !canZoomOut }}
         >
-          <Ionicons name="remove-outline" size={20} color={theme.primary} />
+          <Ionicons
+            name="remove-outline"
+            size={20}
+            color={canZoomOut ? theme.primary : theme.textMuted}
+          />
         </Pressable>
         <Pressable onPress={resetZoom} style={styles.zoomLabelWrap}>
           <Text style={[styles.zoomLabel, { color: theme.textSecondary }]}>
@@ -217,10 +263,19 @@ export function SeatingHallOverview({ eventId }: SeatingHallOverviewProps) {
         </Pressable>
         <Pressable
           onPress={zoomIn}
-          style={[styles.toolBtn, { backgroundColor: theme.background }]}
+          disabled={!canZoomIn}
+          style={[
+            styles.toolBtn,
+            { backgroundColor: theme.background, opacity: canZoomIn ? 1 : 0.4 },
+          ]}
           accessibilityLabel={t('seating.hallOverviewZoomIn')}
+          accessibilityState={{ disabled: !canZoomIn }}
         >
-          <Ionicons name="add-outline" size={20} color={theme.primary} />
+          <Ionicons
+            name="add-outline"
+            size={20}
+            color={canZoomIn ? theme.primary : theme.textMuted}
+          />
         </Pressable>
         <Text style={[styles.hint, { color: theme.textMuted }]}>{t('seating.hallOverviewHint')}</Text>
       </View>
@@ -253,8 +308,8 @@ export function SeatingHallOverview({ eventId }: SeatingHallOverviewProps) {
               style={[
                 styles.canvas,
                 {
-                  width: scaledSize,
-                  height: scaledSize,
+                  width: scaledWidth,
+                  height: scaledHeight,
                   backgroundColor: theme.background,
                   borderColor: theme.border,
                 },
@@ -268,7 +323,8 @@ export function SeatingHallOverview({ eventId }: SeatingHallOverviewProps) {
                   total={tables.length}
                   guests={eventGuests}
                   zoom={zoom}
-                  canvasSize={SEATING_CANVAS_SIZE}
+                  canvasWidth={SEATING_CANVAS_WIDTH}
+                  canvasHeight={SEATING_CANVAS_HEIGHT}
                   onDragStart={() => setScrollEnabled(false)}
                   onDragEnd={() => setScrollEnabled(true)}
                   onMove={handleMove}

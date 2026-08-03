@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
   },
   statsCard: {
-    marginBottom: spacing.lg,
+    marginBottom: spacing.md,
     gap: spacing.sm,
   },
   statMain: {
@@ -228,14 +228,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'stretch',
     gap: spacing.sm,
-    marginBottom: spacing.lg,
+    marginBottom: spacing.md,
   },
   statGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'stretch',
     gap: spacing.sm,
-    marginBottom: spacing.lg,
+    marginBottom: spacing.md,
   },
   actions: {
     gap: spacing.sm,
@@ -245,6 +245,6 @@ const styles = StyleSheet.create({
   },
   obligationBtn: {
     width: '100%',
-    marginBottom: spacing.lg,
+    marginBottom: spacing.md,
   },
 });

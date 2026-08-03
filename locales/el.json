@@ -69,7 +69,10 @@
       "anniversary": "Επέτειος",
       "engagement": "Αρραβώνας",
       "other": "Άλλο"
-    }
+    },
+    "exportPdf": "Εξαγωγή PDF",
+    "exportFailed": "Δεν ήταν δυνατή η εξαγωγή του PDF. Δοκιμάστε ξανά.",
+    "exportSharingUnavailable": "Η κοινή χρήση δεν είναι διαθέσιμη σε αυτή τη συσκευή."
   },
   "tabs": {
     "overview": "Επισκόπηση",
@@ -202,9 +205,9 @@
     "emptyTitle": "Δεν υπάρχουν καλεσμένοι ακόμα",
     "emptySubtitle": "Προσθέστε καλεσμένους και παρακολουθήστε ποιος επιβεβαίωσε την παρουσία.",
     "firstName": "Όνομα",
-    "firstNamePlaceholder": "π.χ. Αννα",
+    "firstNamePlaceholder": "π.χ. Μαρία",
     "lastName": "Επώνυμο",
-    "lastNamePlaceholder": "π.χ. Πέτροβιτς",
+    "lastNamePlaceholder": "π.χ. Παπαδοπούλου",
     "phone": "Τηλέφωνο",
     "phonePlaceholder": "π.χ. 066 123 456",
     "category": "Κατηγορία",
@@ -305,7 +308,7 @@
     "preset310": "3 τραπέζια × 10 θέσεις",
     "preset57": "5 τραπέζια × 7 θέσεις",
     "hallOverviewTitle": "Επισκόπηση αίθουσας",
-    "hallOverviewHint": "Σύρετε πάνω, κάτω, αριστερά και δεξιά. Τσιμπήστε ή χρησιμοποιήστε +/− για zoom. Σύρετε τραπέζι για να το μετακινήσετε.",
+    "hallOverviewHint": "Τσιμπήστε ή χρησιμοποιήστε +/− για zoom. Σύρετε την αίθουσα για μετακίνηση. Σύρετε τραπέζι για να το μετακινήσετε.",
     "hallOverviewEmpty": "Προσθέστε πρώτα τραπέζια για να δείτε την επισκόπηση της αίθουσας.",
     "hallOverviewZoomIn": "Μεγέθυνση",
     "hallOverviewZoomOut": "Σμίκρυνση",
@@ -486,7 +489,15 @@
     "supportDescription": "Ερωτήσεις, συμβουλές ή σφάλμα; Επικοινωνήστε μαζί μας.",
     "contactSupport": "Επικοινωνία με την υποστήριξη",
     "supportEmailSubject": "Το τέλειο πάρτι μου — υποστήριξη",
-    "supportMailUnavailable": "Δεν ήταν δυνατό το άνοιγμα της εφαρμογής email. Αντιγράψτε τη διεύθυνση email παρακάτω."
+    "supportMailUnavailable": "Δεν ήταν δυνατό το άνοιγμα της εφαρμογής email. Αντιγράψτε τη διεύθυνση email παρακάτω.",
+    "themeChangeAdHint": "Παρακολουθήστε μια διαφήμιση για να αλλάξετε θέμα.",
+    "reviewTitle": "Αξιολογήστε την εφαρμογή",
+    "reviewDescription": "Σας αρέσει η εφαρμογή; Αφήστε μια κριτική στο Google Play.",
+    "reviewUnavailable": "Δεν ήταν δυνατό το άνοιγμα του Google Play.",
+    "reviewPromptTitle": "Σας αρέσει η εφαρμογή;",
+    "reviewPromptMessage": "Αν το My Perfect Party σας βοηθά στον προγραμματισμό, μια σύντομη κριτική στο Google Play θα σήμαινε πολλά.",
+    "reviewPromptRate": "Αξιολόγηση τώρα",
+    "reviewPromptLater": "Αργότερα"
   },
   "ads": {
     "sponsored": "Διαφήμιση"

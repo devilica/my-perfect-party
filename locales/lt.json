@@ -69,7 +69,10 @@
       "anniversary": "Jubiliejus",
       "engagement": "Sužadėtuvės",
       "other": "Kita"
-    }
+    },
+    "exportPdf": "Eksportuoti PDF",
+    "exportFailed": "Nepavyko eksportuoti PDF. Bandykite dar kartą.",
+    "exportSharingUnavailable": "Bendrinimas šiame įrenginyje nepasiekiamas."
   },
   "tabs": {
     "overview": "Apžvalga",
@@ -202,9 +205,9 @@
     "emptyTitle": "Svečių dar nėra",
     "emptySubtitle": "Pridėkite svečių ir stebėkite, kas patvirtino dalyvavimą.",
     "firstName": "Vardas",
-    "firstNamePlaceholder": "pvz. Ana",
+    "firstNamePlaceholder": "pvz. Ona",
     "lastName": "Pavardė",
-    "lastNamePlaceholder": "pvz. Petrović",
+    "lastNamePlaceholder": "pvz. Kazlauskaitė",
     "phone": "Telefonas",
     "phonePlaceholder": "pvz. 066 123 456",
     "category": "Kategorija",
@@ -305,7 +308,7 @@
     "preset310": "3 stalai × 10 vietų",
     "preset57": "5 stalai × 7 vietos",
     "hallOverviewTitle": "Salės apžvalga",
-    "hallOverviewHint": "Braukite aukštyn, žemyn, kairėn ir dešinėn. Spustelėkite arba naudokite +/− priartinimui. Vilkite stalą, kad pakeistumėte jo vietą.",
+    "hallOverviewHint": "Spustelėkite arba naudokite +/− priartinimui. Vilkite salę, kad perkeltumėte vaizdą. Vilkite stalą, kad pakeistumėte jo vietą.",
     "hallOverviewEmpty": "Pirmiausia pridėkite stalų, kad pamatytumėte salės apžvalgą.",
     "hallOverviewZoomIn": "Priartinti",
     "hallOverviewZoomOut": "Nutolinti",
@@ -486,7 +489,15 @@
     "supportDescription": "Klausimai, patarimai ar klaida? Susisiekite.",
     "contactSupport": "Susisiekti su pagalba",
     "supportEmailSubject": "Mano tobulas vakarėlis — pagalba",
-    "supportMailUnavailable": "Nepavyko atidaryti pašto programos. Nukopijuokite el. pašto adresą žemiau."
+    "supportMailUnavailable": "Nepavyko atidaryti pašto programos. Nukopijuokite el. pašto adresą žemiau.",
+    "themeChangeAdHint": "Peržiūrėkite reklamą, kad pakeistumėte temą.",
+    "reviewTitle": "Įvertinkite programėlę",
+    "reviewDescription": "Patinka programėlė? Palikite atsiliepimą „Google Play“.",
+    "reviewUnavailable": "Nepavyko atidaryti „Google Play“.",
+    "reviewPromptTitle": "Patinka programėlė?",
+    "reviewPromptMessage": "Jei Mano tobula šventė padeda planuoti, trumpas atsiliepimas „Google Play“ būtų labai naudingas.",
+    "reviewPromptRate": "Įvertinti dabar",
+    "reviewPromptLater": "Vėliau"
   },
   "ads": {
     "sponsored": "Reklama"

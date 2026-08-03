@@ -72,9 +72,7 @@ function SubEventRow({
 export const InvitationPreview = forwardRef<View, InvitationPreviewProps>(
   function InvitationPreview({ invitation, width = 320, height = 480 }, ref) {
     const template = getInvitationTemplate(invitation.templateId);
-    const isLightText = template.textTone === 'light';
-    const headerColor = isLightText ? '#F5F5F5' : '#5C5C5C';
-    const dateColor = isLightText ? '#FFFFFF' : invitation.fontColor;
+    const textColor = invitation.fontColor;
     const spacingMul = invitation.lineSpacing;
     const iconName = invitation.headerIcon as keyof typeof Ionicons.glyphMap;
 
@@ -99,7 +97,7 @@ export const InvitationPreview = forwardRef<View, InvitationPreviewProps>(
                 style={[
                   styles.headerTitle,
                   {
-                    color: headerColor,
+                    color: textColor,
                     marginBottom: BASE_SPACING.afterHeader * spacingMul,
                   },
                 ]}
@@ -113,7 +111,7 @@ export const InvitationPreview = forwardRef<View, InvitationPreviewProps>(
                 style={[
                   styles.hostNames,
                   {
-                    color: invitation.fontColor,
+                    color: textColor,
                     fontSize: invitation.fontSize,
                     lineHeight: Math.round(invitation.fontSize * 1.25),
                     fontFamily: getNamesFontFamily(invitation.namesFontFamily),
@@ -137,7 +135,7 @@ export const InvitationPreview = forwardRef<View, InvitationPreviewProps>(
                   style={[
                     styles.eventDate,
                     {
-                      color: dateColor,
+                      color: textColor,
                       marginVertical: BASE_SPACING.afterDate * spacingMul * 0.5,
                     },
                   ]}
@@ -164,7 +162,7 @@ export const InvitationPreview = forwardRef<View, InvitationPreviewProps>(
                 time={subEvent.time}
                 title={subEvent.title}
                 location={subEvent.location}
-                textColor={headerColor}
+                textColor={textColor}
                 accentColor={template.accentColor}
                 spacing={BASE_SPACING.subEventGap * spacingMul}
               />
@@ -175,7 +173,7 @@ export const InvitationPreview = forwardRef<View, InvitationPreviewProps>(
                 style={[
                   styles.rsvp,
                   {
-                    color: headerColor,
+                    color: textColor,
                     marginTop: BASE_SPACING.beforeRsvp * spacingMul,
                   },
                 ]}

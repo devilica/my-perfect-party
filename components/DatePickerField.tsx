@@ -14,7 +14,8 @@ import {
   parseIsoDateTime,
 } from '@/lib/dateUtils';
 import { getDefaultLanguage } from '@/lib/i18n';
-import { colors, radius, spacing, typography } from '@/theme/colors';
+import { useThemeColors } from '@/theme/EventThemeContext';
+import { radius, spacing, typography } from '@/theme/colors';
 
 import { FieldLabel } from '@/components/FieldLabel';
 
@@ -54,6 +55,7 @@ export function DatePickerField({
   mode = 'date',
   clearable = true,
 }: DatePickerFieldProps) {
+  const theme = useThemeColors();
   const [showPicker, setShowPicker] = useState(false);
   const isDateTime = mode === 'datetime';
   const parsed = isDateTime ? parseIsoDateTime(value) : parseIsoDate(value);
@@ -94,12 +96,20 @@ export function DatePickerField({
           onPress={openPicker}
           style={({ pressed }) => [
             styles.input,
-            error ? styles.inputError : null,
+            {
+              backgroundColor: theme.surface,
+              borderColor: error ? theme.danger : theme.border,
+            },
             pressed && styles.pressed,
           ]}
         >
-          <Ionicons name="calendar-outline" size={20} color={colors.textMuted} />
-          <Text style={[styles.value, !display && styles.placeholderText]}>
+          <Ionicons name="calendar-outline" size={20} color={theme.textMuted} />
+          <Text
+            style={[
+              styles.value,
+              { color: display ? theme.text : theme.textMuted },
+            ]}
+          >
             {display || placeholder}
           </Text>
         </Pressable>
@@ -110,7 +120,7 @@ export function DatePickerField({
             accessibilityLabel={clearLabel}
             hitSlop={8}
           >
-            <Ionicons name="close-circle" size={22} color={colors.textMuted} />
+            <Ionicons name="close-circle" size={22} color={theme.textMuted} />
           </Pressable>
         ) : null}
       </View>
@@ -122,7 +132,9 @@ export function DatePickerField({
           onChange={handleChange}
         />
       ) : null}
-      {error ? <Text style={styles.error}>{error}</Text> : null}
+      {error ? (
+        <Text style={[styles.error, { color: theme.danger }]}>{error}</Text>
+      ) : null}
     </View>
   );
 }
@@ -141,34 +153,24 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.sm,
-    backgroundColor: colors.surface,
     borderWidth: 1,
-    borderColor: colors.border,
     borderRadius: radius.md,
     paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm + 2,
-    minHeight: 48,
+    paddingVertical: spacing.sm,
+    minHeight: 42,
   },
   pressed: {
     opacity: 0.85,
   },
   value: {
     ...typography.body,
-    color: colors.text,
     flex: 1,
-  },
-  placeholderText: {
-    color: colors.textMuted,
   },
   clearBtn: {
     padding: spacing.xs,
   },
-  inputError: {
-    borderColor: colors.danger,
-  },
   error: {
     ...typography.small,
-    color: colors.danger,
     marginTop: spacing.xs,
   },
 });

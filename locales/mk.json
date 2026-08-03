@@ -69,7 +69,10 @@
       "anniversary": "Годишнина",
       "engagement": "Веридба",
       "other": "Друго"
-    }
+    },
+    "exportPdf": "Извези PDF",
+    "exportFailed": "PDF не можеше да се извезе. Обидете се повторно.",
+    "exportSharingUnavailable": "Споделувањето не е достапно на овој уред."
   },
   "tabs": {
     "overview": "Преглед",
@@ -202,9 +205,9 @@
     "emptyTitle": "Сè уште нема гости",
     "emptySubtitle": "Додај гости и следи кој потврдил присуство.",
     "firstName": "Име",
-    "firstNamePlaceholder": "напр. Ana",
+    "firstNamePlaceholder": "напр. Ана",
     "lastName": "Презиме",
-    "lastNamePlaceholder": "напр. Petrović",
+    "lastNamePlaceholder": "напр. Јовановска",
     "phone": "Телефон",
     "phonePlaceholder": "напр. 066 123 456",
     "category": "Категорија",
@@ -305,7 +308,7 @@
     "preset310": "3 маси × 10 места",
     "preset57": "5 маси × 7 места",
     "hallOverviewTitle": "Преглед на салата",
-    "hallOverviewHint": "Поминете нагоре, надолу, лево и десно. Стиснете или користете +/− за зум. Повлечете маса за да ја преместите.",
+    "hallOverviewHint": "Стиснете или користете +/− за зум. Повлечете ја салаата за да го поместите приказот. Повлечете маса за да ја преместите.",
     "hallOverviewEmpty": "Прво додадете маси за да го видите прегледот на салата.",
     "hallOverviewZoomIn": "Зголеми",
     "hallOverviewZoomOut": "Намали",
@@ -486,7 +489,15 @@
     "supportDescription": "Прашања, совети или грешка? Контактирајте не.",
     "contactSupport": "Контактирај поддршка",
     "supportEmailSubject": "Моја совршена прослава — поддршка",
-    "supportMailUnavailable": "Не може да се отвори е-пошта апликацијата. Копирајте ја е-пошта адресата подолу."
+    "supportMailUnavailable": "Не може да се отвори е-пошта апликацијата. Копирајте ја е-пошта адресата подолу.",
+    "themeChangeAdHint": "Гледај реклама за да ја смениш темата.",
+    "reviewTitle": "Оцени ја апликацијата",
+    "reviewDescription": "Ти се допаѓа апликацијата? Остави рецензија на Google Play.",
+    "reviewUnavailable": "Не може да се отвори Google Play.",
+    "reviewPromptTitle": "Ти се допаѓа апликацијата?",
+    "reviewPromptMessage": "Ако Мојата совршена прослава ти помага во планирањето, кратка рецензија на Google Play би значела многу.",
+    "reviewPromptRate": "Оцени сега",
+    "reviewPromptLater": "Подоцна"
   },
   "ads": {
     "sponsored": "Реклама"

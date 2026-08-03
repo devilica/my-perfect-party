@@ -101,7 +101,7 @@ export function Button({
 
 const styles = StyleSheet.create({
   base: {
-    minHeight: 48,
+    minHeight: 42,
     borderRadius: radius.lg,
     paddingHorizontal: spacing.lg,
     flexDirection: 'row',
@@ -147,7 +147,7 @@ export function Fab({
         pressed && { opacity: 0.9 },
       ]}
     >
-      <Ionicons name={icon} size={28} color={theme.surface} />
+      <Ionicons name={icon} size={26} color={theme.surface} />
     </Pressable>
   );
 }
@@ -156,8 +156,8 @@ const fabStyles = StyleSheet.create({
   fab: {
     position: 'absolute',
     right: spacing.lg,
-    width: 56,
-    height: 56,
+    width: 50,
+    height: 50,
     borderRadius: radius.full,
     alignItems: 'center',
     justifyContent: 'center',
@@ -224,9 +224,10 @@ const inputStyles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: radius.md,
     paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm + 2,
+    paddingVertical: spacing.sm,
     ...typography.body,
     marginBottom: spacing.md,
+    minHeight: 42,
   },
   multiline: {
     minHeight: 80,
@@ -283,7 +284,7 @@ const cardStyles = StyleSheet.create({
     padding: spacing.md,
     borderWidth: 1,
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
+    shadowOpacity: 0.10,
     shadowRadius: 8,
     elevation: 2,
   },
@@ -312,7 +313,7 @@ export function EmptyState({
 const emptyStyles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    paddingVertical: spacing.xl,
+    paddingVertical: spacing.lg,
     gap: spacing.sm,
   },
   title: {
@@ -356,12 +357,12 @@ const statStyles = StyleSheet.create({
   card: {
     flex: 1,
     minWidth: 100,
-    minHeight: 88,
+    minHeight: 72,
     alignSelf: 'stretch',
     justifyContent: 'space-between',
   },
   labelWrap: {
-    height: 34,
+    height: 28,
     justifyContent: 'flex-start',
   },
   label: {

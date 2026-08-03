@@ -301,7 +301,7 @@ const styles = StyleSheet.create({
   fabOverlay: {
     flex: 1,
     justifyContent: 'flex-end',
-    padding: spacing.lg,
+    padding: spacing.md,
   },
   fabMenu: {
     borderRadius: radius.lg,

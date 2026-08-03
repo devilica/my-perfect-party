@@ -91,12 +91,12 @@ const styles = StyleSheet.create({
   overlay: {
     flex: 1,
     justifyContent: 'center',
-    padding: spacing.lg,
+    padding: spacing.md,
   },
   card: {
     borderRadius: radius.lg,
     borderWidth: 1,
-    padding: spacing.lg,
+    padding: spacing.md,
     gap: spacing.md,
   },
   title: {

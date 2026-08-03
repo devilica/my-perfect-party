@@ -69,7 +69,10 @@
       "anniversary": "Jubiläum",
       "engagement": "Verlobung",
       "other": "Sonstiges"
-    }
+    },
+    "exportPdf": "PDF exportieren",
+    "exportFailed": "PDF konnte nicht exportiert werden. Bitte erneut versuchen.",
+    "exportSharingUnavailable": "Teilen ist auf diesem Gerät nicht verfügbar."
   },
   "tabs": {
     "overview": "Übersicht",
@@ -202,9 +205,9 @@
     "emptyTitle": "Noch keine Gäste",
     "emptySubtitle": "Fügen Sie Gäste hinzu und verfolgen Sie, wer die Teilnahme bestätigt hat.",
     "firstName": "Vorname",
-    "firstNamePlaceholder": "z. B. Ana",
+    "firstNamePlaceholder": "z. B. Anna",
     "lastName": "Nachname",
-    "lastNamePlaceholder": "z. B. Petrović",
+    "lastNamePlaceholder": "z. B. Müller",
     "phone": "Telefon",
     "phonePlaceholder": "z. B. 066 123 456",
     "category": "Kategorie",
@@ -305,7 +308,7 @@
     "preset310": "3 Tische × 10 Plätze",
     "preset57": "5 Tische × 7 Plätze",
     "hallOverviewTitle": "Saalübersicht",
-    "hallOverviewHint": "Wischen Sie nach oben, unten, links und rechts. Ziehen Sie zum Zoomen oder nutzen Sie +/−. Ziehen Sie einen Tisch, um ihn zu verschieben.",
+    "hallOverviewHint": "Ziehen Sie zum Zoomen oder nutzen Sie +/−. Ziehen Sie die Halle, um zu schwenken. Ziehen Sie einen Tisch, um ihn zu verschieben.",
     "hallOverviewEmpty": "Fügen Sie zuerst Tische hinzu, um die Saalübersicht zu sehen.",
     "hallOverviewZoomIn": "Vergrößern",
     "hallOverviewZoomOut": "Verkleinern",
@@ -486,7 +489,15 @@
     "supportDescription": "Fragen, Tipps oder ein Fehler? Kontaktieren Sie uns.",
     "contactSupport": "Support kontaktieren",
     "supportEmailSubject": "Meine perfekte Feier — Support",
-    "supportMailUnavailable": "E-Mail-App konnte nicht geöffnet werden. Kopieren Sie die Support-E-Mail-Adresse unten."
+    "supportMailUnavailable": "E-Mail-App konnte nicht geöffnet werden. Kopieren Sie die Support-E-Mail-Adresse unten.",
+    "themeChangeAdHint": "Sehen Sie eine Werbung, um das Design zu wechseln.",
+    "reviewTitle": "App bewerten",
+    "reviewDescription": "Gefällt dir die App? Hinterlasse eine Bewertung bei Google Play.",
+    "reviewUnavailable": "Google Play konnte nicht geöffnet werden.",
+    "reviewPromptTitle": "Gefällt dir die App?",
+    "reviewPromptMessage": "Wenn dir Meine perfekte Feier beim Planen hilft, würde uns eine kurze Bewertung bei Google Play sehr freuen.",
+    "reviewPromptRate": "Jetzt bewerten",
+    "reviewPromptLater": "Später"
   },
   "ads": {
     "sponsored": "Werbung"

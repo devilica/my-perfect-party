@@ -69,7 +69,10 @@
       "anniversary": "Anniversary",
       "engagement": "Engagement",
       "other": "Other"
-    }
+    },
+    "exportPdf": "Export PDF",
+    "exportFailed": "Could not export the PDF. Please try again.",
+    "exportSharingUnavailable": "Sharing is not available on this device."
   },
   "tabs": {
     "overview": "Overview",
@@ -136,7 +139,7 @@
     "fontSerif": "Serif",
     "fontSans": "Sans",
     "fontSize": "Font size",
-    "fontColor": "Font color",
+    "fontColor": "Text color",
     "subEvents": "Sub-events",
     "subEventTitle": "Sub-event title",
     "subEventTime": "Time",
@@ -202,9 +205,9 @@
     "emptyTitle": "No guests yet",
     "emptySubtitle": "Add guests and track who confirmed attendance.",
     "firstName": "First name",
-    "firstNamePlaceholder": "e.g. Ana",
+    "firstNamePlaceholder": "e.g. Emma",
     "lastName": "Last name",
-    "lastNamePlaceholder": "e.g. Petrović",
+    "lastNamePlaceholder": "e.g. Smith",
     "phone": "Phone",
     "phonePlaceholder": "e.g. 066 123 456",
     "category": "Category",
@@ -303,7 +306,7 @@
     "previewFree": "Free",
     "hallOverviewTitle": "Hall overview",
     "viewHall": "View hall",
-    "hallOverviewHint": "Swipe to move up, down, left and right. Pinch or use +/− to zoom. Drag a table to reposition it.",
+    "hallOverviewHint": "Swipe left and right. Pinch or use +/− to zoom. Drag a table to reposition it.",
     "hallOverviewEmpty": "Add tables first to see the hall overview.",
     "hallOverviewZoomIn": "Zoom in",
     "hallOverviewZoomOut": "Zoom out",
@@ -451,6 +454,7 @@
     "appTheme": "App theme",
     "appThemeHint": "Colors for the home screen and settings.",
     "themeUnlockHint": "Watch an ad to unlock locked themes.",
+    "themeChangeAdHint": "Watch an ad to change theme.",
     "themeUnlocked": "Theme unlocked!",
     "themeAdUnavailable": "Ad is not available right now. Try again later.",
     "language": "Language",
@@ -486,7 +490,14 @@
     "supportDescription": "Questions, tips, or a bug? Get in touch.",
     "contactSupport": "Contact support",
     "supportEmailSubject": "My Perfect Party — support",
-    "supportMailUnavailable": "Could not open mail app. Copy the support email address below."
+    "supportMailUnavailable": "Could not open mail app. Copy the support email address below.",
+    "reviewTitle": "Rate the app",
+    "reviewDescription": "Enjoying the app? Leave a review on Google Play.",
+    "reviewUnavailable": "Could not open Google Play.",
+    "reviewPromptTitle": "Enjoying the app?",
+    "reviewPromptMessage": "If My Perfect Party helps you plan, a short Google Play review would mean a lot.",
+    "reviewPromptRate": "Rate now",
+    "reviewPromptLater": "Later"
   },
   "ads": {
     "sponsored": "Ad",

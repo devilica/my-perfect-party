@@ -69,7 +69,10 @@
       "anniversary": "Jubileum",
       "engagement": "Förlovning",
       "other": "Annat"
-    }
+    },
+    "exportPdf": "Exportera PDF",
+    "exportFailed": "PDF kunde inte exporteras. Försök igen.",
+    "exportSharingUnavailable": "Delning är inte tillgänglig på den här enheten."
   },
   "tabs": {
     "overview": "Översikt",
@@ -305,7 +308,7 @@
     "preset310": "3 bord × 10 platser",
     "preset57": "5 bord × 7 platser",
     "hallOverviewTitle": "Salöversikt",
-    "hallOverviewHint": "Svep uppåt, nedåt, vänster och höger. Nyp eller använd +/− för att zooma. Dra ett bord för att flytta det.",
+    "hallOverviewHint": "Nyp eller använd +/− för att zooma. Dra salen för att panorera. Dra ett bord för att flytta det.",
     "hallOverviewEmpty": "Lägg till bord först för att se salöversikten.",
     "hallOverviewZoomIn": "Zooma in",
     "hallOverviewZoomOut": "Zooma ut",
@@ -486,7 +489,15 @@
     "supportDescription": "Frågor, tips eller ett fel? Kontakta oss.",
     "contactSupport": "Kontakta support",
     "supportEmailSubject": "Mitt perfekta kalas — support",
-    "supportMailUnavailable": "Kunde inte öppna e-postappen. Kopiera support-e-postadressen nedan."
+    "supportMailUnavailable": "Kunde inte öppna e-postappen. Kopiera support-e-postadressen nedan.",
+    "themeChangeAdHint": "Titta på en annons för att byta tema.",
+    "reviewTitle": "Betygsätt appen",
+    "reviewDescription": "Gillar du appen? Lämna ett omdöme på Google Play.",
+    "reviewUnavailable": "Kunde inte öppna Google Play.",
+    "reviewPromptTitle": "Gillar du appen?",
+    "reviewPromptMessage": "Om Min perfekta fest hjälper dig planera skulle en kort recension på Google Play betyda mycket.",
+    "reviewPromptRate": "Betygsätt nu",
+    "reviewPromptLater": "Senare"
   },
   "ads": {
     "sponsored": "Annons"

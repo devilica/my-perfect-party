@@ -69,7 +69,10 @@
       "anniversary": "Aniversare",
       "engagement": "Logodnă",
       "other": "Altele"
-    }
+    },
+    "exportPdf": "Exportă PDF",
+    "exportFailed": "PDF-ul nu a putut fi exportat. Încercați din nou.",
+    "exportSharingUnavailable": "Partajarea nu este disponibilă pe acest dispozitiv."
   },
   "tabs": {
     "overview": "Prezentare generală",
@@ -202,9 +205,9 @@
     "emptyTitle": "Niciun invitat încă",
     "emptySubtitle": "Adaugă invitați și urmărește cine a confirmat prezența.",
     "firstName": "Prenume",
-    "firstNamePlaceholder": "ex. Ana",
+    "firstNamePlaceholder": "ex. Maria",
     "lastName": "Nume",
-    "lastNamePlaceholder": "ex. Petrović",
+    "lastNamePlaceholder": "ex. Popescu",
     "phone": "Telefon",
     "phonePlaceholder": "ex. 066 123 456",
     "category": "Categorie",
@@ -305,7 +308,7 @@
     "preset310": "3 mese × 10 locuri",
     "preset57": "5 mese × 7 locuri",
     "hallOverviewTitle": "Prezentare generală a sălii",
-    "hallOverviewHint": "Glisați sus, jos, stânga și dreapta. Ciupiți sau folosiți +/− pentru zoom. Trageți o masă pentru a o repoziționa.",
+    "hallOverviewHint": "Ciupiți sau folosiți +/− pentru zoom. Trageți sala pentru a muta vizualizarea. Trageți o masă pentru a o repoziționa.",
     "hallOverviewEmpty": "Adăugați mai întâi mese pentru a vedea prezentarea generală a sălii.",
     "hallOverviewZoomIn": "Mărește",
     "hallOverviewZoomOut": "Micșorează",
@@ -486,7 +489,15 @@
     "supportDescription": "Întrebări, sfaturi sau o eroare? Contactează-ne.",
     "contactSupport": "Contactează suportul",
     "supportEmailSubject": "Petrecerea mea perfectă — suport",
-    "supportMailUnavailable": "Nu s-a putut deschide aplicația de email. Copiază adresa de email de mai jos."
+    "supportMailUnavailable": "Nu s-a putut deschide aplicația de email. Copiază adresa de email de mai jos.",
+    "themeChangeAdHint": "Vizionează o reclamă pentru a schimba tema.",
+    "reviewTitle": "Evaluează aplicația",
+    "reviewDescription": "Îți place aplicația? Lasă o recenzie pe Google Play.",
+    "reviewUnavailable": "Nu s-a putut deschide Google Play.",
+    "reviewPromptTitle": "Îți place aplicația?",
+    "reviewPromptMessage": "Dacă Petrecerea mea perfectă te ajută să planifici, o scurtă recenzie pe Google Play ar însemna mult.",
+    "reviewPromptRate": "Evaluează acum",
+    "reviewPromptLater": "Mai târziu"
   },
   "ads": {
     "sponsored": "Reclamă"

@@ -154,8 +154,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: radius.md,
     paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm + 2,
-    minHeight: 48,
+    paddingVertical: spacing.sm,
+    minHeight: 42,
     gap: spacing.sm,
   },
   triggerText: {

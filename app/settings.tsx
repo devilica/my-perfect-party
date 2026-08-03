@@ -13,6 +13,9 @@ import { Button, Card, TextInputField } from '@/components/ui';
 import { getLanguageSelectOptions } from '@/constants/languages';
 import { INSTAGRAM_APP_URL, INSTAGRAM_USERNAME, INSTAGRAM_WEB_URL } from '@/constants/social';
 import { SUPPORT_EMAIL } from '@/constants/support';
+import { openPlayStore } from '@/lib/openPlayStore';
+import { useIsOnline } from '@/hooks/useIsOnline';
+import { areAdsEnabled } from '@/lib/adsEnvironment';
 import { validateBackupEmail } from '@/lib/backup';
 import { formatDisplayDateTime } from '@/lib/dateUtils';
 import { useTranslation } from '@/lib/i18n';
@@ -27,16 +30,15 @@ import { radius, spacing, typography } from '@/theme/colors';
 export default function SettingsScreen() {
   const language = useWeddingStore((s) => s.language);
   const appTheme = useWeddingStore((s) => s.appTheme);
-  const unlockedAppThemes = useWeddingStore((s) => s.unlockedAppThemes);
   const backupEmail = useWeddingStore((s) => s.backupEmail);
   const lastBackupAt = useWeddingStore((s) => s.lastBackupAt);
   const setLanguage = useWeddingStore((s) => s.setLanguage);
   const setAppTheme = useWeddingStore((s) => s.setAppTheme);
-  const unlockAppTheme = useWeddingStore((s) => s.unlockAppTheme);
   const setBackupEmail = useWeddingStore((s) => s.setBackupEmail);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
   const insets = useSafeAreaInsets();
+  const isOnline = useIsOnline();
 
   const [emailDraft, setEmailDraft] = useState(backupEmail);
   const [emailError, setEmailError] = useState<string | undefined>();
@@ -51,20 +53,25 @@ export default function SettingsScreen() {
     setEmailDraft(backupEmail);
   }, [backupEmail]);
 
-  const handleUnlockTheme = async (themeId: CelebrationThemeId) => {
-    if (themeAdLoading || unlockedAppThemes.includes(themeId)) return;
+  const ensureThemeReward = async (): Promise<boolean> => {
+    if (!areAdsEnabled() || !isOnline) return true;
+
+    const result = await showRewardedThemeAd();
+    if (result === 'rewarded') {
+      preloadRewardedThemeAd();
+      return true;
+    }
+    if (result === 'unavailable' || result === 'failed') return true;
+    return false;
+  };
+
+  const handleThemeChange = async (themeId: CelebrationThemeId) => {
+    if (themeId === appTheme || themeAdLoading) return;
 
     setThemeAdLoading(true);
     try {
-      const result = await showRewardedThemeAd();
-
-      if (result === 'rewarded') {
-        unlockAppTheme(themeId);
+      if (await ensureThemeReward()) {
         setAppTheme(themeId);
-        Alert.alert(t('common.success'), t('settings.themeUnlocked'));
-        preloadRewardedThemeAd();
-      } else if (result === 'unavailable' || result === 'failed') {
-        Alert.alert(t('common.error'), t('settings.themeAdUnavailable'));
       }
     } finally {
       setThemeAdLoading(false);
@@ -153,6 +160,13 @@ export default function SettingsScreen() {
     }
   };
 
+  const handleOpenPlayStore = async () => {
+    const result = await openPlayStore();
+    if (result === 'failed') {
+      Alert.alert(t('common.error'), t('settings.reviewUnavailable'));
+    }
+  };
+
   const lastSyncLabel = lastBackupAt
     ? formatDisplayDateTime(lastBackupAt, language)
     : t('settings.backupNeverSynced');
@@ -174,15 +188,12 @@ export default function SettingsScreen() {
       </Text>
       <Card style={styles.themeCard}>
         <Text style={[styles.themeHint, { color: theme.textSecondary }]}>
-          {t('settings.appThemeHint')} {t('settings.themeUnlockHint')}
+          {t('settings.appThemeHint')} {t('settings.themeChangeAdHint')}
         </Text>
         <ThemePicker
           label=""
-          mode="unlockable"
-          unlockedThemes={unlockedAppThemes}
           selected={appTheme}
-          onSelect={setAppTheme}
-          onLockedThemePress={handleUnlockTheme}
+          onSelect={handleThemeChange}
           getLabel={(themeId) => t(`events.themes.${themeId}`)}
         />
       </Card>
@@ -290,6 +301,31 @@ export default function SettingsScreen() {
               </Text>
               <Text style={[styles.instagramUsername, { color: theme.textSecondary }]}>
                 @{INSTAGRAM_USERNAME}
+              </Text>
+            </View>
+            <Ionicons name="open-outline" size={20} color={theme.textMuted} />
+          </View>
+        </Card>
+      </Pressable>
+
+      <Text style={[styles.sectionLabel, { color: theme.textSecondary }]}>
+        {t('settings.reviewTitle')}
+      </Text>
+      <Pressable
+        onPress={handleOpenPlayStore}
+        style={({ pressed }) => [pressed && styles.pressed]}
+      >
+        <Card style={styles.instagramCard}>
+          <View style={styles.instagramRow}>
+            <View style={[styles.instagramIconWrap, { backgroundColor: theme.primaryLight }]}>
+              <Ionicons name="star-outline" size={22} color={theme.primaryDark} />
+            </View>
+            <View style={styles.instagramTextWrap}>
+              <Text style={[styles.instagramTitle, { color: theme.text }]}>
+                {t('settings.reviewTitle')}
+              </Text>
+              <Text style={[styles.instagramUsername, { color: theme.textSecondary }]}>
+                {t('settings.reviewDescription')}
               </Text>
             </View>
             <Ionicons name="open-outline" size={20} color={theme.textMuted} />

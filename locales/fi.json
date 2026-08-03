@@ -69,7 +69,10 @@
       "anniversary": "Vuosipäivä",
       "engagement": "Kihlajaiset",
       "other": "Muu"
-    }
+    },
+    "exportPdf": "Vie PDF",
+    "exportFailed": "PDF:ää ei voitu viedä. Yritä uudelleen.",
+    "exportSharingUnavailable": "Jakaminen ei ole käytettävissä tällä laitteella."
   },
   "tabs": {
     "overview": "Yleiskatsaus",
@@ -305,7 +308,7 @@
     "preset310": "3 pöytää × 10 paikkaa",
     "preset57": "5 pöytää × 7 paikkaa",
     "hallOverviewTitle": "Salin yleiskuva",
-    "hallOverviewHint": "Pyyhkäise ylös, alas, vasemmalle ja oikealle. Nipistä tai käytä +/− zoomaukseen. Vedä pöytää siirtääksesi sitä.",
+    "hallOverviewHint": "Nipistä tai käytä +/− zoomaukseen. Vedä salia siirtääksesi näkymää. Vedä pöytää siirtääksesi sitä.",
     "hallOverviewEmpty": "Lisää ensin pöydät nähdäksesi salin yleiskuvan.",
     "hallOverviewZoomIn": "Lähennä",
     "hallOverviewZoomOut": "Loitonna",
@@ -486,7 +489,15 @@
     "supportDescription": "Kysymyksiä, vinkkejä tai virhe? Ota yhteyttä.",
     "contactSupport": "Ota yhteyttä tukeen",
     "supportEmailSubject": "Täydellinen juhlani — tuki",
-    "supportMailUnavailable": "Sähköpostisovellusta ei voitu avata. Kopioi tukisähköpostiosoite alta."
+    "supportMailUnavailable": "Sähköpostisovellusta ei voitu avata. Kopioi tukisähköpostiosoite alta.",
+    "themeChangeAdHint": "Katso mainos vaihtaaksesi teemaa.",
+    "reviewTitle": "Arvostele sovellus",
+    "reviewDescription": "Pidätkö sovelluksesta? Jätä arvostelu Google Playhin.",
+    "reviewUnavailable": "Google Playta ei voitu avata.",
+    "reviewPromptTitle": "Pidätkö sovelluksesta?",
+    "reviewPromptMessage": "Jos Täydelliset juhani auttaa suunnittelussa, lyhyt arvostelu Google Playssa merkitsisi paljon.",
+    "reviewPromptRate": "Arvostele nyt",
+    "reviewPromptLater": "Myöhemmin"
   },
   "ads": {
     "sponsored": "Mainos"

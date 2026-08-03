@@ -1,7 +1,8 @@
 import { createElement } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { colors, radius, spacing, typography } from '@/theme/colors';
+import { useThemeColors } from '@/theme/EventThemeContext';
+import { radius, spacing, typography } from '@/theme/colors';
 
 import { FieldLabel } from '@/components/FieldLabel';
 
@@ -20,6 +21,7 @@ export function DatePickerField({
   mode = 'date',
   clearable = true,
 }: DatePickerFieldProps) {
+  const theme = useThemeColors();
   const isDateTime = mode === 'datetime';
 
   return (
@@ -33,8 +35,22 @@ export function DatePickerField({
             onChange(event.target.value || undefined);
           },
           style: {
-            ...webInputStyle,
-            borderColor: error ? colors.danger : colors.border,
+            flex: 1,
+            backgroundColor: theme.surface,
+            borderWidth: 1,
+            borderStyle: 'solid',
+            borderColor: error ? theme.danger : theme.border,
+            borderRadius: radius.md,
+            paddingLeft: spacing.md,
+            paddingRight: spacing.md,
+            paddingTop: spacing.sm,
+            paddingBottom: spacing.sm,
+            minHeight: 42,
+            fontSize: typography.body.fontSize,
+            color: theme.text,
+            fontFamily: 'system-ui, -apple-system, sans-serif',
+            boxSizing: 'border-box' as const,
+            width: '100%',
           },
           'aria-label': label,
         })}
@@ -44,34 +60,19 @@ export function DatePickerField({
             style={styles.clearBtn}
             accessibilityLabel={clearLabel}
           >
-            <Text style={styles.clearText}>×</Text>
+            <Text style={[styles.clearText, { color: theme.textMuted }]}>×</Text>
           </Pressable>
         ) : null}
       </View>
-      {!value && placeholder ? <Text style={styles.hint}>{placeholder}</Text> : null}
-      {error ? <Text style={styles.error}>{error}</Text> : null}
+      {!value && placeholder ? (
+        <Text style={[styles.hint, { color: theme.textMuted }]}>{placeholder}</Text>
+      ) : null}
+      {error ? (
+        <Text style={[styles.error, { color: theme.danger }]}>{error}</Text>
+      ) : null}
     </View>
   );
 }
-
-const webInputStyle = {
-  flex: 1,
-  backgroundColor: colors.surface,
-  borderWidth: 1,
-  borderStyle: 'solid',
-  borderColor: colors.border,
-  borderRadius: radius.md,
-  paddingLeft: spacing.md,
-  paddingRight: spacing.md,
-  paddingTop: spacing.sm + 2,
-  paddingBottom: spacing.sm + 2,
-  minHeight: 48,
-  fontSize: typography.body.fontSize,
-  color: colors.text,
-  fontFamily: 'system-ui, -apple-system, sans-serif',
-  boxSizing: 'border-box' as const,
-  width: '100%',
-};
 
 const styles = StyleSheet.create({
   container: {
@@ -87,17 +88,14 @@ const styles = StyleSheet.create({
   },
   clearText: {
     fontSize: 24,
-    color: colors.textMuted,
     lineHeight: 24,
   },
   hint: {
     ...typography.small,
-    color: colors.textMuted,
     marginTop: spacing.xs,
   },
   error: {
     ...typography.small,
-    color: colors.danger,
     marginTop: spacing.xs,
   },
 });

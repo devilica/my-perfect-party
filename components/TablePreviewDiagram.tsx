@@ -5,6 +5,7 @@ import {
   getScaledSeatSize,
   getSeatPositions,
   getTableBodyDimensions,
+  RoundSeatSpacing,
 } from '@/lib/tableShapeLayout';
 import { TableSeatSlot } from '@/lib/seatingStats';
 import { DEFAULT_TABLE_SHAPE } from '@/constants/tableShapes';
@@ -21,6 +22,9 @@ type TablePreviewDiagramProps = {
   seats: TableSeatSlot[];
   shape?: TableShape;
   size?: number;
+  roundSeatSpacing?: RoundSeatSpacing;
+  /** Hall overview at low zoom: allow proportionally tiny table labels. */
+  compactHallText?: boolean;
 };
 
 export function TablePreviewDiagram({
@@ -30,13 +34,22 @@ export function TablePreviewDiagram({
   seats,
   shape = DEFAULT_TABLE_SHAPE,
   size = BASE_DIAGRAM_SIZE,
+  roundSeatSpacing = 'default',
+  compactHallText = false,
 }: TablePreviewDiagramProps) {
   const theme = useThemeColors();
   const scale = size / BASE_DIAGRAM_SIZE;
   const tableBody = getTableBodyDimensions(shape, size);
   const seatSize = getScaledSeatSize(size);
   const labelWidth = getScaledLabelWidth(size);
-  const seatPositions = getSeatPositions(shape, capacity, size);
+  const seatPositions = getSeatPositions(shape, capacity, size, roundSeatSpacing);
+  const tableNameFontSize = compactHallText
+    ? Math.max(4, typography.subheading.fontSize * scale)
+    : Math.max(10, typography.subheading.fontSize * scale);
+  const tableCountFontSize = compactHallText
+    ? Math.max(3, typography.caption.fontSize * scale)
+    : Math.max(8, typography.caption.fontSize * scale);
+  const guestLabelFontSize = Math.max(8, typography.small.fontSize * scale);
 
   return (
     <View style={[styles.diagram, { width: size, height: size }]}>
@@ -61,10 +74,10 @@ export function TablePreviewDiagram({
             styles.tableName,
             {
               color: theme.text,
-              fontSize: Math.max(10, typography.subheading.fontSize * scale),
+              fontSize: tableNameFontSize,
             },
           ]}
-          numberOfLines={2}
+          numberOfLines={compactHallText ? 1 : 2}
         >
           {tableName}
         </Text>
@@ -73,8 +86,8 @@ export function TablePreviewDiagram({
             styles.tableCount,
             {
               color: theme.textSecondary,
-              fontSize: Math.max(8, typography.caption.fontSize * scale),
-              marginTop: spacing.xs * scale,
+              fontSize: tableCountFontSize,
+              marginTop: (compactHallText ? spacing.xs * 0.25 : spacing.xs) * scale,
             },
           ]}
         >
@@ -103,7 +116,7 @@ export function TablePreviewDiagram({
                 },
               ]}
             />
-            {seat.guestName ? (
+            {seat.guestName && !compactHallText ? (
               <Text
                 style={[
                   styles.label,
@@ -112,7 +125,7 @@ export function TablePreviewDiagram({
                     left: position.labelX - labelWidth / 2,
                     top: position.labelY - 8 * scale,
                     width: labelWidth,
-                    fontSize: Math.max(7, typography.small.fontSize * scale),
+                    fontSize: guestLabelFontSize,
                   },
                 ]}
                 numberOfLines={1}

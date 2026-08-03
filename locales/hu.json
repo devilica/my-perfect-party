@@ -69,7 +69,10 @@
       "anniversary": "Évforduló",
       "engagement": "Eljegyzés",
       "other": "Egyéb"
-    }
+    },
+    "exportPdf": "PDF exportálása",
+    "exportFailed": "A PDF exportálása nem sikerült. Próbálja újra.",
+    "exportSharingUnavailable": "A megosztás nem érhető el ezen az eszközön."
   },
   "tabs": {
     "overview": "Áttekintés",
@@ -202,9 +205,9 @@
     "emptyTitle": "Még nincsenek vendégek",
     "emptySubtitle": "Add hozzá a vendégeket, és kövesd, ki erősítette meg a részvételt.",
     "firstName": "Keresztnév",
-    "firstNamePlaceholder": "pl. Ana",
+    "firstNamePlaceholder": "pl. Anna",
     "lastName": "Vezetéknév",
-    "lastNamePlaceholder": "pl. Petrović",
+    "lastNamePlaceholder": "pl. Kovács",
     "phone": "Telefon",
     "phonePlaceholder": "pl. 066 123 456",
     "category": "Kategória",
@@ -305,7 +308,7 @@
     "preset310": "3 asztal × 10 hely",
     "preset57": "5 asztal × 7 hely",
     "hallOverviewTitle": "Terem áttekintése",
-    "hallOverviewHint": "Húzza fel, le, balra és jobbra. Csípje össze vagy használja a +/− gombokat nagyításhoz. Húzza az asztalt az áthelyezéshez.",
+    "hallOverviewHint": "Csípje össze vagy használja a +/− gombokat nagyításhoz. Húzza a termet a nézet mozgatásához. Húzza az asztalt az áthelyezéshez.",
     "hallOverviewEmpty": "Először adjon hozzá asztalokat a terem áttekintéséhez.",
     "hallOverviewZoomIn": "Nagyítás",
     "hallOverviewZoomOut": "Kicsinyítés",
@@ -486,7 +489,15 @@
     "supportDescription": "Kérdésed, tipp vagy hiba? Lépj kapcsolatba velünk.",
     "contactSupport": "Kapcsolatfelvétel",
     "supportEmailSubject": "Tökéletes bulim — támogatás",
-    "supportMailUnavailable": "Nem sikerült megnyitni a levelezőalkalmazást. Másold ki az e-mail címet alább."
+    "supportMailUnavailable": "Nem sikerült megnyitni a levelezőalkalmazást. Másold ki az e-mail címet alább.",
+    "themeChangeAdHint": "Nézz meg egy reklámot a téma megváltoztatásához.",
+    "reviewTitle": "Értékeld az alkalmazást",
+    "reviewDescription": "Tetszik az alkalmazás? Írj értékelést a Google Playen.",
+    "reviewUnavailable": "Nem sikerült megnyitni a Google Playt.",
+    "reviewPromptTitle": "Tetszik az alkalmazás?",
+    "reviewPromptMessage": "Ha A tökéletes ünnepem segít a tervezésben, egy rövid Google Play értékelés sokat jelentene.",
+    "reviewPromptRate": "Értékelés most",
+    "reviewPromptLater": "Később"
   },
   "ads": {
     "sponsored": "Reklám"

@@ -135,7 +135,7 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
   ]);
 
   const containerStyle = useAnimatedStyle(() => ({
-    flex: 1,
+    ...StyleSheet.absoluteFillObject,
     opacity: containerOpacity.value,
   }));
 

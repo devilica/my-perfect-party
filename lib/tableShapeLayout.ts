@@ -2,8 +2,13 @@ import { TableShape } from '@/types/models';
 
 const BASE_TABLE_SIZE = 120;
 const BASE_SEAT_SIZE = 28;
-const BASE_ORBIT_RADIUS = 118;
-const BASE_LABEL_OFFSET = 22;
+
+export type RoundSeatSpacing = 'default' | 'compact';
+
+const ROUND_SEAT_SPACING = {
+  default: { orbitRadius: 118, labelOffset: 22 },
+  compact: { orbitRadius: 88, labelOffset: 14 },
+} as const;
 
 export type TableBodyDimensions = {
   width: number;
@@ -83,12 +88,15 @@ function distributeAcrossSides(total: number, sides: number): number[] {
 function getRoundSeatPositions(
   capacity: number,
   diagramSize: number,
-  seatSize: number
+  seatSize: number,
+  spacing: RoundSeatSpacing = 'default'
 ): SeatPosition[] {
   const center = diagramSize / 2;
   const scale = diagramSize / 320;
-  const orbitRadius = BASE_ORBIT_RADIUS * scale;
-  const labelOffset = BASE_LABEL_OFFSET * scale;
+  const { orbitRadius: baseOrbitRadius, labelOffset: baseLabelOffset } =
+    ROUND_SEAT_SPACING[spacing];
+  const orbitRadius = baseOrbitRadius * scale;
+  const labelOffset = baseLabelOffset * scale;
 
   return Array.from({ length: capacity }, (_, index) => {
     const angle = (2 * Math.PI * index) / Math.max(capacity, 1) - Math.PI / 2;
@@ -335,7 +343,8 @@ function getSquareSeatPositionsLegacy(
 export function getSeatPositions(
   shape: TableShape,
   capacity: number,
-  diagramSize: number
+  diagramSize: number,
+  roundSeatSpacing: RoundSeatSpacing = 'default'
 ): SeatPosition[] {
   const scale = diagramSize / 320;
   const seatSize = BASE_SEAT_SIZE * scale;
@@ -350,7 +359,7 @@ export function getSeatPositions(
       return getSquareSeatPositions(count, diagramSize, seatSize);
     case 'round':
     default:
-      return getRoundSeatPositions(count, diagramSize, seatSize);
+      return getRoundSeatPositions(count, diagramSize, seatSize, roundSeatSpacing);
   }
 }
 

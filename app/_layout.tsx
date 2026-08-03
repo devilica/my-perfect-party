@@ -5,13 +5,14 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AnimatedSplashScreen } from '@/components/AnimatedSplashScreen';
 import { AppShell } from '@/components/AppShell';
 import { LanguageSetupScreen } from '@/components/LanguageSetupScreen';
 import { initMobileAds } from '@/lib/initMobileAds';
+import { maybeAskForReview } from '@/lib/maybeAskForReview';
 import { flexFill, webViewportHeight } from '@/lib/webLayout';
 import { useWeddingStore } from '@/store/weddingStore';
 import { AppThemeProvider, useThemeColors } from '@/theme/EventThemeContext';
@@ -93,7 +94,8 @@ export default function RootLayout() {
   const hasSelectedLanguage = useWeddingStore((s) => s.hasSelectedLanguage);
   const appTheme = useWeddingStore((s) => s.appTheme);
   const [animationDone, setAnimationDone] = useState(false);
-  const ready = fontsLoaded && hasHydrated && animationDone;
+  const canRenderApp = fontsLoaded && hasHydrated;
+  const showSplashOverlay = !animationDone;
   const handleSplashFinish = useCallback(() => setAnimationDone(true), []);
 
   useEffect(() => {
@@ -102,44 +104,54 @@ export default function RootLayout() {
     }
   }, [hasSelectedLanguage]);
 
+  useEffect(() => {
+    if (!hasHydrated || !hasSelectedLanguage || !animationDone) return;
+
+    const timer = setTimeout(() => {
+      maybeAskForReview();
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [hasHydrated, hasSelectedLanguage, animationDone]);
+
   if (!fontsLoaded) {
     return null;
-  }
-
-  if (!ready) {
-    return (
-      <SafeAreaProvider>
-        <AnimatedSplashScreen onFinish={handleSplashFinish} />
-        <StatusBar style="dark" />
-      </SafeAreaProvider>
-    );
-  }
-
-  if (!hasSelectedLanguage) {
-    return (
-      <SafeAreaProvider>
-        <View style={[flexFill, webViewportHeight]}>
-          <AppThemeProvider themeId="wedding">
-            <LanguageSetupScreen />
-          </AppThemeProvider>
-        </View>
-        <StatusBar style="dark" />
-      </SafeAreaProvider>
-    );
   }
 
   return (
     <SafeAreaProvider>
       <View style={[flexFill, webViewportHeight]}>
-        <KeyboardProvider>
-          <StatusBar style="dark" />
-          <AppThemeProvider themeId={appTheme}>
-            <AppShell>
-              <ThemedRootStack />
-            </AppShell>
-          </AppThemeProvider>
-        </KeyboardProvider>
+        {canRenderApp ? (
+          !hasSelectedLanguage ? (
+            <AppThemeProvider themeId="wedding">
+              <LanguageSetupScreen />
+            </AppThemeProvider>
+          ) : (
+            <KeyboardProvider>
+              <AppThemeProvider themeId={appTheme}>
+                <AppShell>
+                  <ThemedRootStack />
+                </AppShell>
+              </AppThemeProvider>
+            </KeyboardProvider>
+          )
+        ) : null}
+
+        {showSplashOverlay ? (
+          <View style={styles.splashOverlay}>
+            <AnimatedSplashScreen onFinish={handleSplashFinish} />
+          </View>
+        ) : null}
+
+        <StatusBar style="dark" />
       </View>
     </SafeAreaProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  splashOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    zIndex: 1000,
+  },
+});

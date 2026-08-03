@@ -69,7 +69,10 @@
       "anniversary": "Anniversaire de mariage",
       "engagement": "Fiançailles",
       "other": "Autre"
-    }
+    },
+    "exportPdf": "Exporter en PDF",
+    "exportFailed": "Impossible d'exporter le PDF. Veuillez réessayer.",
+    "exportSharingUnavailable": "Le partage n'est pas disponible sur cet appareil."
   },
   "tabs": {
     "overview": "Aperçu",
@@ -202,9 +205,9 @@
     "emptyTitle": "Aucun invité pour l'instant",
     "emptySubtitle": "Ajoutez des invités et suivez qui a confirmé sa présence.",
     "firstName": "Prénom",
-    "firstNamePlaceholder": "ex. Ana",
+    "firstNamePlaceholder": "ex. Marie",
     "lastName": "Nom",
-    "lastNamePlaceholder": "ex. Petrović",
+    "lastNamePlaceholder": "ex. Dupont",
     "phone": "Téléphone",
     "phonePlaceholder": "ex. 066 123 456",
     "category": "Catégorie",
@@ -305,7 +308,7 @@
     "preset310": "3 tables × 10 places",
     "preset57": "5 tables × 7 places",
     "hallOverviewTitle": "Vue d'ensemble de la salle",
-    "hallOverviewHint": "Glissez vers le haut, le bas, la gauche et la droite. Pincez ou utilisez +/− pour zoomer. Faites glisser une table pour la repositionner.",
+    "hallOverviewHint": "Pincez ou utilisez +/− pour zoomer. Faites glisser la salle pour vous déplacer. Faites glisser une table pour la repositionner.",
     "hallOverviewEmpty": "Ajoutez d'abord des tables pour voir la vue d'ensemble de la salle.",
     "hallOverviewZoomIn": "Zoom avant",
     "hallOverviewZoomOut": "Zoom arrière",
@@ -486,7 +489,15 @@
     "supportDescription": "Des questions, des conseils ou un bug ? Contactez-nous.",
     "contactSupport": "Contacter l'assistance",
     "supportEmailSubject": "Ma fête parfaite — assistance",
-    "supportMailUnavailable": "Impossible d'ouvrir l'application mail. Copiez l'adresse e-mail ci-dessous."
+    "supportMailUnavailable": "Impossible d'ouvrir l'application mail. Copiez l'adresse e-mail ci-dessous.",
+    "themeChangeAdHint": "Regardez une publicité pour changer de thème.",
+    "reviewTitle": "Noter l'application",
+    "reviewDescription": "Vous aimez l'application ? Laissez un avis sur Google Play.",
+    "reviewUnavailable": "Impossible d'ouvrir Google Play.",
+    "reviewPromptTitle": "Vous aimez l'application ?",
+    "reviewPromptMessage": "Si Ma fête parfaite vous aide à organiser, un court avis sur Google Play nous ferait très plaisir.",
+    "reviewPromptRate": "Noter maintenant",
+    "reviewPromptLater": "Plus tard"
   },
   "ads": {
     "sponsored": "Publicité"

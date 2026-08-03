@@ -69,7 +69,10 @@
       "anniversary": "Výročie",
       "engagement": "Zásnuby",
       "other": "Iné"
-    }
+    },
+    "exportPdf": "Exportovať PDF",
+    "exportFailed": "PDF sa nepodarilo exportovať. Skúste znova.",
+    "exportSharingUnavailable": "Zdieľanie nie je na tomto zariadení dostupné."
   },
   "tabs": {
     "overview": "Prehľad",
@@ -202,9 +205,9 @@
     "emptyTitle": "Zatiaľ žiadni hostia",
     "emptySubtitle": "Pridajte hostí a sledujte, kto potvrdil účasť.",
     "firstName": "Meno",
-    "firstNamePlaceholder": "napr. Ana",
+    "firstNamePlaceholder": "napr. Eva",
     "lastName": "Priezvisko",
-    "lastNamePlaceholder": "napr. Petrović",
+    "lastNamePlaceholder": "napr. Nováková",
     "phone": "Telefón",
     "phonePlaceholder": "napr. 066 123 456",
     "category": "Kategória",
@@ -305,7 +308,7 @@
     "preset310": "3 stoly × 10 miest",
     "preset57": "5 stolov × 7 miest",
     "hallOverviewTitle": "Prehľad sály",
-    "hallOverviewHint": "Potiahnite hore, dole, vľavo a vpravo. Pinch alebo použite +/− na priblíženie. Presuňte stôl zmenou polohy.",
+    "hallOverviewHint": "Pinch alebo použite +/− na priblíženie. Potiahnite sálu pre posunutie pohľadu. Presuňte stôl zmenou polohy.",
     "hallOverviewEmpty": "Najprv pridajte stoly pre zobrazenie prehľadu sály.",
     "hallOverviewZoomIn": "Priblížiť",
     "hallOverviewZoomOut": "Oddialiť",
@@ -486,7 +489,15 @@
     "supportDescription": "Máte otázku, tip alebo chybu? Kontaktujte nás.",
     "contactSupport": "Kontaktovať podporu",
     "supportEmailSubject": "Moja dokonalá oslava — podpora",
-    "supportMailUnavailable": "Nepodarilo sa otvoriť poštovú aplikáciu. Skopírujte e-mailovú adresu nižšie."
+    "supportMailUnavailable": "Nepodarilo sa otvoriť poštovú aplikáciu. Skopírujte e-mailovú adresu nižšie.",
+    "themeChangeAdHint": "Pre zmenu motívu si pozrite reklamu.",
+    "reviewTitle": "Ohodnotiť aplikáciu",
+    "reviewDescription": "Páči sa vám aplikácia? Zanechajte recenziu na Google Play.",
+    "reviewUnavailable": "Nepodarilo sa otvoriť Google Play.",
+    "reviewPromptTitle": "Páči sa vám aplikácia?",
+    "reviewPromptMessage": "Ak vám Moja dokonalá oslava pomáha s plánovaním, krátka recenzia na Google Play by nám veľmi pomohla.",
+    "reviewPromptRate": "Ohodnotiť teraz",
+    "reviewPromptLater": "Neskôr"
   },
   "ads": {
     "sponsored": "Reklama"

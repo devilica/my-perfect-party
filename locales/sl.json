@@ -69,7 +69,10 @@
       "anniversary": "Obletnica",
       "engagement": "Zaročitev",
       "other": "Drugo"
-    }
+    },
+    "exportPdf": "Izvozi PDF",
+    "exportFailed": "PDF-ja ni bilo mogoče izvoziti. Poskusite znova.",
+    "exportSharingUnavailable": "Skupna raba na tej napravi ni na voljo."
   },
   "tabs": {
     "overview": "Pregled",
@@ -204,7 +207,7 @@
     "firstName": "Ime",
     "firstNamePlaceholder": "npr. Ana",
     "lastName": "Priimek",
-    "lastNamePlaceholder": "npr. Petrović",
+    "lastNamePlaceholder": "npr. Novak",
     "phone": "Telefon",
     "phonePlaceholder": "npr. 066 123 456",
     "category": "Kategorija",
@@ -305,7 +308,7 @@
     "preset310": "3 mize × 10 mest",
     "preset57": "5 miz × 7 mest",
     "hallOverviewTitle": "Pregled dvorane",
-    "hallOverviewHint": "Povlecite gor, dol, levo in desno. Stisnite ali uporabite +/− za povečavo. Povlecite mizo, da spremenite položaj.",
+    "hallOverviewHint": "Stisnite ali uporabite +/− za povečavo. Povlecite dvorano za premik pogleda. Povlecite mizo, da spremenite položaj.",
     "hallOverviewEmpty": "Najprej dodajte mize za ogled dvorane.",
     "hallOverviewZoomIn": "Povečaj",
     "hallOverviewZoomOut": "Pomanjšaj",
@@ -486,7 +489,15 @@
     "supportDescription": "Vprašanja, nasveti ali napaka? Stopite v stik.",
     "contactSupport": "Kontaktiraj podporo",
     "supportEmailSubject": "Moja popolna proslava — podpora",
-    "supportMailUnavailable": "Poštne aplikacije ni bilo mogoče odpreti. Kopirajte e-poštni naslov spodaj."
+    "supportMailUnavailable": "Poštne aplikacije ni bilo mogoče odpreti. Kopirajte e-poštni naslov spodaj.",
+    "themeChangeAdHint": "Za spremembo teme si oglejte oglas.",
+    "reviewTitle": "Oceni aplikacijo",
+    "reviewDescription": "Vam je aplikacija všeč? Pustite mnenje na Google Play.",
+    "reviewUnavailable": "Google Play ni bilo mogoče odpreti.",
+    "reviewPromptTitle": "Vam je aplikacija všeč?",
+    "reviewPromptMessage": "Če vam Moja popolna proslava pomaga pri načrtovanju, bi kratka ocena na Google Play veliko pomenila.",
+    "reviewPromptRate": "Oceni zdaj",
+    "reviewPromptLater": "Pozneje"
   },
   "ads": {
     "sponsored": "Oglas"

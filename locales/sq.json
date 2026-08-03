@@ -69,7 +69,10 @@
       "anniversary": "Përvjetor",
       "engagement": "Fejesë",
       "other": "Tjetër"
-    }
+    },
+    "exportPdf": "Eksporto PDF",
+    "exportFailed": "PDF nuk mund të eksportohej. Provoni përsëri.",
+    "exportSharingUnavailable": "Ndarja nuk është e disponueshme në këtë pajisje."
   },
   "tabs": {
     "overview": "Përmbledhje",
@@ -204,7 +207,7 @@
     "firstName": "Emri",
     "firstNamePlaceholder": "p.sh. Ana",
     "lastName": "Mbiemri",
-    "lastNamePlaceholder": "p.sh. Petrović",
+    "lastNamePlaceholder": "p.sh. Krasniqi",
     "phone": "Telefoni",
     "phonePlaceholder": "p.sh. 066 123 456",
     "category": "Kategoria",
@@ -305,7 +308,7 @@
     "preset310": "3 tavolina × 10 vende",
     "preset57": "5 tavolina × 7 vende",
     "hallOverviewTitle": "Pamje e sallës",
-    "hallOverviewHint": "Rrëshqit lart, poshtë, majtas dhe djathtas. Shtyp ose përdor +/− për zoom. Tërhiq një tavolinë për ta zhvendosur.",
+    "hallOverviewHint": "Shtyp ose përdor +/− për zoom. Tërhiq sallën për të lëvizur pamjen. Tërhiq një tavolinë për ta zhvendosur.",
     "hallOverviewEmpty": "Shto fillimisht tavolinat për të parë pamjen e sallës.",
     "hallOverviewZoomIn": "Zmadho",
     "hallOverviewZoomOut": "Zvogëlo",
@@ -486,7 +489,15 @@
     "supportDescription": "Pyetje, këshilla apo një gabim? Na kontaktoni.",
     "contactSupport": "Kontakto mbështetjen",
     "supportEmailSubject": "Festa ime e përsosur — mbështetje",
-    "supportMailUnavailable": "Nuk u hap aplikacioni i emailit. Kopjoni adresën e emailit më poshtë."
+    "supportMailUnavailable": "Nuk u hap aplikacioni i emailit. Kopjoni adresën e emailit më poshtë.",
+    "themeChangeAdHint": "Shiko një reklamë për të ndryshuar temën.",
+    "reviewTitle": "Vlerëso aplikacionin",
+    "reviewDescription": "Të pëlqen aplikacioni? Lë një vlerësim në Google Play.",
+    "reviewUnavailable": "Nuk mund të hapet Google Play.",
+    "reviewPromptTitle": "Të pëlqen aplikacioni?",
+    "reviewPromptMessage": "Nëse Festa ime e përsosur të ndihmon të planifikosh, një vlerësim i shkurtër në Google Play do të kishte shumë kuptim.",
+    "reviewPromptRate": "Vlerëso tani",
+    "reviewPromptLater": "Më vonë"
   },
   "ads": {
     "sponsored": "Reklamë"

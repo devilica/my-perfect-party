@@ -314,3 +314,8 @@ export function getTemplateIndex(id: string): number {
   const index = INVITATION_TEMPLATES.findIndex((template) => template.id === resolvedId);
   return index >= 0 ? index : 0;
 }
+
+export function getSuggestedFontColor(templateId: string): string {
+  const template = getInvitationTemplate(templateId);
+  return template.useImageBackground ? '#FFFFFF' : '#3D3D3D';
+}

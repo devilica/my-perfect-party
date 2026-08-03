@@ -69,7 +69,10 @@
       "anniversary": "Годишњица",
       "engagement": "Веридба",
       "other": "Остало"
-    }
+    },
+    "exportPdf": "Извези PDF",
+    "exportFailed": "PDF се није могао извести. Покушајте поново.",
+    "exportSharingUnavailable": "Дељење није доступно на овом уређају."
   },
   "tabs": {
     "overview": "Преглед",
@@ -305,7 +308,7 @@
     "preset310": "3 стола × 10 места",
     "preset57": "5 столова × 7 места",
     "hallOverviewTitle": "Преглед сале",
-    "hallOverviewHint": "Превуците приказ горе, доле, лево и десно. Стисните или користите +/− за зум. Превуците сто да промените позицију.",
+    "hallOverviewHint": "Стисните или користите +/− за зум. Превуците салу да померите приказ. Превуците сто да промените позицију.",
     "hallOverviewEmpty": "Прво додајте столове да видите преглед сале.",
     "hallOverviewZoomIn": "Увећај",
     "hallOverviewZoomOut": "Умањи",
@@ -486,7 +489,15 @@
     "supportDescription": "Имате питање, савет или грешку? Јавите нам се.",
     "contactSupport": "Контактирајте подршку",
     "supportEmailSubject": "Моја савршена прослава — подршка",
-    "supportMailUnavailable": "Није могуће отворити е-пошта апликацију. Копирајте е-пошта адресу испод."
+    "supportMailUnavailable": "Није могуће отворити е-пошта апликацију. Копирајте е-пошта адресу испод.",
+    "themeChangeAdHint": "Погледај рекламу да промијениш тему.",
+    "reviewTitle": "Оцени апликацију",
+    "reviewDescription": "Свиђа ти се апликација? Остави рецензију на Google Play-у.",
+    "reviewUnavailable": "Није могуће отворити Google Play.",
+    "reviewPromptTitle": "Свиђа ти се апликација?",
+    "reviewPromptMessage": "Ако ти Моја савршена прослава помаже у планирању, кратка рецензија на Google Play-у би нам пуно значила.",
+    "reviewPromptRate": "Оцени сада",
+    "reviewPromptLater": "Касније"
   },
   "ads": {
     "sponsored": "Реклама"

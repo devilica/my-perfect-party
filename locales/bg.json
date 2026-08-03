@@ -69,7 +69,10 @@
       "anniversary": "Годишнина",
       "engagement": "Годеж",
       "other": "Друго"
-    }
+    },
+    "exportPdf": "Експорт в PDF",
+    "exportFailed": "PDF файлът не можа да бъде експортиран. Опитайте отново.",
+    "exportSharingUnavailable": "Споделянето не е налично на това устройство."
   },
   "tabs": {
     "overview": "Преглед",
@@ -202,9 +205,9 @@
     "emptyTitle": "Все още няма гости",
     "emptySubtitle": "Добавете гости и следете кой е потвърдил присъствието си.",
     "firstName": "Име",
-    "firstNamePlaceholder": "напр. Ана",
+    "firstNamePlaceholder": "напр. Мария",
     "lastName": "Фамилия",
-    "lastNamePlaceholder": "напр. Петрович",
+    "lastNamePlaceholder": "напр. Иванова",
     "phone": "Телефон",
     "phonePlaceholder": "напр. 066 123 456",
     "category": "Категория",
@@ -305,7 +308,7 @@
     "preset310": "3 маси × 10 места",
     "preset57": "5 маси × 7 места",
     "hallOverviewTitle": "Преглед на залата",
-    "hallOverviewHint": "Плъзнете нагоре, надолу, наляво и надясно. Щипнете или използвайте +/− за мащаб. Плъзнете маса, за да я преместите.",
+    "hallOverviewHint": "Щипнете или използвайте +/− за мащаб. Плъзнете залата, за да преместите изгледа. Плъзнете маса, за да я преместите.",
     "hallOverviewEmpty": "Първо добавете маси, за да видите прегледа на залата.",
     "hallOverviewZoomIn": "Увеличаване",
     "hallOverviewZoomOut": "Намаляване",
@@ -486,7 +489,15 @@
     "supportDescription": "Въпроси, съвети или грешка? Свържете се с нас.",
     "contactSupport": "Свържете се с поддръжката",
     "supportEmailSubject": "Моето перфектно парти — поддръжка",
-    "supportMailUnavailable": "Не може да се отвори пощенското приложение. Копирайте имейл адреса по-долу."
+    "supportMailUnavailable": "Не може да се отвори пощенското приложение. Копирайте имейл адреса по-долу.",
+    "themeChangeAdHint": "Гледайте реклама, за да смените темата.",
+    "reviewTitle": "Оценете приложението",
+    "reviewDescription": "Харесва ли ви приложението? Оставете отзив в Google Play.",
+    "reviewUnavailable": "Не може да се отвори Google Play.",
+    "reviewPromptTitle": "Харесва ли ви приложението?",
+    "reviewPromptMessage": "Ако „Моето перфектно парти“ ви помага да планирате, кратка рецензия в Google Play би значила много.",
+    "reviewPromptRate": "Оцени сега",
+    "reviewPromptLater": "По-късно"
   },
   "ads": {
     "sponsored": "Реклама"

@@ -69,7 +69,10 @@
       "anniversary": "Anniversario",
       "engagement": "Fidanzamento",
       "other": "Altro"
-    }
+    },
+    "exportPdf": "Esporta PDF",
+    "exportFailed": "Impossibile esportare il PDF. Riprova.",
+    "exportSharingUnavailable": "La condivisione non è disponibile su questo dispositivo."
   },
   "tabs": {
     "overview": "Panoramica",
@@ -202,9 +205,9 @@
     "emptyTitle": "Nessun invitato ancora",
     "emptySubtitle": "Aggiungi invitati e tieni traccia di chi ha confermato la presenza.",
     "firstName": "Nome",
-    "firstNamePlaceholder": "es. Ana",
+    "firstNamePlaceholder": "es. Giulia",
     "lastName": "Cognome",
-    "lastNamePlaceholder": "es. Petrović",
+    "lastNamePlaceholder": "es. Rossi",
     "phone": "Telefono",
     "phonePlaceholder": "es. 066 123 456",
     "category": "Categoria",
@@ -305,7 +308,7 @@
     "preset310": "3 tavoli × 10 posti",
     "preset57": "5 tavoli × 7 posti",
     "hallOverviewTitle": "Panoramica della sala",
-    "hallOverviewHint": "Scorri su, giù, sinistra e destra. Pizzica o usa +/− per lo zoom. Trascina un tavolo per riposizionarlo.",
+    "hallOverviewHint": "Pizzica o usa +/− per lo zoom. Trascina la sala per spostarti. Trascina un tavolo per riposizionarlo.",
     "hallOverviewEmpty": "Aggiungi prima i tavoli per vedere la panoramica della sala.",
     "hallOverviewZoomIn": "Ingrandisci",
     "hallOverviewZoomOut": "Riduci",
@@ -486,7 +489,15 @@
     "supportDescription": "Domande, suggerimenti o un bug? Contattaci.",
     "contactSupport": "Contatta il supporto",
     "supportEmailSubject": "La mia festa perfetta — supporto",
-    "supportMailUnavailable": "Impossibile aprire l'app di posta. Copia l'indirizzo e-mail qui sotto."
+    "supportMailUnavailable": "Impossibile aprire l'app di posta. Copia l'indirizzo e-mail qui sotto.",
+    "themeChangeAdHint": "Guarda un annuncio per cambiare tema.",
+    "reviewTitle": "Valuta l'app",
+    "reviewDescription": "Ti piace l'app? Lascia una recensione su Google Play.",
+    "reviewUnavailable": "Impossibile aprire Google Play.",
+    "reviewPromptTitle": "Ti piace l'app?",
+    "reviewPromptMessage": "Se La mia festa perfetta ti aiuta a organizzare, una breve recensione su Google Play significherebbe molto.",
+    "reviewPromptRate": "Valuta ora",
+    "reviewPromptLater": "Più tardi"
   },
   "ads": {
     "sponsored": "Annuncio"

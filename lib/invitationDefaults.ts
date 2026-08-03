@@ -1,5 +1,6 @@
 import { generateId } from '@/lib/generateId';
 import { parseIsoDateTime } from '@/lib/dateUtils';
+import { getSuggestedFontColor } from '@/constants/invitationTemplates';
 import { CelebrationThemeId, EventInvitation, WeddingEvent } from '@/types/models';
 
 type TranslateFn = (key: string, params?: Record<string, string | number>) => string;
@@ -91,8 +92,9 @@ function defaultSubEvents(
 }
 
 export function createDefaultInvitation(event: WeddingEvent, t: TranslateFn): EventInvitation {
+  const templateId = defaultTemplateForTheme(event.theme);
   return {
-    templateId: defaultTemplateForTheme(event.theme),
+    templateId,
     backgroundOpacity: 0.85,
     lineSpacing: 1,
     headerIcon: defaultHeaderIcon(event.theme),
@@ -100,7 +102,7 @@ export function createDefaultInvitation(event: WeddingEvent, t: TranslateFn): Ev
     hostNames: event.name,
     namesFontFamily: 'script',
     fontSize: 36,
-    fontColor: '#3D3D3D',
+    fontColor: getSuggestedFontColor(templateId),
     eventDateText: formatInvitationDate(event.date, t),
     subEvents: defaultSubEvents(event, t),
     rsvpMessage: t('invitation.defaults.rsvp'),

@@ -1,10 +1,11 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Tabs, useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
-import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Alert, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { useIsOnline } from '@/hooks/useIsOnline';
 import { areAdsEnabled } from '@/lib/adsEnvironment';
+import { exportEventPdf } from '@/lib/exportEventPdf';
 import { flexFill } from '@/lib/webLayout';
 import { useTranslation } from '@/lib/i18n';
 import { preloadRewardedThemeAd, showRewardedThemeAd } from '@/lib/rewardedThemeAd';
@@ -18,10 +19,15 @@ export default function EventLayout() {
   const router = useRouter();
   const language = useWeddingStore((s) => s.language);
   const events = useWeddingStore((s) => s.events);
+  const guests = useWeddingStore((s) => s.guests);
+  const tables = useWeddingStore((s) => s.tables);
+  const expenses = useWeddingStore((s) => s.expenses);
+  const obligations = useWeddingStore((s) => s.obligations);
   const deleteEvent = useWeddingStore((s) => s.deleteEvent);
   const { t } = useTranslation(language);
   const isOnline = useIsOnline();
   const [deleteAdLoading, setDeleteAdLoading] = useState(false);
+  const [exportLoading, setExportLoading] = useState(false);
 
   const event = useMemo(
     () => events.find((item) => item.id === (id ?? '')),
@@ -84,6 +90,32 @@ export default function EventLayout() {
     ]);
   };
 
+  const handleExportPdf = async () => {
+    if (!id || exportLoading) return;
+
+    setExportLoading(true);
+    try {
+      const result = await exportEventPdf({
+        eventId: id,
+        language,
+        t,
+        events,
+        guests,
+        tables,
+        expenses,
+        obligations,
+      });
+
+      if (result === 'unavailable') {
+        Alert.alert(t('common.error'), t('events.exportSharingUnavailable'));
+      } else if (result === 'failed') {
+        Alert.alert(t('common.error'), t('events.exportFailed'));
+      }
+    } finally {
+      setExportLoading(false);
+    }
+  };
+
   if (!event || !theme) {
     return null;
   }
@@ -91,9 +123,15 @@ export default function EventLayout() {
   const renderHeaderRight = (options?: {
     showEdit?: boolean;
     showDelete?: boolean;
+    showExport?: boolean;
     showSeatingPreview?: boolean;
   }) => () => {
-    if (!options?.showEdit && !options?.showDelete && !options?.showSeatingPreview) {
+    if (
+      !options?.showEdit &&
+      !options?.showDelete &&
+      !options?.showExport &&
+      !options?.showSeatingPreview
+    ) {
       return null;
     }
 
@@ -127,6 +165,21 @@ export default function EventLayout() {
             accessibilityLabel={t('events.edit')}
           >
             <Ionicons name="pencil-outline" size={22} color={theme.colors.primary} />
+          </Pressable>
+        ) : null}
+        {options?.showExport ? (
+          <Pressable
+            onPress={handleExportPdf}
+            hitSlop={8}
+            disabled={exportLoading}
+            accessibilityRole="button"
+            accessibilityLabel={t('events.exportPdf')}
+          >
+            {exportLoading ? (
+              <ActivityIndicator size="small" color={theme.colors.primary} />
+            ) : (
+              <Ionicons name="download-outline" size={22} color={theme.colors.primary} />
+            )}
           </Pressable>
         ) : null}
         {options?.showDelete ? (
@@ -177,7 +230,11 @@ export default function EventLayout() {
                 <Ionicons name="arrow-back" size={24} color={theme.colors.primary} />
               </Pressable>
             ),
-            headerRight: renderHeaderRight({ showEdit: true, showDelete: true }),
+            headerRight: renderHeaderRight({
+              showEdit: true,
+              showExport: true,
+              showDelete: true,
+            }),
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="stats-chart-outline" size={size} color={color} />
             ),

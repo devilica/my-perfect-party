@@ -50,6 +50,17 @@ export function getGuestsForEvent(guests: Guest[], eventId: string): Guest[] {
   return guests.filter((g) => g.eventId === eventId);
 }
 
+/** True when people headcount crosses 31 / 61 / 91 / … (free through 30). */
+export function didCrossGuestAdMilestone(
+  oldTotalPeople: number,
+  newTotalPeople: number
+): boolean {
+  if (newTotalPeople <= 30) return false;
+  return (
+    Math.floor((newTotalPeople - 1) / 30) > Math.floor((oldTotalPeople - 1) / 30)
+  );
+}
+
 export function getGuestStats(guests: Guest[], eventId: string): GuestStats {
   const eventGuests = getGuestsForEvent(guests, eventId);
   const totalInvites = eventGuests.length;

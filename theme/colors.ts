@@ -4,10 +4,10 @@ export const colors = {
   primary: '#C4847A',
   primaryDark: '#A66B62',
   primaryLight: '#F5E6E3',
-  text: '#2D2A26',
-  textSecondary: '#6B6560',
-  textMuted: '#9C9590',
-  border: '#E8D5CF',
+  text: '#1A1714',
+  textSecondary: '#4A4540',
+  textMuted: '#6B6560',
+  border: '#CFC3BC',
   success: '#5A9E6F',
   successLight: '#E8F5EC',
   pending: '#B8B0AA',
@@ -26,33 +26,33 @@ export const colors = {
   groomSideLight: '#E8EDF2',
   sharedSide: '#8B7EC8',
   sharedSideLight: '#F0ECFA',
-  shadow: 'rgba(45, 42, 38, 0.08)',
-  overlay: 'rgba(45, 42, 38, 0.4)',
+  shadow: 'rgba(45, 42, 38, 0.12)',
+  overlay: 'rgba(45, 42, 38, 0.5)',
 };
 
 export const spacing = {
   xs: 4,
-  sm: 8,
-  md: 16,
-  lg: 24,
-  xl: 32,
+  sm: 6,
+  md: 12,
+  lg: 18,
+  xl: 24,
 };
 
 export const radius = {
   sm: 8,
-  md: 12,
-  lg: 16,
+  md: 10,
+  lg: 14,
   xl: 24,
   full: 999,
 };
 
 export const typography = {
-  title: { fontSize: 28, fontWeight: '700' as const },
-  heading: { fontSize: 22, fontWeight: '600' as const },
-  subheading: { fontSize: 18, fontWeight: '600' as const },
-  body: { fontSize: 16, fontWeight: '400' as const },
-  caption: { fontSize: 14, fontWeight: '400' as const },
-  small: { fontSize: 12, fontWeight: '400' as const },
+  title: { fontSize: 24, fontWeight: '700' as const },
+  heading: { fontSize: 20, fontWeight: '600' as const },
+  subheading: { fontSize: 16, fontWeight: '600' as const },
+  body: { fontSize: 15, fontWeight: '400' as const },
+  caption: { fontSize: 13, fontWeight: '400' as const },
+  small: { fontSize: 11, fontWeight: '400' as const },
 };
 
 export function getOccupancyColors(status: 'available' | 'almostFull' | 'full') {
