@@ -1,8 +1,7 @@
-import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useRef } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import Animated, {
   Easing,
   runOnJS,
@@ -14,13 +13,19 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { getDefaultLanguage, translate } from '@/lib/i18n';
+import { getEffectiveBottomInset } from '@/lib/safeAreaInsets';
 import { SplashCelebrationEffects } from '@/components/SplashCelebrationEffects';
-import { colors, radius, spacing, typography } from '@/theme/colors';
+import { colors, spacing, typography } from '@/theme/colors';
 
 const FADE_OUT_DELAY_MS = 2200;
 const FADE_OUT_DURATION_MS = 300;
+const LOGO_SIZE = 220;
+const GLOW_SIZE = LOGO_SIZE + 40;
+const LOGO_OFFSET_Y = 12;
+const TAGLINE_ABOVE_NAV = 28;
 
 type AnimatedSplashScreenProps = {
   onFinish: () => void;
@@ -31,17 +36,14 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
   onFinishRef.current = onFinish;
 
   const language = getDefaultLanguage();
-  const title = translate(language, 'app.name');
   const tagline = translate(language, 'app.tagline');
+  const insets = useSafeAreaInsets();
+  const taglineBottom = getEffectiveBottomInset(insets) + TAGLINE_ABOVE_NAV;
 
   const containerOpacity = useSharedValue(1);
   const iconScale = useSharedValue(0.75);
   const iconPulse = useSharedValue(1);
-  const titleOpacity = useSharedValue(0.3);
-  const titleTranslateY = useSharedValue(8);
   const taglineOpacity = useSharedValue(0);
-  const sparkleOpacity = useSharedValue(0.5);
-  const sparkleLeftOpacity = useSharedValue(0.35);
   const glowScale = useSharedValue(0.9);
   const glowOpacity = useSharedValue(0.35);
 
@@ -53,38 +55,14 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
       300,
       withRepeat(
         withSequence(
-          withTiming(1.08, { duration: 600, easing: Easing.inOut(Easing.ease) }),
+          withTiming(1.06, { duration: 600, easing: Easing.inOut(Easing.ease) }),
           withTiming(1, { duration: 600, easing: Easing.inOut(Easing.ease) })
         ),
         -1,
         true
       )
     );
-    titleOpacity.value = withDelay(100, withTiming(1, { duration: 500 }));
-    titleTranslateY.value = withDelay(100, withTiming(0, { duration: 500 }));
     taglineOpacity.value = withDelay(400, withTiming(1, { duration: 500 }));
-    sparkleOpacity.value = withDelay(
-      200,
-      withRepeat(
-        withSequence(
-          withTiming(1, { duration: 800 }),
-          withTiming(0.4, { duration: 800 })
-        ),
-        -1,
-        true
-      )
-    );
-    sparkleLeftOpacity.value = withDelay(
-      350,
-      withRepeat(
-        withSequence(
-          withTiming(0.85, { duration: 900 }),
-          withTiming(0.25, { duration: 900 })
-        ),
-        -1,
-        true
-      )
-    );
     glowScale.value = withDelay(
       150,
       withRepeat(
@@ -121,18 +99,7 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
     }, FADE_OUT_DELAY_MS);
 
     return () => clearTimeout(fadeTimer);
-  }, [
-    containerOpacity,
-    glowOpacity,
-    glowScale,
-    iconPulse,
-    iconScale,
-    sparkleLeftOpacity,
-    sparkleOpacity,
-    taglineOpacity,
-    titleOpacity,
-    titleTranslateY,
-  ]);
+  }, [containerOpacity, glowOpacity, glowScale, iconPulse, iconScale, taglineOpacity]);
 
   const containerStyle = useAnimatedStyle(() => ({
     ...StyleSheet.absoluteFillObject,
@@ -143,21 +110,8 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
     transform: [{ scale: iconScale.value * iconPulse.value }],
   }));
 
-  const titleStyle = useAnimatedStyle(() => ({
-    opacity: titleOpacity.value,
-    transform: [{ translateY: titleTranslateY.value }],
-  }));
-
   const taglineStyle = useAnimatedStyle(() => ({
     opacity: taglineOpacity.value,
-  }));
-
-  const sparkleStyle = useAnimatedStyle(() => ({
-    opacity: sparkleOpacity.value,
-  }));
-
-  const sparkleLeftStyle = useAnimatedStyle(() => ({
-    opacity: sparkleLeftOpacity.value,
   }));
 
   const glowStyle = useAnimatedStyle(() => ({
@@ -175,21 +129,25 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
       >
         <SplashCelebrationEffects />
         <View style={styles.content}>
-          <View style={styles.iconCluster}>
-            <Animated.View style={[styles.iconGlow, glowStyle]} />
-            <Animated.View style={[styles.iconWrap, iconStyle]}>
-              <Ionicons name="heart" size={40} color={colors.primary} />
-              <Animated.View style={[styles.sparkle, sparkleStyle]}>
-                <Ionicons name="sparkles" size={22} color={colors.primaryDark} />
-              </Animated.View>
-              <Animated.View style={[styles.sparkleLeft, sparkleLeftStyle]}>
-                <Ionicons name="sparkles" size={18} color={colors.seatAlmostFull} />
-              </Animated.View>
+          <View style={styles.logoArea}>
+            <Animated.View style={[styles.iconCluster, iconStyle]}>
+              <Animated.View style={[styles.iconGlow, glowStyle]} />
+              <View style={styles.iconWrap}>
+                <Image
+                  source={require('@/assets/images/logo.png')}
+                  style={styles.logo}
+                  resizeMode="contain"
+                  accessibilityLabel={translate(language, 'app.name')}
+                />
+              </View>
             </Animated.View>
           </View>
 
-          <Animated.Text style={[styles.title, titleStyle]}>{title}</Animated.Text>
-          <Animated.Text style={[styles.tagline, taglineStyle]}>{tagline}</Animated.Text>
+          <Animated.Text
+            style={[styles.tagline, taglineStyle, { marginBottom: taglineBottom }]}
+          >
+            {tagline}
+          </Animated.Text>
         </View>
       </LinearGradient>
     </Animated.View>
@@ -202,55 +160,42 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    zIndex: 1,
+  },
+  logoArea: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: spacing.xl,
-    zIndex: 1,
   },
   iconCluster: {
+    width: GLOW_SIZE,
+    height: GLOW_SIZE,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: spacing.lg,
   },
   iconGlow: {
-    position: 'absolute',
-    width: 120,
-    height: 120,
-    borderRadius: radius.full,
+    ...StyleSheet.absoluteFillObject,
+    borderRadius: GLOW_SIZE / 2,
     backgroundColor: colors.primaryLight,
   },
   iconWrap: {
-    width: 88,
-    height: 88,
-    borderRadius: radius.full,
-    backgroundColor: colors.surface,
+    width: LOGO_SIZE,
+    height: LOGO_SIZE,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: colors.shadow,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.15,
-    shadowRadius: 12,
-    elevation: 4,
+    transform: [{ translateY: LOGO_OFFSET_Y }],
   },
-  sparkle: {
-    position: 'absolute',
-    top: -4,
-    right: -4,
-  },
-  sparkleLeft: {
-    position: 'absolute',
-    bottom: -2,
-    left: -6,
-  },
-  title: {
-    ...typography.title,
-    color: colors.text,
-    textAlign: 'center',
-    marginBottom: spacing.sm,
+  logo: {
+    width: LOGO_SIZE,
+    height: LOGO_SIZE,
   },
   tagline: {
     ...typography.body,
-    color: colors.textSecondary,
+    color: colors.textMuted,
     textAlign: 'center',
+    alignSelf: 'center',
+    paddingHorizontal: spacing.xl,
+    letterSpacing: 0.3,
   },
 });

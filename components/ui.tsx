@@ -331,15 +331,28 @@ export function StatCard({
   label,
   value,
   accent,
+  onPress,
+  selected,
 }: {
   label: string;
   value: string;
   accent?: string;
+  onPress?: () => void;
+  selected?: boolean;
 }) {
   const theme = useThemeColors();
 
   return (
-    <Card style={statStyles.card}>
+    <Card
+      onPress={onPress}
+      style={[
+        statStyles.card,
+        selected && {
+          borderColor: theme.primary,
+          backgroundColor: theme.primaryLight,
+        },
+      ]}
+    >
       <View style={statStyles.labelWrap}>
         <Text
           style={[statStyles.label, { color: theme.textSecondary }]}

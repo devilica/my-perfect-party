@@ -12,5 +12,8 @@ export const REWARDED_INVITATION_UNIT_ID =
 
 export const REWARDED_GUEST_UNIT_ID = 'ca-app-pub-5452343649745884/5447721618';
 
+/** Zamijeni ID-em novog Rewarded Interstitial ad unita u AdMob-u (Stolovi). */
+export const REWARDED_TABLE_UNIT_ID = 'ca-app-pub-5452343649745884/5447721618';
+
 export const OVERVIEW_NATIVE_AD_UNIT_ID =
   'ca-app-pub-5452343649745884/4944775261';

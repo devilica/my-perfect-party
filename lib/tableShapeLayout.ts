@@ -2,12 +2,16 @@ import { TableShape } from '@/types/models';
 
 const BASE_TABLE_SIZE = 120;
 const BASE_SEAT_SIZE = 28;
+/** Gap from seat edge to guest name anchor (at 320px diagram). */
+const BASE_LABEL_GAP = 2;
 
 export type RoundSeatSpacing = 'default' | 'compact';
 
 const ROUND_SEAT_SPACING = {
-  default: { orbitRadius: 118, labelOffset: 22 },
-  compact: { orbitRadius: 88, labelOffset: 14 },
+  /** Table preview — seats hug the table edge. */
+  default: { orbitRadius: 80 },
+  /** Hall overview — slightly tighter at small scale. */
+  compact: { orbitRadius: 76 },
 } as const;
 
 export type TableBodyDimensions = {
@@ -23,7 +27,34 @@ export type SeatPosition = {
   seatY: number;
   labelX: number;
   labelY: number;
+  /** Degrees clockwise; text extends outward from the table through the seat. */
+  labelRotation: number;
 };
+
+function readableRadialRotation(angleRad: number): number {
+  let rotation = (angleRad * 180) / Math.PI;
+  if (rotation > 90 || rotation < -90) {
+    rotation += 180;
+  }
+  return rotation;
+}
+
+function getLabelAnchorFromSeat(
+  seatX: number,
+  seatY: number,
+  seatSize: number,
+  outwardDeg: number,
+  scale: number
+): { labelX: number; labelY: number } {
+  const seatCx = seatX + seatSize / 2;
+  const seatCy = seatY + seatSize / 2;
+  const gap = seatSize / 2 + BASE_LABEL_GAP * scale;
+  const rad = (outwardDeg * Math.PI) / 180;
+  return {
+    labelX: seatCx + gap * Math.cos(rad),
+    labelY: seatCy + gap * Math.sin(rad),
+  };
+}
 
 export function getTableBodyDimensions(
   shape: TableShape,
@@ -93,19 +124,29 @@ function getRoundSeatPositions(
 ): SeatPosition[] {
   const center = diagramSize / 2;
   const scale = diagramSize / 320;
-  const { orbitRadius: baseOrbitRadius, labelOffset: baseLabelOffset } =
-    ROUND_SEAT_SPACING[spacing];
+  const { orbitRadius: baseOrbitRadius } = ROUND_SEAT_SPACING[spacing];
   const orbitRadius = baseOrbitRadius * scale;
-  const labelOffset = baseLabelOffset * scale;
 
   return Array.from({ length: capacity }, (_, index) => {
     const angle = (2 * Math.PI * index) / Math.max(capacity, 1) - Math.PI / 2;
     const seatX = center + orbitRadius * Math.cos(angle) - seatSize / 2;
     const seatY = center + orbitRadius * Math.sin(angle) - seatSize / 2;
-    const labelX = center + (orbitRadius + labelOffset) * Math.cos(angle);
-    const labelY = center + (orbitRadius + labelOffset) * Math.sin(angle);
+    const outwardDeg = (angle * 180) / Math.PI;
+    const { labelX, labelY } = getLabelAnchorFromSeat(
+      seatX,
+      seatY,
+      seatSize,
+      outwardDeg,
+      scale
+    );
 
-    return { seatX, seatY, labelX, labelY };
+    return {
+      seatX,
+      seatY,
+      labelX,
+      labelY,
+      labelRotation: readableRadialRotation(angle),
+    };
   });
 }
 
@@ -127,10 +168,22 @@ function getSingleSidedSeatPositions(
         ? body.left + body.width / 2 - seatSize / 2
         : startX + (usableWidth * index) / Math.max(capacity - 1, 1) - seatSize / 2;
     const seatY = rowY;
-    const labelX = seatX + seatSize / 2;
-    const labelY = seatY + seatSize + 6 * scale;
+    const labelRotation = 90;
+    const { labelX, labelY } = getLabelAnchorFromSeat(
+      seatX,
+      seatY,
+      seatSize,
+      labelRotation,
+      scale
+    );
 
-    return { seatX, seatY, labelX, labelY };
+    return {
+      seatX,
+      seatY,
+      labelX,
+      labelY,
+      labelRotation,
+    };
   });
 }
 
@@ -157,11 +210,20 @@ function getRectangularSeatPositions(
           ? body.left + body.width / 2 - seatSize / 2
           : rowStartX + (usableWidth * i) / Math.max(count - 1, 1) - seatSize / 2;
       const seatY = y;
+      const labelRotation = y < body.top ? -90 : 90;
+      const { labelX, labelY } = getLabelAnchorFromSeat(
+        seatX,
+        seatY,
+        seatSize,
+        labelRotation,
+        scale
+      );
       positions[startIndex + i] = {
         seatX,
         seatY,
-        labelX: seatX + seatSize / 2,
-        labelY: y < body.top ? seatY - 10 * scale : seatY + seatSize + 6 * scale,
+        labelX,
+        labelY,
+        labelRotation,
       };
     }
   };
@@ -212,48 +274,60 @@ function getSquareSeatPositions(
   placeSide(perSide, (i, count) => {
     const seatX = seatAlongHorizontalEdge(i, count);
     const seatY = body.top - gap - seatSize;
-    return {
+    const labelRotation = -90;
+    const { labelX, labelY } = getLabelAnchorFromSeat(
       seatX,
       seatY,
-      labelX: seatX + seatSize / 2,
-      labelY: seatY - 8 * scale,
-    };
+      seatSize,
+      labelRotation,
+      scale
+    );
+    return { seatX, seatY, labelX, labelY, labelRotation };
   });
 
   // Right
   placeSide(perSide, (i, count) => {
     const seatX = body.left + body.width + gap;
     const seatY = seatAlongVerticalEdge(i, count);
-    return {
+    const labelRotation = 0;
+    const { labelX, labelY } = getLabelAnchorFromSeat(
       seatX,
       seatY,
-      labelX: seatX + seatSize + 4 * scale,
-      labelY: seatY + seatSize / 2,
-    };
+      seatSize,
+      labelRotation,
+      scale
+    );
+    return { seatX, seatY, labelX, labelY, labelRotation };
   });
 
   // Bottom
   placeSide(perSide, (i, count) => {
     const seatX = seatAlongHorizontalEdge(i, count);
     const seatY = body.top + body.height + gap;
-    return {
+    const labelRotation = 90;
+    const { labelX, labelY } = getLabelAnchorFromSeat(
       seatX,
       seatY,
-      labelX: seatX + seatSize / 2,
-      labelY: seatY + seatSize + 6 * scale,
-    };
+      seatSize,
+      labelRotation,
+      scale
+    );
+    return { seatX, seatY, labelX, labelY, labelRotation };
   });
 
   // Left
   placeSide(perSide, (i, count) => {
     const seatX = body.left - gap - seatSize;
     const seatY = seatAlongVerticalEdge(i, count);
-    return {
+    const labelRotation = 180;
+    const { labelX, labelY } = getLabelAnchorFromSeat(
       seatX,
       seatY,
-      labelX: seatX - 4 * scale,
-      labelY: seatY + seatSize / 2,
-    };
+      seatSize,
+      labelRotation,
+      scale
+    );
+    return { seatX, seatY, labelX, labelY, labelRotation };
   });
 
   return positions;
@@ -287,12 +361,15 @@ function getSquareSeatPositionsLegacy(
         ? body.left + body.width / 2 - seatSize / 2
         : body.left + ((body.width - seatSize) * i) / Math.max(count - 1, 1);
     const seatY = body.top - gap - seatSize;
-    return {
+    const labelRotation = -90;
+    const { labelX, labelY } = getLabelAnchorFromSeat(
       seatX,
       seatY,
-      labelX: seatX + seatSize / 2,
-      labelY: seatY - 8 * scale,
-    };
+      seatSize,
+      labelRotation,
+      scale
+    );
+    return { seatX, seatY, labelX, labelY, labelRotation };
   });
 
   placeSide(counts[1], (i, count) => {
@@ -301,12 +378,15 @@ function getSquareSeatPositionsLegacy(
       count === 1
         ? body.top + body.height / 2 - seatSize / 2
         : body.top + ((body.height - seatSize) * i) / Math.max(count - 1, 1);
-    return {
+    const labelRotation = 0;
+    const { labelX, labelY } = getLabelAnchorFromSeat(
       seatX,
       seatY,
-      labelX: seatX + seatSize + 4 * scale,
-      labelY: seatY + seatSize / 2,
-    };
+      seatSize,
+      labelRotation,
+      scale
+    );
+    return { seatX, seatY, labelX, labelY, labelRotation };
   });
 
   placeSide(counts[2], (i, count) => {
@@ -315,12 +395,15 @@ function getSquareSeatPositionsLegacy(
         ? body.left + body.width / 2 - seatSize / 2
         : body.left + ((body.width - seatSize) * i) / Math.max(count - 1, 1);
     const seatY = body.top + body.height + gap;
-    return {
+    const labelRotation = 90;
+    const { labelX, labelY } = getLabelAnchorFromSeat(
       seatX,
       seatY,
-      labelX: seatX + seatSize / 2,
-      labelY: seatY + seatSize + 6 * scale,
-    };
+      seatSize,
+      labelRotation,
+      scale
+    );
+    return { seatX, seatY, labelX, labelY, labelRotation };
   });
 
   placeSide(counts[3], (i, count) => {
@@ -329,12 +412,15 @@ function getSquareSeatPositionsLegacy(
       count === 1
         ? body.top + body.height / 2 - seatSize / 2
         : body.top + ((body.height - seatSize) * i) / Math.max(count - 1, 1);
-    return {
+    const labelRotation = 180;
+    const { labelX, labelY } = getLabelAnchorFromSeat(
       seatX,
       seatY,
-      labelX: seatX - 4 * scale,
-      labelY: seatY + seatSize / 2,
-    };
+      seatSize,
+      labelRotation,
+      scale
+    );
+    return { seatX, seatY, labelX, labelY, labelRotation };
   });
 
   return positions;

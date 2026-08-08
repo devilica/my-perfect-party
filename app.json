@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Moja savršena proslava",
+    "name": "My Perfect Party",
     "slug": "wedding-planner-bh",
     "version": "1.0.3",
     "orientation": "portrait",
@@ -11,7 +11,7 @@
     "splash": {
       "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#FFF8F5"
+      "backgroundColor": "#FFF8F4"
     },
     "ios": {
       "supportsTablet": true,
@@ -24,7 +24,7 @@
       "versionCode": 4,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#FFF8F5"
+        "backgroundColor": "#FFF8F4"
       },
       "package": "com.mojasavrsenaproslava.app"
     },
@@ -38,9 +38,9 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#FFF8F5",
+          "backgroundColor": "#FFF8F4",
           "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200
+          "imageWidth": 260
         }
       ],
       "expo-localization",
@@ -67,6 +67,13 @@
         {
           "photosPermission": "Allow access to save invitation images.",
           "savePhotosPermission": "Allow saving invitation images to your gallery."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/icon.png",
+          "color": "#C9686F"
         }
       ]
     ],

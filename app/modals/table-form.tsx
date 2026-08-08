@@ -13,9 +13,16 @@ import {
   useEventCelebrationTheme,
 } from '@/components/ThemedEventModal';
 import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
+import { useIsOnline } from '@/hooks/useIsOnline';
 import { DEFAULT_TABLE_SHAPE, isSquareTableCapacityValid } from '@/constants/tableShapes';
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
+import {
+  canShowTableMilestoneAd,
+  preloadRewardedTableAd,
+  showRewardedTableAd,
+} from '@/lib/rewardedTableAd';
+import { didCrossTableAdMilestone, getTablesForEvent } from '@/lib/seatingStats';
 import { useWeddingStore } from '@/store/weddingStore';
 import { TableShape } from '@/types/models';
 import { spacing } from '@/theme/colors';
@@ -32,6 +39,13 @@ export default function TableFormModal() {
   const { t } = useTranslation(language);
   const modalScrollPadding = useModalScrollPadding();
   const celebrationTheme = useEventCelebrationTheme(eventId ?? '');
+  const isOnline = useIsOnline();
+
+  useEffect(() => {
+    if (canShowTableMilestoneAd(isOnline)) {
+      preloadRewardedTableAd();
+    }
+  }, [isOnline]);
 
   const existingTable = useMemo(
     () => (tableId ? tables.find((table) => table.id === tableId) : undefined),
@@ -63,7 +77,7 @@ export default function TableFormModal() {
     }
   }, [parsedCapacity, shape]);
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!name.trim()) {
       setNameError(t('seating.nameRequired'));
       return;
@@ -83,12 +97,21 @@ export default function TableFormModal() {
         shape,
       });
     } else {
+      const oldCount = getTablesForEvent(tables, eventId).length;
       addTable({
         eventId,
         name: name.trim(),
         capacity: parsedCapacity,
         shape,
       });
+
+      if (
+        didCrossTableAdMilestone(oldCount, oldCount + 1) &&
+        canShowTableMilestoneAd(isOnline)
+      ) {
+        await showRewardedTableAd();
+        preloadRewardedTableAd();
+      }
     }
 
     router.back();
@@ -117,20 +140,27 @@ export default function TableFormModal() {
         placeholder={t('seating.tableNamePlaceholder')}
         error={nameError}
       />
-      <TextInputField
-        label={t('seating.capacity')}
-        required
-        value={capacity}
-        onChangeText={(text) => {
-          setCapacity(text);
-          setCapacityError('');
-        }}
-        placeholder={t('seating.capacityPlaceholder')}
-        keyboardType="numeric"
-        error={capacityError}
-      />
 
-      <TableShapePicker value={shape} onChange={setShape} capacity={parsedCapacity} />
+      <View style={styles.fieldsBlock}>
+        <TextInputField
+          label={t('seating.capacity')}
+          required
+          value={capacity}
+          onChangeText={(text) => {
+            setCapacity(text);
+            setCapacityError('');
+          }}
+          placeholder={t('seating.capacityPlaceholder')}
+          keyboardType="numeric"
+          error={capacityError}
+        />
+        <TableShapePicker
+          variant="compact"
+          value={shape}
+          onChange={setShape}
+          capacity={parsedCapacity}
+        />
+      </View>
 
       <View style={styles.actions}>
         <Button label={t('common.save')} onPress={handleSave} />
@@ -145,6 +175,9 @@ export default function TableFormModal() {
 const styles = StyleSheet.create({
   container: {
     padding: spacing.md,
+  },
+  fieldsBlock: {
+    gap: spacing.xs,
   },
   actions: {
     gap: spacing.sm,

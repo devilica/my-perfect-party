@@ -1,0 +1,31 @@
+---
+description: Never auto-run builds, prebuild, git, or store releases — tell the user to run them manually
+alwaysApply: true
+---
+
+# Manual operations only
+
+Do **not** run these commands or workflows unless the user explicitly asks in that message:
+
+## Expo / native builds
+
+- `npx expo prebuild` (with or without `--clean`, `--platform`, etc.)
+- `expo rebuild` or any equivalent native regeneration
+- `eas build` (APK, AAB, IPA, or any EAS profile)
+- `npm run build:apk`, `npm run build:apk:prod`, or similar release builds
+- Gradle assemble/bundle commands intended to produce installable/store artifacts
+
+If native assets or a new build are needed after code changes, **explain what changed** and give the exact commands for the user to run later. Do not run them proactively.
+
+## Git
+
+- `git commit`, `git push`, `git pull`, force push, rebase, amend, branch creation for PRs
+- Creating pull requests unless the user explicitly requests it in that turn
+
+If changes are ready to commit or push, summarize what to stage and suggest a commit message — let the user run git themselves.
+
+## Default behavior
+
+- Implement code and asset changes in the repo.
+- When follow-up steps require build, prebuild, git, or deploy: list them clearly under something like **"Run yourself when ready"** with copy-paste commands.
+- Only execute the above when the user explicitly says to do it in the current request (e.g. "run prebuild now", "commit this", "build the apk").

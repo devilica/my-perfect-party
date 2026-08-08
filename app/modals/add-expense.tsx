@@ -36,7 +36,7 @@ export default function AddExpenseModal() {
 
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
-  const [category, setCategory] = useState<ExpenseCategory>('food');
+  const [category, setCategory] = useState<ExpenseCategory>('other');
   const [customCategory, setCustomCategory] = useState('');
   const [coveredByOther, setCoveredByOther] = useState(false);
   const [payerName, setPayerName] = useState('');

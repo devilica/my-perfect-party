@@ -1,14 +1,14 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { Button, TextInputField } from '@/components/ui';
+import { Button, Card, TextInputField } from '@/components/ui';
 import { TableShapePicker } from '@/components/TableShapePicker';
 import { DEFAULT_TABLE_SHAPE, isSquareTableCapacityValid } from '@/constants/tableShapes';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { BulkTableBatch, TableShape } from '@/types/models';
-import { radius, spacing, typography } from '@/theme/colors';
+import { spacing, typography } from '@/theme/colors';
 
 type BatchRow = {
   id: string;
@@ -35,22 +35,9 @@ export function TableCreationModal({ onCreate, onCancel }: TableCreationModalPro
   const [rows, setRows] = useState<BatchRow[]>([createBatchRow()]);
   const [error, setError] = useState('');
 
-  const totalTables = useMemo(
-    () =>
-      rows.reduce((sum, row) => {
-        const count = parseInt(row.count, 10);
-        return sum + (Number.isNaN(count) || count <= 0 ? 0 : count);
-      }, 0),
-    [rows]
-  );
-
   const addRow = () => setRows((prev) => [...prev, createBatchRow()]);
   const removeRow = (id: string) =>
     setRows((prev) => (prev.length > 1 ? prev.filter((r) => r.id !== id) : prev));
-
-  const applyPreset = (count: number, capacity: number) => {
-    setRows([createBatchRow(String(count), String(capacity))]);
-  };
 
   const handleCreate = () => {
     const batches: BulkTableBatch[] = [];
@@ -72,44 +59,22 @@ export function TableCreationModal({ onCreate, onCancel }: TableCreationModalPro
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.title, { color: theme.text }]}>{t('seating.bulkCreateTitle')}</Text>
-      <Text style={[styles.preview, { color: theme.textSecondary }]}>
-        {t('seating.bulkPreview', { count: totalTables })}
-      </Text>
-
-      <View style={styles.presets}>
-        <Pressable
-          style={[styles.presetBtn, { backgroundColor: theme.primaryLight }]}
-          onPress={() => applyPreset(3, 10)}
-        >
-          <Text style={[styles.presetText, { color: theme.primaryDark }]}>
-            {t('seating.preset310')}
-          </Text>
-        </Pressable>
-        <Pressable
-          style={[styles.presetBtn, { backgroundColor: theme.primaryLight }]}
-          onPress={() => applyPreset(5, 7)}
-        >
-          <Text style={[styles.presetText, { color: theme.primaryDark }]}>
-            {t('seating.preset57')}
-          </Text>
-        </Pressable>
-      </View>
-
-      {rows.map((row) => {
+      {rows.map((row, index) => {
         const rowCapacity = parseInt(row.capacity, 10);
         const parsedRowCapacity = Number.isNaN(rowCapacity) ? 0 : rowCapacity;
 
         return (
-        <View key={row.id} style={styles.batchBlock}>
-          <TableShapePicker
-            variant="compact"
-            value={row.shape}
-            capacity={parsedRowCapacity}
-            onChange={(shape) =>
-              setRows((prev) => prev.map((r) => (r.id === row.id ? { ...r, shape } : r)))
-            }
-          />
+        <Card key={row.id} style={styles.batchCard}>
+          {rows.length > 1 ? (
+            <View style={styles.batchHeader}>
+              <Text style={[styles.batchLabel, { color: theme.textSecondary }]}>
+                #{index + 1}
+              </Text>
+              <Pressable onPress={() => removeRow(row.id)} hitSlop={8} style={styles.removeBtn}>
+                <Text style={[styles.removeText, { color: theme.danger }]}>×</Text>
+              </Pressable>
+            </View>
+          ) : null}
           <View style={styles.row}>
             <View style={styles.rowField}>
               <TextInputField
@@ -148,13 +113,16 @@ export function TableCreationModal({ onCreate, onCancel }: TableCreationModalPro
                 keyboardType="numeric"
               />
             </View>
-            {rows.length > 1 ? (
-              <Pressable onPress={() => removeRow(row.id)} style={styles.removeBtn}>
-                <Text style={[styles.removeText, { color: theme.danger }]}>×</Text>
-              </Pressable>
-            ) : null}
           </View>
-        </View>
+          <TableShapePicker
+            variant="compact"
+            value={row.shape}
+            capacity={parsedRowCapacity}
+            onChange={(shape) =>
+              setRows((prev) => prev.map((r) => (r.id === row.id ? { ...r, shape } : r)))
+            }
+          />
+        </Card>
         );
       })}
 
@@ -173,31 +141,18 @@ const styles = StyleSheet.create({
   container: {
     gap: spacing.sm,
   },
-  title: {
-    ...typography.subheading,
-  },
-  preview: {
-    ...typography.caption,
-    marginBottom: spacing.sm,
-  },
-  presets: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+  batchCard: {
     gap: spacing.sm,
-    marginBottom: spacing.md,
-  },
-  presetBtn: {
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    borderRadius: radius.full,
-  },
-  presetText: {
-    ...typography.small,
-    fontWeight: '600',
-  },
-  batchBlock: {
-    gap: spacing.xs,
     marginBottom: spacing.sm,
+  },
+  batchHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  batchLabel: {
+    ...typography.caption,
+    fontWeight: '600',
   },
   row: {
     flexDirection: 'row',
@@ -208,11 +163,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   removeBtn: {
-    width: 36,
-    height: 36,
+    width: 32,
+    height: 32,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: spacing.md,
   },
   removeText: {
     fontSize: 24,

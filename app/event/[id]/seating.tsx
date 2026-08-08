@@ -25,7 +25,12 @@ import {
 import { useScrollRestoration } from '@/hooks/useScrollRestoration';
 import { filterGuests } from '@/lib/guestStats';
 import { makeScrollKey } from '@/lib/scrollRestoration';
-import { getSeatingStats, getTablesForEvent } from '@/lib/seatingStats';
+import {
+  filterTablesByOccupancy,
+  getSeatingStats,
+  getTablesForEvent,
+  type TableFilter,
+} from '@/lib/seatingStats';
 import { flexFill } from '@/lib/webLayout';
 import { useTranslation } from '@/lib/i18n';
 import { useEventId } from '@/lib/useEventId';
@@ -37,7 +42,8 @@ import { radius, spacing, typography } from '@/theme/colors';
 export default function SeatingScreen() {
   const eventId = useEventId();
   const router = useRouter();
-  const [filter, setFilter] = useState<GuestFilter>('all');
+  const [filter, setFilter] = useState<GuestFilter>('confirmed');
+  const [tableFilter, setTableFilter] = useState<TableFilter>('all');
   const [fabOpen, setFabOpen] = useState(false);
   const [assignGuest, setAssignGuest] = useState<Guest | null>(null);
 
@@ -62,6 +68,11 @@ export default function SeatingScreen() {
   const tables = useMemo(
     () => getTablesForEvent(allTables, eventId),
     [allTables, eventId]
+  );
+
+  const filteredTables = useMemo(
+    () => filterTablesByOccupancy(tables, eventGuests, tableFilter),
+    [tables, eventGuests, tableFilter]
   );
 
   const seatingStats = useMemo(
@@ -137,16 +148,22 @@ export default function SeatingScreen() {
           <StatCard
             label={t('overview.tablesTotal')}
             value={String(seatingStats.totalTables)}
+            onPress={() => setTableFilter('all')}
+            selected={tableFilter === 'all'}
           />
           <StatCard
             label={t('overview.tablesFull')}
             value={String(seatingStats.fullTables)}
             accent={theme.seatFull}
+            onPress={() => setTableFilter('full')}
+            selected={tableFilter === 'full'}
           />
           <StatCard
             label={t('overview.tablesAvailable')}
             value={String(seatingStats.availableTables)}
             accent={theme.seatAvailable}
+            onPress={() => setTableFilter('available')}
+            selected={tableFilter === 'available'}
           />
         </View>
 
@@ -179,7 +196,7 @@ export default function SeatingScreen() {
             subtitle={t('seating.emptySubtitle')}
           />
         ) : (
-          tables.map((table) => (
+          filteredTables.map((table) => (
             <TableCard
               key={table.id}
               table={table}

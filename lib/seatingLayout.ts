@@ -6,6 +6,20 @@ export const SEATING_CANVAS_SIZE = SEATING_CANVAS_HEIGHT;
 export const SEATING_TABLE_DIAGRAM_SIZE = 150;
 /** Below this hall zoom, table diagrams shrink in proportion to the canvas. */
 export const HALL_TABLE_SIZE_BASE_ZOOM = 0.35;
+/** Hall zoom at or above this level shows abbreviated guest names (first name + last initial). */
+export const HALL_GUEST_NAMES_ABBREV_MIN_ZOOM = 0.3;
+/** Hall zoom at or above this level shows guest full names on seats. */
+export const HALL_GUEST_NAMES_FULL_MIN_ZOOM = 0.8;
+export const HALL_DEFAULT_ZOOM = 0.5;
+export const HALL_MIN_ZOOM = 0.15;
+
+export type HallGuestNameMode = 'hidden' | 'abbreviated' | 'full';
+
+export function getHallGuestNameMode(zoom: number): HallGuestNameMode {
+  if (zoom >= HALL_GUEST_NAMES_FULL_MIN_ZOOM) return 'full';
+  if (zoom >= HALL_GUEST_NAMES_ABBREV_MIN_ZOOM) return 'abbreviated';
+  return 'hidden';
+}
 
 export function getHallTableDiagramSize(zoom: number): number {
   if (zoom >= HALL_TABLE_SIZE_BASE_ZOOM) {
@@ -80,6 +94,22 @@ export function pixelsToLayout(
   };
 }
 
-export function getDefaultHallZoom(tableCount: number): number {
-  return tableCount > 20 ? 0.45 : 0.55;
+export function getDefaultHallZoom(_tableCount?: number): number {
+  return HALL_DEFAULT_ZOOM;
+}
+
+/** Zoom level that fits the full hall canvas inside the viewport. */
+export function getFitHallZoom(
+  viewportWidth: number,
+  viewportHeight: number,
+  padding = 32
+): number {
+  if (viewportWidth <= 0 || viewportHeight <= 0) {
+    return HALL_DEFAULT_ZOOM;
+  }
+
+  const zoomX = (viewportWidth - padding) / SEATING_CANVAS_WIDTH;
+  const zoomY = (viewportHeight - padding) / SEATING_CANVAS_HEIGHT;
+  const fit = Math.min(zoomX, zoomY);
+  return Number(Math.min(1.4, Math.max(HALL_MIN_ZOOM, fit)).toFixed(2));
 }

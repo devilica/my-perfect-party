@@ -10,10 +10,12 @@ import {
 import { TableSeatSlot } from '@/lib/seatingStats';
 import { DEFAULT_TABLE_SHAPE } from '@/constants/tableShapes';
 import { useThemeColors } from '@/theme/EventThemeContext';
-import { TableShape } from '@/types/models';
+import { formatGuestSeatLabel, GuestSeatNameMode, TableShape } from '@/types/models';
 import { spacing, typography } from '@/theme/colors';
 
 const BASE_DIAGRAM_SIZE = 320;
+/** Above this seat count, full names are too crowded — use first name + last initial. */
+const ABBREVIATE_NAMES_ABOVE_CAPACITY = 16;
 
 type TablePreviewDiagramProps = {
   tableName: string;
@@ -25,6 +27,10 @@ type TablePreviewDiagramProps = {
   roundSeatSpacing?: RoundSeatSpacing;
   /** Hall overview at low zoom: allow proportionally tiny table labels. */
   compactHallText?: boolean;
+  /** How guest names render around seats. */
+  guestNameMode?: GuestSeatNameMode;
+  /** Highlight seats belonging to this guest (table preview reorder). */
+  selectedGuestId?: string | null;
 };
 
 export function TablePreviewDiagram({
@@ -36,12 +42,25 @@ export function TablePreviewDiagram({
   size = BASE_DIAGRAM_SIZE,
   roundSeatSpacing = 'default',
   compactHallText = false,
+  guestNameMode = 'full',
+  selectedGuestId = null,
 }: TablePreviewDiagramProps) {
   const theme = useThemeColors();
   const scale = size / BASE_DIAGRAM_SIZE;
   const tableBody = getTableBodyDimensions(shape, size);
   const seatSize = getScaledSeatSize(size);
   const labelWidth = getScaledLabelWidth(size);
+  const effectiveGuestNameMode =
+    guestNameMode === 'full' && capacity > ABBREVIATE_NAMES_ABOVE_CAPACITY
+      ? 'abbreviated'
+      : guestNameMode;
+  // Abbreviated needs room for "FirstName L." — the old 80px cap caused "…" instead of the initial.
+  const guestLabelWidth =
+    effectiveGuestNameMode === 'full'
+      ? labelWidth * 1.6
+      : effectiveGuestNameMode === 'abbreviated'
+        ? labelWidth * 1.4
+        : labelWidth;
   const seatPositions = getSeatPositions(shape, capacity, size, roundSeatSpacing);
   const tableNameFontSize = compactHallText
     ? Math.max(4, typography.subheading.fontSize * scale)
@@ -52,7 +71,7 @@ export function TablePreviewDiagram({
   const guestLabelFontSize = Math.max(8, typography.small.fontSize * scale);
 
   return (
-    <View style={[styles.diagram, { width: size, height: size }]}>
+    <View style={[styles.diagram, { width: size, height: size, overflow: 'visible' }]}>
       <View
         style={[
           styles.table,
@@ -99,6 +118,38 @@ export function TablePreviewDiagram({
         const position = seatPositions[index];
         if (!position) return null;
 
+        const seatCx = position.seatX + seatSize / 2;
+        const seatCy = position.seatY + seatSize / 2;
+        const outwardDx = position.labelX - seatCx;
+        const outwardDy = position.labelY - seatCy;
+        const outwardLen = Math.hypot(outwardDx, outwardDy) || 1;
+        const displayName = seat.guestName
+          ? formatGuestSeatLabel(seat.guestName, effectiveGuestNameMode)
+          : '';
+        // Size to content so empty max-width padding doesn't push names away from seats.
+        // Label anchor is already seat-edge + 2px; half-extent keeps the near glyph edge there.
+        // Generous char width so abbreviated "Name L." is never clipped to "…".
+        const contentWidth =
+          Math.max(guestLabelFontSize * 1.2, displayName.length * guestLabelFontSize * 0.65) +
+          guestLabelFontSize * 0.4;
+        const estimatedWidth =
+          effectiveGuestNameMode === 'abbreviated'
+            ? contentWidth
+            : Math.min(guestLabelWidth, contentWidth);
+        const textHalfExtent = estimatedWidth / 2;
+        const labelLeft =
+          position.labelX + (textHalfExtent * outwardDx) / outwardLen;
+        const labelTop =
+          position.labelY + (textHalfExtent * outwardDy) / outwardLen;
+
+        const isSelected = !!selectedGuestId && seat.guestId === selectedGuestId;
+        const seatFill = isSelected
+          ? theme.primaryDark
+          : seat.occupied
+            ? theme.seatFull
+            : theme.seatAvailable;
+        const seatBorder = isSelected ? theme.primary : seatFill;
+
         return (
           <View key={index}>
             <View
@@ -110,27 +161,32 @@ export function TablePreviewDiagram({
                   borderRadius: seatSize / 2,
                   left: position.seatX,
                   top: position.seatY,
-                  backgroundColor: seat.occupied ? theme.seatFull : theme.seatAvailable,
-                  borderColor: seat.occupied ? theme.seatFull : theme.seatAvailable,
-                  borderWidth: Math.max(1, 2 * scale),
+                  backgroundColor: seatFill,
+                  borderColor: seatBorder,
+                  borderWidth: Math.max(1, (isSelected ? 3 : 2) * scale),
                 },
               ]}
             />
-            {seat.guestName && !compactHallText ? (
+            {seat.guestName && effectiveGuestNameMode !== 'hidden' ? (
               <Text
                 style={[
                   styles.label,
                   {
-                    color: theme.text,
-                    left: position.labelX - labelWidth / 2,
-                    top: position.labelY - 8 * scale,
-                    width: labelWidth,
+                    color: isSelected ? theme.primaryDark : theme.text,
+                    left: labelLeft,
+                    top: labelTop,
+                    width: estimatedWidth,
                     fontSize: guestLabelFontSize,
+                    fontWeight: isSelected ? '700' : '600',
+                    transform: [
+                      { translateX: -estimatedWidth / 2 },
+                      { translateY: -guestLabelFontSize * 0.55 },
+                      { rotate: `${position.labelRotation}deg` },
+                    ],
                   },
                 ]}
-                numberOfLines={1}
               >
-                {seat.guestName}
+                {displayName}
               </Text>
             ) : null}
           </View>
@@ -144,6 +200,7 @@ const styles = StyleSheet.create({
   diagram: {
     position: 'relative',
     alignSelf: 'center',
+    overflow: 'visible',
   },
   table: {
     position: 'absolute',

@@ -13,6 +13,7 @@ import { AppShell } from '@/components/AppShell';
 import { LanguageSetupScreen } from '@/components/LanguageSetupScreen';
 import { initMobileAds } from '@/lib/initMobileAds';
 import { maybeAskForReview } from '@/lib/maybeAskForReview';
+import { syncAllNotifications } from '@/lib/notifications';
 import { flexFill, webViewportHeight } from '@/lib/webLayout';
 import { useWeddingStore } from '@/store/weddingStore';
 import { AppThemeProvider, useThemeColors } from '@/theme/EventThemeContext';
@@ -44,6 +45,7 @@ function ThemedRootStack() {
         name="settings"
         options={{ title: 'Postavke', contentStyle: { backgroundColor: 'transparent' } }}
       />
+      <Stack.Screen name="legal" options={{ headerShown: false }} />
       <Stack.Screen name="event/[id]" options={{ headerShown: false }} />
       <Stack.Screen
         name="modals/guest-form"
@@ -67,7 +69,7 @@ function ThemedRootStack() {
       />
       <Stack.Screen
         name="modals/add-event"
-        options={{ presentation: 'modal', title: 'Event' }}
+        options={{ presentation: 'modal', title: 'Event', contentStyle: { backgroundColor: 'transparent' } }}
       />
       <Stack.Screen
         name="modals/add-expense"
@@ -103,6 +105,20 @@ export default function RootLayout() {
       initMobileAds();
     }
   }, [hasSelectedLanguage]);
+
+  useEffect(() => {
+    if (!hasHydrated || !hasSelectedLanguage) return;
+
+    const state = useWeddingStore.getState();
+    if (!state.notificationsEnabled) return;
+
+    void syncAllNotifications({
+      enabled: true,
+      events: state.events,
+      obligations: state.obligations,
+      language: state.language,
+    });
+  }, [hasHydrated, hasSelectedLanguage]);
 
   useEffect(() => {
     if (!hasHydrated || !hasSelectedLanguage || !animationDone) return;

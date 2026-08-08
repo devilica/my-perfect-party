@@ -24,7 +24,7 @@ const weddingTheme: CelebrationTheme = {
   labelKey: 'events.themes.wedding',
   icon: 'heart',
   backgroundImage: require('@/assets/themes/wedding.png'),
-  overlayColors: ['rgba(255,248,245,0.88)', 'rgba(255,248,245,0.82)'],
+  overlayColors: ['rgba(255,248,244,0.92)', 'rgba(248,228,225,0.88)'],
   colors: defaultColors,
 };
 

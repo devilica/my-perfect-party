@@ -9,7 +9,9 @@
     "web": "expo start --web --offline",
     "build:web": "expo export -p web",
     "build:apk": "eas build -p android --profile preview",
-    "build:apk:prod": "eas build -p android --profile production"
+    "build:apk:prod": "eas build -p android --profile production",
+    "marketing:instagram": "node scripts/generate-instagram-ads.mjs",
+    "assets:icons": "node scripts/generate-app-icons.mjs"
   },
   "dependencies": {
     "@expo-google-fonts/great-vibes": "^0.4.1",
@@ -31,6 +33,7 @@
     "expo-localization": "~17.0.9",
     "expo-mail-composer": "~15.0.8",
     "expo-media-library": "~18.2.1",
+    "expo-notifications": "~0.32.17",
     "expo-print": "~15.0.8",
     "expo-router": "~6.0.24",
     "expo-sharing": "~14.0.8",
@@ -58,6 +61,7 @@
     "@babel/core": "^7.25.2",
     "@types/react": "~19.1.10",
     "babel-preset-expo": "~54.0.12",
+    "sharp": "^0.35.3",
     "typescript": "~5.9.2"
   },
   "private": true

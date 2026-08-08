@@ -2,7 +2,7 @@ import { DatePickerField } from '@/components/DatePickerField';
 import { BottomSystemBarFill } from '@/components/BottomSystemBarFill';
 import { StringListEditor } from '@/components/StringListEditor';
 import { FormScrollView } from '@/components/FormScrollView';
-import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
+import { ScreenContainer } from '@/components/ScreenContainer';
 import { ThemePicker } from '@/components/ThemePicker';
 import { Button, TextInputField } from '@/components/ui';
 import { DEFAULT_GUEST_CATEGORIES, getGuestCategoryLabel } from '@/constants/guestCategories';
@@ -15,8 +15,7 @@ import {
 import { useTranslation } from '@/lib/i18n';
 import { getRouteParam } from '@/lib/routeParams';
 import { useWeddingStore } from '@/store/weddingStore';
-import { getCelebrationTheme } from '@/theme/celebrations';
-import { EventThemeProvider } from '@/theme/EventThemeContext';
+import { useThemeColors } from '@/theme/EventThemeContext';
 import { spacing } from '@/theme/colors';
 import { CelebrationThemeId } from '@/types/models';
 import { flexFill } from '@/lib/webLayout';
@@ -49,7 +48,7 @@ export default function AddEventModal() {
   const [dateError, setDateError] = useState('');
   const [locationError, setLocationError] = useState('');
 
-  const previewTheme = getCelebrationTheme(theme);
+  const themeColors = useThemeColors();
 
   useEffect(() => {
     if (existingEvent) {
@@ -106,20 +105,19 @@ export default function AddEventModal() {
   };
 
   return (
-    <EventThemeProvider themeId={theme}>
-      <ThemedScreenContainer padded={false} style={styles.screen}>
-          <FormScrollView
-            contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
-          >
-          <Stack.Screen
-            options={{
-              title: existingEvent ? t('events.edit') : t('events.add'),
-              headerStyle: { backgroundColor: previewTheme.colors.background },
-              headerTintColor: previewTheme.colors.primary,
-              headerTitleStyle: { color: previewTheme.colors.text },
-              contentStyle: { backgroundColor: 'transparent' },
-            }}
-          />
+    <ScreenContainer padded={false} style={styles.screen}>
+      <FormScrollView
+        contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
+      >
+        <Stack.Screen
+          options={{
+            title: existingEvent ? t('events.edit') : t('events.add'),
+            headerStyle: { backgroundColor: themeColors.background },
+            headerTintColor: themeColors.primary,
+            headerTitleStyle: { color: themeColors.text },
+            contentStyle: { backgroundColor: 'transparent' },
+          }}
+        />
 
           <TextInputField
             label={t('events.name')}
@@ -184,10 +182,9 @@ export default function AddEventModal() {
             <Button label={t('common.save')} onPress={handleSave} />
             <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
           </View>
-        </FormScrollView>
-        <BottomSystemBarFill color={previewTheme.colors.background} />
-      </ThemedScreenContainer>
-    </EventThemeProvider>
+      </FormScrollView>
+      <BottomSystemBarFill color={themeColors.background} />
+    </ScreenContainer>
   );
 }
 

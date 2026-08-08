@@ -1,0 +1,65 @@
+---
+description: Standardna brand paleta — blush pink, dusty rose, burgundy, cream (app, reklame, Instagram, Play Store)
+alwaysApply: true
+---
+
+# Brand boje — My Perfect Party
+
+Koristi **jednu standardnu paletu** kroz cijeli brend. Ne mijenjaj boje nasumično između reklama, aplikacije, Instagrama i Play Storea.
+
+## Osnovne brand boje
+
+| Token | HEX | Namjena |
+|---|---|---|
+| PRIMARY | `#C9686F` | Glavna dusty rose — brand, ikone, akcenti |
+| PRIMARY DARK | `#B92F43` | Tamnija rose — CTA, istaknuti elementi |
+| BURGUNDY | `#861E2B` | Burgundy — veliki naslovi, jak tekst |
+| SOFT ROSE | `#D48680` | Mekša rose |
+| BLUSH | `#F2C5C1` | Blush pink |
+| SOFT PINK | `#F8E4E1` | Vrlo svijetla pink |
+| BACKGROUND | `#FFF8F4` | Cream pozadina |
+| SURFACE | `#FFFCFA` | Topla bijela / kartice |
+| TEXT PRIMARY | `#251B19` | Glavni tekst |
+| TEXT SECONDARY | `#655D59` | Sekundarni tekst |
+| SUCCESS | `#55A373` | Zelena — pozitivni statusi |
+| SUCCESS BG | `#E4F3E9` | Svijetlozelena pozadina |
+| ACCENT GOLD | `#D5A36A` | Zlatni detalji |
+
+## Prioritet pri dizajnu
+
+1. **#C9686F** — glavna brand boja
+2. **#B92F43** — CTA i istaknuti elementi
+3. **#861E2B** — veliki naslovi
+4. **#FFF8F4** — pozadina
+
+## Gradijenti
+
+**CTA / istaknuti blokovi (135deg):**
+```css
+linear-gradient(135deg, #B92F43 0%, #C9686F 55%, #D48680 100%)
+```
+
+**Nježna pozadina reklama / splash (135deg):**
+```css
+linear-gradient(135deg, #FFF8F4 0%, #F8E4E1 100%)
+```
+
+## Mapiranje u kodu
+
+Kad radiš UI, marketing assete ili skripte za slike, preferiraj ove tokene. Ako postojeći `theme/colors.ts` odstupa, usklađuj **novi** rad sa ovom paletom — ne uvodi ad-hoc boje.
+
+## Proširena referenca (RGB)
+
+- Dusty rose `#C9686F` — 201, 104, 111
+- Tamnija rose `#B92F43` — 185, 47, 67
+- Burgundy `#861E2B` — 134, 30, 43
+- Soft rose `#D48680` — 212, 134, 128
+- Blush `#F2C5C1` — 242, 197, 193
+- Soft pink `#F8E4E1` — 248, 228, 225
+- Cream `#FFF8F4` — 255, 248, 244
+- Warm white `#FFFCFA` — 255, 252, 250
+- Text `#251B19` — 37, 27, 25
+- Text secondary `#655D59` — 101, 93, 89
+- Success `#55A373` — 85, 163, 115
+- Success bg `#E4F3E9` — 228, 243, 233
+- Gold `#D5A36A` — 213, 163, 106

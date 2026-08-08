@@ -10,7 +10,13 @@ import { normalizeTableShape } from '@/constants/tableShapes';
 import { BackupData } from '@/lib/backup';
 import { generateId } from '@/lib/generateId';
 import { getDefaultLanguage, translate } from '@/lib/i18n';
-import { canAssignGuestToTable, getTablesForEvent } from '@/lib/seatingStats';
+import { syncAllNotifications } from '@/lib/notifications';
+import {
+  canAssignGuestToTable,
+  getGuestsAtTable,
+  getNextSeatOrder,
+  getTablesForEvent,
+} from '@/lib/seatingStats';
 import {
   AttendanceStatus,
   BulkTableBatch,
@@ -42,6 +48,7 @@ type LegacyGuest = {
   side?: unknown;
   partySize?: number;
   tableId?: string;
+  seatOrder?: number;
   note?: string;
   createdAt?: string;
 };
@@ -85,6 +92,7 @@ type PersistedState = {
   lastBackupAt?: string;
   guestSortByEvent?: Record<string, GuestSort>;
   reviewPromptDone?: boolean;
+  notificationsEnabled?: boolean;
 };
 
 const LOCALE_VERSION = 3;
@@ -107,6 +115,7 @@ function migrateGuest(raw: LegacyGuest): Guest {
       attendanceStatus: normalizeAttendanceStatus(raw.attendanceStatus, raw.confirmed),
       partySize: raw.partySize ?? 1,
       tableId: raw.tableId,
+      seatOrder: typeof raw.seatOrder === 'number' ? raw.seatOrder : undefined,
       note: raw.note,
       createdAt: raw.createdAt,
     };
@@ -127,6 +136,7 @@ function migrateGuest(raw: LegacyGuest): Guest {
     attendanceStatus: normalizeAttendanceStatus(raw.attendanceStatus, raw.confirmed),
     partySize: raw.partySize ?? 1,
     tableId: raw.tableId,
+    seatOrder: typeof raw.seatOrder === 'number' ? raw.seatOrder : undefined,
     note: raw.note,
     createdAt: raw.createdAt,
   };
@@ -261,6 +271,7 @@ type WeddingState = {
   lastBackupAt?: string;
   guestSortByEvent: Record<string, GuestSort>;
   reviewPromptDone: boolean;
+  notificationsEnabled: boolean;
   _hasHydrated: boolean;
   setHasHydrated: (value: boolean) => void;
   setLanguage: (language: Language) => void;
@@ -271,6 +282,7 @@ type WeddingState = {
   setBackupEmail: (email: string) => void;
   markBackupCompleted: () => void;
   markReviewPromptDone: () => void;
+  setNotificationsEnabled: (enabled: boolean) => void;
   exportBackupData: () => BackupData;
   importBackupData: (data: BackupData) => void;
   addEvent: (
@@ -291,6 +303,8 @@ type WeddingState = {
   getGuestSort: (eventId: string) => GuestSort;
   setGuestAttendance: (id: string, status: AttendanceStatus) => void;
   assignGuestToTable: (guestId: string, tableId: string | null) => boolean;
+  moveGuestAtTable: (guestId: string, direction: 'up' | 'down') => boolean;
+  swapGuestsAtTable: (guestIdA: string, guestIdB: string) => boolean;
   isGuestDuplicate: (
     eventId: string,
     firstName: string,
@@ -317,6 +331,16 @@ type WeddingState = {
   addObligationTemplates: (eventId: string, titles: string[]) => number;
 };
 
+function triggerNotificationSync(get: () => WeddingState) {
+  const state = get();
+  void syncAllNotifications({
+    enabled: state.notificationsEnabled,
+    events: state.events,
+    obligations: state.obligations,
+    language: state.language,
+  });
+}
+
 export const useWeddingStore = create<WeddingState>()(
   persist(
     (set, get) => ({
@@ -333,17 +357,28 @@ export const useWeddingStore = create<WeddingState>()(
       lastBackupAt: undefined,
       guestSortByEvent: {},
       reviewPromptDone: false,
+      notificationsEnabled: false,
       _hasHydrated: false,
       setHasHydrated: (value) => set({ _hasHydrated: value }),
 
-      setLanguage: (language) => set({ language }),
+      setLanguage: (language) => {
+        set({ language });
+        triggerNotificationSync(get);
+      },
 
-      confirmLanguageSelection: (language) =>
-        set({ language, hasSelectedLanguage: true }),
+      confirmLanguageSelection: (language) => {
+        set({ language, hasSelectedLanguage: true });
+        triggerNotificationSync(get);
+      },
 
       setAppTheme: (appTheme) => set({ appTheme }),
 
       markReviewPromptDone: () => set({ reviewPromptDone: true }),
+
+      setNotificationsEnabled: (enabled) => {
+        set({ notificationsEnabled: enabled });
+        triggerNotificationSync(get);
+      },
 
       unlockAppTheme: (themeId) => {
         set((state) => {
@@ -375,6 +410,7 @@ export const useWeddingStore = create<WeddingState>()(
       importBackupData: (data) => {
         const normalized = normalizeImportedState(data);
         set(normalized);
+        triggerNotificationSync(get);
       },
 
       addEvent: (data) => {
@@ -389,6 +425,7 @@ export const useWeddingStore = create<WeddingState>()(
           createdAt: new Date().toISOString(),
         };
         set((state) => ({ events: [event, ...state.events] }));
+        triggerNotificationSync(get);
         return id;
       },
 
@@ -438,6 +475,7 @@ export const useWeddingStore = create<WeddingState>()(
             event.id === id ? { ...event, ...normalizedData } : event
           ),
         }));
+        triggerNotificationSync(get);
       },
 
       updateEventInvitation: (eventId, data) => {
@@ -477,6 +515,7 @@ export const useWeddingStore = create<WeddingState>()(
           expenses: state.expenses.filter((expense) => expense.eventId !== id),
           obligations: state.obligations.filter((obligation) => obligation.eventId !== id),
         }));
+        triggerNotificationSync(get);
       },
 
       addGuest: (data) => {
@@ -499,6 +538,9 @@ export const useWeddingStore = create<WeddingState>()(
           const table = get().tables.find((t) => t.id === guest.tableId);
           if (!table || !canAssignGuestToTable(guest, table, get().guests, guest.tableId)) {
             guest.tableId = undefined;
+            guest.seatOrder = undefined;
+          } else if (guest.seatOrder == null) {
+            guest.seatOrder = getNextSeatOrder(get().guests, guest.tableId);
           }
         }
 
@@ -526,13 +568,21 @@ export const useWeddingStore = create<WeddingState>()(
           partySize: Math.max(1, data.partySize ?? existing.partySize),
         };
 
-        if (nextGuest.tableId) {
+        if (!nextGuest.tableId) {
+          nextGuest.seatOrder = undefined;
+        } else {
           const table = get().tables.find((t) => t.id === nextGuest.tableId);
           if (
             !table ||
             !canAssignGuestToTable(nextGuest, table, get().guests, nextGuest.tableId)
           ) {
             return false;
+          }
+          if (existing.tableId !== nextGuest.tableId || nextGuest.seatOrder == null) {
+            nextGuest.seatOrder = getNextSeatOrder(
+              get().guests.filter((g) => g.id !== id),
+              nextGuest.tableId
+            );
           }
         }
 
@@ -574,7 +624,7 @@ export const useWeddingStore = create<WeddingState>()(
         if (!tableId) {
           set((state) => ({
             guests: state.guests.map((g) =>
-              g.id === guestId ? { ...g, tableId: undefined } : g
+              g.id === guestId ? { ...g, tableId: undefined, seatOrder: undefined } : g
             ),
           }));
           return true;
@@ -585,9 +635,60 @@ export const useWeddingStore = create<WeddingState>()(
           return false;
         }
 
+        const seatOrder =
+          guest.tableId === tableId && guest.seatOrder != null
+            ? guest.seatOrder
+            : getNextSeatOrder(get().guests, tableId);
+
         set((state) => ({
           guests: state.guests.map((g) =>
-            g.id === guestId ? { ...g, tableId } : g
+            g.id === guestId ? { ...g, tableId, seatOrder } : g
+          ),
+        }));
+        return true;
+      },
+
+      moveGuestAtTable: (guestId, direction) => {
+        const guest = get().guests.find((g) => g.id === guestId);
+        if (!guest?.tableId) return false;
+
+        const ordered = getGuestsAtTable(get().guests, guest.tableId);
+        const index = ordered.findIndex((g) => g.id === guestId);
+        const targetIndex = direction === 'up' ? index - 1 : index + 1;
+        if (index < 0 || targetIndex < 0 || targetIndex >= ordered.length) return false;
+
+        const nextOrder = [...ordered];
+        const [moved] = nextOrder.splice(index, 1);
+        nextOrder.splice(targetIndex, 0, moved);
+        const orderById = new Map(nextOrder.map((g, i) => [g.id, i]));
+
+        set((state) => ({
+          guests: state.guests.map((g) =>
+            orderById.has(g.id) ? { ...g, seatOrder: orderById.get(g.id) } : g
+          ),
+        }));
+        return true;
+      },
+
+      swapGuestsAtTable: (guestIdA, guestIdB) => {
+        if (guestIdA === guestIdB) return false;
+        const guestA = get().guests.find((g) => g.id === guestIdA);
+        const guestB = get().guests.find((g) => g.id === guestIdB);
+        if (!guestA?.tableId || guestA.tableId !== guestB?.tableId) return false;
+
+        const ordered = getGuestsAtTable(get().guests, guestA.tableId);
+        const indexA = ordered.findIndex((g) => g.id === guestIdA);
+        const indexB = ordered.findIndex((g) => g.id === guestIdB);
+        if (indexA < 0 || indexB < 0) return false;
+
+        const nextOrder = [...ordered];
+        nextOrder[indexA] = ordered[indexB];
+        nextOrder[indexB] = ordered[indexA];
+        const orderById = new Map(nextOrder.map((g, i) => [g.id, i]));
+
+        set((state) => ({
+          guests: state.guests.map((g) =>
+            orderById.has(g.id) ? { ...g, seatOrder: orderById.get(g.id) } : g
           ),
         }));
         return true;
@@ -644,7 +745,7 @@ export const useWeddingStore = create<WeddingState>()(
         set((state) => ({
           tables: state.tables.filter((table) => table.id !== id),
           guests: state.guests.map((guest) =>
-            guest.tableId === id ? { ...guest, tableId: undefined } : guest
+            guest.tableId === id ? { ...guest, tableId: undefined, seatOrder: undefined } : guest
           ),
         }));
       },
@@ -714,6 +815,7 @@ export const useWeddingStore = create<WeddingState>()(
           createdAt: new Date().toISOString(),
         };
         set((state) => ({ obligations: [...state.obligations, obligation] }));
+        triggerNotificationSync(get);
         return id;
       },
 
@@ -729,12 +831,14 @@ export const useWeddingStore = create<WeddingState>()(
               : obligation
           ),
         }));
+        triggerNotificationSync(get);
       },
 
       deleteObligation: (id) => {
         set((state) => ({
           obligations: state.obligations.filter((obligation) => obligation.id !== id),
         }));
+        triggerNotificationSync(get);
       },
 
       setObligationStatus: (id, status) => {
@@ -781,6 +885,7 @@ export const useWeddingStore = create<WeddingState>()(
         set((state) => ({
           obligations: [...state.obligations, ...newObligations],
         }));
+        triggerNotificationSync(get);
         return added;
       },
     }),
@@ -802,6 +907,7 @@ export const useWeddingStore = create<WeddingState>()(
         lastBackupAt: state.lastBackupAt,
         guestSortByEvent: state.guestSortByEvent,
         reviewPromptDone: state.reviewPromptDone,
+        notificationsEnabled: state.notificationsEnabled,
       }),
       merge: (persisted, current) => {
         const saved = persisted as PersistedState | undefined;
@@ -825,6 +931,7 @@ export const useWeddingStore = create<WeddingState>()(
           lastBackupAt: saved.lastBackupAt ?? current.lastBackupAt,
           guestSortByEvent: normalizeGuestSortByEvent(saved.guestSortByEvent),
           reviewPromptDone: saved.reviewPromptDone ?? current.reviewPromptDone ?? false,
+          notificationsEnabled: saved.notificationsEnabled ?? current.notificationsEnabled ?? false,
         };
       },
       onRehydrateStorage: () => (state) => {

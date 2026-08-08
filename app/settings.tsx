@@ -1,11 +1,11 @@
 import { Ionicons } from '@expo/vector-icons';
-import { Stack } from 'expo-router';
+import Constants from 'expo-constants';
+import { Stack, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Alert, Linking, Pressable, StyleSheet, Text, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Alert, Image, Linking, Pressable, StyleSheet, Switch, Text, View } from 'react-native';
 
 import { FormScrollView } from '@/components/FormScrollView';
-
+import { BottomBannerAd } from '@/components/BottomBannerAd';
 import { ScreenContainer } from '@/components/ScreenContainer';
 import { SelectField } from '@/components/SelectField';
 import { ThemePicker } from '@/components/ThemePicker';
@@ -19,6 +19,10 @@ import { areAdsEnabled } from '@/lib/adsEnvironment';
 import { validateBackupEmail } from '@/lib/backup';
 import { formatDisplayDateTime } from '@/lib/dateUtils';
 import { useTranslation } from '@/lib/i18n';
+import {
+  areNotificationsSupported,
+  requestNotificationPermissions,
+} from '@/lib/notifications';
 import { preloadRewardedThemeAd, showRewardedThemeAd } from '@/lib/rewardedThemeAd';
 import { restoreBackup } from '@/lib/restoreBackup';
 import { sendBackupEmail } from '@/lib/sendBackupEmail';
@@ -28,6 +32,7 @@ import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
 
 export default function SettingsScreen() {
+  const router = useRouter();
   const language = useWeddingStore((s) => s.language);
   const appTheme = useWeddingStore((s) => s.appTheme);
   const backupEmail = useWeddingStore((s) => s.backupEmail);
@@ -35,9 +40,10 @@ export default function SettingsScreen() {
   const setLanguage = useWeddingStore((s) => s.setLanguage);
   const setAppTheme = useWeddingStore((s) => s.setAppTheme);
   const setBackupEmail = useWeddingStore((s) => s.setBackupEmail);
+  const notificationsEnabled = useWeddingStore((s) => s.notificationsEnabled);
+  const setNotificationsEnabled = useWeddingStore((s) => s.setNotificationsEnabled);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
-  const insets = useSafeAreaInsets();
   const isOnline = useIsOnline();
 
   const [emailDraft, setEmailDraft] = useState(backupEmail);
@@ -76,6 +82,30 @@ export default function SettingsScreen() {
     } finally {
       setThemeAdLoading(false);
     }
+  };
+
+  const handleNotificationsToggle = async (value: boolean) => {
+    if (!value) {
+      setNotificationsEnabled(false);
+      return;
+    }
+
+    if (!areNotificationsSupported()) {
+      Alert.alert(t('common.error'), t('settings.notificationsUnsupported'));
+      return;
+    }
+
+    const granted = await requestNotificationPermissions();
+    if (!granted) {
+      Alert.alert(t('common.error'), t('settings.notificationsPermissionDenied'));
+      return;
+    }
+
+    setNotificationsEnabled(true);
+  };
+
+  const handleNotificationsInfo = () => {
+    Alert.alert(t('settings.notificationsInfoTitle'), t('settings.notificationsInfoMessage'));
   };
 
   const languageOptions = getLanguageSelectOptions();
@@ -172,17 +202,19 @@ export default function SettingsScreen() {
     : t('settings.backupNeverSynced');
 
   const canSync = validateBackupEmail(emailDraft.trim());
+  const appVersion = Constants.expoConfig?.version ?? Constants.nativeAppVersion ?? '—';
 
   return (
     <ScreenContainer style={{ paddingTop: spacing.md }}>
       <Stack.Screen options={{ title: t('settings.title') }} />
 
-      <FormScrollView
-        contentContainerStyle={{
-          paddingBottom: spacing.lg + insets.bottom,
-        }}
-        showsVerticalScrollIndicator={false}
-      >
+      <View style={styles.screen}>
+        <FormScrollView
+          contentContainerStyle={{
+            paddingBottom: spacing.lg,
+          }}
+          showsVerticalScrollIndicator={false}
+        >
       <Text style={[styles.sectionLabel, { color: theme.textSecondary }]}>
         {t('settings.appTheme')}
       </Text>
@@ -205,6 +237,30 @@ export default function SettingsScreen() {
           options={languageOptions}
           onChange={setLanguage}
         />
+      </Card>
+
+      <Card style={styles.notificationsCard}>
+        <View style={styles.notificationsRow}>
+          <View style={styles.notificationsLabelWrap}>
+            <Text style={[styles.notificationsLabel, { color: theme.text }]}>
+              {t('settings.notificationsLabel')}
+            </Text>
+            <Pressable
+              onPress={handleNotificationsInfo}
+              hitSlop={8}
+              accessibilityRole="button"
+              accessibilityLabel={t('settings.notificationsInfoTitle')}
+            >
+              <Ionicons name="information-circle-outline" size={20} color={theme.textMuted} />
+            </Pressable>
+          </View>
+          <Switch
+            value={notificationsEnabled}
+            onValueChange={handleNotificationsToggle}
+            trackColor={{ false: theme.border, true: theme.primaryLight }}
+            thumbColor={notificationsEnabled ? theme.primary : theme.surface}
+          />
+        </View>
       </Card>
 
       <Text style={[styles.sectionLabel, { color: theme.textSecondary }]}>
@@ -281,6 +337,42 @@ export default function SettingsScreen() {
             {t('settings.dataStorage')}
           </Text>
         </View>
+        <Pressable
+          onPress={() => router.push('/legal/privacy')}
+          style={({ pressed }) => [styles.aboutLegalRow, pressed && styles.pressed]}
+          accessibilityRole="button"
+        >
+          <Ionicons name="shield-checkmark-outline" size={18} color={theme.primary} />
+          <Text style={[styles.aboutLegalText, { color: theme.text }]}>{t('settings.privacyPolicy')}</Text>
+          <Ionicons name="chevron-forward" size={18} color={theme.textMuted} />
+        </Pressable>
+        <Pressable
+          onPress={() => router.push('/legal/terms')}
+          style={({ pressed }) => [styles.aboutLegalRow, pressed && styles.pressed]}
+          accessibilityRole="button"
+        >
+          <Ionicons name="document-text-outline" size={18} color={theme.primary} />
+          <Text style={[styles.aboutLegalText, { color: theme.text }]}>{t('settings.termsOfUse')}</Text>
+          <Ionicons name="chevron-forward" size={18} color={theme.textMuted} />
+        </Pressable>
+        <Pressable
+          onPress={() => router.push('/legal/ads')}
+          style={({ pressed }) => [styles.aboutLegalRow, pressed && styles.pressed]}
+          accessibilityRole="button"
+        >
+          <Ionicons name="megaphone-outline" size={18} color={theme.primary} />
+          <Text style={[styles.aboutLegalText, { color: theme.text }]}>{t('settings.adsInfo')}</Text>
+          <Ionicons name="chevron-forward" size={18} color={theme.textMuted} />
+        </Pressable>
+        <Pressable
+          onPress={() => router.push('/legal/usage')}
+          style={({ pressed }) => [styles.aboutLegalRow, pressed && styles.pressed]}
+          accessibilityRole="button"
+        >
+          <Ionicons name="book-outline" size={18} color={theme.primary} />
+          <Text style={[styles.aboutLegalText, { color: theme.text }]}>{t('settings.usageGuide')}</Text>
+          <Ionicons name="chevron-forward" size={18} color={theme.textMuted} />
+        </Pressable>
       </Card>
 
       <Text style={[styles.sectionLabel, { color: theme.textSecondary }]}>
@@ -348,12 +440,35 @@ export default function SettingsScreen() {
         />
         <Text style={[styles.supportEmail, { color: theme.textMuted }]}>{SUPPORT_EMAIL}</Text>
       </Card>
+
+      <View style={styles.footerBrand}>
+        <Image
+          source={require('@/assets/images/logo.png')}
+          style={styles.footerLogo}
+          resizeMode="contain"
+          accessibilityLabel={t('app.name')}
+        />
+        <Text style={[styles.versionText, { color: theme.textMuted }]}>
+          {t('settings.version', { version: appVersion })}
+        </Text>
+        <Text style={[styles.copyrightText, { color: theme.textMuted }]}>
+          {t('settings.copyright', {
+            year: new Date().getFullYear(),
+            appName: t('app.name'),
+          })}
+        </Text>
+      </View>
       </FormScrollView>
+        <BottomBannerAd />
+      </View>
     </ScreenContainer>
   );
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   sectionLabel: {
     ...typography.caption,
     fontWeight: '600',
@@ -371,6 +486,26 @@ const styles = StyleSheet.create({
   languageCard: {
     padding: spacing.sm,
     marginTop: spacing.md,
+  },
+  notificationsCard: {
+    padding: spacing.sm,
+    marginTop: spacing.md,
+  },
+  notificationsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
+  notificationsLabelWrap: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs,
+    flex: 1,
+  },
+  notificationsLabel: {
+    ...typography.body,
+    fontWeight: '600',
   },
   backupCard: {
     gap: spacing.sm,
@@ -416,6 +551,17 @@ const styles = StyleSheet.create({
     ...typography.caption,
     flex: 1,
   },
+  aboutLegalRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    paddingVertical: spacing.sm,
+    marginTop: spacing.xs,
+  },
+  aboutLegalText: {
+    ...typography.body,
+    flex: 1,
+  },
   pressed: {
     opacity: 0.85,
   },
@@ -455,5 +601,23 @@ const styles = StyleSheet.create({
   supportEmail: {
     ...typography.caption,
     textAlign: 'center',
+  },
+  footerBrand: {
+    alignItems: 'center',
+    marginTop: spacing.xl,
+    gap: spacing.sm,
+  },
+  footerLogo: {
+    width: 120,
+    height: 120,
+  },
+  versionText: {
+    ...typography.caption,
+    textAlign: 'center',
+  },
+  copyrightText: {
+    ...typography.caption,
+    textAlign: 'center',
+    fontSize: 11,
   },
 });

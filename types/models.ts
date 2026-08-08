@@ -94,6 +94,8 @@ export type Guest = {
   attendanceStatus: AttendanceStatus;
   partySize: number;
   tableId?: string;
+  /** Order around the assigned table (list + diagram seats). */
+  seatOrder?: number;
   note?: string;
   createdAt?: string;
 };
@@ -162,6 +164,21 @@ export type CategoryBreakdownItem = {
 
 export function getGuestFullName(guest: Guest): string {
   return `${guest.firstName} ${guest.lastName}`.trim();
+}
+
+export type GuestSeatNameMode = 'hidden' | 'abbreviated' | 'full';
+
+/** Seat label on hall diagrams — full name or first name + last initial. */
+export function formatGuestSeatLabel(fullName: string, mode: GuestSeatNameMode): string {
+  if (mode !== 'abbreviated') return fullName;
+
+  const parts = fullName.trim().split(/\s+/).filter(Boolean);
+  if (parts.length <= 1) return fullName;
+
+  const lastName = parts[parts.length - 1];
+  const firstNames = parts.slice(0, -1).join(' ');
+  const initial = lastName.charAt(0);
+  return initial ? `${firstNames} ${initial}.` : firstNames;
 }
 
 export type BulkTableBatch = {

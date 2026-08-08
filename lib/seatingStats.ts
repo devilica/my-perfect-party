@@ -5,10 +5,12 @@ import {
   SeatingTable,
   TableOccupancy,
 } from '@/types/models';
+import { getGuestsForEvent } from '@/lib/guestStats';
 
 export type TableSeatSlot = {
   occupied: boolean;
   guestName?: string;
+  guestId?: string;
 };
 
 export function buildTableSeatSlots(table: SeatingTable, guests: Guest[]): TableSeatSlot[] {
@@ -21,6 +23,7 @@ export function buildTableSeatSlots(table: SeatingTable, guests: Guest[]): Table
     for (let i = 0; i < guest.partySize && seatIndex < table.capacity; i += 1) {
       slots[seatIndex] = {
         occupied: true,
+        guestId: guest.id,
         guestName: i === 0 ? getGuestFullName(guest) : undefined,
       };
       seatIndex += 1;
@@ -30,10 +33,26 @@ export function buildTableSeatSlots(table: SeatingTable, guests: Guest[]): Table
   return slots;
 }
 
+export type TableFilter = 'all' | 'full' | 'available';
+
 export function getTablesForEvent(tables: SeatingTable[], eventId: string): SeatingTable[] {
   return tables
     .filter((t) => t.eventId === eventId)
     .sort((a, b) => a.sortOrder - b.sortOrder || a.name.localeCompare(b.name));
+}
+
+export function filterTablesByOccupancy(
+  tables: SeatingTable[],
+  guests: Guest[],
+  filter: TableFilter
+): SeatingTable[] {
+  if (filter === 'all') return tables;
+
+  return tables.filter((table) => {
+    const status = getTableOccupancyStatus(table, guests);
+    if (filter === 'full') return status === 'full';
+    return status === 'available';
+  });
 }
 
 export function getTableOccupiedSeats(guests: Guest[], tableId: string): number {
@@ -58,7 +77,27 @@ export function getTableOccupancyStatus(
 }
 
 export function getGuestsAtTable(guests: Guest[], tableId: string): Guest[] {
-  return guests.filter((g) => g.tableId === tableId);
+  return guests
+    .map((guest, index) => ({ guest, index }))
+    .filter(({ guest }) => guest.tableId === tableId)
+    .sort((a, b) => {
+      const orderA = a.guest.seatOrder;
+      const orderB = b.guest.seatOrder;
+      if (orderA != null && orderB != null && orderA !== orderB) return orderA - orderB;
+      if (orderA != null && orderB == null) return -1;
+      if (orderA == null && orderB != null) return 1;
+      return a.index - b.index;
+    })
+    .map(({ guest }) => guest);
+}
+
+/** Next seatOrder when assigning a guest to a table. */
+export function getNextSeatOrder(guests: Guest[], tableId: string): number {
+  const atTable = getGuestsAtTable(guests, tableId);
+  if (atTable.length === 0) return 0;
+  return (
+    Math.max(...atTable.map((guest, index) => guest.seatOrder ?? index)) + 1
+  );
 }
 
 export function canAssignGuestToTable(
@@ -117,4 +156,22 @@ export function getAssignableTables(
     if (guest.tableId === table.id) return true;
     return canAssignGuestToTable(guest, table, guests, table.id);
   });
+}
+
+export function getAssignableGuestsForTable(
+  guests: Guest[],
+  table: SeatingTable,
+  eventId: string
+): Guest[] {
+  return getGuestsForEvent(guests, eventId).filter(
+    (guest) =>
+      guest.tableId !== table.id &&
+      canAssignGuestToTable(guest, table, guests, table.id)
+  );
+}
+
+/** True when table count crosses 10 / 20 / 30 / … (free through 9). */
+export function didCrossTableAdMilestone(oldCount: number, newCount: number): boolean {
+  if (newCount < 10) return false;
+  return Math.floor(newCount / 10) > Math.floor(oldCount / 10);
 }

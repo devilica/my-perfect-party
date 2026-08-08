@@ -15,8 +15,10 @@ import { DEFAULT_TABLE_SHAPE } from '@/constants/tableShapes';
 import {
   clampLayout,
   getDefaultHallZoom,
+  getHallGuestNameMode,
   getHallTableDiagramSize,
   getTableLayoutPosition,
+  HALL_MIN_ZOOM,
   HALL_TABLE_SIZE_BASE_ZOOM,
   pixelsToLayout,
   SEATING_CANVAS_HEIGHT,
@@ -33,7 +35,7 @@ import { Guest, SeatingTable } from '@/types/models';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
 
-const MIN_ZOOM = 0.1;
+const MIN_ZOOM = HALL_MIN_ZOOM;
 const MAX_ZOOM = 1.4;
 const ZOOM_STEP = 0.05;
 
@@ -168,6 +170,7 @@ function DraggableTable({
         size={tableSize}
         roundSeatSpacing="compact"
         compactHallText={zoom < HALL_TABLE_SIZE_BASE_ZOOM}
+        guestNameMode={getHallGuestNameMode(zoom)}
       />
     </View>
   );
@@ -186,15 +189,11 @@ export function SeatingHallOverview({ eventId }: SeatingHallOverviewProps) {
     [allTables, eventId]
   );
 
-  const defaultZoom = getDefaultHallZoom(tables.length);
-
-  const [zoom, setZoom] = useState(defaultZoom);
+  const [zoom, setZoom] = useState(getDefaultHallZoom);
   const [scrollEnabled, setScrollEnabled] = useState(true);
   const [viewport, setViewport] = useState({ width: 0, height: 0 });
-
-  useEffect(() => {
-    setZoom(defaultZoom);
-  }, [defaultZoom]);
+  const verticalScrollRef = useRef<ScrollView>(null);
+  const horizontalScrollRef = useRef<ScrollView>(null);
 
   const eventGuests = useMemo(
     () => allGuests.filter((guest) => guest.eventId === eventId),
@@ -203,8 +202,27 @@ export function SeatingHallOverview({ eventId }: SeatingHallOverviewProps) {
 
   const scaledWidth = SEATING_CANVAS_WIDTH * zoom;
   const scaledHeight = SEATING_CANVAS_HEIGHT * zoom;
-  const contentWidth = Math.max(viewport.width, scaledWidth + spacing.lg * 2);
-  const contentHeight = Math.max(viewport.height, scaledHeight + spacing.lg * 2);
+  const canvasPad = spacing.lg;
+  const scrollContentWidth = scaledWidth + canvasPad * 2;
+  const scrollContentHeight = scaledHeight + canvasPad * 2;
+  const fitsViewportWidth = scrollContentWidth <= viewport.width;
+  const fitsViewportHeight = scrollContentHeight <= viewport.height;
+
+  useEffect(() => {
+    if (!viewport.width || !viewport.height) return;
+
+    const frame = requestAnimationFrame(() => {
+      const horizontalMax = Math.max(0, Math.max(viewport.width, scrollContentWidth) - viewport.width);
+      const verticalMax = Math.max(
+        0,
+        Math.max(viewport.height, scrollContentHeight) - viewport.height
+      );
+      horizontalScrollRef.current?.scrollTo({ x: horizontalMax / 2, animated: false });
+      verticalScrollRef.current?.scrollTo({ y: verticalMax / 2, animated: false });
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [zoom, viewport.width, viewport.height, scrollContentWidth, scrollContentHeight]);
 
   const handleMove = useCallback(
     (tableId: string, x: number, y: number) => {
@@ -218,7 +236,7 @@ export function SeatingHallOverview({ eventId }: SeatingHallOverviewProps) {
 
   const zoomIn = () => setZoom((value) => Math.min(MAX_ZOOM, Number((value + ZOOM_STEP).toFixed(2))));
   const zoomOut = () => setZoom((value) => Math.max(MIN_ZOOM, Number((value - ZOOM_STEP).toFixed(2))));
-  const resetZoom = () => setZoom(defaultZoom);
+  const resetZoom = () => setZoom(getDefaultHallZoom());
   const canZoomOut = zoom > MIN_ZOOM;
   const canZoomIn = zoom < MAX_ZOOM;
 
@@ -282,26 +300,29 @@ export function SeatingHallOverview({ eventId }: SeatingHallOverviewProps) {
 
       <View style={styles.canvasHost} onLayout={onViewportLayout}>
         <ScrollView
-          horizontal
+          ref={verticalScrollRef}
           scrollEnabled={scrollEnabled}
-          showsHorizontalScrollIndicator={false}
+          nestedScrollEnabled
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
-            width: contentWidth,
-            height: contentHeight,
-            alignItems: 'center',
-            justifyContent: 'center',
+            minHeight: viewport.height || undefined,
+            justifyContent: fitsViewportHeight ? 'center' : 'flex-start',
           }}
         >
           <ScrollView
+            ref={horizontalScrollRef}
+            horizontal
             scrollEnabled={scrollEnabled}
+            nestedScrollEnabled
             showsHorizontalScrollIndicator={false}
-            showsVerticalScrollIndicator={false}
+            style={{ height: scrollContentHeight }}
             contentContainerStyle={{
-              width: contentWidth,
-              height: contentHeight,
-              alignItems: 'center',
-              justifyContent: 'center',
+              minWidth: viewport.width || undefined,
+              width: Math.max(viewport.width, scrollContentWidth),
+              height: scrollContentHeight,
+              alignItems: fitsViewportWidth ? 'center' : 'flex-start',
+              justifyContent: fitsViewportHeight ? 'center' : 'flex-start',
+              padding: canvasPad,
             }}
           >
             <View
