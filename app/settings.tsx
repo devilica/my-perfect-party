@@ -14,8 +14,6 @@ import { getLanguageSelectOptions } from '@/constants/languages';
 import { INSTAGRAM_APP_URL, INSTAGRAM_USERNAME, INSTAGRAM_WEB_URL } from '@/constants/social';
 import { SUPPORT_EMAIL } from '@/constants/support';
 import { openPlayStore } from '@/lib/openPlayStore';
-import { useIsOnline } from '@/hooks/useIsOnline';
-import { areAdsEnabled } from '@/lib/adsEnvironment';
 import { validateBackupEmail } from '@/lib/backup';
 import { formatDisplayDateTime } from '@/lib/dateUtils';
 import { useTranslation } from '@/lib/i18n';
@@ -23,7 +21,6 @@ import {
   areNotificationsSupported,
   requestNotificationPermissions,
 } from '@/lib/notifications';
-import { preloadRewardedThemeAd, showRewardedThemeAd } from '@/lib/rewardedThemeAd';
 import { restoreBackup } from '@/lib/restoreBackup';
 import { sendBackupEmail } from '@/lib/sendBackupEmail';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -44,44 +41,19 @@ export default function SettingsScreen() {
   const setNotificationsEnabled = useWeddingStore((s) => s.setNotificationsEnabled);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
-  const isOnline = useIsOnline();
 
   const [emailDraft, setEmailDraft] = useState(backupEmail);
   const [emailError, setEmailError] = useState<string | undefined>();
   const [syncing, setSyncing] = useState(false);
   const [importing, setImporting] = useState(false);
-  const [themeAdLoading, setThemeAdLoading] = useState(false);
 
-  useEffect(() => {
-    preloadRewardedThemeAd();
-  }, []);
   useEffect(() => {
     setEmailDraft(backupEmail);
   }, [backupEmail]);
 
-  const ensureThemeReward = async (): Promise<boolean> => {
-    if (!areAdsEnabled() || !isOnline) return true;
-
-    const result = await showRewardedThemeAd();
-    if (result === 'rewarded') {
-      preloadRewardedThemeAd();
-      return true;
-    }
-    if (result === 'unavailable' || result === 'failed') return true;
-    return false;
-  };
-
-  const handleThemeChange = async (themeId: CelebrationThemeId) => {
-    if (themeId === appTheme || themeAdLoading) return;
-
-    setThemeAdLoading(true);
-    try {
-      if (await ensureThemeReward()) {
-        setAppTheme(themeId);
-      }
-    } finally {
-      setThemeAdLoading(false);
-    }
+  const handleThemeChange = (themeId: CelebrationThemeId) => {
+    if (themeId === appTheme) return;
+    setAppTheme(themeId);
   };
 
   const handleNotificationsToggle = async (value: boolean) => {
@@ -220,7 +192,7 @@ export default function SettingsScreen() {
       </Text>
       <Card style={styles.themeCard}>
         <Text style={[styles.themeHint, { color: theme.textSecondary }]}>
-          {t('settings.appThemeHint')} {t('settings.themeChangeAdHint')}
+          {t('settings.appThemeHint')}
         </Text>
         <ThemePicker
           label=""

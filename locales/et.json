@@ -510,7 +510,7 @@
     "termsOfUse": "Kasutustingimused",
     "notificationsLabel": "Teavitused",
     "notificationsInfoTitle": "Teavitused",
-    "notificationsInfoMessage": "Kohalikud teavitused sinu seadmes.\n\nSündmused: 7 päeva, 24 tundi ja 1 tund enne algust (telefoni aja järgi).\n\nÜlesanded: 24 tundi varem ja tähtajal (kell 12, kui kellaaega pole).",
+    "notificationsInfoMessage": "Kohalikud teavitused sinu seadmes.\n\nSündmused: 7 päeva, 24 tundi ja 1 tund enne algust (telefoni aja järgi).\n\nÜlesanded: 24 tundi varem ja tähtajal.",
     "adsInfo": "Reklaamid rakenduses",
     "usageGuide": "Kuidas rakendust kasutada",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Privaatsuspoliitika – Minu täiuslik pidu",
+      "title": "Privaatsuspoliitika",
       "effectiveDate": "Jõustumiskuupäev: 22. juuli 2026",
       "intro": "Minu täiuslik pidu austab teie privaatsust. See privaatsuspoliitika selgitab, kuidas teie teavet töödeldakse, kui kasutate meie rakendust.",
       "localDataTitle": "Kohalikult salvestatud andmed",
@@ -554,7 +554,7 @@
       "contactBody": "Kui teil on küsimusi selle privaatsuspoliitika kohta, võtke meiega ühendust aadressil {{email}}."
     },
     "terms": {
-      "title": "Kasutustingimused – Minu täiuslik pidu",
+      "title": "Kasutustingimused",
       "effectiveDate": "Jõustumiskuupäev: 22. juuli 2026",
       "intro": "Need kasutustingimused reguleerivad rakenduse Minu täiuslik pidu kasutamist.",
       "acceptanceTitle": "Tingimuste aktsepteerimine",
@@ -580,12 +580,12 @@
       "contactBody": "Küsimuste korral nende tingimuste kohta võtke meiega ühendust aadressil {{email}}."
     },
     "ads": {
-      "title": "Reklaamid rakenduses My Perfect Party",
+      "title": "Reklaamid rakenduses",
       "intro": "Rakenduse My Perfect Party tasuta versiooni toetatakse reklaamidega. See leht selgitab, kus reklaamid kuvatakse ja millal võidakse paluda vaadata lühikest preemiareklaami.",
       "rewardedTitle": "Preemiareklaamid",
       "rewardedIntro": "Mõned tegevused nõuavad enne jätkamist lühikest reklaami vaatamist. Kui sulgete reklaami liiga vara, ei pruugi tegevus lõpule minna.",
       "themeTitle": "Rakenduse ja sündmuse teemad",
-      "themeBody": "Lukustatud piduteemad nõuavad avamiseks või vahetamiseks lühikest reklaami vaatamist. Juba avatud teemad jäävad kättesaadavaks.",
+      "themeBody": "Rakenduse ja sündmuse teemasid saab vabalt vahetada. Preemiareklaame teemade jaoks ei nõuta.",
       "deleteEventTitle": "Sündmuse kustutamine",
       "deleteEventBody": "Kui olete võrgus, nõuab sündmuse kustutamine lühikest reklaami vaatamist.",
       "guestsTitle": "Külaliste lisamine",
@@ -606,7 +606,7 @@
       "offlineBody": "Preemiareklaamid nõuavad internetiühendust. Kui olete võrguta, ei pruugi tegevus olla saadaval. Expo Go-s kuvatakse testeelnäidete asemel tegelikke reklame."
     },
     "usage": {
-      "title": "Kuidas kasutada Minu täiuslik pidu",
+      "title": "Kuidas rakendust kasutada",
       "intro": "Minu täiuslik pidu aitab sul pidu samm-sammult planeerida. See juhend selgitab iga ekraani ja nupu, et teaksid täpselt, mida iga tegevus teeb.",
       "homeTitle": "Avakuva",
       "homeBody": "Siin näed kõiki oma sündmusi. Hammasratta ikoon (üleval paremal) avab Seaded. Sinine + nupp (all paremal) loob uue sündmuse. Puuduta sündmuse kaarti, et see avada. Pliiatsi ikoon kaardil muudab sündmuse nime, kuupäeva, asukohta ja teemat.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Kutsed",
       "invitationsBody": "Ava Ülevaatest Loo kutse kaudu. Vali mall, font, värvid, põhitekst ja alamsündmused (tseremoonia, vastuvõtt jne). Jaga saadab pildi; Laadi alla salvestab galeriisse (mobiil). Võrgus võib kuvada lühikest reklaami.",
       "settingsTitle": "Seaded",
-      "settingsBody": "Rakenduse keel, rakenduse teema (muutmisel võib kuvada lühikest reklaami), teavitused info ikooniga meeldetuletuste intervallide kohta, varukoopia e-post, Saada varukoopia / Impordi varukoopia, hinda Play Store'is, Privaatsuspoliitika, Kasutustingimused, Reklaamid rakenduses ja see juhend.",
+      "settingsBody": "Rakenduse keel, rakenduse teema, teavitused info ikooniga meeldetuletuste intervallide kohta, varukoopia e-post, Saada varukoopia / Impordi varukoopia, hinda Play Store'is, Privaatsuspoliitika, Kasutustingimused, Reklaamid rakenduses ja see juhend.",
       "backupTitle": "Varukoopia ja taastamine",
-      "backupBody": "Kõik andmed jäävad ainult sinu seadmesse. Saada varukoopia loob JSON faili ja avab e-posti või jagamisdialoogi. Impordi varukoopia taastab andmed varem salvestatud failist. Sina vastutad varukoopia turvalisuse eest."
+      "backupBody": "Kõik andmed jäävad ainult sinu seadmesse. Saada varukoopia loob JSON faili ja avab e-posti või jagamisdialoogi. Impordi varukoopia taastab andmed varem salvestatud failist. Sina vastutad varukoopia turvalisuse eest.",
+      "tapHint": "Puuduta kaarti laiendamiseks"
     }
   }
 }

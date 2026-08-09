@@ -512,7 +512,7 @@
     "termsOfUse": "Kullanım Koşulları",
     "notificationsLabel": "Bildirimler",
     "notificationsInfoTitle": "Bildirimler",
-    "notificationsInfoMessage": "Cihazınızdaki yerel bildirimler.\n\nEtkinlikler: Başlangıçtan 7 gün, 24 saat ve 1 saat önce (telefon saatinize göre).\n\nGörevler: 24 saat önce ve son tarihte (saat belirtilmemişse öğlen).",
+    "notificationsInfoMessage": "Cihazınızdaki yerel bildirimler.\n\nEtkinlikler: Başlangıçtan 7 gün, 24 saat ve 1 saat önce (telefon saatinize göre).\n\nGörevler: 24 saat önce ve son tarihte.",
     "adsInfo": "Uygulamadaki reklamlar",
     "usageGuide": "Uygulama nasıl kullanılır"
   },
@@ -546,7 +546,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Gizlilik Politikası – Mükemmel Partim",
+      "title": "Gizlilik Politikası",
       "effectiveDate": "Yürürlük tarihi: 22 Temmuz 2026",
       "intro": "Mükemmel Partim gizliliğinize saygı duyar. Bu Gizlilik Politikası, uygulamamızı kullandığınızda bilgilerinizin nasıl işlendiğini açıklar.",
       "localDataTitle": "Yerel olarak saklanan veriler",
@@ -562,7 +562,7 @@
       "contactBody": "Bu Gizlilik Politikası hakkında sorularınız varsa {{email}} adresinden bize ulaşın."
     },
     "terms": {
-      "title": "Kullanım Koşulları – Mükemmel Partim",
+      "title": "Kullanım Koşulları",
       "effectiveDate": "Yürürlük tarihi: 22 Temmuz 2026",
       "intro": "Bu Kullanım Koşulları Mükemmel Partim uygulamasının kullanımını düzenler.",
       "acceptanceTitle": "Koşulların kabulü",
@@ -588,12 +588,12 @@
       "contactBody": "Bu Koşullar hakkında sorular için {{email}} adresinden bize ulaşın."
     },
     "ads": {
-      "title": "Mükemmel Partim uygulamasındaki reklamlar",
+      "title": "Uygulamadaki reklamlar",
       "intro": "Mükemmel Partim uygulamasının ücretsiz sürümü reklamlarla desteklenir. Bu sayfa reklamların nerede göründüğünü ve ne zaman kısa ödüllü reklam izlemeniz istenebileceğini açıklar.",
       "rewardedTitle": "Ödüllü reklamlar",
       "rewardedIntro": "Bazı işlemler devam etmeden önce kısa bir reklam izlemenizi ister. Reklamı erken kapatırsanız işlem tamamlanmayabilir.",
       "themeTitle": "Uygulama ve etkinlik temaları",
-      "themeBody": "Kilitli kutlama temalarının açılması veya değiştirilmesi kısa bir reklam izlemeyi gerektirir. Zaten açtığınız temalar kullanılabilir kalır.",
+      "themeBody": "Uygulama ve etkinlik temaları serbestçe değiştirilebilir. Temalar için ödüllü reklam gerekmez.",
       "deleteEventTitle": "Etkinlik silme",
       "deleteEventBody": "Çevrimiçiyken bir etkinliği silmek kısa bir reklam izlemeyi gerektirir.",
       "guestsTitle": "Misafir ekleme",
@@ -614,7 +614,7 @@
       "offlineBody": "Ödüllü reklamlar internet bağlantısı gerektirir. Çevrimdışıysanız işlem kullanılamayabilir. Expo Go'da gerçek reklamlar yerine test reklam önizlemeleri gösterilir."
     },
     "usage": {
-      "title": "Mükemmel Partim nasıl kullanılır",
+      "title": "Uygulama nasıl kullanılır",
       "intro": "Mükemmel Partim kutlamanızı adım adım planlamanıza yardımcı olur. Bu kılavuz her ekranı ve düğmeyi açıklayarak her işlemin ne yaptığını tam olarak bilmenizi sağlar.",
       "homeTitle": "Ana ekran",
       "homeBody": "Tüm etkinlikleriniz burada görünür. Dişli simgesi (sağ üst) Ayarları açar. Mavi + düğmesi (sağ alt) yeni etkinlik oluşturur. Bir etkinlik kartına dokunarak açın. Karttaki kalem simgesi etkinliğin adını, tarihini, konumunu ve temasını düzenler.",
@@ -643,9 +643,10 @@
       "invitationsTitle": "Davetiyeler",
       "invitationsBody": "Genel Bakış'tan Davetiye oluştur ile açın. Şablon, yazı tipi, renkler, ana metin ve alt etkinlikleri (tören, resepsiyon vb.) seçin. Paylaş görseli gönderir; İndir galeriye kaydeder (mobil). Çevrimiçiyken kısa reklam görünebilir.",
       "settingsTitle": "Ayarlar",
-      "settingsBody": "Uygulama dili, uygulama teması (değiştirirken kısa reklam gösterilebilir), hatırlatma aralıkları hakkında bilgi simgeli bildirimler, yedekleme e-postası, Yedek gönder / Yedeği içe aktar, Play Store'da değerlendir, Gizlilik Politikası, Kullanım Koşulları, Uygulamadaki reklamlar ve bu kılavuz.",
+      "settingsBody": "Uygulama dili, uygulama teması, hatırlatma aralıkları hakkında bilgi simgeli bildirimler, yedekleme e-postası, Yedek gönder / Yedeği içe aktar, Play Store'da değerlendir, Gizlilik Politikası, Kullanım Koşulları, Uygulamadaki reklamlar ve bu kılavuz.",
       "backupTitle": "Yedekleme ve geri yükleme",
-      "backupBody": "Tüm veriler yalnızca cihazınızda kalır. Yedek gönder JSON dosyası oluşturur ve e-posta veya paylaşım iletişim kutusunu açar. Yedeği içe aktar daha önce kaydedilen dosyadan verileri geri yükler. Yedeğinizi güvende tutmaktan siz sorumlusunuz."
+      "backupBody": "Tüm veriler yalnızca cihazınızda kalır. Yedek gönder JSON dosyası oluşturur ve e-posta veya paylaşım iletişim kutusunu açar. Yedeği içe aktar daha önce kaydedilen dosyadan verileri geri yükler. Yedeğinizi güvende tutmaktan siz sorumlusunuz.",
+      "tapHint": "Genişletmek için bir karta dokun"
     }
   }
 }

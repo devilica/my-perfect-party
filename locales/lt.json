@@ -510,7 +510,7 @@
     "termsOfUse": "Naudojimo sąlygos",
     "notificationsLabel": "Pranešimai",
     "notificationsInfoTitle": "Pranešimai",
-    "notificationsInfoMessage": "Vietiniai pranešimai jūsų įrenginyje.\n\nĮvykiai: 7 dienos, 24 val. ir 1 val. prieš pradžią (pagal telefono laiką).\n\nUžduotys: 24 val. prieš ir termino metu (vidurdienį, jei nenurodyta valanda).",
+    "notificationsInfoMessage": "Vietiniai pranešimai jūsų įrenginyje.\n\nĮvykiai: 7 dienos, 24 val. ir 1 val. prieš pradžią (pagal telefono laiką).\n\nUžduotys: 24 val. prieš ir termino metu.",
     "adsInfo": "Skelbimai programoje",
     "usageGuide": "Kaip naudoti programėlę",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Privatumo politika – Mano tobulas vakarėlis",
+      "title": "Privatumo politika",
       "effectiveDate": "Įsigaliojimo data: 2026 m. liepos 22 d.",
       "intro": "Mano tobulas vakarėlis gerbia jūsų privatumą. Ši Privatumo politika paaiškina, kaip tvarkoma jūsų informacija naudojantis mūsų programėle.",
       "localDataTitle": "Vietoje saugomi duomenys",
@@ -554,7 +554,7 @@
       "contactBody": "Jei turite klausimų apie šią Privatumo politiką, susisiekite su mumis adresu {{email}}."
     },
     "terms": {
-      "title": "Naudojimo sąlygos – Mano tobulas vakarėlis",
+      "title": "Naudojimo sąlygos",
       "effectiveDate": "Įsigaliojimo data: 2026 m. liepos 22 d.",
       "intro": "Šios Naudojimo sąlygos reglamentuoja Mano tobulas vakarėlis programėlės naudojimą.",
       "acceptanceTitle": "Sąlygų priėmimas",
@@ -580,12 +580,12 @@
       "contactBody": "Dėl klausimų apie šias Sąlygas susisiekite su mumis adresu {{email}}."
     },
     "ads": {
-      "title": "Skelbimai programoje My Perfect Party",
+      "title": "Skelbimai programoje",
       "intro": "Nemokama My Perfect Party versija remiama skelbimais. Šis puslapis paaiškina, kur rodomi skelbimai ir kada galite būti paprašyti peržiūrėti trumpą apdovanojamą skelbimą.",
       "rewardedTitle": "Apdovanojami skelbimai",
       "rewardedIntro": "Kai kurie veiksmai reikalauja peržiūrėti trumpą skelbimą prieš tęsiant. Jei per anksti uždarysite skelbimą, veiksmas gali nebūti užbaigtas.",
       "themeTitle": "Programos ir renginio temos",
-      "themeBody": "Užrakintos šventės temos reikalauja peržiūrėti trumpą skelbimą, kad atrakintumėte ar pakeistumėte. Jau atrakintos temos lieka prieinamos.",
+      "themeBody": "Programos ir renginio temas galima keisti laisvai. Apdovanojamosios reklamos temoms nereikalingos.",
       "deleteEventTitle": "Renginio ištrynimas",
       "deleteEventBody": "Kai esate prisijungę, renginio ištrynimas reikalauja peržiūrėti trumpą skelbimą.",
       "guestsTitle": "Svečių pridėjimas",
@@ -606,7 +606,7 @@
       "offlineBody": "Apdovanojami skelbimai reikalauja interneto ryšio. Jei esate neprisijungę, veiksmas gali būti neprieinamas. Expo Go rodomos bandomosios peržiūros vietoj tikrų skelbimų."
     },
     "usage": {
-      "title": "Kaip naudoti Mano tobulas vakarėlis",
+      "title": "Kaip naudoti programėlę",
       "intro": "Mano tobulas vakarėlis padeda planuoti šventę žingsnis po žingsnio. Šis vadovas paaiškina kiekvieną ekraną ir mygtuką, kad tiksliai žinotumėte, ką daro kiekvienas veiksmas.",
       "homeTitle": "Pradžios ekranas",
       "homeBody": "Čia matote visus savo renginius. Krumpliaračio piktograma (viršuje dešinėje) atidaro Nustatymus. Mėlynas + mygtukas (apačioje dešinėje) sukuria naują renginį. Palieskite renginio kortelę, kad ją atidarytumėte. Pieštuko piktograma ant kortelės redaguoja to renginio pavadinimą, datą, vietą ir temą.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Kvietimai",
       "invitationsBody": "Atidarykite iš Apžvalgos per Sukurti kvietimą. Pasirinkite šabloną, šriftą, spalvas, pagrindinį tekstą ir sub-renginius (ceremonija, priėmimas ir kt.). Bendrinti siunčia vaizdą; Atsisiųsti išsaugo į galeriją (mobilus). Prisijungus gali rodyti trumpą reklamą.",
       "settingsTitle": "Nustatymai",
-      "settingsBody": "Programėlės kalba, programėlės tema (keičiant gali rodyti trumpą reklamą), pranešimai su info piktograma apie priminimų intervalus, atsarginės kopijos el. paštas, Siųsti atsarginę kopiją / Importuoti atsarginę kopiją, įvertinti Play Store, Privatumo politika, Naudojimo sąlygos, Reklamos programėlėje ir šis vadovas.",
+      "settingsBody": "Programėlės kalba, programėlės tema, pranešimai su info piktograma apie priminimų intervalus, atsarginės kopijos el. paštas, Siųsti atsarginę kopiją / Importuoti atsarginę kopiją, įvertinti Play Store, Privatumo politika, Naudojimo sąlygos, Reklamos programėlėje ir šis vadovas.",
       "backupTitle": "Atsarginė kopija ir atkūrimas",
-      "backupBody": "Visi duomenys lieka tik jūsų įrenginyje. Siųsti atsarginę kopiją sukuria JSON failą ir atidaro el. paštą ar bendinimo dialogą. Importuoti atsarginę kopiją atkuria duomenis iš anksčiau išsaugoto failo. Jūs atsakingi už atsarginės kopijos saugumą."
+      "backupBody": "Visi duomenys lieka tik jūsų įrenginyje. Siųsti atsarginę kopiją sukuria JSON failą ir atidaro el. paštą ar bendinimo dialogą. Importuoti atsarginę kopiją atkuria duomenis iš anksčiau išsaugoto failo. Jūs atsakingi už atsarginės kopijos saugumą.",
+      "tapHint": "Paliesk kortelę, kad išskleistum"
     }
   }
 }

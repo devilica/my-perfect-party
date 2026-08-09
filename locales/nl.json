@@ -510,7 +510,7 @@
     "termsOfUse": "Gebruiksvoorwaarden",
     "notificationsLabel": "Meldingen",
     "notificationsInfoTitle": "Meldingen",
-    "notificationsInfoMessage": "Lokale meldingen op je apparaat.\n\nEvenementen: 7 dagen, 24 uur en 1 uur voor de start (volgens de tijd van je telefoon).\n\nTaken: 24 uur van tevoren en op het tijdstip (middag als er geen tijd is ingesteld).",
+    "notificationsInfoMessage": "Lokale meldingen op je apparaat.\n\nEvenementen: 7 dagen, 24 uur en 1 uur voor de start (volgens de tijd van je telefoon).\n\nTaken: 24 uur van tevoren en op het tijdstip.",
     "adsInfo": "Advertenties in de app",
     "usageGuide": "Hoe de app te gebruiken",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Privacybeleid – Mijn perfecte feest",
+      "title": "Privacybeleid",
       "effectiveDate": "Ingangsdatum: 22 juli 2026",
       "intro": "Mijn perfecte feest respecteert uw privacy. Dit Privacybeleid legt uit hoe uw gegevens worden behandeld wanneer u onze app gebruikt.",
       "localDataTitle": "Lokaal opgeslagen gegevens",
@@ -554,7 +554,7 @@
       "contactBody": "Als u vragen heeft over dit Privacybeleid, neem contact met ons op via {{email}}."
     },
     "terms": {
-      "title": "Gebruiksvoorwaarden – Mijn perfecte feest",
+      "title": "Gebruiksvoorwaarden",
       "effectiveDate": "Ingangsdatum: 22 juli 2026",
       "intro": "Deze Gebruiksvoorwaarden regelen uw gebruik van de app Mijn perfecte feest.",
       "acceptanceTitle": "Acceptatie van de voorwaarden",
@@ -580,12 +580,12 @@
       "contactBody": "Voor vragen over deze Voorwaarden, neem contact met ons op via {{email}}."
     },
     "ads": {
-      "title": "Advertenties in My Perfect Party",
+      "title": "Advertenties in de app",
       "intro": "De gratis versie van My Perfect Party wordt ondersteund door advertenties. Deze pagina legt uit waar advertenties verschijnen en wanneer je gevraagd kunt worden een korte beloningadvertentie te bekijken.",
       "rewardedTitle": "Beloningadvertenties",
       "rewardedIntro": "Sommige acties vragen om een korte advertentie te bekijken voordat je verdergaat. Als je de advertentie te vroeg sluit, wordt de actie mogelijk niet voltooid.",
       "themeTitle": "App- en evenementthema’s",
-      "themeBody": "Vergrendelde feestthema’s vereisen het bekijken van een korte advertentie om te ontgrendelen of te wijzigen. Thema’s die je al hebt ontgrendeld blijven beschikbaar.",
+      "themeBody": "App- en evenementthema’s kun je vrij wijzigen. Rewarded ads zijn niet nodig voor thema’s.",
       "deleteEventTitle": "Evenement verwijderen",
       "deleteEventBody": "Wanneer je online bent, vereist het verwijderen van een evenement het bekijken van een korte advertentie.",
       "guestsTitle": "Gasten toevoegen",
@@ -606,7 +606,7 @@
       "offlineBody": "Beloningadvertenties vereisen een internetverbinding. Als je offline bent, is de actie mogelijk niet beschikbaar. In Expo Go worden testvoorbeelden getoond in plaats van echte advertenties."
     },
     "usage": {
-      "title": "Hoe Mijn perfecte feest te gebruiken",
+      "title": "Hoe de app te gebruiken",
       "intro": "Mijn perfecte feest helpt je stap voor stap een feest te plannen. Deze gids legt elk scherm en elke knop uit zodat je precies weet wat elke actie doet.",
       "homeTitle": "Startscherm",
       "homeBody": "Hier zie je al je evenementen. Het tandwielicoon (rechtsboven) opent Instellingen. De blauwe + knop (rechtsonder) maakt een nieuw evenement. Tik op een evenementkaart om het te openen. Het potloodicoon op een kaart bewerkt de naam, datum, locatie en het thema van dat evenement.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Uitnodigingen",
       "invitationsBody": "Open vanuit Overzicht via Uitnodiging maken. Kies sjabloon, lettertype, kleuren, hoofdtekst en sub-evenementen (ceremonie, receptie enz.). Delen verstuurt de afbeelding; Downloaden slaat deze op in je galerij (mobiel). Online kan een korte advertentie verschijnen.",
       "settingsTitle": "Instellingen",
-      "settingsBody": "App-taal, app-thema (kan bij wijziging een korte advertentie tonen), meldingen met info-icoon over herinneringsintervallen, backup-e-mail, Backup verzenden / Backup importeren, beoordelen in Play Store, Privacybeleid, Gebruiksvoorwaarden, Advertenties in de app en deze gids.",
+      "settingsBody": "App-taal, app-thema, meldingen met info-icoon over herinneringsintervallen, backup-e-mail, Backup verzenden / Backup importeren, beoordelen in Play Store, Privacybeleid, Gebruiksvoorwaarden, Advertenties in de app en deze gids.",
       "backupTitle": "Backup en herstel",
-      "backupBody": "Alle gegevens blijven alleen op je apparaat. Backup verzenden maakt een JSON-bestand en opent e-mail of het deelvenster. Backup importeren herstelt gegevens uit een eerder opgeslagen bestand. Jij bent verantwoordelijk voor het veilig houden van je backup."
+      "backupBody": "Alle gegevens blijven alleen op je apparaat. Backup verzenden maakt een JSON-bestand en opent e-mail of het deelvenster. Backup importeren herstelt gegevens uit een eerder opgeslagen bestand. Jij bent verantwoordelijk voor het veilig houden van je backup.",
+      "tapHint": "Tik op een kaart om uit te klappen"
     }
   }
 }

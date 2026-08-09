@@ -512,7 +512,7 @@
     "termsOfUse": "Điều khoản sử dụng",
     "notificationsLabel": "Thông báo",
     "notificationsInfoTitle": "Thông báo",
-    "notificationsInfoMessage": "Thông báo cục bộ trên thiết bị.\n\nSự kiện: 7 ngày, 24 giờ và 1 giờ trước khi bắt đầu (theo giờ điện thoại).\n\nCông việc: 24 giờ trước và đúng hạn (trưa nếu không đặt giờ).",
+    "notificationsInfoMessage": "Thông báo cục bộ trên thiết bị.\n\nSự kiện: 7 ngày, 24 giờ và 1 giờ trước khi bắt đầu (theo giờ điện thoại).\n\nCông việc: 24 giờ trước và đúng hạn.",
     "adsInfo": "Quảng cáo trong ứng dụng",
     "usageGuide": "Cách sử dụng ứng dụng"
   },
@@ -546,7 +546,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Chính sách quyền riêng tư – Bữa tiệc hoàn hảo của tôi",
+      "title": "Chính sách quyền riêng tư",
       "effectiveDate": "Ngày hiệu lực: 22 tháng 7 năm 2026",
       "intro": "Bữa tiệc hoàn hảo của tôi tôn trọng quyền riêng tư của bạn. Chính sách này giải thích cách thông tin của bạn được xử lý khi dùng ứng dụng.",
       "localDataTitle": "Dữ liệu lưu cục bộ",
@@ -562,7 +562,7 @@
       "contactBody": "Nếu có câu hỏi về Chính sách quyền riêng tư này, liên hệ {{email}}."
     },
     "terms": {
-      "title": "Điều khoản sử dụng – Bữa tiệc hoàn hảo của tôi",
+      "title": "Điều khoản sử dụng",
       "effectiveDate": "Ngày hiệu lực: 22 tháng 7 năm 2026",
       "intro": "Điều khoản sử dụng này điều chỉnh việc dùng ứng dụng Bữa tiệc hoàn hảo của tôi.",
       "acceptanceTitle": "Chấp nhận điều khoản",
@@ -588,12 +588,12 @@
       "contactBody": "Về câu hỏi liên quan Điều khoản này, liên hệ {{email}}."
     },
     "ads": {
-      "title": "Quảng cáo trong Bữa tiệc hoàn hảo của tôi",
+      "title": "Quảng cáo trong ứng dụng",
       "intro": "Phiên bản miễn phí Bữa tiệc hoàn hảo của tôi được hỗ trợ bởi quảng cáo. Trang này giải thích quảng cáo xuất hiện ở đâu và khi nào bạn có thể được yêu cầu xem quảng cáo thưởng ngắn.",
       "rewardedTitle": "Quảng cáo thưởng",
       "rewardedIntro": "Một số thao tác yêu cầu xem quảng cáo ngắn trước khi tiếp tục. Đóng sớm có thể khiến thao tác không hoàn tất.",
       "themeTitle": "Giao diện ứng dụng và sự kiện",
-      "themeBody": "Chủ đề lễ bị khóa cần xem quảng cáo ngắn để mở hoặc đổi. Chủ đề đã mở vẫn dùng được.",
+      "themeBody": "Có thể đổi chủ đề ứng dụng và sự kiện tự do. Không cần quảng cáo thưởng cho chủ đề.",
       "deleteEventTitle": "Xóa sự kiện",
       "deleteEventBody": "Khi trực tuyến, xóa sự kiện cần xem quảng cáo ngắn.",
       "guestsTitle": "Thêm khách",
@@ -614,7 +614,7 @@
       "offlineBody": "Quảng cáo thưởng cần internet. Ngoại tuyến, thao tác có thể không khả dụng. Trong Expo Go hiển thị xem trước quảng cáo thử thay vì quảng cáo thật."
     },
     "usage": {
-      "title": "Cách sử dụng Bữa tiệc hoàn hảo của tôi",
+      "title": "Cách sử dụng ứng dụng",
       "intro": "Bữa tiệc hoàn hảo của tôi giúp bạn lên kế hoạch lễ từng bước. Hướng dẫn này giải thích mọi màn hình và nút để bạn biết chính xác mỗi thao tác làm gì.",
       "homeTitle": "Màn hình chính",
       "homeBody": "Hiển thị mọi sự kiện. Biểu tượng bánh răng (góc phải trên) mở Cài đặt. Nút + xanh (góc phải dưới) tạo sự kiện mới. Chạm thẻ sự kiện để mở. Biểu tượng bút trên thẻ sửa tên, ngày, địa điểm và chủ đề.",
@@ -643,9 +643,10 @@
       "invitationsTitle": "Thiệp mời",
       "invitationsBody": "Mở từ Tổng quan qua Tạo thiệp mời. Chọn mẫu, phông, màu, văn bản chính và sự kiện phụ (lễ, tiệc, v.v.). Chia sẻ gửi ảnh; Tải xuống lưu thư viện (di động). Trực tuyến có thể hiện quảng cáo ngắn.",
       "settingsTitle": "Cài đặt",
-      "settingsBody": "Ngôn ngữ ứng dụng, giao diện (có thể hiện quảng cáo ngắn khi đổi), thông báo với biểu tượng thông tin khoảng nhắc, email sao lưu, Gửi sao lưu / Nhập sao lưu, đánh giá Play Store, Chính sách quyền riêng tư, Điều khoản sử dụng, Quảng cáo trong ứng dụng và hướng dẫn này.",
+      "settingsBody": "Ngôn ngữ ứng dụng, giao diện, thông báo với biểu tượng thông tin khoảng nhắc, email sao lưu, Gửi sao lưu / Nhập sao lưu, đánh giá Play Store, Chính sách quyền riêng tư, Điều khoản sử dụng, Quảng cáo trong ứng dụng và hướng dẫn này.",
       "backupTitle": "Sao lưu và khôi phục",
-      "backupBody": "Mọi dữ liệu chỉ ở trên thiết bị. Gửi sao lưu tạo tệp JSON và mở email hoặc hộp thoại chia sẻ. Nhập sao lưu khôi phục từ tệp đã lưu. Bạn chịu trách nhiệm giữ sao lưu an toàn."
+      "backupBody": "Mọi dữ liệu chỉ ở trên thiết bị. Gửi sao lưu tạo tệp JSON và mở email hoặc hộp thoại chia sẻ. Nhập sao lưu khôi phục từ tệp đã lưu. Bạn chịu trách nhiệm giữ sao lưu an toàn.",
+      "tapHint": "Chạm thẻ để mở rộng"
     }
   }
 }

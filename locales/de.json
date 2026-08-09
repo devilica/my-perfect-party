@@ -510,7 +510,7 @@
     "termsOfUse": "Nutzungsbedingungen",
     "notificationsLabel": "Benachrichtigungen",
     "notificationsInfoTitle": "Benachrichtigungen",
-    "notificationsInfoMessage": "Lokale Benachrichtigungen auf deinem Gerät.\n\nEvents: 7 Tage, 24 Stunden und 1 Stunde vor Beginn (nach der Uhrzeit deines Telefons).\n\nAufgaben: 24 Stunden vorher und zum Fälligkeitszeitpunkt (Mittag, wenn keine Uhrzeit gesetzt ist).",
+    "notificationsInfoMessage": "Lokale Benachrichtigungen auf deinem Gerät.\n\nEvents: 7 Tage, 24 Stunden und 1 Stunde vor Beginn (nach der Uhrzeit deines Telefons).\n\nAufgaben: 24 Stunden vorher und zum Fälligkeitszeitpunkt.",
     "adsInfo": "Werbung in der App",
     "usageGuide": "So nutzt du die App",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Datenschutzerklärung – Meine perfekte Feier",
+      "title": "Datenschutzerklärung",
       "effectiveDate": "Gültig ab: 22. Juli 2026",
       "intro": "Meine perfekte Feier respektiert Ihre Privatsphäre. Diese Datenschutzerklärung erläutert, wie Ihre Informationen bei der Nutzung unserer App behandelt werden.",
       "localDataTitle": "Lokal gespeicherte Daten",
@@ -554,7 +554,7 @@
       "contactBody": "Bei Fragen zu dieser Datenschutzerklärung kontaktieren Sie uns unter {{email}}."
     },
     "terms": {
-      "title": "Nutzungsbedingungen – Meine perfekte Feier",
+      "title": "Nutzungsbedingungen",
       "effectiveDate": "Gültig ab: 22. Juli 2026",
       "intro": "Diese Nutzungsbedingungen regeln Ihre Nutzung der App Meine perfekte Feier.",
       "acceptanceTitle": "Annahme der Bedingungen",
@@ -580,12 +580,12 @@
       "contactBody": "Bei Fragen zu diesen Bedingungen kontaktieren Sie uns unter {{email}}."
     },
     "ads": {
-      "title": "Werbung in My Perfect Party",
+      "title": "Werbung in der App",
       "intro": "Die kostenlose Version von My Perfect Party wird durch Werbung unterstützt. Diese Seite erklärt, wo Werbung erscheint und wann du möglicherweise gebeten wirst, eine kurze belohnte Anzeige anzusehen.",
       "rewardedTitle": "Belohnte Anzeigen",
       "rewardedIntro": "Einige Aktionen verlangen, dass du vor dem Fortfahren eine kurze Anzeige ansiehst. Wenn du die Anzeige zu früh schließt, wird die Aktion möglicherweise nicht abgeschlossen.",
       "themeTitle": "App- und Event-Themen",
-      "themeBody": "Gesperrte Feierthemen erfordern das Ansehen einer kurzen Anzeige zum Freischalten oder Wechseln. Bereits freigeschaltete Themen bleiben verfügbar.",
+      "themeBody": "App- und Event-Themen können frei gewechselt werden. Belohnungsanzeigen sind für Themes nicht erforderlich.",
       "deleteEventTitle": "Event löschen",
       "deleteEventBody": "Wenn du online bist, erfordert das Löschen eines Events das Ansehen einer kurzen Anzeige.",
       "guestsTitle": "Gäste hinzufügen",
@@ -606,7 +606,7 @@
       "offlineBody": "Belohnte Anzeigen erfordern eine Internetverbindung. Wenn du offline bist, ist die Aktion möglicherweise nicht verfügbar. In Expo Go werden Testvorschauen statt echter Anzeigen angezeigt."
     },
     "usage": {
-      "title": "So nutzt du Meine perfekte Feier",
+      "title": "So nutzt du die App",
       "intro": "Meine perfekte Feier hilft dir, eine Feier Schritt für Schritt zu planen. Dieser Leitfaden erklärt jeden Bildschirm und jede Schaltfläche, damit du genau weißt, was jede Aktion bewirkt.",
       "homeTitle": "Startbildschirm",
       "homeBody": "Hier siehst du alle deine Events. Das Zahnrad-Symbol (oben rechts) öffnet die Einstellungen. Die blaue +-Schaltfläche (unten rechts) erstellt ein neues Event. Tippe auf eine Event-Karte, um sie zu öffnen. Das Stift-Symbol auf einer Karte bearbeitet Name, Datum, Ort und Thema des Events.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Einladungen",
       "invitationsBody": "Öffne aus der Übersicht über Einladung erstellen. Wähle Vorlage, Schriftart, Farben, Haupttext und Teil-Events (Zeremonie, Empfang usw.). Teilen sendet das Bild; Herunterladen speichert es in deiner Galerie (Mobil). Online kann eine kurze Anzeige erscheinen.",
       "settingsTitle": "Einstellungen",
-      "settingsBody": "App-Sprache, App-Design (beim Wechsel kann eine kurze Anzeige erscheinen), Benachrichtigungen mit Info-Symbol zu Erinnerungsintervallen, Backup-E-Mail, Backup senden / Backup importieren, im Play Store bewerten, Datenschutzrichtlinie, Nutzungsbedingungen, Werbung in der App und dieser Leitfaden.",
+      "settingsBody": "App-Sprache, App-Design, Benachrichtigungen mit Info-Symbol zu Erinnerungsintervallen, Backup-E-Mail, Backup senden / Backup importieren, im Play Store bewerten, Datenschutzrichtlinie, Nutzungsbedingungen, Werbung in der App und dieser Leitfaden.",
       "backupTitle": "Backup und Wiederherstellung",
-      "backupBody": "Alle Daten bleiben nur auf deinem Gerät. Backup senden erstellt eine JSON-Datei und öffnet E-Mail oder den Teilen-Dialog. Backup importieren stellt Daten aus einer zuvor gespeicherten Datei wieder her. Du bist für die Sicherheit deines Backups verantwortlich."
+      "backupBody": "Alle Daten bleiben nur auf deinem Gerät. Backup senden erstellt eine JSON-Datei und öffnet E-Mail oder den Teilen-Dialog. Backup importieren stellt Daten aus einer zuvor gespeicherten Datei wieder her. Du bist für die Sicherheit deines Backups verantwortlich.",
+      "tapHint": "Tippe auf eine Karte zum Aufklappen"
     }
   }
 }

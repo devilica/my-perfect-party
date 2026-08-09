@@ -13,7 +13,7 @@ export const adsInfoTranslations = {
           'Some actions ask you to watch a short ad before continuing. If you close the ad early, the action may not complete.',
         themeTitle: 'App and event themes',
         themeBody:
-          'Locked celebration themes require watching a short ad to unlock or change. Themes you have already unlocked stay available.',
+          'App and event themes can be changed freely. Rewarded ads are not required for themes.',
         deleteEventTitle: 'Deleting an event',
         deleteEventBody: 'When you are online, deleting an event requires watching a short ad.',
         guestsTitle: 'Adding guests',
@@ -57,7 +57,7 @@ export const adsInfoTranslations = {
           'Neke radnje traže da pogledate kratku reklamu prije nastavka. Ako zatvorite reklamu prerano, radnja se možda neće završiti.',
         themeTitle: 'Teme aplikacije i događaja',
         themeBody:
-          'Zaključane teme proslava zahtijevaju gledanje kratke reklame za otključavanje ili promjenu. Teme koje ste već otključali ostaju dostupne.',
+          'Teme aplikacije i događaja možete mijenjati slobodno. Nagradne reklame se ne traže za teme.',
         deleteEventTitle: 'Brisanje događaja',
         deleteEventBody: 'Kada ste online, brisanje događaja zahtijeva gledanje kratke reklame.',
         guestsTitle: 'Dodavanje gostiju',

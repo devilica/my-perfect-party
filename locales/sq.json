@@ -510,7 +510,7 @@
     "termsOfUse": "Kushtet e përdorimit",
     "notificationsLabel": "Njoftime",
     "notificationsInfoTitle": "Njoftime",
-    "notificationsInfoMessage": "Njoftime lokale në pajisjen tuaj.\n\nNgjarje: 7 ditë, 24 orë dhe 1 orë para fillimit (sipas kohës së telefonit).\n\nDetyra: 24 orë para dhe në kohën e afatit (mesditë nëse nuk ka orë).",
+    "notificationsInfoMessage": "Njoftime lokale në pajisjen tuaj.\n\nNgjarje: 7 ditë, 24 orë dhe 1 orë para fillimit (sipas kohës së telefonit).\n\nDetyra: 24 orë para dhe në kohën e afatit.",
     "adsInfo": "Reklamat në aplikacion",
     "usageGuide": "Si të përdorni aplikacionin",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Politika e privatësisë – Festa ime e përsosur",
+      "title": "Politika e privatësisë",
       "effectiveDate": "Data e hyrjes në fuqi: 22 korrik 2026",
       "intro": "Festa ime e përsosur respekton privatësinë tuaj. Kjo Politikë e privatësisë shpjegon se si trajtohen informacionet tuaja kur përdorni aplikacionin tonë.",
       "localDataTitle": "Të dhëna të ruajtura lokalisht",
@@ -554,7 +554,7 @@
       "contactBody": "Nëse keni pyetje rreth kësaj Politike të privatësisë, na kontaktoni në {{email}}."
     },
     "terms": {
-      "title": "Kushtet e përdorimit – Festa ime e përsosur",
+      "title": "Kushtet e përdorimit",
       "effectiveDate": "Data e hyrjes në fuqi: 22 korrik 2026",
       "intro": "Këto Kushte të përdorimit rregullojnë përdorimin tuaj të aplikacionit Festa ime e përsosur.",
       "acceptanceTitle": "Pranimi i kushteve",
@@ -580,12 +580,12 @@
       "contactBody": "Për pyetje rreth këtyre Kushteve, na kontaktoni në {{email}}."
     },
     "ads": {
-      "title": "Reklamat në My Perfect Party",
+      "title": "Reklamat në aplikacion",
       "intro": "Versioni falas i My Perfect Party mbështetet nga reklamat. Kjo faqe shpjegon ku shfaqen reklamat dhe kur mund të kërkohet të shikoni një reklamë të shkurtër me shpërblim.",
       "rewardedTitle": "Reklama me shpërblim",
       "rewardedIntro": "Disa veprime kërkojnë të shikoni një reklamë të shkurtër para se të vazhdoni. Nëse e mbyllni reklamën shpejt, veprimi mund të mos përfundojë.",
       "themeTitle": "Temat e aplikacionit dhe eventit",
-      "themeBody": "Temat e festës të bllokuara kërkojnë shikimin e një reklame të shkurtër për t’i hapur ose ndryshuar. Temat që keni hapur tashmë mbeten të disponueshme.",
+      "themeBody": "Temat e aplikacionit dhe eventit mund t’i ndryshoni lirisht. Reklamat e shpërblyera nuk kërkohen për temat.",
       "deleteEventTitle": "Fshirja e eventit",
       "deleteEventBody": "Kur jeni online, fshirja e një eventi kërkon shikimin e një reklame të shkurtër.",
       "guestsTitle": "Shtimi i mysafirëve",
@@ -606,7 +606,7 @@
       "offlineBody": "Reklamat me shpërblim kërkojnë lidhje interneti. Nëse jeni offline, veprimi mund të mos jetë i disponueshëm. Në Expo Go shfaqen pamje paraprake testuese në vend të reklamave reale."
     },
     "usage": {
-      "title": "Si të përdorni Festa ime e përsosur",
+      "title": "Si të përdorni aplikacionin",
       "intro": "Festa ime e përsosur ju ndihmon të planifikoni një festë hap pas hapi. Ky udhëzues shpjegon çdo ekran dhe buton që të dini saktësisht çfarë bën çdo veprim.",
       "homeTitle": "Ekrani kryesor",
       "homeBody": "Këtu shihni të gjitha ngjarjet tuaja. Ikona e ingranazhit (lart djathtas) hap Cilësimet. Butoni blu + (poshtë djathtas) krijon një ngjarje të re. Prekni një kartë ngjarjeje për ta hapur. Ikona e lapsit në një kartë redakton emrin, datën, vendndodhjen dhe temën e asaj ngjarjeje.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Ftesat",
       "invitationsBody": "Hapni nga Përmbledhja përmes Krijo ftesë. Zgjidhni shabllon, font, ngjyra, tekst kryesor dhe nën-ngjarje (ceremoni, recepsion etj.). Ndaj dërgon imazhin; Shkarko e ruan në galeri (celular). Online mund të shfaqë reklamë të shkurtër.",
       "settingsTitle": "Cilësimet",
-      "settingsBody": "Gjuha e aplikacionit, tema e aplikacionit (mund të shfaqë reklamë të shkurtër kur ndryshohet), njoftimet me ikonë info për intervalin e kujtesave, email kopje rezervë, Dërgo kopje / Importo kopje, vlerëso në Play Store, Politika e privatësisë, Kushtet e përdorimit, Reklamat në aplikacion dhe ky udhëzues.",
+      "settingsBody": "Gjuha e aplikacionit, tema e aplikacionit, njoftimet me ikonë info për intervalin e kujtesave, email kopje rezervë, Dërgo kopje / Importo kopje, vlerëso në Play Store, Politika e privatësisë, Kushtet e përdorimit, Reklamat në aplikacion dhe ky udhëzues.",
       "backupTitle": "Kopje rezervë dhe rikthim",
-      "backupBody": "Të gjitha të dhënat mbeten vetëm në pajisjen tuaj. Dërgo kopje krijon skedar JSON dhe hap email ose dialogun e ndarjes. Importo kopje rikthen të dhënat nga skedari i ruajtur më parë. Ju jeni përgjegjës për mbajtjen e kopjes rezervë të sigurt."
+      "backupBody": "Të gjitha të dhënat mbeten vetëm në pajisjen tuaj. Dërgo kopje krijon skedar JSON dhe hap email ose dialogun e ndarjes. Importo kopje rikthen të dhënat nga skedari i ruajtur më parë. Ju jeni përgjegjës për mbajtjen e kopjes rezervë të sigurt.",
+      "tapHint": "Prek një kartë për ta zgjeruar"
     }
   }
 }

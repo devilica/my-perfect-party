@@ -512,7 +512,7 @@
     "termsOfUse": "Termos de uso",
     "notificationsLabel": "Notificações",
     "notificationsInfoTitle": "Notificações",
-    "notificationsInfoMessage": "Notificações locais no seu dispositivo.\n\nEventos: 7 dias, 24 horas e 1 hora antes do início (usando a hora do seu celular).\n\nTarefas: 24 horas antes e no horário programado (meio-dia se não houver horário).",
+    "notificationsInfoMessage": "Notificações locais no seu dispositivo.\n\nEventos: 7 dias, 24 horas e 1 hora antes do início (usando a hora do seu celular).\n\nTarefas: 24 horas antes e no horário programado.",
     "adsInfo": "Anúncios na app",
     "usageGuide": "Como usar o app"
   },
@@ -546,7 +546,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Política de privacidade – Minha festa perfeita",
+      "title": "Política de privacidade",
       "effectiveDate": "Data de entrada em vigor: 22 de julho de 2026",
       "intro": "Minha festa perfeita respeita sua privacidade. Esta Política de privacidade explica como suas informações são tratadas quando você usa nosso app.",
       "localDataTitle": "Dados armazenados localmente",
@@ -562,7 +562,7 @@
       "contactBody": "Se você tiver dúvidas sobre esta Política de privacidade, entre em contato conosco em {{email}}."
     },
     "terms": {
-      "title": "Termos de uso – Minha festa perfeita",
+      "title": "Termos de uso",
       "effectiveDate": "Data de entrada em vigor: 22 de julho de 2026",
       "intro": "Estes Termos de uso regem o uso do app Minha festa perfeita.",
       "acceptanceTitle": "Aceitação dos termos",
@@ -588,12 +588,12 @@
       "contactBody": "Para dúvidas sobre estes Termos, entre em contato conosco em {{email}}."
     },
     "ads": {
-      "title": "Anúncios no Minha festa perfeita",
+      "title": "Anúncios na app",
       "intro": "A versão gratuita do Minha festa perfeita é financiada por anúncios. Esta página explica onde os anúncios aparecem e quando você pode ser solicitado a assistir a um anúncio recompensado curto.",
       "rewardedTitle": "Anúncios recompensados",
       "rewardedIntro": "Algumas ações pedem para ver um anúncio curto antes de continuar. Se fechar o anúncio cedo demais, a ação pode não ser concluída.",
-      "themeTitle": "Temas da app e do evento",
-      "themeBody": "Temas de celebração bloqueados exigem ver um anúncio curto para desbloquear ou alterar. Os temas que já desbloqueou permanecem disponíveis.",
+      "themeTitle": "Temas do app e do evento",
+      "themeBody": "Os temas do app e do evento podem ser alterados livremente. Anúncios premiados não são necessários para temas.",
       "deleteEventTitle": "Excluir um evento",
       "deleteEventBody": "Quando está online, excluir um evento exige ver um anúncio curto.",
       "guestsTitle": "Adicionar convidados",
@@ -614,7 +614,7 @@
       "offlineBody": "Anúncios recompensados exigem ligação à internet. Se estiver offline, a ação pode não estar disponível. No Expo Go são mostradas pré-visualizações de teste em vez de anúncios reais."
     },
     "usage": {
-      "title": "Como usar o Minha festa perfeita",
+      "title": "Como usar o app",
       "intro": "Minha festa perfeita ajuda você a planejar uma celebração passo a passo. Este guia explica cada tela e botão para que você saiba exatamente o que cada ação faz.",
       "homeTitle": "Tela inicial",
       "homeBody": "Aqui você vê todos os seus eventos. O ícone de engrenagem (canto superior direito) abre Configurações. O botão azul + (canto inferior direito) cria um novo evento. Toque em um card de evento para abri-lo. O ícone de lápis em um card edita o nome, data, local e tema desse evento.",
@@ -645,7 +645,8 @@
       "settingsTitle": "Configurações",
       "settingsBody": "Idioma do app, tema do app (pode mostrar anúncio curto ao mudar), notificações com ícone info sobre intervalos de lembrete, e-mail de backup, Enviar backup / Importar backup, avaliar na Play Store, Política de privacidade, Termos de uso, Anúncios no app e este guia.",
       "backupTitle": "Backup e restauro",
-      "backupBody": "Todos os dados ficam apenas no seu dispositivo. Enviar backup cria um arquivo JSON e abre e-mail ou diálogo de compartilhamento. Importar backup restaura dados de um arquivo salvo anteriormente. Você é responsável por manter seu backup seguro."
+      "backupBody": "Todos os dados ficam apenas no seu dispositivo. Enviar backup cria um arquivo JSON e abre e-mail ou diálogo de compartilhamento. Importar backup restaura dados de um arquivo salvo anteriormente. Você é responsável por manter seu backup seguro.",
+      "tapHint": "Toque em um cartão para expandir"
     }
   }
 }

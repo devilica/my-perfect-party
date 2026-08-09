@@ -510,7 +510,7 @@
     "termsOfUse": "Warunki użytkowania",
     "notificationsLabel": "Powiadomienia",
     "notificationsInfoTitle": "Powiadomienia",
-    "notificationsInfoMessage": "Lokalne powiadomienia na Twoim urządzeniu.\n\nWydarzenia: 7 dni, 24 godziny i 1 godzinę przed rozpoczęciem (według czasu telefonu).\n\nZadania: 24 godziny wcześniej i w terminie (południe, jeśli nie ustawiono godziny).",
+    "notificationsInfoMessage": "Lokalne powiadomienia na Twoim urządzeniu.\n\nWydarzenia: 7 dni, 24 godziny i 1 godzinę przed rozpoczęciem (według czasu telefonu).\n\nZadania: 24 godziny wcześniej i w terminie.",
     "adsInfo": "Reklamy w aplikacji",
     "usageGuide": "Jak korzystać z aplikacji",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Polityka prywatności – Moje idealne przyjęcie",
+      "title": "Polityka prywatności",
       "effectiveDate": "Data wejścia w życie: 22 lipca 2026 r.",
       "intro": "Moje idealne przyjęcie szanuje Twoją prywatność. Niniejsza Polityka prywatności wyjaśnia, jak przetwarzane są Twoje informacje podczas korzystania z naszej aplikacji.",
       "localDataTitle": "Dane przechowywane lokalnie",
@@ -554,7 +554,7 @@
       "contactBody": "Jeśli masz pytania dotyczące tej Polityki prywatności, skontaktuj się z nami pod adresem {{email}}."
     },
     "terms": {
-      "title": "Warunki użytkowania – Moje idealne przyjęcie",
+      "title": "Warunki użytkowania",
       "effectiveDate": "Data wejścia w życie: 22 lipca 2026 r.",
       "intro": "Niniejsze Warunki użytkowania regulują korzystanie z aplikacji Moje idealne przyjęcie.",
       "acceptanceTitle": "Akceptacja warunków",
@@ -580,12 +580,12 @@
       "contactBody": "W przypadku pytań dotyczących niniejszych Warunków skontaktuj się z nami pod adresem {{email}}."
     },
     "ads": {
-      "title": "Reklamy w My Perfect Party",
+      "title": "Reklamy w aplikacji",
       "intro": "Darmowa wersja My Perfect Party jest wspierana przez reklamy. Ta strona wyjaśnia, gdzie pojawiają się reklamy i kiedy możesz zostać poproszony o obejrzenie krótkiej reklamy z nagrodą.",
       "rewardedTitle": "Reklamy z nagrodą",
       "rewardedIntro": "Niektóre działania wymagają obejrzenia krótkiej reklamy przed kontynuowaniem. Jeśli zamkniesz reklamę zbyt wcześnie, działanie może się nie udać.",
       "themeTitle": "Motywy aplikacji i wydarzenia",
-      "themeBody": "Zablokowane motywy uroczystości wymagają obejrzenia krótkiej reklamy, aby je odblokować lub zmienić. Motywy, które już odblokowałeś, pozostają dostępne.",
+      "themeBody": "Motywy aplikacji i wydarzenia można zmieniać swobodnie. Reklamy z nagrodą nie są wymagane dla motywów.",
       "deleteEventTitle": "Usuwanie wydarzenia",
       "deleteEventBody": "Gdy jesteś online, usunięcie wydarzenia wymaga obejrzenia krótkiej reklamy.",
       "guestsTitle": "Dodawanie gości",
@@ -606,7 +606,7 @@
       "offlineBody": "Reklamy z nagrodą wymagają połączenia z internetem. Gdy jesteś offline, działanie może być niedostępne. W Expo Go wyświetlane są podglądy testowe zamiast prawdziwych reklam."
     },
     "usage": {
-      "title": "Jak korzystać z Moje idealne przyjęcie",
+      "title": "Jak korzystać z aplikacji",
       "intro": "Moje idealne przyjęcie pomaga planować celebrację krok po kroku. Ten przewodnik wyjaśnia każdy ekran i przycisk, abyś dokładnie wiedział, co robi każda akcja.",
       "homeTitle": "Ekran główny",
       "homeBody": "Tutaj widzisz wszystkie swoje wydarzenia. Ikona koła zębatego (góra po prawej) otwiera Ustawienia. Niebieski przycisk + (dół po prawej) tworzy nowe wydarzenie. Stuknij kartę wydarzenia, aby ją otworzyć. Ikona ołówka na karcie edytuje nazwę, datę, lokalizację i motyw tego wydarzenia.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Zaproszenia",
       "invitationsBody": "Otwórz z Przeglądu przez Utwórz zaproszenie. Wybierz szablon, czcionkę, kolory, główny tekst i pod-wydarzenia (ceremonia, przyjęcie itd.). Udostępnij wysyła obraz; Pobierz zapisuje go w galerii (mobilny). Online może pokazać krótką reklamę.",
       "settingsTitle": "Ustawienia",
-      "settingsBody": "Język aplikacji, motyw aplikacji (przy zmianie może pokazać krótką reklamę), powiadomienia z ikoną info o interwałach przypomnień, e-mail kopii zapasowej, Wyślij kopię / Importuj kopię, oceń w Play Store, Polityka prywatności, Warunki użytkowania, Reklamy w aplikacji i ten przewodnik.",
+      "settingsBody": "Język aplikacji, motyw aplikacji, powiadomienia z ikoną info o interwałach przypomnień, e-mail kopii zapasowej, Wyślij kopię / Importuj kopię, oceń w Play Store, Polityka prywatności, Warunki użytkowania, Reklamy w aplikacji i ten przewodnik.",
       "backupTitle": "Kopia zapasowa i przywracanie",
-      "backupBody": "Wszystkie dane pozostają tylko na twoim urządzeniu. Wyślij kopię tworzy plik JSON i otwiera e-mail lub okno udostępniania. Importuj kopię przywraca dane z wcześniej zapisanego pliku. Jesteś odpowiedzialny za bezpieczeństwo kopii zapasowej."
+      "backupBody": "Wszystkie dane pozostają tylko na twoim urządzeniu. Wyślij kopię tworzy plik JSON i otwiera e-mail lub okno udostępniania. Importuj kopię przywraca dane z wcześniej zapisanego pliku. Jesteś odpowiedzialny za bezpieczeństwo kopii zapasowej.",
+      "tapHint": "Dotknij kartę, aby rozwinąć"
     }
   }
 }

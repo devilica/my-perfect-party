@@ -1,7 +1,7 @@
 import * as Notifications from 'expo-notifications';
 import { Platform } from 'react-native';
 
-import { hasEventTime, parseIsoDate, parseIsoDateTime } from '@/lib/dateUtils';
+import { hasEventTime, parseIsoDateTime } from '@/lib/dateUtils';
 import { getDefaultLanguage, translate } from '@/lib/i18n';
 import { Language, Obligation, WeddingEvent } from '@/types/models';
 
@@ -56,8 +56,13 @@ function getEventAnchorDate(event: WeddingEvent): Date | undefined {
 }
 
 function getObligationAnchorDate(obligation: Obligation): Date | undefined {
-  const parsed = parseIsoDate(obligation.date);
+  const parsed = parseIsoDateTime(obligation.date);
   if (!parsed) return undefined;
+
+  if (hasEventTime(obligation.date)) {
+    return parsed;
+  }
+
   return atLocalTime(parsed, DATE_ONLY_HOUR, DATE_ONLY_MINUTE);
 }
 

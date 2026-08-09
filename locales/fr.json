@@ -510,7 +510,7 @@
     "termsOfUse": "Conditions d'utilisation",
     "notificationsLabel": "Notifications",
     "notificationsInfoTitle": "Notifications",
-    "notificationsInfoMessage": "Notifications locales sur votre appareil.\n\nÉvénements : 7 jours, 24 heures et 1 heure avant le début (selon l'heure du téléphone).\n\nTâches : 24 heures avant et à l'heure prévue (midi si aucune heure n'est définie).",
+    "notificationsInfoMessage": "Notifications locales sur votre appareil.\n\nÉvénements : 7 jours, 24 heures et 1 heure avant le début (selon l'heure du téléphone).\n\nTâches : 24 heures avant et à l'heure prévue.",
     "adsInfo": "Publicités dans l’app",
     "usageGuide": "Comment utiliser l'application",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Politique de confidentialité – Ma fête parfaite",
+      "title": "Politique de confidentialité",
       "effectiveDate": "Date d'entrée en vigueur : 22 juillet 2026",
       "intro": "Ma fête parfaite respecte votre vie privée. Cette Politique de confidentialité explique comment vos informations sont traitées lorsque vous utilisez notre application.",
       "localDataTitle": "Données stockées localement",
@@ -554,7 +554,7 @@
       "contactBody": "Si vous avez des questions concernant cette Politique de confidentialité, contactez-nous à {{email}}."
     },
     "terms": {
-      "title": "Conditions d'utilisation – Ma fête parfaite",
+      "title": "Conditions d'utilisation",
       "effectiveDate": "Date d'entrée en vigueur : 22 juillet 2026",
       "intro": "Ces Conditions d'utilisation régissent votre utilisation de l'application Ma fête parfaite.",
       "acceptanceTitle": "Acceptation des conditions",
@@ -580,12 +580,12 @@
       "contactBody": "Pour toute question concernant ces Conditions, contactez-nous à {{email}}."
     },
     "ads": {
-      "title": "Publicités dans My Perfect Party",
+      "title": "Publicités dans l’app",
       "intro": "La version gratuite de My Perfect Party est financée par la publicité. Cette page explique où les publicités apparaissent et quand vous pouvez être invité à regarder une courte publicité récompensée.",
       "rewardedTitle": "Publicités récompensées",
       "rewardedIntro": "Certaines actions demandent de regarder une courte publicité avant de continuer. Si vous fermez la publicité trop tôt, l’action peut ne pas se terminer.",
       "themeTitle": "Thèmes de l’app et de l’événement",
-      "themeBody": "Les thèmes de fête verrouillés nécessitent de regarder une courte publicité pour les déverrouiller ou les changer. Les thèmes déjà déverrouillés restent disponibles.",
+      "themeBody": "Les thèmes de l’app et de l’événement peuvent être changés librement. Les publicités récompensées ne sont pas requises pour les thèmes.",
       "deleteEventTitle": "Suppression d’un événement",
       "deleteEventBody": "Lorsque vous êtes en ligne, supprimer un événement nécessite de regarder une courte publicité.",
       "guestsTitle": "Ajout d’invités",
@@ -606,7 +606,7 @@
       "offlineBody": "Les publicités récompensées nécessitent une connexion internet. Si vous êtes hors ligne, l’action peut ne pas être disponible. Dans Expo Go, des aperçus de test sont affichés à la place des vraies publicités."
     },
     "usage": {
-      "title": "Comment utiliser Ma fête parfaite",
+      "title": "Comment utiliser l'application",
       "intro": "Ma fête parfaite vous aide à planifier une célébration étape par étape. Ce guide explique chaque écran et bouton pour que vous sachiez exactement ce que fait chaque action.",
       "homeTitle": "Écran d'accueil",
       "homeBody": "Vous voyez ici tous vos événements. L'icône engrenage (en haut à droite) ouvre les Paramètres. Le bouton bleu + (en bas à droite) crée un nouvel événement. Appuyez sur une carte d'événement pour l'ouvrir. L'icône crayon sur une carte modifie le nom, la date, le lieu et le thème de cet événement.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Invitations",
       "invitationsBody": "Ouvrez depuis Aperçu via Créer une invitation. Choisissez modèle, police, couleurs, texte principal et sous-événements (cérémonie, réception, etc.). Partager envoie l'image ; Télécharger la sauvegarde dans votre galerie (mobile). En ligne, une courte publicité peut s'afficher.",
       "settingsTitle": "Paramètres",
-      "settingsBody": "Langue de l'app, thème de l'app (peut afficher une courte publicité lors du changement), notifications avec icône info sur les intervalles de rappel, e-mail de sauvegarde, Envoyer la sauvegarde / Importer la sauvegarde, noter sur le Play Store, Politique de confidentialité, Conditions d'utilisation, Publicités dans l'app et ce guide.",
+      "settingsBody": "Langue de l'app, thème de l'app, notifications avec icône info sur les intervalles de rappel, e-mail de sauvegarde, Envoyer la sauvegarde / Importer la sauvegarde, noter sur le Play Store, Politique de confidentialité, Conditions d'utilisation, Publicités dans l'app et ce guide.",
       "backupTitle": "Sauvegarde et restauration",
-      "backupBody": "Toutes les données restent uniquement sur votre appareil. Envoyer la sauvegarde crée un fichier JSON et ouvre l'e-mail ou la boîte de partage. Importer la sauvegarde restaure les données d'un fichier précédemment enregistré. Vous êtes responsable de la sécurité de votre sauvegarde."
+      "backupBody": "Toutes les données restent uniquement sur votre appareil. Envoyer la sauvegarde crée un fichier JSON et ouvre l'e-mail ou la boîte de partage. Importer la sauvegarde restaure les données d'un fichier précédemment enregistré. Vous êtes responsable de la sécurité de votre sauvegarde.",
+      "tapHint": "Touchez une carte pour développer"
     }
   }
 }

@@ -510,7 +510,7 @@
     "termsOfUse": "Käyttöehdot",
     "notificationsLabel": "Ilmoitukset",
     "notificationsInfoTitle": "Ilmoitukset",
-    "notificationsInfoMessage": "Paikalliset ilmoitukset laitteellasi.\n\nTapahtumat: 7 päivää, 24 tuntia ja 1 tunti ennen alkua (puhelimen ajan mukaan).\n\nTehtävät: 24 tuntia ennen ja määräaikana (keskipäivällä, jos aikaa ei ole).",
+    "notificationsInfoMessage": "Paikalliset ilmoitukset laitteellasi.\n\nTapahtumat: 7 päivää, 24 tuntia ja 1 tunti ennen alkua (puhelimen ajan mukaan).\n\nTehtävät: 24 tuntia ennen ja määräaikana.",
     "adsInfo": "Mainokset sovelluksessa",
     "usageGuide": "Näin käytät sovellusta",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Tietosuojakäytäntö – Täydellinen juhlani",
+      "title": "Tietosuojakäytäntö",
       "effectiveDate": "Voimaantulopäivä: 22. heinäkuuta 2026",
       "intro": "Täydellinen juhlani kunnioittaa yksityisyyttäsi. Tämä tietosuojakäytäntö kertoo, miten tietojasi käsitellään, kun käytät sovellustamme.",
       "localDataTitle": "Paikallisesti tallennetut tiedot",
@@ -554,7 +554,7 @@
       "contactBody": "Jos sinulla on kysyttävää tästä tietosuojakäytännöstä, ota meihin yhteyttä osoitteessa {{email}}."
     },
     "terms": {
-      "title": "Käyttöehdot – Täydellinen juhlani",
+      "title": "Käyttöehdot",
       "effectiveDate": "Voimaantulopäivä: 22. heinäkuuta 2026",
       "intro": "Nämä käyttöehdot koskevat Täydellinen juhlani -sovelluksen käyttöä.",
       "acceptanceTitle": "Ehtojen hyväksyminen",
@@ -580,12 +580,12 @@
       "contactBody": "Kysymyksissä näistä ehdoista ota meihin yhteyttä osoitteessa {{email}}."
     },
     "ads": {
-      "title": "Mainokset sovelluksessa My Perfect Party",
+      "title": "Mainokset sovelluksessa",
       "intro": "My Perfect Party -sovelluksen ilmainen versio rahoitetaan mainoksilla. Tämä sivu selittää, missä mainoksia näytetään ja milloin sinua voidaan pyytää katsomaan lyhyt palkittu mainos.",
       "rewardedTitle": "Palkitut mainokset",
       "rewardedIntro": "Jotkin toiminnot vaativat lyhyen mainoksen katsomisen ennen jatkamista. Jos suljet mainoksen liian aikaisin, toiminto ei välttämättä valmistu.",
       "themeTitle": "Sovelluksen ja tapahtuman teemat",
-      "themeBody": "Lukitut juhlintateemat vaativat lyhyen mainoksen katsomisen avaamiseen tai vaihtamiseen. Jo avaamasi teemat pysyvät käytettävissä.",
+      "themeBody": "Sovelluksen ja tapahtuman teemoja voi vaihtaa vapaasti. Palkitsevia mainoksia ei tarvita teemoille.",
       "deleteEventTitle": "Tapahtuman poistaminen",
       "deleteEventBody": "Kun olet verkossa, tapahtuman poistaminen vaatii lyhyen mainoksen katsomisen.",
       "guestsTitle": "Vieraiden lisääminen",
@@ -606,7 +606,7 @@
       "offlineBody": "Palkitut mainokset vaativat internet-yhteyden. Jos olet offline-tilassa, toiminto ei välttämättä ole saatavilla. Expo Go:ssa näytetään testiesikatseluja oikeiden mainosten sijaan."
     },
     "usage": {
-      "title": "Näin käytät Täydellinen juhlani -sovellusta",
+      "title": "Näin käytät sovellusta",
       "intro": "Täydellinen juhlani auttaa sinua suunnittelemaan juhlat askel askeleelta. Tämä opas selittää jokaisen näytön ja painikkeen, jotta tiedät tarkalleen, mitä kukin toiminto tekee.",
       "homeTitle": "Aloitusnäyttö",
       "homeBody": "Näet täällä kaikki tapahtumasi. Hammasratta-kuvake (oikeassa yläkulmassa) avaa Asetukset. Sininen + -painike (oikeassa alakulmassa) luo uuden tapahtuman. Napauta tapahtumakorttia avataksesi sen. Kynäkuvake kortissa muokkaa tapahtuman nimeä, päivämäärää, sijaintia ja teemaa.",
@@ -637,7 +637,8 @@
       "settingsTitle": "Asetukset",
       "settingsBody": "Sovelluksen kieli, sovelluksen teema (voi näyttää lyhyen mainoksen vaihdettaessa), ilmoitukset info-kuvakkeella muistutusväleistä, varmuuskopiosähköposti, Lähetä varmuuskopio / Tuo varmuuskopio, arvioi Play Storessa, Tietosuojakäytäntö, Käyttöehdot, Mainokset sovelluksessa ja tämä opas.",
       "backupTitle": "Varmuuskopio ja palautus",
-      "backupBody": "Kaikki tiedot pysyvät vain laitteessasi. Lähetä varmuuskopio luo JSON-tiedoston ja avaa sähköpostin tai jakovalikon. Tuo varmuuskopio palauttaa tiedot aiemmin tallennetusta tiedostosta. Olet vastuussa varmuuskopion turvallisuudesta."
+      "backupBody": "Kaikki tiedot pysyvät vain laitteessasi. Lähetä varmuuskopio luo JSON-tiedoston ja avaa sähköpostin tai jakovalikon. Tuo varmuuskopio palauttaa tiedot aiemmin tallennetusta tiedostosta. Olet vastuussa varmuuskopion turvallisuudesta.",
+      "tapHint": "Napauta korttia laajentaaksesi"
     }
   }
 }

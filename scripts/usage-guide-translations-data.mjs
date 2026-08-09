@@ -47,7 +47,7 @@ export const usageGuideTranslations = {
           'Open from Overview via Create invitation. Choose a template, font, colors, main text, and sub-events (ceremony, reception, etc.). Share sends the image; Download saves it to your gallery (mobile). Online may show a short ad.',
         settingsTitle: 'Settings',
         settingsBody:
-          'App language, app theme (may show a short ad when changing), notifications with info icon about reminder intervals, backup email, Send backup / Import backup, rate on Play Store, Privacy policy, Terms of use, Ads in the app, and this guide.',
+          'App language, app theme, notifications with info icon about reminder intervals, backup email, Send backup / Import backup, rate on Play Store, Privacy policy, Terms of use, Ads in the app, and this guide.',
         backupTitle: 'Backup and restore',
         backupBody:
           'All data stays on your device only. Send backup creates a JSON file and opens email or the share dialog. Import backup restores data from a previously saved file. You are responsible for keeping your backup safe.',
@@ -102,7 +102,7 @@ export const usageGuideTranslations = {
           'Otvorite iz Pregleda putem Kreiraj pozivnicu. Odaberite predložak, font, boje, glavni tekst i pod-događaje (ceremonija, prijem itd.). Podijeli šalje sliku; Preuzmi je sprema u galeriju (mobitel). Online može prikazati kratku reklamu.',
         settingsTitle: 'Postavke',
         settingsBody:
-          'Jezik aplikacije, tema aplikacije (pri promjeni može prikazati kratku reklamu), obavijesti s ikonom info o intervalima podsjetnika, e-mail za rezervnu kopiju, Pošalji rezervnu kopiju / Uvezi rezervnu kopiju, ocijeni na Play Storeu, Politika privatnosti, Uslovi korištenja, Reklame u aplikaciji i ovaj vodič.',
+          'Jezik aplikacije, tema aplikacije, obavijesti s ikonom info o intervalima podsjetnika, e-mail za rezervnu kopiju, Pošalji rezervnu kopiju / Uvezi rezervnu kopiju, ocijeni na Play Storeu, Politika privatnosti, Uslovi korištenja, Reklame u aplikaciji i ovaj vodič.',
         backupTitle: 'Rezervna kopija i vraćanje',
         backupBody:
           'Svi podaci ostaju samo na vašem uređaju. Pošalji rezervnu kopiju kreira JSON datoteku i otvara e-mail ili dijalog za dijeljenje. Uvezi rezervnu kopiju vraća podatke iz prethodno sačuvane datoteke. Vi ste odgovorni za čuvanje rezervne kopije.',
@@ -157,7 +157,7 @@ export const usageGuideTranslations = {
           'Otvorite iz Pregleda putem Stvori pozivnicu. Odaberite predložak, font, boje, glavni tekst i pod-događaje (ceremonija, prijem itd.). Podijeli šalje sliku; Preuzmi je sprema u galeriju (mobitel). Online može prikazati kratku reklamu.',
         settingsTitle: 'Postavke',
         settingsBody:
-          'Jezik aplikacije, tema aplikacije (pri promjeni može prikazati kratku reklamu), obavijesti s ikonom info o intervalima podsjetnika, e-mail za sigurnosnu kopiju, Pošalji sigurnosnu kopiju / Uvezi sigurnosnu kopiju, ocijeni na Play Storeu, Pravila privatnosti, Uvjeti korištenja, Reklame u aplikaciji i ovaj vodič.',
+          'Jezik aplikacije, tema aplikacije, obavijesti s ikonom info o intervalima podsjetnika, e-mail za sigurnosnu kopiju, Pošalji sigurnosnu kopiju / Uvezi sigurnosnu kopiju, ocijeni na Play Storeu, Pravila privatnosti, Uvjeti korištenja, Reklame u aplikaciji i ovaj vodič.',
         backupTitle: 'Sigurnosna kopija i vraćanje',
         backupBody:
           'Svi podaci ostaju samo na vašem uređaju. Pošalji sigurnosnu kopiju stvara JSON datoteku i otvara e-mail ili dijalog za dijeljenje. Uvezi sigurnosnu kopiju vraća podatke iz prethodno spremljene datoteke. Vi ste odgovorni za čuvanje sigurnosne kopije.',
@@ -212,7 +212,7 @@ export const usageGuideTranslations = {
           'Otvorite iz Pregleda putem Kreiraj pozivnicu. Izaberite šablon, font, boje, glavni tekst i pod-događaje (ceremonija, prijem itd.). Podeli šalje sliku; Preuzmi je čuva u galeriju (mobilni). Online može prikazati kratku reklamu.',
         settingsTitle: 'Podešavanja',
         settingsBody:
-          'Jezik aplikacije, tema aplikacije (pri promeni može prikazati kratku reklamu), obaveštenja sa ikonom info o intervalima podsetnika, e-mail za rezervnu kopiju, Pošalji rezervnu kopiju / Uvezi rezervnu kopiju, oceni na Play Store-u, Politika privatnosti, Uslovi korišćenja, Reklame u aplikaciji i ovaj vodič.',
+          'Jezik aplikacije, tema aplikacije, obaveštenja sa ikonom info o intervalima podsetnika, e-mail za rezervnu kopiju, Pošalji rezervnu kopiju / Uvezi rezervnu kopiju, oceni na Play Store-u, Politika privatnosti, Uslovi korišćenja, Reklame u aplikaciji i ovaj vodič.',
         backupTitle: 'Rezervna kopija i vraćanje',
         backupBody:
           'Svi podaci ostaju samo na vašem uređaju. Pošalji rezervnu kopiju kreira JSON datoteku i otvara e-mail ili dijalog za deljenje. Uvezi rezervnu kopiju vraća podatke iz prethodno sačuvane datoteke. Vi ste odgovorni za čuvanje rezervne kopije.',
@@ -267,7 +267,7 @@ export const usageGuideTranslations = {
           'Otvorite iz Pregleda putem Kreiraj pozivnicu. Izaberite šablon, font, boje, glavni tekst i pod-događaje (ceremonija, prijem itd.). Podeli šalje sliku; Preuzmi je čuva u galeriju (mobilni). Online može prikazati kratku reklamu.',
         settingsTitle: 'Podešavanja',
         settingsBody:
-          'Jezik aplikacije, tema aplikacije (pri promeni može prikazati kratku reklamu), obaveštenja sa ikonom info o intervalima podsetnika, e-mail za rezervnu kopiju, Pošalji rezervnu kopiju / Uvezi rezervnu kopiju, oceni na Play Store-u, Politika privatnosti, Uslovi korišćenja, Reklame u aplikaciji i ovaj vodič.',
+          'Jezik aplikacije, tema aplikacije, obaveštenja sa ikonom info o intervalima podsetnika, e-mail za rezervnu kopiju, Pošalji rezervnu kopiju / Uvezi rezervnu kopiju, oceni na Play Store-u, Politika privatnosti, Uslovi korišćenja, Reklame u aplikaciji i ovaj vodič.',
         backupTitle: 'Rezervna kopija i vraćanje',
         backupBody:
           'Svi podaci ostaju samo na vašem uređaju. Pošalji rezervnu kopiju kreira JSON datoteku i otvara e-mail ili dijalog za deljenje. Uvezi rezervnu kopiju vraća podatke iz prethodno sačuvane datoteke. Vi ste odgovorni za čuvanje rezervne kopije.',

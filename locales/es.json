@@ -510,7 +510,7 @@
     "termsOfUse": "Términos de uso",
     "notificationsLabel": "Notificaciones",
     "notificationsInfoTitle": "Notificaciones",
-    "notificationsInfoMessage": "Notificaciones locales en tu dispositivo.\n\nEventos: 7 días, 24 horas y 1 hora antes del inicio (según la hora de tu teléfono).\n\nTareas: 24 horas antes y a la hora prevista (mediodía si no hay hora).",
+    "notificationsInfoMessage": "Notificaciones locales en tu dispositivo.\n\nEventos: 7 días, 24 horas y 1 hora antes del inicio (según la hora de tu teléfono).\n\nTareas: 24 horas antes y a la hora prevista.",
     "adsInfo": "Anuncios en la app",
     "usageGuide": "Cómo usar la aplicación",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Política de privacidad – Mi fiesta perfecta",
+      "title": "Política de privacidad",
       "effectiveDate": "Fecha de entrada en vigor: 22 de julio de 2026",
       "intro": "Mi fiesta perfecta respeta su privacidad. Esta Política de privacidad explica cómo se trata su información cuando utiliza nuestra aplicación.",
       "localDataTitle": "Datos almacenados localmente",
@@ -554,7 +554,7 @@
       "contactBody": "Si tiene preguntas sobre esta Política de privacidad, contáctenos en {{email}}."
     },
     "terms": {
-      "title": "Términos de uso – Mi fiesta perfecta",
+      "title": "Términos de uso",
       "effectiveDate": "Fecha de entrada en vigor: 22 de julio de 2026",
       "intro": "Estos Términos de uso rigen el uso de la aplicación Mi fiesta perfecta.",
       "acceptanceTitle": "Aceptación de los términos",
@@ -580,12 +580,12 @@
       "contactBody": "Para preguntas sobre estos Términos, contáctenos en {{email}}."
     },
     "ads": {
-      "title": "Anuncios en My Perfect Party",
+      "title": "Anuncios en la app",
       "intro": "La versión gratuita de My Perfect Party se financia con anuncios. Esta página explica dónde aparecen los anuncios y cuándo se te puede pedir ver un anuncio recompensado breve.",
       "rewardedTitle": "Anuncios recompensados",
       "rewardedIntro": "Algunas acciones piden ver un anuncio breve antes de continuar. Si cierras el anuncio antes de tiempo, la acción puede no completarse.",
       "themeTitle": "Temas de la app y del evento",
-      "themeBody": "Los temas de celebración bloqueados requieren ver un anuncio breve para desbloquearlos o cambiarlos. Los temas que ya desbloqueaste siguen disponibles.",
+      "themeBody": "Los temas de la app y del evento se pueden cambiar libremente. No se requieren anuncios recompensados para los temas.",
       "deleteEventTitle": "Eliminar un evento",
       "deleteEventBody": "Cuando estás en línea, eliminar un evento requiere ver un anuncio breve.",
       "guestsTitle": "Añadir invitados",
@@ -606,7 +606,7 @@
       "offlineBody": "Los anuncios recompensados requieren conexión a internet. Si estás sin conexión, la acción puede no estar disponible. En Expo Go se muestran vistas previas de prueba en lugar de anuncios reales."
     },
     "usage": {
-      "title": "Cómo usar Mi fiesta perfecta",
+      "title": "Cómo usar la aplicación",
       "intro": "Mi fiesta perfecta te ayuda a planificar una celebración paso a paso. Esta guía explica cada pantalla y botón para que sepas exactamente qué hace cada acción.",
       "homeTitle": "Pantalla de inicio",
       "homeBody": "Aquí ves todos tus eventos. El icono de engranaje (arriba a la derecha) abre Ajustes. El botón azul + (abajo a la derecha) crea un evento nuevo. Toca una tarjeta de evento para abrirla. El icono de lápiz en una tarjeta edita el nombre, fecha, ubicación y tema de ese evento.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Invitaciones",
       "invitationsBody": "Abre desde Resumen mediante Crear invitación. Elige plantilla, fuente, colores, texto principal y subeventos (ceremonia, recepción, etc.). Compartir envía la imagen; Descargar la guarda en tu galería (móvil). Online puede mostrar un anuncio breve.",
       "settingsTitle": "Ajustes",
-      "settingsBody": "Idioma de la app, tema de la app (puede mostrar un anuncio breve al cambiar), notificaciones con icono info sobre intervalos de recordatorio, correo de copia de seguridad, Enviar copia / Importar copia, valorar en Play Store, Política de privacidad, Términos de uso, Anuncios en la app y esta guía.",
+      "settingsBody": "Idioma de la app, tema de la app, notificaciones con icono info sobre intervalos de recordatorio, correo de copia de seguridad, Enviar copia / Importar copia, valorar en Play Store, Política de privacidad, Términos de uso, Anuncios en la app y esta guía.",
       "backupTitle": "Copia de seguridad y restauración",
-      "backupBody": "Todos los datos permanecen solo en tu dispositivo. Enviar copia crea un archivo JSON y abre el correo o el diálogo de compartir. Importar copia restaura datos de un archivo guardado previamente. Eres responsable de mantener tu copia segura."
+      "backupBody": "Todos los datos permanecen solo en tu dispositivo. Enviar copia crea un archivo JSON y abre el correo o el diálogo de compartir. Importar copia restaura datos de un archivo guardado previamente. Eres responsable de mantener tu copia segura.",
+      "tapHint": "Toca una tarjeta para expandir"
     }
   }
 }

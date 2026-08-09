@@ -510,7 +510,7 @@
     "termsOfUse": "Termini di utilizzo",
     "notificationsLabel": "Notifiche",
     "notificationsInfoTitle": "Notifiche",
-    "notificationsInfoMessage": "Notifiche locali sul tuo dispositivo.\n\nEventi: 7 giorni, 24 ore e 1 ora prima dell'inizio (secondo l'ora del telefono).\n\nCompiti: 24 ore prima e all'orario previsto (mezzogiorno se non è impostata un'ora).",
+    "notificationsInfoMessage": "Notifiche locali sul tuo dispositivo.\n\nEventi: 7 giorni, 24 ore e 1 ora prima dell'inizio (secondo l'ora del telefono).\n\nCompiti: 24 ore prima e all'orario previsto.",
     "adsInfo": "Annunci nell’app",
     "usageGuide": "Come usare l'app",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Informativa sulla privacy – La mia festa perfetta",
+      "title": "Informativa sulla privacy",
       "effectiveDate": "Data di entrata in vigore: 22 luglio 2026",
       "intro": "La mia festa perfetta rispetta la tua privacy. Questa Informativa sulla privacy spiega come vengono gestite le tue informazioni quando utilizzi la nostra applicazione.",
       "localDataTitle": "Dati memorizzati localmente",
@@ -554,7 +554,7 @@
       "contactBody": "Se hai domande su questa Informativa sulla privacy, contattaci a {{email}}."
     },
     "terms": {
-      "title": "Termini di utilizzo – La mia festa perfetta",
+      "title": "Termini di utilizzo",
       "effectiveDate": "Data di entrata in vigore: 22 luglio 2026",
       "intro": "Questi Termini di utilizzo regolano l'uso dell'applicazione La mia festa perfetta.",
       "acceptanceTitle": "Accettazione dei termini",
@@ -580,12 +580,12 @@
       "contactBody": "Per domande su questi Termini, contattaci a {{email}}."
     },
     "ads": {
-      "title": "Annunci in My Perfect Party",
+      "title": "Annunci nell’app",
       "intro": "La versione gratuita di My Perfect Party è supportata dagli annunci. Questa pagina spiega dove compaiono gli annunci e quando potresti essere invitato a guardare un breve annuncio con ricompensa.",
       "rewardedTitle": "Annunci con ricompensa",
       "rewardedIntro": "Alcune azioni richiedono di guardare un breve annuncio prima di continuare. Se chiudi l’annuncio troppo presto, l’azione potrebbe non completarsi.",
       "themeTitle": "Temi dell’app e dell’evento",
-      "themeBody": "I temi di festa bloccati richiedono di guardare un breve annuncio per sbloccarli o cambiarli. I temi già sbloccati restano disponibili.",
+      "themeBody": "I temi dell’app e dell’evento si possono cambiare liberamente. Gli annunci reward non sono richiesti per i temi.",
       "deleteEventTitle": "Eliminazione di un evento",
       "deleteEventBody": "Quando sei online, eliminare un evento richiede di guardare un breve annuncio.",
       "guestsTitle": "Aggiunta di ospiti",
@@ -606,7 +606,7 @@
       "offlineBody": "Gli annunci con ricompensa richiedono una connessione internet. Se sei offline, l’azione potrebbe non essere disponibile. In Expo Go vengono mostrate anteprime di test invece di annunci reali."
     },
     "usage": {
-      "title": "Come usare La mia festa perfetta",
+      "title": "Come usare l'app",
       "intro": "La mia festa perfetta ti aiuta a pianificare una celebrazione passo dopo passo. Questa guida spiega ogni schermata e pulsante così sai esattamente cosa fa ogni azione.",
       "homeTitle": "Schermata iniziale",
       "homeBody": "Qui vedi tutti i tuoi eventi. L'icona ingranaggio (in alto a destra) apre Impostazioni. Il pulsante blu + (in basso a destra) crea un nuovo evento. Tocca una scheda evento per aprirla. L'icona matita su una scheda modifica nome, data, luogo e tema di quell'evento.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Inviti",
       "invitationsBody": "Apri da Panoramica tramite Crea invito. Scegli modello, font, colori, testo principale e sotto-eventi (cerimonia, ricevimento ecc.). Condividi invia l'immagine; Scarica la salva nella galleria (mobile). Online può mostrare un breve annuncio.",
       "settingsTitle": "Impostazioni",
-      "settingsBody": "Lingua app, tema app (può mostrare un breve annuncio al cambio), notifiche con icona info sugli intervalli promemoria, email backup, Invia backup / Importa backup, valuta su Play Store, Informativa privacy, Termini di utilizzo, Annunci nell'app e questa guida.",
+      "settingsBody": "Lingua app, tema app, notifiche con icona info sugli intervalli promemoria, email backup, Invia backup / Importa backup, valuta su Play Store, Informativa privacy, Termini di utilizzo, Annunci nell'app e questa guida.",
       "backupTitle": "Backup e ripristino",
-      "backupBody": "Tutti i dati restano solo sul tuo dispositivo. Invia backup crea un file JSON e apre email o dialogo condivisione. Importa backup ripristina dati da un file salvato in precedenza. Sei responsabile della sicurezza del tuo backup."
+      "backupBody": "Tutti i dati restano solo sul tuo dispositivo. Invia backup crea un file JSON e apre email o dialogo condivisione. Importa backup ripristina dati da un file salvato in precedenza. Sei responsabile della sicurezza del tuo backup.",
+      "tapHint": "Tocca una scheda per espandere"
     }
   }
 }

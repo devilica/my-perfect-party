@@ -510,7 +510,7 @@
     "termsOfUse": "Vilkår for brug",
     "notificationsLabel": "Meddelelser",
     "notificationsInfoTitle": "Meddelelser",
-    "notificationsInfoMessage": "Lokale meddelelser på din enhed.\n\nBegivenheder: 7 dage, 24 timer og 1 time før start (efter telefonens tid).\n\nOpgaver: 24 timer før og på forfaldstidspunktet (middag hvis intet klokkeslæt).",
+    "notificationsInfoMessage": "Lokale meddelelser på din enhed.\n\nBegivenheder: 7 dage, 24 timer og 1 time før start (efter telefonens tid).\n\nOpgaver: 24 timer før og på forfaldstidspunktet.",
     "adsInfo": "Annoncer i appen",
     "usageGuide": "Sådan bruger du appen",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Privatlivspolitik – Mit perfekte fest",
+      "title": "Privatlivspolitik",
       "effectiveDate": "Ikrafttrædelsesdato: 22. juli 2026",
       "intro": "Mit perfekte fest respekterer dit privatliv. Denne privatlivspolitik forklarer, hvordan dine oplysninger behandles, når du bruger vores app.",
       "localDataTitle": "Data gemt lokalt",
@@ -554,7 +554,7 @@
       "contactBody": "Hvis du har spørgsmål om denne privatlivspolitik, kontakt os på {{email}}."
     },
     "terms": {
-      "title": "Vilkår for brug – Mit perfekte fest",
+      "title": "Vilkår for brug",
       "effectiveDate": "Ikrafttrædelsesdato: 22. juli 2026",
       "intro": "Disse vilkår for brug regulerer din brug af appen Mit perfekte fest.",
       "acceptanceTitle": "Accept af vilkår",
@@ -580,12 +580,12 @@
       "contactBody": "For spørgsmål om disse vilkår, kontakt os på {{email}}."
     },
     "ads": {
-      "title": "Annoncer i My Perfect Party",
+      "title": "Annoncer i appen",
       "intro": "Den gratis version af My Perfect Party understøttes af annoncer. Denne side forklarer, hvor annoncer vises, og hvornår du kan blive bedt om at se en kort belønnet annonce.",
       "rewardedTitle": "Belønnede annoncer",
       "rewardedIntro": "Nogle handlinger kræver, at du ser en kort annonce, før du fortsætter. Hvis du lukker annoncen for tidligt, fuldføres handlingen måske ikke.",
       "themeTitle": "App- og begivenhedstemaer",
-      "themeBody": "Låste fejringstemaer kræver, at du ser en kort annonce for at låse op eller skifte. Temaer, du allerede har låst op, forbliver tilgængelige.",
+      "themeBody": "App- og begivenhedstemaer kan skiftes frit. Belønningsannoncer kræves ikke for temaer.",
       "deleteEventTitle": "Sletning af begivenhed",
       "deleteEventBody": "Når du er online, kræver sletning af en begivenhed, at du ser en kort annonce.",
       "guestsTitle": "Tilføjelse af gæster",
@@ -606,7 +606,7 @@
       "offlineBody": "Belønnede annoncer kræver internetforbindelse. Hvis du er offline, er handlingen måske ikke tilgængelig. I Expo Go vises testforhåndsvisninger i stedet for rigtige annoncer."
     },
     "usage": {
-      "title": "Sådan bruger du Mit perfekte fest",
+      "title": "Sådan bruger du appen",
       "intro": "Mit perfekte fest hjælper dig med at planlægge en fest trin for trin. Denne guide forklarer hver skærm og knap, så du præcis ved, hvad hver handling gør.",
       "homeTitle": "Startskærm",
       "homeBody": "Her ser du alle dine begivenheder. Tandhjulsikonet (øverst til højre) åbner Indstillinger. Den blå + knap (nederst til højre) opretter en ny begivenhed. Tryk på et begivenhedskort for at åbne det. Blyantikonet på et kort redigerer begivenhedens navn, dato, sted og tema.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Invitationer",
       "invitationsBody": "Åbn fra Overblik via Opret invitation. Vælg skabelon, skrifttype, farver, hovedtekst og delbegivenheder (ceremoni, reception osv.). Del sender billedet; Download gemmer det i dit galleri (mobil). Online kan vise en kort annonce.",
       "settingsTitle": "Indstillinger",
-      "settingsBody": "Appsprog, apptema (kan vise en kort annonce ved skift), notifikationer med info-ikon om påmindelsesintervaller, backup-e-mail, Send backup / Importér backup, bedøm i Play Store, Privatlivspolitik, Brugsbetingelser, Annoncer i appen og denne guide.",
+      "settingsBody": "Appsprog, apptema, notifikationer med info-ikon om påmindelsesintervaller, backup-e-mail, Send backup / Importér backup, bedøm i Play Store, Privatlivspolitik, Brugsbetingelser, Annoncer i appen og denne guide.",
       "backupTitle": "Backup og gendannelse",
-      "backupBody": "Alle data forbliver kun på din enhed. Send backup opretter en JSON-fil og åbner e-mail eller deledialogen. Importér backup gendanner data fra en tidligere gemt fil. Du er ansvarlig for at holde din backup sikker."
+      "backupBody": "Alle data forbliver kun på din enhed. Send backup opretter en JSON-fil og åbner e-mail eller deledialogen. Importér backup gendanner data fra en tidligere gemt fil. Du er ansvarlig for at holde din backup sikker.",
+      "tapHint": "Tryk på et kort for at udvide"
     }
   }
 }

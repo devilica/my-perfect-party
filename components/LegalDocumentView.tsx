@@ -1,12 +1,12 @@
 import { Stack } from 'expo-router';
 import { Linking, Pressable, StyleSheet, Text, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { BottomBannerAd } from '@/components/BottomBannerAd';
 import { FormScrollView } from '@/components/FormScrollView';
+import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 import { ScreenContainer } from '@/components/ScreenContainer';
 import { PRIVACY_SECTIONS, TERMS_SECTIONS, type LegalSection } from '@/constants/legal';
 import { ADS_INFO_SECTIONS } from '@/constants/adsInfo';
-import { USAGE_GUIDE_SECTIONS } from '@/constants/usageGuide';
 import { SUPPORT_EMAIL } from '@/constants/support';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -14,7 +14,7 @@ import { useThemeColors } from '@/theme/EventThemeContext';
 import { spacing, typography } from '@/theme/colors';
 
 type LegalDocumentViewProps = {
-  document: 'privacy' | 'terms' | 'ads' | 'usage';
+  document: 'privacy' | 'terms' | 'ads';
 };
 
 function renderSections(
@@ -46,47 +46,45 @@ export function LegalDocumentView({ document }: LegalDocumentViewProps) {
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
-  const insets = useSafeAreaInsets();
 
   const prefix =
-    document === 'privacy'
-      ? 'legal.privacy'
-      : document === 'terms'
-        ? 'legal.terms'
-        : document === 'ads'
-          ? 'legal.ads'
-          : 'legal.usage';
+    document === 'privacy' ? 'legal.privacy' : document === 'terms' ? 'legal.terms' : 'legal.ads';
   const sections =
     document === 'privacy'
       ? PRIVACY_SECTIONS
       : document === 'terms'
         ? TERMS_SECTIONS
-        : document === 'ads'
-          ? ADS_INFO_SECTIONS
-          : USAGE_GUIDE_SECTIONS;
+        : ADS_INFO_SECTIONS;
   const screenTitle = t(`${prefix}.title`);
 
   return (
     <ScreenContainer style={{ paddingTop: spacing.md }}>
       <Stack.Screen options={{ title: screenTitle }} />
-      <FormScrollView
-        contentContainerStyle={{ paddingBottom: spacing.lg + insets.bottom }}
-        showsVerticalScrollIndicator={false}
-      >
-        <Text style={[styles.docTitle, { color: theme.text }]}>{screenTitle}</Text>
-        {document !== 'ads' && document !== 'usage' ? (
-          <Text style={[styles.effectiveDate, { color: theme.textMuted }]}>
-            {t(`${prefix}.effectiveDate`)}
-          </Text>
-        ) : null}
-        <Text style={[styles.intro, { color: theme.textSecondary }]}>{t(`${prefix}.intro`)}</Text>
-        {renderSections(sections, t, theme)}
-      </FormScrollView>
+      <View style={styles.screen}>
+        <FormScrollView
+          contentContainerStyle={{ paddingBottom: spacing.lg }}
+          showsVerticalScrollIndicator={false}
+        >
+          <Text style={[styles.docTitle, { color: theme.text }]}>{screenTitle}</Text>
+          {document !== 'ads' ? (
+            <Text style={[styles.effectiveDate, { color: theme.textMuted }]}>
+              {t(`${prefix}.effectiveDate`)}
+            </Text>
+          ) : null}
+          <Text style={[styles.intro, { color: theme.textSecondary }]}>{t(`${prefix}.intro`)}</Text>
+          {renderSections(sections, t, theme)}
+          <OverviewNativeAd placement="modal" />
+        </FormScrollView>
+        <BottomBannerAd />
+      </View>
     </ScreenContainer>
   );
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   docTitle: {
     ...typography.heading,
     marginBottom: spacing.xs,

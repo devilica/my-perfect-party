@@ -455,7 +455,7 @@
   "settings": {
     "title": "Поставке",
     "appTheme": "Тема апликације",
-    "appThemeHint": "Боје почетне странице и поставки.",
+    "appThemeHint": "Боје почетне странице и подешавања. Мењај кад желиш — без рекламе.",
     "themeUnlockHint": "Погледај рекламу да откључаш закључане теме.",
     "themeUnlocked": "Тема је откључана!",
     "themeAdUnavailable": "Реклама тренутно није доступна. Покушај касније.",
@@ -510,7 +510,7 @@
     "termsOfUse": "Услови коришћења",
     "notificationsLabel": "Обавештења",
     "notificationsInfoTitle": "Обавештења",
-    "notificationsInfoMessage": "Локална обавештења на вашем уређају.\n\nДогађаји: 7 дана, 24 сата и 1 sat пре почетка (према vremenu na vašem telefonu).\n\nОбавезе: 24 sata пре и u terminu (podne ako nema sata).",
+    "notificationsInfoMessage": "Локална обавештења на вашем уређају.\n\nДогађаји: 7 дана, 24 сата и 1 сат пре почетка (према времену на телефону).\n\nОбавезе: 24 сата пре и у време обавезе.",
     "adsInfo": "Рекламе у апликацији",
     "usageGuide": "Како користити апликацију",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Политика приватности – Моја савршена прослава",
+      "title": "Политика приватности",
       "effectiveDate": "Датум ступања на снагу: 22. јул 2026.",
       "intro": "Моја савршена прослава поштује вашу приватност. Ова Политика приватности објашњава како се поступа са вашим информацијама када користите нашу апликацију.",
       "localDataTitle": "Подаци сачувани локално",
@@ -554,7 +554,7 @@
       "contactBody": "Ако имате питања о овој Политици приватности, контактирајте нас на {{email}}."
     },
     "terms": {
-      "title": "Услови коришћења – Моја савршена прослава",
+      "title": "Услови коришћења",
       "effectiveDate": "Датум ступања на снагу: 22. јул 2026.",
       "intro": "Ови Услови коришћења регулишу вашу употребу апликације Моја савршена прослава.",
       "acceptanceTitle": "Прихватање услова",
@@ -580,12 +580,12 @@
       "contactBody": "За питања о овим Условима, контактирајте нас на {{email}}."
     },
     "ads": {
-      "title": "Рекламе у апликацији Moja savršena proslava",
+      "title": "Рекламе у апликацији",
       "intro": "Бесплатна верзија апликације Moja savršena proslava подржана је рекламама. Ова страница објашњава где се рекламе појављују и када можете бити замољени да погледате кратку наградну рекламу.",
       "rewardedTitle": "Наградне рекламе",
       "rewardedIntro": "Неке радње траже да погледате кратку рекламу пре наставка. Ако затворите рекламу прерано, радња се можда неће завршити.",
       "themeTitle": "Теме апликације и догађаја",
-      "themeBody": "Закључане теме прослава захтевају гледање кратке рекламе за откључавање или промену. Теме које сте већ откључали остају доступне.",
+      "themeBody": "Теме апликације и догађаја можете мењати слободно. Наградне рекламе се не траже за теме.",
       "deleteEventTitle": "Брисање догађаја",
       "deleteEventBody": "Кada ste online, brisanje događaja zahteva gledanje kratke reklame.",
       "guestsTitle": "Додавање гостију",
@@ -606,7 +606,7 @@
       "offlineBody": "Наградne reklame zahtevaju internet vezu. Ako ste offline, radnja možda neće biti dostupna. U Expo Go-u prikazuju se testni pregledi reklama umesto pravih reklama."
     },
     "usage": {
-      "title": "Како користити апликацију Моја савршена прослава",
+      "title": "Како користити апликацију",
       "intro": "Моја савршена прослава вам помаже да корак по корак планирате прославу. Овај водич објашњава сваки екран и дугме како бисте тачно знали шта свака радња ради.",
       "homeTitle": "Почетни екран",
       "homeBody": "Овде видите све своје догађаје. Икона зупчаника (горе десно) отвара Подешавања. Плаво дугме + (доле десно) креира нови догађај. Додирните картицу догађаја да је отворите. Икона оловке на картици уређује назив, датум, локацију и тему тог догађаја.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Pozivnice",
       "invitationsBody": "Otvorite iz Pregleda putem Kreiraj pozivnicu. Izaberite šablon, font, boje, glavni tekst i pod-događaje (ceremonija, prijem itd.). Podeli šalje sliku; Preuzmi je čuva u galeriju (mobilni). Online može prikazati kratku reklamu.",
       "settingsTitle": "Podešavanja",
-      "settingsBody": "Jezik aplikacije, tema aplikacije (pri promeni može prikazati kratku reklamu), obaveštenja sa ikonom info o intervalima podsetnika, e-mail za rezervnu kopiju, Pošalji rezervnu kopiju / Uvezi rezervnu kopiju, oceni na Play Store-u, Politika privatnosti, Uslovi korišćenja, Reklame u aplikaciji i ovaj vodič.",
+      "settingsBody": "Jezik aplikacije, tema aplikacije, obaveštenja sa ikonom info o intervalima podsetnika, e-mail za rezervnu kopiju, Pošalji rezervnu kopiju / Uvezi rezervnu kopiju, oceni na Play Store-u, Politika privatnosti, Uslovi korišćenja, Reklame u aplikaciji i ovaj vodič.",
       "backupTitle": "Rezervna kopija i vraćanje",
-      "backupBody": "Svi podaci ostaju samo na vašem uređaju. Pošalji rezervnu kopiju kreira JSON datoteku i otvara e-mail ili dijalog za deljenje. Uvezi rezervnu kopiju vraća podatke iz prethodno sačuvane datoteke. Vi ste odgovorni za čuvanje rezervne kopije."
+      "backupBody": "Svi podaci ostaju samo na vašem uređaju. Pošalji rezervnu kopiju kreira JSON datoteku i otvara e-mail ili dijalog za deljenje. Uvezi rezervnu kopiju vraća podatke iz prethodno sačuvane datoteke. Vi ste odgovorni za čuvanje rezervne kopije.",
+      "tapHint": "Додирни картицу да прошириш"
     }
   }
 }

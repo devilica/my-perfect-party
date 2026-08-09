@@ -1,5 +1,5 @@
-import { LegalDocumentView } from '@/components/LegalDocumentView';
+import { UsageGuideView } from '@/components/UsageGuideView';
 
 export default function UsageGuideScreen() {
-  return <LegalDocumentView document="usage" />;
+  return <UsageGuideView />;
 }

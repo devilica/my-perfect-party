@@ -510,7 +510,7 @@
     "termsOfUse": "Felhasználási feltételek",
     "notificationsLabel": "Értesítések",
     "notificationsInfoTitle": "Értesítések",
-    "notificationsInfoMessage": "Helyi értesítések az eszközödön.\n\nEsemények: 7 nappal, 24 órával és 1 órával a kezdés előtt (a telefon ideje szerint).\n\nFeladatok: 24 órával előtte és a határidőn (délben, ha nincs megadva idő).",
+    "notificationsInfoMessage": "Helyi értesítések az eszközödön.\n\nEsemények: 7 nappal, 24 órával és 1 órával a kezdés előtt (a telefon ideje szerint).\n\nFeladatok: 24 órával előtte és a határidőn.",
     "adsInfo": "Hirdetések az alkalmazásban",
     "usageGuide": "Az alkalmazás használata",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Adatvédelmi irányelvek – Tökéletes bulim",
+      "title": "Adatvédelmi irányelvek",
       "effectiveDate": "Hatálybalépés dátuma: 2026. július 22.",
       "intro": "A Tökéletes bulim tiszteletben tartja az Ön magánéletét. Ez az Adatvédelmi irányelvek elmagyarázza, hogyan kezeljük az Ön adatait az alkalmazás használata során.",
       "localDataTitle": "Helyileg tárolt adatok",
@@ -554,7 +554,7 @@
       "contactBody": "Ha kérdése van ezekkel az Adatvédelmi irányelvekkel kapcsolatban, lépjen kapcsolatba velünk a következő címen: {{email}}."
     },
     "terms": {
-      "title": "Felhasználási feltételek – Tökéletes bulim",
+      "title": "Felhasználási feltételek",
       "effectiveDate": "Hatálybalépés dátuma: 2026. július 22.",
       "intro": "Ezek a Felhasználási feltételek szabályozzák a Tökéletes bulim alkalmazás használatát.",
       "acceptanceTitle": "Feltételek elfogadása",
@@ -580,12 +580,12 @@
       "contactBody": "Ezekkel a Feltételekkel kapcsolatos kérdések esetén lépjen kapcsolatba velünk a következő címen: {{email}}."
     },
     "ads": {
-      "title": "Hirdetések a My Perfect Party alkalmazásban",
+      "title": "Hirdetések az alkalmazásban",
       "intro": "A My Perfect Party ingyenes verzióját hirdetések támogatják. Ez az oldal elmagyarázza, hol jelennek meg a hirdetések, és mikor kérhetnek meg egy rövid jutalmazott hirdetés megtekintésére.",
       "rewardedTitle": "Jutalmazott hirdetések",
       "rewardedIntro": "Egyes műveletek rövid hirdetés megtekintését kérik a folytatás előtt. Ha túl korán bezárja a hirdetést, a művelet nem biztos, hogy befejeződik.",
       "themeTitle": "Alkalmazás- és eseménytémák",
-      "themeBody": "A zárolt ünnepi témák rövid hirdetés megtekintését igénylik feloldáshoz vagy váltáshoz. A már feloldott témák továbbra is elérhetők maradnak.",
+      "themeBody": "Az alkalmazás- és eseménytémák szabadon változtathatók. A jutalomhirdetések nem szükségesek a témákhoz.",
       "deleteEventTitle": "Esemény törlése",
       "deleteEventBody": "Online állapotban az esemény törlése rövid hirdetés megtekintését igényli.",
       "guestsTitle": "Vendégek hozzáadása",
@@ -606,7 +606,7 @@
       "offlineBody": "A jutalmazott hirdetések internetkapcsolatot igényelnek. Offline állapotban a művelet nem biztos, hogy elérhető. Az Expo Go-ban tesztelő előnézetek jelennek meg valódi hirdetések helyett."
     },
     "usage": {
-      "title": "A Tökéletes bulim használata",
+      "title": "Az alkalmazás használata",
       "intro": "A Tökéletes bulim lépésről lépésre segít megtervezni az ünnepet. Ez az útmutató minden képernyőt és gombot elmagyaráz, hogy pontosan tudja, mit csinál minden művelet.",
       "homeTitle": "Kezdőképernyő",
       "homeBody": "Itt látja az összes eseményét. A fogaskerék ikon (jobb felső) megnyitja a Beállításokat. A kék + gomb (jobb alsó) új eseményt hoz létre. Érintsen meg egy eseménykártyát a megnyitáshoz. A ceruza ikon a kártyán szerkeszti az esemény nevét, dátumát, helyszínét és témáját.",
@@ -637,7 +637,8 @@
       "settingsTitle": "Beállítások",
       "settingsBody": "Alkalmazás nyelve, alkalmazás témája (váltáskor rövid hirdetés jelenhet meg), értesítések info ikonnal az emlékeztető intervallumokról, biztonsági mentés e-mail, Biztonsági mentés küldése / Biztonsági mentés importálása, értékelés a Play Store-ban, Adatvédelmi irányelvek, Felhasználási feltételek, Hirdetések az alkalmazásban és ez az útmutató.",
       "backupTitle": "Biztonsági mentés és visszaállítás",
-      "backupBody": "Minden adat csak az eszközén marad. A Biztonsági mentés küldése JSON fájlt hoz létre és megnyitja az e-mailt vagy a megosztás párbeszédablakot. A Biztonsági mentés importálása visszaállítja az adatokat korábban mentett fájlból. Ön felelős a biztonsági mentés megőrzéséért."
+      "backupBody": "Minden adat csak az eszközén marad. A Biztonsági mentés küldése JSON fájlt hoz létre és megnyitja az e-mailt vagy a megosztás párbeszédablakot. A Biztonsági mentés importálása visszaállítja az adatokat korábban mentett fájlból. Ön felelős a biztonsági mentés megőrzéséért.",
+      "tapHint": "Érintsd meg a kártyát a kinyitáshoz"
     }
   }
 }

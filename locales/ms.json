@@ -512,7 +512,7 @@
     "termsOfUse": "Terma Penggunaan",
     "notificationsLabel": "Pemberitahuan",
     "notificationsInfoTitle": "Pemberitahuan",
-    "notificationsInfoMessage": "Pemberitahuan tempatan pada peranti anda.\n\nAcara: 7 hari, 24 jam dan 1 jam sebelum mula (menggunakan masa telefon).\n\nTugasan: 24 jam sebelum dan pada masa tamat (tengah hari jika masa tidak ditetapkan).",
+    "notificationsInfoMessage": "Pemberitahuan tempatan pada peranti anda.\n\nAcara: 7 hari, 24 jam dan 1 jam sebelum mula (menggunakan masa telefon).\n\nTugasan: 24 jam sebelum dan pada masa tamat.",
     "adsInfo": "Iklan dalam aplikasi",
     "usageGuide": "Cara menggunakan aplikasi"
   },
@@ -546,7 +546,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Dasar Privasi – Parti Sempurna Saya",
+      "title": "Dasar Privasi",
       "effectiveDate": "Tarikh berkuat kuasa: 22 Julai 2026",
       "intro": "Parti Sempurna Saya menghormati privasi anda. Dasar Privasi ini menerangkan bagaimana maklumat anda dikendalikan apabila anda menggunakan aplikasi kami.",
       "localDataTitle": "Data disimpan secara tempatan",
@@ -562,7 +562,7 @@
       "contactBody": "Jika anda mempunyai soalan tentang Dasar Privasi ini, hubungi kami di {{email}}."
     },
     "terms": {
-      "title": "Terma Penggunaan – Parti Sempurna Saya",
+      "title": "Terma Penggunaan",
       "effectiveDate": "Tarikh berkuat kuasa: 22 Julai 2026",
       "intro": "Terma Penggunaan ini mengawal penggunaan aplikasi Parti Sempurna Saya.",
       "acceptanceTitle": "Penerimaan terma",
@@ -588,12 +588,12 @@
       "contactBody": "Untuk soalan tentang Terma ini, hubungi kami di {{email}}."
     },
     "ads": {
-      "title": "Iklan dalam Parti Sempurna Saya",
+      "title": "Iklan dalam aplikasi",
       "intro": "Versi percuma Parti Sempurna Saya disokong oleh iklan. Halaman ini menerangkan di mana iklan muncul dan bila anda diminta menonton iklan ganjaran pendek.",
       "rewardedTitle": "Iklan ganjaran",
       "rewardedIntro": "Sesetengah tindakan meminta anda menonton iklan pendek sebelum meneruskan. Jika anda menutup iklan lebih awal, tindakan mungkin tidak selesai.",
       "themeTitle": "Tema aplikasi dan acara",
-      "themeBody": "Tema perayaan terkunci memerlukan menonton iklan pendek untuk membuka kunci atau menukar. Tema yang sudah dibuka kekal tersedia.",
+      "themeBody": "Tema aplikasi dan acara boleh ditukar dengan bebas. Iklan reward tidak diperlukan untuk tema.",
       "deleteEventTitle": "Memadam acara",
       "deleteEventBody": "Apabila dalam talian, memadam acara memerlukan menonton iklan pendek.",
       "guestsTitle": "Menambah tetamu",
@@ -614,7 +614,7 @@
       "offlineBody": "Iklan ganjaran memerlukan sambungan internet. Jika anda luar talian, tindakan mungkin tidak tersedia. Dalam Expo Go, pratonton iklan ujian dipaparkan dan bukannya iklan sebenar."
     },
     "usage": {
-      "title": "Cara menggunakan Parti Sempurna Saya",
+      "title": "Cara menggunakan aplikasi",
       "intro": "Parti Sempurna Saya membantu anda merancang perayaan langkah demi langkah. Panduan ini menerangkan setiap skrin dan butang supaya anda tahu tepat apa yang setiap tindakan lakukan.",
       "homeTitle": "Skrin utama",
       "homeBody": "Semua acara anda dipaparkan di sini. Ikon gear (kanan atas) membuka Tetapan. Butang + biru (kanan bawah) mencipta acara baharu. Ketik kad acara untuk membukanya. Ikon pensel pada kad mengedit nama, tarikh, lokasi dan tema acara.",
@@ -643,9 +643,10 @@
       "invitationsTitle": "Jemputan",
       "invitationsBody": "Buka dari Ringkasan melalui Cipta jemputan. Pilih templat, fon, warna, teks utama dan sub-acara (majlis, resepsi, dll.). Kongsi menghantar imej; Muat turun menyimpan ke galeri (mudah alih). Dalam talian mungkin memaparkan iklan pendek.",
       "settingsTitle": "Tetapan",
-      "settingsBody": "Bahasa aplikasi, tema aplikasi (mungkin memaparkan iklan pendek semasa menukar), pemberitahuan dengan ikon info tentang selang peringatan, e-mel sandaran, Hantar sandaran / Import sandaran, nilai di Play Store, Dasar Privasi, Terma Penggunaan, Iklan dalam aplikasi dan panduan ini.",
+      "settingsBody": "Bahasa aplikasi, tema aplikasi, pemberitahuan dengan ikon info tentang selang peringatan, e-mel sandaran, Hantar sandaran / Import sandaran, nilai di Play Store, Dasar Privasi, Terma Penggunaan, Iklan dalam aplikasi dan panduan ini.",
       "backupTitle": "Sandaran dan pemulihan",
-      "backupBody": "Semua data kekal hanya pada peranti anda. Hantar sandaran mencipta fail JSON dan membuka e-mel atau dialog kongsi. Import sandaran memulihkan data dari fail yang disimpan sebelumnya. Anda bertanggungjawab menjaga sandaran anda dengan selamat."
+      "backupBody": "Semua data kekal hanya pada peranti anda. Hantar sandaran mencipta fail JSON dan membuka e-mel atau dialog kongsi. Import sandaran memulihkan data dari fail yang disimpan sebelumnya. Anda bertanggungjawab menjaga sandaran anda dengan selamat.",
+      "tapHint": "Ketik kad untuk kembangkan"
     }
   }
 }

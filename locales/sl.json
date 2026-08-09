@@ -510,7 +510,7 @@
     "termsOfUse": "Pogoji uporabe",
     "notificationsLabel": "Obvestila",
     "notificationsInfoTitle": "Obvestila",
-    "notificationsInfoMessage": "Lokalna obvestila na vaši napravi.\n\nDogodki: 7 dni, 24 ur in 1 uro pred začetkom (glede na čas telefona).\n\nObveznosti: 24 ur prej in ob času obveznosti (ob poldne, če ni ure).",
+    "notificationsInfoMessage": "Lokalna obvestila na vaši napravi.\n\nDogodki: 7 dni, 24 ur in 1 uro pred začetkom (glede na čas telefona).\n\nObveznosti: 24 ur prej in ob času obveznosti.",
     "adsInfo": "Oglasi v aplikaciji",
     "usageGuide": "Kako uporabljati aplikacijo",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Politika zasebnosti – Moja popolna proslava",
+      "title": "Politika zasebnosti",
       "effectiveDate": "Datum začetka veljavnosti: 22. julij 2026",
       "intro": "Moja popolna proslava spoštuje vašo zasebnost. Ta Politika zasebnosti pojasnjuje, kako se obravnavajo vaši podatki, ko uporabljate našo aplikacijo.",
       "localDataTitle": "Lokalno shranjeni podatki",
@@ -554,7 +554,7 @@
       "contactBody": "Če imate vprašanja o tej Politiki zasebnosti, nas kontaktirajte na {{email}}."
     },
     "terms": {
-      "title": "Pogoji uporabe – Moja popolna proslava",
+      "title": "Pogoji uporabe",
       "effectiveDate": "Datum začetka veljavnosti: 22. julij 2026",
       "intro": "Ti Pogoji uporabe urejajo vašo uporabo aplikacije Moja popolna proslava.",
       "acceptanceTitle": "Sprejetje pogojev",
@@ -580,12 +580,12 @@
       "contactBody": "Za vprašanja o teh Pogojih nas kontaktirajte na {{email}}."
     },
     "ads": {
-      "title": "Oglasi v My Perfect Party",
+      "title": "Oglasi v aplikaciji",
       "intro": "Brezplačna različica My Perfect Party je podprta z oglasi. Ta stran pojasnjuje, kje se oglasi prikažejo in kdaj vas lahko prosijo, da si ogledate kratko nagrajeno oglasno vsebino.",
       "rewardedTitle": "Nagrajeni oglasi",
       "rewardedIntro": "Nekatera dejanja zahtevajo ogled kratkega oglasa pred nadaljevanjem. Če oglas zaprete prezgodaj, se dejanje morda ne bo dokončalo.",
       "themeTitle": "Teme aplikacije in dogodka",
-      "themeBody": "Zaklenjene teme praznovanja zahtevajo ogled kratkega oglasa za odklepanje ali spremembo. Teme, ki ste jih že odklenili, ostanejo na voljo.",
+      "themeBody": "Teme aplikacije in dogodka lahko spreminjate prosto. Nagradni oglasi za teme niso potrebni.",
       "deleteEventTitle": "Brisanje dogodka",
       "deleteEventBody": "Ko ste povezani, brisanje dogodka zahteva ogled kratkega oglasa.",
       "guestsTitle": "Dodajanje gostov",
@@ -606,7 +606,7 @@
       "offlineBody": "Nagrajeni oglasi zahtevajo internetno povezavo. Če niste povezani, dejanje morda ne bo na voljo. V Expo Go se namesto pravih oglasov prikažejo testni predogledi."
     },
     "usage": {
-      "title": "Kako uporabljati Moja popolna proslava",
+      "title": "Kako uporabljati aplikacijo",
       "intro": "Moja popolna proslava vam pomaga načrtovati proslavo korak za korakom. Ta vodnik pojasnjuje vsak zaslon in gumb, da natančno veste, kaj naredi vsako dejanje.",
       "homeTitle": "Začetni zaslon",
       "homeBody": "Tukaj vidite vse svoje dogodke. Ikona zobnika (zgoraj desno) odpre Nastavitve. Modri gumb + (spodaj desno) ustvari nov dogodek. Tapnite kartico dogodka, da jo odprete. Ikona svinčnika na kartici uredi ime, datum, lokacijo in temo tega dogodka.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Vabila",
       "invitationsBody": "Odprite iz Pregleda prek Ustvari vabilo. Izberite predlogo, pisavo, barve, glavno besedilo in pod-dogodke (obred, sprejem itd.). Deli pošlje sliko; Prenesi jo shrani v galerijo (mobilni). Na spletu se lahko prikaže kratka oglas.",
       "settingsTitle": "Nastavitve",
-      "settingsBody": "Jezik aplikacije, tema aplikacije (pri spremembi se lahko prikaže kratka oglas), obvestila z ikono info o intervalih opomnikov, e-pošta varnostne kopije, Pošlji varnostno kopijo / Uvozi varnostno kopijo, oceni v Play Store, Pravilnik o zasebnosti, Pogoji uporabe, Oglasi v aplikaciji in ta vodnik.",
+      "settingsBody": "Jezik aplikacije, tema aplikacije, obvestila z ikono info o intervalih opomnikov, e-pošta varnostne kopije, Pošlji varnostno kopijo / Uvozi varnostno kopijo, oceni v Play Store, Pravilnik o zasebnosti, Pogoji uporabe, Oglasi v aplikaciji in ta vodnik.",
       "backupTitle": "Varnostna kopija in obnovitev",
-      "backupBody": "Vsi podatki ostanejo samo v vaši napravi. Pošlji varnostno kopijo ustvari JSON datoteko in odpre e-pošto ali pogovorno okno za deljenje. Uvozi varnostno kopijo obnovi podatke iz prej shranjene datoteke. Vi ste odgovorni za varnost varnostne kopije."
+      "backupBody": "Vsi podatki ostanejo samo v vaši napravi. Pošlji varnostno kopijo ustvari JSON datoteko in odpre e-pošto ali pogovorno okno za deljenje. Uvozi varnostno kopijo obnovi podatke iz prej shranjene datoteke. Vi ste odgovorni za varnost varnostne kopije.",
+      "tapHint": "Dotakni kartico za razširitev"
     }
   }
 }

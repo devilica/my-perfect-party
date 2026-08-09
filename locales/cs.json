@@ -510,7 +510,7 @@
     "termsOfUse": "Podmínky použití",
     "notificationsLabel": "Oznámení",
     "notificationsInfoTitle": "Oznámení",
-    "notificationsInfoMessage": "Místní oznámení ve vašem zařízení.\n\nUdálosti: 7 dní, 24 hodin a 1 hodinu před začátkem (podle času v telefonu).\n\nÚkoly: 24 hodin předem a v čase splnění (poledne, pokud není uveden čas).",
+    "notificationsInfoMessage": "Místní oznámení ve vašem zařízení.\n\nUdálosti: 7 dní, 24 hodin a 1 hodinu před začátkem (podle času v telefonu).\n\nÚkoly: 24 hodin předem a v čase splnění.",
     "adsInfo": "Reklamy v aplikaci",
     "usageGuide": "Jak používat aplikaci",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Zásady ochrany osobních údajů – Moje dokonalá oslava",
+      "title": "Zásady ochrany osobních údajů",
       "effectiveDate": "Datum účinnosti: 22. července 2026",
       "intro": "Moje dokonalá oslava respektuje vaše soukromí. Tyto Zásady ochrany osobních údajů vysvětlují, jak jsou vaše informace zpracovávány při používání naší aplikace.",
       "localDataTitle": "Údaje uložené lokálně",
@@ -554,7 +554,7 @@
       "contactBody": "Máte-li dotazy k těmto Zásadám ochrany osobních údajů, kontaktujte nás na {{email}}."
     },
     "terms": {
-      "title": "Podmínky použití – Moje dokonalá oslava",
+      "title": "Podmínky použití",
       "effectiveDate": "Datum účinnosti: 22. července 2026",
       "intro": "Tyto Podmínky použití upravují vaše používání aplikace Moje dokonalá oslava.",
       "acceptanceTitle": "Přijetí podmínek",
@@ -580,12 +580,12 @@
       "contactBody": "V případě dotazů k těmto Podmínkám nás kontaktujte na {{email}}."
     },
     "ads": {
-      "title": "Reklamy v aplikaci My Perfect Party",
+      "title": "Reklamy v aplikaci",
       "intro": "Bezplatná verze aplikace My Perfect Party je podporována reklamami. Tato stránka vysvětluje, kde se reklamy zobrazují a kdy můžete být požádáni o zhlédnutí krátké odměňované reklamy.",
       "rewardedTitle": "Odměňované reklamy",
       "rewardedIntro": "Některé akce vyžadují zhlédnutí krátké reklamy před pokračováním. Pokud reklamu předčasně zavřete, akce nemusí být dokončena.",
       "themeTitle": "Motivy aplikace a události",
-      "themeBody": "Uzamčené motivy oslav vyžadují zhlédnutí krátké reklamy pro odemknutí nebo změnu. Motivy, které jste již odemkli, zůstávají k dispozici.",
+      "themeBody": "Motivy aplikace a události lze měnit volně. Odměňované reklamy nejsou pro motivy vyžadovány.",
       "deleteEventTitle": "Smazání události",
       "deleteEventBody": "Když jste online, smazání události vyžaduje zhlédnutí krátké reklamy.",
       "guestsTitle": "Přidávání hostů",
@@ -606,7 +606,7 @@
       "offlineBody": "Odměňované reklamy vyžadují připojení k internetu. Pokud jste offline, akce nemusí být k dispozici. V Expo Go se místo skutečných reklam zobrazují testovací náhledy."
     },
     "usage": {
-      "title": "Jak používat Moje dokonalá oslava",
+      "title": "Jak používat aplikaci",
       "intro": "Moje dokonalá oslava vám pomáhá plánovat oslavu krok za krokem. Tento průvodce vysvětluje každou obrazovku a tlačítko, abyste přesně věděli, co která akce dělá.",
       "homeTitle": "Domovská obrazovka",
       "homeBody": "Zde vidíte všechny své události. Ikona ozubeného kola (vpravo nahoře) otevře Nastavení. Modré tlačítko + (vpravo dole) vytvoří novou událost. Klepnutím na kartu události ji otevřete. Ikona tužky na kartě upraví název, datum, místo a téma události.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Pozvánky",
       "invitationsBody": "Otevřete z Přehledu přes Vytvořit pozvánku. Vyberte šablonu, písmo, barvy, hlavní text a pod-události (obřad, recepce atd.). Sdílet odešle obrázek; Stáhnout ho uloží do galerie (mobil). Online se může zobrazit krátká reklama.",
       "settingsTitle": "Nastavení",
-      "settingsBody": "Jazyk aplikace, téma aplikace (při změně se může zobrazit krátká reklama), oznámení s ikonou info o intervalech připomínek, e-mail pro zálohu, Odeslat zálohu / Importovat zálohu, hodnocení v Play Store, Zásady ochrany soukromí, Podmínky použití, Reklamy v aplikaci a tento průvodce.",
+      "settingsBody": "Jazyk aplikace, téma aplikace, oznámení s ikonou info o intervalech připomínek, e-mail pro zálohu, Odeslat zálohu / Importovat zálohu, hodnocení v Play Store, Zásady ochrany soukromí, Podmínky použití, Reklamy v aplikaci a tento průvodce.",
       "backupTitle": "Záloha a obnovení",
-      "backupBody": "Všechna data zůstávají pouze ve vašem zařízení. Odeslat zálohu vytvoří JSON soubor a otevře e-mail nebo dialog sdílení. Importovat zálohu obnoví data z dříve uloženého souboru. Za bezpečnost zálohy odpovídáte vy."
+      "backupBody": "Všechna data zůstávají pouze ve vašem zařízení. Odeslat zálohu vytvoří JSON soubor a otevře e-mail nebo dialog sdílení. Importovat zálohu obnoví data z dříve uloženého souboru. Za bezpečnost zálohy odpovídáte vy.",
+      "tapHint": "Klepni na kartu pro rozbalení"
     }
   }
 }

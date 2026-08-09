@@ -510,7 +510,7 @@
     "termsOfUse": "Termos de utilização",
     "notificationsLabel": "Notificações",
     "notificationsInfoTitle": "Notificações",
-    "notificationsInfoMessage": "Notificações locais no seu dispositivo.\n\nEventos: 7 dias, 24 horas e 1 hora antes do início (conforme a hora do telemóvel).\n\nTarefas: 24 horas antes e na hora prevista (meio-dia se não houver hora).",
+    "notificationsInfoMessage": "Notificações locais no seu dispositivo.\n\nEventos: 7 dias, 24 horas e 1 hora antes do início (conforme a hora do telemóvel).\n\nTarefas: 24 horas antes e na hora prevista.",
     "adsInfo": "Anúncios na app",
     "usageGuide": "Como usar a aplicação",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Política de privacidade – A minha festa perfeita",
+      "title": "Política de privacidade",
       "effectiveDate": "Data de entrada em vigor: 22 de julho de 2026",
       "intro": "A minha festa perfeita respeita a sua privacidade. Esta Política de privacidade explica como as suas informações são tratadas quando utiliza a nossa aplicação.",
       "localDataTitle": "Dados armazenados localmente",
@@ -554,7 +554,7 @@
       "contactBody": "Se tiver questões sobre esta Política de privacidade, contacte-nos em {{email}}."
     },
     "terms": {
-      "title": "Termos de utilização – A minha festa perfeita",
+      "title": "Termos de utilização",
       "effectiveDate": "Data de entrada em vigor: 22 de julho de 2026",
       "intro": "Estes Termos de utilização regem a utilização da aplicação A minha festa perfeita.",
       "acceptanceTitle": "Aceitação dos termos",
@@ -580,12 +580,12 @@
       "contactBody": "Para questões sobre estes Termos, contacte-nos em {{email}}."
     },
     "ads": {
-      "title": "Anúncios no My Perfect Party",
+      "title": "Anúncios na app",
       "intro": "A versão gratuita do My Perfect Party é suportada por anúncios. Esta página explica onde os anúncios aparecem e quando pode ser pedido para ver um anúncio recompensado curto.",
       "rewardedTitle": "Anúncios recompensados",
       "rewardedIntro": "Algumas ações pedem para ver um anúncio curto antes de continuar. Se fechar o anúncio cedo demais, a ação pode não ser concluída.",
       "themeTitle": "Temas da app e do evento",
-      "themeBody": "Temas de celebração bloqueados exigem ver um anúncio curto para desbloquear ou alterar. Os temas que já desbloqueou permanecem disponíveis.",
+      "themeBody": "Os temas da app e do evento podem ser alterados livremente. Anúncios recompensados não são necessários para temas.",
       "deleteEventTitle": "Eliminar um evento",
       "deleteEventBody": "Quando está online, eliminar um evento exige ver um anúncio curto.",
       "guestsTitle": "Adicionar convidados",
@@ -606,7 +606,7 @@
       "offlineBody": "Anúncios recompensados exigem ligação à internet. Se estiver offline, a ação pode não estar disponível. No Expo Go são mostradas pré-visualizações de teste em vez de anúncios reais."
     },
     "usage": {
-      "title": "Como usar A minha festa perfeita",
+      "title": "Como usar a aplicação",
       "intro": "A minha festa perfeita ajuda-o a planear uma celebração passo a passo. Este guia explica cada ecrã e botão para que saiba exatamente o que cada ação faz.",
       "homeTitle": "Ecrã inicial",
       "homeBody": "Aqui vê todos os seus eventos. O ícone de engrenagem (canto superior direito) abre Definições. O botão azul + (canto inferior direito) cria um novo evento. Toque num cartão de evento para o abrir. O ícone de lápis num cartão edita o nome, data, local e tema desse evento.",
@@ -637,7 +637,8 @@
       "settingsTitle": "Definições",
       "settingsBody": "Idioma da app, tema da app (pode mostrar anúncio curto ao mudar), notificações com ícone info sobre intervalos de lembrete, e-mail de cópia de segurança, Enviar cópia / Importar cópia, avaliar na Play Store, Política de privacidade, Termos de utilização, Anúncios na app e este guia.",
       "backupTitle": "Cópia de segurança e restauro",
-      "backupBody": "Todos os dados permanecem apenas no seu dispositivo. Enviar cópia cria um ficheiro JSON e abre e-mail ou diálogo de partilha. Importar cópia restaura dados de um ficheiro guardado anteriormente. É responsável por manter a sua cópia segura."
+      "backupBody": "Todos os dados permanecem apenas no seu dispositivo. Enviar cópia cria um ficheiro JSON e abre e-mail ou diálogo de partilha. Importar cópia restaura dados de um ficheiro guardado anteriormente. É responsável por manter a sua cópia segura.",
+      "tapHint": "Toca num cartão para expandir"
     }
   }
 }

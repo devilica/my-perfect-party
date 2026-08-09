@@ -8,73 +8,73 @@ const notificationUiLabels = {
     notificationsLabel: 'Notifications',
     notificationsInfoTitle: 'Notifications',
     notificationsInfoMessage:
-      'Local notifications on your device.\n\nEvents: 7 days, 24 hours, and 1 hour before the start (using your phone\'s time).\n\nTasks: 24 hours before and at the due time (noon if no time is set).',
+      'Local notifications on your device.\n\nEvents: 7 days, 24 hours, and 1 hour before the start (using your phone\'s time).\n\nTasks: 24 hours before and at the due time.',
   },
   bs: {
     notificationsLabel: 'Obavještenja',
     notificationsInfoTitle: 'Obavještenja',
     notificationsInfoMessage:
-      'Lokalna obavještenja na tvom uređaju.\n\nDogađaji: 7 dana, 24 sata i 1 sat prije početka (prema vremenu na telefonu).\n\nObaveze: 24 sata prije i u vrijeme obaveze (podne ako nema sata).',
+      'Lokalna obavještenja na tvom uređaju.\n\nDogađaji: 7 dana, 24 sata i 1 sat prije početka (prema vremenu na telefonu).\n\nObaveze: 24 sata prije i u vrijeme obaveze.',
   },
   hr: {
     notificationsLabel: 'Obavijesti',
     notificationsInfoTitle: 'Obavijesti',
     notificationsInfoMessage:
-      'Lokalne obavijesti na tvom uređaju.\n\nDogađaji: 7 dana, 24 sata i 1 sat prije početka (prema vremenu na telefonu).\n\nObaveze: 24 sata prije i u vrijeme obaveze (podne ako nema sata).',
+      'Lokalne obavijesti na tvom uređaju.\n\nDogađaji: 7 dana, 24 sata i 1 sat prije početka (prema vremenu na telefonu).\n\nObaveze: 24 sata prije i u vrijeme obaveze.',
   },
   sr: {
     notificationsLabel: 'Obaveštenja',
     notificationsInfoTitle: 'Obaveštenja',
     notificationsInfoMessage:
-      'Lokalna obaveštenja na tvom uređaju.\n\nDogađaji: 7 dana, 24 sata i 1 sat pre početka (prema vremenu na telefonu).\n\nObaveze: 24 sata pre i u vreme obaveze (podne ako nema sata).',
+      'Lokalna obaveštenja na tvom uređaju.\n\nDogađaji: 7 dana, 24 sata i 1 sat pre početka (prema vremenu na telefonu).\n\nObaveze: 24 sata pre i u vreme obaveze.',
   },
   'sr-cy': {
     notificationsLabel: 'Обавештења',
     notificationsInfoTitle: 'Обавештења',
     notificationsInfoMessage:
-      'Локална обавештења на вашем уређају.\n\nДогађаји: 7 дана, 24 сата и 1 sat пре почетка (према vremenu na vašem telefonu).\n\nОбавезе: 24 sata пре и u terminu (podne ako nema sata).',
+      'Локална обавештења на вашем уређају.\n\nДогађаји: 7 дана, 24 сата и 1 сат пре почетка (према времену на телефону).\n\nОбавезе: 24 сата пре и у време обавезе.',
   },
   mk: {
     notificationsLabel: 'Известувања',
     notificationsInfoTitle: 'Известувања',
     notificationsInfoMessage:
-      'Локални известувања на вашиот уред.\n\nНастани: 7 дена, 24 часа и 1 час пред почетокот (според времето на телефонот).\n\nОбврски: 24 часа пред и во времето на обврската (напладне ако нема час).',
+      'Локални известувања на вашиот уред.\n\nНастани: 7 дена, 24 часа и 1 час пред почетокот (според времето на телефонот).\n\nОбврски: 24 часа пред и во времето на обврската.',
   },
   sl: {
     notificationsLabel: 'Obvestila',
     notificationsInfoTitle: 'Obvestila',
     notificationsInfoMessage:
-      'Lokalna obvestila na vaši napravi.\n\nDogodki: 7 dni, 24 ur in 1 uro pred začetkom (glede na čas telefona).\n\nObveznosti: 24 ur prej in ob času obveznosti (ob poldne, če ni ure).',
+      'Lokalna obvestila na vaši napravi.\n\nDogodki: 7 dni, 24 ur in 1 uro pred začetkom (glede na čas telefona).\n\nObveznosti: 24 ur prej in ob času obveznosti.',
   },
   bg: {
     notificationsLabel: 'Известия',
     notificationsInfoTitle: 'Известия',
     notificationsInfoMessage:
-      'Локални известия на устройството ви.\n\nСъбития: 7 дни, 24 часа и 1 час пред началото (според часа на телефона).\n\nЗадачи: 24 часа преди и в часа на задачата (обед, ако няма час).',
+      'Локални известия на устройството ви.\n\nСъбития: 7 дни, 24 часа и 1 час пред началото (според часа на телефона).\n\nЗадачи: 24 часа преди и в часа на задачата.',
   },
   cs: {
     notificationsLabel: 'Oznámení',
     notificationsInfoTitle: 'Oznámení',
     notificationsInfoMessage:
-      'Místní oznámení ve vašem zařízení.\n\nUdálosti: 7 dní, 24 hodin a 1 hodinu před začátkem (podle času v telefonu).\n\nÚkoly: 24 hodin předem a v čase splnění (poledne, pokud není uveden čas).',
+      'Místní oznámení ve vašem zařízení.\n\nUdálosti: 7 dní, 24 hodin a 1 hodinu před začátkem (podle času v telefonu).\n\nÚkoly: 24 hodin předem a v čase splnění.',
   },
   da: {
     notificationsLabel: 'Meddelelser',
     notificationsInfoTitle: 'Meddelelser',
     notificationsInfoMessage:
-      'Lokale meddelelser på din enhed.\n\nBegivenheder: 7 dage, 24 timer og 1 time før start (efter telefonens tid).\n\nOpgaver: 24 timer før og på forfaldstidspunktet (middag hvis intet klokkeslæt).',
+      'Lokale meddelelser på din enhed.\n\nBegivenheder: 7 dage, 24 timer og 1 time før start (efter telefonens tid).\n\nOpgaver: 24 timer før og på forfaldstidspunktet.',
   },
   de: {
     notificationsLabel: 'Benachrichtigungen',
     notificationsInfoTitle: 'Benachrichtigungen',
     notificationsInfoMessage:
-      'Lokale Benachrichtigungen auf deinem Gerät.\n\nEvents: 7 Tage, 24 Stunden und 1 Stunde vor Beginn (nach der Uhrzeit deines Telefons).\n\nAufgaben: 24 Stunden vorher und zum Fälligkeitszeitpunkt (Mittag, wenn keine Uhrzeit gesetzt ist).',
+      'Lokale Benachrichtigungen auf deinem Gerät.\n\nEvents: 7 Tage, 24 Stunden und 1 Stunde vor Beginn (nach der Uhrzeit deines Telefons).\n\nAufgaben: 24 Stunden vorher und zum Fälligkeitszeitpunkt.',
   },
   el: {
     notificationsLabel: 'Ειδοποιήσεις',
     notificationsInfoTitle: 'Ειδοποιήσεις',
     notificationsInfoMessage:
-      'Τοπικές ειδοποιήσεις στη συσκευή σας.\n\nΕκδηλώσεις: 7 ημέρες, 24 ώρες και 1 ώρα πριν την έναρξη (σύμφωνα με την ώρα του τηλεφώνου).\n\nΕργασίες: 24 ώρες πριν και την ώρα λήξης (μεσημέρι αν δεν έχει οριστεί ώρα).',
+      'Τοπικές ειδοποιήσεις στη συσκευή σας.\n\nΕκδηλώσεις: 7 ημέρες, 24 ώρες και 1 ώρα πριν την έναρξη (σύμφωνα με την ώρα του τηλεφώνου).\n\nΕργασίες: 24 ώρες πριν και την ώρα λήξης.',
   },
   es: {
     notificationsLabel: 'Notificaciones',
@@ -98,7 +98,7 @@ const notificationUiLabels = {
     notificationsLabel: 'Notifications',
     notificationsInfoTitle: 'Notifications',
     notificationsInfoMessage:
-      'Notifications locales sur votre appareil.\n\nÉvénements : 7 jours, 24 heures et 1 heure avant le début (selon l\'heure du téléphone).\n\nTâches : 24 heures avant et à l\'heure prévue (midi si aucune heure n\'est définie).',
+      'Notifications locales sur votre appareil.\n\nÉvénements : 7 jours, 24 heures et 1 heure avant le début (selon l\'heure du téléphone).\n\nTâches : 24 heures avant et à l\'heure prévue.',
   },
   ga: {
     notificationsLabel: 'Fógraí',
@@ -134,19 +134,19 @@ const notificationUiLabels = {
     notificationsLabel: 'Notifiki',
     notificationsInfoTitle: 'Notifiki',
     notificationsInfoMessage:
-      'Notifiki lokali fuq it-tagħmir tiegħek.\n\nAvvenimenti: 7 ijiem, 24 siegħa u siegħa 1 qabel il-bidu (skond il-ħin tat-telefon).\n\nKompiti: 24 siegħa qabel u fil-ħin skadenti (nofsinhar jekk m\'hemmx ħin).',
+      'Notifiki lokali fuq it-tagħmir tiegħek.\n\nAvvenimenti: 7 ijiem, 24 siegħa u siegħa 1 qabel il-bidu (skond il-ħin tat-telefon).\n\nKompiti: 24 siegħa qabel u fil-ħin skadenti.',
   },
   nl: {
     notificationsLabel: 'Meldingen',
     notificationsInfoTitle: 'Meldingen',
     notificationsInfoMessage:
-      'Lokale meldingen op je apparaat.\n\nEvenementen: 7 dagen, 24 uur en 1 uur voor de start (volgens de tijd van je telefoon).\n\nTaken: 24 uur van tevoren en op het tijdstip (middag als er geen tijd is ingesteld).',
+      'Lokale meldingen op je apparaat.\n\nEvenementen: 7 dagen, 24 uur en 1 uur voor de start (volgens de tijd van je telefoon).\n\nTaken: 24 uur van tevoren en op het tijdstip.',
   },
   pl: {
     notificationsLabel: 'Powiadomienia',
     notificationsInfoTitle: 'Powiadomienia',
     notificationsInfoMessage:
-      'Lokalne powiadomienia na Twoim urządzeniu.\n\nWydarzenia: 7 dni, 24 godziny i 1 godzinę przed rozpoczęciem (według czasu telefonu).\n\nZadania: 24 godziny wcześniej i w terminie (południe, jeśli nie ustawiono godziny).',
+      'Lokalne powiadomienia na Twoim urządzeniu.\n\nWydarzenia: 7 dni, 24 godziny i 1 godzinę przed rozpoczęciem (według czasu telefonu).\n\nZadania: 24 godziny wcześniej i w terminie.',
   },
   pt: {
     notificationsLabel: 'Notificações',
@@ -158,7 +158,7 @@ const notificationUiLabels = {
     notificationsLabel: 'Notificări',
     notificationsInfoTitle: 'Notificări',
     notificationsInfoMessage:
-      'Notificări locale pe dispozitivul tău.\n\nEvenimente: 7 zile, 24 de ore și 1 oră înainte de început (după ora telefonului).\n\nSarcini: 24 de ore înainte și la termen (la prânz dacă nu este setată ora).',
+      'Notificări locale pe dispozitivul tău.\n\nEvenimente: 7 zile, 24 de ore și 1 oră înainte de început (după ora telefonului).\n\nSarcini: 24 de ore înainte și la termen.',
   },
   sk: {
     notificationsLabel: 'Upozornenia',
@@ -176,7 +176,7 @@ const notificationUiLabels = {
     notificationsLabel: 'Aviseringar',
     notificationsInfoTitle: 'Aviseringar',
     notificationsInfoMessage:
-      'Lokala aviseringar på din enhet.\n\nHändelser: 7 dagar, 24 timmar och 1 timme före start (enligt telefonens tid).\n\nUppgifter: 24 timmar före och vid förfallotid (middag om ingen tid anges).',
+      'Lokala aviseringar på din enhet.\n\nHändelser: 7 dagar, 24 timmar och 1 timme före start (enligt telefonens tid).\n\nUppgifter: 24 timmar före och vid förfallotid.',
   },
   uk: {
     notificationsLabel: 'Сповіщення',

@@ -1,0 +1,1064 @@
+/**
+ * Google Play Console store listing copy (ASO).
+ * Limits: title ≤ 50, short ≤ 80, full ≤ 4000.
+ * Titles: EN "My Perfect Party", HR/SR "Moja savršena proslava", others localized brand.
+ * Keywords (wedding planner, etc.) stay in short/full descriptions.
+ *
+ * Locale codes match Play Console "Manage translations" language tags.
+ */
+export const playListings = [
+  {
+    locale: 'en-US',
+    language: 'English (United States)',
+    title: 'My Perfect Party',
+    short:
+      'Wedding, birthday & event planner — guests, seating, budget, tasks & invites.',
+    full: `My Perfect Party is a wedding planner, birthday planner, and all-in-one event planning app for celebrations of every kind.
+
+Plan a wedding, birthday party, anniversary, engagement, baptism, baby shower, graduation, or family gathering — all on your phone, with data stored locally on your device.
+
+What you can do:
+• Create unlimited events with date, time, location, and celebration theme
+• Build a guest list with RSVP / attendance tracking and party size
+• Plan seating charts and table layouts for your reception or hall
+• Track wedding budget and party expenses by category
+• Manage tasks and to-dos with reminders before the big day
+• Design and share digital invitations
+• Export a PDF report of your event plans
+• Optional email backup of your data
+
+Search-friendly uses: wedding planner, wedding organizer, birthday planner, party planner, event planner, guest list app, seating chart planner, wedding budget tracker, party checklist, celebration organizer.
+
+No account required for core planning. Works offline for your guest list, seating, budget, and tasks. Perfect for couples, hosts, and anyone organizing a stress-free celebration.
+
+Download My Perfect Party — your wedding & events planner.`,
+  },
+  {
+    locale: 'en-GB',
+    language: 'English (United Kingdom)',
+    title: 'My Perfect Party',
+    short:
+      'Wedding, birthday & event planner — guests, seating, budget, tasks & invites.',
+    full: `My Perfect Party is a wedding planner, birthday planner, and all-in-one event planning app for celebrations of every kind.
+
+Plan a wedding, birthday party, anniversary, engagement, baptism, baby shower, graduation, or family gathering — all on your phone, with data stored locally on your device.
+
+What you can do:
+• Create unlimited events with date, time, location, and celebration theme
+• Build a guest list with RSVP / attendance tracking and party size
+• Plan seating charts and table layouts for your reception or hall
+• Track wedding budget and party expenses by category
+• Manage tasks and to-dos with reminders before the big day
+• Design and share digital invitations
+• Export a PDF report of your event plans
+• Optional email backup of your data
+
+Search-friendly uses: wedding planner, wedding organiser, birthday planner, party planner, event planner, guest list app, seating plan, wedding budget tracker, party checklist, celebration organiser.
+
+No account required for core planning. Works offline for your guest list, seating, budget, and tasks. Perfect for couples, hosts, and anyone organising a stress-free celebration.
+
+Download My Perfect Party — your wedding & events planner.`,
+  },
+  {
+    locale: 'hr',
+    language: 'Croatian',
+    title: 'Moja savršena proslava',
+    short:
+      'Planer vjenčanja i proslave — gosti, raspored, budžet, zadaci i pozivnice.',
+    full: `Moja savršena proslava je planer vjenčanja, planer rođendana i aplikacija za organizaciju svih vrsta proslava.
+
+Organizirajte vjenčanje, rođendan, godišnjicu, zaruke, krštenje, mature ili obiteljsko okupljanje — na telefonu, s podacima koji ostaju lokalno na uređaju.
+
+Što možete raditi:
+• Kreirati događaje s datumom, vremenom, lokacijom i temom
+• Voditi listu gostiju s praćenjem dolaska i brojem osoba
+• Planirati raspored sjedenja i stolove u dvorani
+• Pratiti budžet i troškove proslave po kategorijama
+• Upravljati zadacima i podsjetnicima prije velikog dana
+• Dizajnirati i dijeliti digitalne pozivnice
+• Izvesti PDF izvještaj plana događaja
+• Opcionalni email backup podataka
+
+Ključne riječi: planer vjenčanja, organizator vjenčanja, planer rođendana, planer proslave, lista gostiju, raspored sjedenja, budžet vjenčanja, checklista proslave, organizacija događaja.
+
+Nije potreban račun za osnovno planiranje. Radi offline. Idealno za mladence, organizatore i sve koji žele proslavu bez stresa.
+
+Preuzmite Moju savršenu proslavu — planer vjenčanja i događaja.`,
+  },
+  {
+    locale: 'sr',
+    language: 'Serbian',
+    title: 'Moja savršena proslava',
+    short:
+      'Planer venčanja i proslave — gosti, raspored, budžet, zadaci i pozivnice.',
+    full: `Moja savršena proslava je planer venčanja, planer rođendana i aplikacija za organizaciju svih vrsta proslava.
+
+Organizujte venčanje, rođendan, godišnjicu, veridbu, krštenje, mature ili porodično okupljanje — na telefonu, sa podacima koji ostaju lokalno na uređaju.
+
+Šta možete da radite:
+• Kreirate događaje sa datumom, vremenom, lokacijom i temom
+• Vodite listu gostiju sa praćenjem dolaska i brojem osoba
+• Planirate raspored sedenja i stolove u sali
+• Pratiti budžet i troškove proslave po kategorijama
+• Upravljate zadacima i podsetnicima pre velikog dana
+• Dizajnirate i delite digitalne pozivnice
+• Izvezete PDF izveštaj plana događaja
+• Opcioni email backup podataka
+
+Ključne reči: planer venčanja, organizator venčanja, planer rođendana, planer proslave, lista gostiju, raspored sedenja, budžet venčanja, checklista proslave, organizacija događaja.
+
+Nije potreban nalog za osnovno planiranje. Radi offline. Idealno za mladence, organizatore i sve koji žele proslavu bez stresa.
+
+Preuzmite Moju savršenu proslavu — planer venčanja i događaja.`,
+  },
+  {
+    locale: 'sq',
+    language: 'Albanian',
+    title: 'Festa ime e përsosur',
+    short:
+      'Planifikues dasmash dhe festash — mysafirë, ulje, buxhet, detyra, ftesa.',
+    full: `My Perfect Party është planifikues dasmash, planifikues ditëlindjesh dhe aplikacion për organizimin e çdo feste.
+
+Planifikoni dasmë, ditëlindje, përvjetor, fejesë, pagëzim ose tubim familjar — në telefon, me të dhëna lokale në pajisje.
+
+Çfarë mund të bëni:
+• Krijoni ngjarje me datë, orë, vendndodhje dhe temë
+• Menaxhoni listën e mysafirëve dhe pjesëmarrjen
+• Planifikoni uljen dhe tavolinat
+• Ndiqni buxhetin dhe shpenzimet
+• Menaxhoni detyrat me kujtesa
+• Dizajnoni dhe ndani ftesa digjitale
+• Eksportoni raport PDF
+• Backup opsional me email
+
+Fjalë kyçe: planifikues dasmash, organizator dasme, planifikues ditëlindjeje, planifikues festash, lista e mysafirëve, plan uljeje, buxhet dasme.
+
+Nuk kërkohet llogari. Funksionon offline. Shkarkoni My Perfect Party — planifikuesi juaj i dasmave dhe eventeve.`,
+  },
+  {
+    locale: 'bg',
+    language: 'Bulgarian',
+    title: 'Моето перфектно парти',
+    short:
+      'Планер за сватби и партита — гости, сядане, бюджет, задачи и покани.',
+    full: `My Perfect Party е сватбен планер, планер за рождени дни и приложение за всякакви тържества.
+
+Планирайте сватба, рожден ден, годишнина, годеж, кръщене или семейно събитие — на телефона, с локални данни на устройството.
+
+Какво можете да правите:
+• Създавате събития с дата, час, място и тема
+• Водите списък с гости и присъствие
+• Планирате разположението по маси
+• Следите бюджет и разходи
+• Управлявате задачи с напомняния
+• Създавате и споделяте дигитални покани
+• Експортирате PDF отчет
+• Опционален email backup
+
+Ключови думи: сватбен планер, организатор на сватба, планер за рожден ден, парти планер, списък с гости, схема на сядане, сватбен бюджет.
+
+Не е нужен акаунт. Работи офлайн. Изтеглете My Perfect Party — ваш планер за сватби и събития.`,
+  },
+  {
+    locale: 'mk-MK',
+    language: 'Macedonian',
+    title: 'Мојата совршена прослава',
+    short:
+      'Планер за свадби и прослави — гости, седење, буџет, задачи и покани.',
+    full: `My Perfect Party е планер за свадби, родендени и сите видови прослави.
+
+Организирајте свадба, роденден, годишнина, веридба, крштевка или семејно собирање — на телефонот, со локални податоци.
+
+Што можете да правите:
+• Креирате настани со датум, време, локација и тема
+• Водите листа на гости и присуство
+• Планирате распоред на седење
+• Следите буџет и трошоци
+• Управувате со задачи и потсетници
+• Дизајнирате и споделувате покани
+• Извезувате PDF извештај
+• Опционален email backup
+
+Клучни зборови: планер за свадба, организатор на свадба, планер за роденден, планер за прослава, листа на гости, распоред на седење, буџет за свадба.
+
+Не е потребен акаунт. Работи офлајн. Преземете My Perfect Party — планер за свадби и настани.`,
+  },
+  {
+    locale: 'sl',
+    language: 'Slovenian',
+    title: 'Moja popolna proslava',
+    short:
+      'Načrtovalec porok in zabav — gostje, sedežni red, proračun, opravila.',
+    full: `My Perfect Party je načrtovalec porok, rojstnih dni in aplikacija za vse vrste praznovanj.
+
+Načrtujte poroko, rojstni dan, obletnico, zaroko, krst ali družinsko srečanje — na telefonu, s podatki lokalno na napravi.
+
+Kaj lahko počnete:
+• Ustvarite dogodke z datumom, uro, lokacijo in temo
+• Vodite seznam gostov in udeležbo
+• Načrtujete sedežni red in mize
+• Spremljate proračun in stroške
+• Upravljate opravila z opomniki
+• Oblikujete in delite digitalna vabila
+• Izvozite PDF poročilo
+• Opcijski email backup
+
+Ključne besede: načrtovalec poroke, organizator poroke, načrtovalec rojstnega dne, načrtovalec zabave, seznam gostov, sedežni red, poročni proračun.
+
+Račun ni potreben. Deluje brez povezave. Prenesite My Perfect Party — načrtovalec porok in dogodkov.`,
+  },
+  {
+    locale: 'de-DE',
+    language: 'German',
+    title: 'Meine perfekte Party',
+    short:
+      'Hochzeits- & Eventplaner — Gäste, Sitzplan, Budget, Aufgaben & Einladungen.',
+    full: `My Perfect Party ist ein Hochzeitsplaner, Geburtstagsplaner und die App für jede Feier.
+
+Plane Hochzeit, Geburtstag, Jahrestag, Verlobung, Taufe oder Familientreffen — auf dem Handy, mit lokal gespeicherten Daten.
+
+Funktionen:
+• Unbegrenzte Events mit Datum, Uhrzeit, Ort und Thema
+• Gästeliste mit Zu-/Absagen und Personenanzahl
+• Sitzordnung und Tischplanung
+• Hochzeitsbudget und Ausgaben nach Kategorien
+• Aufgaben und Erinnerungen vor dem großen Tag
+• Digitale Einladungen gestalten und teilen
+• PDF-Export deines Plans
+• Optionaler E-Mail-Backup
+
+Suchbegriffe: Hochzeitsplaner, Wedding Planner, Geburtstagsplaner, Partyplaner, Eventplaner, Gästeliste App, Sitzplan, Hochzeitsbudget, Checkliste Feier.
+
+Kein Konto nötig. Offline nutzbar. Lade My Perfect Party — dein Wedding & Events Planner.`,
+  },
+  {
+    locale: 'fr-FR',
+    language: 'French',
+    title: 'Ma fête parfaite',
+    short:
+      'Wedding & event planner — invités, plan de table, budget, tâches, faire-part.',
+    full: `My Perfect Party est un wedding planner, un planificateur d’anniversaire et une app pour toutes les fêtes.
+
+Organisez mariage, anniversaire, fiançailles, baptême ou réunion de famille — sur votre téléphone, avec des données stockées localement.
+
+Fonctionnalités :
+• Événements illimités avec date, heure, lieu et thème
+• Liste d’invités et suivi des présences
+• Plan de table et disposition des tables
+• Budget mariage et dépenses par catégorie
+• Tâches et rappels avant le grand jour
+• Créer et partager des invitations numériques
+• Exporter un rapport PDF
+• Sauvegarde e-mail optionnelle
+
+Mots-clés : wedding planner, organisateur de mariage, planificateur d’anniversaire, planificateur de fête, liste d’invités, plan de table, budget mariage, checklist mariage.
+
+Pas de compte requis. Fonctionne hors ligne. Téléchargez My Perfect Party — votre wedding & events planner.`,
+  },
+  {
+    locale: 'es-ES',
+    language: 'Spanish (Spain)',
+    title: 'Mi fiesta perfecta',
+    short:
+      'Planificador de bodas y eventos — invitados, mesas, presupuesto y tareas.',
+    full: `My Perfect Party es un planificador de bodas, cumpleaños y todo tipo de celebraciones.
+
+Organiza boda, cumpleaños, aniversario, compromiso, bautizo o reunión familiar — en el móvil, con datos locales en el dispositivo.
+
+Qué puedes hacer:
+• Crear eventos con fecha, hora, lugar y tema
+• Lista de invitados y control de asistencia
+• Plano de mesas y asientos
+• Presupuesto y gastos por categoría
+• Tareas y recordatorios antes del gran día
+• Diseñar y compartir invitaciones digitales
+• Exportar informe PDF
+• Copia de seguridad por email opcional
+
+Palabras clave: planificador de bodas, organizador de bodas, planificador de cumpleaños, planificador de fiestas, lista de invitados, plano de mesas, presupuesto de boda, wedding planner.
+
+No hace falta cuenta. Funciona sin conexión. Descarga My Perfect Party — tu planificador de bodas y eventos.`,
+  },
+  {
+    locale: 'es-419',
+    language: 'Spanish (Latin America)',
+    title: 'Mi fiesta perfecta',
+    short:
+      'Planificador de bodas y eventos — invitados, mesas, presupuesto y tareas.',
+    full: `My Perfect Party es un planificador de bodas, cumpleaños y todo tipo de celebraciones.
+
+Organiza boda, cumpleaños, aniversario, compromiso, bautizo o reunión familiar — en el celular, con datos locales en el dispositivo.
+
+Qué puedes hacer:
+• Crear eventos con fecha, hora, lugar y tema
+• Lista de invitados y control de asistencia
+• Plano de mesas y asientos
+• Presupuesto y gastos por categoría
+• Tareas y recordatorios antes del gran día
+• Diseñar y compartir invitaciones digitales
+• Exportar informe PDF
+• Respaldo por email opcional
+
+Palabras clave: planificador de bodas, organizador de bodas, planificador de cumpleaños, planificador de fiestas, lista de invitados, plano de mesas, presupuesto de boda, wedding planner.
+
+No necesitas cuenta. Funciona sin conexión. Descarga My Perfect Party — tu planificador de bodas y eventos.`,
+  },
+  {
+    locale: 'it-IT',
+    language: 'Italian',
+    title: 'La mia festa perfetta',
+    short:
+      'Wedding e event planner — ospiti, tavoli, budget, attività e inviti.',
+    full: `My Perfect Party è un wedding planner, un planner per compleanni e un’app per ogni festa.
+
+Organizza matrimonio, compleanno, anniversario, fidanzamento, battesimo o riunione di famiglia — sul telefono, con dati locali sul dispositivo.
+
+Cosa puoi fare:
+• Creare eventi con data, ora, luogo e tema
+• Lista ospiti e conferma presenza
+• Piano tavoli e posti a sedere
+• Budget e spese per categoria
+• Attività e promemoria prima del grande giorno
+• Creare e condividere inviti digitali
+• Esportare report PDF
+• Backup email opzionale
+
+Parole chiave: wedding planner, organizzatore matrimonio, planner compleanno, party planner, lista ospiti, piano tavoli, budget matrimonio, checklist matrimonio.
+
+Nessun account richiesto. Funziona offline. Scarica My Perfect Party — il tuo wedding & events planner.`,
+  },
+  {
+    locale: 'pt-BR',
+    language: 'Portuguese (Brazil)',
+    title: 'Minha festa perfeita',
+    short:
+      'Planejador de casamento e festas — convidados, mesas, orçamento e tarefas.',
+    full: `My Perfect Party é um planejador de casamento, aniversário e festas de todos os tipos.
+
+Organize casamento, aniversário, noivado, batizado ou reunião de família — no celular, com dados locais no aparelho.
+
+O que você pode fazer:
+• Criar eventos com data, hora, local e tema
+• Lista de convidados e confirmação de presença
+• Mapa de mesas e assentos
+• Orçamento e despesas por categoria
+• Tarefas e lembretes antes do grande dia
+• Criar e compartilhar convites digitais
+• Exportar relatório em PDF
+• Backup por e-mail opcional
+
+Palavras-chave: planejador de casamento, organizador de casamento, planejador de aniversário, planejador de festa, lista de convidados, mapa de mesas, orçamento de casamento, wedding planner.
+
+Sem necessidade de conta. Funciona offline. Baixe My Perfect Party — seu planejador de casamentos e eventos.`,
+  },
+  {
+    locale: 'pt-PT',
+    language: 'Portuguese (Portugal)',
+    title: 'A minha festa perfeita',
+    short:
+      'Planeador de casamentos e festas — convidados, mesas, orçamento e tarefas.',
+    full: `My Perfect Party é um planeador de casamentos, aniversários e festas de todos os tipos.
+
+Organize casamento, aniversário, noivado, batizado ou reunião de família — no telemóvel, com dados locais no dispositivo.
+
+O que pode fazer:
+• Criar eventos com data, hora, local e tema
+• Lista de convidados e confirmação de presença
+• Mapa de mesas e lugares
+• Orçamento e despesas por categoria
+• Tarefas e lembretes antes do grande dia
+• Criar e partilhar convites digitais
+• Exportar relatório em PDF
+• Backup por e-mail opcional
+
+Palavras-chave: planeador de casamento, organizador de casamento, planeador de aniversário, planeador de festa, lista de convidados, mapa de mesas, orçamento de casamento, wedding planner.
+
+Sem necessidade de conta. Funciona offline. Descarregue My Perfect Party — o seu planeador de casamentos e eventos.`,
+  },
+  {
+    locale: 'nl-NL',
+    language: 'Dutch',
+    title: 'Mijn perfecte feest',
+    short:
+      'Trouw- & eventplanner — gasten, zitplan, budget, taken en uitnodigingen.',
+    full: `My Perfect Party is een trouwplanner, verjaardagsplanner en app voor elk feest.
+
+Plan een bruiloft, verjaardag, jubileum, verloving, doop of familiebijeenkomst — op je telefoon, met lokale gegevens op het apparaat.
+
+Wat je kunt doen:
+• Events maken met datum, tijd, locatie en thema
+• Gastenlijst en aanwezigheid bijhouden
+• Zitplan en tafelschikking
+• Budget en uitgaven per categorie
+• Taken en herinneringen voor de grote dag
+• Digitale uitnodigingen maken en delen
+• PDF-rapport exporteren
+• Optionele e-mailbackup
+
+Zoekwoorden: trouwplanner, wedding planner, verjaardagsplanner, feestplanner, eventplanner, gastenlijst, zitplan, trouwbudget, checklist bruiloft.
+
+Geen account nodig. Werkt offline. Download My Perfect Party — jouw wedding & events planner.`,
+  },
+  {
+    locale: 'pl-PL',
+    language: 'Polish',
+    title: 'Moja idealna impreza',
+    short:
+      'Planer wesel i imprez — goście, stoły, budżet, zadania i zaproszenia.',
+    full: `My Perfect Party to planer wesel, urodzin i aplikacji do każdej uroczystości.
+
+Zaplanuj wesele, urodziny, rocznicę, zaręczyny, chrzest lub rodzinne spotkanie — w telefonie, z danymi lokalnie na urządzeniu.
+
+Co możesz robić:
+• Tworzyć wydarzenia z datą, godziną, miejscem i motywem
+• Prowadzić listę gości i obecność
+• Planować usadzenie przy stołach
+• Śledzić budżet i wydatki
+• Zarządzać zadaniami i przypomnieniami
+• Tworzyć i udostępniać zaproszenia cyfrowe
+• Eksportować raport PDF
+• Opcjonalny backup e-mail
+
+Słowa kluczowe: planer wesela, organizator wesela, planer urodzin, planer imprezy, lista gości, usadzenie gości, budżet wesela, wedding planner.
+
+Konto nie jest wymagane. Działa offline. Pobierz My Perfect Party — planer wesel i wydarzeń.`,
+  },
+  {
+    locale: 'cs-CZ',
+    language: 'Czech',
+    title: 'Moje dokonalá oslava',
+    short:
+      'Plánovač svateb a oslav — hosté, zasedací pořádek, rozpočet a úkoly.',
+    full: `My Perfect Party je plánovač svateb, narozenin a aplikace pro všechny oslavy.
+
+Naplánujte svatbu, narozeniny, výročí, zásnuby, křtiny nebo rodinné setkání — v telefonu, s daty lokálně v zařízení.
+
+Co můžete dělat:
+• Vytvářet události s datem, časem, místem a tématem
+• Vést seznam hostů a docházku
+• Plánovat zasedací pořádek
+• Sledovat rozpočet a výdaje
+• Spravovat úkoly a připomínky
+• Tvořit a sdílet digitální pozvánky
+• Exportovat PDF report
+• Volitelný e-mailový backup
+
+Klíčová slova: plánovač svatby, organizátor svatby, plánovač narozenin, plánovač party, seznam hostů, zasedací pořádek, svatební rozpočet, wedding planner.
+
+Účet není potřeba. Funguje offline. Stáhněte My Perfect Party — plánovač svateb a eventů.`,
+  },
+  {
+    locale: 'sk',
+    language: 'Slovak',
+    title: 'Moja dokonalá oslava',
+    short:
+      'Plánovač svadieb a osláv — hostia, zasadanie, rozpočet, úlohy a pozvánky.',
+    full: `My Perfect Party je plánovač svadieb, narodenín a aplikácia pre všetky oslavy.
+
+Naplánujte svadbu, narodeniny, výročie, zásnuby, krstiny alebo rodinné stretnutie — v telefóne, s dátami lokálne v zariadení.
+
+Čo môžete robiť:
+• Vytvárať udalosti s dátumom, časom, miestom a témou
+• Viesť zoznam hostí a dochádzku
+• Plánovať zasadanie pri stoloch
+• Sledovať rozpočet a výdavky
+• Spravovať úlohy a pripomienky
+• Tvoriť a zdieľať digitálne pozvánky
+• Exportovať PDF report
+• Voliteľný e-mailový backup
+
+Kľúčové slová: plánovač svadby, organizátor svadby, plánovač narodenín, plánovač oslavy, zoznam hostí, zasadanie, svadobný rozpočet, wedding planner.
+
+Účet nie je potrebný. Funguje offline. Stiahnite My Perfect Party — plánovač svadieb a eventov.`,
+  },
+  {
+    locale: 'hu-HU',
+    language: 'Hungarian',
+    title: 'A tökéletes partim',
+    short:
+      'Esküvő- és rendezvényszervező — vendégek, ülésrend, költségvetés, feladatok.',
+    full: `A My Perfect Party esküvőtervező, születésnap-tervező és alkalmazás minden ünnepséghez.
+
+Tervezz esküvőt, születésnapot, évfordulót, eljegyzést, keresztelőt vagy családi összejövetelt — telefonon, helyi adatokkal a készüléken.
+
+Mit tehetsz:
+• Események dátummal, időponttal, hellyel és témával
+• Vendéglista és jelenlét követése
+• Ülésrend és asztalok
+• Költségvetés és kiadások
+• Feladatok és emlékeztetők
+• Digitális meghívók készítése és megosztása
+• PDF jelentés exportálása
+• Opcionális e-mail mentés
+
+Kulcsszavak: esküvőtervező, wedding planner, születésnap szervező, party planner, vendéglista, ülésrend, esküvői költségvetés.
+
+Nincs szükség fiókra. Offline is működik. Töltsd le a My Perfect Party-t — esküvő- és eseményszerveződ.`,
+  },
+  {
+    locale: 'ro',
+    language: 'Romanian',
+    title: 'Petrecerea mea perfectă',
+    short:
+      'Planificator nuntă & evenimente — invitați, mese, buget, sarcini, invitații.',
+    full: `My Perfect Party este un planificator de nuntă, aniversări și aplicație pentru orice petrecere.
+
+Organizează nuntă, zi de naștere, aniversare, logodnă, botez sau reuniune de familie — pe telefon, cu date locale pe dispozitiv.
+
+Ce poți face:
+• Creezi evenimente cu dată, oră, locație și temă
+• Liste de invitați și confirmări
+• Plan de mese și locuri
+• Buget și cheltuieli pe categorii
+• Sarcini și memento-uri înainte de marea zi
+• Creezi și partajezi invitații digitale
+• Exporți raport PDF
+• Backup email opțional
+
+Cuvinte cheie: planificator nuntă, organizator nuntă, planificator ziua de naștere, planificator petrecere, listă invitați, plan mese, buget nuntă, wedding planner.
+
+Nu e nevoie de cont. Funcționează offline. Descarcă My Perfect Party — planificatorul tău de nunți și evenimente.`,
+  },
+  {
+    locale: 'el-GR',
+    language: 'Greek',
+    title: 'Το τέλειο πάρτι μου',
+    short:
+      'Οργάνωση γάμου & εκδηλώσεων — καλεσμένοι, τραπέζια, budget, εργασίες.',
+    full: `Το My Perfect Party είναι wedding planner, εφαρμογές για γενέθλια και κάθε γιορτή.
+
+Οργανώστε γάμο, γενέθλια, επέτειο, αρραβώνα, βάπτιση ή οικογενειακή συγκέντρωση — στο κινητό, με τοπικά δεδομένα στη συσκευή.
+
+Τι μπορείτε να κάνετε:
+• Δημιουργία εκδηλώσεων με ημερομηνία, ώρα, τοποθεσία και θέμα
+• Λίστα καλεσμένων και παρακολούθηση παρουσίας
+• Σχέδιο τραπεζιών και θέσεων
+• Προϋπολογισμός και έξοδα
+• Εργασίες και υπενθυμίσεις
+• Ψηφιακά προσκλητήρια
+• Εξαγωγή αναφοράς PDF
+• Προαιρετικό email backup
+
+Λέξεις-κλειδιά: οργάνωση γάμου, wedding planner, οργάνωση γενεθλίων, party planner, λίστα καλεσμένων, κάθισμα καλεσμένων, budget γάμου.
+
+Δεν χρειάζεται λογαριασμός. Λειτουργεί offline. Κατεβάστε το My Perfect Party — ο wedding & events planner σας.`,
+  },
+  {
+    locale: 'tr-TR',
+    language: 'Turkish',
+    title: 'Mükemmel Partim',
+    short:
+      'Düğün ve etkinlik planlayıcı — misafirler, oturma, bütçe, görevler, davetiye.',
+    full: `My Perfect Party bir düğün planlayıcı, doğum günü planlayıcı ve her türlü kutlama uygulamasıdır.
+
+Düğün, doğum günü, yıldönümü, nişan, vaftiz veya aile buluşması planlayın — telefonda, veriler cihazda yerel olarak saklanır.
+
+Neler yapabilirsiniz:
+• Tarih, saat, konum ve temalı etkinlikler
+• Misafir listesi ve katılım takibi
+• Oturma düzeni ve masalar
+• Bütçe ve gider takibi
+• Görevler ve hatırlatıcılar
+• Dijital davetiye tasarlama ve paylaşma
+• PDF raporu dışa aktarma
+• İsteğe bağlı e-posta yedekleme
+
+Anahtar kelimeler: düğün planlayıcı, wedding planner, doğum günü planlayıcı, parti planlayıcı, misafir listesi, oturma düzeni, düğün bütçesi, etkinlik planlayıcı.
+
+Hesap gerekmez. Çevrimdışı çalışır. My Perfect Party’yi indirin — düğün ve etkinlik planlayıcınız.`,
+  },
+  {
+    locale: 'ru-RU',
+    language: 'Russian',
+    title: 'Мой идеальный праздник',
+    short:
+      'Планировщик свадеб и праздников — гости, рассадка, бюджет, задачи.',
+    full: `My Perfect Party — планировщик свадеб, дней рождения и любых торжеств.
+
+Организуйте свадьбу, день рождения, годовщину, помолвку, крестины или семейную встречу — на телефоне, с локальными данными на устройстве.
+
+Что можно делать:
+• Создавать события с датой, временем, местом и темой
+• Вести список гостей и присутствие
+• Планировать рассадку и столы
+• Следить за бюджетом и расходами
+• Управлять задачами и напоминаниями
+• Создавать и делиться цифровыми приглашениями
+• Экспортировать PDF-отчёт
+• Опциональный email-бэкап
+
+Ключевые слова: планировщик свадьбы, организатор свадьбы, планировщик дня рождения, планировщик вечеринки, список гостей, рассадка гостей, свадебный бюджет, wedding planner.
+
+Аккаунт не нужен. Работает офлайн. Скачайте My Perfect Party — ваш планировщик свадеб и событий.`,
+  },
+  {
+    locale: 'uk',
+    language: 'Ukrainian',
+    title: 'Моє ідеальне свято',
+    short:
+      'Планувальник весіль і свят — гості, розсадка, бюджет, завдання, запрошення.',
+    full: `My Perfect Party — планувальник весіль, днів народження та будь-яких свят.
+
+Організуйте весілля, день народження, річницю, заручини, хрестини чи сімейну зустріч — на телефоні, з локальними даними на пристрої.
+
+Що можна робити:
+• Створювати події з датою, часом, місцем і темою
+• Вести список гостей і присутність
+• Планувати розсадку та столи
+• Стежити за бюджетом і витратами
+• Керувати завданнями та нагадуваннями
+• Створювати й ділитися цифровими запрошеннями
+• Експортувати PDF-звіт
+• Опційний email-бекап
+
+Ключові слова: планувальник весілля, організатор весілля, планувальник дня народження, планувальник вечірки, список гостей, розсадка, весільний бюджет, wedding planner.
+
+Обліковий запис не потрібен. Працює офлайн. Завантажте My Perfect Party — ваш планувальник весіль і подій.`,
+  },
+  {
+    locale: 'ar',
+    language: 'Arabic',
+    title: 'حفلتي المثالية',
+    short:
+      'منظم زفاف ومناسبات — الضيوف، الجلوس، الميزانية، المهام والدعوات.',
+    full: `My Perfect Party هو منظم زفاف ومنظم أعياد ميلاد وتطبيق لتخطيط كل الاحتفالات.
+
+نظّم حفل زفاف أو عيد ميلاد أو ذكرى سنوية أو خطوبة أو تعميد أو لقاء عائلي — على هاتفك، مع بيانات محلية على الجهاز.
+
+ماذا يمكنك أن تفعل:
+• إنشاء مناسبات بالتاريخ والوقت والموقع والسمة
+• قائمة الضيوف وتتبع الحضور
+• تخطيط الجلوس والطاولات
+• تتبع الميزانية والمصروفات
+• إدارة المهام والتذكيرات
+• تصميم ومشاركة دعوات رقمية
+• تصدير تقرير PDF
+• نسخ احتياطي اختياري بالبريد
+
+كلمات مفتاحية: منظم زفاف، مخطط حفل زفاف، منظم عيد ميلاد، منظم حفلات، قائمة الضيوف، مخطط الجلوس، ميزانية الزفاف، wedding planner.
+
+لا يلزم حساب. يعمل دون اتصال. حمّل My Perfect Party — منظم الزفاف والمناسبات.`,
+  },
+  {
+    locale: 'iw-IL',
+    language: 'Hebrew',
+    title: 'המסיבה המושלמת שלי',
+    short:
+      'מתכנן חתונות ואירועים — אורחים, הושבה, תקציב, משימות והזמנות.',
+    full: `My Perfect Party הוא מתכנן חתונות, ימי הולדת ואפליקציה לכל חגיגה.
+
+תכננו חתונה, יום הולדת, יום נישואין, אירוסין, ברית או מפגש משפחתי — בטלפון, עם נתונים מקומיים במכשיר.
+
+מה אפשר לעשות:
+• ליצור אירועים עם תאריך, שעה, מיקום וערכת נושא
+• רשימת אורחים ומעקב הגעה
+• תכנון הושבה ושולחנות
+• מעקב תקציב והוצאות
+• משימות ותזכורות
+• עיצוב ושיתוף הזמנות דיגיטליות
+• ייצוא דוח PDF
+• גיבוי אופציונלי במייל
+
+מילות מפתח: מתכנן חתונות, ארגון חתונה, מתכנן ימי הולדת, מתכנן מסיבות, רשימת אורחים, הושבת אורחים, תקציב חתונה, wedding planner.
+
+אין צורך בחשבון. עובד במצב לא מקוון. הורידו את My Perfect Party — מתכנן החתונות והאירועים שלכם.`,
+  },
+  {
+    locale: 'fa',
+    language: 'Persian',
+    title: 'مهمانی بی‌نقص من',
+    short:
+      'برنامه‌ریز عروسی و مراسم — مهمانان، نشستن، بودجه، کارها و دعوت‌نامه.',
+    full: `My Perfect Party برنامه‌ریز عروسی، تولد و اپلیکیشن برای هر جشن است.
+
+عروسی، تولد، سالگرد، نامزدی، غسل تعمید یا دورهمی خانوادگی را روی گوشی برنامه‌ریزی کنید — با داده‌های محلی روی دستگاه.
+
+چه کارهایی می‌توانید بکنید:
+• ایجاد رویداد با تاریخ، ساعت، مکان و تم
+• فهرست مهمانان و پیگیری حضور
+• برنامه‌ریزی نشستن و میزها
+• پیگیری بودجه و هزینه‌ها
+• مدیریت کارها و یادآورها
+• طراحی و اشتراک دعوت‌نامه دیجیتال
+• خروجی گزارش PDF
+• پشتیبان اختیاری ایمیل
+
+کلمات کلیدی: برنامه‌ریز عروسی، سازمان‌دهنده عروسی، برنامه‌ریز تولد، برنامه‌ریز مهمانی، لیست مهمانان، چیدمان نشستن، بودجه عروسی، wedding planner.
+
+نیازی به حساب نیست. آفلاین کار می‌کند. My Perfect Party را دانلود کنید — برنامه‌ریز عروسی و رویدادهای شما.`,
+  },
+  {
+    locale: 'hi-IN',
+    language: 'Hindi',
+    title: 'मेरी परफेक्ट पार्टी',
+    short:
+      'वेडिंग और इवेंट प्लानर — मेहमान, बैठक व्यवस्था, बजट, कार्य और निमंत्रण.',
+    full: `My Perfect Party एक वेडिंग प्लानर, बर्थडे प्लानर और हर उत्सव के लिए ऐप है।
+
+शादी, जन्मदिन, सालगिरह, सगाई, बपतिस्मा या पारिवारिक मिलन की योजना बनाएं — फ़ोन पर, डेटा डिवाइस पर स्थानीय रहता है।
+
+आप क्या कर सकते हैं:
+• तारीख, समय, स्थान और थीम के साथ इवेंट बनाएं
+• गेस्ट लिस्ट और उपस्थिति ट्रैक करें
+• बैठने की व्यवस्था और टेबल प्लान
+• बजट और खर्च ट्रैक करें
+• कार्य और रिमाइंडर प्रबंधित करें
+• डिजिटल निमंत्रण डिज़ाइन और शेयर करें
+• PDF रिपोर्ट निर्यात करें
+• वैकल्पिक ईमेल बैकअप
+
+कीवर्ड: वेडिंग प्लानर, शादी प्लानर, बर्थडे प्लानर, पार्टी प्लानर, गेस्ट लिस्ट ऐप, सीटिंग प्लान, शादी बजट, wedding planner, event planner.
+
+खाते की ज़रूरत नहीं। ऑफ़लाइन काम करता है। My Perfect Party डाउनलोड करें — आपका वेडिंग और इवेंट्स प्लानर।`,
+  },
+  {
+    locale: 'bn-BD',
+    language: 'Bangla',
+    title: 'আমার পারফেক্ট পার্টি',
+    short:
+      'Wedding ও ইভেন্ট প্ল্যানার — অতিথি, বসার ব্যবস্থা, বাজেট, কাজ ও নিমন্ত্রণ।',
+    full: `My Perfect Party একটি wedding planner, জন্মদিন প্ল্যানার এবং সব উৎসবের অ্যাপ।
+
+বিয়ে, জন্মদিন, বার্ষিকী, বাগদান বা পারিবারিক অনুষ্ঠান পরিকল্পনা করুন — ফোনে, ডেটা ডিভাইসে স্থানীয় থাকে।
+
+কী করতে পারবেন:
+• তারিখ, সময়, স্থান ও থিমসহ ইভেন্ট তৈরি
+• অতিথি তালিকা ও উপস্থিতি ট্র্যাক
+• বসার ব্যবস্থা ও টেবিল প্ল্যান
+• বাজেট ও খরচ ট্র্যাক
+• কাজ ও রিমাইন্ডার
+• ডিজিটাল নিমন্ত্রণ শেয়ার
+• PDF রিপোর্ট এক্সপোর্ট
+• ঐচ্ছিক ইমেইল ব্যাকআপ
+
+কীওয়ার্ড: wedding planner, বিয়ে প্ল্যানার, জন্মদিন প্ল্যানার, পার্টি প্ল্যানার, গেস্ট লিস্ট, সিটিং প্ল্যান, wedding budget.
+
+অ্যাকাউন্ট লাগে না। অফলাইনে কাজ করে। My Perfect Party ডাউনলোড করুন।`,
+  },
+  {
+    locale: 'id',
+    language: 'Indonesian',
+    title: 'Pesta Sempurna Saya',
+    short:
+      'Perencana pernikahan & acara — tamu, tempat duduk, anggaran, tugas, undangan.',
+    full: `My Perfect Party adalah wedding planner, perencana ulang tahun, dan aplikasi untuk setiap perayaan.
+
+Rencanakan pernikahan, ulang tahun, anniversary, tunangan, baptis, atau pertemuan keluarga — di ponsel, dengan data lokal di perangkat.
+
+Yang bisa Anda lakukan:
+• Buat acara dengan tanggal, waktu, lokasi, dan tema
+• Daftar tamu dan kehadiran
+• Denah tempat duduk dan meja
+• Lacak anggaran dan pengeluaran
+• Kelola tugas dan pengingat
+• Desain dan bagikan undangan digital
+• Ekspor laporan PDF
+• Backup email opsional
+
+Kata kunci: wedding planner, perencana pernikahan, perencana ulang tahun, party planner, daftar tamu, denah tempat duduk, anggaran pernikahan, event planner.
+
+Tidak perlu akun. Bekerja offline. Unduh My Perfect Party — wedding & events planner Anda.`,
+  },
+  {
+    locale: 'ms-MY',
+    language: 'Malay',
+    title: 'Parti Sempurna Saya',
+    short:
+      'Perancang kahwin & majlis — tetamu, tempat duduk, bajet, tugasan, jemputan.',
+    full: `My Perfect Party ialah wedding planner, perancang hari jadi dan aplikasi untuk setiap majlis.
+
+Rancang majlis kahwin, hari jadi, ulang tahun, pertunangan, pembaptisan atau perjumpaan keluarga — pada telefon, dengan data tempatan pada peranti.
+
+Apa yang boleh anda buat:
+• Cipta acara dengan tarikh, masa, lokasi dan tema
+• Senarai tetamu dan kehadiran
+• Pelan tempat duduk dan meja
+• Jejaki bajet dan perbelanjaan
+• Urus tugasan dan peringatan
+• Reka dan kongsi jemputan digital
+• Eksport laporan PDF
+• Sandaran e-mel pilihan
+
+Kata kunci: wedding planner, perancang kahwin, perancang hari jadi, party planner, senarai tetamu, pelan tempat duduk, bajet kahwin, event planner.
+
+Tiada akaun diperlukan. Berfungsi luar talian. Muat turun My Perfect Party — perancang kahwin & acara anda.`,
+  },
+  {
+    locale: 'th',
+    language: 'Thai',
+    title: 'ปาร์ตี้ที่สมบูรณ์แบบของฉัน',
+    short:
+      'วางแผนงานแต่งและปาร์ตี้ — แขก ที่นั่ง งบประมาณ งาน และบัตรเชิญ',
+    full: `My Perfect Party คือแอปวางแผนงานแต่งงาน วันเกิด และงานฉลองทุกประเภท
+
+วางแผนงานแต่ง วันเกิด ครบรอบ หมั้น งานเข้าพรรษา หรือปาร์ตี้ครอบครัว — บนมือถือ ข้อมูลเก็บในเครื่อง
+
+สิ่งที่ทำได้:
+• สร้างอีเวนต์พร้อมวัน เวลา สถานที่ และธีม
+• รายชื่อแขกและการตอบรับ
+• แผนที่นั่งและโต๊ะ
+• ติดตามงบและค่าใช้จ่าย
+• งานและตัวเตือน
+• ออกแบบและแชร์บัตรเชิญดิจิทัล
+• ส่งออกรายงาน PDF
+• สำรองอีเมลแบบเลือกได้
+
+คำค้น: wedding planner, วางแผนงานแต่ง, วางแผนวันเกิด, party planner, รายชื่อแขก, แผนที่นั่ง, งบงานแต่ง
+
+ไม่ต้องมีบัญชี ใช้แบบออฟไลน์ได้ ดาวน์โหลด My Perfect Party — ตัวช่วยวางแผนงานแต่งและอีเวนต์`,
+  },
+  {
+    locale: 'vi',
+    language: 'Vietnamese',
+    title: 'Bữa tiệc hoàn hảo của tôi',
+    short:
+      'Lập kế hoạch cưới & sự kiện — khách, chỗ ngồi, ngân sách, việc và thiệp.',
+    full: `My Perfect Party là ứng dụng lập kế hoạch đám cưới, sinh nhật và mọi buổi tiệc.
+
+Lên kế hoạch đám cưới, sinh nhật, kỷ niệm, đính hôn, rửa tội hoặc họp mặt gia đình — trên điện thoại, dữ liệu lưu cục bộ trên máy.
+
+Bạn có thể:
+• Tạo sự kiện với ngày, giờ, địa điểm và chủ đề
+• Danh sách khách và theo dõi tham dự
+• Sơ đồ chỗ ngồi và bàn
+• Theo dõi ngân sách và chi phí
+• Quản lý việc và nhắc nhở
+• Thiết kế và chia sẻ thiệp mời số
+• Xuất báo cáo PDF
+• Sao lưu email tùy chọn
+
+Từ khóa: wedding planner, lập kế hoạch đám cưới, lập kế hoạch sinh nhật, party planner, danh sách khách, sơ đồ chỗ ngồi, ngân sách cưới, event planner.
+
+Không cần tài khoản. Hoạt động ngoại tuyến. Tải My Perfect Party — wedding & events planner của bạn.`,
+  },
+  {
+    locale: 'ja-JP',
+    language: 'Japanese',
+    title: 'マイパーフェクトパーティー',
+    short:
+      '結婚式・パーティー計画 — ゲスト、席次、予算、タスク、招待状。',
+    full: `My Perfect Partyはウェディングプランナー、誕生日プランナー、あらゆるお祝いのためのアプリです。
+
+結婚式、誕生日、記念日、婚約、洗礼、家族の集まりをスマホで計画。データは端末にローカル保存されます。
+
+できること：
+• 日時・場所・テーマ付きイベント作成
+• ゲストリストと出欠管理
+• 席次・テーブル配置
+• 予算と支出の記録
+• タスクとリマインダー
+• デジタル招待状の作成・共有
+• PDFレポートの書き出し
+• 任意のメールバックアップ
+
+キーワード：ウェディングプランナー、結婚式 計画、誕生日 プランナー、パーティー プランナー、ゲストリスト、席次表、結婚式 予算、wedding planner。
+
+アカウント不要。オフライン対応。My Perfect Partyをダウンロード — あなたのWedding & Events Planner。`,
+  },
+  {
+    locale: 'ko-KR',
+    language: 'Korean',
+    title: '나의 퍼펙트 파티',
+    short:
+      '웨딩·이벤트 플래너 — 하객, 좌석, 예산, 할 일, 초대장.',
+    full: `My Perfect Party는 웨딩 플래너, 생일 플래너, 모든 축하 행사를 위한 앱입니다.
+
+결혼식, 생일, 기념일, 약혼, 세례, 가족 모임을 폰에서 계획하세요. 데이터는 기기에 로컬 저장됩니다.
+
+할 수 있는 일:
+• 날짜·시간·장소·테마로 이벤트 생성
+• 하객 명단과 참석 관리
+• 좌석·테이블 배치
+• 예산과 지출 추적
+• 할 일과 알림
+• 디지털 초대장 제작·공유
+• PDF 보고서 내보내기
+• 선택적 이메일 백업
+
+키워드: 웨딩 플래너, 결혼식 계획, 생일 플래너, 파티 플래너, 하객 명단, 좌석 배치, 결혼식 예산, wedding planner, event planner.
+
+계정 불필요. 오프라인 사용 가능. My Perfect Party 다운로드 — 웨딩 & 이벤트 플래너.`,
+  },
+  {
+    locale: 'zh-CN',
+    language: 'Chinese (Simplified)',
+    title: '我的完美派对',
+    short: '婚礼与活动策划 — 宾客、座位、预算、待办与请柬。',
+    full: `My Perfect Party 是婚礼策划、生日策划和各类庆典的一站式应用。
+
+在手机上规划婚礼、生日、纪念日、订婚、洗礼或家庭聚会，数据本地保存在设备上。
+
+功能：
+• 创建含日期、时间、地点和主题的活动
+• 宾客名单与出席跟踪
+• 座位与桌位规划
+• 预算与分类支出
+• 待办与提醒
+• 设计并分享电子请柬
+• 导出 PDF 报告
+• 可选邮件备份
+
+关键词：婚礼策划、婚礼计划、生日策划、派对策划、宾客名单、座位表、婚礼预算、wedding planner、event planner。
+
+无需账号。可离线使用。下载 My Perfect Party — 你的婚礼与活动策划助手。`,
+  },
+  {
+    locale: 'da-DK',
+    language: 'Danish',
+    title: 'Min perfekte fest',
+    short:
+      'Bryllups- & eventplanner — gæster, bordplan, budget, opgaver og invitationer.',
+    full: `My Perfect Party er en bryllupsplanner, fødselsdagsplanner og app til alle fester.
+
+Planlæg bryllup, fødselsdag, jubilæum, forlovelse, dåb eller familiesammenkomst — på telefonen, med lokale data på enheden.
+
+Hvad du kan gøre:
+• Opret events med dato, tid, sted og tema
+• Gæsteliste og fremmøde
+• Bordplan og siddepladser
+• Budget og udgifter
+• Opgaver og påmindelser
+• Design og del digitale invitationer
+• Eksporter PDF-rapport
+• Valgfri e-mail-backup
+
+Søgeord: bryllupsplanner, wedding planner, fødselsdagsplanner, festplanner, eventplanner, gæsteliste, bordplan, bryllupsbudget.
+
+Ingen konto nødvendig. Virker offline. Download My Perfect Party — din wedding & events planner.`,
+  },
+  {
+    locale: 'sv-SE',
+    language: 'Swedish',
+    title: 'Min perfekta fest',
+    short:
+      'Bröllops- & eventplanerare — gäster, bordsplacering, budget, uppgifter.',
+    full: `My Perfect Party är en bröllopsplanerare, födelsedagsplanerare och app för alla fester.
+
+Planera bröllop, födelsedag, jubileum, förlovning, dop eller familjeträff — i telefonen, med lokala data på enheten.
+
+Vad du kan göra:
+• Skapa event med datum, tid, plats och tema
+• Gästlista och närvaro
+• Bordsplacering
+• Budget och utgifter
+• Uppgifter och påminnelser
+• Designa och dela digitala inbjudningar
+• Exportera PDF-rapport
+• Valfri e-postbackup
+
+Sökord: bröllopsplanerare, wedding planner, födelsedagsplanerare, festplanerare, eventplanerare, gästlista, bordsplacering, bröllopsbudget.
+
+Inget konto behövs. Fungerar offline. Ladda ner My Perfect Party — din wedding & events planner.`,
+  },
+  {
+    locale: 'fi-FI',
+    language: 'Finnish',
+    title: 'Täydellinen juhlani',
+    short:
+      'Häät & tapahtumasuunnittelija — vieraat, pöytäjärjestys, budjetti, tehtävät.',
+    full: `My Perfect Party on hääsuunnittelija, syntymäpäiväsuunnittelija ja sovellus kaikille juhille.
+
+Suunnittele häät, syntymäpäivä, vuosipäivä, kihlajaiset, kaste tai sukujuhla — puhelimessa, tiedot paikallisesti laitteella.
+
+Mitä voit tehdä:
+• Luo tapahtumia päivämäärällä, ajalla, paikalla ja teemalla
+• Vieraslista ja läsnäolo
+• Pöytäjärjestys
+• Budjetti ja kulut
+• Tehtävät ja muistutukset
+• Digitaaliset kutsut
+• Vie PDF-raportti
+• Valinnainen sähköpostivarmuuskopio
+
+Hakusanat: hääsuunnittelija, wedding planner, syntymäpäiväsuunnittelija, juhlasuunnittelija, vieraslista, pöytäjärjestys, hääbudjetti, event planner.
+
+Tiliä ei tarvita. Toimii offline. Lataa My Perfect Party — wedding & events plannerisi.`,
+  },
+  {
+    locale: 'et',
+    language: 'Estonian',
+    title: 'Minu täiuslik pidu',
+    short:
+      'Pulma- ja ürituste planeerija — külalised, istekohtade plaan, eelarve.',
+    full: `My Perfect Party on pulmaplaneerija, sünnipäevaplaneerija ja äpp igaks peoks.
+
+Planeeri pulm, sünnipäev, aastapäev, kihlus, ristimine või perekonna kokkutulek — telefonis, andmed seadmes kohalikult.
+
+Mida saad teha:
+• Loo sündmusi kuupäeva, kellaaja, asukoha ja teemaga
+• Külaliste nimekiri ja kohalolek
+• Istekohtade ja laudade plaan
+• Eelarve ja kulud
+• Ülesanded ja meeldetuletused
+• Digitaalsed kutsed
+• Ekspordi PDF-aruanne
+• Valikuline e-posti varundus
+
+Märksõnad: pulmaplaneerija, wedding planner, sünnipäevaplaneerija, peo planeerija, külaliste nimekiri, istekohtade plaan, pulma eelarve.
+
+Kontot pole vaja. Töötab offline. Laadi alla My Perfect Party — sinu wedding & events planner.`,
+  },
+  {
+    locale: 'lv',
+    language: 'Latvian',
+    title: 'Mana ideālā ballīte',
+    short:
+      'Kāzu un pasākumu plānotājs — viesi, sēdvietas, budžets, uzdevumi, ielūgumi.',
+    full: `My Perfect Party ir kāzu plānotājs, dzimšanas dienas plānotājs un lietotne jebkuram svētkam.
+
+Plānojiet kāzas, dzimšanas dienu, jubileju, saderības, kristības vai ģimenes tikšanos — telefonā, ar lokāliem datiem ierīcē.
+
+Ko varat darīt:
+• Veidot notikumus ar datumu, laiku, vietu un tēmu
+• Viesu saraksts un apmeklējums
+• Sēdvietu un galdu plāns
+• Budžets un izdevumi
+• Uzdevumi un atgādinājumi
+• Digitālie ielūgumi
+• Eksportēt PDF pārskatu
+• Neobligāts e-pasta dublējums
+
+Atslēgvārdi: kāzu plānotājs, wedding planner, dzimšanas dienas plānotājs, ballītes plānotājs, viesu saraksts, sēdvietu plāns, kāzu budžets.
+
+Konts nav nepieciešams. Strādā bezsaistē. Lejupielādējiet My Perfect Party — jūsu wedding & events planner.`,
+  },
+  {
+    locale: 'lt',
+    language: 'Lithuanian',
+    title: 'Mano tobula šventė',
+    short:
+      'Vestuvų ir švenčių planuoklis — svečiai, sėdėjimo planas, biudžetas, užduotys.',
+    full: `My Perfect Party – vestuvių planuoklis, gimtadienio planuoklis ir programėlė bet kokiai šventei.
+
+Planuokite vestuves, gimtadienį, sukaktį, sužadėtuves, krikštynas ar šeimos susitikimą – telefone, su vietiniais duomenimis įrenginyje.
+
+Ką galite daryti:
+• Kurti renginius su data, laiku, vieta ir tema
+• Svečių sąrašas ir dalyvavimas
+• Sėdėjimo ir stalų planas
+• Biudžetas ir išlaidos
+• Užduotys ir priminimai
+• Skaitmeniniai kvietimai
+• Eksportuoti PDF ataskaitą
+• Pasirenkamas el. pašto atsarginis kopijavimas
+
+Raktažodžiai: vestuvių planuoklis, wedding planner, gimtadienio planuoklis, vakarėlio planuoklis, svečių sąrašas, sėdėjimo planas, vestuvių biudžetas.
+
+Paskyra nereikalinga. Veikia neprisijungus. Atsisiųskite My Perfect Party – jūsų wedding & events planner.`,
+  },
+];
+
+function assertLimits(entry) {
+  const issues = [];
+  if ([...entry.title].length > 50) issues.push(`title ${[...entry.title].length}>50`);
+  if ([...entry.short].length > 80) issues.push(`short ${[...entry.short].length}>80`);
+  if ([...entry.full].length > 4000) issues.push(`full ${[...entry.full].length}>4000`);
+  return issues;
+}
+
+export function validatePlayListings() {
+  return playListings.flatMap((e) => {
+    const issues = assertLimits(e);
+    return issues.length ? [`${e.locale}: ${issues.join(', ')}`] : [];
+  });
+}

@@ -510,7 +510,7 @@
     "termsOfUse": "Termeni de utilizare",
     "notificationsLabel": "Notificări",
     "notificationsInfoTitle": "Notificări",
-    "notificationsInfoMessage": "Notificări locale pe dispozitivul tău.\n\nEvenimente: 7 zile, 24 de ore și 1 oră înainte de început (după ora telefonului).\n\nSarcini: 24 de ore înainte și la termen (la prânz dacă nu este setată ora).",
+    "notificationsInfoMessage": "Notificări locale pe dispozitivul tău.\n\nEvenimente: 7 zile, 24 de ore și 1 oră înainte de început (după ora telefonului).\n\nSarcini: 24 de ore înainte și la termen.",
     "adsInfo": "Reclame în aplicație",
     "usageGuide": "Cum să folosești aplicația",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Politica de confidențialitate – Petrecerea mea perfectă",
+      "title": "Politica de confidențialitate",
       "effectiveDate": "Data intrării în vigoare: 22 iulie 2026",
       "intro": "Petrecerea mea perfectă respectă confidențialitatea dumneavoastră. Această Politică de confidențialitate explică modul în care sunt gestionate informațiile dumneavoastră atunci când utilizați aplicația noastră.",
       "localDataTitle": "Date stocate local",
@@ -554,7 +554,7 @@
       "contactBody": "Dacă aveți întrebări despre această Politică de confidențialitate, contactați-ne la {{email}}."
     },
     "terms": {
-      "title": "Termeni de utilizare – Petrecerea mea perfectă",
+      "title": "Termeni de utilizare",
       "effectiveDate": "Data intrării în vigoare: 22 iulie 2026",
       "intro": "Acești Termeni de utilizare reglementează utilizarea aplicației Petrecerea mea perfectă.",
       "acceptanceTitle": "Acceptarea termenilor",
@@ -580,12 +580,12 @@
       "contactBody": "Pentru întrebări despre acești Termeni, contactați-ne la {{email}}."
     },
     "ads": {
-      "title": "Reclame în My Perfect Party",
+      "title": "Reclame în aplicație",
       "intro": "Versiunea gratuită a My Perfect Party este susținută de reclame. Această pagină explică unde apar reclamele și când poți fi rugat să vezi o reclamă scurtă cu recompensă.",
       "rewardedTitle": "Reclame cu recompensă",
       "rewardedIntro": "Unele acțiuni cer să vezi o reclamă scurtă înainte de a continua. Dacă închizi reclama prea devreme, acțiunea poate să nu se finalizeze.",
       "themeTitle": "Teme ale aplicației și evenimentului",
-      "themeBody": "Temele de sărbătoare blocate necesită vizionarea unei reclame scurte pentru deblocare sau schimbare. Temele deja deblocate rămân disponibile.",
+      "themeBody": "Temele aplicației și evenimentului pot fi schimbate liber. Reclamele recompensate nu sunt necesare pentru teme.",
       "deleteEventTitle": "Ștergerea unui eveniment",
       "deleteEventBody": "Când ești online, ștergerea unui eveniment necesită vizionarea unei reclame scurte.",
       "guestsTitle": "Adăugarea invitaților",
@@ -606,7 +606,7 @@
       "offlineBody": "Reclamele cu recompensă necesită conexiune la internet. Dacă ești offline, acțiunea poate să nu fie disponibilă. În Expo Go se afișează previzualizări de test în loc de reclame reale."
     },
     "usage": {
-      "title": "Cum să folosești Petrecerea mea perfectă",
+      "title": "Cum să folosești aplicația",
       "intro": "Petrecerea mea perfectă te ajută să planifici o celebrare pas cu pas. Acest ghid explică fiecare ecran și buton ca să știi exact ce face fiecare acțiune.",
       "homeTitle": "Ecran principal",
       "homeBody": "Aici vezi toate evenimentele tale. Iconița cu rotiță (sus dreapta) deschide Setările. Butonul albastru + (jos dreapta) creează un eveniment nou. Atinge un card de eveniment pentru a-l deschide. Iconița creion de pe un card editează numele, data, locația și tema acelui eveniment.",
@@ -637,7 +637,8 @@
       "settingsTitle": "Setări",
       "settingsBody": "Limba aplicației, tema aplicației (poate afișa reclamă scurtă la schimbare), notificări cu iconiță info despre intervalele de memento, e-mail backup, Trimite backup / Importă backup, evaluează pe Play Store, Politica de confidențialitate, Termeni de utilizare, Reclame în aplicație și acest ghid.",
       "backupTitle": "Backup și restaurare",
-      "backupBody": "Toate datele rămân doar pe dispozitivul tău. Trimite backup creează un fișier JSON și deschide e-mailul sau dialogul de partajare. Importă backup restaurează date dintr-un fișier salvat anterior. Ești responsabil pentru siguranța backup-ului tău."
+      "backupBody": "Toate datele rămân doar pe dispozitivul tău. Trimite backup creează un fișier JSON și deschide e-mailul sau dialogul de partajare. Importă backup restaurează date dintr-un fișier salvat anterior. Ești responsabil pentru siguranța backup-ului tău.",
+      "tapHint": "Atinge un card pentru a extinde"
     }
   }
 }

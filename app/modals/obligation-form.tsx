@@ -110,12 +110,13 @@ export default function ObligationFormModal() {
       />
 
       <DatePickerField
-        label={t('obligations.date')}
+        label={t('events.dateTime')}
         value={date || undefined}
         onChange={(iso) => setDate(iso ?? '')}
-        placeholder={t('events.selectDate')}
+        placeholder={t('events.selectDateTime')}
         clearLabel={t('events.clearDate')}
         locale={language}
+        mode="datetime"
       />
 
       <SelectField<ObligationStatus>
@@ -136,7 +137,6 @@ export default function ObligationFormModal() {
         label={t('obligations.note')}
         value={note}
         onChangeText={setNote}
-        placeholder={t('obligations.notePlaceholder')}
         multiline
       />
 

@@ -510,7 +510,7 @@
     "termsOfUse": "Téarmaí úsáide",
     "notificationsLabel": "Fógraí",
     "notificationsInfoTitle": "Fógraí",
-    "notificationsInfoMessage": "Fógraí áitiúla ar do ghléas.\n\nImeachtaí: 7 lá, 24 uair agus 1 uair roimh an tús (de réir ama do ghutháin).\n\nTascanna: 24 uair roimh ré agus ag an am dlite (meán lae mura bhfuil am socraithe).",
+    "notificationsInfoMessage": "Fógraí áitiúla ar do ghléas.\n\nImeachtaí: 7 lá, 24 uair agus 1 uair roimh an tús (de réir ama do ghutháin).\n\nTascanna: 24 uair roimh ré agus ag an am dlite.",
     "adsInfo": "Fógraí san aip",
     "usageGuide": "Conas an aip a úsáid",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Polasaí príobháideachais – Mo chóisir foirfe",
+      "title": "Polasaí príobháideachais",
       "effectiveDate": "Dáta éifeachtach: 22 Iúil 2026",
       "intro": "Tugann Mo chóisir foirfe meas ar do phríobháideachas. Míníonn an Polasaí Príobháideachais seo conas a láimhseáiltear d'fhaisnéis nuair a úsáideann tú ár n-aip.",
       "localDataTitle": "Sonraí stóráilte go háitiúil",
@@ -554,7 +554,7 @@
       "contactBody": "Má tá ceisteanna agat faoin bPolasaí Príobháideachais seo, déan teagmháil linn ag {{email}}."
     },
     "terms": {
-      "title": "Téarmaí úsáide – Mo chóisir foirfe",
+      "title": "Téarmaí úsáide",
       "effectiveDate": "Dáta éifeachtach: 22 Iúil 2026",
       "intro": "Rialaíonn na Téarmaí Úsáide seo d'úsáid na haipe Mo chóisir foirfe.",
       "acceptanceTitle": "Glacadh leis na téarmaí",
@@ -580,12 +580,12 @@
       "contactBody": "Le haghaidh ceisteanna faoin Téarmaí seo, déan teagmháil linn ag {{email}}."
     },
     "ads": {
-      "title": "Fógraí i My Perfect Party",
+      "title": "Fógraí san aip",
       "intro": "Tacaítear leis an leagan saor in aisce de My Perfect Party le fógraí. Míníonn an leathanach seo cá bhfaigheann fógraí agus cathain a d’fhéadfadh iarraidh ort fógra gearr luach saothair a fheiceáil.",
       "rewardedTitle": "Fógraí luach saothair",
       "rewardedIntro": "Éilíonn roinnt gníomhartha fógra gearr a fheiceáil sula leanann tú ar aghaidh. Má dhúnann tú an fógra go luath, b’fhéidir nach gcríochnófar an gníomh.",
       "themeTitle": "Téamaí na haipe agus an ócáid",
-      "themeBody": "Éilíonn téamaí ceiliúrtha faoi ghlas fógra gearr a fheiceáil chun iad a dhíghlasáil nó a athrú. Fanann na téamaí atá díghlasáilte agat cheana ar fáil.",
+      "themeBody": "Is féidir téamaí na haipe agus an ócáid a athrú go saor. Ní theastaíonn fógraí luaíochta do théamaí.",
       "deleteEventTitle": "Ócáid a scriosadh",
       "deleteEventBody": "Nuair atá tú ar líne, éilíonn ócáid a scriosadh fógra gearr a fheiceáil.",
       "guestsTitle": "Aoi a chur leis",
@@ -606,7 +606,7 @@
       "offlineBody": "Éilíonn fógraí luach saothair nasc idirlín. Má tá tú as líne, b’fhéidir nach mbeidh an gníomh ar fáil. I Expo Go, taispeántar réamhamhairc tástála in ionad fíorfhógraí."
     },
     "usage": {
-      "title": "Conas Mo chóisir foirfe a úsáid",
+      "title": "Conas an aip a úsáid",
       "intro": "Cuireann Mo chóisir foirfe ar do chumas ceiliúradh a phleanáil céim ar chéim. Míníonn an treoir seo gach scáileán agus cnaipe ionas go mbeidh a fhios agat go díreach cad a dhéanann gach gníomh.",
       "homeTitle": "Scáileán baile",
       "homeBody": "Feiceann tú do chuid imeachtaí go léir anseo. Osclaíonn an deil ghéar (ar barr ar dheis) Socruithe. Cruthaíonn an cnaipe gorm + (ag bun ar dheis) imeacht nua. Tapáil cárta imeachta chun é a oscailt. Cuireann an deil peann ar chárta in eagar ainm, dáta, suíomh agus téama an imeachta sin.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Cuireadh",
       "invitationsBody": "Oscail ón bhForbhreathnú trí Cruthaigh cuireadh. Roghnaigh teimpléad, cló, dathanna, príomhtheacs agus fó-imeachtaí (searmanas, fáiltiú srl.). Seolann Roinn an íomhá; Sábhálann Íoslódáil í i do ghailearaí (soghluaiste). Ar líne d'fhéadfadh fógra gearr a thaispeáint.",
       "settingsTitle": "Socruithe",
-      "settingsBody": "Teanga na haipe, téama na haipe (d'fhéadfadh fógra gearr a thaispeáint nuair a athraítear é), fógraí le deil info faoi eatraimh meabhrúcháin, ríomhphost cúltaca, Seol cúltaca / Iompórtáil cúltaca, rátáil ar an Play Store, Polasaí príobháideachais, Téarmaí úsáide, Fógraí san aip agus an treoir seo.",
+      "settingsBody": "Teanga na haipe, téama na haipe, fógraí le deil info faoi eatraimh meabhrúcháin, ríomhphost cúltaca, Seol cúltaca / Iompórtáil cúltaca, rátáil ar an Play Store, Polasaí príobháideachais, Téarmaí úsáide, Fógraí san aip agus an treoir seo.",
       "backupTitle": "Cúltaca agus athchóiriú",
-      "backupBody": "Fanann gach sonraí ar do ghléas amháin. Cruthaíonn Seol cúltaca comhad JSON agus osclaíonn ríomhphost nó dialóg roinnte. Athchóiríonn Iompórtáil cúltaca sonraí ó chomhad a sábháladh roimhe seo. Tá tú freagrach as do chúltaca a choinneáil slán."
+      "backupBody": "Fanann gach sonraí ar do ghléas amháin. Cruthaíonn Seol cúltaca comhad JSON agus osclaíonn ríomhphost nó dialóg roinnte. Athchóiríonn Iompórtáil cúltaca sonraí ó chomhad a sábháladh roimhe seo. Tá tú freagrach as do chúltaca a choinneáil slán.",
+      "tapHint": "Tapáil cárta chun leathnú"
     }
   }
 }

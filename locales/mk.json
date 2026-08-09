@@ -510,7 +510,7 @@
     "termsOfUse": "Услови за користење",
     "notificationsLabel": "Известувања",
     "notificationsInfoTitle": "Известувања",
-    "notificationsInfoMessage": "Локални известувања на вашиот уред.\n\nНастани: 7 дена, 24 часа и 1 час пред почетокот (според времето на телефонот).\n\nОбврски: 24 часа пред и во времето на обврската (напладне ако нема час).",
+    "notificationsInfoMessage": "Локални известувања на вашиот уред.\n\nНастани: 7 дена, 24 часа и 1 час пред почетокот (според времето на телефонот).\n\nОбврски: 24 часа пред и во времето на обврската.",
     "adsInfo": "Реклами во апликацијата",
     "usageGuide": "Како да ја користите апликацијата",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Политика за приватност – Моја совршена прослава",
+      "title": "Политика за приватност",
       "effectiveDate": "Датум на стапување на сила: 22 јули 2026",
       "intro": "Моја совршена прослава ја почитува вашата приватност. Оваа Политика за приватност објаснува како се постапува со вашите информации кога ја користите нашата апликација.",
       "localDataTitle": "Локално зачувани податоци",
@@ -554,7 +554,7 @@
       "contactBody": "Ако имате прашања за оваа Политика за приватност, контактирајте не на {{email}}."
     },
     "terms": {
-      "title": "Услови за користење – Моја совршена прослава",
+      "title": "Услови за користење",
       "effectiveDate": "Датум на стапување на сила: 22 јули 2026",
       "intro": "Овие Услови за користење го регулираат користењето на апликацијата Моја совршена прослава.",
       "acceptanceTitle": "Прифаќање на условите",
@@ -580,12 +580,12 @@
       "contactBody": "За прашања за овие Услови, контактирајте не на {{email}}."
     },
     "ads": {
-      "title": "Реклами во My Perfect Party",
+      "title": "Реклами во апликацијата",
       "intro": "Бесплатната верзија на My Perfect Party се поддржува од реклами. Оваа страница објаснува каде се појавуваат рекламите и кога може да бидете замолени да гледате кратка наградна реклама.",
       "rewardedTitle": "Наградни реклами",
       "rewardedIntro": "Некои акции бараат да гледате кратка реклама пред да продолжите. Ако ја затворите рекламата прерано, акцијата може да не се заврши.",
       "themeTitle": "Теми на апликацијата и настанот",
-      "themeBody": "Заклучените теми за прослава бараат гледање кратка реклама за отključuvanje ili promena. Temite što već ste otključale ostavaat dostapni.",
+      "themeBody": "Темите на апликацијата и настанот можете да ги менувате слободно. Наградни реклами не се бараат за теми.",
       "deleteEventTitle": "Бришење настан",
       "deleteEventBody": "Koga ste online, brishenjeto na nastanot bara gledanje kratka reklama.",
       "guestsTitle": "Dodavanje gosti",
@@ -606,7 +606,7 @@
       "offlineBody": "Nagradnite reklami baraat internet vrska. Ako ste offline, akcijata mozhe da ne e dostapna. Vo Expo Go se prikazuvaat testni pregledi namesto vrski reklami."
     },
     "usage": {
-      "title": "Како да ја користите Моја совршена прослава",
+      "title": "Како да ја користите апликацијата",
       "intro": "Моја совршена прослава ви помага да планирате прослава чекор по чекор. Овој водич објаснува секој екран и копче за да знаете точно што прави секоја акција.",
       "homeTitle": "Почетен екран",
       "homeBody": "Овде ги гледате сите ваши настани. Иконата со зупчаник (горе десно) ги отвора Поставките. Синото копче + (доле десно) создава нов настан. Допрете картичка на настан за да ја отворите. Иконата со молив на картичка го уредува името, датумот, локацијата и темата на тој настан.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Pokani",
       "invitationsBody": "Otvorete od Pregled preku Kreiraj pokana. Izberete shablon, font, boi, glaven tekst i pod-nastani (ceremonija, priem i sl.). Spodeli ja isprakja slikata; Prezemi ja zacuvuva vo galerijata (mobilen). Online moze da prikazhe kratka reklama.",
       "settingsTitle": "Podesuvanja",
-      "settingsBody": "Jazik na aplikacijata, tema na aplikacijata (pri promena moze da prikazhe kratka reklama), izvestuvanja so info ikona za intervali na potsetnici, e-mail za rezervna kopija, Isprati rezervna kopija / Uvezi rezervna kopija, ocenete na Play Store, Politika za privatnost, Uslovi za koristenje, Reklami vo aplikacijata i ovoj vodich.",
+      "settingsBody": "Jazik na aplikacijata, tema na aplikacijata, izvestuvanja so info ikona za intervali na potsetnici, e-mail za rezervna kopija, Isprati rezervna kopija / Uvezi rezervna kopija, ocenete na Play Store, Politika za privatnost, Uslovi za koristenje, Reklami vo aplikacijata i ovoj vodich.",
       "backupTitle": "Rezervna kopija i vrakjanje",
-      "backupBody": "Site podatoci ostavaat samo na vashiot ured. Isprati rezervna kopija kreira JSON datoteka i otvara e-mail ili dijalog za spodeluvanje. Uvezi rezervna kopija gi vrakja podatocite od prethodno zacuvana datoteka. Vie ste odgovorni za zacuvuvanje na rezervnata kopija."
+      "backupBody": "Site podatoci ostavaat samo na vashiot ured. Isprati rezervna kopija kreira JSON datoteka i otvara e-mail ili dijalog za spodeluvanje. Uvezi rezervna kopija gi vrakja podatocite od prethodno zacuvana datoteka. Vie ste odgovorni za zacuvuvanje na rezervnata kopija.",
+      "tapHint": "Допри картичка за проширување"
     }
   }
 }

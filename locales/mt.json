@@ -510,7 +510,7 @@
     "termsOfUse": "Termini ta' użu",
     "notificationsLabel": "Notifiki",
     "notificationsInfoTitle": "Notifiki",
-    "notificationsInfoMessage": "Notifiki lokali fuq it-tagħmir tiegħek.\n\nAvvenimenti: 7 ijiem, 24 siegħa u siegħa 1 qabel il-bidu (skond il-ħin tat-telefon).\n\nKompiti: 24 siegħa qabel u fil-ħin skadenti (nofsinhar jekk m'hemmx ħin).",
+    "notificationsInfoMessage": "Notifiki lokali fuq it-tagħmir tiegħek.\n\nAvvenimenti: 7 ijiem, 24 siegħa u siegħa 1 qabel il-bidu (skond il-ħin tat-telefon).\n\nKompiti: 24 siegħa qabel u fil-ħin skadenti.",
     "adsInfo": "Reklami fl-app",
     "usageGuide": "Kif tuża l-app",
     "copyright": "© {{year}} {{appName}}",
@@ -538,7 +538,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Politika ta' privatezza – Il-festa perfetta tiegħi",
+      "title": "Politika ta' privatezza",
       "effectiveDate": "Data effettiva: 22 ta' Lulju 2026",
       "intro": "Il-festa perfetta tiegħi tirrispetta l-privatezza tiegħek. Din il-Politika ta' Privatezza tispjega kif jiġu trattati l-informazzjoni tiegħek meta tuża l-applikazzjoni tagħna.",
       "localDataTitle": "Data maħżuna lokali",
@@ -554,7 +554,7 @@
       "contactBody": "Jekk għandek mistoqsijiet dwar din il-Politika ta' Privatezza, ikkuntattjana fuq {{email}}."
     },
     "terms": {
-      "title": "Termini ta' użu – Il-festa perfetta tiegħi",
+      "title": "Termini ta' użu",
       "effectiveDate": "Data effettiva: 22 ta' Lulju 2026",
       "intro": "Dawn it-Termini ta' Użu jirregolaw l-użu tiegħek tal-applikazzjoni Il-festa perfetta tiegħi.",
       "acceptanceTitle": "Aċċettazzjoni tat-termini",
@@ -580,12 +580,12 @@
       "contactBody": "Għal mistoqsijiet dwar dawn it-Termini, ikkuntattjana fuq {{email}}."
     },
     "ads": {
-      "title": "Reklami f’My Perfect Party",
+      "title": "Reklami fl-app",
       "intro": "Il-verżjoni b’xejn ta’ My Perfect Party hija appoġġjata mir-reklami. Din il-paġna tispjega fejn jidhru r-reklami u meta tista’ tkun mitlub tara reklam qasir bil-premju.",
       "rewardedTitle": "Reklami bil-premju",
       "rewardedIntro": "Xi azzjonijiet jeħtieġu li tara reklam qasir qabel tkompli. Jekk tagħlaq ir-reklam kmieni wisq, l-azzjoni tista’ ma titlestix.",
       "themeTitle": "Temi tal-app u tal-avveniment",
-      "themeBody": "It-temi ta’ ċelebrazzjoni imsakkra jeħtieġu li tara reklam qasir biex tiftaħhom jew tbiddelhom. It-temi li diġà ftaħt jibqgħu disponibbli.",
+      "themeBody": "It-temi tal-app u tal-avveniment jistgħu jinbidlu liberament. Reklami bi premi mhumiex meħtieġa għat-temi.",
       "deleteEventTitle": "Tħassir ta’ avveniment",
       "deleteEventBody": "Meta tkun online, it-tħassir ta’ avveniment jeħtieġ li tara reklam qasir.",
       "guestsTitle": "Żieda ta’ mistiedna",
@@ -606,7 +606,7 @@
       "offlineBody": "Reklami bil-premju jeħtieġu konnessjoni tal-internet. Jekk tkun offline, l-azzjoni tista’ ma tkunx disponibbli. F’Expo Go jintwerew previews tat-test minflok reklami reali."
     },
     "usage": {
-      "title": "Kif tuża Il-festa perfetta tiegħi",
+      "title": "Kif tuża l-app",
       "intro": "Il-festa perfetta tiegħi tgħinek tippjana ċelebrazzjoni pass pass. Din il-gwida tispjega kull skrin u buttuna sabiex tkun taf eżattament x'tagħmel kull azzjoni.",
       "homeTitle": "Skrin tad-dħul",
       "homeBody": "Hawn tara l-avvenimenti kollha tiegħek. L-ikona tal-gear (fuq fuq lemin) tiftaħ is-Settings. Il-buttuna blu + (isfel lemin) toħloq avveniment ġdid. Agħfas karta ta' avveniment biex tiftaħha. L-ikona tal-lapis fuq karta teditja l-isem, id-data, il-post u t-tema ta' dak l-avveniment.",
@@ -635,9 +635,10 @@
       "invitationsTitle": "Invitations",
       "invitationsBody": "Iftaħ minn Overview permezz ta' Create invitation. Agħżel template, font, colors, main text u sub-events (ceremony, reception eċċ.). Share tibgħat l-immaġni; Download tissejvaha fil-gallery (mobile). Online jista' juri reklam qasir.",
       "settingsTitle": "Settings",
-      "settingsBody": "App language, app theme (jista' juri reklam qasir meta tbiddel), notifications b'info icon dwar reminder intervals, backup email, Send backup / Import backup, rate fuq Play Store, Privacy policy, Terms of use, Ads fl-app u din il-gwida.",
+      "settingsBody": "App language, app theme, notifications b'info icon dwar reminder intervals, backup email, Send backup / Import backup, rate fuq Play Store, Privacy policy, Terms of use, Ads fl-app u din il-gwida.",
       "backupTitle": "Backup u restore",
-      "backupBody": "Id-data kollha tibqa' fuq it-tagħmir tiegħek biss. Send backup toħloq file JSON u tiftaħ email jew share dialog. Import backup jirrestawra data minn file salvat qabel. Int responsabbli li żżomm il-backup tiegħek sigur."
+      "backupBody": "Id-data kollha tibqa' fuq it-tagħmir tiegħek biss. Send backup toħloq file JSON u tiftaħ email jew share dialog. Import backup jirrestawra data minn file salvat qabel. Int responsabbli li żżomm il-backup tiegħek sigur.",
+      "tapHint": "Miss karta biex tespandi"
     }
   }
 }

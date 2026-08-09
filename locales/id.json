@@ -512,7 +512,7 @@
     "termsOfUse": "Ketentuan Penggunaan",
     "notificationsLabel": "Notifikasi",
     "notificationsInfoTitle": "Notifikasi",
-    "notificationsInfoMessage": "Notifikasi lokal di perangkat Anda.\n\nAcara: 7 hari, 24 jam, dan 1 jam sebelum mulai (menggunakan waktu ponsel).\n\nTugas: 24 jam sebelum dan pada waktu jatuh tempo (siang jika waktu tidak diatur).",
+    "notificationsInfoMessage": "Notifikasi lokal di perangkat Anda.\n\nAcara: 7 hari, 24 jam, dan 1 jam sebelum mulai (menggunakan waktu ponsel).\n\nTugas: 24 jam sebelum dan pada waktu jatuh tempo.",
     "adsInfo": "Iklan di aplikasi",
     "usageGuide": "Cara menggunakan aplikasi"
   },
@@ -546,7 +546,7 @@
   },
   "legal": {
     "privacy": {
-      "title": "Kebijakan Privasi – Pesta Sempurna Saya",
+      "title": "Kebijakan Privasi",
       "effectiveDate": "Tanggal berlaku: 22 Juli 2026",
       "intro": "Pesta Sempurna Saya menghormati privasi Anda. Kebijakan Privasi ini menjelaskan bagaimana informasi Anda ditangani saat Anda menggunakan aplikasi kami.",
       "localDataTitle": "Data disimpan secara lokal",
@@ -562,7 +562,7 @@
       "contactBody": "Jika Anda memiliki pertanyaan tentang Kebijakan Privasi ini, hubungi kami di {{email}}."
     },
     "terms": {
-      "title": "Ketentuan Penggunaan – Pesta Sempurna Saya",
+      "title": "Ketentuan Penggunaan",
       "effectiveDate": "Tanggal berlaku: 22 Juli 2026",
       "intro": "Ketentuan Penggunaan ini mengatur penggunaan aplikasi Pesta Sempurna Saya.",
       "acceptanceTitle": "Penerimaan ketentuan",
@@ -588,12 +588,12 @@
       "contactBody": "Untuk pertanyaan tentang Ketentuan ini, hubungi kami di {{email}}."
     },
     "ads": {
-      "title": "Iklan di Pesta Sempurna Saya",
+      "title": "Iklan di aplikasi",
       "intro": "Versi gratis Pesta Sempurna Saya didukung iklan. Halaman ini menjelaskan di mana iklan muncul dan kapan Anda diminta menonton iklan reward singkat.",
       "rewardedTitle": "Iklan reward",
       "rewardedIntro": "Beberapa tindakan meminta Anda menonton iklan singkat sebelum melanjutkan. Jika Anda menutup iklan lebih awal, tindakan mungkin tidak selesai.",
       "themeTitle": "Tema aplikasi dan acara",
-      "themeBody": "Tema perayaan terkunci memerlukan menonton iklan singkat untuk membuka atau mengganti. Tema yang sudah dibuka tetap tersedia.",
+      "themeBody": "Tema aplikasi dan acara dapat diganti bebas. Iklan reward tidak diperlukan untuk tema.",
       "deleteEventTitle": "Menghapus acara",
       "deleteEventBody": "Saat online, menghapus acara memerlukan menonton iklan singkat.",
       "guestsTitle": "Menambah tamu",
@@ -614,7 +614,7 @@
       "offlineBody": "Iklan reward memerlukan koneksi internet. Jika offline, tindakan mungkin tidak tersedia. Di Expo Go, pratinjau iklan uji ditampilkan alih-alih iklan asli."
     },
     "usage": {
-      "title": "Cara menggunakan Pesta Sempurna Saya",
+      "title": "Cara menggunakan aplikasi",
       "intro": "Pesta Sempurna Saya membantu Anda merencanakan perayaan langkah demi langkah. Panduan ini menjelaskan setiap layar dan tombol agar Anda tahu persis apa yang dilakukan setiap tindakan.",
       "homeTitle": "Layar utama",
       "homeBody": "Semua acara Anda ditampilkan di sini. Ikon roda gigi (kanan atas) membuka Pengaturan. Tombol + biru (kanan bawah) membuat acara baru. Ketuk kartu acara untuk membukanya. Ikon pensil pada kartu mengedit nama, tanggal, lokasi, dan tema acara.",
@@ -643,9 +643,10 @@
       "invitationsTitle": "Undangan",
       "invitationsBody": "Buka dari Ringkasan melalui Buat undangan. Pilih template, font, warna, teks utama, dan sub-acara (upacara, resepsi, dll.). Bagikan mengirim gambar; Unduh menyimpan ke galeri (seluler). Online mungkin menampilkan iklan singkat.",
       "settingsTitle": "Pengaturan",
-      "settingsBody": "Bahasa aplikasi, tema aplikasi (mungkin menampilkan iklan singkat saat mengganti), notifikasi dengan ikon info tentang interval pengingat, email cadangan, Kirim cadangan / Impor cadangan, beri nilai di Play Store, Kebijakan Privasi, Ketentuan Penggunaan, Iklan di aplikasi, dan panduan ini.",
+      "settingsBody": "Bahasa aplikasi, tema aplikasi, notifikasi dengan ikon info tentang interval pengingat, email cadangan, Kirim cadangan / Impor cadangan, beri nilai di Play Store, Kebijakan Privasi, Ketentuan Penggunaan, Iklan di aplikasi, dan panduan ini.",
       "backupTitle": "Cadangan dan pemulihan",
-      "backupBody": "Semua data tetap hanya di perangkat Anda. Kirim cadangan membuat file JSON dan membuka email atau dialog berbagi. Impor cadangan memulihkan data dari file yang disimpan sebelumnya. Anda bertanggung jawab menjaga cadangan Anda aman."
+      "backupBody": "Semua data tetap hanya di perangkat Anda. Kirim cadangan membuat file JSON dan membuka email atau dialog berbagi. Impor cadangan memulihkan data dari file yang disimpan sebelumnya. Anda bertanggung jawab menjaga cadangan Anda aman.",
+      "tapHint": "Ketuk kartu untuk memperluas"
     }
   }
 }
