@@ -2,7 +2,7 @@
   "expo": {
     "name": "My Perfect Party",
     "slug": "wedding-planner-bh",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "mojasavrsenaproslava",
@@ -21,7 +21,7 @@
       }
     },
     "android": {
-      "versionCode": 6,
+      "versionCode": 8,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#FFF8F4"
@@ -35,6 +35,7 @@
     },
     "plugins": [
       "expo-router",
+      "./plugins/withRemoveMediaReadPermissions.js",
       [
         "expo-splash-screen",
         {
@@ -66,7 +67,8 @@
         "expo-media-library",
         {
           "photosPermission": "Allow access to save invitation images.",
-          "savePhotosPermission": "Allow saving invitation images to your gallery."
+          "savePhotosPermission": "Allow saving invitation images to your gallery.",
+          "granularPermissions": []
         }
       ],
       [
