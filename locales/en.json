@@ -455,7 +455,7 @@
   "settings": {
     "title": "Settings",
     "appTheme": "App theme",
-    "appThemeHint": "Colors for the home screen and settings. Change anytime — no ad required.",
+    "appThemeHint": "Colors for the home screen and settings.",
     "themeUnlockHint": "Watch an ad to unlock locked themes.",
     "themeChangeAdHint": "Watch an ad to change theme.",
     "themeUnlocked": "Theme unlocked!",

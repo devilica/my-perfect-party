@@ -455,7 +455,7 @@
   "settings": {
     "title": "Postavke",
     "appTheme": "Tema aplikacije",
-    "appThemeHint": "Boje početne stranice i podešavanja. Menjaj kad želiš — bez reklame.",
+    "appThemeHint": "Boje početne stranice i podešavanja.",
     "themeUnlockHint": "Pogledaj reklamu da otključaš zaključane teme.",
     "themeChangeAdHint": "Pogledaj reklamu da promijeniš temu.",
     "themeUnlocked": "Tema je otključana!",

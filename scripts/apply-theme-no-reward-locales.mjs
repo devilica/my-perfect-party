@@ -10,27 +10,27 @@ const THEME_COPY = {
   en: {
     title: 'App and event themes',
     body: 'App and event themes can be changed freely. Rewarded ads are not required for themes.',
-    appThemeHint: 'Colors for the home screen and settings. Change anytime — no ad required.',
+    appThemeHint: 'Colors for the home screen and settings.',
   },
   bs: {
     title: 'Teme aplikacije i događaja',
     body: 'Teme aplikacije i događaja možete mijenjati slobodno. Nagradne reklame se ne traže za teme.',
-    appThemeHint: 'Boje početne stranice i postavki. Mijenjaj kad želiš — bez reklame.',
+    appThemeHint: 'Boje početne stranice i postavki.',
   },
   hr: {
     title: 'Teme aplikacije i događaja',
     body: 'Teme aplikacije i događaja možete mijenjati slobodno. Nagradne reklame se ne traže za teme.',
-    appThemeHint: 'Boje početnog zaslona i postavki. Mijenjaj kad želiš — bez reklame.',
+    appThemeHint: 'Boje početnog zaslona i postavki.',
   },
   sr: {
     title: 'Teme aplikacije i događaja',
     body: 'Teme aplikacije i događaja možete menjati slobodno. Nagradne reklame se ne traže za teme.',
-    appThemeHint: 'Boje početne stranice i podešavanja. Menjaj kad želiš — bez reklame.',
+    appThemeHint: 'Boje početne stranice i podešavanja.',
   },
   'sr-cy': {
     title: 'Теме апликације и догађаја',
     body: 'Теме апликације и догађаја можете мењати слободно. Наградне рекламе се не траже за теме.',
-    appThemeHint: 'Боје почетне странице и подешавања. Мењај кад желиш — без рекламе.',
+    appThemeHint: 'Боје почетне странице и подешавања.',
   },
   de: {
     title: 'App- und Event-Themen',
