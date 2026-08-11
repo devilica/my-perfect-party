@@ -1,6 +1,8 @@
 /**
- * Sync Android launcher + splash from assets/images/icon.png — no expo prebuild.
- * Preserves transparency on adaptive foreground / splash logo.
+ * Sync Android launcher icons from assets/images/icon.png — no expo prebuild.
+ * Native splash logos are intentionally blank (cream/transparent) so Android 12+
+ * circular splash does not show a cropped/zoomed brand mark; JS AnimatedSplashScreen
+ * owns the branded splash with pulse + confetti.
  *
  * Usage: npm run assets:android-icons
  */
@@ -62,6 +64,20 @@ async function resizeContainTransparent(sourcePath, size) {
     .toBuffer();
 }
 
+/** Fully transparent PNG so Android 12 circular splash icon is invisible on cream bg. */
+async function createTransparentPng(size) {
+  return sharp({
+    create: {
+      width: size,
+      height: size,
+      channels: 4,
+      background: { r: 0, g: 0, b: 0, alpha: 0 },
+    },
+  })
+    .png()
+    .toBuffer();
+}
+
 async function writeAdaptiveAsset() {
   // Adaptive foreground asset: icon scaled into safe zone, transparency kept.
   const size = 1024;
@@ -107,16 +123,10 @@ async function main() {
 
   await writeAdaptiveAsset();
 
-  // Expo splash asset: transparent logo (native splash bg color is separate).
-  await sharp(ICON)
-    .ensureAlpha()
-    .resize(1024, 1024, {
-      fit: 'contain',
-      background: { r: 0, g: 0, b: 0, alpha: 0 },
-    })
-    .png()
-    .toFile(SPLASH_ASSET);
-  console.log(`  ${path.relative(ROOT, SPLASH_ASSET)} (1024, transparent)`);
+  // Expo + native splash asset: blank so only AnimatedSplashScreen shows branding.
+  const blankSplash = await createTransparentPng(1024);
+  await writePng(blankSplash, SPLASH_ASSET);
+  console.log(`  ${path.relative(ROOT, SPLASH_ASSET)} (1024, blank/transparent)`);
 
   console.log('\nAndroid mipmaps:');
   for (const [folder, size] of Object.entries(FOREGROUND)) {
@@ -135,13 +145,13 @@ async function main() {
     await writeWebp(full, path.join(dir, 'ic_launcher_round.webp'));
   }
 
-  console.log('\nAndroid splash logos:');
+  console.log('\nAndroid splash logos (blank — cream bridge only):');
   for (const [folder, size] of Object.entries(SPLASH_LOGO)) {
     const dir = path.join(RES, folder);
     fs.mkdirSync(dir, { recursive: true });
-    // Transparent logo; windowSplashScreenBackground supplies cream
-    const logo = await resizeContainTransparent(ICON, size);
-    await writePng(logo, path.join(dir, 'splashscreen_logo.png'));
+    // Fully transparent; windowSplashScreenBackground supplies cream (#FFF8F4)
+    const blank = await createTransparentPng(size);
+    await writePng(blank, path.join(dir, 'splashscreen_logo.png'));
   }
 
   const colorsPath = path.join(RES, 'values/colors.xml');
