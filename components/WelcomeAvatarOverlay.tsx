@@ -17,8 +17,10 @@ import Animated, {
   withSequence,
   withTiming,
 } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useTranslation } from '@/lib/i18n';
+import { getEffectiveBottomInset } from '@/lib/safeAreaInsets';
 import { useWeddingStore } from '@/store/weddingStore';
 import { radius, spacing, typography } from '@/theme/colors';
 
@@ -57,6 +59,7 @@ type WelcomeAvatarOverlayProps = {
   bubbleAlign?: BubbleAlign;
   bubbleTailOffset?: number;
   anchor?: Anchor;
+  respectBottomInset?: boolean;
 };
 
 export function WelcomeAvatarOverlay({
@@ -72,9 +75,12 @@ export function WelcomeAvatarOverlay({
   bubbleAlign = 'center',
   bubbleTailOffset,
   anchor = 'left',
+  respectBottomInset = false,
 }: WelcomeAvatarOverlayProps) {
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
+  const insets = useSafeAreaInsets();
+  const bottomInset = respectBottomInset ? getEffectiveBottomInset(insets) : 0;
   const resolvedAspect = resolveAspectRatio(image, aspectRatio);
   const avatarHeight = Math.round(SCREEN_HEIGHT * heightRatio);
   const avatarWidth = Math.round(avatarHeight * resolvedAspect);
@@ -141,7 +147,7 @@ export function WelcomeAvatarOverlay({
       pointerEvents="none"
       style={[
         anchor === 'right' ? styles.wrapRight : styles.wrapLeft,
-        { maxWidth: layoutWidth },
+        { maxWidth: layoutWidth, bottom: bottomInset },
         animatedStyle,
       ]}
       accessibilityElementsHidden

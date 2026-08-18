@@ -13,6 +13,7 @@ export function EventsWelcomeAvatar() {
       messageKey="app.welcome"
       shouldShow={shouldShowEventsWelcome}
       markShown={markEventsWelcomeShown}
+      respectBottomInset
     />
   );
 }
