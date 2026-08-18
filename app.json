@@ -9,7 +9,7 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/images/splash-icon.png",
+      "image": "./assets/images/logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#FFF8F4"
     },
@@ -41,8 +41,8 @@
         "expo-splash-screen",
         {
           "backgroundColor": "#FFF8F4",
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 260
+          "image": "./assets/images/logo.png",
+          "imageWidth": 220
         }
       ],
       "expo-localization",

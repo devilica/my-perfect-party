@@ -1,5 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 
+import { SeatChairIcon } from '@/components/SeatChairIcon';
+
 import {
   getScaledLabelWidth,
   getScaledSeatSize,
@@ -31,6 +33,14 @@ type TablePreviewDiagramProps = {
   guestNameMode?: GuestSeatNameMode;
   /** Highlight seats belonging to this guest (table preview reorder). */
   selectedGuestId?: string | null;
+  /** Label on the first highlighted seat (guest seat card). */
+  youLabel?: string;
+  /** Hide the name/count inside the table body. */
+  showTableText?: boolean;
+  /** Optional large label in the table center (guest seat card). */
+  centerLabel?: string;
+  /** Chair icons instead of dots (guest seat card). */
+  seatMarker?: 'dot' | 'chair';
 };
 
 export function TablePreviewDiagram({
@@ -44,6 +54,10 @@ export function TablePreviewDiagram({
   compactHallText = false,
   guestNameMode = 'full',
   selectedGuestId = null,
+  youLabel,
+  showTableText = true,
+  centerLabel,
+  seatMarker = 'dot',
 }: TablePreviewDiagramProps) {
   const theme = useThemeColors();
   const scale = size / BASE_DIAGRAM_SIZE;
@@ -62,6 +76,9 @@ export function TablePreviewDiagram({
         ? labelWidth * 1.4
         : labelWidth;
   const seatPositions = getSeatPositions(shape, capacity, size, roundSeatSpacing);
+  const youSeatIndex = youLabel
+    ? seats.findIndex((seat) => seat.guestId === selectedGuestId)
+    : -1;
   const tableNameFontSize = compactHallText
     ? Math.max(4, typography.subheading.fontSize * scale)
     : Math.max(10, typography.subheading.fontSize * scale);
@@ -88,30 +105,46 @@ export function TablePreviewDiagram({
           },
         ]}
       >
-        <Text
-          style={[
-            styles.tableName,
-            {
-              color: theme.text,
-              fontSize: tableNameFontSize,
-            },
-          ]}
-          numberOfLines={compactHallText ? 1 : 2}
-        >
-          {tableName}
-        </Text>
-        <Text
-          style={[
-            styles.tableCount,
-            {
-              color: theme.textSecondary,
-              fontSize: tableCountFontSize,
-              marginTop: (compactHallText ? spacing.xs * 0.25 : spacing.xs) * scale,
-            },
-          ]}
-        >
-          {occupied}/{capacity}
-        </Text>
+        {showTableText ? (
+          <>
+            <Text
+              style={[
+                styles.tableName,
+                {
+                  color: theme.text,
+                  fontSize: tableNameFontSize,
+                },
+              ]}
+              numberOfLines={compactHallText ? 1 : 2}
+            >
+              {tableName}
+            </Text>
+            <Text
+              style={[
+                styles.tableCount,
+                {
+                  color: theme.textSecondary,
+                  fontSize: tableCountFontSize,
+                  marginTop: (compactHallText ? spacing.xs * 0.25 : spacing.xs) * scale,
+                },
+              ]}
+            >
+              {occupied}/{capacity}
+            </Text>
+          </>
+        ) : centerLabel ? (
+          <Text
+            style={[
+              styles.tableName,
+              {
+                color: theme.text,
+                fontSize: Math.max(22, tableNameFontSize * 1.6),
+              },
+            ]}
+          >
+            {centerLabel}
+          </Text>
+        ) : null}
       </View>
 
       {seats.map((seat, index) => {
@@ -143,30 +176,56 @@ export function TablePreviewDiagram({
           position.labelY + (textHalfExtent * outwardDy) / outwardLen;
 
         const isSelected = !!selectedGuestId && seat.guestId === selectedGuestId;
+        const isYouSeat = index === youSeatIndex;
         const seatFill = isSelected
           ? theme.primaryDark
           : seat.occupied
             ? theme.seatFull
             : theme.seatAvailable;
         const seatBorder = isSelected ? theme.primary : seatFill;
+        const chairColor = seat.occupied ? theme.seatFull : theme.seatAvailable;
+        const chairSize = seatSize * 1.15;
+        const chairHeight = chairSize * 1.35;
+        const chairRotation = (Math.atan2(outwardDy, outwardDx) * 180) / Math.PI + 90;
 
         return (
           <View key={index}>
-            <View
-              style={[
-                styles.seat,
-                {
-                  width: seatSize,
-                  height: seatSize,
-                  borderRadius: seatSize / 2,
-                  left: position.seatX,
-                  top: position.seatY,
-                  backgroundColor: seatFill,
-                  borderColor: seatBorder,
-                  borderWidth: Math.max(1, (isSelected ? 3 : 2) * scale),
-                },
-              ]}
-            />
+            {seatMarker === 'chair' ? (
+              <View
+                style={[
+                  styles.seat,
+                  {
+                    left: position.seatX + seatSize / 2 - chairSize / 2,
+                    top: position.seatY + seatSize / 2 - chairHeight / 2,
+                    width: chairSize,
+                    height: chairHeight,
+                    transform: [{ rotate: `${chairRotation}deg` }],
+                  },
+                ]}
+              >
+                <SeatChairIcon
+                  size={chairSize}
+                  color={chairColor}
+                  strokeWidth={isYouSeat ? 2.4 : 1.8}
+                />
+              </View>
+            ) : (
+              <View
+                style={[
+                  styles.seat,
+                  {
+                    width: seatSize,
+                    height: seatSize,
+                    borderRadius: seatSize / 2,
+                    left: position.seatX,
+                    top: position.seatY,
+                    backgroundColor: seatFill,
+                    borderColor: seatBorder,
+                    borderWidth: Math.max(1, (isSelected ? 3 : 2) * scale),
+                  },
+                ]}
+              />
+            )}
             {seat.guestName && effectiveGuestNameMode !== 'hidden' ? (
               <Text
                 style={[
@@ -188,6 +247,24 @@ export function TablePreviewDiagram({
               >
                 {displayName}
               </Text>
+            ) : null}
+            {isYouSeat && youLabel ? (
+              <View
+                style={[
+                  styles.youBadge,
+                  {
+                    left: position.labelX,
+                    top: position.labelY,
+                    backgroundColor: theme.primaryDark,
+                    transform: [
+                      { translateX: -22 },
+                      { translateY: -guestLabelFontSize * 1.8 },
+                    ],
+                  },
+                ]}
+              >
+                <Text style={styles.youText}>{youLabel}</Text>
+              </View>
             ) : null}
           </View>
         );
@@ -221,5 +298,18 @@ const styles = StyleSheet.create({
     position: 'absolute',
     fontWeight: '600',
     textAlign: 'center',
+  },
+  youBadge: {
+    position: 'absolute',
+    minWidth: 44,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 999,
+    alignItems: 'center',
+  },
+  youText: {
+    color: '#FFFFFF',
+    fontSize: 11,
+    fontWeight: '800',
   },
 });

@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Моја савршена прослава",
-    "tagline": "Слави без стреса"
+    "tagline": "Слави без стреса",
+    "welcome": "Добродошли!"
   },
   "onboarding": {
     "selectLanguage": "Изаберите језик",
@@ -60,6 +61,7 @@
     "addGuestSide": "Додај страну",
     "guestSidePlaceholder": "нпр. Страна младе",
     "themes": {
+      "default": "Подразумевано",
       "wedding": "Свадба",
       "birthday": "Рођендан",
       "baptism": "Крштење",
@@ -147,6 +149,15 @@
     "subEventIcon": "Икона",
     "addSubEvent": "Додај поддогађај",
     "removeSubEvent": "Уклони",
+    "addText": "Додај текст",
+    "customTexts": "Слободни текст",
+    "customTextLabel": "Текст",
+    "customTextPlaceholder": "Ваш текст",
+    "removeText": "Уклони текст",
+    "noIcon": "Без иконе",
+    "dragHint": "Кликни икону или текст да уредиш или обришеш. Повуци слободни текст да га преместиш.",
+    "hideHint": "Обриши поље да сакријеш наслов, имена, датум или поруку.",
+    "textSize": "Величина текста",
     "rsvpMessage": "Порука за потврду",
     "rsvpPlaceholder": "Молимо потврдите присуство до...",
     "save": "Сачувај",
@@ -156,6 +167,9 @@
     "downloadSuccess": "Позивница је сачувана у галерију.",
     "downloadDenied": "Приступ галерији није одобрен. Омогућите га у подешавањима.",
     "downloadUnavailableWeb": "Преузимање у галерију доступно је на мобилном уређају.",
+    "watermark": "Направљено у апликацији {{app}}",
+    "removeWatermark": "Уклони watermark",
+    "removeWatermarkHint": "Погледај кратку рекламу да уклониш watermark апликације са ове позивнице.",
     "prevTemplate": "Претходни шаблон",
     "nextTemplate": "Следећи шаблон",
     "defaults": {
@@ -192,9 +206,37 @@
       "birthday1Boy": "1. рођендан — дечак",
       "birthday18Elegant": "18. елегантно",
       "birthday18Modern": "18. модерно",
-      "birthday18Gold": "18. златно"
+      "birthday18Gold": "18. златно",
+      "blueBalloons": "Плави балони",
+      "blushBalloons": "Блаш балони",
+      "botanicalGold": "Ботаничко злато",
+      "greeneryGold": "Зеленило и злато",
+      "ivoryRoses": "Крем руже",
+      "whiteRoses": "Беле руже",
+      "babyNeutrals": "Неутрал беби",
+      "birthday1BoyArt": "1. рођендан — дечак",
+      "birthday1GirlArt": "1. рођендан — девојчица",
+      "birthday18BlushNavy": "18. блаш нави",
+      "birthday18RoseGold": "18. розе злато",
+      "birthday18NavyGold": "18. нави злато",
+      "teamBride": "Тим младе",
+      "babySage": "Беби жалфија",
+      "goldFloralFrame": "Златни цветни"
     },
-    "adUnavailable": "Реклама тренутно није доступна. Покушај касније."
+    "adUnavailable": "Реклама тренутно није доступна. Покушај касније.",
+    "illustratedBackgrounds": "Позадине позивница",
+    "seeMore": "Види више шаблона",
+    "groups": {
+      "wedding": "Венчање",
+      "birthday1": "1. рођендан",
+      "birthday18": "18. рођендан",
+      "universal": "Прослава"
+    },
+    "changeColor": "Промени",
+    "colorHex": "Hex",
+    "colorHue": "Тон",
+    "colorSaturation": "Засићеност",
+    "colorShade": "Нијанса"
   },
   "guests": {
     "title": "Гости",
@@ -268,7 +310,18 @@
       "name_desc": "Име (Ш-А)",
       "partySize_desc": "Број особа (више прво)",
       "partySize_asc": "Број особа (мање прво)"
-    }
+    },
+    "seatCard": "Твоје место",
+    "seatCardTitle": "Твој сто је",
+    "seatCardWelcome": "Уживајте у прослави!",
+    "seatCardWelcomeHappy": "Драго нам је што сте ту!",
+    "seatCardWatermark": "Преузми на Play Store",
+    "seatCardShare": "Подели картицу",
+    "seatCardShareUnavailable": "Дељење је доступно на мобилним уређајима.",
+    "seatCardYou": "Ти",
+    "seatCardSeat": "Место {{seat}}",
+    "seatCardSeatRange": "Места {{start}}–{{end}}",
+    "seatCardSeats": "Места {{seats}}"
   },
   "seating": {
     "title": "Распоред сједења",
@@ -324,7 +377,14 @@
     "viewHall": "Види салу",
     "reorderHint": "Додирни госта да означиш место за столом. Додирни другог за замену места, или користи стрелице за померање.",
     "moveUp": "Помери горе",
-    "moveDown": "Помери доле"
+    "moveDown": "Помери доле",
+    "downloadList": "Преузми списак седења",
+    "downloadListEmpty": "Прво додај столове и распореди госте.",
+    "listTitle": "Распоред седења",
+    "listFindTable": "Пронађи свој сто",
+    "listDirectory": "Именик",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Још нема гостију"
   },
   "expenses": {
     "title": "Трошкови",

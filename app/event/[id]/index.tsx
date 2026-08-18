@@ -56,7 +56,7 @@ export default function EventOverviewScreen() {
         contentContainerStyle={{ paddingBottom: spacing.xl }}
         showsVerticalScrollIndicator={false}
       >
-        <EventCountdown date={event.date} location={event.location} />
+        <EventCountdown date={event.date} location={event.location} eventTheme={event.theme} />
 
         <View style={styles.sectionHeaderRow}>
           <Text style={[styles.sectionTitle, styles.sectionTitleInline, { color: theme.text }]}>

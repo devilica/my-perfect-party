@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Mükemmel Partim",
-    "tagline": "Stressiz kutlayın"
+    "tagline": "Stressiz kutlayın",
+    "welcome": "Hoş geldiniz!"
   },
   "onboarding": {
     "selectLanguage": "Dilinizi seçin",
@@ -60,6 +61,7 @@
     "addGuestSide": "Taraf ekle",
     "guestSidePlaceholder": "örn. Gelin tarafı, damat tarafı",
     "themes": {
+      "default": "Varsayılan",
       "wedding": "Düğün",
       "birthday": "Doğum günü",
       "baptism": "Vaftiz",
@@ -193,8 +195,48 @@
       "birthday1Boy": "1. doğum günü — erkek",
       "birthday18Elegant": "18. şık",
       "birthday18Modern": "18. modern",
-      "birthday18Gold": "18. altın"
-    }
+      "birthday18Gold": "18. altın",
+      "blueBalloons": "Mavi balonlar",
+      "blushBalloons": "Blush balonlar",
+      "botanicalGold": "Botanik altın",
+      "greeneryGold": "Yeşil ve altın",
+      "ivoryRoses": "Fildişi güller",
+      "whiteRoses": "Beyaz güller",
+      "babyNeutrals": "Bebek nötr",
+      "birthday1BoyArt": "1. yaş günü — erkek",
+      "birthday1GirlArt": "1. yaş günü — kız",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 rose gold",
+      "birthday18NavyGold": "18 navy altın",
+      "teamBride": "Gelin takımı",
+      "babySage": "Bebek adaçayı",
+      "goldFloralFrame": "Altın çiçekli çerçeve"
+    },
+    "illustratedBackgrounds": "Davetiye arka planları",
+    "seeMore": "Daha fazla şablon",
+    "groups": {
+      "wedding": "Düğün",
+      "birthday1": "1. yaş günü",
+      "birthday18": "18. yaş günü",
+      "universal": "Kutlama"
+    },
+    "changeColor": "Değiştir",
+    "colorHex": "Hex",
+    "colorHue": "Ton",
+    "colorSaturation": "Doygunluk",
+    "colorShade": "Parlaklık",
+    "addText": "Metin ekle",
+    "customTexts": "Serbest metin",
+    "customTextLabel": "Metin",
+    "customTextPlaceholder": "Metniniz",
+    "removeText": "Metni kaldır",
+    "noIcon": "Simge yok",
+    "dragHint": "Düzenlemek veya silmek için bir simgeye veya metne dokunun. Serbest metni istediğiniz yere sürükleyin.",
+    "hideHint": "Davetiyede gizlemek için alanı temizleyin.",
+    "textSize": "Metin boyutu",
+    "watermark": "{{app}} ile yapıldı",
+    "removeWatermark": "Filigranı kaldır",
+    "removeWatermarkHint": "Bu davetiyeden uygulama filigranını kaldırmak için kısa bir reklam izleyin."
   },
   "guests": {
     "title": "Misafirler",
@@ -268,7 +310,18 @@
       "name_desc": "Ad (Z-A)",
       "partySize_desc": "Grup büyüklüğü (büyükten küçüğe)",
       "partySize_asc": "Grup büyüklüğü (küçükten büyüğe)"
-    }
+    },
+    "seatCard": "Yeriniz",
+    "seatCardTitle": "Masanız",
+    "seatCardWelcome": "Kutlamanın tadını çıkarın!",
+    "seatCardWelcomeHappy": "Burada olmanız bizi çok mutlu etti!",
+    "seatCardWatermark": "Play Store'dan indir",
+    "seatCardShare": "Yer kartını paylaş",
+    "seatCardShareUnavailable": "Paylaşım mobil cihazlarda kullanılabilir.",
+    "seatCardYou": "Sen",
+    "seatCardSeat": "Koltuk {{seat}}",
+    "seatCardSeatRange": "Koltuklar {{start}}–{{end}}",
+    "seatCardSeats": "Koltuklar {{seats}}"
   },
   "seating": {
     "title": "Oturma planlayıcı",
@@ -324,7 +377,14 @@
     "seatsFree": "Boş koltuklar",
     "reorderHint": "Yeri vurgulamak için bir misafire dokun. Değiştirmek için başka birine dokun veya okları kullan.",
     "moveUp": "Yukarı taşı",
-    "moveDown": "Aşağı taşı"
+    "moveDown": "Aşağı taşı",
+    "downloadList": "Oturma planını indir",
+    "downloadListEmpty": "Önce masaları ekleyin ve misafirleri yerleştirin.",
+    "listTitle": "Oturma planı",
+    "listFindTable": "Masanızı bulun",
+    "listDirectory": "İsim listesi",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Henüz misafir yok"
   },
   "expenses": {
     "title": "Giderler",

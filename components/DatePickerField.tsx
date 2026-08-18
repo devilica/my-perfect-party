@@ -109,6 +109,8 @@ export function DatePickerField({
               styles.value,
               { color: display ? theme.text : theme.textMuted },
             ]}
+            numberOfLines={1}
+            ellipsizeMode="tail"
           >
             {display || placeholder}
           </Text>
@@ -165,6 +167,7 @@ const styles = StyleSheet.create({
   value: {
     ...typography.body,
     flex: 1,
+    minWidth: 0,
   },
   clearBtn: {
     padding: spacing.xs,

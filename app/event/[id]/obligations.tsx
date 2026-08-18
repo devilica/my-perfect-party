@@ -45,7 +45,7 @@ export default function ObligationsScreen() {
   );
 
   const templateTitles = useMemo(() => {
-    const keys = OBLIGATION_TEMPLATE_KEYS[event?.theme ?? 'wedding'] ?? [];
+    const keys = OBLIGATION_TEMPLATE_KEYS[event?.theme ?? 'default'] ?? [];
     return keys.map((key) => t(key));
   }, [event?.theme, t]);
 

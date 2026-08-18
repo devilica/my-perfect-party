@@ -14,4 +14,6 @@ export type SelectFieldProps<T extends string = string> = {
   onChange: (value: T) => void;
   placeholder?: string;
   error?: string;
+  compact?: boolean;
+  dense?: boolean;
 };

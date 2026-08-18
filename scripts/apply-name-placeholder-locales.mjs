@@ -8,7 +8,7 @@ const localesDir = path.join(__dirname, '..', 'locales');
 /** Common local first/last name examples for guest form placeholders. */
 const NAME_PLACEHOLDERS = {
   bg: { first: 'напр. Мария', last: 'напр. Иванова' },
-  bs: { first: 'npr. Ana', last: 'npr. Hodžić' },
+  bs: { first: 'npr. Ana', last: 'npr. Ivanović' },
   cs: { first: 'např. Eva', last: 'např. Nováková' },
   da: { first: 'f.eks. Anna', last: 'f.eks. Jensen' },
   de: { first: 'z. B. Anna', last: 'z. B. Müller' },

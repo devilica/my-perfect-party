@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Minu täiuslik pidu",
-    "tagline": "Tähista stressivabalt"
+    "tagline": "Tähista stressivabalt",
+    "welcome": "Tere tulemast!"
   },
   "onboarding": {
     "selectLanguage": "Vali keel",
@@ -60,6 +61,7 @@
     "addGuestSide": "Lisa pool",
     "guestSidePlaceholder": "nt Pruudi pool, Peigmehe pool",
     "themes": {
+      "default": "Vaikimisi",
       "wedding": "Pulm",
       "birthday": "Sünnipäev",
       "baptism": "Ristimine",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1. sünnipäev — poiss",
       "birthday18Elegant": "18 elegantne",
       "birthday18Modern": "18 modernne",
-      "birthday18Gold": "18 kuldne"
+      "birthday18Gold": "18 kuldne",
+      "blueBalloons": "Sinised õhupallid",
+      "blushBalloons": "Blush-õhupallid",
+      "botanicalGold": "Botaaniline kuld",
+      "greeneryGold": "Rohelus ja kuld",
+      "ivoryRoses": "Elevandiluu roosid",
+      "whiteRoses": "Valged roosid",
+      "babyNeutrals": "Beebi neutraalne",
+      "birthday1BoyArt": "1. sünnipäev — poiss",
+      "birthday1GirlArt": "1. sünnipäev — tüdruk",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 roosa kuld",
+      "birthday18NavyGold": "18 navy kuld",
+      "teamBride": "Team bride",
+      "babySage": "Beebi salvei",
+      "goldFloralFrame": "Kuldne lilleline raam"
     },
-    "adUnavailable": "Reklaam pole praegu saadaval. Proovi hiljem uuesti."
+    "adUnavailable": "Reklaam pole praegu saadaval. Proovi hiljem uuesti.",
+    "illustratedBackgrounds": "Kutse taustad",
+    "seeMore": "Vaata rohkem malle",
+    "groups": {
+      "wedding": "Pulmad",
+      "birthday1": "1. sünnipäev",
+      "birthday18": "18. sünnipäev",
+      "universal": "Pidu"
+    },
+    "changeColor": "Muuda",
+    "colorHex": "Hex",
+    "colorHue": "Toon",
+    "colorSaturation": "Küllastus",
+    "colorShade": "Heledus",
+    "addText": "Lisa tekst",
+    "customTexts": "Vaba tekst",
+    "customTextLabel": "Tekst",
+    "customTextPlaceholder": "Sinu tekst",
+    "removeText": "Eemalda tekst",
+    "noIcon": "Ilma ikoonita",
+    "dragHint": "Puuduta ikooni või teksti, et muuta või kustutada. Lohista vaba tekst soovitud kohta.",
+    "hideHint": "Tühjenda väli, et see kutsel peita.",
+    "textSize": "Teksti suurus",
+    "watermark": "Loodud rakenduses {{app}}",
+    "removeWatermark": "Eemalda vesimärk",
+    "removeWatermarkHint": "Vaata lühikest reklaami, et eemaldada rakenduse vesimärk sellelt kutsel."
   },
   "guests": {
     "title": "Külalised",
@@ -268,7 +310,18 @@
       "name_desc": "Nimi (Z-A)",
       "partySize_desc": "Inimeste arv (rohkem esimesena)",
       "partySize_asc": "Inimeste arv (vähem esimesena)"
-    }
+    },
+    "seatCard": "Sinu koht",
+    "seatCardTitle": "Sinu laud on",
+    "seatCardWelcome": "Nautige pidu!",
+    "seatCardWelcomeHappy": "Meil on nii hea meel, et olete siin!",
+    "seatCardWatermark": "Laadi alla Play Store'ist",
+    "seatCardShare": "Jaga kohakaarti",
+    "seatCardShareUnavailable": "Jagamine on saadaval mobiilseadmetes.",
+    "seatCardYou": "Sina",
+    "seatCardSeat": "Koht {{seat}}",
+    "seatCardSeatRange": "Kohad {{start}}–{{end}}",
+    "seatCardSeats": "Kohad {{seats}}"
   },
   "seating": {
     "title": "Istumise planeerija",
@@ -324,7 +377,14 @@
     "viewHall": "Vaata saali",
     "reorderHint": "Puuduta külalist koha esiletõstmiseks. Puuduta teist vahetamiseks või kasuta nooli.",
     "moveUp": "Liiguta üles",
-    "moveDown": "Liiguta alla"
+    "moveDown": "Liiguta alla",
+    "downloadList": "Laadi istumisplaan alla",
+    "downloadListEmpty": "Lisa esmalt lauad ja määra külalised.",
+    "listTitle": "Istumisplaan",
+    "listFindTable": "Leia oma laud",
+    "listDirectory": "Nimede register",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Külalisi pole veel"
   },
   "expenses": {
     "title": "Kulud",

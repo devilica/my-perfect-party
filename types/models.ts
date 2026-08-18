@@ -13,6 +13,7 @@ export type ExpenseCategory = PredefinedCategory | string;
 export type { Language } from '@/constants/languages';
 
 export type CelebrationThemeId =
+  | 'default'
   | 'wedding'
   | 'birthday'
   | 'baptism'
@@ -25,12 +26,25 @@ export type CelebrationThemeId =
 
 export type InvitationFontFamily = 'script' | 'serif' | 'sans';
 
+export type InvitationTextAlign = 'left' | 'center' | 'right';
+
 export type InvitationSubEvent = {
   id: string;
   icon: string;
   time?: string;
   title: string;
   location?: string;
+};
+
+export type InvitationTextBox = {
+  id: string;
+  text: string;
+  x: number;
+  y: number;
+  fontSize: number;
+  fontFamily: InvitationFontFamily;
+  color: string;
+  align?: InvitationTextAlign;
 };
 
 export type EventInvitation = {
@@ -45,7 +59,9 @@ export type EventInvitation = {
   fontColor: string;
   eventDateText: string;
   subEvents: InvitationSubEvent[];
+  customTexts: InvitationTextBox[];
   rsvpMessage: string;
+  watermarkRemoved?: boolean;
   updatedAt: string;
 };
 
@@ -56,7 +72,6 @@ export type WeddingEvent = {
   location?: string;
   theme: CelebrationThemeId;
   guestCategories: string[];
-  guestSides: string[];
   createdAt: string;
   invitation?: EventInvitation;
 };
@@ -90,7 +105,6 @@ export type Guest = {
   lastName: string;
   phone?: string;
   category: string;
-  side: string;
   attendanceStatus: AttendanceStatus;
   partySize: number;
   tableId?: string;

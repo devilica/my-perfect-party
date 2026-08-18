@@ -19,11 +19,13 @@ export function SelectField<T extends string>({
   onChange,
   placeholder,
   error,
+  compact = false,
+  dense = false,
 }: SelectFieldProps<T>) {
   const theme = useThemeColors();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, dense && styles.containerDense]}>
       <FieldLabel label={label} required={required} labelRight={labelRight} />
       {createElement(
         'select',
@@ -34,6 +36,7 @@ export function SelectField<T extends string>({
           },
           style: {
             ...webSelectStyle,
+            ...(compact ? webSelectCompactTextStyle : {}),
             backgroundColor: theme.surface,
             borderColor: error ? theme.danger : theme.border,
             color: theme.text,
@@ -68,9 +71,16 @@ const webSelectStyle = {
   appearance: 'auto' as const,
 };
 
+const webSelectCompactTextStyle = {
+  fontSize: 13,
+};
+
 const styles = StyleSheet.create({
   container: {
     marginBottom: spacing.md,
+  },
+  containerDense: {
+    marginBottom: spacing.xs,
   },
   hint: {
     ...typography.small,

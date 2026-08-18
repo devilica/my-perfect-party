@@ -119,36 +119,42 @@ export default function AddExpenseModal() {
           )}
         />
 
-      <TextInputField
-        label={t('expenses.expenseTitle')}
-        required
-        value={title}
-        onChangeText={(text) => {
-          setTitle(text);
-          setTitleError('');
-        }}
-        placeholder={t('expenses.titlePlaceholder')}
-        error={titleError}
-      />
-      <TextInputField
-        label={t('expenses.amount')}
-        required
-        value={amount}
-        onChangeText={(text) => {
-          setAmount(text);
-          setAmountError('');
-        }}
-        placeholder={t('expenses.amountPlaceholder')}
-        keyboardType="decimal-pad"
-        error={amountError}
-      />
+      <View style={styles.titleRow}>
+        <View style={styles.titleField}>
+          <TextInputField
+            label={t('expenses.expenseTitle')}
+            required
+            value={title}
+            onChangeText={(text) => {
+              setTitle(text);
+              setTitleError('');
+            }}
+            placeholder={t('expenses.titlePlaceholder')}
+            error={titleError}
+          />
+        </View>
+        <View style={styles.titleField}>
+          <TextInputField
+            label={t('expenses.amount')}
+            required
+            value={amount}
+            onChangeText={(text) => {
+              setAmount(text);
+              setAmountError('');
+            }}
+            placeholder={t('expenses.amountPlaceholder')}
+            keyboardType="decimal-pad"
+            error={amountError}
+          />
+        </View>
+      </View>
 
       <CategoryPicker
         selected={category}
         customCategory={customCategory}
         onSelect={setCategory}
         onCustomChange={setCustomCategory}
-        customRequired={category === 'other'}
+        dense
       />
 
       <View style={styles.switchRow}>
@@ -189,12 +195,19 @@ const styles = StyleSheet.create({
   container: {
     padding: spacing.md,
   },
+  titleRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  titleField: {
+    flex: 1,
+    minWidth: 0,
+  },
   switchRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: spacing.md,
-    paddingVertical: spacing.sm,
+    paddingVertical: spacing.xs,
   },
   switchLabel: {
     ...typography.body,
@@ -203,6 +216,6 @@ const styles = StyleSheet.create({
   },
   actions: {
     gap: spacing.sm,
-    marginTop: spacing.md,
+    marginTop: spacing.sm,
   },
 });

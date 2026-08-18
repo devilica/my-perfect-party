@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "مهمانی بی‌نقص من",
-    "tagline": "بی‌دغدغه جشن بگیرید"
+    "tagline": "بی‌دغدغه جشن بگیرید",
+    "welcome": "خوش آمدید!"
   },
   "onboarding": {
     "selectLanguage": "زبان خود را انتخاب کنید",
@@ -60,6 +61,7 @@
     "addGuestSide": "افزودن سمت",
     "guestSidePlaceholder": "مثال: سمت عروس، سمت داماد",
     "themes": {
+      "default": "پیش‌فرض",
       "wedding": "عروسی",
       "birthday": "تولد",
       "baptism": "غسل تعمید",
@@ -193,8 +195,48 @@
       "birthday1Boy": "تولد ۱ سالگی — پسر",
       "birthday18Elegant": "۱۸ سالگی — شیک",
       "birthday18Modern": "۱۸ سالگی — مدرن",
-      "birthday18Gold": "۱۸ سالگی — طلایی"
-    }
+      "birthday18Gold": "۱۸ سالگی — طلایی",
+      "blueBalloons": "بادکنک‌های آبی",
+      "blushBalloons": "بادکنک‌های صورتی",
+      "botanicalGold": "طلای گیاهی",
+      "greeneryGold": "سبز و طلایی",
+      "ivoryRoses": "رزهای عاجی",
+      "whiteRoses": "رزهای سفید",
+      "babyNeutrals": "خنثی نوزاد",
+      "birthday1BoyArt": "اولین تولد — پسر",
+      "birthday1GirlArt": "اولین تولد — دختر",
+      "birthday18BlushNavy": "۱۸ صورتی سرمه‌ای",
+      "birthday18RoseGold": "۱۸ رزگلد",
+      "birthday18NavyGold": "۱۸ سرمه‌ای طلایی",
+      "teamBride": "تیم عروس",
+      "babySage": "مریم‌گلی نوزاد",
+      "goldFloralFrame": "قاب گل‌دار طلایی"
+    },
+    "illustratedBackgrounds": "پس‌زمینه‌های دعوت‌نامه",
+    "seeMore": "قالب‌های بیشتر",
+    "groups": {
+      "wedding": "عروسی",
+      "birthday1": "اولین تولد",
+      "birthday18": "۱۸ سالگی",
+      "universal": "جشن"
+    },
+    "changeColor": "تغییر",
+    "colorHex": "Hex",
+    "colorHue": "فام",
+    "colorSaturation": "اشباع",
+    "colorShade": "روشنایی",
+    "addText": "افزودن متن",
+    "customTexts": "متن آزاد",
+    "customTextLabel": "متن",
+    "customTextPlaceholder": "متن شما",
+    "removeText": "حذف متن",
+    "noIcon": "بدون آیکون",
+    "dragHint": "روی آیکون یا متن بزنید تا ویرایش یا حذف شود. متن آزاد را هر جا خواستید بکشید.",
+    "hideHint": "فیلد را پاک کنید تا از دعوت‌نامه پنهان شود.",
+    "textSize": "اندازه متن",
+    "watermark": "ساخته‌شده با {{app}}",
+    "removeWatermark": "حذف واترمارک",
+    "removeWatermarkHint": "یک تبلیغ کوتاه ببینید تا واترمارک برنامه از این دعوت‌نامه برداشته شود."
   },
   "guests": {
     "title": "مهمانان",
@@ -268,7 +310,18 @@
       "name_desc": "نام (ی-الف)",
       "partySize_desc": "تعداد نفر (بیشترین اول)",
       "partySize_asc": "تعداد نفر (کمترین اول)"
-    }
+    },
+    "seatCard": "صندلی شما",
+    "seatCardTitle": "میز شما",
+    "seatCardWelcome": "از جشن لذت ببرید!",
+    "seatCardWelcomeHappy": "خوشحالیم که اینجایید!",
+    "seatCardWatermark": "دانلود از Play Store",
+    "seatCardShare": "اشتراک کارت صندلی",
+    "seatCardShareUnavailable": "اشتراک‌گذاری در دستگاه‌های همراه در دسترس است.",
+    "seatCardYou": "شما",
+    "seatCardSeat": "صندلی {{seat}}",
+    "seatCardSeatRange": "صندلی‌های {{start}}–{{end}}",
+    "seatCardSeats": "صندلی‌های {{seats}}"
   },
   "seating": {
     "title": "برنامه‌ریز چیدمان",
@@ -324,7 +377,14 @@
     "seatsFree": "صندلی‌های خالی",
     "reorderHint": "روی مهمان بزنید تا صندلی مشخص شود. روی دیگری بزنید تا جابه‌جا شود، یا از فلش‌ها استفاده کنید.",
     "moveUp": "بالا",
-    "moveDown": "پایین"
+    "moveDown": "پایین",
+    "downloadList": "دانلود فهرست نشستن",
+    "downloadListEmpty": "ابتدا میزها را اضافه کنید و مهمان‌ها را جای دهید.",
+    "listTitle": "فهرست نشستن",
+    "listFindTable": "میز خود را پیدا کنید",
+    "listDirectory": "فهرست نام‌ها",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "هنوز مهمانی نیست"
   },
   "expenses": {
     "title": "هزینه‌ها",

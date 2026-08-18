@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Mit perfekte fest",
-    "tagline": "Fejr stressfrit"
+    "tagline": "Fejr stressfrit",
+    "welcome": "Velkommen!"
   },
   "onboarding": {
     "selectLanguage": "Vælg sprog",
@@ -60,6 +61,7 @@
     "addGuestSide": "Tilføj side",
     "guestSidePlaceholder": "f.eks. Brudens side, Brudgommens side",
     "themes": {
+      "default": "Standard",
       "wedding": "Bryllup",
       "birthday": "Fødselsdag",
       "baptism": "Dåb",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1. fødselsdag — dreng",
       "birthday18Elegant": "18 elegant",
       "birthday18Modern": "18 moderne",
-      "birthday18Gold": "18 guld"
+      "birthday18Gold": "18 guld",
+      "blueBalloons": "Blå balloner",
+      "blushBalloons": "Blush-balloner",
+      "botanicalGold": "Botanisk guld",
+      "greeneryGold": "Grønt og guld",
+      "ivoryRoses": "Elfenbensroser",
+      "whiteRoses": "Hvide roser",
+      "babyNeutrals": "Baby neutral",
+      "birthday1BoyArt": "1-års — dreng",
+      "birthday1GirlArt": "1-års — pige",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 rosaguld",
+      "birthday18NavyGold": "18 navy guld",
+      "teamBride": "Team bride",
+      "babySage": "Baby salvie",
+      "goldFloralFrame": "Gylden blomsterramme"
     },
-    "adUnavailable": "Reklamen er ikke tilgængelig lige nu. Prøv igen senere."
+    "adUnavailable": "Reklamen er ikke tilgængelig lige nu. Prøv igen senere.",
+    "illustratedBackgrounds": "Invitationsbaggrunde",
+    "seeMore": "Se flere skabeloner",
+    "groups": {
+      "wedding": "Bryllup",
+      "birthday1": "1-års fødselsdag",
+      "birthday18": "18-års fødselsdag",
+      "universal": "Fest"
+    },
+    "changeColor": "Skift",
+    "colorHex": "Hex",
+    "colorHue": "Farvetone",
+    "colorSaturation": "Mætning",
+    "colorShade": "Lyshed",
+    "addText": "Tilføj tekst",
+    "customTexts": "Fri tekst",
+    "customTextLabel": "Tekst",
+    "customTextPlaceholder": "Din tekst",
+    "removeText": "Fjern tekst",
+    "noIcon": "Intet ikon",
+    "dragHint": "Tryk på et ikon eller en tekst for at redigere eller slette. Træk fri tekst hen, hvor du vil.",
+    "hideHint": "Ryd et felt for at skjule det på invitationen.",
+    "textSize": "Tekststørrelse",
+    "watermark": "Lavet med {{app}}",
+    "removeWatermark": "Fjern vandmærke",
+    "removeWatermarkHint": "Se en kort annonce for at fjerne appens vandmærke fra denne invitation."
   },
   "guests": {
     "title": "Gæster",
@@ -268,7 +310,18 @@
       "name_desc": "Navn (Å-A)",
       "partySize_desc": "Antal personer (flest først)",
       "partySize_asc": "Antal personer (færrest først)"
-    }
+    },
+    "seatCard": "Din plads",
+    "seatCardTitle": "Dit bord er",
+    "seatCardWelcome": "Nyd festen!",
+    "seatCardWelcomeHappy": "Vi er så glade for, at du er her!",
+    "seatCardWatermark": "Hent i Play Store",
+    "seatCardShare": "Del pladskort",
+    "seatCardShareUnavailable": "Deling er tilgængelig på mobilenheder.",
+    "seatCardYou": "Dig",
+    "seatCardSeat": "Plads {{seat}}",
+    "seatCardSeatRange": "Pladser {{start}}–{{end}}",
+    "seatCardSeats": "Pladser {{seats}}"
   },
   "seating": {
     "title": "Bordplanlægger",
@@ -324,7 +377,14 @@
     "viewHall": "Se salen",
     "reorderHint": "Tryk på en gæst for at markere pladsen. Tryk på en anden for at bytte, eller brug pilene.",
     "moveUp": "Flyt op",
-    "moveDown": "Flyt ned"
+    "moveDown": "Flyt ned",
+    "downloadList": "Download siddeplan",
+    "downloadListEmpty": "Tilføj borde og tildel gæster først.",
+    "listTitle": "Siddeplan",
+    "listFindTable": "Find dit bord",
+    "listDirectory": "Navneliste",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Ingen gæster endnu"
   },
   "expenses": {
     "title": "Udgifter",

@@ -45,9 +45,18 @@ export type InvitationTemplate = {
   celebrationThemeId?: CelebrationThemeId;
   useImageBackground?: boolean;
   subtleCorners?: boolean;
+  designedArtwork?: boolean;
 };
 
-export const DEFAULT_INVITATION_TEMPLATE_ID = 'classic-gold';
+export const PREVIEW_INVITATION_TEMPLATE_COUNT = 5;
+
+export const FEATURED_INVITATION_TEMPLATE_IDS = [
+  'art-birthday1-girl',
+  'art-birthday18-rose-gold',
+  'theme-wedding',
+  'theme-birthday',
+  'art-ivory-roses',
+] as const;
 
 const LEGACY_TEMPLATE_MAP: Record<string, string> = {
   'birthday1-pastel': 'birthday1-girl',
@@ -256,55 +265,254 @@ export const PROGRAMMATIC_INVITATION_TEMPLATES: InvitationTemplate[] = [
   },
 ];
 
-const CELEBRATION_CORNER_STYLES: Record<CelebrationThemeId, InvitationCornerStyle> = {
-  wedding: 'roses',
-  birthday: 'balloons',
-  baptism: 'garland',
-  newYear: 'stars',
-  christmas: 'garland',
-  graduation: 'confetti',
-  anniversary: 'roses',
-  engagement: 'roses',
-  other: 'confetti',
-};
+function illustrated(
+  template: Pick<
+    InvitationTemplate,
+    | 'id'
+    | 'category'
+    | 'labelKey'
+    | 'backgroundColor'
+    | 'borderColor'
+    | 'accentColor'
+    | 'secondaryAccent'
+    | 'backgroundImage'
+  >
+): InvitationTemplate {
+  return {
+    overlayColor: 'rgba(255,255,255,0.12)',
+    borderWidth: 0,
+    doubleBorder: false,
+    cornerStyle: 'none',
+    textTone: 'dark',
+    scatterFloral: false,
+    useImageBackground: true,
+    designedArtwork: true,
+    ...template,
+  };
+}
 
-function buildCelebrationInvitationTemplates(): InvitationTemplate[] {
-  return CELEBRATION_THEME_IDS.map((themeId) => {
+export const ILLUSTRATED_INVITATION_TEMPLATES: InvitationTemplate[] = [
+  illustrated({
+    id: 'art-blue-balloons',
+    category: 'universal',
+    labelKey: 'invitation.templates.blueBalloons',
+    backgroundColor: '#F7F4EE',
+    borderColor: '#C9A962',
+    accentColor: '#1E3A5F',
+    secondaryAccent: '#C9A962',
+    backgroundImage: require('@/assets/invitations/blue-balloons.png'),
+  }),
+  illustrated({
+    id: 'art-blush-balloons',
+    category: 'universal',
+    labelKey: 'invitation.templates.blushBalloons',
+    backgroundColor: '#FFF8F4',
+    borderColor: '#D5A36A',
+    accentColor: '#D48680',
+    secondaryAccent: '#D5A36A',
+    backgroundImage: require('@/assets/invitations/blush-balloons.png'),
+  }),
+  illustrated({
+    id: 'art-botanical-gold',
+    category: 'wedding',
+    labelKey: 'invitation.templates.botanicalGold',
+    backgroundColor: '#F8F6F0',
+    borderColor: '#C9A962',
+    accentColor: '#6B8F5A',
+    secondaryAccent: '#C9A962',
+    backgroundImage: require('@/assets/invitations/botanical-gold.png'),
+  }),
+  illustrated({
+    id: 'art-greenery-gold',
+    category: 'wedding',
+    labelKey: 'invitation.templates.greeneryGold',
+    backgroundColor: '#F7F4EE',
+    borderColor: '#C9A962',
+    accentColor: '#7A8F5A',
+    secondaryAccent: '#C9A962',
+    backgroundImage: require('@/assets/invitations/greenery-gold.png'),
+  }),
+  illustrated({
+    id: 'art-ivory-roses',
+    category: 'wedding',
+    labelKey: 'invitation.templates.ivoryRoses',
+    backgroundColor: '#F8F4EC',
+    borderColor: '#D4AF7A',
+    accentColor: '#C9A962',
+    secondaryAccent: '#8A9A6A',
+    backgroundImage: require('@/assets/invitations/ivory-roses.png'),
+  }),
+  illustrated({
+    id: 'art-white-roses',
+    category: 'wedding',
+    labelKey: 'invitation.templates.whiteRoses',
+    backgroundColor: '#F6F1E8',
+    borderColor: '#D4AF7A',
+    accentColor: '#C9A962',
+    secondaryAccent: '#8A9A6A',
+    backgroundImage: require('@/assets/invitations/white-roses.png'),
+  }),
+  illustrated({
+    id: 'art-baby-neutrals',
+    category: 'birthday1',
+    labelKey: 'invitation.templates.babyNeutrals',
+    backgroundColor: '#F7F4EE',
+    borderColor: '#C4B59A',
+    accentColor: '#8A9A7A',
+    secondaryAccent: '#C4B59A',
+    backgroundImage: require('@/assets/invitations/baby-neutrals.png'),
+  }),
+  illustrated({
+    id: 'art-birthday1-boy',
+    category: 'birthday1',
+    labelKey: 'invitation.templates.birthday1BoyArt',
+    backgroundColor: '#F3F7FB',
+    borderColor: '#A8C4D8',
+    accentColor: '#7BA3C9',
+    secondaryAccent: '#C4B59A',
+    backgroundImage: require('@/assets/invitations/birthday1-boy.png'),
+  }),
+  illustrated({
+    id: 'art-birthday1-girl',
+    category: 'birthday1',
+    labelKey: 'invitation.templates.birthday1GirlArt',
+    backgroundColor: '#FFF6F8',
+    borderColor: '#F0B8C8',
+    accentColor: '#E8A0B8',
+    secondaryAccent: '#D5A36A',
+    backgroundImage: require('@/assets/invitations/birthday1-girl.png'),
+  }),
+  illustrated({
+    id: 'art-birthday18-blush-navy',
+    category: 'birthday18',
+    labelKey: 'invitation.templates.birthday18BlushNavy',
+    backgroundColor: '#FFF8F4',
+    borderColor: '#C9A962',
+    accentColor: '#1E3A5F',
+    secondaryAccent: '#C9A962',
+    backgroundImage: require('@/assets/invitations/birthday18-blush-navy.png'),
+  }),
+  illustrated({
+    id: 'art-birthday18-rose-gold',
+    category: 'birthday18',
+    labelKey: 'invitation.templates.birthday18RoseGold',
+    backgroundColor: '#FFF8F4',
+    borderColor: '#C9A962',
+    accentColor: '#C4886A',
+    secondaryAccent: '#4A4540',
+    backgroundImage: require('@/assets/invitations/birthday18-rose-gold.png'),
+  }),
+  illustrated({
+    id: 'art-birthday18-navy-gold',
+    category: 'birthday18',
+    labelKey: 'invitation.templates.birthday18NavyGold',
+    backgroundColor: '#F7F4EE',
+    borderColor: '#C9A962',
+    accentColor: '#1E3A5F',
+    secondaryAccent: '#C9A962',
+    backgroundImage: require('@/assets/invitations/birthday18-navy-gold.png'),
+  }),
+  illustrated({
+    id: 'art-team-bride',
+    category: 'universal',
+    labelKey: 'invitation.templates.teamBride',
+    backgroundColor: '#FFF8F4',
+    borderColor: '#D5A36A',
+    accentColor: '#D48680',
+    secondaryAccent: '#C9A962',
+    backgroundImage: require('@/assets/invitations/team-bride.png'),
+  }),
+  illustrated({
+    id: 'art-baby-sage',
+    category: 'birthday1',
+    labelKey: 'invitation.templates.babySage',
+    backgroundColor: '#F7F4EE',
+    borderColor: '#C4B59A',
+    accentColor: '#8A9A7A',
+    secondaryAccent: '#C4B59A',
+    backgroundImage: require('@/assets/invitations/baby-sage.png'),
+  }),
+  illustrated({
+    id: 'art-gold-floral-frame',
+    category: 'wedding',
+    labelKey: 'invitation.templates.goldFloralFrame',
+    backgroundColor: '#F8F4EC',
+    borderColor: '#D4AF7A',
+    accentColor: '#C9A962',
+    secondaryAccent: '#8A9A6A',
+    backgroundImage: require('@/assets/invitations/gold-floral-frame.png'),
+  }),
+];
+
+function buildCelebrationInvitationTemplates(
+  themeIds: CelebrationThemeId[] = CELEBRATION_THEME_IDS
+): InvitationTemplate[] {
+  return themeIds.map((themeId) => {
     const theme = getCelebrationTheme(themeId);
     const { colors } = theme;
 
     return {
       id: `theme-${themeId}`,
-      category: 'celebration',
+      category: 'celebration' as const,
       labelKey: theme.labelKey,
       backgroundColor: colors.background,
       overlayColor: 'rgba(255,255,255,0.35)',
       borderColor: colors.primary,
-      borderWidth: 2,
-      doubleBorder: true,
-      innerBorderColor: colors.primaryLight,
-      cornerStyle: CELEBRATION_CORNER_STYLES[themeId],
+      borderWidth: 0,
+      doubleBorder: false,
+      cornerStyle: 'none',
       accentColor: colors.primary,
       secondaryAccent: colors.primaryDark,
-      textTone: 'dark',
+      textTone: 'light' as const,
       scatterFloral: false,
       backgroundImage: theme.backgroundImage,
       celebrationThemeId: themeId,
       useImageBackground: true,
-      subtleCorners: true,
     };
   });
 }
 
-export const INVITATION_TEMPLATES: InvitationTemplate[] = [
+const CELEBRATION_INVITATION_TEMPLATES = buildCelebrationInvitationTemplates(
+  CELEBRATION_THEME_IDS.filter((themeId) => themeId !== 'other')
+);
+
+const INVITATION_CATALOG: InvitationTemplate[] = [
+  ...CELEBRATION_INVITATION_TEMPLATES,
+  ...ILLUSTRATED_INVITATION_TEMPLATES,
+];
+
+function orderInvitationTemplates(
+  templates: InvitationTemplate[]
+): InvitationTemplate[] {
+  const featured = FEATURED_INVITATION_TEMPLATE_IDS.flatMap((id) => {
+    const match = templates.find((template) => template.id === id);
+    return match ? [match] : [];
+  });
+  const featuredIds = new Set<string>(FEATURED_INVITATION_TEMPLATE_IDS);
+  return [...featured, ...templates.filter((template) => !featuredIds.has(template.id))];
+}
+
+export const INVITATION_TEMPLATES: InvitationTemplate[] = orderInvitationTemplates(
+  INVITATION_CATALOG
+);
+
+/** Default background when creating a new invitation — 5th template in the visible preview row. */
+export const DEFAULT_INVITATION_TEMPLATE_ID =
+  INVITATION_TEMPLATES[PREVIEW_INVITATION_TEMPLATE_COUNT - 1]?.id ??
+  INVITATION_TEMPLATES[0]?.id ??
+  'theme-wedding';
+
+const ALL_INVITATION_TEMPLATES: InvitationTemplate[] = [
   ...PROGRAMMATIC_INVITATION_TEMPLATES,
   ...buildCelebrationInvitationTemplates(),
+  ...ILLUSTRATED_INVITATION_TEMPLATES,
 ];
 
 export function getInvitationTemplate(id: string): InvitationTemplate {
   const resolvedId = LEGACY_TEMPLATE_MAP[id] ?? id;
   return (
-    INVITATION_TEMPLATES.find((template) => template.id === resolvedId) ??
+    ALL_INVITATION_TEMPLATES.find((template) => template.id === resolvedId) ??
+    ALL_INVITATION_TEMPLATES.find((template) => template.id === DEFAULT_INVITATION_TEMPLATE_ID) ??
     INVITATION_TEMPLATES[0]
   );
 }
@@ -317,5 +525,5 @@ export function getTemplateIndex(id: string): number {
 
 export function getSuggestedFontColor(templateId: string): string {
   const template = getInvitationTemplate(templateId);
-  return template.useImageBackground ? '#FFFFFF' : '#3D3D3D';
+  return template.textTone === 'light' ? '#FFFFFF' : '#3D3D3D';
 }

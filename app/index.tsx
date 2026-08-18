@@ -3,6 +3,7 @@ import { Stack, useRouter } from 'expo-router';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { EventCard } from '@/components/EventCard';
+import { EventsWelcomeAvatar } from '@/components/EventsWelcomeAvatar';
 import { BottomSystemBarFill } from '@/components/BottomSystemBarFill';
 import { ScreenContainer } from '@/components/ScreenContainer';
 import { EmptyState, Fab } from '@/components/ui';
@@ -65,6 +66,7 @@ export default function HomeScreen() {
 
       <Fab onPress={() => router.push('/modals/add-event')} />
       </ScreenContainer>
+      <EventsWelcomeAvatar />
       <BottomSystemBarFill color={theme.background} />
     </View>
   );

@@ -60,6 +60,10 @@ export function ThemePicker({
                   { color: theme.textSecondary },
                   active && { color: theme.primaryDark },
                 ]}
+                numberOfLines={1}
+                adjustsFontSizeToFit
+                minimumFontScale={0.65}
+                ellipsizeMode="tail"
               >
                 {getLabel(themeId)}
               </Text>
@@ -88,7 +92,7 @@ const styles = StyleSheet.create({
     paddingRight: spacing.md,
   },
   card: {
-    width: 96,
+    width: 112,
     borderRadius: radius.md,
     borderWidth: 2,
     overflow: 'hidden',
@@ -110,9 +114,12 @@ const styles = StyleSheet.create({
   },
   cardLabel: {
     ...typography.small,
+    fontSize: 10,
+    lineHeight: 13,
     textAlign: 'center',
     paddingVertical: spacing.xs,
     paddingHorizontal: spacing.xs,
     fontWeight: '600',
+    minHeight: 26,
   },
 });

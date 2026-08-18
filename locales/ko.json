@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "마이 퍼펙트 파티",
-    "tagline": "스트레스 없이 즐겁게 축하하세요"
+    "tagline": "스트레스 없이 즐겁게 축하하세요",
+    "welcome": "환영합니다!"
   },
   "onboarding": {
     "selectLanguage": "언어 선택",
@@ -60,6 +61,7 @@
     "addGuestSide": "측 추가",
     "guestSidePlaceholder": "예: 신부 측, 신랑 측",
     "themes": {
+      "default": "기본",
       "wedding": "결혼식",
       "birthday": "생일",
       "baptism": "세례식",
@@ -193,8 +195,48 @@
       "birthday1Boy": "돌잔치 — 남아",
       "birthday18Elegant": "18세 우아함",
       "birthday18Modern": "18세 모던",
-      "birthday18Gold": "18세 골드"
-    }
+      "birthday18Gold": "18세 골드",
+      "blueBalloons": "파란 풍선",
+      "blushBalloons": "블러시 풍선",
+      "botanicalGold": "보태니컬 골드",
+      "greeneryGold": "그린과 골드",
+      "ivoryRoses": "아이보리 장미",
+      "whiteRoses": "흰 장미",
+      "babyNeutrals": "베이비 뉴트럴",
+      "birthday1BoyArt": "첫 생일 — 남아",
+      "birthday1GirlArt": "첫 생일 — 여아",
+      "birthday18BlushNavy": "18 블러시 네이비",
+      "birthday18RoseGold": "18 로즈골드",
+      "birthday18NavyGold": "18 네이비 골드",
+      "teamBride": "팀 브라이드",
+      "babySage": "베이비 세이지",
+      "goldFloralFrame": "골드 플로럴 프레임"
+    },
+    "illustratedBackgrounds": "초대장 배경",
+    "seeMore": "템플릿 더 보기",
+    "groups": {
+      "wedding": "결혼식",
+      "birthday1": "첫 생일",
+      "birthday18": "18번째 생일",
+      "universal": "축하"
+    },
+    "changeColor": "변경",
+    "colorHex": "Hex",
+    "colorHue": "색조",
+    "colorSaturation": "채도",
+    "colorShade": "밝기",
+    "addText": "텍스트 추가",
+    "customTexts": "자유 텍스트",
+    "customTextLabel": "텍스트",
+    "customTextPlaceholder": "텍스트를 입력하세요",
+    "removeText": "텍스트 삭제",
+    "noIcon": "아이콘 없음",
+    "dragHint": "아이콘이나 텍스트를 눌러 수정하거나 삭제하세요. 자유 텍스트는 원하는 곳으로 드래그하세요.",
+    "hideHint": "필드를 비우면 초대장에서 숨겨집니다.",
+    "textSize": "글자 크기",
+    "watermark": "{{app}}로 제작",
+    "removeWatermark": "워터마크 제거",
+    "removeWatermarkHint": "짧은 광고를 시청하면 이 초대장에서 앱 워터마크를 제거할 수 있습니다."
   },
   "guests": {
     "title": "하객",
@@ -268,7 +310,18 @@
       "name_desc": "이름 (하→가)",
       "partySize_desc": "인원 (많은 순)",
       "partySize_asc": "인원 (적은 순)"
-    }
+    },
+    "seatCard": "내 자리",
+    "seatCardTitle": "내 테이블은",
+    "seatCardWelcome": "축하를 즐기세요!",
+    "seatCardWelcomeHappy": "와 주셔서 정말 기쁩니다!",
+    "seatCardWatermark": "Play Store에서 다운로드",
+    "seatCardShare": "자리 카드 공유",
+    "seatCardShareUnavailable": "공유는 모바일 기기에서 사용할 수 있습니다.",
+    "seatCardYou": "나",
+    "seatCardSeat": "{{seat}}번 자리",
+    "seatCardSeatRange": "{{start}}–{{end}}번 자리",
+    "seatCardSeats": "자리 {{seats}}"
   },
   "seating": {
     "title": "좌석 플래너",
@@ -324,7 +377,14 @@
     "seatsFree": "빈 좌석",
     "reorderHint": "게스트를 눌러 좌석을 강조하세요. 다른 게스트를 눌러 바꾸거나 화살표로 이동하세요.",
     "moveUp": "위로",
-    "moveDown": "아래로"
+    "moveDown": "아래로",
+    "downloadList": "좌석표 다운로드",
+    "downloadListEmpty": "먼저 테이블을 추가하고 하객을 배치하세요.",
+    "listTitle": "좌석표",
+    "listFindTable": "내 테이블 찾기",
+    "listDirectory": "이름 목록",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "아직 하객이 없습니다"
   },
   "expenses": {
     "title": "지출",

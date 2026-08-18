@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "حفلتي المثالية",
-    "tagline": "احتفل دون توتر"
+    "tagline": "احتفل دون توتر",
+    "welcome": "مرحبًا!"
   },
   "onboarding": {
     "selectLanguage": "اختر لغتك",
@@ -60,6 +61,7 @@
     "addGuestSide": "إضافة جهة",
     "guestSidePlaceholder": "مثال: جهة العروس، جهة العريس",
     "themes": {
+      "default": "افتراضي",
       "wedding": "زفاف",
       "birthday": "عيد ميلاد",
       "baptism": "معمودية",
@@ -193,8 +195,48 @@
       "birthday1Boy": "عيد ميلاد أول — ولد",
       "birthday18Elegant": "18 أنيق",
       "birthday18Modern": "18 عصري",
-      "birthday18Gold": "18 ذهبي"
-    }
+      "birthday18Gold": "18 ذهبي",
+      "blueBalloons": "بالونات زرقاء",
+      "blushBalloons": "بالونات وردية",
+      "botanicalGold": "ذهبي نباتي",
+      "greeneryGold": "أخضر وذهبي",
+      "ivoryRoses": "ورود عاجية",
+      "whiteRoses": "ورود بيضاء",
+      "babyNeutrals": "محايد للرضع",
+      "birthday1BoyArt": "عيد الميلاد الأول — ولد",
+      "birthday1GirlArt": "عيد الميلاد الأول — بنت",
+      "birthday18BlushNavy": "18 وردي كحلي",
+      "birthday18RoseGold": "18 ذهبي وردي",
+      "birthday18NavyGold": "18 كحلي ذهبي",
+      "teamBride": "فريق العروس",
+      "babySage": "مريمية للرضع",
+      "goldFloralFrame": "إطار زهري ذهبي"
+    },
+    "illustratedBackgrounds": "خلفيات الدعوة",
+    "seeMore": "عرض المزيد من القوالب",
+    "groups": {
+      "wedding": "زفاف",
+      "birthday1": "عيد الميلاد الأول",
+      "birthday18": "عيد الميلاد الـ18",
+      "universal": "احتفال"
+    },
+    "changeColor": "تغيير",
+    "colorHex": "Hex",
+    "colorHue": "الدرجة",
+    "colorSaturation": "التشبع",
+    "colorShade": "الإضاءة",
+    "addText": "إضافة نص",
+    "customTexts": "نص حر",
+    "customTextLabel": "النص",
+    "customTextPlaceholder": "نصك",
+    "removeText": "حذف النص",
+    "noIcon": "بدون أيقونة",
+    "dragHint": "انقر على أي أيقونة أو نص لتعديله أو حذفه. اسحب النص الحر إلى المكان الذي تريده.",
+    "hideHint": "امسح الحقل لإخفائه من الدعوة.",
+    "textSize": "حجم النص",
+    "watermark": "صُنع باستخدام {{app}}",
+    "removeWatermark": "إزالة العلامة المائية",
+    "removeWatermarkHint": "شاهد إعلانًا قصيرًا لإزالة العلامة المائية للتطبيق من هذه الدعوة."
   },
   "guests": {
     "title": "الضيوف",
@@ -268,7 +310,18 @@
       "name_desc": "الاسم (ي-أ)",
       "partySize_desc": "حجم المجموعة (الأكبر أولاً)",
       "partySize_asc": "حجم المجموعة (الأصغر أولاً)"
-    }
+    },
+    "seatCard": "مقعدك",
+    "seatCardTitle": "مقعدك هو",
+    "seatCardWelcome": "استمتعوا بالاحتفال!",
+    "seatCardWelcomeHappy": "يسعدنا وجودكم معنا!",
+    "seatCardWatermark": "حمّل من Play Store",
+    "seatCardShare": "مشاركة بطاقة المقعد",
+    "seatCardShareUnavailable": "المشاركة متاحة على الأجهزة المحمولة.",
+    "seatCardYou": "أنت",
+    "seatCardSeat": "المقعد {{seat}}",
+    "seatCardSeatRange": "المقاعد {{start}}–{{end}}",
+    "seatCardSeats": "المقاعد {{seats}}"
   },
   "seating": {
     "title": "مخطط الجلوس",
@@ -324,7 +377,14 @@
     "seatsFree": "مقاعد فارغة",
     "reorderHint": "انقر على ضيف لتحديد مقعده. انقر على آخر للتبديل، أو استخدم الأسهم للتحريك.",
     "moveUp": "تحريك لأعلى",
-    "moveDown": "تحريك لأسفل"
+    "moveDown": "تحريك لأسفل",
+    "downloadList": "تنزيل قائمة الجلوس",
+    "downloadListEmpty": "أضف الطاولات ووزّع الضيوف أولاً.",
+    "listTitle": "قائمة الجلوس",
+    "listFindTable": "اعثر على طاولتك",
+    "listDirectory": "دليل الأسماء",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "لا يوجد ضيوف بعد"
   },
   "expenses": {
     "title": "المصروفات",

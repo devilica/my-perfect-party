@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Mi fiesta perfecta",
-    "tagline": "Celebra sin estrés"
+    "tagline": "Celebra sin estrés",
+    "welcome": "¡Bienvenido!"
   },
   "onboarding": {
     "selectLanguage": "Elige tu idioma",
@@ -60,6 +61,7 @@
     "addGuestSide": "Añadir lado",
     "guestSidePlaceholder": "p. ej. Lado de la novia, Lado del novio",
     "themes": {
+      "default": "Predeterminado",
       "wedding": "Boda",
       "birthday": "Cumpleaños",
       "baptism": "Bautizo",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1.er cumpleaños — niño",
       "birthday18Elegant": "18 elegante",
       "birthday18Modern": "18 moderno",
-      "birthday18Gold": "18 oro"
+      "birthday18Gold": "18 oro",
+      "blueBalloons": "Globos azules",
+      "blushBalloons": "Globos blush",
+      "botanicalGold": "Oro botánico",
+      "greeneryGold": "Verde y oro",
+      "ivoryRoses": "Rosas marfil",
+      "whiteRoses": "Rosas blancas",
+      "babyNeutrals": "Bebé neutro",
+      "birthday1BoyArt": "1er cumpleaños — niño",
+      "birthday1GirlArt": "1er cumpleaños — niña",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 oro rosa",
+      "birthday18NavyGold": "18 navy oro",
+      "teamBride": "Team bride",
+      "babySage": "Bebé salvia",
+      "goldFloralFrame": "Marco floral dorado"
     },
-    "adUnavailable": "El anuncio no está disponible ahora. Inténtalo más tarde."
+    "adUnavailable": "El anuncio no está disponible ahora. Inténtalo más tarde.",
+    "illustratedBackgrounds": "Fondos de invitación",
+    "seeMore": "Ver más plantillas",
+    "groups": {
+      "wedding": "Boda",
+      "birthday1": "1er cumpleaños",
+      "birthday18": "18º cumpleaños",
+      "universal": "Celebración"
+    },
+    "changeColor": "Cambiar",
+    "colorHex": "Hex",
+    "colorHue": "Tono",
+    "colorSaturation": "Saturación",
+    "colorShade": "Luminosidad",
+    "addText": "Añadir texto",
+    "customTexts": "Texto libre",
+    "customTextLabel": "Texto",
+    "customTextPlaceholder": "Tu texto",
+    "removeText": "Eliminar texto",
+    "noIcon": "Sin icono",
+    "dragHint": "Toca cualquier icono o texto para editarlo o eliminarlo. Arrastra el texto libre donde quieras.",
+    "hideHint": "Borra un campo para ocultarlo en la invitación.",
+    "textSize": "Tamaño del texto",
+    "watermark": "Hecho con {{app}}",
+    "removeWatermark": "Quitar marca de agua",
+    "removeWatermarkHint": "Mira un anuncio corto para quitar la marca de agua de la app de esta invitación."
   },
   "guests": {
     "title": "Invitados",
@@ -268,7 +310,18 @@
       "name_desc": "Nombre (Z-A)",
       "partySize_desc": "Número de personas (más primero)",
       "partySize_asc": "Número de personas (menos primero)"
-    }
+    },
+    "seatCard": "Tu asiento",
+    "seatCardTitle": "Tu mesa es",
+    "seatCardWelcome": "¡Disfrutad la celebración!",
+    "seatCardWelcomeHappy": "¡Estamos muy felices de que estéis aquí!",
+    "seatCardWatermark": "Descárgalo en Play Store",
+    "seatCardShare": "Compartir tarjeta de asiento",
+    "seatCardShareUnavailable": "Compartir está disponible en dispositivos móviles.",
+    "seatCardYou": "Tú",
+    "seatCardSeat": "Asiento {{seat}}",
+    "seatCardSeatRange": "Asientos {{start}}–{{end}}",
+    "seatCardSeats": "Asientos {{seats}}"
   },
   "seating": {
     "title": "Plan de mesas",
@@ -324,7 +377,14 @@
     "viewHall": "Ver salón",
     "reorderHint": "Toca un invitado para resaltar su asiento. Toca otro para intercambiar, o usa las flechas.",
     "moveUp": "Subir",
-    "moveDown": "Bajar"
+    "moveDown": "Bajar",
+    "downloadList": "Descargar lista de asientos",
+    "downloadListEmpty": "Primero añade mesas y asigna invitados.",
+    "listTitle": "Lista de asientos",
+    "listFindTable": "Encuentra tu mesa",
+    "listDirectory": "Directorio de nombres",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Aún no hay invitados"
   },
   "expenses": {
     "title": "Gastos",

@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Mans ideālais baliņš",
-    "tagline": "Svinē bez stresa"
+    "tagline": "Svinē bez stresa",
+    "welcome": "Laipni lūdzam!"
   },
   "onboarding": {
     "selectLanguage": "Izvēlieties valodu",
@@ -60,6 +61,7 @@
     "addGuestSide": "Pievienot pusi",
     "guestSidePlaceholder": "piem. Līgavas puse, Līgavaiņa puse",
     "themes": {
+      "default": "Noklusējums",
       "wedding": "Kāzas",
       "birthday": "Dzimšanas diena",
       "baptism": "Kristības",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1. dzimšanas diena — zēns",
       "birthday18Elegant": "18 elegants",
       "birthday18Modern": "18 moderns",
-      "birthday18Gold": "18 zelta"
+      "birthday18Gold": "18 zelta",
+      "blueBalloons": "Zili baloni",
+      "blushBalloons": "Blush baloni",
+      "botanicalGold": "Botāniskais zelts",
+      "greeneryGold": "Zaļumi un zelts",
+      "ivoryRoses": "Krēmrozītes",
+      "whiteRoses": "Baltas rozes",
+      "babyNeutrals": "Bērna neitrāls",
+      "birthday1BoyArt": "1. dzimšanas diena — zēns",
+      "birthday1GirlArt": "1. dzimšanas diena — meitene",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 rozā zelts",
+      "birthday18NavyGold": "18 navy zelts",
+      "teamBride": "Team bride",
+      "babySage": "Bērna salvija",
+      "goldFloralFrame": "Zelta ziedu rāmis"
     },
-    "adUnavailable": "Reklāma pašlaik nav pieejama. Mēģiniet vēlāk."
+    "adUnavailable": "Reklāma pašlaik nav pieejama. Mēģiniet vēlāk.",
+    "illustratedBackgrounds": "Ielūgumu foni",
+    "seeMore": "Skatīt vairāk veidņu",
+    "groups": {
+      "wedding": "Kāzas",
+      "birthday1": "1. dzimšanas diena",
+      "birthday18": "18. dzimšanas diena",
+      "universal": "Svētki"
+    },
+    "changeColor": "Mainīt",
+    "colorHex": "Hex",
+    "colorHue": "Tonis",
+    "colorSaturation": "Piesātinājums",
+    "colorShade": "Gaišums",
+    "addText": "Pievienot tekstu",
+    "customTexts": "Brīvais teksts",
+    "customTextLabel": "Teksts",
+    "customTextPlaceholder": "Jūsu teksts",
+    "removeText": "Noņemt tekstu",
+    "noIcon": "Bez ikonas",
+    "dragHint": "Pieskarieties ikonai vai tekstam, lai rediģētu vai dzēstu. Velciet brīvo tekstu, kur vēlaties.",
+    "hideHint": "Notīriet lauku, lai paslēptu to ielūgumā.",
+    "textSize": "Teksta lielums",
+    "watermark": "Izveidots ar {{app}}",
+    "removeWatermark": "Noņemt ūdenszīmi",
+    "removeWatermarkHint": "Noskatieties īsu reklāmu, lai noņemtu lietotnes ūdenszīmi no šī ielūguma."
   },
   "guests": {
     "title": "Viesi",
@@ -268,7 +310,18 @@
       "name_desc": "Vārds (Z-A)",
       "partySize_desc": "Personu skaits (vairāk vispirms)",
       "partySize_asc": "Personu skaits (mazāk vispirms)"
-    }
+    },
+    "seatCard": "Tava vieta",
+    "seatCardTitle": "Tavs galds ir",
+    "seatCardWelcome": "Izbaudiet svētkus!",
+    "seatCardWelcomeHappy": "Priecājamies, ka esat šeit!",
+    "seatCardWatermark": "Lejupielādēt Play veikalā",
+    "seatCardShare": "Kopīgot vietas karti",
+    "seatCardShareUnavailable": "Kopīgošana ir pieejama mobilajās ierīcēs.",
+    "seatCardYou": "Tu",
+    "seatCardSeat": "Vieta {{seat}}",
+    "seatCardSeatRange": "Vietas {{start}}–{{end}}",
+    "seatCardSeats": "Vietas {{seats}}"
   },
   "seating": {
     "title": "Sēdvietu plānotājs",
@@ -324,7 +377,14 @@
     "viewHall": "Skatīt zāli",
     "reorderHint": "Pieskaries viesim, lai izceltu vietu. Pieskaries citam, lai apmainītu, vai izmanto bultiņas.",
     "moveUp": "Uz augšu",
-    "moveDown": "Uz leju"
+    "moveDown": "Uz leju",
+    "downloadList": "Lejupielādēt sēdvietu plānu",
+    "downloadListEmpty": "Vispirms pievienojiet galdus un norādiet viesus.",
+    "listTitle": "Sēdvietu plāns",
+    "listFindTable": "Atrodiet savu galdu",
+    "listDirectory": "Vārdu saraksts",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Vēl nav viesu"
   },
   "expenses": {
     "title": "Izdevumi",

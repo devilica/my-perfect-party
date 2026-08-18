@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "আমার নিখুঁত পার্টি",
-    "tagline": "চাপ ছাড়াই উদযাপন"
+    "tagline": "চাপ ছাড়াই উদযাপন",
+    "welcome": "স্বাগতম!"
   },
   "onboarding": {
     "selectLanguage": "আপনার ভাষা বেছে নিন",
@@ -60,6 +61,7 @@
     "addGuestSide": "পক্ষ যোগ",
     "guestSidePlaceholder": "যেমন কনের পক্ষ, বরের পক্ষ",
     "themes": {
+      "default": "ডিফল্ট",
       "wedding": "বিয়ে",
       "birthday": "জন্মদিন",
       "baptism": "বাপ্তিস্ম",
@@ -193,8 +195,48 @@
       "birthday1Boy": "১ম জন্মদিন — ছেলে",
       "birthday18Elegant": "১৮ elegant",
       "birthday18Modern": "১৮ modern",
-      "birthday18Gold": "১৮ gold"
-    }
+      "birthday18Gold": "১৮ gold",
+      "blueBalloons": "নীল বেলুন",
+      "blushBalloons": "ব্লাশ বেলুন",
+      "botanicalGold": "বোটানিক্যাল সোনা",
+      "greeneryGold": "সবুজ ও সোনা",
+      "ivoryRoses": "আইভরি গোলাপ",
+      "whiteRoses": "সাদা গোলাপ",
+      "babyNeutrals": "বেবি নিউট্রাল",
+      "birthday1BoyArt": "১ম জন্মদিন — ছেলে",
+      "birthday1GirlArt": "১ম জন্মদিন — মেয়ে",
+      "birthday18BlushNavy": "১৮ ব্লাশ নেভি",
+      "birthday18RoseGold": "১৮ রোজ গোল্ড",
+      "birthday18NavyGold": "১৮ নেভি গোল্ড",
+      "teamBride": "টিম ব্রাইড",
+      "babySage": "বেবি সেজ",
+      "goldFloralFrame": "সোনালি ফুলের ফ্রেম"
+    },
+    "illustratedBackgrounds": "নিমন্ত্রণের ব্যাকগ্রাউন্ড",
+    "seeMore": "আরও টেমপ্লেট দেখুন",
+    "groups": {
+      "wedding": "বিয়ে",
+      "birthday1": "১ম জন্মদিন",
+      "birthday18": "১৮তম জন্মদিন",
+      "universal": "উৎসব"
+    },
+    "changeColor": "পরিবর্তন",
+    "colorHex": "Hex",
+    "colorHue": "হিউ",
+    "colorSaturation": "স্যাচুরেশন",
+    "colorShade": "উজ্জ্বলতা",
+    "addText": "টেক্সট যোগ করুন",
+    "customTexts": "মুক্ত টেক্সট",
+    "customTextLabel": "টেক্সট",
+    "customTextPlaceholder": "আপনার টেক্সট",
+    "removeText": "টেক্সট মুছুন",
+    "noIcon": "কোনো আইকন নেই",
+    "dragHint": "সম্পাদনা বা মুছতে যেকোনো আইকন বা টেক্সটে ট্যাপ করুন। মুক্ত টেক্সট যেখানে চান সেখানে টেনে নিন।",
+    "hideHint": "নিমন্ত্রণ থেকে লুকাতে একটি ঘর খালি করুন।",
+    "textSize": "টেক্সটের আকার",
+    "watermark": "{{app}} দিয়ে তৈরি",
+    "removeWatermark": "ওয়াটারমার্ক সরান",
+    "removeWatermarkHint": "এই নিমন্ত্রণ থেকে অ্যাপের ওয়াটারমার্ক সরাতে একটি ছোট বিজ্ঞাপন দেখুন।"
   },
   "guests": {
     "title": "অতিথি",
@@ -268,7 +310,18 @@
       "name_desc": "নাম (Z-A)",
       "partySize_desc": "দলের আকার (বড় আগে)",
       "partySize_asc": "দলের আকার (ছোট আগে)"
-    }
+    },
+    "seatCard": "আপনার আসন",
+    "seatCardTitle": "আপনার টেবিল",
+    "seatCardWelcome": "উৎসব উপভোগ করুন!",
+    "seatCardWelcomeHappy": "আপনাকে পেয়ে আমরা খুশি!",
+    "seatCardWatermark": "Play Store থেকে ডাউনলোড করুন",
+    "seatCardShare": "আসন কার্ড শেয়ার করুন",
+    "seatCardShareUnavailable": "শেয়ারিং মোবাইল ডিভাইসে উপলব্ধ।",
+    "seatCardYou": "আপনি",
+    "seatCardSeat": "আসন {{seat}}",
+    "seatCardSeatRange": "আসন {{start}}–{{end}}",
+    "seatCardSeats": "আসন {{seats}}"
   },
   "seating": {
     "title": "আসন পরিকল্পনা",
@@ -324,7 +377,14 @@
     "seatsFree": "খালি আসন",
     "reorderHint": "আসন হাইলাইট করতে অতিথিতে ট্যাপ করুন। অদলবদলের জন্য অন্যটিতে ট্যাপ করুন, বা তীর ব্যবহার করুন।",
     "moveUp": "উপরে সরান",
-    "moveDown": "নিচে সরান"
+    "moveDown": "নিচে সরান",
+    "downloadList": "সিটিং তালিকা ডাউনলোড করুন",
+    "downloadListEmpty": "আগে টেবিল যোগ করুন এবং অতিথিদের বসান।",
+    "listTitle": "সিটিং তালিকা",
+    "listFindTable": "আপনার টেবিল খুঁজুন",
+    "listDirectory": "নামের তালিকা",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "এখনও কোনো অতিথি নেই"
   },
   "expenses": {
     "title": "খরচ",

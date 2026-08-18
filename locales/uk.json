@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Моє ідеальне свято",
-    "tagline": "Святкуй без стресу"
+    "tagline": "Святкуй без стресу",
+    "welcome": "Ласкаво просимо!"
   },
   "onboarding": {
     "selectLanguage": "Оберіть мову",
@@ -60,6 +61,7 @@
     "addGuestSide": "Додати сторону",
     "guestSidePlaceholder": "напр. Сторона нареченої, Сторона нареченого",
     "themes": {
+      "default": "За замовчуванням",
       "wedding": "Весілля",
       "birthday": "День народження",
       "baptism": "Хрестини",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1-й день народження — хлопчик",
       "birthday18Elegant": "18 елегантний",
       "birthday18Modern": "18 сучасний",
-      "birthday18Gold": "18 золотий"
+      "birthday18Gold": "18 золотий",
+      "blueBalloons": "Сині кульки",
+      "blushBalloons": "Рожеві кульки",
+      "botanicalGold": "Ботанічне золото",
+      "greeneryGold": "Зелень і золото",
+      "ivoryRoses": "Кремові троянди",
+      "whiteRoses": "Білі троянди",
+      "babyNeutrals": "Дитячий нейтральний",
+      "birthday1BoyArt": "1-й день народження — хлопчик",
+      "birthday1GirlArt": "1-й день народження — дівчинка",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 рожеве золото",
+      "birthday18NavyGold": "18 navy золото",
+      "teamBride": "Команда нареченої",
+      "babySage": "Дитяча шавлія",
+      "goldFloralFrame": "Золота квіткова рамка"
     },
-    "adUnavailable": "Реклама зараз недоступна. Спробуйте пізніше."
+    "adUnavailable": "Реклама зараз недоступна. Спробуйте пізніше.",
+    "illustratedBackgrounds": "Фони запрошень",
+    "seeMore": "Більше шаблонів",
+    "groups": {
+      "wedding": "Весілля",
+      "birthday1": "1-й день народження",
+      "birthday18": "18-річчя",
+      "universal": "Свято"
+    },
+    "changeColor": "Змінити",
+    "colorHex": "Hex",
+    "colorHue": "Тон",
+    "colorSaturation": "Насиченість",
+    "colorShade": "Яскравість",
+    "addText": "Додати текст",
+    "customTexts": "Вільний текст",
+    "customTextLabel": "Текст",
+    "customTextPlaceholder": "Ваш текст",
+    "removeText": "Видалити текст",
+    "noIcon": "Без піктограми",
+    "dragHint": "Натисніть піктограму або текст, щоб змінити чи видалити. Перетягніть вільний текст куди потрібно.",
+    "hideHint": "Очистіть поле, щоб сховати його на запрошенні.",
+    "textSize": "Розмір тексту",
+    "watermark": "Створено в {{app}}",
+    "removeWatermark": "Прибрати водяний знак",
+    "removeWatermarkHint": "Перегляньте коротку рекламу, щоб прибрати водяний знак застосунку з цього запрошення."
   },
   "guests": {
     "title": "Гості",
@@ -268,7 +310,18 @@
       "name_desc": "Ім'я (Я-А)",
       "partySize_desc": "Кількість осіб (більше спочатку)",
       "partySize_asc": "Кількість осіб (менше спочатку)"
-    }
+    },
+    "seatCard": "Ваше місце",
+    "seatCardTitle": "Ваш стіл",
+    "seatCardWelcome": "Насолоджуйтеся святом!",
+    "seatCardWelcomeHappy": "Ми дуже раді, що ви тут!",
+    "seatCardWatermark": "Завантажити з Play Store",
+    "seatCardShare": "Поділитися карткою місця",
+    "seatCardShareUnavailable": "Обмін доступний на мобільних пристроях.",
+    "seatCardYou": "Ви",
+    "seatCardSeat": "Місце {{seat}}",
+    "seatCardSeatRange": "Місця {{start}}–{{end}}",
+    "seatCardSeats": "Місця {{seats}}"
   },
   "seating": {
     "title": "Планувальник розсадки",
@@ -324,7 +377,14 @@
     "viewHall": "Дивитися зал",
     "reorderHint": "Торкнись гостя, щоб підсвітити місце. Торкнись іншого для обміну, або стрілки для переміщення.",
     "moveUp": "Вище",
-    "moveDown": "Нижче"
+    "moveDown": "Нижче",
+    "downloadList": "Завантажити схему розсадки",
+    "downloadListEmpty": "Спочатку додайте столи та розсадіть гостей.",
+    "listTitle": "Схема розсадки",
+    "listFindTable": "Знайдіть свій стіл",
+    "listDirectory": "Список імен",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Гостей ще немає"
   },
   "expenses": {
     "title": "Витрати",

@@ -20,7 +20,7 @@ export function ThemedEventModal({
   showBottomBanner = false,
 }: ThemedEventModalProps) {
   const eventThemeId = useWeddingStore(
-    (s) => s.events.find((event) => event.id === eventId)?.theme ?? 'wedding'
+    (s) => s.events.find((event) => event.id === eventId)?.theme ?? 'default'
   );
 
   return (
@@ -41,7 +41,7 @@ export function ThemedEventModal({
 
 export function useEventCelebrationTheme(eventId: string): CelebrationTheme {
   const themeId = useWeddingStore(
-    (s) => s.events.find((event) => event.id === eventId)?.theme ?? 'wedding'
+    (s) => s.events.find((event) => event.id === eventId)?.theme ?? 'default'
   );
 
   return useMemo(() => getCelebrationTheme(themeId), [themeId]);

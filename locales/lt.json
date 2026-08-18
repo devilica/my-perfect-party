@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Mano tobulas vakarėlis",
-    "tagline": "Švęsk be streso"
+    "tagline": "Švęsk be streso",
+    "welcome": "Sveiki atvykę!"
   },
   "onboarding": {
     "selectLanguage": "Pasirinkite kalbą",
@@ -60,6 +61,7 @@
     "addGuestSide": "Pridėti pusę",
     "guestSidePlaceholder": "pvz. Nuotakos pusė, Jaunikio pusė",
     "themes": {
+      "default": "Numatytasis",
       "wedding": "Vestuvės",
       "birthday": "Gimtadienis",
       "baptism": "Krikštynos",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1 gimtadienis — berniukas",
       "birthday18Elegant": "18 elegantiškas",
       "birthday18Modern": "18 modernus",
-      "birthday18Gold": "18 auksinis"
+      "birthday18Gold": "18 auksinis",
+      "blueBalloons": "Mėlyni balionai",
+      "blushBalloons": "Blush balionai",
+      "botanicalGold": "Botaninis auksas",
+      "greeneryGold": "Žaluma ir auksas",
+      "ivoryRoses": "Dramblio kaulo rožės",
+      "whiteRoses": "Baltos rožės",
+      "babyNeutrals": "Kūdikio neutralus",
+      "birthday1BoyArt": "1-asis gimtadienis — berniukas",
+      "birthday1GirlArt": "1-asis gimtadienis — mergaitė",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 rožinis auksas",
+      "birthday18NavyGold": "18 navy auksas",
+      "teamBride": "Team bride",
+      "babySage": "Kūdikio šalavijas",
+      "goldFloralFrame": "Auksinis gėlių rėmas"
     },
-    "adUnavailable": "Reklama šiuo metu nepasiekiama. Bandykite vėliau."
+    "adUnavailable": "Reklama šiuo metu nepasiekiama. Bandykite vėliau.",
+    "illustratedBackgrounds": "Kvietimų fonai",
+    "seeMore": "Daugiau šablonų",
+    "groups": {
+      "wedding": "Vestuvių",
+      "birthday1": "1-asis gimtadienis",
+      "birthday18": "18-asis gimtadienis",
+      "universal": "Šventė"
+    },
+    "changeColor": "Keisti",
+    "colorHex": "Hex",
+    "colorHue": "Atspalvis",
+    "colorSaturation": "Sodrumas",
+    "colorShade": "Šviesumas",
+    "addText": "Pridėti tekstą",
+    "customTexts": "Laisvas tekstas",
+    "customTextLabel": "Tekstas",
+    "customTextPlaceholder": "Jūsų tekstas",
+    "removeText": "Pašalinti tekstą",
+    "noIcon": "Be piktogramos",
+    "dragHint": "Bakstelėkite piktogramą arba tekstą, kad redaguotumėte ar ištrintumėte. Laisvą tekstą nutempkite ten, kur norite.",
+    "hideHint": "Išvalykite lauką, kad jis būtų paslėptas kvietime.",
+    "textSize": "Teksto dydis",
+    "watermark": "Sukurta su {{app}}",
+    "removeWatermark": "Pašalinti vandenženklį",
+    "removeWatermarkHint": "Pažiūrėkite trumpą reklamą, kad pašalintumėte programos vandenženklį iš šio kvietimo."
   },
   "guests": {
     "title": "Svečiai",
@@ -268,7 +310,18 @@
       "name_desc": "Vardas (Ž-A)",
       "partySize_desc": "Asmenų skaičius (daugiau pirmiausia)",
       "partySize_asc": "Asmenų skaičius (mažiau pirmiausia)"
-    }
+    },
+    "seatCard": "Jūsų vieta",
+    "seatCardTitle": "Jūsų stalas yra",
+    "seatCardWelcome": "Mėgaukitės švente!",
+    "seatCardWelcomeHappy": "Džiaugiamės, kad esate čia!",
+    "seatCardWatermark": "Atsisiųsti iš „Play“ parduotuvės",
+    "seatCardShare": "Bendrinti vietos kortelę",
+    "seatCardShareUnavailable": "Bendrinimas galimas mobiliuosiuose įrenginiuose.",
+    "seatCardYou": "Jūs",
+    "seatCardSeat": "Vieta {{seat}}",
+    "seatCardSeatRange": "Vietos {{start}}–{{end}}",
+    "seatCardSeats": "Vietos {{seats}}"
   },
   "seating": {
     "title": "Sėdimų vietų planuotojas",
@@ -324,7 +377,14 @@
     "viewHall": "Žiūrėti salę",
     "reorderHint": "Paliesk svečią, kad pažymėtum vietą. Paliesk kitą sukeitimui arba naudok rodykles.",
     "moveUp": "Aukštyn",
-    "moveDown": "Žemyn"
+    "moveDown": "Žemyn",
+    "downloadList": "Atsisiųsti sėdėjimo planą",
+    "downloadListEmpty": "Pirmiausia pridėkite stalus ir priskirkite svečius.",
+    "listTitle": "Sėdėjimo planas",
+    "listFindTable": "Raskite savo stalą",
+    "listDirectory": "Vardų sąrašas",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Svečių dar nėra"
   },
   "expenses": {
     "title": "Išlaidos",

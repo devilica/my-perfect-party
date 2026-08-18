@@ -19,6 +19,36 @@ function palette(overrides: Partial<ThemePalette>): ThemePalette {
   return { ...defaultColors, ...overrides };
 }
 
+const defaultTheme: CelebrationTheme = {
+  id: 'default',
+  labelKey: 'events.themes.default',
+  icon: 'sparkles',
+  backgroundImage: require('@/assets/themes/default.png'),
+  overlayColors: ['rgba(255,245,247,0.92)', 'rgba(253,232,234,0.88)'],
+  colors: palette({
+    background: '#FFF5F7',
+    surface: '#FFFFFF',
+    primary: '#E85A74',
+    primaryDark: '#C73A58',
+    primaryLight: '#FDE8EA',
+    text: '#251B19',
+    textSecondary: '#655D59',
+    textMuted: '#8A827E',
+    border: '#F2C5C1',
+    pendingLight: '#FDE8EA',
+    danger: '#C73A58',
+    dangerLight: '#FDE8EA',
+    seatFull: '#C73A58',
+    seatFullLight: '#FDE8EA',
+    brideSide: '#E85A74',
+    brideSideLight: '#FDE8EA',
+    groomSide: '#5F0F1B',
+    groomSideLight: '#F2C5C1',
+    sharedSide: '#F7C796',
+    sharedSideLight: '#FFF8E8',
+  }),
+};
+
 const weddingTheme: CelebrationTheme = {
   id: 'wedding',
   labelKey: 'events.themes.wedding',
@@ -231,6 +261,7 @@ const otherTheme: CelebrationTheme = {
 };
 
 export const CELEBRATION_THEMES: Record<CelebrationThemeId, CelebrationTheme> = {
+  default: defaultTheme,
   wedding: weddingTheme,
   birthday: birthdayTheme,
   baptism: baptismTheme,
@@ -243,6 +274,7 @@ export const CELEBRATION_THEMES: Record<CelebrationThemeId, CelebrationTheme> = 
 };
 
 export const CELEBRATION_THEME_IDS: CelebrationThemeId[] = [
+  'default',
   'wedding',
   'birthday',
   'baptism',
@@ -255,5 +287,5 @@ export const CELEBRATION_THEME_IDS: CelebrationThemeId[] = [
 ];
 
 export function getCelebrationTheme(id: CelebrationThemeId): CelebrationTheme {
-  return CELEBRATION_THEMES[id] ?? weddingTheme;
+  return CELEBRATION_THEMES[id] ?? defaultTheme;
 }

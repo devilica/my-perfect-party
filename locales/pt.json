@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "A minha festa perfeita",
-    "tagline": "Celebre sem stress"
+    "tagline": "Celebre sem stress",
+    "welcome": "Bem-vindo!"
   },
   "onboarding": {
     "selectLanguage": "Escolha o idioma",
@@ -60,6 +61,7 @@
     "addGuestSide": "Adicionar lado",
     "guestSidePlaceholder": "p. ex. Lado da noiva, Lado do noivo",
     "themes": {
+      "default": "Predefinido",
       "wedding": "Casamento",
       "birthday": "Aniversário",
       "baptism": "Batizado",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1.º aniversário — menino",
       "birthday18Elegant": "18 elegante",
       "birthday18Modern": "18 moderno",
-      "birthday18Gold": "18 ouro"
+      "birthday18Gold": "18 ouro",
+      "blueBalloons": "Balões azuis",
+      "blushBalloons": "Balões blush",
+      "botanicalGold": "Ouro botânico",
+      "greeneryGold": "Verde e ouro",
+      "ivoryRoses": "Rosas marfim",
+      "whiteRoses": "Rosas brancas",
+      "babyNeutrals": "Bebé neutro",
+      "birthday1BoyArt": "1.º aniversário — menino",
+      "birthday1GirlArt": "1.º aniversário — menina",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 ouro rosa",
+      "birthday18NavyGold": "18 navy ouro",
+      "teamBride": "Team bride",
+      "babySage": "Bebé sálvia",
+      "goldFloralFrame": "Moldura floral dourada"
     },
-    "adUnavailable": "O anúncio não está disponível de momento. Tente novamente mais tarde."
+    "adUnavailable": "O anúncio não está disponível de momento. Tente novamente mais tarde.",
+    "illustratedBackgrounds": "Fundos de convite",
+    "seeMore": "Ver mais modelos",
+    "groups": {
+      "wedding": "Casamento",
+      "birthday1": "1.º aniversário",
+      "birthday18": "18.º aniversário",
+      "universal": "Celebração"
+    },
+    "changeColor": "Alterar",
+    "colorHex": "Hex",
+    "colorHue": "Matiz",
+    "colorSaturation": "Saturação",
+    "colorShade": "Luminosidade",
+    "addText": "Adicionar texto",
+    "customTexts": "Texto livre",
+    "customTextLabel": "Texto",
+    "customTextPlaceholder": "O seu texto",
+    "removeText": "Remover texto",
+    "noIcon": "Sem ícone",
+    "dragHint": "Toque num ícone ou texto para o editar ou apagar. Arraste o texto livre para onde quiser.",
+    "hideHint": "Limpe um campo para o ocultar no convite.",
+    "textSize": "Tamanho do texto",
+    "watermark": "Feito com {{app}}",
+    "removeWatermark": "Remover marca de água",
+    "removeWatermarkHint": "Veja um anúncio curto para remover a marca de água da aplicação deste convite."
   },
   "guests": {
     "title": "Convidados",
@@ -268,7 +310,18 @@
       "name_desc": "Nome (Z-A)",
       "partySize_desc": "Número de pessoas (mais primeiro)",
       "partySize_asc": "Número de pessoas (menos primeiro)"
-    }
+    },
+    "seatCard": "O seu lugar",
+    "seatCardTitle": "A sua mesa é",
+    "seatCardWelcome": "Aproveitem a festa!",
+    "seatCardWelcomeHappy": "Estamos muito felizes por estarem aqui!",
+    "seatCardWatermark": "Transferir na Play Store",
+    "seatCardShare": "Partilhar cartão de lugar",
+    "seatCardShareUnavailable": "A partilha está disponível em dispositivos móveis.",
+    "seatCardYou": "Você",
+    "seatCardSeat": "Lugar {{seat}}",
+    "seatCardSeatRange": "Lugares {{start}}–{{end}}",
+    "seatCardSeats": "Lugares {{seats}}"
   },
   "seating": {
     "title": "Plano de lugares",
@@ -324,7 +377,14 @@
     "viewHall": "Ver salão",
     "reorderHint": "Toca num convidado para destacar o lugar. Toca noutro para trocar, ou usa as setas.",
     "moveUp": "Mover para cima",
-    "moveDown": "Mover para baixo"
+    "moveDown": "Mover para baixo",
+    "downloadList": "Descarregar lista de lugares",
+    "downloadListEmpty": "Adicione primeiro as mesas e atribua os convidados.",
+    "listTitle": "Lista de lugares",
+    "listFindTable": "Encontre a sua mesa",
+    "listDirectory": "Lista de nomes",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Ainda sem convidados"
   },
   "expenses": {
     "title": "Despesas",

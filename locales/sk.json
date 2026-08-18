@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Moja dokonalá oslava",
-    "tagline": "Oslavuj bez stresu"
+    "tagline": "Oslavuj bez stresu",
+    "welcome": "Vitajte!"
   },
   "onboarding": {
     "selectLanguage": "Vyberte jazyk",
@@ -60,6 +61,7 @@
     "addGuestSide": "Pridať stranu",
     "guestSidePlaceholder": "napr. Strana nevesty, Strana ženícha",
     "themes": {
+      "default": "Predvolené",
       "wedding": "Svadba",
       "birthday": "Narodeniny",
       "baptism": "Krst",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1. narodeniny — chlapec",
       "birthday18Elegant": "18 elegantné",
       "birthday18Modern": "18 moderné",
-      "birthday18Gold": "18 zlaté"
+      "birthday18Gold": "18 zlaté",
+      "blueBalloons": "Modré balóny",
+      "blushBalloons": "Blush balóny",
+      "botanicalGold": "Botanické zlato",
+      "greeneryGold": "Zeleň a zlato",
+      "ivoryRoses": "Krémové ruže",
+      "whiteRoses": "Biele ruže",
+      "babyNeutrals": "Baby neutrál",
+      "birthday1BoyArt": "1. narodeniny — chlapec",
+      "birthday1GirlArt": "1. narodeniny — dievča",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 rose gold",
+      "birthday18NavyGold": "18 navy zlato",
+      "teamBride": "Team bride",
+      "babySage": "Baby šalvia",
+      "goldFloralFrame": "Zlatý kvetinový rám"
     },
-    "adUnavailable": "Reklama momentálne nie je k dispozícii. Skúste to neskôr."
+    "adUnavailable": "Reklama momentálne nie je k dispozícii. Skúste to neskôr.",
+    "illustratedBackgrounds": "Pozadia pozvánok",
+    "seeMore": "Zobraziť ďalšie šablóny",
+    "groups": {
+      "wedding": "Svadba",
+      "birthday1": "1. narodeniny",
+      "birthday18": "18. narodeniny",
+      "universal": "Oslava"
+    },
+    "changeColor": "Zmeniť",
+    "colorHex": "Hex",
+    "colorHue": "Odtieň",
+    "colorSaturation": "Sýtosť",
+    "colorShade": "Jas",
+    "addText": "Pridať text",
+    "customTexts": "Voľný text",
+    "customTextLabel": "Text",
+    "customTextPlaceholder": "Váš text",
+    "removeText": "Odstrániť text",
+    "noIcon": "Bez ikony",
+    "dragHint": "Ťuknite na ikonu alebo text a upravte ho alebo odstráňte. Voľný text presuňte kam chcete.",
+    "hideHint": "Vymažte pole, aby sa na pozvánke skrylo.",
+    "textSize": "Veľkosť textu",
+    "watermark": "Vytvorené v {{app}}",
+    "removeWatermark": "Odstrániť vodoznak",
+    "removeWatermarkHint": "Pozrite si krátku reklamu a odstráňte vodoznak aplikácie z tejto pozvánky."
   },
   "guests": {
     "title": "Hostia",
@@ -268,7 +310,18 @@
       "name_desc": "Meno (Z-A)",
       "partySize_desc": "Počet osôb (viac najprv)",
       "partySize_asc": "Počet osôb (menej najprv)"
-    }
+    },
+    "seatCard": "Vaše miesto",
+    "seatCardTitle": "Váš stôl je",
+    "seatCardWelcome": "Užite si oslavu!",
+    "seatCardWelcomeHappy": "Sme radi, že ste tu!",
+    "seatCardWatermark": "Stiahnuť z Play Store",
+    "seatCardShare": "Zdieľať kartu miesta",
+    "seatCardShareUnavailable": "Zdieľanie je dostupné na mobilných zariadeniach.",
+    "seatCardYou": "Vy",
+    "seatCardSeat": "Miesto {{seat}}",
+    "seatCardSeatRange": "Miesta {{start}}–{{end}}",
+    "seatCardSeats": "Miesta {{seats}}"
   },
   "seating": {
     "title": "Plánovač rozmiestnenia",
@@ -324,7 +377,14 @@
     "viewHall": "Zobraziť sálu",
     "reorderHint": "Klepni na hosťa na zvýraznenie miesta. Klepni na iného na výmenu, alebo použi šípky.",
     "moveUp": "Posunúť nahor",
-    "moveDown": "Posunúť nadol"
+    "moveDown": "Posunúť nadol",
+    "downloadList": "Stiahnuť zasadací poriadok",
+    "downloadListEmpty": "Najprv pridajte stoly a priraďte hostí.",
+    "listTitle": "Zasadací poriadok",
+    "listFindTable": "Nájdite svoj stôl",
+    "listDirectory": "Zoznam mien",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Zatiaľ žiadni hostia"
   },
   "expenses": {
     "title": "Výdavky",

@@ -1,5 +1,7 @@
 import { DatePickerField } from '@/components/DatePickerField';
+import { BottomBannerAd } from '@/components/BottomBannerAd';
 import { BottomSystemBarFill } from '@/components/BottomSystemBarFill';
+import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 import { StringListEditor } from '@/components/StringListEditor';
 import { FormScrollView } from '@/components/FormScrollView';
 import { ScreenContainer } from '@/components/ScreenContainer';
@@ -33,7 +35,7 @@ export default function AddEventModal() {
   );
 
   const [theme, setTheme] = useState<CelebrationThemeId>(
-    existingEvent?.theme ?? 'wedding'
+    existingEvent?.theme ?? 'default'
   );
 
   useEffect(() => {
@@ -72,7 +74,6 @@ function AddEventForm({ existingEvent, theme, onThemeChange }: AddEventFormProps
   const [date, setDate] = useState('');
   const [location, setLocation] = useState('');
   const [guestCategories, setGuestCategories] = useState<string[]>([...DEFAULT_GUEST_CATEGORIES]);
-  const [guestSides, setGuestSides] = useState<string[]>([]);
   const [nameError, setNameError] = useState('');
   const [dateError, setDateError] = useState('');
   const [locationError, setLocationError] = useState('');
@@ -83,7 +84,6 @@ function AddEventForm({ existingEvent, theme, onThemeChange }: AddEventFormProps
       setDate(existingEvent.date ?? '');
       setLocation(existingEvent.location ?? '');
       setGuestCategories(existingEvent.guestCategories ?? [...DEFAULT_GUEST_CATEGORIES]);
-      setGuestSides(existingEvent.guestSides ?? []);
     }
   }, [existingEvent]);
 
@@ -117,7 +117,6 @@ function AddEventForm({ existingEvent, theme, onThemeChange }: AddEventFormProps
       location: location.trim(),
       theme,
       guestCategories,
-      guestSides,
     };
 
     if (existingEvent) {
@@ -132,83 +131,88 @@ function AddEventForm({ existingEvent, theme, onThemeChange }: AddEventFormProps
 
   return (
     <ScreenContainer padded={false} style={styles.screen}>
-      <FormScrollView
-        contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
-      >
-        <Stack.Screen
-          options={{
-            title: existingEvent ? t('events.edit') : t('events.add'),
-            headerStyle: { backgroundColor: themeColors.background },
-            headerTintColor: themeColors.primary,
-            headerTitleStyle: { color: themeColors.text },
-            contentStyle: { backgroundColor: 'transparent' },
-          }}
-        />
+      <View style={styles.screen}>
+        <View style={styles.content}>
+          <FormScrollView
+            contentContainerStyle={[styles.container, { paddingBottom: modalScrollPadding }]}
+          >
+            <Stack.Screen
+              options={{
+                title: existingEvent ? t('events.edit') : t('events.add'),
+                headerStyle: { backgroundColor: themeColors.background },
+                headerTintColor: themeColors.primary,
+                headerTitleStyle: { color: themeColors.text },
+                contentStyle: { backgroundColor: 'transparent' },
+              }}
+            />
 
-        <TextInputField
-          label={t('events.name')}
-          required
-          value={name}
-          onChangeText={(text) => {
-            setName(text);
-            setNameError('');
-          }}
-          placeholder={t('events.namePlaceholder')}
-          error={nameError}
-        />
-        <DatePickerField
-          label={t('events.dateTime')}
-          required
-          value={date || undefined}
-          onChange={(iso) => {
-            setDate(iso ?? '');
-            setDateError('');
-          }}
-          placeholder={t('events.selectDateTime')}
-          clearLabel={t('events.clearDate')}
-          locale={language}
-          error={dateError}
-          mode="datetime"
-          clearable={false}
-        />
-        <TextInputField
-          label={t('events.location')}
-          required
-          value={location}
-          onChangeText={(text) => {
-            setLocation(text);
-            setLocationError('');
-          }}
-          placeholder={t('events.locationPlaceholder')}
-          error={locationError}
-        />
-        <ThemePicker
-          label={t('events.theme')}
-          selected={theme}
-          onSelect={onThemeChange}
-          getLabel={(themeId) => t(`events.themes.${themeId}`)}
-        />
-        <StringListEditor
-          label={t('events.guestCategories')}
-          items={guestCategories}
-          onChange={setGuestCategories}
-          addLabel={t('events.addGuestCategory')}
-          placeholder={t('events.guestCategoryPlaceholder')}
-          getItemLabel={(item) => getGuestCategoryLabel(item, t)}
-        />
-        <StringListEditor
-          label={t('events.guestSides')}
-          items={guestSides}
-          onChange={setGuestSides}
-          addLabel={t('events.addGuestSide')}
-          placeholder={t('events.guestSidePlaceholder')}
-        />
+            <TextInputField
+              label={t('events.name')}
+              required
+              value={name}
+              onChangeText={(text) => {
+                setName(text);
+                setNameError('');
+              }}
+              placeholder={t('events.namePlaceholder')}
+              error={nameError}
+            />
+            <View style={styles.detailRow}>
+              <View style={styles.detailField}>
+                <DatePickerField
+                  label={t('events.dateTime')}
+                  required
+                  value={date || undefined}
+                  onChange={(iso) => {
+                    setDate(iso ?? '');
+                    setDateError('');
+                  }}
+                  placeholder={t('events.selectDateTime')}
+                  clearLabel={t('events.clearDate')}
+                  locale={language}
+                  error={dateError}
+                  mode="datetime"
+                  clearable={false}
+                />
+              </View>
+              <View style={styles.detailField}>
+                <TextInputField
+                  label={t('events.location')}
+                  required
+                  value={location}
+                  onChangeText={(text) => {
+                    setLocation(text);
+                    setLocationError('');
+                  }}
+                  placeholder={t('events.locationPlaceholder')}
+                  error={locationError}
+                />
+              </View>
+            </View>
+            <ThemePicker
+              label={t('events.theme')}
+              selected={theme}
+              onSelect={onThemeChange}
+              getLabel={(themeId) => t(`events.themes.${themeId}`)}
+            />
+            <StringListEditor
+              label={t('events.guestCategories')}
+              items={guestCategories}
+              onChange={setGuestCategories}
+              addLabel={t('events.addGuestCategory')}
+              placeholder={t('events.guestCategoryPlaceholder')}
+              getItemLabel={(item) => getGuestCategoryLabel(item, t)}
+            />
 
-        <View style={styles.actions}>
-          <Button label={t('common.save')} onPress={handleSave} />
-          <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
+            <View style={styles.actions}>
+              <Button label={t('common.save')} onPress={handleSave} />
+              <Button label={t('common.cancel')} variant="ghost" onPress={() => router.back()} />
+            </View>
+            <OverviewNativeAd placement="modal" />
+          </FormScrollView>
         </View>
-      </FormScrollView>
+        <BottomBannerAd />
+      </View>
       <BottomSystemBarFill color={themeColors.background} />
     </ScreenContainer>
   );
@@ -218,10 +222,21 @@ const styles = StyleSheet.create({
   screen: {
     ...flexFill,
   },
+  content: {
+    flex: 1,
+  },
   container: {
     flexGrow: 1,
     padding: spacing.md,
     gap: spacing.sm,
+  },
+  detailRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  detailField: {
+    flex: 1,
+    minWidth: 0,
   },
   actions: {
     gap: spacing.sm,

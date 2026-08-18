@@ -1,6 +1,12 @@
 import { CelebrationThemeId } from '@/types/models';
 
 export const OBLIGATION_TEMPLATE_KEYS: Record<CelebrationThemeId, string[]> = {
+  default: [
+    'obligations.presets.other.venue',
+    'obligations.presets.other.catering',
+    'obligations.presets.other.photographer',
+    'obligations.presets.other.decor',
+  ],
   wedding: [
     'obligations.presets.wedding.dress',
     'obligations.presets.wedding.registrar',

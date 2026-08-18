@@ -97,17 +97,30 @@ export default function ObligationFormModal() {
           )}
         />
 
-      <TextInputField
-        label={t('obligations.titleLabel')}
-        required
-        value={title}
-        onChangeText={(text) => {
-          setTitle(text);
-          setTitleError('');
-        }}
-        placeholder={t('obligations.titlePlaceholder')}
-        error={titleError}
-      />
+      <View style={styles.titleRow}>
+        <View style={styles.titleField}>
+          <TextInputField
+            label={t('obligations.titleLabel')}
+            required
+            value={title}
+            onChangeText={(text) => {
+              setTitle(text);
+              setTitleError('');
+            }}
+            placeholder={t('obligations.titlePlaceholder')}
+            error={titleError}
+          />
+        </View>
+        <View style={styles.titleField}>
+          <SelectField<ObligationStatus>
+            label={t('obligations.statusLabel')}
+            value={status}
+            options={statusOptions}
+            onChange={setStatus}
+            compact
+          />
+        </View>
+      </View>
 
       <DatePickerField
         label={t('events.dateTime')}
@@ -117,13 +130,6 @@ export default function ObligationFormModal() {
         clearLabel={t('events.clearDate')}
         locale={language}
         mode="datetime"
-      />
-
-      <SelectField<ObligationStatus>
-        label={t('obligations.statusLabel')}
-        value={status}
-        options={statusOptions}
-        onChange={setStatus}
       />
 
       <TextInputField
@@ -137,7 +143,6 @@ export default function ObligationFormModal() {
         label={t('obligations.note')}
         value={note}
         onChangeText={setNote}
-        multiline
       />
 
       <View style={styles.actions}>
@@ -153,6 +158,14 @@ export default function ObligationFormModal() {
 const styles = StyleSheet.create({
   container: {
     padding: spacing.md,
+  },
+  titleRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  titleField: {
+    flex: 1,
+    minWidth: 0,
   },
   actions: {
     gap: spacing.sm,

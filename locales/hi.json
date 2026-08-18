@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "मेरी परफेक्ट पार्टी",
-    "tagline": "तनाव-मुक्त जश्न मनाएँ"
+    "tagline": "तनाव-मुक्त जश्न मनाएँ",
+    "welcome": "स्वागत है!"
   },
   "onboarding": {
     "selectLanguage": "अपनी भाषा चुनें",
@@ -60,6 +61,7 @@
     "addGuestSide": "पक्ष जोड़ें",
     "guestSidePlaceholder": "उदा. दुल्हन का पक्ष, दूल्हे का पक्ष",
     "themes": {
+      "default": "डिफ़ॉल्ट",
       "wedding": "शादी",
       "birthday": "जन्मदिन",
       "baptism": "बपतिस्मा",
@@ -193,8 +195,48 @@
       "birthday1Boy": "1वाँ जन्मदिन — लड़का",
       "birthday18Elegant": "18वाँ elegant",
       "birthday18Modern": "18वाँ modern",
-      "birthday18Gold": "18वाँ gold"
-    }
+      "birthday18Gold": "18वाँ gold",
+      "blueBalloons": "नीले गुब्बारे",
+      "blushBalloons": "ब्लश गुब्बारे",
+      "botanicalGold": "वनस्पति स्वर्ण",
+      "greeneryGold": "हरियाली और सोना",
+      "ivoryRoses": "आइवरी गुलाब",
+      "whiteRoses": "सफेद गुलाब",
+      "babyNeutrals": "बेबी न्यूट्रल",
+      "birthday1BoyArt": "पहला जन्मदिन — लड़का",
+      "birthday1GirlArt": "पहला जन्मदिन — लड़की",
+      "birthday18BlushNavy": "18 ब्लश नेवी",
+      "birthday18RoseGold": "18 रोज़ गोल्ड",
+      "birthday18NavyGold": "18 नेवी गोल्ड",
+      "teamBride": "टीम ब्राइड",
+      "babySage": "बेबी सेज",
+      "goldFloralFrame": "सुनहरा फूल फ्रेम"
+    },
+    "illustratedBackgrounds": "निमंत्रण पृष्ठभूमि",
+    "seeMore": "और टेम्पलेट देखें",
+    "groups": {
+      "wedding": "शादी",
+      "birthday1": "पहला जन्मदिन",
+      "birthday18": "18वाँ जन्मदिन",
+      "universal": "उत्सव"
+    },
+    "changeColor": "बदलें",
+    "colorHex": "Hex",
+    "colorHue": "रंग",
+    "colorSaturation": "संतृप्ति",
+    "colorShade": "चमक",
+    "addText": "टेक्स्ट जोड़ें",
+    "customTexts": "मुक्त टेक्स्ट",
+    "customTextLabel": "टेक्स्ट",
+    "customTextPlaceholder": "आपका टेक्स्ट",
+    "removeText": "टेक्स्ट हटाएँ",
+    "noIcon": "कोई आइकन नहीं",
+    "dragHint": "संपादित या हटाने के लिए किसी आइकन या टेक्स्ट पर टैप करें। मुक्त टेक्स्ट को जहाँ चाहें खींचें।",
+    "hideHint": "निमंत्रण से छिपाने के लिए फ़ील्ड साफ़ करें।",
+    "textSize": "टेक्स्ट आकार",
+    "watermark": "{{app}} से बनाया गया",
+    "removeWatermark": "वॉटरमार्क हटाएँ",
+    "removeWatermarkHint": "इस निमंत्रण से ऐप वॉटरमार्क हटाने के लिए एक छोटा विज्ञापन देखें।"
   },
   "guests": {
     "title": "मेहमान",
@@ -268,7 +310,18 @@
       "name_desc": "नाम (Z-A)",
       "partySize_desc": "समूह आकार (बड़ा पहले)",
       "partySize_asc": "समूह आकार (छोटा पहले)"
-    }
+    },
+    "seatCard": "आपकी सीट",
+    "seatCardTitle": "आपकी टेबल है",
+    "seatCardWelcome": "उत्सव का आनंद लें!",
+    "seatCardWelcomeHappy": "हमें खुशी है कि आप यहाँ हैं!",
+    "seatCardWatermark": "Play Store से डाउनलोड करें",
+    "seatCardShare": "सीट कार्ड साझा करें",
+    "seatCardShareUnavailable": "साझा करना मोबाइल डिवाइस पर उपलब्ध है।",
+    "seatCardYou": "आप",
+    "seatCardSeat": "सीट {{seat}}",
+    "seatCardSeatRange": "सीटें {{start}}–{{end}}",
+    "seatCardSeats": "सीटें {{seats}}"
   },
   "seating": {
     "title": "बैठक योजनाकार",
@@ -324,7 +377,14 @@
     "seatsFree": "खाली सीटें",
     "reorderHint": "सीट हाइलाइट करने के लिए अतिथि पर टैप करें। स्वैप के लिए दूसरे पर टैप करें, या तीरों से हिलाएँ।",
     "moveUp": "ऊपर ले जाएँ",
-    "moveDown": "नीचे ले जाएँ"
+    "moveDown": "नीचे ले जाएँ",
+    "downloadList": "सीटिंग सूची डाउनलोड करें",
+    "downloadListEmpty": "पहले टेबल जोड़ें और मेहमानों को बैठाएँ।",
+    "listTitle": "सीटिंग सूची",
+    "listFindTable": "अपनी टेबल खोजें",
+    "listDirectory": "नाम निर्देशिका",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "अभी कोई मेहमान नहीं"
   },
   "expenses": {
     "title": "खर्च",

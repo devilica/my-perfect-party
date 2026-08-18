@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Mijn perfecte feest",
-    "tagline": "Vier stressvrij"
+    "tagline": "Vier stressvrij",
+    "welcome": "Welkom!"
   },
   "onboarding": {
     "selectLanguage": "Kies je taal",
@@ -60,6 +61,7 @@
     "addGuestSide": "Zijde toevoegen",
     "guestSidePlaceholder": "bijv. Kant bruid, Kant bruidegom",
     "themes": {
+      "default": "Standaard",
       "wedding": "Bruiloft",
       "birthday": "Verjaardag",
       "baptism": "Doop",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1e verjaardag — jongen",
       "birthday18Elegant": "18 elegant",
       "birthday18Modern": "18 modern",
-      "birthday18Gold": "18 goud"
+      "birthday18Gold": "18 goud",
+      "blueBalloons": "Blauwe ballonnen",
+      "blushBalloons": "Blush-ballonnen",
+      "botanicalGold": "Botanisch goud",
+      "greeneryGold": "Groen en goud",
+      "ivoryRoses": "Ivoorrozen",
+      "whiteRoses": "Witte rozen",
+      "babyNeutrals": "Baby neutraal",
+      "birthday1BoyArt": "1e verjaardag — jongen",
+      "birthday1GirlArt": "1e verjaardag — meisje",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 roségoud",
+      "birthday18NavyGold": "18 navy goud",
+      "teamBride": "Team bride",
+      "babySage": "Baby salie",
+      "goldFloralFrame": "Gouden bloemenkader"
     },
-    "adUnavailable": "Advertentie is momenteel niet beschikbaar. Probeer het later opnieuw."
+    "adUnavailable": "Advertentie is momenteel niet beschikbaar. Probeer het later opnieuw.",
+    "illustratedBackgrounds": "Uitnodigingsachtergronden",
+    "seeMore": "Meer sjablonen bekijken",
+    "groups": {
+      "wedding": "Bruiloft",
+      "birthday1": "1e verjaardag",
+      "birthday18": "18e verjaardag",
+      "universal": "Viering"
+    },
+    "changeColor": "Wijzigen",
+    "colorHex": "Hex",
+    "colorHue": "Tint",
+    "colorSaturation": "Verzadiging",
+    "colorShade": "Helderheid",
+    "addText": "Tekst toevoegen",
+    "customTexts": "Vrije tekst",
+    "customTextLabel": "Tekst",
+    "customTextPlaceholder": "Jouw tekst",
+    "removeText": "Tekst verwijderen",
+    "noIcon": "Geen pictogram",
+    "dragHint": "Tik op een pictogram of tekst om te bewerken of te verwijderen. Sleep vrije tekst waar je wilt.",
+    "hideHint": "Maak een veld leeg om het op de uitnodiging te verbergen.",
+    "textSize": "Tekstgrootte",
+    "watermark": "Gemaakt met {{app}}",
+    "removeWatermark": "Watermerk verwijderen",
+    "removeWatermarkHint": "Bekijk een korte advertentie om het app-watermerk van deze uitnodiging te verwijderen."
   },
   "guests": {
     "title": "Gasten",
@@ -268,7 +310,18 @@
       "name_desc": "Naam (Z-A)",
       "partySize_desc": "Aantal personen (meer eerst)",
       "partySize_asc": "Aantal personen (minder eerst)"
-    }
+    },
+    "seatCard": "Jouw plaats",
+    "seatCardTitle": "Jouw tafel is",
+    "seatCardWelcome": "Geniet van het feest!",
+    "seatCardWelcomeHappy": "We zijn zo blij dat je er bent!",
+    "seatCardWatermark": "Downloaden in de Play Store",
+    "seatCardShare": "Plaatskaart delen",
+    "seatCardShareUnavailable": "Delen is beschikbaar op mobiele apparaten.",
+    "seatCardYou": "Jij",
+    "seatCardSeat": "Plaats {{seat}}",
+    "seatCardSeatRange": "Plaatsen {{start}}–{{end}}",
+    "seatCardSeats": "Plaatsen {{seats}}"
   },
   "seating": {
     "title": "Zitplaatsenplanner",
@@ -324,7 +377,14 @@
     "viewHall": "Bekijk zaal",
     "reorderHint": "Tik op een gast om de plaats te markeren. Tik op een andere om te wisselen, of gebruik de pijlen.",
     "moveUp": "Omhoog",
-    "moveDown": "Omlaag"
+    "moveDown": "Omlaag",
+    "downloadList": "Tafelplan downloaden",
+    "downloadListEmpty": "Voeg eerst tafels toe en wijs gasten toe.",
+    "listTitle": "Tafelplan",
+    "listFindTable": "Vind je tafel",
+    "listDirectory": "Namenlijst",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Nog geen gasten"
   },
   "expenses": {
     "title": "Uitgaven",

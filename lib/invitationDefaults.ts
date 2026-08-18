@@ -1,7 +1,12 @@
 import { generateId } from '@/lib/generateId';
 import { parseIsoDateTime } from '@/lib/dateUtils';
-import { getSuggestedFontColor } from '@/constants/invitationTemplates';
-import { CelebrationThemeId, EventInvitation, WeddingEvent } from '@/types/models';
+import { getSuggestedFontColor, DEFAULT_INVITATION_TEMPLATE_ID } from '@/constants/invitationTemplates';
+import {
+  CelebrationThemeId,
+  EventInvitation,
+  InvitationTextBox,
+  WeddingEvent,
+} from '@/types/models';
 
 type TranslateFn = (key: string, params?: Record<string, string | number>) => string;
 
@@ -28,10 +33,6 @@ function formatInvitationDate(value: string | undefined, t: TranslateFn): string
   const monthKey = MONTH_KEYS[parsed.getMonth()];
   const year = parsed.getFullYear();
   return `${day} ${t(monthKey).toUpperCase()} ${year}`;
-}
-
-function defaultTemplateForTheme(theme: CelebrationThemeId): string {
-  return `theme-${theme}`;
 }
 
 function defaultHeaderIcon(theme: CelebrationThemeId): string {
@@ -92,7 +93,7 @@ function defaultSubEvents(
 }
 
 export function createDefaultInvitation(event: WeddingEvent, t: TranslateFn): EventInvitation {
-  const templateId = defaultTemplateForTheme(event.theme);
+  const templateId = DEFAULT_INVITATION_TEMPLATE_ID;
   return {
     templateId,
     backgroundOpacity: 0.85,
@@ -105,8 +106,38 @@ export function createDefaultInvitation(event: WeddingEvent, t: TranslateFn): Ev
     fontColor: getSuggestedFontColor(templateId),
     eventDateText: formatInvitationDate(event.date, t),
     subEvents: defaultSubEvents(event, t),
+    customTexts: [],
     rsvpMessage: t('invitation.defaults.rsvp'),
+    watermarkRemoved: false,
     updatedAt: new Date().toISOString(),
+  };
+}
+
+export function createInvitationTextBox(
+  color: string,
+  fontFamily: EventInvitation['namesFontFamily'],
+  existingCount: number,
+  text: string
+): InvitationTextBox {
+  return {
+    id: generateId(),
+    text,
+    x: 0.16,
+    y: Math.min(0.28 + existingCount * 0.07, 0.72),
+    fontSize: 18,
+    fontFamily,
+    color,
+    align: 'center',
+  };
+}
+
+export function normalizeInvitation(invitation: EventInvitation): EventInvitation {
+  return {
+    ...invitation,
+    headerIcon: invitation.headerIcon ?? '',
+    subEvents: invitation.subEvents ?? [],
+    customTexts: invitation.customTexts ?? [],
+    watermarkRemoved: invitation.watermarkRemoved ?? false,
   };
 }
 
@@ -115,5 +146,7 @@ export function mergeInvitation(
   event: WeddingEvent,
   t: TranslateFn
 ): EventInvitation {
-  return existing ?? createDefaultInvitation(event, t);
+  return existing
+    ? normalizeInvitation(existing)
+    : createDefaultInvitation(event, t);
 }

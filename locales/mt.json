@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Il-festa perfetta tiegħi",
-    "tagline": "Iċċelebra mingħajr stress"
+    "tagline": "Iċċelebra mingħajr stress",
+    "welcome": "Merħba!"
   },
   "onboarding": {
     "selectLanguage": "Agħżel il-lingwa",
@@ -60,6 +61,7 @@
     "addGuestSide": "Żid naħa",
     "guestSidePlaceholder": "eż. Naħa tal-għarusa, Naħa tal-għarus",
     "themes": {
+      "default": "Default",
       "wedding": "Ġilwa",
       "birthday": "Għeluq snin",
       "baptism": "Battesimu",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1 sena — tifel",
       "birthday18Elegant": "18 eleganti",
       "birthday18Modern": "18 modern",
-      "birthday18Gold": "18 deheb"
+      "birthday18Gold": "18 deheb",
+      "blueBalloons": "Balal blu",
+      "blushBalloons": "Balal blush",
+      "botanicalGold": "Deheb botaniku",
+      "greeneryGold": "Aħdar u deheb",
+      "ivoryRoses": "Wardi avorju",
+      "whiteRoses": "Wardi bojod",
+      "babyNeutrals": "Baby newtrali",
+      "birthday1BoyArt": "1 birthday — tifel",
+      "birthday1GirlArt": "1 birthday — tifla",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 rose gold",
+      "birthday18NavyGold": "18 navy deheb",
+      "teamBride": "Team bride",
+      "babySage": "Baby sagħtar",
+      "goldFloralFrame": "Gwarniċ florali tad-deheb"
     },
-    "adUnavailable": "Ir-reklam mhux disponibbli bħalissa. Erġa' pprova aktar tard."
+    "adUnavailable": "Ir-reklam mhux disponibbli bħalissa. Erġa' pprova aktar tard.",
+    "illustratedBackgrounds": "Sfondi tal-istedina",
+    "seeMore": "Ara aktar mudelli",
+    "groups": {
+      "wedding": "Tieġ",
+      "birthday1": "1 l-ewwel birthday",
+      "birthday18": "18-il sena",
+      "universal": "Ċelebrazzjoni"
+    },
+    "changeColor": "Ibdel",
+    "colorHex": "Hex",
+    "colorHue": "Kulur",
+    "colorSaturation": "Saturazzjoni",
+    "colorShade": "Dawl",
+    "addText": "Żid test",
+    "customTexts": "Test ħieles",
+    "customTextLabel": "Test",
+    "customTextPlaceholder": "It-test tiegħek",
+    "removeText": "Neħħi t-test",
+    "noIcon": "Bla ikona",
+    "dragHint": "Agħfas ikona jew test biex teditjah jew tħassru. Iġbed it-test ħieles fejn trid.",
+    "hideHint": "Ħassar qasam biex taħbih mill-istedina.",
+    "textSize": "Daqs tat-test",
+    "watermark": "Magħmul b’{{app}}",
+    "removeWatermark": "Neħħi l-filigrana",
+    "removeWatermarkHint": "Ara reklama qasira biex tneħħi l-filigrana tal-app minn din l-istedina."
   },
   "guests": {
     "title": "Mistiedna",
@@ -268,7 +310,18 @@
       "name_desc": "Isem (Z-A)",
       "partySize_desc": "Numru ta' persuni (aktar l-ewwel)",
       "partySize_asc": "Numru ta' persuni (inqas l-ewwel)"
-    }
+    },
+    "seatCard": "Is-siġġu tiegħek",
+    "seatCardTitle": "Il-mejda tiegħek hija",
+    "seatCardWelcome": "Igawdu ċ-ċelebrazzjoni!",
+    "seatCardWelcomeHappy": "Aħna ferħanin li intom hawn!",
+    "seatCardWatermark": "Niżżel mill-Play Store",
+    "seatCardShare": "Ixxerja l-karta tas-siġġu",
+    "seatCardShareUnavailable": "Il-qsim huwa disponibbli fuq apparati mobbli.",
+    "seatCardYou": "Int",
+    "seatCardSeat": "Siġġu {{seat}}",
+    "seatCardSeatRange": "Siġġijiet {{start}}–{{end}}",
+    "seatCardSeats": "Siġġijiet {{seats}}"
   },
   "seating": {
     "title": "Ippjanar tal-pożizzjonijiet",
@@ -324,7 +377,14 @@
     "viewHall": "Ara s-sala",
     "reorderHint": "Miss mistieden biex tenfasizza s-sit. Miss ieħor biex tibdel, jew uża l-vleġġa.",
     "moveUp": "Mexxi ’l fuq",
-    "moveDown": "Mexxi ’l isfel"
+    "moveDown": "Mexxi ’l isfel",
+    "downloadList": "Niżżel il-lista tas-siġġijiet",
+    "downloadListEmpty": "L-ewwel żid l-imwejjed u assenja l-mistednin.",
+    "listTitle": "Lista tas-siġġijiet",
+    "listFindTable": "Sib il-mejda tiegħek",
+    "listDirectory": "Direttorju tal-ismijiet",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Għad m’hemmx mistednin"
   },
   "expenses": {
     "title": "Spejseż",

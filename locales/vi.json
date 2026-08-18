@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Bữa tiệc hoàn hảo của tôi",
-    "tagline": "Lễ hội không lo lắng"
+    "tagline": "Lễ hội không lo lắng",
+    "welcome": "Chào mừng!"
   },
   "onboarding": {
     "selectLanguage": "Chọn ngôn ngữ",
@@ -60,6 +61,7 @@
     "addGuestSide": "Thêm phe",
     "guestSidePlaceholder": "vd. Phe cô dâu, phe chú rể",
     "themes": {
+      "default": "Mặc định",
       "wedding": "Đám cưới",
       "birthday": "Sinh nhật",
       "baptism": "Rửa tội",
@@ -193,8 +195,48 @@
       "birthday1Boy": "Sinh nhật 1 tuổi — bé trai",
       "birthday18Elegant": "18 tuổi thanh lịch",
       "birthday18Modern": "18 tuổi hiện đại",
-      "birthday18Gold": "18 tuổi vàng"
-    }
+      "birthday18Gold": "18 tuổi vàng",
+      "blueBalloons": "Bóng bay xanh",
+      "blushBalloons": "Bóng bay blush",
+      "botanicalGold": "Vàng thảo mộc",
+      "greeneryGold": "Xanh và vàng",
+      "ivoryRoses": "Hoa hồng ngà",
+      "whiteRoses": "Hoa hồng trắng",
+      "babyNeutrals": "Baby trung tính",
+      "birthday1BoyArt": "Sinh nhật 1 tuổi — bé trai",
+      "birthday1GirlArt": "Sinh nhật 1 tuổi — bé gái",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 rose gold",
+      "birthday18NavyGold": "18 navy vàng",
+      "teamBride": "Team cô dâu",
+      "babySage": "Baby xô thơm",
+      "goldFloralFrame": "Khung hoa vàng"
+    },
+    "illustratedBackgrounds": "Nền thiệp mời",
+    "seeMore": "Xem thêm mẫu",
+    "groups": {
+      "wedding": "Đám cưới",
+      "birthday1": "Sinh nhật 1 tuổi",
+      "birthday18": "Sinh nhật 18 tuổi",
+      "universal": "Lễ kỷ niệm"
+    },
+    "changeColor": "Đổi",
+    "colorHex": "Hex",
+    "colorHue": "Tông màu",
+    "colorSaturation": "Độ bão hòa",
+    "colorShade": "Độ sáng",
+    "addText": "Thêm chữ",
+    "customTexts": "Chữ tự do",
+    "customTextLabel": "Chữ",
+    "customTextPlaceholder": "Nội dung của bạn",
+    "removeText": "Xóa chữ",
+    "noIcon": "Không có biểu tượng",
+    "dragHint": "Chạm vào biểu tượng hoặc chữ để sửa hoặc xóa. Kéo chữ tự do đến vị trí bạn muốn.",
+    "hideHint": "Xóa trường để ẩn khỏi thiệp mời.",
+    "textSize": "Cỡ chữ",
+    "watermark": "Tạo bằng {{app}}",
+    "removeWatermark": "Gỡ hình mờ",
+    "removeWatermarkHint": "Xem quảng cáo ngắn để gỡ hình mờ của ứng dụng khỏi thiệp mời này."
   },
   "guests": {
     "title": "Khách",
@@ -268,7 +310,18 @@
       "name_desc": "Tên (Z-A)",
       "partySize_desc": "Số người (lớn nhất trước)",
       "partySize_asc": "Số người (nhỏ nhất trước)"
-    }
+    },
+    "seatCard": "Chỗ ngồi của bạn",
+    "seatCardTitle": "Bàn của bạn là",
+    "seatCardWelcome": "Hãy tận hưởng buổi lễ!",
+    "seatCardWelcomeHappy": "Chúng tôi rất vui vì bạn có mặt!",
+    "seatCardWatermark": "Tải trên Play Store",
+    "seatCardShare": "Chia sẻ thẻ chỗ ngồi",
+    "seatCardShareUnavailable": "Chia sẻ khả dụng trên thiết bị di động.",
+    "seatCardYou": "Bạn",
+    "seatCardSeat": "Ghế {{seat}}",
+    "seatCardSeatRange": "Ghế {{start}}–{{end}}",
+    "seatCardSeats": "Ghế {{seats}}"
   },
   "seating": {
     "title": "Lên kế hoạch chỗ ngồi",
@@ -324,7 +377,14 @@
     "seatsFree": "Ghế trống",
     "reorderHint": "Chạm khách để tô sáng chỗ ngồi. Chạm người khác để đổi chỗ, hoặc dùng mũi tên.",
     "moveUp": "Lên trên",
-    "moveDown": "Xuống dưới"
+    "moveDown": "Xuống dưới",
+    "downloadList": "Tải sơ đồ chỗ ngồi",
+    "downloadListEmpty": "Hãy thêm bàn và xếp khách trước.",
+    "listTitle": "Sơ đồ chỗ ngồi",
+    "listFindTable": "Tìm bàn của bạn",
+    "listDirectory": "Danh bạ tên",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Chưa có khách"
   },
   "expenses": {
     "title": "Chi phí",

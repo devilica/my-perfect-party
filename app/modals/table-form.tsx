@@ -129,31 +129,37 @@ export default function TableFormModal() {
           )}
         />
 
-      <TextInputField
-        label={t('seating.tableName')}
-        required
-        value={name}
-        onChangeText={(text) => {
-          setName(text);
-          setNameError('');
-        }}
-        placeholder={t('seating.tableNamePlaceholder')}
-        error={nameError}
-      />
+      <View style={styles.nameRow}>
+        <View style={styles.nameField}>
+          <TextInputField
+            label={t('seating.tableName')}
+            required
+            value={name}
+            onChangeText={(text) => {
+              setName(text);
+              setNameError('');
+            }}
+            placeholder={t('seating.tableNamePlaceholder')}
+            error={nameError}
+          />
+        </View>
+        <View style={styles.nameField}>
+          <TextInputField
+            label={t('seating.capacity')}
+            required
+            value={capacity}
+            onChangeText={(text) => {
+              setCapacity(text);
+              setCapacityError('');
+            }}
+            placeholder={t('seating.capacityPlaceholder')}
+            keyboardType="numeric"
+            error={capacityError}
+          />
+        </View>
+      </View>
 
       <View style={styles.fieldsBlock}>
-        <TextInputField
-          label={t('seating.capacity')}
-          required
-          value={capacity}
-          onChangeText={(text) => {
-            setCapacity(text);
-            setCapacityError('');
-          }}
-          placeholder={t('seating.capacityPlaceholder')}
-          keyboardType="numeric"
-          error={capacityError}
-        />
         <TableShapePicker
           variant="compact"
           value={shape}
@@ -175,6 +181,14 @@ export default function TableFormModal() {
 const styles = StyleSheet.create({
   container: {
     padding: spacing.md,
+  },
+  nameRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  nameField: {
+    flex: 1,
+    minWidth: 0,
   },
   fieldsBlock: {
     gap: spacing.xs,

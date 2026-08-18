@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Moja popolna proslava",
-    "tagline": "Slavite brez stresa"
+    "tagline": "Slavite brez stresa",
+    "welcome": "Dobrodošli!"
   },
   "onboarding": {
     "selectLanguage": "Izberite jezik",
@@ -60,6 +61,7 @@
     "addGuestSide": "Dodaj stran",
     "guestSidePlaceholder": "npr. Stran neveste, Stran ženina",
     "themes": {
+      "default": "Privzeto",
       "wedding": "Poroka",
       "birthday": "Rojstni dan",
       "baptism": "Krst",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1. rojstni dan — deček",
       "birthday18Elegant": "18. elegantno",
       "birthday18Modern": "18. moderno",
-      "birthday18Gold": "18. zlato"
+      "birthday18Gold": "18. zlato",
+      "blueBalloons": "Modri baloni",
+      "blushBalloons": "Blush baloni",
+      "botanicalGold": "Botanično zlato",
+      "greeneryGold": "Zelenje in zlato",
+      "ivoryRoses": "Slonokoščene vrtnice",
+      "whiteRoses": "Bele vrtnice",
+      "babyNeutrals": "Baby nevtralno",
+      "birthday1BoyArt": "1. rojstni dan — deček",
+      "birthday1GirlArt": "1. rojstni dan — deklica",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 rose gold",
+      "birthday18NavyGold": "18 navy zlato",
+      "teamBride": "Team bride",
+      "babySage": "Baby žajbelj",
+      "goldFloralFrame": "Zlat cvetlični okvir"
     },
-    "adUnavailable": "Oglas trenutno ni na voljo. Poskusite znova pozneje."
+    "adUnavailable": "Oglas trenutno ni na voljo. Poskusite znova pozneje.",
+    "illustratedBackgrounds": "Ozadja vabil",
+    "seeMore": "Prikaži več predlog",
+    "groups": {
+      "wedding": "Poroka",
+      "birthday1": "1. rojstni dan",
+      "birthday18": "18. rojstni dan",
+      "universal": "Praznovanje"
+    },
+    "changeColor": "Spremeni",
+    "colorHex": "Hex",
+    "colorHue": "Odtenek",
+    "colorSaturation": "Nasičenost",
+    "colorShade": "Svetlost",
+    "addText": "Dodaj besedilo",
+    "customTexts": "Prosto besedilo",
+    "customTextLabel": "Besedilo",
+    "customTextPlaceholder": "Vaše besedilo",
+    "removeText": "Odstrani besedilo",
+    "noIcon": "Brez ikone",
+    "dragHint": "Tapnite ikono ali besedilo za urejanje ali brisanje. Prosto besedilo povlecite kamor želite.",
+    "hideHint": "Izpraznite polje, da ga skrijete na vabilu.",
+    "textSize": "Velikost besedila",
+    "watermark": "Ustvarjeno v {{app}}",
+    "removeWatermark": "Odstrani vodni žig",
+    "removeWatermarkHint": "Oglejte si kratek oglas, da odstranite vodni žig aplikacije s tega vabila."
   },
   "guests": {
     "title": "Gostje",
@@ -268,7 +310,18 @@
       "name_desc": "Ime (Ž-A)",
       "partySize_desc": "Število oseb (več najprej)",
       "partySize_asc": "Število oseb (manj najprej)"
-    }
+    },
+    "seatCard": "Vaš sedež",
+    "seatCardTitle": "Vaša miza je",
+    "seatCardWelcome": "Uživajte v praznovanju!",
+    "seatCardWelcomeHappy": "Veseli smo, da ste tu!",
+    "seatCardWatermark": "Prenesi iz Play Store",
+    "seatCardShare": "Deli kartico sedeža",
+    "seatCardShareUnavailable": "Deljenje je na voljo na mobilnih napravah.",
+    "seatCardYou": "Vi",
+    "seatCardSeat": "Sedež {{seat}}",
+    "seatCardSeatRange": "Sedeži {{start}}–{{end}}",
+    "seatCardSeats": "Sedeži {{seats}}"
   },
   "seating": {
     "title": "Načrtovalnik razporeditve",
@@ -324,7 +377,14 @@
     "viewHall": "Poglej dvorano",
     "reorderHint": "Dotakni gosta, da označiš sedež. Dotakni drugega za zamenjavo ali uporabi puščice za premik.",
     "moveUp": "Premakni gor",
-    "moveDown": "Premakni dol"
+    "moveDown": "Premakni dol",
+    "downloadList": "Prenesi sedežni red",
+    "downloadListEmpty": "Najprej dodajte mize in razporedite goste.",
+    "listTitle": "Sedežni red",
+    "listFindTable": "Poiščite svojo mizo",
+    "listDirectory": "Imenik",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Še ni gostov"
   },
   "expenses": {
     "title": "Stroški",

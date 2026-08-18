@@ -14,7 +14,7 @@ type CategoryPickerProps = {
   customCategory: string;
   onSelect: (category: ExpenseCategory) => void;
   onCustomChange: (value: string) => void;
-  customRequired?: boolean;
+  dense?: boolean;
 };
 
 type CategoryOption = PredefinedCategory | 'other';
@@ -24,7 +24,7 @@ export function CategoryPicker({
   customCategory,
   onSelect,
   onCustomChange,
-  customRequired,
+  dense = false,
 }: CategoryPickerProps) {
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
@@ -48,11 +48,12 @@ export function CategoryPicker({
   const showCustom = selectValue === 'other';
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, dense && styles.containerDense]}>
       <SelectField<CategoryOption>
         label={t('expenses.category')}
         value={selectValue}
         options={options}
+        dense={dense}
         onChange={(category) => {
           if (category === 'other') {
             onSelect('other');
@@ -64,7 +65,6 @@ export function CategoryPicker({
       {showCustom ? (
         <TextInputField
           label={t('expenses.customCategory')}
-          required={customRequired}
           value={customCategory}
           onChangeText={(text: string) => {
             onCustomChange(text);
@@ -80,5 +80,8 @@ export function CategoryPicker({
 const styles = StyleSheet.create({
   container: {
     marginBottom: spacing.sm,
+  },
+  containerDense: {
+    marginBottom: 0,
   },
 });

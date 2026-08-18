@@ -1,11 +1,11 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
+import { DEFAULT_INVITATION_TEMPLATE_ID, getSuggestedFontColor } from '@/constants/invitationTemplates';
 import { DEFAULT_GUEST_CATEGORIES, normalizeGuestCategories, normalizeGuestCategory } from '@/constants/guestCategories';
 import { DEFAULT_GUEST_SORT, isGuestSort } from '@/constants/guestSort';
 import { isLanguage } from '@/constants/languages';
 import { normalizeAttendanceStatus } from '@/constants/guestAttendance';
-import { stripLegacyDefaultSides, resolveGuestSide } from '@/constants/guestSides';
 import { normalizeTableShape } from '@/constants/tableShapes';
 import { BackupData } from '@/lib/backup';
 import { generateId } from '@/lib/generateId';
@@ -45,7 +45,6 @@ type LegacyGuest = {
   phone?: string;
   relationship?: LegacyRelationship;
   category?: string;
-  side?: unknown;
   partySize?: number;
   tableId?: string;
   seatOrder?: number;
@@ -76,7 +75,6 @@ type PersistedState = {
     WeddingEvent & {
       theme?: CelebrationThemeId;
       guestCategories?: string[];
-      guestSides?: string[];
     }
   >;
   guests: LegacyGuest[];
@@ -111,7 +109,6 @@ function migrateGuest(raw: LegacyGuest): Guest {
       lastName: raw.lastName.trim(),
       phone: raw.phone,
       category: resolveGuestCategory(raw),
-      side: resolveGuestSide(raw.side),
       attendanceStatus: normalizeAttendanceStatus(raw.attendanceStatus, raw.confirmed),
       partySize: raw.partySize ?? 1,
       tableId: raw.tableId,
@@ -132,7 +129,6 @@ function migrateGuest(raw: LegacyGuest): Guest {
     lastName,
     phone: raw.phone,
     category: resolveGuestCategory(raw),
-    side: resolveGuestSide(raw.side),
     attendanceStatus: normalizeAttendanceStatus(raw.attendanceStatus, raw.confirmed),
     partySize: raw.partySize ?? 1,
     tableId: raw.tableId,
@@ -156,6 +152,7 @@ function normalizeGuestSortByEvent(
 
 function normalizeAppTheme(value: unknown): CelebrationThemeId {
   const valid: CelebrationThemeId[] = [
+    'default',
     'wedding',
     'birthday',
     'baptism',
@@ -169,12 +166,13 @@ function normalizeAppTheme(value: unknown): CelebrationThemeId {
   if (typeof value === 'string' && valid.includes(value as CelebrationThemeId)) {
     return value as CelebrationThemeId;
   }
-  return 'wedding';
+  return 'default';
 }
 
-const DEFAULT_UNLOCKED_APP_THEMES: CelebrationThemeId[] = ['wedding'];
+const DEFAULT_UNLOCKED_APP_THEMES: CelebrationThemeId[] = ['default', 'wedding'];
 
 const VALID_THEME_IDS: CelebrationThemeId[] = [
+  'default',
   'wedding',
   'birthday',
   'baptism',
@@ -200,6 +198,10 @@ function normalizeUnlockedAppThemes(
     if (filtered.length > 0) {
       themes = filtered;
     }
+  }
+
+  if (!themes.includes('default')) {
+    themes = ['default', ...themes];
   }
 
   if (!themes.includes('wedding')) {
@@ -230,14 +232,16 @@ function normalizeImportedState(data: BackupData): {
     language: saved.language ?? getDefaultLanguage(),
     appTheme,
     unlockedAppThemes: normalizeUnlockedAppThemes(saved.unlockedAppThemes, appTheme),
-    events: (saved.events ?? []).map((event) => ({
-      ...event,
-      theme: (event.theme ?? 'wedding') as CelebrationThemeId,
-      guestCategories: normalizeGuestCategories(
-        event.guestCategories ?? [...DEFAULT_GUEST_CATEGORIES]
-      ),
-      guestSides: stripLegacyDefaultSides(event.guestSides),
-    })),
+    events: (saved.events ?? []).map((raw) => {
+      const { guestSides: _removed, ...event } = raw as WeddingEvent & { guestSides?: string[] };
+      return {
+        ...event,
+        theme: (event.theme ?? 'wedding') as CelebrationThemeId,
+        guestCategories: normalizeGuestCategories(
+          event.guestCategories ?? [...DEFAULT_GUEST_CATEGORIES]
+        ),
+      };
+    }),
     guests: (saved.guests ?? []).map(migrateGuest),
     tables: (saved.tables ?? []).map((table) => ({
       ...table,
@@ -286,16 +290,14 @@ type WeddingState = {
   exportBackupData: () => BackupData;
   importBackupData: (data: BackupData) => void;
   addEvent: (
-    data: Omit<WeddingEvent, 'id' | 'createdAt' | 'guestCategories' | 'guestSides'> & {
+    data: Omit<WeddingEvent, 'id' | 'createdAt' | 'guestCategories'> & {
       guestCategories?: string[];
-      guestSides?: string[];
     }
   ) => string;
   updateEvent: (id: string, data: Partial<Omit<WeddingEvent, 'id' | 'createdAt'>>) => void;
   updateEventInvitation: (eventId: string, data: Partial<EventInvitation>) => void;
   deleteEvent: (id: string) => void;
   addGuestCategory: (eventId: string, name: string) => void;
-  addGuestSide: (eventId: string, name: string) => void;
   addGuest: (data: Omit<Guest, 'id' | 'createdAt'>) => string | null;
   updateGuest: (id: string, data: Partial<Omit<Guest, 'id' | 'eventId' | 'createdAt'>>) => boolean;
   deleteGuest: (id: string) => void;
@@ -351,7 +353,7 @@ export const useWeddingStore = create<WeddingState>()(
       obligations: [],
       language: getDefaultLanguage(),
       hasSelectedLanguage: false,
-      appTheme: 'wedding' as CelebrationThemeId,
+      appTheme: 'default' as CelebrationThemeId,
       unlockedAppThemes: [...DEFAULT_UNLOCKED_APP_THEMES],
       backupEmail: '',
       lastBackupAt: undefined,
@@ -420,7 +422,6 @@ export const useWeddingStore = create<WeddingState>()(
           guestCategories: normalizeGuestCategories(
             data.guestCategories ?? [...DEFAULT_GUEST_CATEGORIES]
           ),
-          guestSides: data.guestSides ?? [],
           id,
           createdAt: new Date().toISOString(),
         };
@@ -440,22 +441,6 @@ export const useWeddingStore = create<WeddingState>()(
             return {
               ...event,
               guestCategories: [...event.guestCategories, trimmed],
-            };
-          }),
-        }));
-      },
-
-      addGuestSide: (eventId, name) => {
-        const trimmed = name.trim();
-        if (!trimmed) return;
-
-        set((state) => ({
-          events: state.events.map((event) => {
-            if (event.id !== eventId) return event;
-            if (event.guestSides.includes(trimmed)) return event;
-            return {
-              ...event,
-              guestSides: [...event.guestSides, trimmed],
             };
           }),
         }));
@@ -485,7 +470,7 @@ export const useWeddingStore = create<WeddingState>()(
             const current = event.invitation;
             const merged: EventInvitation = {
               ...(current ?? {
-                templateId: 'classic-gold',
+                templateId: DEFAULT_INVITATION_TEMPLATE_ID,
                 backgroundOpacity: 0.85,
                 lineSpacing: 1,
                 headerIcon: 'heart-outline',
@@ -493,13 +478,17 @@ export const useWeddingStore = create<WeddingState>()(
                 hostNames: event.name,
                 namesFontFamily: 'script',
                 fontSize: 36,
-                fontColor: '#3D3D3D',
+                fontColor: getSuggestedFontColor(DEFAULT_INVITATION_TEMPLATE_ID),
                 eventDateText: '',
                 subEvents: [],
+                customTexts: [],
                 rsvpMessage: '',
+                watermarkRemoved: false,
                 updatedAt: new Date().toISOString(),
               }),
               ...data,
+              customTexts: data.customTexts ?? current?.customTexts ?? [],
+              watermarkRemoved: data.watermarkRemoved ?? current?.watermarkRemoved ?? false,
               updatedAt: new Date().toISOString(),
             };
             return { ...event, invitation: merged };

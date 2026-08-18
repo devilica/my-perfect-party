@@ -1,13 +1,12 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
-import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
 
 import { FormScrollView } from '@/components/FormScrollView';
 import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 
 import { GuestCategoryPicker } from '@/components/GuestCategoryPicker';
-import { GuestSidePicker } from '@/components/GuestSidePicker';
 import { SelectField } from '@/components/SelectField';
 import {
   getThemedModalScreenOptions,
@@ -20,7 +19,7 @@ import { useIsOnline } from '@/hooks/useIsOnline';
 import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
 import { areAdsEnabled, shouldShowAdPreviews } from '@/lib/adsEnvironment';
 import { didCrossGuestAdMilestone, getGuestStats } from '@/lib/guestStats';
-import { getAssignableTables } from '@/lib/seatingStats';
+import { getTablesForEvent } from '@/lib/seatingStats';
 import { useTranslation } from '@/lib/i18n';
 import {
   preloadRewardedGuestAd,
@@ -53,9 +52,7 @@ export default function GuestFormModal() {
   const isOnline = useIsOnline();
 
   const hasGuestCategories = (event?.guestCategories?.length ?? 0) > 0;
-  const hasGuestSides = (event?.guestSides?.length ?? 0) > 0;
   const defaultCategory = hasGuestCategories ? event!.guestCategories[0] : '';
-  const defaultSide = hasGuestSides ? event!.guestSides[0] : '';
 
   const existingGuest = useMemo(
     () => (guestId ? allGuests.find((g) => g.id === guestId) : undefined),
@@ -66,11 +63,11 @@ export default function GuestFormModal() {
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
   const [category, setCategory] = useState(defaultCategory);
-  const [side, setSide] = useState(defaultSide);
   const [attendanceStatus, setAttendanceStatus] = useState<AttendanceStatus>('needs_invite');
   const [partySize, setPartySize] = useState('1');
   const [tableId, setTableId] = useState<string | undefined>(undefined);
   const [note, setNote] = useState('');
+  const [showNote, setShowNote] = useState(false);
   const [firstNameError, setFirstNameError] = useState('');
   const [tableError, setTableError] = useState('');
 
@@ -80,16 +77,17 @@ export default function GuestFormModal() {
       setLastName(existingGuest.lastName);
       setPhone(existingGuest.phone ?? '');
       setCategory(existingGuest.category);
-      setSide(existingGuest.side);
       setAttendanceStatus(existingGuest.attendanceStatus);
       setPartySize(String(existingGuest.partySize));
       setTableId(existingGuest.tableId);
       setNote(existingGuest.note ?? '');
+      setShowNote(!!existingGuest.note?.trim());
     } else {
       setCategory(defaultCategory);
-      setSide(defaultSide);
+      setShowNote(false);
+      setNote('');
     }
-  }, [existingGuest, defaultCategory, defaultSide]);
+  }, [existingGuest, defaultCategory]);
 
   useEffect(() => {
     if (areAdsEnabled() && isOnline) {
@@ -97,35 +95,10 @@ export default function GuestFormModal() {
     }
   }, [isOnline]);
 
-  const assignableTables = useMemo(() => {
-    if (!eventId || !firstName.trim()) return [];
-
-    const previewGuest = {
-      id: existingGuest?.id ?? 'draft',
-      eventId,
-      firstName: firstName.trim(),
-      lastName: lastName.trim(),
-      category,
-      side,
-      attendanceStatus,
-      partySize: Math.max(1, parseInt(partySize, 10) || 1),
-      tableId,
-    };
-
-    return getAssignableTables(tables, allGuests, eventId, previewGuest);
-  }, [
-    tables,
-    allGuests,
-    eventId,
-    firstName,
-    lastName,
-    category,
-    side,
-    attendanceStatus,
-    partySize,
-    tableId,
-    existingGuest?.id,
-  ]);
+  const eventTables = useMemo(
+    () => (eventId ? getTablesForEvent(tables, eventId) : []),
+    [tables, eventId]
+  );
 
   const handleSave = async () => {
     if (!firstName.trim()) {
@@ -143,11 +116,10 @@ export default function GuestFormModal() {
       lastName: lastName.trim(),
       phone: phone.trim() || undefined,
       category: hasGuestCategories ? category : '',
-      side: hasGuestSides ? side : '',
       attendanceStatus,
       partySize: parsedPartySize,
       tableId: tableId || undefined,
-      note: note.trim() || undefined,
+      note: showNote ? note.trim() || undefined : undefined,
     };
 
     if (existingGuest) {
@@ -179,7 +151,7 @@ export default function GuestFormModal() {
   };
 
   const tableOptions = useMemo(() => {
-    const options = assignableTables.map((table) => ({
+    const options = eventTables.map((table) => ({
       value: table.id,
       label: `${table.name} (${table.capacity})`,
     }));
@@ -195,7 +167,7 @@ export default function GuestFormModal() {
     }
 
     return [{ value: 'none', label: t('guests.noTable') }, ...options];
-  }, [assignableTables, tableId, tables, t]);
+  }, [eventTables, tableId, tables, t]);
 
   const showTableHint = tableOptions.length === 1;
 
@@ -221,48 +193,45 @@ export default function GuestFormModal() {
           )}
         />
 
-      <TextInputField
-        label={t('guests.firstName')}
-        required
-        value={firstName}
-        onChangeText={(text) => {
-          setFirstName(text);
-          setFirstNameError('');
-        }}
-        placeholder={t('guests.firstNamePlaceholder')}
-        error={firstNameError}
-      />
-      <TextInputField
-        label={t('guests.lastName')}
-        value={lastName}
-        onChangeText={setLastName}
-        placeholder={t('guests.lastNamePlaceholder')}
-      />
-      <TextInputField
-        label={t('guests.phone')}
-        value={phone}
-        onChangeText={setPhone}
-        placeholder={t('guests.phonePlaceholder')}
-        keyboardType="default"
-      />
-
-      {hasGuestCategories ? (
-        <GuestCategoryPicker eventId={eventId} selected={category} onSelect={setCategory} />
-      ) : null}
-
-      {hasGuestSides ? (
-        <GuestSidePicker eventId={eventId} selected={side} onSelect={setSide} />
-      ) : null}
-
-      <SelectField
-        label={t('guests.attendance')}
-        value={attendanceStatus}
-        options={ATTENDANCE_STATUSES.map((value) => ({
-          value,
-          label: t(`guests.status.${value}`),
-        }))}
-        onChange={setAttendanceStatus}
-      />
+      <View style={styles.nameRow}>
+        <View style={styles.nameField}>
+          <TextInputField
+            label={t('guests.firstName')}
+            required
+            value={firstName}
+            onChangeText={(text) => {
+              setFirstName(text);
+              setFirstNameError('');
+            }}
+            placeholder={t('guests.firstNamePlaceholder')}
+            error={firstNameError}
+          />
+        </View>
+        <View style={styles.nameField}>
+          <TextInputField
+            label={t('guests.lastName')}
+            value={lastName}
+            onChangeText={setLastName}
+            placeholder={t('guests.lastNamePlaceholder')}
+          />
+        </View>
+      </View>
+      <View style={styles.nameRow}>
+        <View style={styles.nameField}>
+          <TextInputField
+            label={t('guests.phone')}
+            value={phone}
+            onChangeText={setPhone}
+            placeholder={t('guests.phonePlaceholder')}
+            keyboardType="default"
+          />
+        </View>
+        {hasGuestCategories ? (
+          <View style={styles.nameField}>
+            <GuestCategoryPicker eventId={eventId} selected={category} onSelect={setCategory} />
+          </View>
+        ) : null}
+      </View>
 
       <View style={styles.stepperRow}>
         <Text style={[styles.stepperLabel, { color: theme.textSecondary }]}>
@@ -310,36 +279,78 @@ export default function GuestFormModal() {
         </View>
       </View>
 
-      <SelectField
-        label={t('guests.assignTable')}
-        labelRight={
-          showTableHint ? (
-            <Pressable
-              onPress={showNoTablesHint}
-              hitSlop={8}
-              accessibilityRole="button"
-              accessibilityLabel={t('guests.noTablesHintTitle')}
-            >
-              <Ionicons name="information-circle-outline" size={18} color={theme.primary} />
-            </Pressable>
-          ) : undefined
-        }
-        value={tableId ?? 'none'}
-        options={tableOptions}
-        onChange={(value) => {
-          setTableError('');
-          setTableId(value === 'none' ? undefined : value);
-        }}
-        error={tableError}
-      />
+      <View style={styles.nameRow}>
+        <View style={styles.nameField}>
+          <SelectField
+            label={t('guests.attendance')}
+            value={attendanceStatus}
+            options={ATTENDANCE_STATUSES.map((value) => ({
+              value,
+              label: t(`guests.status.${value}`),
+            }))}
+            onChange={setAttendanceStatus}
+            compact
+          />
+        </View>
+        <View style={styles.nameField}>
+          <SelectField
+            label={t('guests.assignTable')}
+            labelRight={
+              showTableHint ? (
+                <Pressable
+                  onPress={showNoTablesHint}
+                  hitSlop={8}
+                  accessibilityRole="button"
+                  accessibilityLabel={t('guests.noTablesHintTitle')}
+                >
+                  <Ionicons name="information-circle-outline" size={18} color={theme.primary} />
+                </Pressable>
+              ) : undefined
+            }
+            value={tableId ?? 'none'}
+            options={tableOptions}
+            onChange={(value) => {
+              setTableError('');
+              setTableId(value === 'none' ? undefined : value);
+            }}
+            error={tableError}
+            compact
+          />
+        </View>
+      </View>
 
-      <TextInputField
-        label={t('guests.note')}
-        value={note}
-        onChangeText={setNote}
-        placeholder={t('guests.notePlaceholder')}
-        multiline
-      />
+      <View style={styles.noteSection}>
+        <View style={[styles.switchRow, showNote && styles.switchRowExpanded]}>
+          <Text style={[styles.switchLabel, { color: theme.text }]}>{t('guests.note')}</Text>
+          <Switch
+            value={showNote}
+            onValueChange={(value) => {
+              setShowNote(value);
+              if (!value) setNote('');
+            }}
+            trackColor={{ false: theme.border, true: theme.primaryLight }}
+            thumbColor={showNote ? theme.primary : theme.surface}
+          />
+        </View>
+
+        {showNote ? (
+          <TextInput
+            value={note}
+            onChangeText={setNote}
+            placeholder={t('guests.notePlaceholder')}
+            placeholderTextColor={theme.textMuted}
+            multiline
+            style={[
+              styles.noteInput,
+              {
+                backgroundColor: theme.surface,
+                borderColor: theme.border,
+                color: theme.text,
+              },
+            ]}
+          />
+        ) : null}
+      </View>
 
       <View style={styles.actions}>
         <Button label={t('common.save')} onPress={handleSave} />
@@ -354,6 +365,14 @@ export default function GuestFormModal() {
 const styles = StyleSheet.create({
   container: {
     padding: spacing.md,
+  },
+  nameRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  nameField: {
+    flex: 1,
+    minWidth: 0,
   },
   stepperRow: {
     marginBottom: spacing.md,
@@ -398,8 +417,34 @@ const styles = StyleSheet.create({
     color: '#9C9590',
     textAlign: 'center',
   },
+  noteSection: {
+    marginBottom: spacing.xs,
+  },
+  switchRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: spacing.xs,
+  },
+  switchRowExpanded: {
+    marginBottom: spacing.xs,
+  },
+  switchLabel: {
+    ...typography.body,
+    flex: 1,
+    paddingRight: spacing.md,
+  },
+  noteInput: {
+    borderWidth: 1,
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    ...typography.body,
+    minHeight: 72,
+    textAlignVertical: 'top',
+  },
   actions: {
     gap: spacing.sm,
-    marginTop: spacing.md,
+    marginTop: spacing.sm,
   },
 });

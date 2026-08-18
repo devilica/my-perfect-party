@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Moje idealne przyjęcie",
-    "tagline": "Świętuj bez stresu"
+    "tagline": "Świętuj bez stresu",
+    "welcome": "Witamy!"
   },
   "onboarding": {
     "selectLanguage": "Wybierz język",
@@ -60,6 +61,7 @@
     "addGuestSide": "Dodaj stronę",
     "guestSidePlaceholder": "np. Strona panny młodej, Strona pana młodego",
     "themes": {
+      "default": "Domyślny",
       "wedding": "Wesele",
       "birthday": "Urodziny",
       "baptism": "Chrzest",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1. urodziny — chłopiec",
       "birthday18Elegant": "18 elegancki",
       "birthday18Modern": "18 nowoczesny",
-      "birthday18Gold": "18 złoty"
+      "birthday18Gold": "18 złoty",
+      "blueBalloons": "Niebieskie balony",
+      "blushBalloons": "Balony blush",
+      "botanicalGold": "Botaniczne złoto",
+      "greeneryGold": "Zieleń i złoto",
+      "ivoryRoses": "Kremowe róże",
+      "whiteRoses": "Białe róże",
+      "babyNeutrals": "Baby neutral",
+      "birthday1BoyArt": "1. urodziny — chłopiec",
+      "birthday1GirlArt": "1. urodziny — dziewczynka",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 różowe złoto",
+      "birthday18NavyGold": "18 navy złoto",
+      "teamBride": "Team bride",
+      "babySage": "Baby szałwia",
+      "goldFloralFrame": "Złota ramka kwiatowa"
     },
-    "adUnavailable": "Reklama jest teraz niedostępna. Spróbuj ponownie później."
+    "adUnavailable": "Reklama jest teraz niedostępna. Spróbuj ponownie później.",
+    "illustratedBackgrounds": "Tła zaproszeń",
+    "seeMore": "Zobacz więcej szablonów",
+    "groups": {
+      "wedding": "Ślub",
+      "birthday1": "1. urodziny",
+      "birthday18": "18. urodziny",
+      "universal": "Uroczystość"
+    },
+    "changeColor": "Zmień",
+    "colorHex": "Hex",
+    "colorHue": "Odcień",
+    "colorSaturation": "Nasycenie",
+    "colorShade": "Jasność",
+    "addText": "Dodaj tekst",
+    "customTexts": "Dowolny tekst",
+    "customTextLabel": "Tekst",
+    "customTextPlaceholder": "Twój tekst",
+    "removeText": "Usuń tekst",
+    "noIcon": "Bez ikony",
+    "dragHint": "Dotknij ikony lub tekstu, aby edytować lub usunąć. Przeciągnij dowolny tekst w wybrane miejsce.",
+    "hideHint": "Wyczyść pole, aby ukryć je na zaproszeniu.",
+    "textSize": "Rozmiar tekstu",
+    "watermark": "Utworzono w {{app}}",
+    "removeWatermark": "Usuń znak wodny",
+    "removeWatermarkHint": "Obejrzyj krótką reklamę, aby usunąć znak wodny aplikacji z tego zaproszenia."
   },
   "guests": {
     "title": "Goście",
@@ -268,7 +310,18 @@
       "name_desc": "Imię (Z-A)",
       "partySize_desc": "Liczba osób (więcej najpierw)",
       "partySize_asc": "Liczba osób (mniej najpierw)"
-    }
+    },
+    "seatCard": "Twoje miejsce",
+    "seatCardTitle": "Twój stół to",
+    "seatCardWelcome": "Miłej zabawy!",
+    "seatCardWelcomeHappy": "Cieszymy się, że jesteście!",
+    "seatCardWatermark": "Pobierz ze sklepu Play",
+    "seatCardShare": "Udostępnij kartę miejsca",
+    "seatCardShareUnavailable": "Udostępnianie jest dostępne na urządzeniach mobilnych.",
+    "seatCardYou": "Ty",
+    "seatCardSeat": "Miejsce {{seat}}",
+    "seatCardSeatRange": "Miejsca {{start}}–{{end}}",
+    "seatCardSeats": "Miejsca {{seats}}"
   },
   "seating": {
     "title": "Plan miejsc",
@@ -324,7 +377,14 @@
     "viewHall": "Zobacz salę",
     "reorderHint": "Dotknij gościa, aby podświetlić miejsce. Dotknij innego, aby zamienić, lub użyj strzałek.",
     "moveUp": "Przenieś wyżej",
-    "moveDown": "Przenieś niżej"
+    "moveDown": "Przenieś niżej",
+    "downloadList": "Pobierz plan stołów",
+    "downloadListEmpty": "Najpierw dodaj stoły i przypisz gości.",
+    "listTitle": "Plan stołów",
+    "listFindTable": "Znajdź swój stół",
+    "listDirectory": "Spis nazwisk",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Brak gości"
   },
   "expenses": {
     "title": "Wydatki",

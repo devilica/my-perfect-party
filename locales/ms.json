@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Parti Sempurna Saya",
-    "tagline": "Raikan tanpa tekanan"
+    "tagline": "Raikan tanpa tekanan",
+    "welcome": "Selamat datang!"
   },
   "onboarding": {
     "selectLanguage": "Pilih bahasa anda",
@@ -60,6 +61,7 @@
     "addGuestSide": "Tambah pihak",
     "guestSidePlaceholder": "cth. Pihak pengantin perempuan, pihak pengantin lelaki",
     "themes": {
+      "default": "Lalai",
       "wedding": "Perkahwinan",
       "birthday": "Hari jadi",
       "baptism": "Pembaptisan",
@@ -193,8 +195,48 @@
       "birthday1Boy": "Hari jadi ke-1 — lelaki",
       "birthday18Elegant": "Ke-18 elegan",
       "birthday18Modern": "Ke-18 moden",
-      "birthday18Gold": "Ke-18 emas"
-    }
+      "birthday18Gold": "Ke-18 emas",
+      "blueBalloons": "Belon biru",
+      "blushBalloons": "Belon blush",
+      "botanicalGold": "Emas botanik",
+      "greeneryGold": "Hijau dan emas",
+      "ivoryRoses": "Mawar gading",
+      "whiteRoses": "Mawar putih",
+      "babyNeutrals": "Neutral bayi",
+      "birthday1BoyArt": "Hari jadi ke-1 — lelaki",
+      "birthday1GirlArt": "Hari jadi ke-1 — perempuan",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 rose gold",
+      "birthday18NavyGold": "18 navy emas",
+      "teamBride": "Pasukan pengantin",
+      "babySage": "Sage bayi",
+      "goldFloralFrame": "Bingkai bunga emas"
+    },
+    "illustratedBackgrounds": "Latar undangan",
+    "seeMore": "Lihat lagi templat",
+    "groups": {
+      "wedding": "Perkahwinan",
+      "birthday1": "Hari jadi ke-1",
+      "birthday18": "Hari jadi ke-18",
+      "universal": "Sambutan"
+    },
+    "changeColor": "Tukar",
+    "colorHex": "Hex",
+    "colorHue": "Rona",
+    "colorSaturation": "Ketepuan",
+    "colorShade": "Kecerahan",
+    "addText": "Tambah teks",
+    "customTexts": "Teks bebas",
+    "customTextLabel": "Teks",
+    "customTextPlaceholder": "Teks anda",
+    "removeText": "Buang teks",
+    "noIcon": "Tiada ikon",
+    "dragHint": "Ketuk ikon atau teks untuk edit atau padam. Seret teks bebas ke mana-mana.",
+    "hideHint": "Kosongkan medan untuk menyembunyikannya pada undangan.",
+    "textSize": "Saiz teks",
+    "watermark": "Dibuat dengan {{app}}",
+    "removeWatermark": "Buang tera air",
+    "removeWatermarkHint": "Tonton iklan ringkas untuk membuang tera air aplikasi daripada undangan ini."
   },
   "guests": {
     "title": "Tetamu",
@@ -268,7 +310,18 @@
       "name_desc": "Nama (Z-A)",
       "partySize_desc": "Saiz kumpulan (terbesar dahulu)",
       "partySize_asc": "Saiz kumpulan (terkecil dahulu)"
-    }
+    },
+    "seatCard": "Tempat duduk anda",
+    "seatCardTitle": "Meja anda ialah",
+    "seatCardWelcome": "Nikmati sambutan ini!",
+    "seatCardWelcomeHappy": "Kami gembira anda di sini!",
+    "seatCardWatermark": "Muat turun di Play Store",
+    "seatCardShare": "Kongsi kad tempat duduk",
+    "seatCardShareUnavailable": "Perkongsian tersedia pada peranti mudah alih.",
+    "seatCardYou": "Anda",
+    "seatCardSeat": "Tempat {{seat}}",
+    "seatCardSeatRange": "Tempat {{start}}–{{end}}",
+    "seatCardSeats": "Tempat {{seats}}"
   },
   "seating": {
     "title": "Perancang tempat duduk",
@@ -324,7 +377,14 @@
     "seatsFree": "Kerusi kosong",
     "reorderHint": "Ketik tetamu untuk serlahkan tempat duduk. Ketik yang lain untuk tukar, atau guna anak panah.",
     "moveUp": "Naik",
-    "moveDown": "Turun"
+    "moveDown": "Turun",
+    "downloadList": "Muat turun senarai tempat duduk",
+    "downloadListEmpty": "Tambah meja dan letakkan tetamu terlebih dahulu.",
+    "listTitle": "Senarai tempat duduk",
+    "listFindTable": "Cari meja anda",
+    "listDirectory": "Direktori nama",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Belum ada tetamu"
   },
   "expenses": {
     "title": "Perbelanjaan",

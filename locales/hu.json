@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Tökéletes bulim",
-    "tagline": "Ünnepelj stressz nélkül"
+    "tagline": "Ünnepelj stressz nélkül",
+    "welcome": "Üdvözöljük!"
   },
   "onboarding": {
     "selectLanguage": "Válassz nyelvet",
@@ -60,6 +61,7 @@
     "addGuestSide": "Oldal hozzáadása",
     "guestSidePlaceholder": "pl. Menyasszony oldala, Vőlegény oldala",
     "themes": {
+      "default": "Alapértelmezett",
       "wedding": "Esküvő",
       "birthday": "Születésnap",
       "baptism": "Keresztelő",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1. születésnap — fiú",
       "birthday18Elegant": "18 elegáns",
       "birthday18Modern": "18 modern",
-      "birthday18Gold": "18 arany"
+      "birthday18Gold": "18 arany",
+      "blueBalloons": "Kék lufik",
+      "blushBalloons": "Blush lufik",
+      "botanicalGold": "Botanikus arany",
+      "greeneryGold": "Zöld és arany",
+      "ivoryRoses": "Elefántcsont rózsák",
+      "whiteRoses": "Fehér rózsák",
+      "babyNeutrals": "Baby neutrál",
+      "birthday1BoyArt": "1. szülinap — fiú",
+      "birthday1GirlArt": "1. szülinap — lány",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 rozéarany",
+      "birthday18NavyGold": "18 navy arany",
+      "teamBride": "Team bride",
+      "babySage": "Baby zsálya",
+      "goldFloralFrame": "Arany virágos keret"
     },
-    "adUnavailable": "A reklám jelenleg nem érhető el. Próbáld újra később."
+    "adUnavailable": "A reklám jelenleg nem érhető el. Próbáld újra később.",
+    "illustratedBackgrounds": "Meghívó hátterek",
+    "seeMore": "További sablonok",
+    "groups": {
+      "wedding": "Esküvő",
+      "birthday1": "1. szülinap",
+      "birthday18": "18. szülinap",
+      "universal": "Ünnepség"
+    },
+    "changeColor": "Módosítás",
+    "colorHex": "Hex",
+    "colorHue": "Árnyalat",
+    "colorSaturation": "Telítettség",
+    "colorShade": "Fényerő",
+    "addText": "Szöveg hozzáadása",
+    "customTexts": "Szabad szöveg",
+    "customTextLabel": "Szöveg",
+    "customTextPlaceholder": "Az Ön szövege",
+    "removeText": "Szöveg törlése",
+    "noIcon": "Nincs ikon",
+    "dragHint": "Koppintson egy ikonra vagy szövegre a szerkesztéshez vagy törléshez. A szabad szöveget húzza oda, ahová szeretné.",
+    "hideHint": "Törölje a mezőt, hogy elrejtse a meghívón.",
+    "textSize": "Szövegméret",
+    "watermark": "Készült: {{app}}",
+    "removeWatermark": "Vízjel eltávolítása",
+    "removeWatermarkHint": "Nézzen meg egy rövid hirdetést, hogy eltávolítsa az alkalmazás vízjelét erről a meghívóról."
   },
   "guests": {
     "title": "Vendégek",
@@ -268,7 +310,18 @@
       "name_desc": "Név (Z-A)",
       "partySize_desc": "Létszám (több elöl)",
       "partySize_asc": "Létszám (kevesebb elöl)"
-    }
+    },
+    "seatCard": "A helyed",
+    "seatCardTitle": "Az asztalod",
+    "seatCardWelcome": "Élvezzétek az ünnepet!",
+    "seatCardWelcomeHappy": "Örülünk, hogy itt vagytok!",
+    "seatCardWatermark": "Letöltés a Play Áruházból",
+    "seatCardShare": "Helykártya megosztása",
+    "seatCardShareUnavailable": "A megosztás mobilkészülékeken érhető el.",
+    "seatCardYou": "Te",
+    "seatCardSeat": "{{seat}}. hely",
+    "seatCardSeatRange": "{{start}}–{{end}}. hely",
+    "seatCardSeats": "Helyek: {{seats}}"
   },
   "seating": {
     "title": "Ültetéstervező",
@@ -324,7 +377,14 @@
     "viewHall": "Terem megtekintése",
     "reorderHint": "Érintsd meg a vendéget a hely kiemeléséhez. Érintsd meg a másikat a cseréhez, vagy használd a nyilakat.",
     "moveUp": "Feljebb",
-    "moveDown": "Lejjebb"
+    "moveDown": "Lejjebb",
+    "downloadList": "Ülésrend letöltése",
+    "downloadListEmpty": "Először adj hozzá asztalokat, és ültesd le a vendégeket.",
+    "listTitle": "Ülésrend",
+    "listFindTable": "Találd meg az asztalod",
+    "listDirectory": "Névjegyzék",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Még nincsenek vendégek"
   },
   "expenses": {
     "title": "Kiadások",

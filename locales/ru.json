@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Моя идеальная вечеринка",
-    "tagline": "Празднуй без стресса"
+    "tagline": "Празднуй без стресса",
+    "welcome": "Добро пожаловать!"
   },
   "onboarding": {
     "selectLanguage": "Выберите язык",
@@ -60,6 +61,7 @@
     "addGuestSide": "Добавить сторону",
     "guestSidePlaceholder": "напр. Сторона невесты, сторона жениха",
     "themes": {
+      "default": "По умолчанию",
       "wedding": "Свадьба",
       "birthday": "День рождения",
       "baptism": "Крещение",
@@ -193,8 +195,48 @@
       "birthday1Boy": "1-й день рождения — мальчик",
       "birthday18Elegant": "18 — элегантный",
       "birthday18Modern": "18 — современный",
-      "birthday18Gold": "18 — золотой"
-    }
+      "birthday18Gold": "18 — золотой",
+      "blueBalloons": "Синие шары",
+      "blushBalloons": "Розовые шары",
+      "botanicalGold": "Ботаническое золото",
+      "greeneryGold": "Зелень и золото",
+      "ivoryRoses": "Кремовые розы",
+      "whiteRoses": "Белые розы",
+      "babyNeutrals": "Детский нейтральный",
+      "birthday1BoyArt": "1-й день рождения — мальчик",
+      "birthday1GirlArt": "1-й день рождения — девочка",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 розовое золото",
+      "birthday18NavyGold": "18 navy золото",
+      "teamBride": "Команда невесты",
+      "babySage": "Детский шалфей",
+      "goldFloralFrame": "Золотая цветочная рамка"
+    },
+    "illustratedBackgrounds": "Фоны приглашений",
+    "seeMore": "Ещё шаблоны",
+    "groups": {
+      "wedding": "Свадьба",
+      "birthday1": "1-й день рождения",
+      "birthday18": "18-летие",
+      "universal": "Праздник"
+    },
+    "changeColor": "Изменить",
+    "colorHex": "Hex",
+    "colorHue": "Тон",
+    "colorSaturation": "Насыщенность",
+    "colorShade": "Яркость",
+    "addText": "Добавить текст",
+    "customTexts": "Свободный текст",
+    "customTextLabel": "Текст",
+    "customTextPlaceholder": "Ваш текст",
+    "removeText": "Удалить текст",
+    "noIcon": "Без значка",
+    "dragHint": "Нажмите на значок или текст, чтобы изменить или удалить. Перетащите свободный текст куда нужно.",
+    "hideHint": "Очистите поле, чтобы скрыть его на приглашении.",
+    "textSize": "Размер текста",
+    "watermark": "Создано в {{app}}",
+    "removeWatermark": "Убрать водяной знак",
+    "removeWatermarkHint": "Посмотрите короткую рекламу, чтобы убрать водяной знак приложения с этого приглашения."
   },
   "guests": {
     "title": "Гости",
@@ -268,7 +310,18 @@
       "name_desc": "Имя (Z–A)",
       "partySize_desc": "Размер группы (сначала больше)",
       "partySize_asc": "Размер группы (сначала меньше)"
-    }
+    },
+    "seatCard": "Ваше место",
+    "seatCardTitle": "Ваш стол",
+    "seatCardWelcome": "Наслаждайтесь праздником!",
+    "seatCardWelcomeHappy": "Мы очень рады, что вы здесь!",
+    "seatCardWatermark": "Скачать в Play Store",
+    "seatCardShare": "Поделиться карточкой места",
+    "seatCardShareUnavailable": "Обмен доступен на мобильных устройствах.",
+    "seatCardYou": "Вы",
+    "seatCardSeat": "Место {{seat}}",
+    "seatCardSeatRange": "Места {{start}}–{{end}}",
+    "seatCardSeats": "Места {{seats}}"
   },
   "seating": {
     "title": "Планировщик рассадки",
@@ -324,7 +377,14 @@
     "seatsFree": "Свободные места",
     "reorderHint": "Нажмите на гостя, чтобы подсветить место. Нажмите на другого для обмена или используйте стрелки.",
     "moveUp": "Выше",
-    "moveDown": "Ниже"
+    "moveDown": "Ниже",
+    "downloadList": "Скачать схему рассадки",
+    "downloadListEmpty": "Сначала добавьте столы и рассадите гостей.",
+    "listTitle": "Схема рассадки",
+    "listFindTable": "Найдите свой стол",
+    "listDirectory": "Список имён",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Гостей пока нет"
   },
   "expenses": {
     "title": "Расходы",

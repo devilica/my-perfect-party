@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "ปาร์ตี้สมบูรณ์แบบของฉัน",
-    "tagline": "ฉลองอย่างไร้กังวล"
+    "tagline": "ฉลองอย่างไร้กังวล",
+    "welcome": "ยินดีต้อนรับ!"
   },
   "onboarding": {
     "selectLanguage": "เลือกภาษาของคุณ",
@@ -60,6 +61,7 @@
     "addGuestSide": "เพิ่มฝ่าย",
     "guestSidePlaceholder": "เช่น ฝ่ายเจ้าสาว ฝ่ายเจ้าบ่าว",
     "themes": {
+      "default": "ค่าเริ่มต้น",
       "wedding": "งานแต่งงาน",
       "birthday": "วันเกิด",
       "baptism": "พิธีล้างบาป",
@@ -193,8 +195,48 @@
       "birthday1Boy": "วันเกิดครบ 1 ปี — ผู้ชาย",
       "birthday18Elegant": "ครบ 18 หรูหรา",
       "birthday18Modern": "ครบ 18 โมเดิร์น",
-      "birthday18Gold": "ครบ 18 ทอง"
-    }
+      "birthday18Gold": "ครบ 18 ทอง",
+      "blueBalloons": "ลูกโป่งฟ้า",
+      "blushBalloons": "ลูกโป่งบลัช",
+      "botanicalGold": "ทองพฤกษา",
+      "greeneryGold": "เขียวและทอง",
+      "ivoryRoses": "กุหลาบงาช้าง",
+      "whiteRoses": "กุหลาบขาว",
+      "babyNeutrals": "เบบี๋โทนกลาง",
+      "birthday1BoyArt": "วันเกิด 1 ขวบ — เด็กชาย",
+      "birthday1GirlArt": "วันเกิด 1 ขวบ — เด็กหญิง",
+      "birthday18BlushNavy": "18 บลัชเนวี",
+      "birthday18RoseGold": "18 โรสโกลด์",
+      "birthday18NavyGold": "18 เนวีโกลด์",
+      "teamBride": "ทีมเจ้าสาว",
+      "babySage": "เบบี๋เสจ",
+      "goldFloralFrame": "กรอบดอกไม้ทอง"
+    },
+    "illustratedBackgrounds": "พื้นหลังการ์ดเชิญ",
+    "seeMore": "ดูเทมเพลตเพิ่มเติม",
+    "groups": {
+      "wedding": "งานแต่ง",
+      "birthday1": "วันเกิด 1 ขวบ",
+      "birthday18": "วันเกิด 18 ปี",
+      "universal": "งานฉลอง"
+    },
+    "changeColor": "เปลี่ยน",
+    "colorHex": "Hex",
+    "colorHue": "โทนสี",
+    "colorSaturation": "ความอิ่มตัว",
+    "colorShade": "ความสว่าง",
+    "addText": "เพิ่มข้อความ",
+    "customTexts": "ข้อความอิสระ",
+    "customTextLabel": "ข้อความ",
+    "customTextPlaceholder": "ข้อความของคุณ",
+    "removeText": "ลบข้อความ",
+    "noIcon": "ไม่มีไอคอน",
+    "dragHint": "แตะไอคอนหรือข้อความเพื่อแก้ไขหรือลบ ลากข้อความอิสระไปที่ที่ต้องการ",
+    "hideHint": "ล้างช่องเพื่อซ่อนจากบัตรเชิญ",
+    "textSize": "ขนาดข้อความ",
+    "watermark": "สร้างด้วย {{app}}",
+    "removeWatermark": "ลบลายน้ำ",
+    "removeWatermarkHint": "ดูโฆษณาสั้น ๆ เพื่อลบลายน้ำของแอปออกจากการ์ดเชิญนี้"
   },
   "guests": {
     "title": "แขก",
@@ -268,7 +310,18 @@
       "name_desc": "ชื่อ (Z-A)",
       "partySize_desc": "จำนวนคน (มากสุดก่อน)",
       "partySize_asc": "จำนวนคน (น้อยสุดก่อน)"
-    }
+    },
+    "seatCard": "ที่นั่งของคุณ",
+    "seatCardTitle": "โต๊ะของคุณคือ",
+    "seatCardWelcome": "ขอให้สนุกกับงานฉลอง!",
+    "seatCardWelcomeHappy": "เรายินดีที่คุณมา!",
+    "seatCardWatermark": "ดาวน์โหลดบน Play Store",
+    "seatCardShare": "แชร์การ์ดที่นั่ง",
+    "seatCardShareUnavailable": "การแชร์ใช้ได้บนอุปกรณ์มือถือ",
+    "seatCardYou": "คุณ",
+    "seatCardSeat": "ที่นั่ง {{seat}}",
+    "seatCardSeatRange": "ที่นั่ง {{start}}–{{end}}",
+    "seatCardSeats": "ที่นั่ง {{seats}}"
   },
   "seating": {
     "title": "วางแผนที่นั่ง",
@@ -324,7 +377,14 @@
     "seatsFree": "ที่นั่งว่าง",
     "reorderHint": "แตะแขกเพื่อเน้นที่นั่ง แตะอีกคนเพื่อสลับ หรือใช้ลูกศรเลื่อน",
     "moveUp": "เลื่อนขึ้น",
-    "moveDown": "เลื่อนลง"
+    "moveDown": "เลื่อนลง",
+    "downloadList": "ดาวน์โหลดผังที่นั่ง",
+    "downloadListEmpty": "เพิ่มโต๊ะและจัดแขกก่อน",
+    "listTitle": "ผังที่นั่ง",
+    "listFindTable": "ค้นหาโต๊ะของคุณ",
+    "listDirectory": "รายชื่อ",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "ยังไม่มีแขก"
   },
   "expenses": {
     "title": "ค่าใช้จ่าย",

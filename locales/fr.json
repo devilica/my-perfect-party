@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Ma fête parfaite",
-    "tagline": "Célébrez sans stress"
+    "tagline": "Célébrez sans stress",
+    "welcome": "Bienvenue !"
   },
   "onboarding": {
     "selectLanguage": "Choisir la langue",
@@ -60,6 +61,7 @@
     "addGuestSide": "Ajouter un côté",
     "guestSidePlaceholder": "ex. Côté de la mariée, Côté du marié",
     "themes": {
+      "default": "Par défaut",
       "wedding": "Mariage",
       "birthday": "Anniversaire",
       "baptism": "Baptême",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1er anniversaire — garçon",
       "birthday18Elegant": "18 ans élégant",
       "birthday18Modern": "18 ans moderne",
-      "birthday18Gold": "18 ans or"
+      "birthday18Gold": "18 ans or",
+      "blueBalloons": "Ballons bleus",
+      "blushBalloons": "Ballons blush",
+      "botanicalGold": "Or botanique",
+      "greeneryGold": "Verdure et or",
+      "ivoryRoses": "Roses ivoire",
+      "whiteRoses": "Roses blanches",
+      "babyNeutrals": "Bébé neutre",
+      "birthday1BoyArt": "1er anniversaire — garçon",
+      "birthday1GirlArt": "1er anniversaire — fille",
+      "birthday18BlushNavy": "18 ans blush marine",
+      "birthday18RoseGold": "18 ans or rose",
+      "birthday18NavyGold": "18 ans marine or",
+      "teamBride": "Team bride",
+      "babySage": "Bébé sauge",
+      "goldFloralFrame": "Cadre floral or"
     },
-    "adUnavailable": "La publicité n'est pas disponible pour le moment. Réessayez plus tard."
+    "adUnavailable": "La publicité n'est pas disponible pour le moment. Réessayez plus tard.",
+    "illustratedBackgrounds": "Fonds d'invitation",
+    "seeMore": "Voir plus de modèles",
+    "groups": {
+      "wedding": "Mariage",
+      "birthday1": "1er anniversaire",
+      "birthday18": "18 ans",
+      "universal": "Célébration"
+    },
+    "changeColor": "Modifier",
+    "colorHex": "Hex",
+    "colorHue": "Teinte",
+    "colorSaturation": "Saturation",
+    "colorShade": "Luminosité",
+    "addText": "Ajouter du texte",
+    "customTexts": "Texte libre",
+    "customTextLabel": "Texte",
+    "customTextPlaceholder": "Votre texte",
+    "removeText": "Supprimer le texte",
+    "noIcon": "Aucune icône",
+    "dragHint": "Touchez une icône ou un texte pour le modifier ou le supprimer. Faites glisser le texte libre où vous voulez.",
+    "hideHint": "Effacez un champ pour le masquer sur l’invitation.",
+    "textSize": "Taille du texte",
+    "watermark": "Créé avec {{app}}",
+    "removeWatermark": "Supprimer le filigrane",
+    "removeWatermarkHint": "Regardez une courte publicité pour retirer le filigrane de l’application de cette invitation."
   },
   "guests": {
     "title": "Invités",
@@ -268,7 +310,18 @@
       "name_desc": "Nom (Z-A)",
       "partySize_desc": "Nombre de personnes (plus en premier)",
       "partySize_asc": "Nombre de personnes (moins en premier)"
-    }
+    },
+    "seatCard": "Votre place",
+    "seatCardTitle": "Votre table est",
+    "seatCardWelcome": "Profitez de la fête !",
+    "seatCardWelcomeHappy": "Nous sommes ravis que vous soyez là !",
+    "seatCardWatermark": "Télécharger sur le Play Store",
+    "seatCardShare": "Partager la carte de place",
+    "seatCardShareUnavailable": "Le partage est disponible sur les appareils mobiles.",
+    "seatCardYou": "Vous",
+    "seatCardSeat": "Place {{seat}}",
+    "seatCardSeatRange": "Places {{start}}–{{end}}",
+    "seatCardSeats": "Places {{seats}}"
   },
   "seating": {
     "title": "Plan de table",
@@ -324,7 +377,14 @@
     "viewHall": "Voir la salle",
     "reorderHint": "Touchez un invité pour surligner sa place. Touchez un autre pour échanger, ou utilisez les flèches.",
     "moveUp": "Monter",
-    "moveDown": "Descendre"
+    "moveDown": "Descendre",
+    "downloadList": "Télécharger le plan de table",
+    "downloadListEmpty": "Ajoutez d’abord des tables et assignez les invités.",
+    "listTitle": "Plan de table",
+    "listFindTable": "Trouvez votre table",
+    "listDirectory": "Annuaire des noms",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Pas encore d’invités"
   },
   "expenses": {
     "title": "Dépenses",

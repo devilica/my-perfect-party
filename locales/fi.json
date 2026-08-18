@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Täydellinen juhlani",
-    "tagline": "Juhli stressittä"
+    "tagline": "Juhli stressittä",
+    "welcome": "Tervetuloa!"
   },
   "onboarding": {
     "selectLanguage": "Valitse kieli",
@@ -60,6 +61,7 @@
     "addGuestSide": "Lisää puoli",
     "guestSidePlaceholder": "esim. Morsiamen puoli, Sulhasen puoli",
     "themes": {
+      "default": "Oletus",
       "wedding": "Häät",
       "birthday": "Syntymäpäivä",
       "baptism": "Kaste",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1-v syntymäpäivä — poika",
       "birthday18Elegant": "18 elegantti",
       "birthday18Modern": "18 moderni",
-      "birthday18Gold": "18 kulta"
+      "birthday18Gold": "18 kulta",
+      "blueBalloons": "Siniset ilmapallot",
+      "blushBalloons": "Blush-ilmapallot",
+      "botanicalGold": "Kasvitieteellinen kulta",
+      "greeneryGold": "Vihreä ja kulta",
+      "ivoryRoses": "Norsunluuruusut",
+      "whiteRoses": "Valkoiset ruusut",
+      "babyNeutrals": "Vauva neutraali",
+      "birthday1BoyArt": "1-vuotis — poika",
+      "birthday1GirlArt": "1-vuotis — tyttö",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 ruusukulta",
+      "birthday18NavyGold": "18 navy kulta",
+      "teamBride": "Team bride",
+      "babySage": "Vauva salvia",
+      "goldFloralFrame": "Kultainen kukkakehys"
     },
-    "adUnavailable": "Mainos ei ole juuri nyt saatavilla. Yritä myöhemmin uudelleen."
+    "adUnavailable": "Mainos ei ole juuri nyt saatavilla. Yritä myöhemmin uudelleen.",
+    "illustratedBackgrounds": "Kutsun taustat",
+    "seeMore": "Näytä lisää mallipohjia",
+    "groups": {
+      "wedding": "Häät",
+      "birthday1": "1-vuotissyntymäpäivä",
+      "birthday18": "18-vuotissyntymäpäivä",
+      "universal": "Juhla"
+    },
+    "changeColor": "Vaihda",
+    "colorHex": "Hex",
+    "colorHue": "Sävy",
+    "colorSaturation": "Kylläisyys",
+    "colorShade": "Kirkkaus",
+    "addText": "Lisää teksti",
+    "customTexts": "Vapaa teksti",
+    "customTextLabel": "Teksti",
+    "customTextPlaceholder": "Tekstisi",
+    "removeText": "Poista teksti",
+    "noIcon": "Ei kuvaketta",
+    "dragHint": "Napauta kuvaketta tai tekstiä muokataksesi tai poistaaksesi. Vedä vapaa teksti haluamaasi paikkaan.",
+    "hideHint": "Tyhjennä kenttä piilottaaksesi sen kutsusta.",
+    "textSize": "Tekstin koko",
+    "watermark": "Luotu sovelluksella {{app}}",
+    "removeWatermark": "Poista vesileima",
+    "removeWatermarkHint": "Katso lyhyt mainos poistaaksesi sovelluksen vesileiman tästä kutsusta."
   },
   "guests": {
     "title": "Vieraat",
@@ -268,7 +310,18 @@
       "name_desc": "Nimi (Ö-A)",
       "partySize_desc": "Henkilömäärä (eniten ensin)",
       "partySize_asc": "Henkilömäärä (vähiten ensin)"
-    }
+    },
+    "seatCard": "Paikkasi",
+    "seatCardTitle": "Pöytäsi on",
+    "seatCardWelcome": "Nauttikaa juhlasta!",
+    "seatCardWelcomeHappy": "Olemme niin iloisia, että olette täällä!",
+    "seatCardWatermark": "Lataa Play Storesta",
+    "seatCardShare": "Jaa paikkalippu",
+    "seatCardShareUnavailable": "Jakaminen on käytettävissä mobiililaitteilla.",
+    "seatCardYou": "Sinä",
+    "seatCardSeat": "Paikka {{seat}}",
+    "seatCardSeatRange": "Paikat {{start}}–{{end}}",
+    "seatCardSeats": "Paikat {{seats}}"
   },
   "seating": {
     "title": "Paikkakarttasuunnittelija",
@@ -324,7 +377,14 @@
     "viewHall": "Näytä sali",
     "reorderHint": "Napauta vierasta korostaaksesi paikan. Napauta toista vaihtaaksesi, tai käytä nuolia.",
     "moveUp": "Siirrä ylös",
-    "moveDown": "Siirrä alas"
+    "moveDown": "Siirrä alas",
+    "downloadList": "Lataa istumajärjestys",
+    "downloadListEmpty": "Lisää ensin pöydät ja sijoita vieraat.",
+    "listTitle": "Istumajärjestys",
+    "listFindTable": "Löydä pöytäsi",
+    "listDirectory": "Nimihakemisto",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Ei vielä vieraita"
   },
   "expenses": {
     "title": "Kulut",

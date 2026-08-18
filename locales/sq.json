@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Festa ime e përsosur",
-    "tagline": "Festo pa stres"
+    "tagline": "Festo pa stres",
+    "welcome": "Mirë se vini!"
   },
   "onboarding": {
     "selectLanguage": "Zgjidhni gjuhën",
@@ -60,6 +61,7 @@
     "addGuestSide": "Shto anë",
     "guestSidePlaceholder": "p.sh. Ana e nuses, Ana e dhëndrit",
     "themes": {
+      "default": "Parazgjedhur",
       "wedding": "Dasmë",
       "birthday": "Ditëlindje",
       "baptism": "Pagëzim",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1-vjetor — djalë",
       "birthday18Elegant": "18 elegant",
       "birthday18Modern": "18 modern",
-      "birthday18Gold": "18 ar"
+      "birthday18Gold": "18 ar",
+      "blueBalloons": "Tulla blu",
+      "blushBalloons": "Tulla blush",
+      "botanicalGold": "Ari botanik",
+      "greeneryGold": "E gjelbër dhe ari",
+      "ivoryRoses": "Trëndafila fildishi",
+      "whiteRoses": "Trëndafila të bardhë",
+      "babyNeutrals": "Bebe neutrale",
+      "birthday1BoyArt": "Ditëlindja e 1-rë — djalë",
+      "birthday1GirlArt": "Ditëlindja e 1-rë — vajzë",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 rose gold",
+      "birthday18NavyGold": "18 navy ari",
+      "teamBride": "Ekipi i nuses",
+      "babySage": "Bebe sherebelë",
+      "goldFloralFrame": "Kornizë florale ari"
     },
-    "adUnavailable": "Reklama nuk është e disponueshme tani. Provo përsëri më vonë."
+    "adUnavailable": "Reklama nuk është e disponueshme tani. Provo përsëri më vonë.",
+    "illustratedBackgrounds": "Sfondet e ftesës",
+    "seeMore": "Shiko më shumë shabllone",
+    "groups": {
+      "wedding": "Dasma",
+      "birthday1": "Ditëlindja e 1-rë",
+      "birthday18": "Ditëlindja e 18-të",
+      "universal": "Festë"
+    },
+    "changeColor": "Ndrysho",
+    "colorHex": "Hex",
+    "colorHue": "Nuanca",
+    "colorSaturation": "Ngopja",
+    "colorShade": "Ndriçimi",
+    "addText": "Shto tekst",
+    "customTexts": "Tekst i lirë",
+    "customTextLabel": "Tekst",
+    "customTextPlaceholder": "Teksti juaj",
+    "removeText": "Hiq tekstin",
+    "noIcon": "Pa ikonë",
+    "dragHint": "Prekni një ikonë ose tekst për ta ndryshuar ose fshirë. Tërhiqni tekstin e lirë ku të doni.",
+    "hideHint": "Pastroni një fushë për ta fshehur nga ftesa.",
+    "textSize": "Madhësia e tekstit",
+    "watermark": "Krijuar me {{app}}",
+    "removeWatermark": "Hiq filigranën",
+    "removeWatermarkHint": "Shikoni një reklamë të shkurtër për të hequr filigranën e aplikacionit nga kjo ftesë."
   },
   "guests": {
     "title": "Mysafirë",
@@ -268,7 +310,18 @@
       "name_desc": "Emri (Z-A)",
       "partySize_desc": "Numri i personave (më shumë së pari)",
       "partySize_asc": "Numri i personave (më pak së pari)"
-    }
+    },
+    "seatCard": "Vendi yt",
+    "seatCardTitle": "Tavolina jote është",
+    "seatCardWelcome": "Gëzohuni festën!",
+    "seatCardWelcomeHappy": "Jemi të lumtur që jeni këtu!",
+    "seatCardWatermark": "Shkarko në Play Store",
+    "seatCardShare": "Ndaj kartën e vendit",
+    "seatCardShareUnavailable": "Ndarja është e disponueshme në pajisje celulare.",
+    "seatCardYou": "Ti",
+    "seatCardSeat": "Vendi {{seat}}",
+    "seatCardSeatRange": "Vendet {{start}}–{{end}}",
+    "seatCardSeats": "Vendet {{seats}}"
   },
   "seating": {
     "title": "Planifikuesi i uljeve",
@@ -324,7 +377,14 @@
     "viewHall": "Shiko sallën",
     "reorderHint": "Prek një mysafir për të shënuar vendin. Prek një tjetër për shkëmbim, ose përdor shigjetat.",
     "moveUp": "Lëviz lart",
-    "moveDown": "Lëviz poshtë"
+    "moveDown": "Lëviz poshtë",
+    "downloadList": "Shkarko listën e uljes",
+    "downloadListEmpty": "Së pari shtoni tavolinat dhe vendosni të ftuarit.",
+    "listTitle": "Lista e uljes",
+    "listFindTable": "Gjeni tavolinën tuaj",
+    "listDirectory": "Regjistri i emrave",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Nuk ka ende të ftuar"
   },
   "expenses": {
     "title": "Shpenzime",

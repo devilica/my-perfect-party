@@ -1,4 +1,4 @@
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
@@ -20,6 +20,7 @@ type GuestCardProps = {
   guest: Guest;
   table?: SeatingTable;
   onPress: () => void;
+  onViewSeat?: () => void;
   onDelete: () => void;
 };
 
@@ -52,7 +53,7 @@ function getStatusColors(status: AttendanceStatus, theme: ReturnType<typeof useT
   }
 }
 
-export function GuestCard({ guest, table, onPress, onDelete }: GuestCardProps) {
+export function GuestCard({ guest, table, onPress, onViewSeat, onDelete }: GuestCardProps) {
   const language = useWeddingStore((s) => s.language);
   const setGuestAttendance = useWeddingStore((s) => s.setGuestAttendance);
   const { t } = useTranslation(language);
@@ -74,9 +75,21 @@ export function GuestCard({ guest, table, onPress, onDelete }: GuestCardProps) {
       <Pressable onPress={onPress} style={styles.main}>
         <View style={styles.header}>
           <Text style={[styles.name, { color: theme.text }]}>{getGuestFullName(guest)}</Text>
-          <Pressable onPress={onDelete} hitSlop={8}>
-            <Ionicons name="trash-outline" size={18} color={theme.danger} />
-          </Pressable>
+          <View style={styles.headerActions}>
+            {table && onViewSeat ? (
+              <Pressable
+                onPress={onViewSeat}
+                hitSlop={8}
+                accessibilityRole="button"
+                accessibilityLabel={t('guests.seatCard')}
+              >
+                <MaterialCommunityIcons name="table-chair" size={20} color={theme.primary} />
+              </Pressable>
+            ) : null}
+            <Pressable onPress={onDelete} hitSlop={8}>
+              <Ionicons name="trash-outline" size={18} color={theme.danger} />
+            </Pressable>
+          </View>
         </View>
 
         <View style={styles.metaRow}>
@@ -84,13 +97,6 @@ export function GuestCard({ guest, table, onPress, onDelete }: GuestCardProps) {
             <View style={[styles.chip, { backgroundColor: theme.primaryLight }]}>
               <Text style={[styles.chipText, { color: theme.primaryDark }]}>
                 {getGuestCategoryLabel(guest.category, t)}
-              </Text>
-            </View>
-          ) : null}
-          {guest.side.trim() ? (
-            <View style={[styles.chip, { backgroundColor: theme.pendingLight }]}>
-              <Text style={[styles.chipText, { color: theme.textSecondary }]}>
-                {guest.side}
               </Text>
             </View>
           ) : null}
@@ -142,6 +148,11 @@ const styles = StyleSheet.create({
   name: {
     ...typography.subheading,
     flex: 1,
+  },
+  headerActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
   },
   metaRow: {
     flexDirection: 'row',

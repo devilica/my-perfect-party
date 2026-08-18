@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Моето перфектно парти",
-    "tagline": "Празнувай без стрес"
+    "tagline": "Празнувай без стрес",
+    "welcome": "Добре дошли!"
   },
   "onboarding": {
     "selectLanguage": "Изберете език",
@@ -60,6 +61,7 @@
     "addGuestSide": "Добави страна",
     "guestSidePlaceholder": "напр. Страна на булката, Страна на младоженеца",
     "themes": {
+      "default": "По подразбиране",
       "wedding": "Сватба",
       "birthday": "Рожден ден",
       "baptism": "Кръщене",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1-ви рожден ден — момче",
       "birthday18Elegant": "18 елегантен",
       "birthday18Modern": "18 модерен",
-      "birthday18Gold": "18 златен"
+      "birthday18Gold": "18 златен",
+      "blueBalloons": "Сини балони",
+      "blushBalloons": "Блаш балони",
+      "botanicalGold": "Ботаническо злато",
+      "greeneryGold": "Зелено и злато",
+      "ivoryRoses": "Кремави рози",
+      "whiteRoses": "Бели рози",
+      "babyNeutrals": "Бебе неутрално",
+      "birthday1BoyArt": "1-ви рожден ден — момче",
+      "birthday1GirlArt": "1-ви рожден ден — момиче",
+      "birthday18BlushNavy": "18 блаш нейви",
+      "birthday18RoseGold": "18 розово злато",
+      "birthday18NavyGold": "18 нейви злато",
+      "teamBride": "Екип на булката",
+      "babySage": "Бебе салвия",
+      "goldFloralFrame": "Златна цветна рамка"
     },
-    "adUnavailable": "Рекламата не е налична в момента. Опитайте по-късно."
+    "adUnavailable": "Рекламата не е налична в момента. Опитайте по-късно.",
+    "illustratedBackgrounds": "Фонове за покани",
+    "seeMore": "Виж още шаблони",
+    "groups": {
+      "wedding": "Сватба",
+      "birthday1": "1-ви рожден ден",
+      "birthday18": "18-ти рожден ден",
+      "universal": "Празник"
+    },
+    "changeColor": "Промени",
+    "colorHex": "Hex",
+    "colorHue": "Тон",
+    "colorSaturation": "Наситеност",
+    "colorShade": "Яркост",
+    "addText": "Добави текст",
+    "customTexts": "Свободен текст",
+    "customTextLabel": "Текст",
+    "customTextPlaceholder": "Вашият текст",
+    "removeText": "Премахни текста",
+    "noIcon": "Без икона",
+    "dragHint": "Докоснете икона или текст, за да го редактирате или изтриете. Плъзнете свободния текст където искате.",
+    "hideHint": "Изчистете поле, за да го скриете от поканата.",
+    "textSize": "Размер на текста",
+    "watermark": "Създадено с {{app}}",
+    "removeWatermark": "Премахни воден знак",
+    "removeWatermarkHint": "Гледайте кратка реклама, за да премахнете водния знак на приложението от тази покана."
   },
   "guests": {
     "title": "Гости",
@@ -268,7 +310,18 @@
       "name_desc": "Име (Я-А)",
       "partySize_desc": "Брой хора (повече първо)",
       "partySize_asc": "Брой хора (по-малко първо)"
-    }
+    },
+    "seatCard": "Твоето място",
+    "seatCardTitle": "Твоята маса е",
+    "seatCardWelcome": "Насладете се на празника!",
+    "seatCardWelcomeHappy": "Радваме се, че сте тук!",
+    "seatCardWatermark": "Изтеглете от Play Store",
+    "seatCardShare": "Сподели картата за място",
+    "seatCardShareUnavailable": "Споделянето е налично на мобилни устройства.",
+    "seatCardYou": "Ти",
+    "seatCardSeat": "Място {{seat}}",
+    "seatCardSeatRange": "Места {{start}}–{{end}}",
+    "seatCardSeats": "Места {{seats}}"
   },
   "seating": {
     "title": "Планиране на местата",
@@ -324,7 +377,14 @@
     "viewHall": "Виж залата",
     "reorderHint": "Докосни гост, за да маркираш мястото. Докосни друг за размяна, или ползвай стрелките.",
     "moveUp": "Премести нагоре",
-    "moveDown": "Премести надолу"
+    "moveDown": "Премести надолу",
+    "downloadList": "Изтегли списък за сядане",
+    "downloadListEmpty": "Първо добавете маси и настанете гостите.",
+    "listTitle": "Списък за сядане",
+    "listFindTable": "Намерете масата си",
+    "listDirectory": "Именен указател",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Все още няма гости"
   },
   "expenses": {
     "title": "Разходи",

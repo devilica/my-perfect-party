@@ -93,8 +93,7 @@ export default function EventLayout() {
   const handleExportPdf = async () => {
     if (!id || exportLoading) return;
 
-    setExportLoading(true);
-    try {
+    const performExport = async () => {
       const result = await exportEventPdf({
         eventId: id,
         language,
@@ -110,6 +109,23 @@ export default function EventLayout() {
         Alert.alert(t('common.error'), t('events.exportSharingUnavailable'));
       } else if (result === 'failed') {
         Alert.alert(t('common.error'), t('events.exportFailed'));
+      }
+    };
+
+    setExportLoading(true);
+    try {
+      if (!areAdsEnabled() || !isOnline) {
+        await performExport();
+        return;
+      }
+
+      const adResult = await showRewardedThemeAd();
+
+      if (adResult === 'rewarded') {
+        await performExport();
+        preloadRewardedThemeAd();
+      } else if (adResult === 'unavailable' || adResult === 'failed') {
+        Alert.alert(t('common.error'), t('events.deleteAdUnavailable'));
       }
     } finally {
       setExportLoading(false);

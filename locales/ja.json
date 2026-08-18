@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "マイ・パーフェクト・パーティ",
-    "tagline": "ストレスなく、楽しくお祝いを"
+    "tagline": "ストレスなく、楽しくお祝いを",
+    "welcome": "ようこそ！"
   },
   "onboarding": {
     "selectLanguage": "言語を選択",
@@ -60,6 +61,7 @@
     "addGuestSide": "側を追加",
     "guestSidePlaceholder": "例：新婦側、新郎側",
     "themes": {
+      "default": "デフォルト",
       "wedding": "結婚式",
       "birthday": "誕生日",
       "baptism": "洗礼式",
@@ -193,8 +195,48 @@
       "birthday1Boy": "1歳誕生日 — 男の子",
       "birthday18Elegant": "18歳 エレガント",
       "birthday18Modern": "18歳 モダン",
-      "birthday18Gold": "18歳 ゴールド"
-    }
+      "birthday18Gold": "18歳 ゴールド",
+      "blueBalloons": "青い風船",
+      "blushBalloons": "blushの風船",
+      "botanicalGold": "ボタニカルゴールド",
+      "greeneryGold": "グリーンとゴールド",
+      "ivoryRoses": "アイボリーのバラ",
+      "whiteRoses": "白いバラ",
+      "babyNeutrals": "ベビーニュートラル",
+      "birthday1BoyArt": "1歳の誕生日 — 男の子",
+      "birthday1GirlArt": "1歳の誕生日 — 女の子",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 ローズゴールド",
+      "birthday18NavyGold": "18 ネイビーゴールド",
+      "teamBride": "チームブライド",
+      "babySage": "ベビーセージ",
+      "goldFloralFrame": "ゴールドの花フレーム"
+    },
+    "illustratedBackgrounds": "招待状の背景",
+    "seeMore": "テンプレートをもっと見る",
+    "groups": {
+      "wedding": "結婚式",
+      "birthday1": "1歳の誕生日",
+      "birthday18": "18歳の誕生日",
+      "universal": "お祝い"
+    },
+    "changeColor": "変更",
+    "colorHex": "Hex",
+    "colorHue": "色相",
+    "colorSaturation": "彩度",
+    "colorShade": "明るさ",
+    "addText": "テキストを追加",
+    "customTexts": "自由テキスト",
+    "customTextLabel": "テキスト",
+    "customTextPlaceholder": "テキストを入力",
+    "removeText": "テキストを削除",
+    "noIcon": "アイコンなし",
+    "dragHint": "アイコンやテキストをタップして編集または削除。自由テキストは好きな場所へドラッグできます。",
+    "hideHint": "欄を空にすると招待状から非表示になります。",
+    "textSize": "文字サイズ",
+    "watermark": "{{app}} で作成",
+    "removeWatermark": "透かしを削除",
+    "removeWatermarkHint": "短い広告を見て、この招待状からアプリの透かしを削除します。"
   },
   "guests": {
     "title": "ゲスト",
@@ -268,7 +310,18 @@
       "name_desc": "名前（わ→あ）",
       "partySize_desc": "人数（多い順）",
       "partySize_asc": "人数（少ない順）"
-    }
+    },
+    "seatCard": "あなたの席",
+    "seatCardTitle": "あなたのテーブルは",
+    "seatCardWelcome": "お祝いをお楽しみください！",
+    "seatCardWelcomeHappy": "来てくださって嬉しいです！",
+    "seatCardWatermark": "Play Store でダウンロード",
+    "seatCardShare": "席カードを共有",
+    "seatCardShareUnavailable": "共有はモバイル端末で利用できます。",
+    "seatCardYou": "あなた",
+    "seatCardSeat": "席 {{seat}}",
+    "seatCardSeatRange": "席 {{start}}–{{end}}",
+    "seatCardSeats": "席 {{seats}}"
   },
   "seating": {
     "title": "席次プランナー",
@@ -324,7 +377,14 @@
     "seatsFree": "空席",
     "reorderHint": "ゲストをタップして席を強調表示。別のゲストで入れ替え、または矢印で移動。",
     "moveUp": "上へ",
-    "moveDown": "下へ"
+    "moveDown": "下へ",
+    "downloadList": "座席表をダウンロード",
+    "downloadListEmpty": "先にテーブルを追加し、ゲストを配置してください。",
+    "listTitle": "座席表",
+    "listFindTable": "テーブルを探す",
+    "listDirectory": "氏名一覧",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "まだゲストがいません"
   },
   "expenses": {
     "title": "支出",

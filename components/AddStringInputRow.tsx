@@ -1,6 +1,7 @@
-import { Ionicons } from '@expo/vector-icons';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
+import { useTranslation } from '@/lib/i18n';
+import { useWeddingStore } from '@/store/weddingStore';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
 
@@ -22,7 +23,10 @@ export function AddStringInputRow({
   disabled = false,
 }: AddStringInputRowProps) {
   const theme = useThemeColors();
+  const language = useWeddingStore((s) => s.language);
+  const { t } = useTranslation(language);
   const canAdd = !disabled && value.trim().length > 0;
+  const addLabel = `+ ${t('common.add')}`;
 
   return (
     <View style={styles.container}>
@@ -45,15 +49,15 @@ export function AddStringInputRow({
         <Pressable
           onPress={onAdd}
           disabled={!canAdd}
-          style={[styles.addButton, !canAdd && styles.addButtonDisabled]}
+          style={[
+            styles.addButton,
+            { backgroundColor: theme.primary },
+            !canAdd && styles.addButtonDisabled,
+          ]}
           accessibilityRole="button"
-          accessibilityLabel={label}
+          accessibilityLabel={addLabel}
         >
-          <Ionicons
-            name="checkmark-circle"
-            size={32}
-            color={canAdd ? theme.primary : theme.textMuted}
-          />
+          <Text style={[styles.addButtonText, { color: theme.surface }]}>{addLabel}</Text>
         </Pressable>
       </View>
     </View>
@@ -83,7 +87,16 @@ const styles = StyleSheet.create({
     ...typography.body,
   },
   addButton: {
-    padding: spacing.xs,
+    flexShrink: 0,
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm + 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  addButtonText: {
+    ...typography.caption,
+    fontWeight: '700',
   },
   addButtonDisabled: {
     opacity: 0.5,

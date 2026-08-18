@@ -28,6 +28,8 @@ export function SelectField<T extends string>({
   onChange,
   placeholder,
   error,
+  compact = false,
+  dense = false,
 }: SelectFieldProps<T>) {
   const theme = useThemeColors();
   const bottomSheetPadding = useBottomSheetPadding();
@@ -44,7 +46,7 @@ export function SelectField<T extends string>({
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, dense && styles.containerDense]}>
       <FieldLabel label={label} required={required} labelRight={labelRight} />
       <Pressable
         onPress={() => setOpen(true)}
@@ -58,16 +60,20 @@ export function SelectField<T extends string>({
         ]}
         accessibilityRole="button"
       >
-        <Text
-          style={[
-            styles.triggerText,
-            { color: selectedLabel ? theme.text : theme.textMuted },
-          ]}
-          numberOfLines={1}
-        >
-          {selectedLabel ?? placeholder ?? label}
-        </Text>
-        <Ionicons name="chevron-down" size={18} color={theme.textMuted} />
+        <View style={styles.triggerTextWrap}>
+          <Text
+            style={[
+              styles.triggerText,
+              compact && styles.triggerTextCompact,
+              { color: selectedLabel ? theme.text : theme.textMuted },
+            ]}
+            numberOfLines={1}
+            ellipsizeMode="tail"
+          >
+            {selectedLabel ?? placeholder ?? label}
+          </Text>
+        </View>
+        <Ionicons name="chevron-down" size={compact ? 16 : 18} color={theme.textMuted} />
       </Pressable>
       {error ? <Text style={[styles.error, { color: theme.danger }]}>{error}</Text> : null}
 
@@ -147,20 +153,29 @@ const styles = StyleSheet.create({
   container: {
     marginBottom: spacing.md,
   },
+  containerDense: {
+    marginBottom: spacing.xs,
+  },
   trigger: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
     borderWidth: 1,
     borderRadius: radius.md,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
     minHeight: 42,
-    gap: spacing.sm,
+    gap: spacing.xs,
+  },
+  triggerTextWrap: {
+    flex: 1,
+    minWidth: 0,
   },
   triggerText: {
     ...typography.body,
-    flex: 1,
+  },
+  triggerTextCompact: {
+    fontSize: 13,
+    lineHeight: 18,
   },
   pressed: {
     opacity: 0.85,

@@ -105,7 +105,6 @@ function buildEventHtml(input: ExportEventPdfInput): string | null {
         <td>${guest.partySize}</td>
         <td>${textOrDash(guest.phone, t)}</td>
         <td>${textOrDash(guest.category, t)}</td>
-        <td>${textOrDash(guest.side, t)}</td>
         <td>${escapeHtml(t(`guests.status.${guest.attendanceStatus}`))}</td>
         <td>${textOrDash(tableName, t)}</td>
         <td>${textOrDash(guest.note, t)}</td>
@@ -238,7 +237,6 @@ function buildEventHtml(input: ExportEventPdfInput): string | null {
         <th>${escapeHtml(t('guests.partySize'))}</th>
         <th>${escapeHtml(t('guests.phone'))}</th>
         <th>${escapeHtml(t('guests.category'))}</th>
-        <th>${escapeHtml(t('guests.side'))}</th>
         <th>${escapeHtml(t('overview.attendanceChartTitle'))}</th>
         <th>${escapeHtml(t('tabs.seating'))}</th>
         <th>${escapeHtml(t('guests.note'))}</th>

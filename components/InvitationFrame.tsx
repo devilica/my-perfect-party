@@ -226,9 +226,12 @@ function FrameContent({
   const secondary = template.secondaryAccent ?? template.accentColor;
   const gradient = template.gradientColors ?? [template.backgroundColor, template.overlayColor];
   const useImage = template.useImageBackground && template.backgroundImage;
-  const readOverlayOpacity = useImage
-    ? 0.15 + (1 - backgroundOpacity) * 0.35
-    : backgroundOpacity * 0.35;
+  const designed = Boolean(template.designedArtwork);
+  const readOverlayOpacity = designed
+    ? (1 - backgroundOpacity) * 0.25
+    : useImage
+      ? 0.15 + (1 - backgroundOpacity) * 0.35
+      : backgroundOpacity * 0.35;
 
   const decorLayer = (
     <>
@@ -244,18 +247,20 @@ function FrameContent({
       {template.scatterFloral && !useImage ? (
         <FloralScatter primary={template.accentColor} secondary={secondary} />
       ) : null}
-      <FrameBorders template={template} />
-      {(['tl', 'tr', 'bl', 'br'] as const).map((position) => (
-        <CornerDecor
-          key={position}
-          style={template.cornerStyle}
-          primary={template.accentColor}
-          secondary={secondary}
-          size={cornerSize}
-          position={position}
-          subtle={template.subtleCorners}
-        />
-      ))}
+      {!useImage && !designed ? <FrameBorders template={template} /> : null}
+      {!useImage && !designed
+        ? (['tl', 'tr', 'bl', 'br'] as const).map((position) => (
+            <CornerDecor
+              key={position}
+              style={template.cornerStyle}
+              primary={template.accentColor}
+              secondary={secondary}
+              size={cornerSize}
+              position={position}
+              subtle={template.subtleCorners}
+            />
+          ))
+        : null}
       <View style={frameStyles.content}>{children}</View>
     </>
   );
@@ -264,7 +269,7 @@ function FrameContent({
     return (
       <ImageBackground
         source={template.backgroundImage}
-        resizeMode="cover"
+        resizeMode="contain"
         style={[frameStyles.background, { backgroundColor: template.backgroundColor }]}
         imageStyle={{ opacity: backgroundOpacity }}
       >
@@ -316,18 +321,11 @@ function InvitationFrameThumbnailInner({
 }) {
   if (template.useImageBackground && template.backgroundImage) {
     return (
-      <View style={thumbStyles.gradient}>
+      <View style={[thumbStyles.imageWrap, { backgroundColor: template.backgroundColor }]}>
         <Image
           source={template.backgroundImage}
           style={thumbStyles.imageFill}
           resizeMode="cover"
-        />
-        <View style={thumbStyles.imageOverlay} />
-        <View
-          style={[
-            thumbStyles.inner,
-            { borderColor: template.borderColor },
-          ]}
         />
       </View>
     );
@@ -364,19 +362,24 @@ export function InvitationFrameThumbnail({
   template,
   selected,
   onPress,
+  width,
+  height,
 }: {
   template: InvitationTemplate;
   selected: boolean;
   onPress: () => void;
+  width?: number;
+  height?: number;
 }) {
   return (
     <Pressable
       onPress={onPress}
       style={[
         thumbStyles.thumb,
+        width != null && height != null ? { width, height, margin: 0 } : null,
         {
           borderColor: selected ? template.accentColor : template.borderColor,
-          borderWidth: selected ? 3 : 2,
+          borderWidth: selected ? 3 : 1,
         },
       ]}
     >
@@ -469,8 +472,13 @@ const thumbStyles = StyleSheet.create({
     height: 8,
     borderRadius: 4,
   },
+  imageWrap: {
+    flex: 1,
+    overflow: 'hidden',
+  },
   imageFill: {
-    ...StyleSheet.absoluteFillObject,
+    width: '100%',
+    height: '100%',
   },
   imageOverlay: {
     ...StyleSheet.absoluteFillObject,

@@ -107,6 +107,9 @@ export default function GuestsScreen() {
               onPress={() =>
                 router.push(`/modals/guest-form?eventId=${eventId}&guestId=${item.id}`)
               }
+              onViewSeat={() =>
+                router.push(`/modals/guest-seat?eventId=${eventId}&guestId=${item.id}`)
+              }
               onDelete={() => handleDelete(item.id)}
             />
           )}

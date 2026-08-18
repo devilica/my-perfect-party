@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Moja savršena proslava",
-    "tagline": "Slavi bez stresa"
+    "tagline": "Slavi bez stresa",
+    "welcome": "Dobrodošli!"
   },
   "onboarding": {
     "selectLanguage": "Odaberite jezik",
@@ -60,6 +61,7 @@
     "addGuestSide": "Dodaj stranu",
     "guestSidePlaceholder": "npr. Strana mlade",
     "themes": {
+      "default": "Zadano",
       "wedding": "Svadba",
       "birthday": "Rođendan",
       "baptism": "Krštenje",
@@ -122,9 +124,17 @@
   "invitation": {
     "create": "Kreiraj pozivnicu",
     "editorTitle": "Kreiraj pozivnicu",
-    "background": "Pozadinski okvir",
+    "background": "Pozadina",
     "programmaticBackgrounds": "Dekorativni okviri",
     "celebrationThemes": "Teme događaja",
+    "illustratedBackgrounds": "Pozadine pozivnica",
+    "seeMore": "Vidi više šablona",
+    "groups": {
+      "wedding": "Vjenčanje",
+      "birthday1": "1. rođendan",
+      "birthday18": "18. rođendan",
+      "universal": "Proslava"
+    },
     "opacity": "Prozirnost pozadine",
     "lineSpacing": "Razmak između redova",
     "selectHeaderIcon": "Odaberi ikonu naslova",
@@ -140,6 +150,11 @@
     "fontSans": "Sans",
     "fontSize": "Veličina fonta",
     "fontColor": "Boja fonta",
+    "changeColor": "Promijeni",
+    "colorHex": "Hex",
+    "colorHue": "Ton",
+    "colorSaturation": "Zasićenost",
+    "colorShade": "Nijansa",
     "subEvents": "Poddogađaji",
     "subEventTitle": "Naslov poddogađaja",
     "subEventTime": "Vrijeme",
@@ -147,6 +162,15 @@
     "subEventIcon": "Ikona",
     "addSubEvent": "Dodaj poddogađaj",
     "removeSubEvent": "Ukloni",
+    "addText": "Dodaj tekst",
+    "customTexts": "Slobodni tekst",
+    "customTextLabel": "Tekst",
+    "customTextPlaceholder": "Vaš tekst",
+    "removeText": "Ukloni tekst",
+    "noIcon": "Bez ikone",
+    "dragHint": "Klikni ikonu ili tekst da urediš ili obrišeš. Povuci slobodni tekst da ga premjestiš.",
+    "hideHint": "Obriši polje da sakriješ naslov, imena, datum ili poruku.",
+    "textSize": "Veličina teksta",
     "rsvpMessage": "Poruka za potvrdu",
     "rsvpPlaceholder": "Molimo potvrdite dolazak do...",
     "save": "Spremi",
@@ -156,6 +180,9 @@
     "downloadSuccess": "Pozivnica je spremljena u galeriju.",
     "downloadDenied": "Pristup galeriji nije odobren. Omogućite ga u postavkama.",
     "downloadUnavailableWeb": "Preuzimanje u galeriju dostupno je na mobilnom uređaju.",
+    "watermark": "Napravljeno u aplikaciji {{app}}",
+    "removeWatermark": "Ukloni watermark",
+    "removeWatermarkHint": "Pogledaj kratki oglas da ukloniš watermark aplikacije s ove pozivnice.",
     "prevTemplate": "Prethodni predložak",
     "nextTemplate": "Sljedeći predložak",
     "defaults": {
@@ -192,7 +219,22 @@
       "birthday1Boy": "1. rođendan — dječak",
       "birthday18Elegant": "18. elegantno",
       "birthday18Modern": "18. moderno",
-      "birthday18Gold": "18. zlatno"
+      "birthday18Gold": "18. zlatno",
+      "blueBalloons": "Plavi baloni",
+      "blushBalloons": "Blush baloni",
+      "botanicalGold": "Botaničko zlato",
+      "greeneryGold": "Zelenilo i zlato",
+      "ivoryRoses": "Krem ruže",
+      "whiteRoses": "Bijele ruže",
+      "babyNeutrals": "Neutral baby",
+      "birthday1BoyArt": "1. rođendan — dječak",
+      "birthday1GirlArt": "1. rođendan — djevojčica",
+      "birthday18BlushNavy": "18. blush navy",
+      "birthday18RoseGold": "18. rose gold",
+      "birthday18NavyGold": "18. navy zlato",
+      "teamBride": "Team bride",
+      "babySage": "Baby sage",
+      "goldFloralFrame": "Zlatni cvjetni"
     },
     "adUnavailable": "Reklama trenutno nije dostupna. Pokušaj kasnije."
   },
@@ -268,7 +310,18 @@
       "name_desc": "Ime (Ž-A)",
       "partySize_desc": "Broj osoba (više prvo)",
       "partySize_asc": "Broj osoba (manje prvo)"
-    }
+    },
+    "seatCard": "Tvoje mjesto",
+    "seatCardTitle": "Tvoj stol je",
+    "seatCardWelcome": "Uživajte u proslavi!",
+    "seatCardWelcomeHappy": "Drago nam je što ste tu!",
+    "seatCardWatermark": "Preuzmi na Play Store",
+    "seatCardShare": "Podijeli karticu",
+    "seatCardShareUnavailable": "Dijeljenje je dostupno na mobilnim uređajima.",
+    "seatCardYou": "Ti",
+    "seatCardSeat": "Mjesto {{seat}}",
+    "seatCardSeatRange": "Mjesta {{start}}–{{end}}",
+    "seatCardSeats": "Mjesta {{seats}}"
   },
   "seating": {
     "title": "Raspored sjedenja",
@@ -324,7 +377,14 @@
     "viewHall": "Vidi dvoranu",
     "reorderHint": "Dodirni gosta da označiš mjesto za stolom. Dodirni drugog za zamjenu mjesta, ili koristi strelice za pomicanje.",
     "moveUp": "Pomakni gore",
-    "moveDown": "Pomakni dolje"
+    "moveDown": "Pomakni dolje",
+    "downloadList": "Preuzmi popis sjedenja",
+    "downloadListEmpty": "Prvo dodaj stolove i rasporedi goste.",
+    "listTitle": "Raspored sjedenja",
+    "listFindTable": "Pronađi svoj stol",
+    "listDirectory": "Imenik",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Još nema gostiju"
   },
   "expenses": {
     "title": "Troškovi",

@@ -17,6 +17,7 @@ import { SeatingAssignmentModal } from '@/components/SeatingAssignmentModal';
 import { TableCard } from '@/components/TableCard';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { EmptyState, Fab, StatCard, Card } from '@/components/ui';
+import { exportSeatingListPdf } from '@/lib/exportSeatingListPdf';
 import {
   FAB_SIZE,
   useFabBottomOffset,
@@ -46,16 +47,18 @@ export default function SeatingScreen() {
   const [tableFilter, setTableFilter] = useState<TableFilter>('all');
   const [fabOpen, setFabOpen] = useState(false);
   const [assignGuest, setAssignGuest] = useState<Guest | null>(null);
+  const [downloadingList, setDownloadingList] = useState(false);
 
   const language = useWeddingStore((s) => s.language);
+  const events = useWeddingStore((s) => s.events);
   const allGuests = useWeddingStore((s) => s.guests);
   const allTables = useWeddingStore((s) => s.tables);
   const deleteTable = useWeddingStore((s) => s.deleteTable);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
-  const fabScrollPadding = useFabScrollPadding();
+  const fabScrollPadding = useFabScrollPadding(2);
   const fabBottomOffset = useFabBottomOffset();
-  const fabMenuBottom = fabBottomOffset + FAB_SIZE;
+  const fabMenuBottom = fabBottomOffset + FAB_SIZE * 2 + spacing.sm;
   const { scrollRef, onScroll, scrollEventThrottle } = useScrollRestoration(
     makeScrollKey('seating', eventId)
   );
@@ -89,6 +92,34 @@ export default function SeatingScreen() {
     () => filterGuests(allGuests, eventId, filter).filter((guest) => !guest.tableId),
     [allGuests, eventId, filter]
   );
+
+  const handleDownloadList = async () => {
+    if (downloadingList) return;
+    if (tables.length === 0) {
+      Alert.alert(t('seating.downloadList'), t('seating.downloadListEmpty'));
+      return;
+    }
+
+    setDownloadingList(true);
+    try {
+      const result = await exportSeatingListPdf({
+        eventId,
+        language,
+        t,
+        events,
+        guests: allGuests,
+        tables: allTables,
+      });
+
+      if (result === 'unavailable') {
+        Alert.alert(t('common.error'), t('events.exportSharingUnavailable'));
+      } else if (result === 'failed') {
+        Alert.alert(t('common.error'), t('events.exportFailed'));
+      }
+    } finally {
+      setDownloadingList(false);
+    }
+  };
 
   const handleDeleteTable = (tableId: string) => {
     Alert.alert(t('seating.deleteTable'), t('seating.deleteTableConfirm'), [
@@ -216,7 +247,20 @@ export default function SeatingScreen() {
         <OverviewNativeAd />
         </FormScrollView>
 
-        <Fab onPress={() => setFabOpen(true)} icon="add" />
+        <Fab
+          onPress={() => setFabOpen(true)}
+          icon="add"
+          stackIndex={0}
+          accessibilityLabel={t('seating.addTable')}
+        />
+        <Fab
+          onPress={handleDownloadList}
+          icon="download-outline"
+          stackIndex={1}
+          color={theme.primaryDark}
+          accessibilityLabel={t('seating.downloadList')}
+          loading={downloadingList}
+        />
 
         <Modal visible={fabOpen} transparent animationType="fade" onRequestClose={() => setFabOpen(false)}>
           <Pressable

@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "我的完美派对",
-    "tagline": "轻松庆祝，无忧派对"
+    "tagline": "轻松庆祝，无忧派对",
+    "welcome": "欢迎！"
   },
   "onboarding": {
     "selectLanguage": "选择语言",
@@ -60,6 +61,7 @@
     "addGuestSide": "添加归属",
     "guestSidePlaceholder": "例如：新娘方、新郎方",
     "themes": {
+      "default": "默认",
       "wedding": "婚礼",
       "birthday": "生日",
       "baptism": "洗礼",
@@ -193,8 +195,48 @@
       "birthday1Boy": "周岁 — 男孩",
       "birthday18Elegant": "18 岁优雅",
       "birthday18Modern": "18 岁现代",
-      "birthday18Gold": "18 岁金色"
-    }
+      "birthday18Gold": "18 岁金色",
+      "blueBalloons": "蓝色气球",
+      "blushBalloons": "腮红气球",
+      "botanicalGold": "植物金",
+      "greeneryGold": "绿意与金",
+      "ivoryRoses": "象牙玫瑰",
+      "whiteRoses": "白玫瑰",
+      "babyNeutrals": "婴儿中性",
+      "birthday1BoyArt": "1岁生日 — 男孩",
+      "birthday1GirlArt": "1岁生日 — 女孩",
+      "birthday18BlushNavy": "18 腮红海军蓝",
+      "birthday18RoseGold": "18 玫瑰金",
+      "birthday18NavyGold": "18 海军金",
+      "teamBride": "新娘团队",
+      "babySage": "婴儿鼠尾草",
+      "goldFloralFrame": "金色花卉边框"
+    },
+    "illustratedBackgrounds": "邀请函背景",
+    "seeMore": "查看更多模板",
+    "groups": {
+      "wedding": "婚礼",
+      "birthday1": "1岁生日",
+      "birthday18": "18岁生日",
+      "universal": "庆典"
+    },
+    "changeColor": "更改",
+    "colorHex": "Hex",
+    "colorHue": "色相",
+    "colorSaturation": "饱和度",
+    "colorShade": "亮度",
+    "addText": "添加文字",
+    "customTexts": "自由文字",
+    "customTextLabel": "文字",
+    "customTextPlaceholder": "您的文字",
+    "removeText": "删除文字",
+    "noIcon": "无图标",
+    "dragHint": "点按图标或文字即可编辑或删除。将自由文字拖到任意位置。",
+    "hideHint": "清空字段即可从邀请函中隐藏。",
+    "textSize": "文字大小",
+    "watermark": "由 {{app}} 制作",
+    "removeWatermark": "移除水印",
+    "removeWatermarkHint": "观看一段短广告，即可从此邀请函移除应用水印。"
   },
   "guests": {
     "title": "宾客",
@@ -268,7 +310,18 @@
       "name_desc": "姓名 (Z-A)",
       "partySize_desc": "人数 (从多到少)",
       "partySize_asc": "人数 (从少到多)"
-    }
+    },
+    "seatCard": "您的座位",
+    "seatCardTitle": "您的餐桌是",
+    "seatCardWelcome": "尽情享受庆典吧！",
+    "seatCardWelcomeHappy": "很高兴您能到来！",
+    "seatCardWatermark": "前往 Play Store 下载",
+    "seatCardShare": "分享座位卡",
+    "seatCardShareUnavailable": "分享功能可在移动设备上使用。",
+    "seatCardYou": "您",
+    "seatCardSeat": "座位 {{seat}}",
+    "seatCardSeatRange": "座位 {{start}}–{{end}}",
+    "seatCardSeats": "座位 {{seats}}"
   },
   "seating": {
     "title": "座位规划",
@@ -324,7 +377,14 @@
     "seatsFree": "空座位",
     "reorderHint": "点按宾客以高亮座位。点按另一位交换，或用箭头移动。",
     "moveUp": "上移",
-    "moveDown": "下移"
+    "moveDown": "下移",
+    "downloadList": "下载座位表",
+    "downloadListEmpty": "请先添加餐桌并安排宾客。",
+    "listTitle": "座位表",
+    "listFindTable": "查找您的餐桌",
+    "listDirectory": "姓名目录",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "暂无宾客"
   },
   "expenses": {
     "title": "支出",

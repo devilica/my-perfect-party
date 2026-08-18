@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "המסיבה המושלמת שלי",
-    "tagline": "חגגו בלי לחץ"
+    "tagline": "חגגו בלי לחץ",
+    "welcome": "ברוכים הבאים!"
   },
   "onboarding": {
     "selectLanguage": "בחרו את השפה שלכם",
@@ -60,6 +61,7 @@
     "addGuestSide": "הוספת צד",
     "guestSidePlaceholder": "לדוגמה: צד הכלה, צד החתן",
     "themes": {
+      "default": "ברירת מחדל",
       "wedding": "חתונה",
       "birthday": "יום הולדת",
       "baptism": "טבילה",
@@ -193,8 +195,48 @@
       "birthday1Boy": "יום הולדת 1 — בן",
       "birthday18Elegant": "18 אלגנטי",
       "birthday18Modern": "18 מודרני",
-      "birthday18Gold": "18 זהב"
-    }
+      "birthday18Gold": "18 זהב",
+      "blueBalloons": "בלונים כחולים",
+      "blushBalloons": "בלונים ורודים",
+      "botanicalGold": "זהב בוטני",
+      "greeneryGold": "ירוק וזהב",
+      "ivoryRoses": "ורדים שנהב",
+      "whiteRoses": "ורדים לבנים",
+      "babyNeutrals": "ניטרלי לתינוק",
+      "birthday1BoyArt": "יום הולדת שנה — בן",
+      "birthday1GirlArt": "יום הולדת שנה — בת",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 זהב ורוד",
+      "birthday18NavyGold": "18 נייבי זהב",
+      "teamBride": "צוות הכלה",
+      "babySage": "מרווה לתינוק",
+      "goldFloralFrame": "מסגרת פרחונית זהובה"
+    },
+    "illustratedBackgrounds": "רקעי הזמנה",
+    "seeMore": "עוד תבניות",
+    "groups": {
+      "wedding": "חתונה",
+      "birthday1": "יום הולדת שנה",
+      "birthday18": "יום הולדת 18",
+      "universal": "חגיגה"
+    },
+    "changeColor": "שנה",
+    "colorHex": "Hex",
+    "colorHue": "גוון",
+    "colorSaturation": "רוויה",
+    "colorShade": "בהירות",
+    "addText": "הוסף טקסט",
+    "customTexts": "טקסט חופשי",
+    "customTextLabel": "טקסט",
+    "customTextPlaceholder": "הטקסט שלך",
+    "removeText": "הסר טקסט",
+    "noIcon": "ללא סמל",
+    "dragHint": "הקישו על סמל או טקסט כדי לערוך או למחוק. גררו טקסט חופשי לכל מקום.",
+    "hideHint": "נקו שדה כדי להסתיר אותו מההזמנה.",
+    "textSize": "גודל טקסט",
+    "watermark": "נוצר עם {{app}}",
+    "removeWatermark": "הסר סימן מים",
+    "removeWatermarkHint": "צפו בפרסומת קצרה כדי להסיר את סימן המים של האפליקציה מההזמנה הזו."
   },
   "guests": {
     "title": "אורחים",
@@ -268,7 +310,18 @@
       "name_desc": "שם (ת-א)",
       "partySize_desc": "גודל קבוצה (גדול ראשון)",
       "partySize_asc": "גודל קבוצה (קטן ראשון)"
-    }
+    },
+    "seatCard": "המקום שלך",
+    "seatCardTitle": "השולחן שלך הוא",
+    "seatCardWelcome": "תהנו מהחגיגה!",
+    "seatCardWelcomeHappy": "אנחנו כל כך שמחים שאתם כאן!",
+    "seatCardWatermark": "הורידו מ-Play Store",
+    "seatCardShare": "שיתוף כרטיס מקום",
+    "seatCardShareUnavailable": "שיתוף זמין במכשירים ניידים.",
+    "seatCardYou": "אתה",
+    "seatCardSeat": "מקום {{seat}}",
+    "seatCardSeatRange": "מקומות {{start}}–{{end}}",
+    "seatCardSeats": "מקומות {{seats}}"
   },
   "seating": {
     "title": "מתכנן הושבה",
@@ -324,7 +377,14 @@
     "seatsFree": "מקומות פנויים",
     "reorderHint": "הקש על אורח כדי להדגיש את המושב. הקש על אחר להחלפה, או השתמש בחצים.",
     "moveUp": "הזז למעלה",
-    "moveDown": "הזז למטה"
+    "moveDown": "הזז למטה",
+    "downloadList": "הורדת רשימת הישיבה",
+    "downloadListEmpty": "הוסיפו קודם שולחנות ושבצו אורחים.",
+    "listTitle": "רשימת ישיבה",
+    "listFindTable": "מצאו את השולחן שלכם",
+    "listDirectory": "מדריך שמות",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "עדיין אין אורחים"
   },
   "expenses": {
     "title": "הוצאות",

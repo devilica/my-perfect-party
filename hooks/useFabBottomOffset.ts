@@ -11,6 +11,11 @@ export function useFabBottomOffset(): number {
   return spacing.lg + bottomInset;
 }
 
-export function useFabScrollPadding(): number {
-  return useFabBottomOffset() + FAB_SIZE + spacing.sm;
+export function useFabScrollPadding(fabCount = 1): number {
+  return (
+    useFabBottomOffset() +
+    fabCount * FAB_SIZE +
+    Math.max(0, fabCount - 1) * spacing.sm +
+    spacing.sm
+  );
 }

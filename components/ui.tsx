@@ -11,7 +11,7 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import { useFabBottomOffset } from '@/hooks/useFabBottomOffset';
+import { FAB_SIZE, useFabBottomOffset } from '@/hooks/useFabBottomOffset';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
 
@@ -127,9 +127,19 @@ const styles = StyleSheet.create({
 export function Fab({
   onPress,
   icon = 'add',
+  stackIndex = 0,
+  color,
+  accessibilityLabel,
+  disabled,
+  loading,
 }: {
   onPress: () => void;
   icon?: keyof typeof Ionicons.glyphMap;
+  stackIndex?: number;
+  color?: string;
+  accessibilityLabel?: string;
+  disabled?: boolean;
+  loading?: boolean;
 }) {
   const theme = useThemeColors();
   const fabBottom = useFabBottomOffset();
@@ -137,17 +147,25 @@ export function Fab({
   return (
     <Pressable
       onPress={onPress}
+      disabled={disabled || loading}
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
       style={({ pressed }) => [
         fabStyles.fab,
         {
-          backgroundColor: theme.primary,
+          backgroundColor: color ?? theme.primary,
           shadowColor: theme.text,
-          bottom: fabBottom,
+          bottom: fabBottom + stackIndex * (FAB_SIZE + spacing.sm),
         },
         pressed && { opacity: 0.9 },
+        (disabled || loading) && { opacity: 0.7 },
       ]}
     >
-      <Ionicons name={icon} size={26} color={theme.surface} />
+      {loading ? (
+        <ActivityIndicator color={theme.surface} />
+      ) : (
+        <Ionicons name={icon} size={26} color={theme.surface} />
+      )}
     </Pressable>
   );
 }

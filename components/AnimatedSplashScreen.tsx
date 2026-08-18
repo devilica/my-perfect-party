@@ -46,10 +46,15 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
   const taglineOpacity = useSharedValue(0);
   const glowScale = useSharedValue(0.9);
   const glowOpacity = useSharedValue(0.35);
+  const nativeSplashHidden = useRef(false);
+
+  const handleSplashLayout = () => {
+    if (nativeSplashHidden.current) return;
+    nativeSplashHidden.current = true;
+    SplashScreen.hideAsync().catch(() => {});
+  };
 
   useEffect(() => {
-    SplashScreen.hideAsync().catch(() => {});
-
     iconScale.value = withSpring(1, { damping: 12, stiffness: 120 });
     iconPulse.value = withDelay(
       300,
@@ -126,6 +131,7 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
         style={styles.container}
         start={{ x: 0.5, y: 0 }}
         end={{ x: 0.5, y: 1 }}
+        onLayout={handleSplashLayout}
       >
         <SplashCelebrationEffects />
         <View style={styles.content}>

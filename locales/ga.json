@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Mo chóisir foirfe",
-    "tagline": "Ceiliúraigh gan strus"
+    "tagline": "Ceiliúraigh gan strus",
+    "welcome": "Fáilte!"
   },
   "onboarding": {
     "selectLanguage": "Roghnaigh do theanga",
@@ -60,6 +61,7 @@
     "addGuestSide": "Cuir taobh leis",
     "guestSidePlaceholder": "m.sh. Taobh na ban-aí, Taobh an fhir-aí",
     "themes": {
+      "default": "Réamhshocrú",
       "wedding": "Bainis",
       "birthday": "Breithlá",
       "baptism": "Baisteadh",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1ú breithlá — buachaill",
       "birthday18Elegant": "18 galánta",
       "birthday18Modern": "18 nua-aoiseach",
-      "birthday18Gold": "18 ór"
+      "birthday18Gold": "18 ór",
+      "blueBalloons": "Balúin ghorma",
+      "blushBalloons": "Balúin blush",
+      "botanicalGold": "Ór luibheolaíoch",
+      "greeneryGold": "Glas agus ór",
+      "ivoryRoses": "Rósanna Eabhair",
+      "whiteRoses": "Rósanna bána",
+      "babyNeutrals": "Leanbh neodrach",
+      "birthday1BoyArt": "1ú breithlá — buachaill",
+      "birthday1GirlArt": "1ú breithlá — cailín",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 ór rósach",
+      "birthday18NavyGold": "18 navy ór",
+      "teamBride": "Team bride",
+      "babySage": "Leanbh saoi",
+      "goldFloralFrame": "Fráma bláthach óir"
     },
-    "adUnavailable": "Níl an fógra ar fáil faoi láthair. Bain triail eile as níos déanaí."
+    "adUnavailable": "Níl an fógra ar fáil faoi láthair. Bain triail eile as níos déanaí.",
+    "illustratedBackgrounds": "Cúlraí cuiridh",
+    "seeMore": "Féach tuilleadh teimpléad",
+    "groups": {
+      "wedding": "Bainis",
+      "birthday1": "1ú breithlá",
+      "birthday18": "18ú breithlá",
+      "universal": "Ceiliúradh"
+    },
+    "changeColor": "Athraigh",
+    "colorHex": "Hex",
+    "colorHue": "Lí",
+    "colorSaturation": "Sáithiú",
+    "colorShade": "Gile",
+    "addText": "Cuir téacs leis",
+    "customTexts": "Téacs saor",
+    "customTextLabel": "Téacs",
+    "customTextPlaceholder": "Do théacs",
+    "removeText": "Bain an téacs",
+    "noIcon": "Gan deilbhín",
+    "dragHint": "Tapáil deilbhín nó téacs chun é a chur in eagar nó a scriosadh. Tarraing téacs saor áit ar bith.",
+    "hideHint": "Glan réimse chun é a cheilt ar an gcuireadh.",
+    "textSize": "Méid an téacs",
+    "watermark": "Déanta le {{app}}",
+    "removeWatermark": "Bain an comhartha uisce",
+    "removeWatermarkHint": "Féach fógra gairid chun comhartha uisce na haipe a bhaint den chuireadh seo."
   },
   "guests": {
     "title": "Aoi",
@@ -268,7 +310,18 @@
       "name_desc": "Ainm (Z-A)",
       "partySize_desc": "Líon daoine (is mó ar dtús)",
       "partySize_asc": "Líon daoine (is lú ar dtús)"
-    }
+    },
+    "seatCard": "Do shuíochán",
+    "seatCardTitle": "Is é do bhord",
+    "seatCardWelcome": "Bain sult as an gceiliúradh!",
+    "seatCardWelcomeHappy": "Tá an-áthas orainn go bhfuil tú anseo!",
+    "seatCardWatermark": "Íoslódáil ar Play Store",
+    "seatCardShare": "Comhroinn cárta suíocháin",
+    "seatCardShareUnavailable": "Tá comhroinnt ar fáil ar ghléasanna móibíleacha.",
+    "seatCardYou": "Tusa",
+    "seatCardSeat": "Suíochán {{seat}}",
+    "seatCardSeatRange": "Suíocháin {{start}}–{{end}}",
+    "seatCardSeats": "Suíocháin {{seats}}"
   },
   "seating": {
     "title": "Pleanálaí suíocháin",
@@ -324,7 +377,14 @@
     "viewHall": "Féach ar an halla",
     "reorderHint": "Tapáil aoi chun a shuíochán a aibhsiú. Tapáil ceann eile chun malartú, nó bain úsáid as na saigheada.",
     "moveUp": "Bog suas",
-    "moveDown": "Bog síos"
+    "moveDown": "Bog síos",
+    "downloadList": "Íoslódáil an plean suíochán",
+    "downloadListEmpty": "Cuir boird leis agus sann aíonna ar dtús.",
+    "listTitle": "Plean suíochán",
+    "listFindTable": "Aimsigh do bhord",
+    "listDirectory": "Eolaire ainmneacha",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Níl aon aíonna fós"
   },
   "expenses": {
     "title": "Costais",

@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Mitt perfekta kalas",
-    "tagline": "Fira stressfritt"
+    "tagline": "Fira stressfritt",
+    "welcome": "Välkommen!"
   },
   "onboarding": {
     "selectLanguage": "Välj språk",
@@ -60,6 +61,7 @@
     "addGuestSide": "Lägg till sida",
     "guestSidePlaceholder": "t.ex. Brudens sida, Brudgummens sida",
     "themes": {
+      "default": "Standard",
       "wedding": "Bröllop",
       "birthday": "Födelsedag",
       "baptism": "Dop",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1-årsdag — pojke",
       "birthday18Elegant": "18 elegant",
       "birthday18Modern": "18 modern",
-      "birthday18Gold": "18 guld"
+      "birthday18Gold": "18 guld",
+      "blueBalloons": "Blå ballonger",
+      "blushBalloons": "Blush-ballonger",
+      "botanicalGold": "Botaniskt guld",
+      "greeneryGold": "Grönt och guld",
+      "ivoryRoses": "Elfenbensrosor",
+      "whiteRoses": "Vita rosor",
+      "babyNeutrals": "Baby neutral",
+      "birthday1BoyArt": "1-årskalas — pojke",
+      "birthday1GirlArt": "1-årskalas — flicka",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 roséguld",
+      "birthday18NavyGold": "18 navy guld",
+      "teamBride": "Team bride",
+      "babySage": "Baby salvia",
+      "goldFloralFrame": "Gyllene blomram"
     },
-    "adUnavailable": "Annonsen är inte tillgänglig just nu. Försök igen senare."
+    "adUnavailable": "Annonsen är inte tillgänglig just nu. Försök igen senare.",
+    "illustratedBackgrounds": "Inbjudningsbakgrunder",
+    "seeMore": "Visa fler mallar",
+    "groups": {
+      "wedding": "Bröllop",
+      "birthday1": "1-årskalas",
+      "birthday18": "18-årskalas",
+      "universal": "Firande"
+    },
+    "changeColor": "Ändra",
+    "colorHex": "Hex",
+    "colorHue": "Nyans",
+    "colorSaturation": "Mättnad",
+    "colorShade": "Ljusstyrka",
+    "addText": "Lägg till text",
+    "customTexts": "Fri text",
+    "customTextLabel": "Text",
+    "customTextPlaceholder": "Din text",
+    "removeText": "Ta bort text",
+    "noIcon": "Ingen ikon",
+    "dragHint": "Tryck på en ikon eller text för att redigera eller ta bort. Dra fri text dit du vill.",
+    "hideHint": "Rensa ett fält för att dölja det på inbjudan.",
+    "textSize": "Textstorlek",
+    "watermark": "Skapad med {{app}}",
+    "removeWatermark": "Ta bort vattenstämpel",
+    "removeWatermarkHint": "Titta på en kort annons för att ta bort appens vattenstämpel från den här inbjudan."
   },
   "guests": {
     "title": "Gäster",
@@ -268,7 +310,18 @@
       "name_desc": "Namn (Ö-A)",
       "partySize_desc": "Antal personer (flest först)",
       "partySize_asc": "Antal personer (minst först)"
-    }
+    },
+    "seatCard": "Din plats",
+    "seatCardTitle": "Ditt bord är",
+    "seatCardWelcome": "Njut av festen!",
+    "seatCardWelcomeHappy": "Vi är så glada att ni är här!",
+    "seatCardWatermark": "Ladda ner på Play Store",
+    "seatCardShare": "Dela platskort",
+    "seatCardShareUnavailable": "Delning är tillgänglig på mobila enheter.",
+    "seatCardYou": "Du",
+    "seatCardSeat": "Plats {{seat}}",
+    "seatCardSeatRange": "Platser {{start}}–{{end}}",
+    "seatCardSeats": "Platser {{seats}}"
   },
   "seating": {
     "title": "Placeringsplanerare",
@@ -324,7 +377,14 @@
     "viewHall": "Visa salen",
     "reorderHint": "Tryck på en gäst för att markera platsen. Tryck på en annan för att byta, eller använd pilarna.",
     "moveUp": "Flytta upp",
-    "moveDown": "Flytta ner"
+    "moveDown": "Flytta ner",
+    "downloadList": "Ladda ner bordsplacering",
+    "downloadListEmpty": "Lägg först till bord och tilldela gäster.",
+    "listTitle": "Bordsplacering",
+    "listFindTable": "Hitta ditt bord",
+    "listDirectory": "Namnförteckning",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Inga gäster ännu"
   },
   "expenses": {
     "title": "Utgifter",

@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Meine perfekte Feier",
-    "tagline": "Feiern ohne Stress"
+    "tagline": "Feiern ohne Stress",
+    "welcome": "Willkommen!"
   },
   "onboarding": {
     "selectLanguage": "Sprache wählen",
@@ -60,6 +61,7 @@
     "addGuestSide": "Seite hinzufügen",
     "guestSidePlaceholder": "z. B. Brautseite, Bräutigamseite",
     "themes": {
+      "default": "Standard",
       "wedding": "Hochzeit",
       "birthday": "Geburtstag",
       "baptism": "Taufe",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1. Geburtstag — Junge",
       "birthday18Elegant": "18. elegant",
       "birthday18Modern": "18. modern",
-      "birthday18Gold": "18. gold"
+      "birthday18Gold": "18. gold",
+      "blueBalloons": "Blaue Ballons",
+      "blushBalloons": "Rosé-Ballons",
+      "botanicalGold": "Botanisches Gold",
+      "greeneryGold": "Grün und Gold",
+      "ivoryRoses": "Elfenbeinrosen",
+      "whiteRoses": "Weiße Rosen",
+      "babyNeutrals": "Baby Neutral",
+      "birthday1BoyArt": "1. Geburtstag — Junge",
+      "birthday1GirlArt": "1. Geburtstag — Mädchen",
+      "birthday18BlushNavy": "18. Rosé Navy",
+      "birthday18RoseGold": "18. Roségold",
+      "birthday18NavyGold": "18. Navy Gold",
+      "teamBride": "Team Braut",
+      "babySage": "Baby Salbei",
+      "goldFloralFrame": "Goldener Blumenrahmen"
     },
-    "adUnavailable": "Werbung ist derzeit nicht verfügbar. Bitte versuchen Sie es später erneut."
+    "adUnavailable": "Werbung ist derzeit nicht verfügbar. Bitte versuchen Sie es später erneut.",
+    "illustratedBackgrounds": "Einladungshintergründe",
+    "seeMore": "Mehr Vorlagen anzeigen",
+    "groups": {
+      "wedding": "Hochzeit",
+      "birthday1": "1. Geburtstag",
+      "birthday18": "18. Geburtstag",
+      "universal": "Feier"
+    },
+    "changeColor": "Ändern",
+    "colorHex": "Hex",
+    "colorHue": "Farbton",
+    "colorSaturation": "Sättigung",
+    "colorShade": "Helligkeit",
+    "addText": "Text hinzufügen",
+    "customTexts": "Freier Text",
+    "customTextLabel": "Text",
+    "customTextPlaceholder": "Ihr Text",
+    "removeText": "Text entfernen",
+    "noIcon": "Kein Symbol",
+    "dragHint": "Tippe auf ein Symbol oder einen Text, um ihn zu bearbeiten oder zu löschen. Ziehe freien Text an die gewünschte Stelle.",
+    "hideHint": "Leere ein Feld, um es auf der Einladung auszublenden.",
+    "textSize": "Textgröße",
+    "watermark": "Erstellt mit {{app}}",
+    "removeWatermark": "Wasserzeichen entfernen",
+    "removeWatermarkHint": "Sieh dir eine kurze Werbung an, um das App-Wasserzeichen von dieser Einladung zu entfernen."
   },
   "guests": {
     "title": "Gäste",
@@ -268,7 +310,18 @@
       "name_desc": "Name (Z-A)",
       "partySize_desc": "Personenzahl (mehr zuerst)",
       "partySize_asc": "Personenzahl (weniger zuerst)"
-    }
+    },
+    "seatCard": "Dein Platz",
+    "seatCardTitle": "Dein Tisch ist",
+    "seatCardWelcome": "Genießt die Feier!",
+    "seatCardWelcomeHappy": "Wir freuen uns, dass ihr da seid!",
+    "seatCardWatermark": "Im Play Store herunterladen",
+    "seatCardShare": "Platzkarte teilen",
+    "seatCardShareUnavailable": "Teilen ist auf Mobilgeräten verfügbar.",
+    "seatCardYou": "Du",
+    "seatCardSeat": "Platz {{seat}}",
+    "seatCardSeatRange": "Plätze {{start}}–{{end}}",
+    "seatCardSeats": "Plätze {{seats}}"
   },
   "seating": {
     "title": "Sitzplan",
@@ -324,7 +377,14 @@
     "viewHall": "Saal ansehen",
     "reorderHint": "Tippe auf einen Gast, um den Platz zu markieren. Tippe auf einen anderen zum Tauschen oder nutze die Pfeile.",
     "moveUp": "Nach oben",
-    "moveDown": "Nach unten"
+    "moveDown": "Nach unten",
+    "downloadList": "Sitzplan herunterladen",
+    "downloadListEmpty": "Fügen Sie zuerst Tische hinzu und weisen Sie Gäste zu.",
+    "listTitle": "Sitzplan",
+    "listFindTable": "Finden Sie Ihren Tisch",
+    "listDirectory": "Namensverzeichnis",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Noch keine Gäste"
   },
   "expenses": {
     "title": "Ausgaben",

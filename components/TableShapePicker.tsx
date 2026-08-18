@@ -1,7 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { FieldLabel } from '@/components/FieldLabel';
 import { TableShapeIcon } from '@/components/TableShapeIcon';
 import {
   isTableShapeAllowed,
@@ -38,6 +37,7 @@ export function TableShapePicker({
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
+  const selectedShapeLabel = t(SHAPE_LABEL_KEYS[value]);
 
   const renderOption = (shape: TableShape, compact: boolean) => {
     const active = value === shape;
@@ -55,7 +55,7 @@ export function TableShapePicker({
           onPress={handlePress}
           disabled={disabled}
           style={({ pressed }) => [
-            active ? styles.compactOptionActive : styles.compactOption,
+            styles.compactOption,
             {
               backgroundColor: active ? theme.primaryLight : theme.surface,
               borderColor: active ? theme.primary : theme.border,
@@ -68,14 +68,6 @@ export function TableShapePicker({
           accessibilityLabel={label}
         >
           <TableShapeIcon shape={shape} size={COMPACT_ICON_SIZE} active={active} />
-          {active ? (
-            <Text
-              style={[styles.compactLabel, { color: theme.primaryDark }]}
-              numberOfLines={1}
-            >
-              {label}
-            </Text>
-          ) : null}
         </Pressable>
       );
     }
@@ -119,7 +111,13 @@ export function TableShapePicker({
   if (variant === 'compact') {
     return (
       <View style={styles.container}>
-        <FieldLabel label={t('seating.tableShape')} />
+        <Text style={[styles.shapeHeading, { color: theme.textSecondary }]}>
+          {t('seating.tableShape')}:
+          <Text style={[styles.shapeHeadingValue, { color: theme.text }]}>
+            {' '}
+            {selectedShapeLabel}
+          </Text>
+        </Text>
         <View style={styles.compactOptions}>
           {TABLE_SHAPES.map((shape) => renderOption(shape, true))}
         </View>
@@ -129,7 +127,13 @@ export function TableShapePicker({
 
   return (
     <View style={styles.container}>
-      <FieldLabel label={t('seating.tableShape')} />
+      <Text style={[styles.shapeHeading, { color: theme.textSecondary }]}>
+        {t('seating.tableShape')}:
+        <Text style={[styles.shapeHeadingValue, { color: theme.text }]}>
+          {' '}
+          {selectedShapeLabel}
+        </Text>
+      </Text>
       <View style={styles.options}>
         {TABLE_SHAPES.map((shape) => renderOption(shape, false))}
       </View>
@@ -140,6 +144,14 @@ export function TableShapePicker({
 const styles = StyleSheet.create({
   container: {
     marginBottom: spacing.md,
+  },
+  shapeHeading: {
+    ...typography.caption,
+    fontWeight: '600',
+    marginBottom: spacing.xs,
+  },
+  shapeHeadingValue: {
+    fontWeight: '700',
   },
   options: {
     gap: spacing.sm,
@@ -156,8 +168,9 @@ const styles = StyleSheet.create({
   compactOptions: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    alignItems: 'flex-start',
-    gap: spacing.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: spacing.md,
   },
   compactOption: {
     alignItems: 'center',
@@ -167,15 +180,6 @@ const styles = StyleSheet.create({
     borderRadius: radius.md,
     width: COMPACT_ICON_SIZE + spacing.xs * 2,
   },
-  compactOptionActive: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xs,
-    borderWidth: 1,
-    borderRadius: radius.md,
-  },
   pressed: {
     opacity: 0.85,
   },
@@ -183,11 +187,6 @@ const styles = StyleSheet.create({
     ...typography.body,
     flex: 1,
     fontWeight: '600',
-  },
-  compactLabel: {
-    ...typography.small,
-    fontWeight: '600',
-    flexShrink: 1,
   },
   checkPlaceholder: {
     width: 22,

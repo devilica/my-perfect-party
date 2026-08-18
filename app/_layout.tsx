@@ -60,6 +60,10 @@ function ThemedRootStack() {
         options={{ presentation: 'modal', title: 'Preview' }}
       />
       <Stack.Screen
+        name="modals/guest-seat"
+        options={{ presentation: 'modal', title: 'Seat' }}
+      />
+      <Stack.Screen
         name="modals/seating-overview"
         options={{ presentation: 'modal', title: 'Seating overview' }}
       />
@@ -97,7 +101,7 @@ export default function RootLayout() {
   const appTheme = useWeddingStore((s) => s.appTheme);
   const [animationDone, setAnimationDone] = useState(false);
   const canRenderApp = fontsLoaded && hasHydrated;
-  const showSplashOverlay = !animationDone;
+  const showSplashOverlay = fontsLoaded && !animationDone;
   const handleSplashFinish = useCallback(() => setAnimationDone(true), []);
 
   useEffect(() => {
@@ -139,7 +143,7 @@ export default function RootLayout() {
       <View style={[flexFill, webViewportHeight]}>
         {canRenderApp ? (
           !hasSelectedLanguage ? (
-            <AppThemeProvider themeId="wedding">
+            <AppThemeProvider themeId="default">
               <LanguageSetupScreen />
             </AppThemeProvider>
           ) : (

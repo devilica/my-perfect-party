@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Petrecerea mea perfectă",
-    "tagline": "Sărbătorește fără stres"
+    "tagline": "Sărbătorește fără stres",
+    "welcome": "Bine ați venit!"
   },
   "onboarding": {
     "selectLanguage": "Alege limba",
@@ -60,6 +61,7 @@
     "addGuestSide": "Adaugă parte",
     "guestSidePlaceholder": "ex. Partea miresei, Partea mirelui",
     "themes": {
+      "default": "Implicit",
       "wedding": "Nuntă",
       "birthday": "Zi de naștere",
       "baptism": "Botez",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1 an — băiat",
       "birthday18Elegant": "18 elegant",
       "birthday18Modern": "18 modern",
-      "birthday18Gold": "18 auriu"
+      "birthday18Gold": "18 auriu",
+      "blueBalloons": "Baloane albastre",
+      "blushBalloons": "Baloane blush",
+      "botanicalGold": "Aur botanic",
+      "greeneryGold": "Verde și aur",
+      "ivoryRoses": "Trandafiri ivoire",
+      "whiteRoses": "Trandafiri albi",
+      "babyNeutrals": "Baby neutru",
+      "birthday1BoyArt": "Prima aniversare — băiat",
+      "birthday1GirlArt": "Prima aniversare — fată",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 rose gold",
+      "birthday18NavyGold": "18 navy aur",
+      "teamBride": "Team bride",
+      "babySage": "Baby salvie",
+      "goldFloralFrame": "Ramă florală aurie"
     },
-    "adUnavailable": "Reclama nu este disponibilă momentan. Încearcă din nou mai târziu."
+    "adUnavailable": "Reclama nu este disponibilă momentan. Încearcă din nou mai târziu.",
+    "illustratedBackgrounds": "Fundaluri invitație",
+    "seeMore": "Vezi mai multe șabloane",
+    "groups": {
+      "wedding": "Nuntă",
+      "birthday1": "Prima aniversare",
+      "birthday18": "18 ani",
+      "universal": "Sărbătoare"
+    },
+    "changeColor": "Schimbă",
+    "colorHex": "Hex",
+    "colorHue": "Nuanță",
+    "colorSaturation": "Saturație",
+    "colorShade": "Luminozitate",
+    "addText": "Adaugă text",
+    "customTexts": "Text liber",
+    "customTextLabel": "Text",
+    "customTextPlaceholder": "Textul tău",
+    "removeText": "Șterge textul",
+    "noIcon": "Fără pictogramă",
+    "dragHint": "Atinge o pictogramă sau un text pentru a-l edita sau șterge. Trage textul liber unde vrei.",
+    "hideHint": "Golește un câmp pentru a-l ascunde de pe invitație.",
+    "textSize": "Dimensiune text",
+    "watermark": "Creat cu {{app}}",
+    "removeWatermark": "Elimină filigranul",
+    "removeWatermarkHint": "Urmărește o reclamă scurtă pentru a elimina filigranul aplicației de pe această invitație."
   },
   "guests": {
     "title": "Invitați",
@@ -268,7 +310,18 @@
       "name_desc": "Nume (Z-A)",
       "partySize_desc": "Număr persoane (mai multe întâi)",
       "partySize_asc": "Număr persoane (mai puține întâi)"
-    }
+    },
+    "seatCard": "Locul tău",
+    "seatCardTitle": "Masa ta este",
+    "seatCardWelcome": "Bucurați-vă de sărbătoare!",
+    "seatCardWelcomeHappy": "Ne bucurăm că sunteți aici!",
+    "seatCardWatermark": "Descarcă din Play Store",
+    "seatCardShare": "Distribuie cardul de loc",
+    "seatCardShareUnavailable": "Distribuirea este disponibilă pe dispozitive mobile.",
+    "seatCardYou": "Tu",
+    "seatCardSeat": "Locul {{seat}}",
+    "seatCardSeatRange": "Locurile {{start}}–{{end}}",
+    "seatCardSeats": "Locurile {{seats}}"
   },
   "seating": {
     "title": "Planificator așezare",
@@ -324,7 +377,14 @@
     "viewHall": "Vezi sala",
     "reorderHint": "Atinge un oaspete pentru a evidenția locul. Atinge altul pentru schimb, sau folosește săgețile.",
     "moveUp": "Mută sus",
-    "moveDown": "Mută jos"
+    "moveDown": "Mută jos",
+    "downloadList": "Descarcă planul de mese",
+    "downloadListEmpty": "Adaugă mai întâi mesele și așază invitații.",
+    "listTitle": "Plan de mese",
+    "listFindTable": "Găsește-ți masa",
+    "listDirectory": "Listă de nume",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Încă nu sunt invitați"
   },
   "expenses": {
     "title": "Cheltuieli",

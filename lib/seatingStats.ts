@@ -33,6 +33,16 @@ export function buildTableSeatSlots(table: SeatingTable, guests: Guest[]): Table
   return slots;
 }
 
+export function getGuestSeatNumbers(
+  table: SeatingTable,
+  guests: Guest[],
+  guestId: string
+): number[] {
+  return buildTableSeatSlots(table, guests)
+    .map((slot, index) => (slot.guestId === guestId ? index + 1 : 0))
+    .filter((seat) => seat > 0);
+}
+
 export type TableFilter = 'all' | 'full' | 'available';
 
 export function getTablesForEvent(tables: SeatingTable[], eventId: string): SeatingTable[] {

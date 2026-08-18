@@ -19,7 +19,8 @@
   },
   "app": {
     "name": "Το τέλειο πάρτι μου",
-    "tagline": "Γιόρτασε χωρίς άγχος"
+    "tagline": "Γιόρτασε χωρίς άγχος",
+    "welcome": "Καλώς ήρθατε!"
   },
   "onboarding": {
     "selectLanguage": "Επιλέξτε γλώσσα",
@@ -60,6 +61,7 @@
     "addGuestSide": "Προσθήκη πλευράς",
     "guestSidePlaceholder": "π.χ. Πλευρά νύφης, Πλευρά γαμπρού",
     "themes": {
+      "default": "Προεπιλογή",
       "wedding": "Γάμος",
       "birthday": "Γενέθλια",
       "baptism": "Βάπτιση",
@@ -192,9 +194,49 @@
       "birthday1Boy": "1ο γενέθλια — αγόρι",
       "birthday18Elegant": "18 κομψό",
       "birthday18Modern": "18 μοντέρνο",
-      "birthday18Gold": "18 χρυσό"
+      "birthday18Gold": "18 χρυσό",
+      "blueBalloons": "Μπλε μπαλόνια",
+      "blushBalloons": "Ροζ μπαλόνια",
+      "botanicalGold": "Βοτανικό χρυσό",
+      "greeneryGold": "Πράσινο και χρυσό",
+      "ivoryRoses": "Κρεμ τριαντάφυλλα",
+      "whiteRoses": "Λευκά τριαντάφυλλα",
+      "babyNeutrals": "Baby ουδέτερο",
+      "birthday1BoyArt": "1α γενέθλια — αγόρι",
+      "birthday1GirlArt": "1α γενέθλια — κορίτσι",
+      "birthday18BlushNavy": "18 blush navy",
+      "birthday18RoseGold": "18 ροζ χρυσό",
+      "birthday18NavyGold": "18 navy χρυσό",
+      "teamBride": "Team bride",
+      "babySage": "Baby φασκόμηλο",
+      "goldFloralFrame": "Χρυσό floral πλαίσιο"
     },
-    "adUnavailable": "Η διαφήμιση δεν είναι διαθέσιμη αυτή τη στιγμή. Δοκιμάστε ξανά αργότερα."
+    "adUnavailable": "Η διαφήμιση δεν είναι διαθέσιμη αυτή τη στιγμή. Δοκιμάστε ξανά αργότερα.",
+    "illustratedBackgrounds": "Φόντα πρόσκλησης",
+    "seeMore": "Δείτε περισσότερα πρότυπα",
+    "groups": {
+      "wedding": "Γάμος",
+      "birthday1": "1α γενέθλια",
+      "birthday18": "18α γενέθλια",
+      "universal": "Γιορτή"
+    },
+    "changeColor": "Αλλαγή",
+    "colorHex": "Hex",
+    "colorHue": "Απόχρωση",
+    "colorSaturation": "Κορεσμός",
+    "colorShade": "Φωτεινότητα",
+    "addText": "Προσθήκη κειμένου",
+    "customTexts": "Ελεύθερο κείμενο",
+    "customTextLabel": "Κείμενο",
+    "customTextPlaceholder": "Το κείμενό σας",
+    "removeText": "Αφαίρεση κειμένου",
+    "noIcon": "Χωρίς εικονίδιο",
+    "dragHint": "Πατήστε ένα εικονίδιο ή κείμενο για επεξεργασία ή διαγραφή. Σύρετε το ελεύθερο κείμενο όπου θέλετε.",
+    "hideHint": "Αδειάστε ένα πεδίο για να το αποκρύψετε από την πρόσκληση.",
+    "textSize": "Μέγεθος κειμένου",
+    "watermark": "Δημιουργήθηκε με {{app}}",
+    "removeWatermark": "Αφαίρεση υδατογραφήματος",
+    "removeWatermarkHint": "Δείτε μια σύντομη διαφήμιση για να αφαιρέσετε το υδατογράφημα της εφαρμογής από αυτή την πρόσκληση."
   },
   "guests": {
     "title": "Καλεσμένοι",
@@ -268,7 +310,18 @@
       "name_desc": "Όνομα (Ω-Α)",
       "partySize_desc": "Αριθμός ατόμων (περισσότεροι πρώτα)",
       "partySize_asc": "Αριθμός ατόμων (λιγότεροι πρώτα)"
-    }
+    },
+    "seatCard": "Η θέση σας",
+    "seatCardTitle": "Το τραπέζι σας είναι",
+    "seatCardWelcome": "Απολαύστε τον εορτασμό!",
+    "seatCardWelcomeHappy": "Χαιρόμαστε που είστε εδώ!",
+    "seatCardWatermark": "Λήψη από το Play Store",
+    "seatCardShare": "Κοινοποίηση κάρτας θέσης",
+    "seatCardShareUnavailable": "Η κοινοποίηση είναι διαθέσιμη σε κινητές συσκευές.",
+    "seatCardYou": "Εσείς",
+    "seatCardSeat": "Θέση {{seat}}",
+    "seatCardSeatRange": "Θέσεις {{start}}–{{end}}",
+    "seatCardSeats": "Θέσεις {{seats}}"
   },
   "seating": {
     "title": "Σχεδιασμός θέσεων",
@@ -324,7 +377,14 @@
     "viewHall": "Δείτε την αίθουσα",
     "reorderHint": "Πάτα έναν καλεσμένο για επισήμανση θέσης. Πάτα άλλον για ανταλλαγή, ή χρησιμοποίησε τα βέλη.",
     "moveUp": "Μετακίνηση πάνω",
-    "moveDown": "Μετακίνηση κάτω"
+    "moveDown": "Μετακίνηση κάτω",
+    "downloadList": "Λήψη καταλόγου θέσεων",
+    "downloadListEmpty": "Προσθέστε πρώτα τραπέζια και τοποθετήστε τους καλεσμένους.",
+    "listTitle": "Κατάλογος θέσεων",
+    "listFindTable": "Βρείτε το τραπέζι σας",
+    "listDirectory": "Ευρετήριο ονομάτων",
+    "listPlusOnes": "+{{count}}",
+    "listEmptyTable": "Δεν υπάρχουν ακόμη καλεσμένοι"
   },
   "expenses": {
     "title": "Έξοδα",
