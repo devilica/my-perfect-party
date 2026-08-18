@@ -119,7 +119,8 @@
     "obligationStats": "Công việc",
     "obligationsConfirmed": "{{confirmed}} / {{total}} đã xác nhận",
     "obligationCompletionRate": "Tỷ lệ hoàn thành",
-    "manageObligations": "Quản lý công việc"
+    "manageObligations": "Quản lý công việc",
+    "welcomeTip": "Xem mọi thông tin quan trọng ở một nơi"
   },
   "invitation": {
     "create": "Tạo thiệp mời",
@@ -321,7 +322,8 @@
     "seatCardYou": "Bạn",
     "seatCardSeat": "Ghế {{seat}}",
     "seatCardSeatRange": "Ghế {{start}}–{{end}}",
-    "seatCardSeats": "Ghế {{seats}}"
+    "seatCardSeats": "Ghế {{seats}}",
+    "welcomeTip": "Thêm khách mời và theo dõi ai sẽ đến"
   },
   "seating": {
     "title": "Lên kế hoạch chỗ ngồi",
@@ -384,7 +386,8 @@
     "listFindTable": "Tìm bàn của bạn",
     "listDirectory": "Danh bạ tên",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Chưa có khách"
+    "listEmptyTable": "Chưa có khách",
+    "welcomeTip": "Sắp xếp khách mời của bạn theo cách tốt nhất"
   },
   "expenses": {
     "title": "Chi phí",
@@ -408,7 +411,8 @@
     "amountRequired": "Số tiền phải lớn hơn 0.",
     "payerRequired": "Vui lòng nhập ai chi trả khoản này.",
     "coveredBy": "Chi trả bởi: {{name}}",
-    "yourExpense": "Chi phí của bạn"
+    "yourExpense": "Chi phí của bạn",
+    "welcomeTip": "Theo dõi chi phí và kiểm soát ngân sách"
   },
   "obligations": {
     "title": "Công việc",
@@ -494,7 +498,8 @@
         "photographer": "Nhiếp ảnh gia",
         "decor": "Trang trí"
       }
-    }
+    },
+    "welcomeTip": "Theo dõi công việc và giữ mọi thứ có tổ chức"
   },
   "categories": {
     "music": "Âm nhạc",

@@ -119,7 +119,8 @@
     "obligationStats": "Sarcini",
     "obligationsConfirmed": "{{confirmed}} / {{total}} confirmate",
     "obligationCompletionRate": "Rata de finalizare",
-    "manageObligations": "Gestionează sarcinile"
+    "manageObligations": "Gestionează sarcinile",
+    "welcomeTip": "Vezi toate informațiile importante într-un singur loc"
   },
   "invitation": {
     "create": "Creează invitație",
@@ -321,7 +322,8 @@
     "seatCardYou": "Tu",
     "seatCardSeat": "Locul {{seat}}",
     "seatCardSeatRange": "Locurile {{start}}–{{end}}",
-    "seatCardSeats": "Locurile {{seats}}"
+    "seatCardSeats": "Locurile {{seats}}",
+    "welcomeTip": "Adaugă invitați și urmărește cine vine"
   },
   "seating": {
     "title": "Planificator așezare",
@@ -384,7 +386,8 @@
     "listFindTable": "Găsește-ți masa",
     "listDirectory": "Listă de nume",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Încă nu sunt invitați"
+    "listEmptyTable": "Încă nu sunt invitați",
+    "welcomeTip": "Aranjează-ți invitații în cel mai bun mod"
   },
   "expenses": {
     "title": "Cheltuieli",
@@ -408,7 +411,8 @@
     "amountRequired": "Suma trebuie să fie mai mare decât 0.",
     "payerRequired": "Introdu cine acoperă această cheltuială.",
     "coveredBy": "Acoperit de: {{name}}",
-    "yourExpense": "Cheltuiala ta"
+    "yourExpense": "Cheltuiala ta",
+    "welcomeTip": "Urmărește cheltuielile și ține bugetul sub control"
   },
   "obligations": {
     "title": "Sarcini",
@@ -494,7 +498,8 @@
         "photographer": "Fotograf",
         "decor": "Decorațiuni"
       }
-    }
+    },
+    "welcomeTip": "Urmărește sarcinile și rămâi organizat"
   },
   "categories": {
     "music": "Muzică",

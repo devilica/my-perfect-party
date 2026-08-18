@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import { EventCountdown } from '@/components/EventCountdown';
 import { FormScrollView } from '@/components/FormScrollView';
+import { OverviewWelcomeAvatar } from '@/components/OverviewWelcomeAvatar';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { GuestAttendanceChart } from '@/components/GuestAttendanceChart';
 import { OverviewNativeAd } from '@/components/OverviewNativeAd';
@@ -12,6 +13,7 @@ import { formatAmount, getExpenseSummary } from '@/lib/expenseStats';
 import { getGuestStats } from '@/lib/guestStats';
 import { getObligationStats } from '@/lib/obligationStats';
 import { getSeatingStats } from '@/lib/seatingStats';
+import { flexFill } from '@/lib/webLayout';
 import { useTranslation } from '@/lib/i18n';
 import { useEventId } from '@/lib/useEventId';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -52,6 +54,7 @@ export default function EventOverviewScreen() {
 
   return (
     <ThemedScreenContainer>
+      <View style={styles.screen}>
       <FormScrollView
         contentContainerStyle={{ paddingBottom: spacing.xl }}
         showsVerticalScrollIndicator={false}
@@ -189,11 +192,16 @@ export default function EventOverviewScreen() {
 
         <OverviewNativeAd />
       </FormScrollView>
+      <OverviewWelcomeAvatar />
+      </View>
     </ThemedScreenContainer>
   );
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    ...flexFill,
+  },
   sectionHeaderRow: {
     flexDirection: 'row',
     alignItems: 'center',

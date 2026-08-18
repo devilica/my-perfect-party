@@ -119,7 +119,8 @@
     "obligationStats": "Zadania",
     "obligationsConfirmed": "{{confirmed}} / {{total}} potwierdzonych",
     "obligationCompletionRate": "Wskaźnik ukończenia",
-    "manageObligations": "Zarządzaj zadaniami"
+    "manageObligations": "Zarządzaj zadaniami",
+    "welcomeTip": "Zobacz wszystkie ważne informacje w jednym miejscu"
   },
   "invitation": {
     "create": "Utwórz zaproszenie",
@@ -321,7 +322,8 @@
     "seatCardYou": "Ty",
     "seatCardSeat": "Miejsce {{seat}}",
     "seatCardSeatRange": "Miejsca {{start}}–{{end}}",
-    "seatCardSeats": "Miejsca {{seats}}"
+    "seatCardSeats": "Miejsca {{seats}}",
+    "welcomeTip": "Dodawaj gości i śledź, kto przychodzi"
   },
   "seating": {
     "title": "Plan miejsc",
@@ -384,7 +386,8 @@
     "listFindTable": "Znajdź swój stół",
     "listDirectory": "Spis nazwisk",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Brak gości"
+    "listEmptyTable": "Brak gości",
+    "welcomeTip": "Rozsadź gości w najlepszy sposób"
   },
   "expenses": {
     "title": "Wydatki",
@@ -408,7 +411,8 @@
     "amountRequired": "Kwota musi być większa niż 0.",
     "payerRequired": "Podaj, kto pokrywa ten wydatek.",
     "coveredBy": "Pokrywa: {{name}}",
-    "yourExpense": "Twój wydatek"
+    "yourExpense": "Twój wydatek",
+    "welcomeTip": "Śledź wydatki i trzymaj budżet pod kontrolą"
   },
   "obligations": {
     "title": "Zadania",
@@ -494,7 +498,8 @@
         "photographer": "Fotograf",
         "decor": "Dekoracja"
       }
-    }
+    },
+    "welcomeTip": "Śledź zadania i bądź zorganizowany"
   },
   "categories": {
     "music": "Muzyka",

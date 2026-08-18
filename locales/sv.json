@@ -119,7 +119,8 @@
     "obligationStats": "Uppgifter",
     "obligationsConfirmed": "{{confirmed}} / {{total}} bekräftade",
     "obligationCompletionRate": "Slutförandegrad",
-    "manageObligations": "Hantera uppgifter"
+    "manageObligations": "Hantera uppgifter",
+    "welcomeTip": "Se all viktig info på ett ställe"
   },
   "invitation": {
     "create": "Skapa inbjudan",
@@ -321,7 +322,8 @@
     "seatCardYou": "Du",
     "seatCardSeat": "Plats {{seat}}",
     "seatCardSeatRange": "Platser {{start}}–{{end}}",
-    "seatCardSeats": "Platser {{seats}}"
+    "seatCardSeats": "Platser {{seats}}",
+    "welcomeTip": "Lägg till gäster och följ vem som kommer"
   },
   "seating": {
     "title": "Placeringsplanerare",
@@ -384,7 +386,8 @@
     "listFindTable": "Hitta ditt bord",
     "listDirectory": "Namnförteckning",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Inga gäster ännu"
+    "listEmptyTable": "Inga gäster ännu",
+    "welcomeTip": "Placera dina gäster på bästa sätt"
   },
   "expenses": {
     "title": "Utgifter",
@@ -408,7 +411,8 @@
     "amountRequired": "Beloppet måste vara större än 0.",
     "payerRequired": "Ange vem som täcker denna utgift.",
     "coveredBy": "Täcks av: {{name}}",
-    "yourExpense": "Din utgift"
+    "yourExpense": "Din utgift",
+    "welcomeTip": "Följ utgifter och håll budgeten under kontroll"
   },
   "obligations": {
     "title": "Uppgifter",
@@ -494,7 +498,8 @@
         "photographer": "Fotograf",
         "decor": "Dekoration"
       }
-    }
+    },
+    "welcomeTip": "Följ uppgifter och håll dig organiserad"
   },
   "categories": {
     "music": "Musik",

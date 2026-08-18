@@ -119,7 +119,8 @@
     "obligationStats": "Opgaver",
     "obligationsConfirmed": "{{confirmed}} / {{total}} bekræftet",
     "obligationCompletionRate": "Fuldførelsesrate",
-    "manageObligations": "Administrer opgaver"
+    "manageObligations": "Administrer opgaver",
+    "welcomeTip": "Se alt det vigtige samlet ét sted"
   },
   "invitation": {
     "create": "Opret invitation",
@@ -321,7 +322,8 @@
     "seatCardYou": "Dig",
     "seatCardSeat": "Plads {{seat}}",
     "seatCardSeatRange": "Pladser {{start}}–{{end}}",
-    "seatCardSeats": "Pladser {{seats}}"
+    "seatCardSeats": "Pladser {{seats}}",
+    "welcomeTip": "Tilføj gæster og hold styr på hvem der kommer"
   },
   "seating": {
     "title": "Bordplanlægger",
@@ -384,7 +386,8 @@
     "listFindTable": "Find dit bord",
     "listDirectory": "Navneliste",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Ingen gæster endnu"
+    "listEmptyTable": "Ingen gæster endnu",
+    "welcomeTip": "Placer dine gæster på den bedste måde"
   },
   "expenses": {
     "title": "Udgifter",
@@ -408,7 +411,8 @@
     "amountRequired": "Beløbet skal være større end 0.",
     "payerRequired": "Angiv hvem der dækker denne udgift.",
     "coveredBy": "Dækket af: {{name}}",
-    "yourExpense": "Din udgift"
+    "yourExpense": "Din udgift",
+    "welcomeTip": "Hold styr på udgifter og budgettet"
   },
   "obligations": {
     "title": "Opgaver",
@@ -494,7 +498,8 @@
         "photographer": "Fotograf",
         "decor": "Dekoration"
       }
-    }
+    },
+    "welcomeTip": "Hold styr på opgaverne og forbliv organiseret"
   },
   "categories": {
     "music": "Musik",

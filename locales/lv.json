@@ -119,7 +119,8 @@
     "obligationStats": "Uzdevumi",
     "obligationsConfirmed": "{{confirmed}} / {{total}} apstiprināti",
     "obligationCompletionRate": "Izpildes īpatsvars",
-    "manageObligations": "Pārvaldīt uzdevumus"
+    "manageObligations": "Pārvaldīt uzdevumus",
+    "welcomeTip": "Skati visu svarīgo informāciju vienuviet"
   },
   "invitation": {
     "create": "Izveidot ielūgumu",
@@ -321,7 +322,8 @@
     "seatCardYou": "Tu",
     "seatCardSeat": "Vieta {{seat}}",
     "seatCardSeatRange": "Vietas {{start}}–{{end}}",
-    "seatCardSeats": "Vietas {{seats}}"
+    "seatCardSeats": "Vietas {{seats}}",
+    "welcomeTip": "Pievieno viesus un seko, kas ierodas"
   },
   "seating": {
     "title": "Sēdvietu plānotājs",
@@ -384,7 +386,8 @@
     "listFindTable": "Atrodiet savu galdu",
     "listDirectory": "Vārdu saraksts",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Vēl nav viesu"
+    "listEmptyTable": "Vēl nav viesu",
+    "welcomeTip": "Izvieto savus viesus vislabākajā veidā"
   },
   "expenses": {
     "title": "Izdevumi",
@@ -408,7 +411,8 @@
     "amountRequired": "Summas jābūt lielākai par 0.",
     "payerRequired": "Lūdzu, ievadiet, kas sedz šo izdevumu.",
     "coveredBy": "Sedz: {{name}}",
-    "yourExpense": "Jūsu izdevums"
+    "yourExpense": "Jūsu izdevums",
+    "welcomeTip": "Seko izdevumiem un kontrolē budžetu"
   },
   "obligations": {
     "title": "Uzdevumi",
@@ -494,7 +498,8 @@
         "photographer": "Fotogrāfs",
         "decor": "Dekorācija"
       }
-    }
+    },
+    "welcomeTip": "Seko uzdevumiem un paliec organizēts"
   },
   "categories": {
     "music": "Mūzika",

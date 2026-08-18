@@ -119,7 +119,8 @@
     "obligationStats": "المهام",
     "obligationsConfirmed": "{{confirmed}} / {{total}} مؤكد",
     "obligationCompletionRate": "معدل الإنجاز",
-    "manageObligations": "إدارة المهام"
+    "manageObligations": "إدارة المهام",
+    "welcomeTip": "اطّلع على كل المعلومات المهمة في مكان واحد"
   },
   "invitation": {
     "create": "إنشاء دعوة",
@@ -321,7 +322,8 @@
     "seatCardYou": "أنت",
     "seatCardSeat": "المقعد {{seat}}",
     "seatCardSeatRange": "المقاعد {{start}}–{{end}}",
-    "seatCardSeats": "المقاعد {{seats}}"
+    "seatCardSeats": "المقاعد {{seats}}",
+    "welcomeTip": "أضف الضيوف وتابع من سيحضر"
   },
   "seating": {
     "title": "مخطط الجلوس",
@@ -384,7 +386,8 @@
     "listFindTable": "اعثر على طاولتك",
     "listDirectory": "دليل الأسماء",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "لا يوجد ضيوف بعد"
+    "listEmptyTable": "لا يوجد ضيوف بعد",
+    "welcomeTip": "رتّب ضيوفك بأفضل طريقة"
   },
   "expenses": {
     "title": "المصروفات",
@@ -408,7 +411,8 @@
     "amountRequired": "يجب أن يكون المبلغ أكبر من 0.",
     "payerRequired": "يرجى إدخال من يغطي هذا المصروف.",
     "coveredBy": "مغطى من: {{name}}",
-    "yourExpense": "مصروفك"
+    "yourExpense": "مصروفك",
+    "welcomeTip": "تابع المصروفات وابقِ الميزانية تحت السيطرة"
   },
   "obligations": {
     "title": "المهام",
@@ -494,7 +498,8 @@
         "photographer": "المصور",
         "decor": "الديكور"
       }
-    }
+    },
+    "welcomeTip": "تابع المهام وابقَ منظمًا"
   },
   "categories": {
     "music": "الموسيقى",

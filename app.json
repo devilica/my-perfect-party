@@ -2,7 +2,7 @@
   "expo": {
     "name": "My Perfect Party",
     "slug": "wedding-planner-bh",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "mojasavrsenaproslava",
@@ -21,7 +21,7 @@
       }
     },
     "android": {
-      "versionCode": 11,
+      "versionCode": 12,
       "allowBackup": false,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",

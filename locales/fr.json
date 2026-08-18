@@ -119,7 +119,8 @@
     "obligationStats": "Tâches",
     "obligationsConfirmed": "{{confirmed}} / {{total}} confirmés",
     "obligationCompletionRate": "Taux d'achèvement",
-    "manageObligations": "Gérer les tâches"
+    "manageObligations": "Gérer les tâches",
+    "welcomeTip": "Retrouve toutes les infos importantes au même endroit"
   },
   "invitation": {
     "create": "Créer une invitation",
@@ -321,7 +322,8 @@
     "seatCardYou": "Vous",
     "seatCardSeat": "Place {{seat}}",
     "seatCardSeatRange": "Places {{start}}–{{end}}",
-    "seatCardSeats": "Places {{seats}}"
+    "seatCardSeats": "Places {{seats}}",
+    "welcomeTip": "Ajoute des invités et suis qui vient"
   },
   "seating": {
     "title": "Plan de table",
@@ -384,7 +386,8 @@
     "listFindTable": "Trouvez votre table",
     "listDirectory": "Annuaire des noms",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Pas encore d’invités"
+    "listEmptyTable": "Pas encore d’invités",
+    "welcomeTip": "Installez vos invités de la meilleure façon"
   },
   "expenses": {
     "title": "Dépenses",
@@ -408,7 +411,8 @@
     "amountRequired": "Le montant doit être supérieur à 0.",
     "payerRequired": "Veuillez indiquer qui prend en charge cette dépense.",
     "coveredBy": "Pris en charge par : {{name}}",
-    "yourExpense": "Votre dépense"
+    "yourExpense": "Votre dépense",
+    "welcomeTip": "Suis tes dépenses et garde le budget sous contrôle"
   },
   "obligations": {
     "title": "Tâches",
@@ -494,7 +498,8 @@
         "photographer": "Photographe",
         "decor": "Décoration"
       }
-    }
+    },
+    "welcomeTip": "Suis tes tâches et reste organisé"
   },
   "categories": {
     "music": "Musique",

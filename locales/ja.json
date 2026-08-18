@@ -119,7 +119,8 @@
     "obligationStats": "タスク",
     "obligationsConfirmed": "確認済み {{confirmed}} / {{total}}",
     "obligationCompletionRate": "完了率",
-    "manageObligations": "タスクを管理"
+    "manageObligations": "タスクを管理",
+    "welcomeTip": "大切な情報をこの画面ですべて確認できます"
   },
   "invitation": {
     "create": "招待状を作成",
@@ -321,7 +322,8 @@
     "seatCardYou": "あなた",
     "seatCardSeat": "席 {{seat}}",
     "seatCardSeatRange": "席 {{start}}–{{end}}",
-    "seatCardSeats": "席 {{seats}}"
+    "seatCardSeats": "席 {{seats}}",
+    "welcomeTip": "ゲストを追加して、来場状況を確認しましょう"
   },
   "seating": {
     "title": "席次プランナー",
@@ -384,7 +386,8 @@
     "listFindTable": "テーブルを探す",
     "listDirectory": "氏名一覧",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "まだゲストがいません"
+    "listEmptyTable": "まだゲストがいません",
+    "welcomeTip": "ゲストを最適な方法で席に配置しましょう"
   },
   "expenses": {
     "title": "支出",
@@ -408,7 +411,8 @@
     "amountRequired": "金額は0より大きくしてください。",
     "payerRequired": "負担者を入力してください。",
     "coveredBy": "負担者：{{name}}",
-    "yourExpense": "自己負担"
+    "yourExpense": "自己負担",
+    "welcomeTip": "支出を記録して、予算をしっかり管理しましょう"
   },
   "obligations": {
     "title": "タスク",
@@ -494,7 +498,8 @@
         "photographer": "カメラマン",
         "decor": "装飾"
       }
-    }
+    },
+    "welcomeTip": "タスクを管理して、計画的に進めましょう"
   },
   "categories": {
     "music": "音楽",

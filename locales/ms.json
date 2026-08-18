@@ -119,7 +119,8 @@
     "obligationStats": "Tugasan",
     "obligationsConfirmed": "{{confirmed}} / {{total}} disahkan",
     "obligationCompletionRate": "Kadar penyelesaian",
-    "manageObligations": "Urus tugasan"
+    "manageObligations": "Urus tugasan",
+    "welcomeTip": "Lihat semua maklumat penting di satu tempat"
   },
   "invitation": {
     "create": "Cipta jemputan",
@@ -321,7 +322,8 @@
     "seatCardYou": "Anda",
     "seatCardSeat": "Tempat {{seat}}",
     "seatCardSeatRange": "Tempat {{start}}–{{end}}",
-    "seatCardSeats": "Tempat {{seats}}"
+    "seatCardSeats": "Tempat {{seats}}",
+    "welcomeTip": "Tambah tetamu dan jejak siapa yang hadir"
   },
   "seating": {
     "title": "Perancang tempat duduk",
@@ -384,7 +386,8 @@
     "listFindTable": "Cari meja anda",
     "listDirectory": "Direktori nama",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Belum ada tetamu"
+    "listEmptyTable": "Belum ada tetamu",
+    "welcomeTip": "Susun tetamu anda dengan cara terbaik"
   },
   "expenses": {
     "title": "Perbelanjaan",
@@ -408,7 +411,8 @@
     "amountRequired": "Jumlah mesti lebih daripada 0.",
     "payerRequired": "Sila masukkan siapa yang menanggung perbelanjaan ini.",
     "coveredBy": "Ditanggung oleh: {{name}}",
-    "yourExpense": "Perbelanjaan anda"
+    "yourExpense": "Perbelanjaan anda",
+    "welcomeTip": "Jejaki perbelanjaan dan kawal bajet anda"
   },
   "obligations": {
     "title": "Tugasan",
@@ -494,7 +498,8 @@
         "photographer": "Jurugambar",
         "decor": "Hiasan"
       }
-    }
+    },
+    "welcomeTip": "Jejaki tugasan dan kekal teratur"
   },
   "categories": {
     "music": "Muzik",

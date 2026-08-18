@@ -119,7 +119,8 @@
     "obligationStats": "कार्य",
     "obligationsConfirmed": "{{confirmed}} / {{total}} पुष्टि",
     "obligationCompletionRate": "पूर्णता दर",
-    "manageObligations": "कार्य प्रबंधित करें"
+    "manageObligations": "कार्य प्रबंधित करें",
+    "welcomeTip": "सभी ज़रूरी जानकारी एक ही जगह देखें"
   },
   "invitation": {
     "create": "निमंत्रण बनाएँ",
@@ -321,7 +322,8 @@
     "seatCardYou": "आप",
     "seatCardSeat": "सीट {{seat}}",
     "seatCardSeatRange": "सीटें {{start}}–{{end}}",
-    "seatCardSeats": "सीटें {{seats}}"
+    "seatCardSeats": "सीटें {{seats}}",
+    "welcomeTip": "मेहमान जोड़ें और देखें कौन आ रहा है"
   },
   "seating": {
     "title": "बैठक योजनाकार",
@@ -384,7 +386,8 @@
     "listFindTable": "अपनी टेबल खोजें",
     "listDirectory": "नाम निर्देशिका",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "अभी कोई मेहमान नहीं"
+    "listEmptyTable": "अभी कोई मेहमान नहीं",
+    "welcomeTip": "अपने मेहमानों को सबसे अच्छे तरीके से बैठाएँ"
   },
   "expenses": {
     "title": "खर्च",
@@ -408,7 +411,8 @@
     "amountRequired": "राशि 0 से अधिक होनी चाहिए।",
     "payerRequired": "कृपया दर्ज करें कि यह खर्च कौन वहन करता है।",
     "coveredBy": "वहन करता है: {{name}}",
-    "yourExpense": "आपका खर्च"
+    "yourExpense": "आपका खर्च",
+    "welcomeTip": "खर्चों पर नज़र रखें और बजट नियंत्रण में रखें"
   },
   "obligations": {
     "title": "कार्य",
@@ -494,7 +498,8 @@
         "photographer": "फ़ोटोग्राफ़र",
         "decor": "सजावट"
       }
-    }
+    },
+    "welcomeTip": "कार्यों पर नज़र रखें और व्यवस्थित रहें"
   },
   "categories": {
     "music": "संगीत",

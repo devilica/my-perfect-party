@@ -119,7 +119,8 @@
     "obligationStats": "任务",
     "obligationsConfirmed": "已确认 {{confirmed}} / {{total}}",
     "obligationCompletionRate": "完成率",
-    "manageObligations": "管理任务"
+    "manageObligations": "管理任务",
+    "welcomeTip": "在此一览所有重要信息"
   },
   "invitation": {
     "create": "创建请柬",
@@ -321,7 +322,8 @@
     "seatCardYou": "您",
     "seatCardSeat": "座位 {{seat}}",
     "seatCardSeatRange": "座位 {{start}}–{{end}}",
-    "seatCardSeats": "座位 {{seats}}"
+    "seatCardSeats": "座位 {{seats}}",
+    "welcomeTip": "添加宾客，轻松掌握出席情况"
   },
   "seating": {
     "title": "座位规划",
@@ -384,7 +386,8 @@
     "listFindTable": "查找您的餐桌",
     "listDirectory": "姓名目录",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "暂无宾客"
+    "listEmptyTable": "暂无宾客",
+    "welcomeTip": "以最佳方式安排您的宾客座位"
   },
   "expenses": {
     "title": "支出",
@@ -408,7 +411,8 @@
     "amountRequired": "金额必须大于 0。",
     "payerRequired": "请输入承担者。",
     "coveredBy": "承担者：{{name}}",
-    "yourExpense": "您的支出"
+    "yourExpense": "您的支出",
+    "welcomeTip": "记录开支，轻松掌控预算"
   },
   "obligations": {
     "title": "任务",
@@ -494,7 +498,8 @@
         "photographer": "摄影师",
         "decor": "装饰"
       }
-    }
+    },
+    "welcomeTip": "跟踪任务，轻松保持条理"
   },
   "categories": {
     "music": "音乐",

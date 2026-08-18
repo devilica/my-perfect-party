@@ -119,7 +119,8 @@
     "obligationStats": "Tehtävät",
     "obligationsConfirmed": "{{confirmed}} / {{total}} vahvistettu",
     "obligationCompletionRate": "Valmistumisprosentti",
-    "manageObligations": "Hallitse tehtäviä"
+    "manageObligations": "Hallitse tehtäviä",
+    "welcomeTip": "Näe kaikki tärkeä yhdessä paikassa"
   },
   "invitation": {
     "create": "Luo kutsu",
@@ -321,7 +322,8 @@
     "seatCardYou": "Sinä",
     "seatCardSeat": "Paikka {{seat}}",
     "seatCardSeatRange": "Paikat {{start}}–{{end}}",
-    "seatCardSeats": "Paikat {{seats}}"
+    "seatCardSeats": "Paikat {{seats}}",
+    "welcomeTip": "Lisää vieraita ja seuraa, ketkä tulevat"
   },
   "seating": {
     "title": "Paikkakarttasuunnittelija",
@@ -384,7 +386,8 @@
     "listFindTable": "Löydä pöytäsi",
     "listDirectory": "Nimihakemisto",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Ei vielä vieraita"
+    "listEmptyTable": "Ei vielä vieraita",
+    "welcomeTip": "Järjestä vieraasi parhaalla tavalla"
   },
   "expenses": {
     "title": "Kulut",
@@ -408,7 +411,8 @@
     "amountRequired": "Summan on oltava suurempi kuin 0.",
     "payerRequired": "Syötä kuka maksaa tämän kulun.",
     "coveredBy": "Maksaa: {{name}}",
-    "yourExpense": "Oma kulusi"
+    "yourExpense": "Oma kulusi",
+    "welcomeTip": "Seuraa kuluja ja pidä budjetti hallinnassa"
   },
   "obligations": {
     "title": "Tehtävät",
@@ -494,7 +498,8 @@
         "photographer": "Valokuvaaja",
         "decor": "Koristelu"
       }
-    }
+    },
+    "welcomeTip": "Seuraa tehtäviä ja pysy organisoituna"
   },
   "categories": {
     "music": "Musiikki",

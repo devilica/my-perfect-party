@@ -119,7 +119,8 @@
     "obligationStats": "Tascanna",
     "obligationsConfirmed": "{{confirmed}} / {{total}} deimhnithe",
     "obligationCompletionRate": "Ráta críochnaithe",
-    "manageObligations": "Bainistigh tascanna"
+    "manageObligations": "Bainistigh tascanna",
+    "welcomeTip": "Féach ar gach eolas tábhachtach in aon áit amháin"
   },
   "invitation": {
     "create": "Cruthaigh cuireadh",
@@ -321,7 +322,8 @@
     "seatCardYou": "Tusa",
     "seatCardSeat": "Suíochán {{seat}}",
     "seatCardSeatRange": "Suíocháin {{start}}–{{end}}",
-    "seatCardSeats": "Suíocháin {{seats}}"
+    "seatCardSeats": "Suíocháin {{seats}}",
+    "welcomeTip": "Cuir aíonna leis agus rianaigh cé atá ag teacht"
   },
   "seating": {
     "title": "Pleanálaí suíocháin",
@@ -384,7 +386,8 @@
     "listFindTable": "Aimsigh do bhord",
     "listDirectory": "Eolaire ainmneacha",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Níl aon aíonna fós"
+    "listEmptyTable": "Níl aon aíonna fós",
+    "welcomeTip": "Socraigh do chuid aíonna ar an mbealach is fearr"
   },
   "expenses": {
     "title": "Costais",
@@ -408,7 +411,8 @@
     "amountRequired": "Caithfidh an méid a bheith níos mó ná 0.",
     "payerRequired": "Cuir isteach cé a chlúdaíonn an costas seo le do thoil.",
     "coveredBy": "Clúdaithe ag: {{name}}",
-    "yourExpense": "Do chostas"
+    "yourExpense": "Do chostas",
+    "welcomeTip": "Rianaigh costais agus coinnigh an buiséad faoi smacht"
   },
   "obligations": {
     "title": "Tascanna",
@@ -494,7 +498,8 @@
         "photographer": "Grianghrafadóir",
         "decor": "Maisiú"
       }
-    }
+    },
+    "welcomeTip": "Rianaigh tascanna agus fan eagraithe"
   },
   "categories": {
     "music": "Ceol",

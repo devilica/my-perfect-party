@@ -4,6 +4,7 @@ import { Alert, StyleSheet, Text, View } from 'react-native';
 
 import { ExpenseCharts } from '@/components/ExpenseCharts';
 import { ExpenseRow } from '@/components/ExpenseRow';
+import { ExpensesWelcomeAvatar } from '@/components/ExpensesWelcomeAvatar';
 import { FormScrollView } from '@/components/FormScrollView';
 import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
@@ -115,6 +116,7 @@ export default function ExpensesScreen() {
         </FormScrollView>
 
         <Fab onPress={() => router.push(`/modals/add-expense?eventId=${eventId}`)} />
+        <ExpensesWelcomeAvatar />
       </View>
     </ThemedScreenContainer>
   );

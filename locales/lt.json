@@ -119,7 +119,8 @@
     "obligationStats": "Užduotys",
     "obligationsConfirmed": "{{confirmed}} / {{total}} patvirtinta",
     "obligationCompletionRate": "Užbaigimo rodiklis",
-    "manageObligations": "Tvarkyti užduotis"
+    "manageObligations": "Tvarkyti užduotis",
+    "welcomeTip": "Visą svarbią informaciją matyk vienoje vietoje"
   },
   "invitation": {
     "create": "Sukurti kvietimą",
@@ -321,7 +322,8 @@
     "seatCardYou": "Jūs",
     "seatCardSeat": "Vieta {{seat}}",
     "seatCardSeatRange": "Vietos {{start}}–{{end}}",
-    "seatCardSeats": "Vietos {{seats}}"
+    "seatCardSeats": "Vietos {{seats}}",
+    "welcomeTip": "Pridėk svečius ir stebėk, kas atvyksta"
   },
   "seating": {
     "title": "Sėdimų vietų planuotojas",
@@ -384,7 +386,8 @@
     "listFindTable": "Raskite savo stalą",
     "listDirectory": "Vardų sąrašas",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Svečių dar nėra"
+    "listEmptyTable": "Svečių dar nėra",
+    "welcomeTip": "Išdėstykite svečius geriausiu būdu"
   },
   "expenses": {
     "title": "Išlaidos",
@@ -408,7 +411,8 @@
     "amountRequired": "Suma turi būti didesnė nei 0.",
     "payerRequired": "Įveskite, kas padengia šią išlaidą.",
     "coveredBy": "Padengia: {{name}}",
-    "yourExpense": "Jūsų išlaida"
+    "yourExpense": "Jūsų išlaida",
+    "welcomeTip": "Sek išlaidas ir valdyk biudžetą"
   },
   "obligations": {
     "title": "Užduotys",
@@ -494,7 +498,8 @@
         "photographer": "Fotografas",
         "decor": "Dekoracija"
       }
-    }
+    },
+    "welcomeTip": "Sek užduotis ir lik organizuotas"
   },
   "categories": {
     "music": "Muzika",

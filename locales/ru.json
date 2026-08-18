@@ -119,7 +119,8 @@
     "obligationStats": "Задачи",
     "obligationsConfirmed": "{{confirmed}} / {{total}} подтверждено",
     "obligationCompletionRate": "Доля выполнения",
-    "manageObligations": "Управлять задачами"
+    "manageObligations": "Управлять задачами",
+    "welcomeTip": "Смотри всю важную информацию в одном месте"
   },
   "invitation": {
     "create": "Создать приглашение",
@@ -321,7 +322,8 @@
     "seatCardYou": "Вы",
     "seatCardSeat": "Место {{seat}}",
     "seatCardSeatRange": "Места {{start}}–{{end}}",
-    "seatCardSeats": "Места {{seats}}"
+    "seatCardSeats": "Места {{seats}}",
+    "welcomeTip": "Добавляй гостей и отслеживай, кто придёт"
   },
   "seating": {
     "title": "Планировщик рассадки",
@@ -384,7 +386,8 @@
     "listFindTable": "Найдите свой стол",
     "listDirectory": "Список имён",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Гостей пока нет"
+    "listEmptyTable": "Гостей пока нет",
+    "welcomeTip": "Рассадите гостей наилучшим образом"
   },
   "expenses": {
     "title": "Расходы",
@@ -408,7 +411,8 @@
     "amountRequired": "Сумма должна быть больше 0.",
     "payerRequired": "Укажите, кто оплачивает этот расход.",
     "coveredBy": "Оплачивает: {{name}}",
-    "yourExpense": "Ваш расход"
+    "yourExpense": "Ваш расход",
+    "welcomeTip": "Отслеживай расходы и держи бюджет под контролем"
   },
   "obligations": {
     "title": "Задачи",
@@ -494,7 +498,8 @@
         "photographer": "Фотограф",
         "decor": "Декор"
       }
-    }
+    },
+    "welcomeTip": "Отслеживай задачи и оставайся организованным"
   },
   "categories": {
     "music": "Музыка",

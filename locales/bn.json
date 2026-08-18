@@ -119,7 +119,8 @@
     "obligationStats": "কাজ",
     "obligationsConfirmed": "{{confirmed}} / {{total}} নিশ্চিত",
     "obligationCompletionRate": "সম্পন্নতার হার",
-    "manageObligations": "কাজ পরিচালনা"
+    "manageObligations": "কাজ পরিচালনা",
+    "welcomeTip": "এক জায়গায় সব গুরুত্বপূর্ণ তথ্য দেখুন"
   },
   "invitation": {
     "create": "আমন্ত্রণ তৈরি",
@@ -321,7 +322,8 @@
     "seatCardYou": "আপনি",
     "seatCardSeat": "আসন {{seat}}",
     "seatCardSeatRange": "আসন {{start}}–{{end}}",
-    "seatCardSeats": "আসন {{seats}}"
+    "seatCardSeats": "আসন {{seats}}",
+    "welcomeTip": "অতিথি যোগ করুন এবং কে আসছে তা ট্র্যাক করুন"
   },
   "seating": {
     "title": "আসন পরিকল্পনা",
@@ -384,7 +386,8 @@
     "listFindTable": "আপনার টেবিল খুঁজুন",
     "listDirectory": "নামের তালিকা",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "এখনও কোনো অতিথি নেই"
+    "listEmptyTable": "এখনও কোনো অতিথি নেই",
+    "welcomeTip": "আপনার অতিথিদের সবচেয়ে ভালোভাবে বসান"
   },
   "expenses": {
     "title": "খরচ",
@@ -408,7 +411,8 @@
     "amountRequired": "পরিমাণ ০-এর বেশি হতে হবে।",
     "payerRequired": "কে এই খরচ বহন করে লিখুন।",
     "coveredBy": "বহন করে: {{name}}",
-    "yourExpense": "আপনার খরচ"
+    "yourExpense": "আপনার খরচ",
+    "welcomeTip": "খরচ ট্র্যাক করুন এবং বাজেট নিয়ন্ত্রণে রাখুন"
   },
   "obligations": {
     "title": "কাজ",
@@ -494,7 +498,8 @@
         "photographer": "ফটোগ্রাফার",
         "decor": "সajা"
       }
-    }
+    },
+    "welcomeTip": "কাজগুলো ট্র্যাক করুন এবং সংগঠিত থাকুন"
   },
   "categories": {
     "music": "সঙ্গীত",

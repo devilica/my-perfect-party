@@ -14,6 +14,7 @@ import { FormScrollView } from '@/components/FormScrollView';
 import { GuestFilterBar } from '@/components/GuestFilterBar';
 import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 import { SeatingAssignmentModal } from '@/components/SeatingAssignmentModal';
+import { SeatingWelcomeAvatar } from '@/components/SeatingWelcomeAvatar';
 import { TableCard } from '@/components/TableCard';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { EmptyState, Fab, StatCard, Card } from '@/components/ui';
@@ -298,6 +299,7 @@ export default function SeatingScreen() {
           eventId={eventId}
           onClose={() => setAssignGuest(null)}
         />
+        <SeatingWelcomeAvatar />
       </View>
     </ThemedScreenContainer>
   );

@@ -119,7 +119,8 @@
     "obligationStats": "Úlohy",
     "obligationsConfirmed": "{{confirmed}} / {{total}} potvrdené",
     "obligationCompletionRate": "Miera dokončenia",
-    "manageObligations": "Spravovať úlohy"
+    "manageObligations": "Spravovať úlohy",
+    "welcomeTip": "Maj všetko dôležité prehľadne na jednom mieste"
   },
   "invitation": {
     "create": "Vytvoriť pozvánku",
@@ -321,7 +322,8 @@
     "seatCardYou": "Vy",
     "seatCardSeat": "Miesto {{seat}}",
     "seatCardSeatRange": "Miesta {{start}}–{{end}}",
-    "seatCardSeats": "Miesta {{seats}}"
+    "seatCardSeats": "Miesta {{seats}}",
+    "welcomeTip": "Pridávaj hostí a sleduj, kto príde"
   },
   "seating": {
     "title": "Plánovač rozmiestnenia",
@@ -384,7 +386,8 @@
     "listFindTable": "Nájdite svoj stôl",
     "listDirectory": "Zoznam mien",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Zatiaľ žiadni hostia"
+    "listEmptyTable": "Zatiaľ žiadni hostia",
+    "welcomeTip": "Usporiadajte hostí čo najlepšie"
   },
   "expenses": {
     "title": "Výdavky",
@@ -408,7 +411,8 @@
     "amountRequired": "Suma musí byť väčšia ako 0.",
     "payerRequired": "Zadajte, kto tento výdavok hradí.",
     "coveredBy": "Hradí: {{name}}",
-    "yourExpense": "Váš výdavok"
+    "yourExpense": "Váš výdavok",
+    "welcomeTip": "Sleduj výdavky a maj rozpočet pod kontrolou"
   },
   "obligations": {
     "title": "Úlohy",
@@ -494,7 +498,8 @@
         "photographer": "Fotograf",
         "decor": "Dekorácie"
       }
-    }
+    },
+    "welcomeTip": "Sleduj úlohy a zostaň organizovaný"
   },
   "categories": {
     "music": "Hudba",

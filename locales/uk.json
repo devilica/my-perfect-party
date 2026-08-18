@@ -119,7 +119,8 @@
     "obligationStats": "Завдання",
     "obligationsConfirmed": "{{confirmed}} / {{total}} підтверджено",
     "obligationCompletionRate": "Рівень виконання",
-    "manageObligations": "Керувати завданнями"
+    "manageObligations": "Керувати завданнями",
+    "welcomeTip": "Переглядай всю важливу інформацію в одному місці"
   },
   "invitation": {
     "create": "Створити запрошення",
@@ -321,7 +322,8 @@
     "seatCardYou": "Ви",
     "seatCardSeat": "Місце {{seat}}",
     "seatCardSeatRange": "Місця {{start}}–{{end}}",
-    "seatCardSeats": "Місця {{seats}}"
+    "seatCardSeats": "Місця {{seats}}",
+    "welcomeTip": "Додавай гостей і відстежуй, хто прийде"
   },
   "seating": {
     "title": "Планувальник розсадки",
@@ -384,7 +386,8 @@
     "listFindTable": "Знайдіть свій стіл",
     "listDirectory": "Список імен",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Гостей ще немає"
+    "listEmptyTable": "Гостей ще немає",
+    "welcomeTip": "Розсадьте гостей найкращим чином"
   },
   "expenses": {
     "title": "Витрати",
@@ -408,7 +411,8 @@
     "amountRequired": "Сума має бути більше 0.",
     "payerRequired": "Введіть, хто покриває цю витрату.",
     "coveredBy": "Покриває: {{name}}",
-    "yourExpense": "Ваша витрата"
+    "yourExpense": "Ваша витрата",
+    "welcomeTip": "Відстежуй витрати та тримай бюджет під контролем"
   },
   "obligations": {
     "title": "Завдання",
@@ -494,7 +498,8 @@
         "photographer": "Фотограф",
         "decor": "Декор"
       }
-    }
+    },
+    "welcomeTip": "Відстежуй завдання та залишайся організованим"
   },
   "categories": {
     "music": "Музика",

@@ -119,7 +119,8 @@
     "obligationStats": "할 일",
     "obligationsConfirmed": "확인 {{confirmed}} / {{total}}",
     "obligationCompletionRate": "완료율",
-    "manageObligations": "할 일 관리"
+    "manageObligations": "할 일 관리",
+    "welcomeTip": "중요한 정보를 한곳에서 확인하세요"
   },
   "invitation": {
     "create": "초대장 만들기",
@@ -321,7 +322,8 @@
     "seatCardYou": "나",
     "seatCardSeat": "{{seat}}번 자리",
     "seatCardSeatRange": "{{start}}–{{end}}번 자리",
-    "seatCardSeats": "자리 {{seats}}"
+    "seatCardSeats": "자리 {{seats}}",
+    "welcomeTip": "게스트를 추가하고 참석 여부를 확인하세요"
   },
   "seating": {
     "title": "좌석 플래너",
@@ -384,7 +386,8 @@
     "listFindTable": "내 테이블 찾기",
     "listDirectory": "이름 목록",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "아직 하객이 없습니다"
+    "listEmptyTable": "아직 하객이 없습니다",
+    "welcomeTip": "게스트를 가장 좋은 방식으로 배치하세요"
   },
   "expenses": {
     "title": "지출",
@@ -408,7 +411,8 @@
     "amountRequired": "금액은 0보다 커야 합니다.",
     "payerRequired": "부담자를 입력해 주세요.",
     "coveredBy": "부담: {{name}}",
-    "yourExpense": "본인 부담"
+    "yourExpense": "본인 부담",
+    "welcomeTip": "지출을 기록하고 예산을 잘 관리하세요"
   },
   "obligations": {
     "title": "할 일",
@@ -494,7 +498,8 @@
         "photographer": "사진작가",
         "decor": "장식"
       }
-    }
+    },
+    "welcomeTip": "할 일을 관리하고 체계적으로 준비하세요"
   },
   "categories": {
     "music": "음악",

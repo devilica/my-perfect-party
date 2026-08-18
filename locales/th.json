@@ -119,7 +119,8 @@
     "obligationStats": "งานที่ต้องทำ",
     "obligationsConfirmed": "ยืนยันแล้ว {{confirmed}} / {{total}}",
     "obligationCompletionRate": "อัตราการเสร็จสิ้น",
-    "manageObligations": "จัดการงาน"
+    "manageObligations": "จัดการงาน",
+    "welcomeTip": "ดูข้อมูลสำคัญทั้งหมดในที่เดียว"
   },
   "invitation": {
     "create": "สร้างคำเชิญ",
@@ -321,7 +322,8 @@
     "seatCardYou": "คุณ",
     "seatCardSeat": "ที่นั่ง {{seat}}",
     "seatCardSeatRange": "ที่นั่ง {{start}}–{{end}}",
-    "seatCardSeats": "ที่นั่ง {{seats}}"
+    "seatCardSeats": "ที่นั่ง {{seats}}",
+    "welcomeTip": "เพิ่มแขกและติดตามว่าใครจะมา"
   },
   "seating": {
     "title": "วางแผนที่นั่ง",
@@ -384,7 +386,8 @@
     "listFindTable": "ค้นหาโต๊ะของคุณ",
     "listDirectory": "รายชื่อ",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "ยังไม่มีแขก"
+    "listEmptyTable": "ยังไม่มีแขก",
+    "welcomeTip": "จัดที่นั่งแขกของคุณให้ดีที่สุด"
   },
   "expenses": {
     "title": "ค่าใช้จ่าย",
@@ -408,7 +411,8 @@
     "amountRequired": "จำนวนเงินต้องมากกว่า 0",
     "payerRequired": "กรุณาระบุว่าใครจ่ายค่าใช้จ่ายนี้",
     "coveredBy": "จ่ายโดย: {{name}}",
-    "yourExpense": "ค่าใช้จ่ายของคุณ"
+    "yourExpense": "ค่าใช้จ่ายของคุณ",
+    "welcomeTip": "ติดตามค่าใช้จ่ายและควบคุมงบประมาณให้ดี"
   },
   "obligations": {
     "title": "งานที่ต้องทำ",
@@ -494,7 +498,8 @@
         "photographer": "ช่างภาพ",
         "decor": "ของตกแต่ง"
       }
-    }
+    },
+    "welcomeTip": "ติดตามงานและจัดระเบียบให้ดี"
   },
   "categories": {
     "music": "ดนตรี",

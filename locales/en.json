@@ -119,7 +119,8 @@
     "obligationStats": "Tasks",
     "obligationsConfirmed": "{{confirmed}} / {{total}} confirmed",
     "obligationCompletionRate": "Completion rate",
-    "manageObligations": "Manage tasks"
+    "manageObligations": "Manage tasks",
+    "welcomeTip": "See everything important in one place"
   },
   "invitation": {
     "create": "Create invitation",
@@ -321,7 +322,8 @@
     "seatCardYou": "You",
     "seatCardSeat": "Seat {{seat}}",
     "seatCardSeatRange": "Seats {{start}}–{{end}}",
-    "seatCardSeats": "Seats {{seats}}"
+    "seatCardSeats": "Seats {{seats}}",
+    "welcomeTip": "Add guests and track who's coming"
   },
   "seating": {
     "title": "Seating planner",
@@ -384,7 +386,8 @@
     "listFindTable": "Find your table",
     "listDirectory": "Name directory",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "No guests yet"
+    "listEmptyTable": "No guests yet",
+    "welcomeTip": "Arrange your guests in the best way"
   },
   "expenses": {
     "title": "Expenses",
@@ -408,7 +411,8 @@
     "amountRequired": "Amount must be greater than 0.",
     "payerRequired": "Please enter who covers this expense.",
     "coveredBy": "Covered by: {{name}}",
-    "yourExpense": "Your expense"
+    "yourExpense": "Your expense",
+    "welcomeTip": "Track expenses and keep your budget under control"
   },
   "obligations": {
     "title": "Tasks",
@@ -494,7 +498,8 @@
         "photographer": "Photographer",
         "decor": "Decoration"
       }
-    }
+    },
+    "welcomeTip": "Track tasks and stay organized"
   },
   "categories": {
     "music": "Music",

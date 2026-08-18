@@ -119,7 +119,8 @@
     "obligationStats": "Обавезе",
     "obligationsConfirmed": "{{confirmed}} / {{total}} потврђено",
     "obligationCompletionRate": "Стопа завршености",
-    "manageObligations": "Управљај обавезама"
+    "manageObligations": "Управљај обавезама",
+    "welcomeTip": "Прегледај све важне информације на једном месту"
   },
   "invitation": {
     "create": "Креирај позивницу",
@@ -321,7 +322,8 @@
     "seatCardYou": "Ти",
     "seatCardSeat": "Место {{seat}}",
     "seatCardSeatRange": "Места {{start}}–{{end}}",
-    "seatCardSeats": "Места {{seats}}"
+    "seatCardSeats": "Места {{seats}}",
+    "welcomeTip": "Додај госте и прати ко долazi"
   },
   "seating": {
     "title": "Распоред сједења",
@@ -384,7 +386,8 @@
     "listFindTable": "Пронађи свој сто",
     "listDirectory": "Именик",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Још нема гостију"
+    "listEmptyTable": "Још нема гостију",
+    "welcomeTip": "Распoredи своје госте на најбољи начин"
   },
   "expenses": {
     "title": "Трошкови",
@@ -408,7 +411,8 @@
     "amountRequired": "Износ мора бити већи од 0.",
     "payerRequired": "Унеси ко покрива трошак.",
     "coveredBy": "Покрива: {{name}}",
-    "yourExpense": "Твој трошак"
+    "yourExpense": "Твој трошак",
+    "welcomeTip": "Прати troškove i drži budžet pod kontrolom"
   },
   "obligations": {
     "title": "Обавезе",
@@ -494,7 +498,8 @@
         "photographer": "Фотограф",
         "decor": "Декорација"
       }
-    }
+    },
+    "welcomeTip": "Прати обaveze и остани организован"
   },
   "categories": {
     "music": "Музика",

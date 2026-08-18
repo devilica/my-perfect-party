@@ -119,7 +119,8 @@
     "obligationStats": "Detyra",
     "obligationsConfirmed": "{{confirmed}} / {{total}} të konfirmuar",
     "obligationCompletionRate": "Shkalla e përfundimit",
-    "manageObligations": "Menaxho detyrat"
+    "manageObligations": "Menaxho detyrat",
+    "welcomeTip": "Shiko të gjitha informacionet e rëndësishme në një vend"
   },
   "invitation": {
     "create": "Krijo ftesë",
@@ -321,7 +322,8 @@
     "seatCardYou": "Ti",
     "seatCardSeat": "Vendi {{seat}}",
     "seatCardSeatRange": "Vendet {{start}}–{{end}}",
-    "seatCardSeats": "Vendet {{seats}}"
+    "seatCardSeats": "Vendet {{seats}}",
+    "welcomeTip": "Shto mysafirë dhe ndiq kush vjen"
   },
   "seating": {
     "title": "Planifikuesi i uljeve",
@@ -384,7 +386,8 @@
     "listFindTable": "Gjeni tavolinën tuaj",
     "listDirectory": "Regjistri i emrave",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Nuk ka ende të ftuar"
+    "listEmptyTable": "Nuk ka ende të ftuar",
+    "welcomeTip": "Vendos mysafirët në mënyrën më të mirë"
   },
   "expenses": {
     "title": "Shpenzime",
@@ -408,7 +411,8 @@
     "amountRequired": "Shuma duhet të jetë më e madhe se 0.",
     "payerRequired": "Shkruaj kush e mbulon këtë shpenzim.",
     "coveredBy": "Mbuluar nga: {{name}}",
-    "yourExpense": "Shpenzimi yt"
+    "yourExpense": "Shpenzimi yt",
+    "welcomeTip": "Ndiq shpenzimet dhe mbaj buxhetin nën kontroll"
   },
   "obligations": {
     "title": "Detyra",
@@ -494,7 +498,8 @@
         "photographer": "Fotografi",
         "decor": "Dekorim"
       }
-    }
+    },
+    "welcomeTip": "Ndiq detyrat dhe mbetu i organizuar"
   },
   "categories": {
     "music": "Muzikë",

@@ -119,7 +119,8 @@
     "obligationStats": "Taken",
     "obligationsConfirmed": "{{confirmed}} / {{total}} bevestigd",
     "obligationCompletionRate": "Voltooiingspercentage",
-    "manageObligations": "Taken beheren"
+    "manageObligations": "Taken beheren",
+    "welcomeTip": "Bekijk alle belangrijke info op één plek"
   },
   "invitation": {
     "create": "Uitnodiging maken",
@@ -321,7 +322,8 @@
     "seatCardYou": "Jij",
     "seatCardSeat": "Plaats {{seat}}",
     "seatCardSeatRange": "Plaatsen {{start}}–{{end}}",
-    "seatCardSeats": "Plaatsen {{seats}}"
+    "seatCardSeats": "Plaatsen {{seats}}",
+    "welcomeTip": "Voeg gasten toe en houd bij wie er komt"
   },
   "seating": {
     "title": "Zitplaatsenplanner",
@@ -384,7 +386,8 @@
     "listFindTable": "Vind je tafel",
     "listDirectory": "Namenlijst",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Nog geen gasten"
+    "listEmptyTable": "Nog geen gasten",
+    "welcomeTip": "Plaats je gasten op de beste manier"
   },
   "expenses": {
     "title": "Uitgaven",
@@ -408,7 +411,8 @@
     "amountRequired": "Bedrag moet groter zijn dan 0.",
     "payerRequired": "Voer in wie deze uitgave betaalt.",
     "coveredBy": "Betaald door: {{name}}",
-    "yourExpense": "Jouw uitgave"
+    "yourExpense": "Jouw uitgave",
+    "welcomeTip": "Houd uitgaven bij en beheer je budget"
   },
   "obligations": {
     "title": "Taken",
@@ -494,7 +498,8 @@
         "photographer": "Fotograaf",
         "decor": "Decoratie"
       }
-    }
+    },
+    "welcomeTip": "Houd taken bij en blijf georganiseerd"
   },
   "categories": {
     "music": "Muziek",

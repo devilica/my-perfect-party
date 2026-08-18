@@ -119,7 +119,8 @@
     "obligationStats": "Εργασίες",
     "obligationsConfirmed": "{{confirmed}} / {{total}} επιβεβαιωμένες",
     "obligationCompletionRate": "Ποσοστό ολοκλήρωσης",
-    "manageObligations": "Διαχείριση εργασιών"
+    "manageObligations": "Διαχείριση εργασιών",
+    "welcomeTip": "Δες όλες τις σημαντικές πληροφορίες σε ένα μέρος"
   },
   "invitation": {
     "create": "Δημιουργία πρόσκλησης",
@@ -321,7 +322,8 @@
     "seatCardYou": "Εσείς",
     "seatCardSeat": "Θέση {{seat}}",
     "seatCardSeatRange": "Θέσεις {{start}}–{{end}}",
-    "seatCardSeats": "Θέσεις {{seats}}"
+    "seatCardSeats": "Θέσεις {{seats}}",
+    "welcomeTip": "Πρόσθεσε καλεσμένους και παρακολούθησε ποιος έρχεται"
   },
   "seating": {
     "title": "Σχεδιασμός θέσεων",
@@ -384,7 +386,8 @@
     "listFindTable": "Βρείτε το τραπέζι σας",
     "listDirectory": "Ευρετήριο ονομάτων",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Δεν υπάρχουν ακόμη καλεσμένοι"
+    "listEmptyTable": "Δεν υπάρχουν ακόμη καλεσμένοι",
+    "welcomeTip": "Καθίστε τους καλεσμένους σας με τον καλύτερο τρόπο"
   },
   "expenses": {
     "title": "Έξοδα",
@@ -408,7 +411,8 @@
     "amountRequired": "Το ποσό πρέπει να είναι μεγαλύτερο από 0.",
     "payerRequired": "Παρακαλώ εισάγετε ποιος καλύπτει αυτό το έξοδο.",
     "coveredBy": "Καλύπτεται από: {{name}}",
-    "yourExpense": "Το έξοδό σας"
+    "yourExpense": "Το έξοδό σας",
+    "welcomeTip": "Παρακολούθησε τα έξοδα και κράτα τον προϋπολογισμό υπό έλεγχο"
   },
   "obligations": {
     "title": "Εργασίες",
@@ -494,7 +498,8 @@
         "photographer": "Φωτογράφος",
         "decor": "Διακόσμηση"
       }
-    }
+    },
+    "welcomeTip": "Παρακολούθησε τις εργασίες και μείνε οργανωμένος"
   },
   "categories": {
     "music": "Μουσική",

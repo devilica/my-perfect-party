@@ -119,7 +119,8 @@
     "obligationStats": "Feladatok",
     "obligationsConfirmed": "{{confirmed}} / {{total}} kész",
     "obligationCompletionRate": "Teljesítési arány",
-    "manageObligations": "Feladatok kezelése"
+    "manageObligations": "Feladatok kezelése",
+    "welcomeTip": "Minden fontos infó egy helyen"
   },
   "invitation": {
     "create": "Meghívó létrehozása",
@@ -321,7 +322,8 @@
     "seatCardYou": "Te",
     "seatCardSeat": "{{seat}}. hely",
     "seatCardSeatRange": "{{start}}–{{end}}. hely",
-    "seatCardSeats": "Helyek: {{seats}}"
+    "seatCardSeats": "Helyek: {{seats}}",
+    "welcomeTip": "Adj hozzá vendégeket és kövesd, ki jön"
   },
   "seating": {
     "title": "Ültetéstervező",
@@ -384,7 +386,8 @@
     "listFindTable": "Találd meg az asztalod",
     "listDirectory": "Névjegyzék",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Még nincsenek vendégek"
+    "listEmptyTable": "Még nincsenek vendégek",
+    "welcomeTip": "Ültesd el a vendégeidet a legjobb módon"
   },
   "expenses": {
     "title": "Kiadások",
@@ -408,7 +411,8 @@
     "amountRequired": "Az összegnek 0-nál nagyobbnak kell lennie.",
     "payerRequired": "Add meg, ki fizeti ezt a kiadást.",
     "coveredBy": "Fizeti: {{name}}",
-    "yourExpense": "A te kiadásod"
+    "yourExpense": "A te kiadásod",
+    "welcomeTip": "Kövesd a kiadásokat és tartsd kordában a költségvetést"
   },
   "obligations": {
     "title": "Feladatok",
@@ -494,7 +498,8 @@
         "photographer": "Fotós",
         "decor": "Dekoráció"
       }
-    }
+    },
+    "welcomeTip": "Kövesd a feladatokat és maradj szervezett"
   },
   "categories": {
     "music": "Zene",

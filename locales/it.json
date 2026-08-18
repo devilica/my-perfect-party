@@ -119,7 +119,8 @@
     "obligationStats": "Attività",
     "obligationsConfirmed": "{{confirmed}} / {{total}} confermati",
     "obligationCompletionRate": "Tasso di completamento",
-    "manageObligations": "Gestisci attività"
+    "manageObligations": "Gestisci attività",
+    "welcomeTip": "Vedi tutte le informazioni importanti in un unico posto"
   },
   "invitation": {
     "create": "Crea invito",
@@ -321,7 +322,8 @@
     "seatCardYou": "Tu",
     "seatCardSeat": "Posto {{seat}}",
     "seatCardSeatRange": "Posti {{start}}–{{end}}",
-    "seatCardSeats": "Posti {{seats}}"
+    "seatCardSeats": "Posti {{seats}}",
+    "welcomeTip": "Aggiungi ospiti e tieni traccia di chi viene"
   },
   "seating": {
     "title": "Piano tavoli",
@@ -384,7 +386,8 @@
     "listFindTable": "Trova il tuo tavolo",
     "listDirectory": "Elenco nomi",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Nessun ospite ancora"
+    "listEmptyTable": "Nessun ospite ancora",
+    "welcomeTip": "Disponi i tuoi ospiti nel modo migliore"
   },
   "expenses": {
     "title": "Spese",
@@ -408,7 +411,8 @@
     "amountRequired": "L'importo deve essere maggiore di 0.",
     "payerRequired": "Indica chi copre questa spesa.",
     "coveredBy": "Coperto da: {{name}}",
-    "yourExpense": "La tua spesa"
+    "yourExpense": "La tua spesa",
+    "welcomeTip": "Tieni traccia delle spese e mantieni il budget sotto controllo"
   },
   "obligations": {
     "title": "Attività",
@@ -494,7 +498,8 @@
         "photographer": "Fotografo",
         "decor": "Decorazione"
       }
-    }
+    },
+    "welcomeTip": "Tieni traccia delle attività e resta organizzato"
   },
   "categories": {
     "music": "Musica",

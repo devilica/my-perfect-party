@@ -119,7 +119,8 @@
     "obligationStats": "משימות",
     "obligationsConfirmed": "{{confirmed}} / {{total}} אושרו",
     "obligationCompletionRate": "שיעור השלמה",
-    "manageObligations": "ניהול משימות"
+    "manageObligations": "ניהול משימות",
+    "welcomeTip": "ראו את כל המידע החשוב במקום אחד"
   },
   "invitation": {
     "create": "יצירת הזמנה",
@@ -321,7 +322,8 @@
     "seatCardYou": "אתה",
     "seatCardSeat": "מקום {{seat}}",
     "seatCardSeatRange": "מקומות {{start}}–{{end}}",
-    "seatCardSeats": "מקומות {{seats}}"
+    "seatCardSeats": "מקומות {{seats}}",
+    "welcomeTip": "הוסיפו אורחים ועקבו מי מגיע"
   },
   "seating": {
     "title": "מתכנן הושבה",
@@ -384,7 +386,8 @@
     "listFindTable": "מצאו את השולחן שלכם",
     "listDirectory": "מדריך שמות",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "עדיין אין אורחים"
+    "listEmptyTable": "עדיין אין אורחים",
+    "welcomeTip": "סדרו את האורחים שלכם בצורה הטובה ביותר"
   },
   "expenses": {
     "title": "הוצאות",
@@ -408,7 +411,8 @@
     "amountRequired": "הסכום חייב להיות גדול מ-0.",
     "payerRequired": "נא להזין מי מכסה הוצאה זו.",
     "coveredBy": "מכוסה על ידי: {{name}}",
-    "yourExpense": "ההוצאה שלכם"
+    "yourExpense": "ההוצאה שלכם",
+    "welcomeTip": "עקבו אחר ההוצאות ושמרו על התקציב בשליטה"
   },
   "obligations": {
     "title": "משימות",
@@ -494,7 +498,8 @@
         "photographer": "צלם",
         "decor": "עיצוב"
       }
-    }
+    },
+    "welcomeTip": "עקבו אחר המשימות והישארו מאורגנים"
   },
   "categories": {
     "music": "מוזיקה",

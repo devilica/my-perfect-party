@@ -119,7 +119,8 @@
     "obligationStats": "Naloge",
     "obligationsConfirmed": "{{confirmed}} / {{total}} potrjeno",
     "obligationCompletionRate": "Stopnja dokončanja",
-    "manageObligations": "Upravljaj naloge"
+    "manageObligations": "Upravljaj naloge",
+    "welcomeTip": "Preglej vse pomembne informacije na enem mestu"
   },
   "invitation": {
     "create": "Ustvari vabilo",
@@ -321,7 +322,8 @@
     "seatCardYou": "Vi",
     "seatCardSeat": "Sedež {{seat}}",
     "seatCardSeatRange": "Sedeži {{start}}–{{end}}",
-    "seatCardSeats": "Sedeži {{seats}}"
+    "seatCardSeats": "Sedeži {{seats}}",
+    "welcomeTip": "Dodajaj goste in spremljaj, kdo prihaja"
   },
   "seating": {
     "title": "Načrtovalnik razporeditve",
@@ -384,7 +386,8 @@
     "listFindTable": "Poiščite svojo mizo",
     "listDirectory": "Imenik",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Še ni gostov"
+    "listEmptyTable": "Še ni gostov",
+    "welcomeTip": "Razporedi goste na najboljši način"
   },
   "expenses": {
     "title": "Stroški",
@@ -408,7 +411,8 @@
     "amountRequired": "Znesek mora biti večji od 0.",
     "payerRequired": "Vnesite, kdo krije ta strošek.",
     "coveredBy": "Krije: {{name}}",
-    "yourExpense": "Vaš strošek"
+    "yourExpense": "Vaš strošek",
+    "welcomeTip": "Spremljaj stroške in imej proračun pod nadzorom"
   },
   "obligations": {
     "title": "Naloge",
@@ -494,7 +498,8 @@
         "photographer": "Fotograf",
         "decor": "Dekoracija"
       }
-    }
+    },
+    "welcomeTip": "Spremljaj naloge in ostani organiziran"
   },
   "categories": {
     "music": "Glasba",

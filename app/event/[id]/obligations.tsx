@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
 
 import { ObligationCard } from '@/components/ObligationCard';
+import { ObligationsWelcomeAvatar } from '@/components/ObligationsWelcomeAvatar';
 import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { Button, EmptyState, Fab, StatCard } from '@/components/ui';
@@ -165,6 +166,7 @@ export default function ObligationsScreen() {
           showsVerticalScrollIndicator={false}
         />
         <Fab onPress={() => router.push(`/modals/obligation-form?eventId=${eventId}`)} />
+        <ObligationsWelcomeAvatar />
       </View>
     </ThemedScreenContainer>
   );

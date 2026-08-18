@@ -5,6 +5,7 @@ import { Alert, FlatList, StyleSheet, TextInput, View } from 'react-native';
 import { GuestFilterBar } from '@/components/GuestFilterBar';
 import { GuestSortBar } from '@/components/GuestSortBar';
 import { GuestCard } from '@/components/GuestCard';
+import { GuestsWelcomeAvatar } from '@/components/GuestsWelcomeAvatar';
 import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { EmptyState, Fab } from '@/components/ui';
@@ -122,6 +123,7 @@ export default function GuestsScreen() {
           showsVerticalScrollIndicator={false}
         />
         <Fab onPress={() => router.push(`/modals/guest-form?eventId=${eventId}`)} />
+        <GuestsWelcomeAvatar />
       </View>
     </ThemedScreenContainer>
   );

@@ -119,7 +119,8 @@
     "obligationStats": "Ülesanded",
     "obligationsConfirmed": "{{confirmed}} / {{total}} kinnitatud",
     "obligationCompletionRate": "Täitmise määr",
-    "manageObligations": "Halda ülesandeid"
+    "manageObligations": "Halda ülesandeid",
+    "welcomeTip": "Vaata kogu olulist infot ühes kohas"
   },
   "invitation": {
     "create": "Loo kutse",
@@ -321,7 +322,8 @@
     "seatCardYou": "Sina",
     "seatCardSeat": "Koht {{seat}}",
     "seatCardSeatRange": "Kohad {{start}}–{{end}}",
-    "seatCardSeats": "Kohad {{seats}}"
+    "seatCardSeats": "Kohad {{seats}}",
+    "welcomeTip": "Lisa külalisi ja jälgi, kes tuleb"
   },
   "seating": {
     "title": "Istumise planeerija",
@@ -384,7 +386,8 @@
     "listFindTable": "Leia oma laud",
     "listDirectory": "Nimede register",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Külalisi pole veel"
+    "listEmptyTable": "Külalisi pole veel",
+    "welcomeTip": "Paiguta oma külalised parimal viisil"
   },
   "expenses": {
     "title": "Kulud",
@@ -408,7 +411,8 @@
     "amountRequired": "Summa peab olema suurem kui 0.",
     "payerRequired": "Palun sisesta, kes seda kulut katab.",
     "coveredBy": "Katab: {{name}}",
-    "yourExpense": "Sinu kulu"
+    "yourExpense": "Sinu kulu",
+    "welcomeTip": "Jälgi kulusid ja hoia eelarve kontrolli all"
   },
   "obligations": {
     "title": "Ülesanded",
@@ -494,7 +498,8 @@
         "photographer": "Fotograaf",
         "decor": "Kaunistus"
       }
-    }
+    },
+    "welcomeTip": "Jälgi ülesandeid ja püsi organiseerituna"
   },
   "categories": {
     "music": "Muusika",

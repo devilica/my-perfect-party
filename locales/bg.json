@@ -119,7 +119,8 @@
     "obligationStats": "Задачи",
     "obligationsConfirmed": "{{confirmed}} / {{total}} потвърдени",
     "obligationCompletionRate": "Процент на изпълнение",
-    "manageObligations": "Управление на задачите"
+    "manageObligations": "Управление на задачите",
+    "welcomeTip": "Виж всичко важно на едно място"
   },
   "invitation": {
     "create": "Създай покана",
@@ -321,7 +322,8 @@
     "seatCardYou": "Ти",
     "seatCardSeat": "Място {{seat}}",
     "seatCardSeatRange": "Места {{start}}–{{end}}",
-    "seatCardSeats": "Места {{seats}}"
+    "seatCardSeats": "Места {{seats}}",
+    "welcomeTip": "Добавяй гости и следи кой идва"
   },
   "seating": {
     "title": "Планиране на местата",
@@ -384,7 +386,8 @@
     "listFindTable": "Намерете масата си",
     "listDirectory": "Именен указател",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Все още няма гости"
+    "listEmptyTable": "Все още няма гости",
+    "welcomeTip": "Подреди гостите си по най-добрия начин"
   },
   "expenses": {
     "title": "Разходи",
@@ -408,7 +411,8 @@
     "amountRequired": "Сумата трябва да е по-голяма от 0.",
     "payerRequired": "Моля, въведете кой покрива този разход.",
     "coveredBy": "Покрито от: {{name}}",
-    "yourExpense": "Вашият разход"
+    "yourExpense": "Вашият разход",
+    "welcomeTip": "Следи разходите и държи бюджета под контрол"
   },
   "obligations": {
     "title": "Задачи",
@@ -494,7 +498,8 @@
         "photographer": "Фотограф",
         "decor": "Декорация"
       }
-    }
+    },
+    "welcomeTip": "Следи задачите и остани организиран"
   },
   "categories": {
     "music": "Музика",

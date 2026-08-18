@@ -119,7 +119,8 @@
     "obligationStats": "Kompiti",
     "obligationsConfirmed": "{{confirmed}} / {{total}} ikkonfermati",
     "obligationCompletionRate": "Rata ta' kompletament",
-    "manageObligations": "Immaniġġja l-kompiti"
+    "manageObligations": "Immaniġġja l-kompiti",
+    "welcomeTip": "Ara l-informazzjoni kollha importanti f'post wieħed"
   },
   "invitation": {
     "create": "Oħloq stedina",
@@ -321,7 +322,8 @@
     "seatCardYou": "Int",
     "seatCardSeat": "Siġġu {{seat}}",
     "seatCardSeatRange": "Siġġijiet {{start}}–{{end}}",
-    "seatCardSeats": "Siġġijiet {{seats}}"
+    "seatCardSeats": "Siġġijiet {{seats}}",
+    "welcomeTip": "Żid mistiedna u segwi min ġej"
   },
   "seating": {
     "title": "Ippjanar tal-pożizzjonijiet",
@@ -384,7 +386,8 @@
     "listFindTable": "Sib il-mejda tiegħek",
     "listDirectory": "Direttorju tal-ismijiet",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Għad m’hemmx mistednin"
+    "listEmptyTable": "Għad m’hemmx mistednin",
+    "welcomeTip": "Arranġa l- mistiedna tiegħek bl-aħjar mod"
   },
   "expenses": {
     "title": "Spejseż",
@@ -408,7 +411,8 @@
     "amountRequired": "L-ammont irid ikun akbar minn 0.",
     "payerRequired": "Daħħal min jkopri din is-spejseż.",
     "coveredBy": "Mkoperti minn: {{name}}",
-    "yourExpense": "Is-spejseż tiegħek"
+    "yourExpense": "Is-spejseż tiegħek",
+    "welcomeTip": "Segwi l-ispejjeż u żomm il-baġit taħt kontroll"
   },
   "obligations": {
     "title": "Kompiti",
@@ -494,7 +498,8 @@
         "photographer": "Fotografu",
         "decor": "Dekorazzjoni"
       }
-    }
+    },
+    "welcomeTip": "Segwi t-tasks u żomm l-organizzat"
   },
   "categories": {
     "music": "Mużika",

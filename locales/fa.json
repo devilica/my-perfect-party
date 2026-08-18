@@ -119,7 +119,8 @@
     "obligationStats": "وظایف",
     "obligationsConfirmed": "{{confirmed}} / {{total}} تأیید شده",
     "obligationCompletionRate": "نرخ تکمیل",
-    "manageObligations": "مدیریت وظایف"
+    "manageObligations": "مدیریت وظایف",
+    "welcomeTip": "همه اطلاعات مهم را در یک جا ببین"
   },
   "invitation": {
     "create": "ساخت دعوت‌نامه",
@@ -321,7 +322,8 @@
     "seatCardYou": "شما",
     "seatCardSeat": "صندلی {{seat}}",
     "seatCardSeatRange": "صندلی‌های {{start}}–{{end}}",
-    "seatCardSeats": "صندلی‌های {{seats}}"
+    "seatCardSeats": "صندلی‌های {{seats}}",
+    "welcomeTip": "مهمان اضافه کن و ببین چه کسی می‌آید"
   },
   "seating": {
     "title": "برنامه‌ریز چیدمان",
@@ -384,7 +386,8 @@
     "listFindTable": "میز خود را پیدا کنید",
     "listDirectory": "فهرست نام‌ها",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "هنوز مهمانی نیست"
+    "listEmptyTable": "هنوز مهمانی نیست",
+    "welcomeTip": "مهمانان خود را به بهترین شکل بنشانید"
   },
   "expenses": {
     "title": "هزینه‌ها",
@@ -408,7 +411,8 @@
     "amountRequired": "مبلغ باید بیشتر از ۰ باشد.",
     "payerRequired": "لطفاً مشخص کنید چه کسی این هزینه را پرداخت می‌کند.",
     "coveredBy": "پرداخت‌کننده: {{name}}",
-    "yourExpense": "هزینه شما"
+    "yourExpense": "هزینه شما",
+    "welcomeTip": "هزینه‌ها را پیگیری کن و بودجه را تحت کنترل نگه دار"
   },
   "obligations": {
     "title": "وظایف",
@@ -494,7 +498,8 @@
         "photographer": "عکاس",
         "decor": "تزئینات"
       }
-    }
+    },
+    "welcomeTip": "وظایف را پیگیری کن و منظم بمان"
   },
   "categories": {
     "music": "موسیقی",

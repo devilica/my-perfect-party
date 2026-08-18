@@ -119,7 +119,8 @@
     "obligationStats": "Görevler",
     "obligationsConfirmed": "{{confirmed}} / {{total}} onaylandı",
     "obligationCompletionRate": "Tamamlanma oranı",
-    "manageObligations": "Görevleri yönet"
+    "manageObligations": "Görevleri yönet",
+    "welcomeTip": "Tüm önemli bilgileri tek yerde gör"
   },
   "invitation": {
     "create": "Davetiye oluştur",
@@ -321,7 +322,8 @@
     "seatCardYou": "Sen",
     "seatCardSeat": "Koltuk {{seat}}",
     "seatCardSeatRange": "Koltuklar {{start}}–{{end}}",
-    "seatCardSeats": "Koltuklar {{seats}}"
+    "seatCardSeats": "Koltuklar {{seats}}",
+    "welcomeTip": "Misafir ekle ve kimin geleceğini takip et"
   },
   "seating": {
     "title": "Oturma planlayıcı",
@@ -384,7 +386,8 @@
     "listFindTable": "Masanızı bulun",
     "listDirectory": "İsim listesi",
     "listPlusOnes": "+{{count}}",
-    "listEmptyTable": "Henüz misafir yok"
+    "listEmptyTable": "Henüz misafir yok",
+    "welcomeTip": "Misafirlerini en iyi şekilde yerleştir"
   },
   "expenses": {
     "title": "Giderler",
@@ -408,7 +411,8 @@
     "amountRequired": "Tutar 0'dan büyük olmalıdır.",
     "payerRequired": "Lütfen bu gideri kimin karşıladığını girin.",
     "coveredBy": "Karşılayan: {{name}}",
-    "yourExpense": "Sizin gideriniz"
+    "yourExpense": "Sizin gideriniz",
+    "welcomeTip": "Harcamaları takip et ve bütçeyi kontrol altında tut"
   },
   "obligations": {
     "title": "Görevler",
@@ -494,7 +498,8 @@
         "photographer": "Fotoğrafçı",
         "decor": "Dekorasyon"
       }
-    }
+    },
+    "welcomeTip": "Görevleri takip et ve düzenli kal"
   },
   "categories": {
     "music": "Müzik",
