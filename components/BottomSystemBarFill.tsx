@@ -14,8 +14,7 @@ export function BottomSystemBarFill({ color }: BottomSystemBarFillProps) {
 
   return (
     <View
-      pointerEvents="none"
-      style={[styles.fill, { height: insets.bottom, backgroundColor: color }]}
+      style={[styles.fill, { height: insets.bottom, backgroundColor: color, pointerEvents: 'none' }]}
     />
   );
 }

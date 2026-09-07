@@ -18,8 +18,10 @@ import Animated, {
 } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { AppImage, resolveAssetDimensions } from '@/components/AppImage';
+import { AppImage } from '@/components/AppImage';
 import { useTranslation } from '@/lib/i18n';
+import { resolveAssetDimensions } from '@/lib/resolveAssetDimensions';
+import { createShadowStyle } from '@/lib/shadowStyles';
 import { getEffectiveBottomInset } from '@/lib/safeAreaInsets';
 import { useWeddingStore } from '@/store/weddingStore';
 import { radius, spacing, typography } from '@/theme/colors';
@@ -144,10 +146,9 @@ export function WelcomeAvatarOverlay({
 
   return (
     <Animated.View
-      pointerEvents="none"
       style={[
         anchor === 'right' ? styles.wrapRight : styles.wrapLeft,
-        { maxWidth: layoutWidth, bottom: bottomInset },
+        { maxWidth: layoutWidth, bottom: bottomInset, pointerEvents: 'none' },
         animatedStyle,
       ]}
       accessibilityElementsHidden
@@ -235,12 +236,13 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.sm,
     marginBottom: spacing.sm,
     ...(Platform.OS === 'ios'
-      ? {
-          shadowColor: '#251B19',
-          shadowOffset: { width: 0, height: 2 },
-          shadowOpacity: 0.08,
-          shadowRadius: 6,
-        }
+      ? createShadowStyle({
+          color: '#251B19',
+          offset: { width: 0, height: 2 },
+          opacity: 0.08,
+          radius: 6,
+          elevation: 2,
+        })
       : {}),
   },
   bubbleLeft: {

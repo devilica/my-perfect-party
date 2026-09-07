@@ -1,5 +1,4 @@
 import { Image as ExpoImage, ImageContentFit, ImageProps as ExpoImageProps } from 'expo-image';
-import resolveAssetSource from 'expo-asset/build/resolveAssetSource';
 import { ImageSourcePropType, ImageStyle, StyleProp } from 'react-native';
 
 type ResizeMode = 'cover' | 'contain' | 'stretch' | 'center';
@@ -28,13 +27,4 @@ export function AppImage({ resizeMode, contentFit, transition = 0, ...props }: A
   );
 }
 
-export function resolveAssetDimensions(source: ImageSourcePropType): {
-  width: number;
-  height: number;
-} {
-  const resolved = resolveAssetSource(source);
-  return {
-    width: resolved?.width ?? 0,
-    height: resolved?.height ?? 0,
-  };
-}
+export { resolveAssetDimensions } from '@/lib/resolveAssetDimensions';

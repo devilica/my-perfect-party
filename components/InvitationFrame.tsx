@@ -5,6 +5,7 @@ import Svg, { Circle, Ellipse, Line, Path, Rect } from 'react-native-svg';
 
 import { AppImage } from '@/components/AppImage';
 import { AppImageBackground } from '@/components/AppImageBackground';
+import { createShadowStyle } from '@/lib/shadowStyles';
 
 import {
   getInvitationTemplate,
@@ -174,7 +175,10 @@ function FloralScatter({ primary, secondary }: { primary: string; secondary: str
   ];
 
   return (
-    <Svg style={StyleSheet.absoluteFill} viewBox="0 0 320 480" pointerEvents="none">
+    <Svg
+      style={[StyleSheet.absoluteFill, { pointerEvents: 'none' }]}
+      viewBox="0 0 320 480"
+    >
       {spots.map((spot, index) => (
         <Circle
           key={index}
@@ -395,11 +399,13 @@ const frameStyles = StyleSheet.create({
   container: {
     borderRadius: 8,
     overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    elevation: 4,
+    ...createShadowStyle({
+      color: '#000',
+      offset: { width: 0, height: 4 },
+      opacity: 0.1,
+      radius: 10,
+      elevation: 4,
+    }),
   },
   background: {
     flex: 1,

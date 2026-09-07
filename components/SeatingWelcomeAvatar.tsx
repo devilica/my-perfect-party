@@ -1,6 +1,6 @@
 import { Dimensions } from 'react-native';
 
-import { resolveAssetDimensions } from '@/components/AppImage';
+import { resolveAssetDimensions } from '@/lib/resolveAssetDimensions';
 import { WelcomeAvatarOverlay } from '@/components/WelcomeAvatarOverlay';
 import {
   markSeatingWelcomeShown,

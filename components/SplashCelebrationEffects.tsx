@@ -247,7 +247,7 @@ export function SplashCelebrationEffects() {
   );
 
   return (
-    <View style={StyleSheet.absoluteFill} pointerEvents="none">
+    <View style={[StyleSheet.absoluteFill, { pointerEvents: 'none' }]}>
       {confettiConfigs.map((config, index) => (
         <ConfettiPiece key={`confetti-${index}`} config={config} screenHeight={height} />
       ))}

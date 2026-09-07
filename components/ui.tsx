@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 
 import { FAB_SIZE, useFabBottomOffset } from '@/hooks/useFabBottomOffset';
+import { createShadowStyle } from '@/lib/shadowStyles';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
 
@@ -152,9 +153,15 @@ export function Fab({
       accessibilityLabel={accessibilityLabel}
       style={({ pressed }) => [
         fabStyles.fab,
+        createShadowStyle({
+          color: theme.text,
+          offset: { width: 0, height: 4 },
+          opacity: 0.15,
+          radius: 8,
+          elevation: 6,
+        }),
         {
           backgroundColor: color ?? theme.primary,
-          shadowColor: theme.text,
           bottom: fabBottom + stackIndex * (FAB_SIZE + spacing.sm),
         },
         pressed && { opacity: 0.9 },
@@ -179,10 +186,6 @@ const fabStyles = StyleSheet.create({
     borderRadius: radius.full,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.15,
-    shadowRadius: 8,
-    elevation: 6,
   },
 });
 
@@ -272,7 +275,13 @@ export function Card({
     () => ({
       backgroundColor: theme.surface,
       borderColor: theme.border,
-      shadowColor: theme.text,
+      ...createShadowStyle({
+        color: theme.text,
+        offset: { width: 0, height: 2 },
+        opacity: 0.1,
+        radius: 8,
+        elevation: 2,
+      }),
     }),
     [theme]
   );
@@ -301,10 +310,6 @@ const cardStyles = StyleSheet.create({
     borderRadius: radius.lg,
     padding: spacing.md,
     borderWidth: 1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.10,
-    shadowRadius: 8,
-    elevation: 2,
   },
 });
 

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import { OverviewNativeAdPlacement } from '@/components/OverviewNativeAdPlacement';
 import { useTranslation } from '@/lib/i18n';
+import { createShadowStyle } from '@/lib/shadowStyles';
 import { useWeddingStore } from '@/store/weddingStore';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
@@ -31,7 +32,13 @@ export function OverviewNativeAdPreview({ placement = 'list' }: OverviewNativeAd
           {
             backgroundColor: theme.surface,
             borderColor: theme.border,
-            shadowColor: theme.text,
+            ...createShadowStyle({
+              color: theme.text,
+              offset: { width: 0, height: 2 },
+              opacity: 0.06,
+              radius: 8,
+              elevation: 2,
+            }),
           },
         ]}
       >
@@ -74,10 +81,6 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     borderWidth: 1,
     padding: spacing.md,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
-    elevation: 2,
     overflow: 'hidden',
   },
   badge: {

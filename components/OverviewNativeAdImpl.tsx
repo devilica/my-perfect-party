@@ -12,6 +12,7 @@ import {
 import { OverviewNativeAdPlacement } from '@/components/OverviewNativeAdPlacement';
 import { OVERVIEW_NATIVE_AD_UNIT_ID } from '@/constants/ads';
 import { useTranslation } from '@/lib/i18n';
+import { createShadowStyle } from '@/lib/shadowStyles';
 import { useWeddingStore } from '@/store/weddingStore';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
@@ -70,7 +71,13 @@ export function OverviewNativeAdImpl({ placement = 'list' }: OverviewNativeAdImp
           {
             backgroundColor: theme.surface,
             borderColor: theme.border,
-            shadowColor: theme.text,
+            ...createShadowStyle({
+              color: theme.text,
+              offset: { width: 0, height: 2 },
+              opacity: 0.06,
+              radius: 8,
+              elevation: 2,
+            }),
           },
         ]}
       >
@@ -130,10 +137,6 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     borderWidth: 1,
     padding: spacing.md,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
-    elevation: 2,
     overflow: 'hidden',
   },
   badge: {

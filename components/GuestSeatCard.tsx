@@ -59,7 +59,7 @@ export const GuestSeatCard = forwardRef<View, GuestSeatCardProps>(
           <Text style={[styles.welcomeText, { color: theme.text }]}>{welcome}</Text>
           <Text style={[styles.welcomeText, { color: theme.text }]}>{welcomeLine2}</Text>
         </View>
-        <View style={styles.watermark} pointerEvents="none">
+        <View style={[styles.watermark, { pointerEvents: 'none' }]}>
           <Text style={[styles.watermarkText, { color: theme.textSecondary }]}>
             {watermark}
           </Text>

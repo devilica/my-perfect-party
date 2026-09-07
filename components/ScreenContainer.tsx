@@ -27,9 +27,8 @@ export function ScreenContainer({ children, style, padded = true }: ScreenContai
   return (
     <View style={[styles.outer, Platform.OS === 'web' && webStyles.outer, style]}>
       <View
-        style={[styles.backgroundLayer, Platform.OS === 'web' && webStyles.backgroundLayerWeb]}
+        style={[styles.backgroundLayer, Platform.OS === 'web' && webStyles.backgroundLayerWeb, { pointerEvents: 'none' }]}
         collapsable={false}
-        pointerEvents="none"
       >
         <AppImage
           source={activeTheme.backgroundImage}

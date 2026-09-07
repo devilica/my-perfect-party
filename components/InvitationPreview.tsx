@@ -12,6 +12,7 @@ import {
 import { InvitationFrame } from '@/components/InvitationFrame';
 import { getInvitationTemplate } from '@/constants/invitationTemplates';
 import { useTranslation } from '@/lib/i18n';
+import { createShadowStyle } from '@/lib/shadowStyles';
 import { useWeddingStore } from '@/store/weddingStore';
 import {
   EventInvitation,
@@ -361,7 +362,7 @@ export const InvitationPreview = forwardRef<View, InvitationPreviewProps>(
             width={width}
             height={height}
           >
-            <View style={styles.inner} pointerEvents="box-none">
+            <View style={[styles.inner, { pointerEvents: 'box-none' }]}>
               {invitation.headerIcon ? (
                 <SelectableBlock
                   selected={selected?.type === 'headerIcon'}
@@ -494,11 +495,13 @@ export const InvitationPreview = forwardRef<View, InvitationPreviewProps>(
         </Pressable>
 
         <View
-          style={[styles.overlay, { elevation: 6 }]}
-          pointerEvents={showChrome ? 'box-none' : 'none'}
+          style={[
+            styles.overlay,
+            { elevation: 6, pointerEvents: showChrome ? 'box-none' : 'none' },
+          ]}
         >
           {!invitation.watermarkRemoved ? (
-            <View style={styles.watermark} pointerEvents="none">
+            <View style={[styles.watermark, { pointerEvents: 'none' }]}>
               <Text
                 style={[
                   styles.watermarkText,
@@ -586,10 +589,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#B92F43',
-    shadowColor: '#251B19',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+    ...createShadowStyle({
+      color: '#251B19',
+      offset: { width: 0, height: 2 },
+      opacity: 0.2,
+      radius: 4,
+      elevation: 4,
+    }),
   },
   toolbarDanger: {
     backgroundColor: '#861E2B',

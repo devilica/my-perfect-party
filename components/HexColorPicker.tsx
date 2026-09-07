@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 
 import { Button } from '@/components/ui';
+import { createShadowStyle } from '@/lib/shadowStyles';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
 
@@ -271,7 +272,6 @@ export function HexColorPicker({
                 style={StyleSheet.absoluteFill}
               />
               <View
-                pointerEvents="none"
                 style={[
                   styles.svHandle,
                   {
@@ -279,6 +279,7 @@ export function HexColorPicker({
                     top: (1 - hsv.v) * (keyboardHeight > 0 ? 160 : SV_SIZE) - HANDLE / 2,
                     backgroundColor: currentHex,
                     borderColor: '#FFFFFF',
+                    pointerEvents: 'none',
                   },
                 ]}
               />
@@ -364,11 +365,13 @@ const styles = StyleSheet.create({
   popup: {
     borderRadius: radius.lg,
     padding: spacing.md,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.18,
-    shadowRadius: 16,
-    elevation: 8,
+    ...createShadowStyle({
+      color: '#000',
+      offset: { width: 0, height: 8 },
+      opacity: 0.18,
+      radius: 16,
+      elevation: 8,
+    }),
   },
   svSquare: {
     width: SV_SIZE,
