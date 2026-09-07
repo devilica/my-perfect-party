@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Tabs, useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
-import { ActivityIndicator, Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Alert, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { useIsOnline } from '@/hooks/useIsOnline';
 import { areAdsEnabled } from '@/lib/adsEnvironment';
@@ -213,6 +213,7 @@ export default function EventLayout() {
       <Tabs
         detachInactiveScreens={false}
         screenOptions={{
+          ...(Platform.OS === 'android' ? { headerStatusBarHeight: 0 } : {}),
           tabBarActiveTintColor: theme.colors.primary,
           tabBarInactiveTintColor: theme.colors.textMuted,
           tabBarStyle: {

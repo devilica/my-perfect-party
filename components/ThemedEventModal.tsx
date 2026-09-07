@@ -1,4 +1,3 @@
-import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { ReactNode, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 
@@ -50,7 +49,7 @@ export function useEventCelebrationTheme(eventId: string): CelebrationTheme {
 export function getThemedModalScreenOptions(
   theme: CelebrationTheme,
   title: string
-): NativeStackNavigationOptions {
+) {
   return {
     title,
     headerStyle: { backgroundColor: theme.colors.background },

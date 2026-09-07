@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import {
   Dimensions,
-  Image,
   ImageSourcePropType,
   Platform,
   StyleSheet,
@@ -19,6 +18,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { AppImage, resolveAssetDimensions } from '@/components/AppImage';
 import { useTranslation } from '@/lib/i18n';
 import { getEffectiveBottomInset } from '@/lib/safeAreaInsets';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -36,7 +36,7 @@ function resolveAspectRatio(
   aspectRatio?: number
 ): number {
   if (aspectRatio != null) return aspectRatio;
-  const resolved = Image.resolveAssetSource(image);
+  const resolved = resolveAssetDimensions(image);
   if (resolved.width > 0 && resolved.height > 0) {
     return resolved.width / resolved.height;
   }
@@ -136,7 +136,7 @@ export function WelcomeAvatarOverlay({
   }, [visible, opacity, translateY, markShown]);
 
   const animatedStyle = useAnimatedStyle(() => ({
-    opacity: opacity.value,
+    opacity: Math.max(opacity.value, 0.001),
     transform: [{ translateY: translateY.value }],
   }));
 
@@ -184,7 +184,7 @@ export function WelcomeAvatarOverlay({
       </View>
       {imageClipWidthRatio < 1 ? (
         <View style={{ width: clippedWidth, height: avatarHeight, overflow: 'hidden' }}>
-          <Image
+          <AppImage
             source={image}
             style={{
               width: avatarWidth,
@@ -197,7 +197,7 @@ export function WelcomeAvatarOverlay({
           />
         </View>
       ) : (
-        <Image
+        <AppImage
           source={image}
           style={{
             width: avatarWidth,

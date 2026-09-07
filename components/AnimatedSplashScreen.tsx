@@ -1,7 +1,7 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useRef } from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Animated, {
   Easing,
   runOnJS,
@@ -17,6 +17,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { getDefaultLanguage, translate } from '@/lib/i18n';
 import { getEffectiveBottomInset } from '@/lib/safeAreaInsets';
+import { AppImage } from '@/components/AppImage';
 import { SplashCelebrationEffects } from '@/components/SplashCelebrationEffects';
 import { colors, spacing, typography } from '@/theme/colors';
 
@@ -107,7 +108,6 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
   }, [containerOpacity, glowOpacity, glowScale, iconPulse, iconScale, taglineOpacity]);
 
   const containerStyle = useAnimatedStyle(() => ({
-    ...StyleSheet.absoluteFillObject,
     opacity: containerOpacity.value,
   }));
 
@@ -125,7 +125,7 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
   }));
 
   return (
-    <Animated.View style={containerStyle}>
+    <Animated.View style={[StyleSheet.absoluteFill, containerStyle]}>
       <LinearGradient
         colors={[colors.background, colors.primaryLight]}
         style={styles.container}
@@ -139,7 +139,7 @@ export function AnimatedSplashScreen({ onFinish }: AnimatedSplashScreenProps) {
             <Animated.View style={[styles.iconCluster, iconStyle]}>
               <Animated.View style={[styles.iconGlow, glowStyle]} />
               <View style={styles.iconWrap}>
-                <Image
+                <AppImage
                   source={require('@/assets/images/logo.png')}
                   style={styles.logo}
                   resizeMode="contain"
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   iconGlow: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     borderRadius: GLOW_SIZE / 2,
     backgroundColor: colors.primaryLight,
   },

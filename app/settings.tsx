@@ -2,8 +2,9 @@ import { Ionicons } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 import { Stack, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Alert, Image, Linking, Pressable, StyleSheet, Switch, Text, View } from 'react-native';
+import { Alert, Linking, Pressable, StyleSheet, Switch, Text, View } from 'react-native';
 
+import { AppImage } from '@/components/AppImage';
 import { FormScrollView } from '@/components/FormScrollView';
 import { BottomBannerAd } from '@/components/BottomBannerAd';
 import { ScreenContainer } from '@/components/ScreenContainer';
@@ -414,7 +415,7 @@ export default function SettingsScreen() {
       </Card>
 
       <View style={styles.footerBrand}>
-        <Image
+        <AppImage
           source={require('@/assets/images/logo.png')}
           style={styles.footerLogo}
           resizeMode="contain"

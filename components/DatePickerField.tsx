@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import DateTimePicker, {
   DateTimePickerAndroid,
-  DateTimePickerEvent,
+  DateTimePickerChangeEvent,
 } from '@react-native-community/datetimepicker';
 import { useState } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
@@ -27,15 +27,12 @@ function openAndroidDateTimePicker(value: Date, onSelect: (iso: string) => void)
   DateTimePickerAndroid.open({
     value,
     mode: 'date',
-    onChange: (event, selectedDate) => {
-      if (event.type === 'dismissed' || !selectedDate) return;
-
+    onValueChange: (_event, selectedDate) => {
       DateTimePickerAndroid.open({
         value: selectedDate,
         mode: 'time',
         is24Hour: true,
-        onChange: (timeEvent, selectedTime) => {
-          if (timeEvent.type === 'dismissed' || !selectedTime) return;
+        onValueChange: (_event, selectedTime) => {
           onSelect(formatIsoDateTime(selectedTime));
         },
       });
@@ -63,13 +60,17 @@ export function DatePickerField({
   const pickerDate = parsed ?? new Date();
   const useAndroidDateTimeFlow = Platform.OS === 'android' && isDateTime;
 
-  const handleChange = (event: DateTimePickerEvent, selected?: Date) => {
+  const handleValueChange = (_event: DateTimePickerChangeEvent, selected: Date) => {
     if (Platform.OS === 'android') {
       setShowPicker(false);
     }
-
-    if (event.type === 'dismissed' || !selected) return;
     onChange(isDateTime ? formatIsoDateTime(selected) : formatIsoDate(selected));
+  };
+
+  const handleDismiss = () => {
+    if (Platform.OS === 'android') {
+      setShowPicker(false);
+    }
   };
 
   const openPicker = () => {
@@ -131,7 +132,8 @@ export function DatePickerField({
           value={pickerDate}
           mode={pickerMode}
           display={Platform.OS === 'ios' ? 'spinner' : 'default'}
-          onChange={handleChange}
+          onValueChange={handleValueChange}
+          onDismiss={handleDismiss}
         />
       ) : null}
       {error ? (

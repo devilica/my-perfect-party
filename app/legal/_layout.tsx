@@ -1,5 +1,6 @@
 import { Stack } from 'expo-router';
 
+import { androidStackScreenOptions } from '@/lib/androidStackScreenOptions';
 import { useThemeColors } from '@/theme/EventThemeContext';
 
 export default function LegalLayout() {
@@ -8,6 +9,7 @@ export default function LegalLayout() {
   return (
     <Stack
       screenOptions={{
+        ...androidStackScreenOptions,
         headerStyle: { backgroundColor: theme.background },
         headerTintColor: theme.primary,
         headerTitleStyle: {

@@ -1,5 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
-import { ImageBackground, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+
+import { AppImageBackground } from '@/components/AppImageBackground';
 
 import { CELEBRATION_THEME_IDS, getCelebrationTheme } from '@/theme/celebrations';
 import { useThemeColors } from '@/theme/EventThemeContext';
@@ -45,15 +47,16 @@ export function ThemePicker({
                 active && { borderColor: theme.primary },
               ]}
             >
-              <ImageBackground
+              <AppImageBackground
                 source={celebrationTheme.backgroundImage}
                 style={styles.preview}
                 imageStyle={styles.previewImage}
+                resizeMode="cover"
               >
                 <View style={styles.previewOverlay}>
                   <Ionicons name={celebrationTheme.icon} size={22} color="#FFFFFF" />
                 </View>
-              </ImageBackground>
+              </AppImageBackground>
               <Text
                 style={[
                   styles.cardLabel,
@@ -107,7 +110,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: radius.md - 2,
   },
   previewOverlay: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     backgroundColor: 'rgba(0,0,0,0.25)',
     alignItems: 'center',
     justifyContent: 'center',

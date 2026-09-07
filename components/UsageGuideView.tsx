@@ -1,7 +1,8 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Stack } from 'expo-router';
 import { useState } from 'react';
-import { LayoutAnimation, Platform, Pressable, StyleSheet, Text, UIManager, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import Animated, { LinearTransition } from 'react-native-reanimated';
 
 import { BottomBannerAd } from '@/components/BottomBannerAd';
 import { FormScrollView } from '@/components/FormScrollView';
@@ -14,10 +15,6 @@ import { useWeddingStore } from '@/store/weddingStore';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
 
-if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
-}
-
 export function UsageGuideView() {
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
@@ -25,7 +22,6 @@ export function UsageGuideView() {
   const [openKey, setOpenKey] = useState<string | null>(USAGE_GUIDE_SECTIONS[0]?.titleKey ?? null);
 
   const toggle = (key: string) => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setOpenKey((current) => (current === key ? null : key));
   };
 
@@ -74,9 +70,11 @@ export function UsageGuideView() {
                   />
                 </Pressable>
                 {isOpen ? (
-                  <Text style={[styles.sectionBody, { color: theme.textSecondary }]}>
-                    {t(section.bodyKey)}
-                  </Text>
+                  <Animated.View layout={LinearTransition.duration(200)}>
+                    <Text style={[styles.sectionBody, { color: theme.textSecondary }]}>
+                      {t(section.bodyKey)}
+                    </Text>
+                  </Animated.View>
                 ) : null}
               </Card>
             );

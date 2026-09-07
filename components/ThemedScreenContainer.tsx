@@ -1,7 +1,8 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { ReactNode } from 'react';
-import { ImageBackground, ImageStyle, Platform, StyleSheet, View, ViewStyle } from 'react-native';
+import { ImageStyle, Platform, StyleSheet, View, ViewStyle } from 'react-native';
 
+import { AppImage } from '@/components/AppImage';
 import { useEventTheme } from '@/theme/EventThemeContext';
 import { spacing } from '@/theme/colors';
 import { flexFill, webViewportHeight } from '@/lib/webLayout';
@@ -29,17 +30,21 @@ export function ThemedScreenContainer({
 
   return (
     <View style={[styles.outer, Platform.OS === 'web' && webStyles.outer, style]}>
-      <ImageBackground
-        source={eventTheme.backgroundImage}
+      <View
         style={[styles.backgroundLayer, Platform.OS === 'web' && webStyles.backgroundLayerWeb]}
-        imageStyle={Platform.OS === 'web' ? webStyles.backgroundImage : undefined}
-        resizeMode="cover"
+        collapsable={false}
+        pointerEvents="none"
       >
+        <AppImage
+          source={eventTheme.backgroundImage}
+          style={[StyleSheet.absoluteFill, Platform.OS === 'web' && webStyles.backgroundImage]}
+          resizeMode="cover"
+        />
         <LinearGradient
           colors={eventTheme.overlayColors}
-          style={StyleSheet.absoluteFillObject}
+          style={StyleSheet.absoluteFill}
         />
-      </ImageBackground>
+      </View>
       <View style={[styles.content, padded && styles.padded]}>
         <View style={styles.inner}>{children}</View>
       </View>
@@ -52,7 +57,7 @@ const styles = StyleSheet.create({
     ...flexFill,
   },
   backgroundLayer: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
   },
   content: {
     ...flexFill,
@@ -83,7 +88,6 @@ const webStyles = {
     height: '100vh',
   } as unknown as ViewStyle,
   backgroundImage: {
-    objectFit: 'cover',
     transform: [{ scale: 1.05 }],
   } as ImageStyle,
 };

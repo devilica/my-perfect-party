@@ -1,7 +1,8 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { ReactNode } from 'react';
-import { ImageBackground, ImageStyle, Platform, StyleSheet, View, ViewStyle } from 'react-native';
+import { ImageStyle, Platform, StyleSheet, View, ViewStyle } from 'react-native';
 
+import { AppImage } from '@/components/AppImage';
 import { useActiveTheme } from '@/theme/EventThemeContext';
 import { colors, spacing } from '@/theme/colors';
 import { flexFill, webViewportHeight } from '@/lib/webLayout';
@@ -25,14 +26,18 @@ export function ScreenContainer({ children, style, padded = true }: ScreenContai
 
   return (
     <View style={[styles.outer, Platform.OS === 'web' && webStyles.outer, style]}>
-      <ImageBackground
-        source={activeTheme.backgroundImage}
+      <View
         style={[styles.backgroundLayer, Platform.OS === 'web' && webStyles.backgroundLayerWeb]}
-        imageStyle={Platform.OS === 'web' ? webStyles.backgroundImage : undefined}
-        resizeMode="cover"
+        collapsable={false}
+        pointerEvents="none"
       >
-        <LinearGradient colors={activeTheme.overlayColors} style={StyleSheet.absoluteFillObject} />
-      </ImageBackground>
+        <AppImage
+          source={activeTheme.backgroundImage}
+          style={[StyleSheet.absoluteFill, Platform.OS === 'web' && webStyles.backgroundImage]}
+          resizeMode="cover"
+        />
+        <LinearGradient colors={activeTheme.overlayColors} style={StyleSheet.absoluteFill} />
+      </View>
       <View style={[styles.content, padded && styles.padded]}>
         <View style={styles.inner}>{children}</View>
       </View>
@@ -48,7 +53,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   backgroundLayer: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
   },
   content: {
     ...flexFill,
@@ -79,7 +84,6 @@ const webStyles = {
     height: '100vh',
   } as unknown as ViewStyle,
   backgroundImage: {
-    objectFit: 'cover',
     transform: [{ scale: 1.05 }],
   } as ImageStyle,
 };

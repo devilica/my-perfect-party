@@ -7,10 +7,10 @@ import { StatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AnimatedSplashScreen } from '@/components/AnimatedSplashScreen';
 import { AppShell } from '@/components/AppShell';
 import { LanguageSetupScreen } from '@/components/LanguageSetupScreen';
+import { androidStackScreenOptions } from '@/lib/androidStackScreenOptions';
 import { initMobileAds } from '@/lib/initMobileAds';
 import { maybeAskForReview } from '@/lib/maybeAskForReview';
 import { syncAllNotifications } from '@/lib/notifications';
@@ -26,6 +26,7 @@ function ThemedRootStack() {
   return (
     <Stack
       screenOptions={{
+        ...androidStackScreenOptions,
         headerStyle: { backgroundColor: theme.background },
         headerTintColor: theme.primary,
         headerTitleStyle: {
@@ -73,7 +74,11 @@ function ThemedRootStack() {
       />
       <Stack.Screen
         name="modals/add-event"
-        options={{ presentation: 'modal', title: 'Event', contentStyle: { backgroundColor: 'transparent' } }}
+        options={{
+          presentation: 'modal',
+          title: 'Event',
+          contentStyle: { backgroundColor: 'transparent' },
+        }}
       />
       <Stack.Screen
         name="modals/add-expense"
@@ -139,8 +144,7 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaProvider>
-      <View style={[flexFill, webViewportHeight]}>
+    <View style={[flexFill, webViewportHeight]}>
         {canRenderApp ? (
           !hasSelectedLanguage ? (
             <AppThemeProvider themeId="default">
@@ -164,14 +168,13 @@ export default function RootLayout() {
         ) : null}
 
         <StatusBar style="dark" />
-      </View>
-    </SafeAreaProvider>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   splashOverlay: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     zIndex: 1000,
   },
 });

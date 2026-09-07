@@ -1,7 +1,10 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { ReactNode } from 'react';
-import { Image, ImageBackground, Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import Svg, { Circle, Ellipse, Line, Path, Rect } from 'react-native-svg';
+
+import { AppImage } from '@/components/AppImage';
+import { AppImageBackground } from '@/components/AppImageBackground';
 
 import {
   getInvitationTemplate,
@@ -267,14 +270,14 @@ function FrameContent({
 
   if (useImage && template.backgroundImage) {
     return (
-      <ImageBackground
+      <AppImageBackground
         source={template.backgroundImage}
         resizeMode="contain"
         style={[frameStyles.background, { backgroundColor: template.backgroundColor }]}
         imageStyle={{ opacity: backgroundOpacity }}
       >
         {decorLayer}
-      </ImageBackground>
+      </AppImageBackground>
     );
   }
 
@@ -322,7 +325,7 @@ function InvitationFrameThumbnailInner({
   if (template.useImageBackground && template.backgroundImage) {
     return (
       <View style={[thumbStyles.imageWrap, { backgroundColor: template.backgroundColor }]}>
-        <Image
+        <AppImage
           source={template.backgroundImage}
           style={thumbStyles.imageFill}
           resizeMode="cover"
@@ -403,7 +406,7 @@ const frameStyles = StyleSheet.create({
     position: 'relative',
   },
   overlay: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
   },
   outerBorder: {
     position: 'absolute',
@@ -481,7 +484,7 @@ const thumbStyles = StyleSheet.create({
     height: '100%',
   },
   imageOverlay: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     backgroundColor: 'rgba(255,255,255,0.2)',
   },
 });

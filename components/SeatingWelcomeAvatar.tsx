@@ -1,5 +1,6 @@
-import { Dimensions, Image } from 'react-native';
+import { Dimensions } from 'react-native';
 
+import { resolveAssetDimensions } from '@/components/AppImage';
 import { WelcomeAvatarOverlay } from '@/components/WelcomeAvatarOverlay';
 import {
   markSeatingWelcomeShown,
@@ -7,7 +8,7 @@ import {
 } from '@/lib/seatingWelcomeSession';
 
 const AVATAR = require('@/assets/images/avatar-seating2.png');
-const AVATAR_SOURCE = Image.resolveAssetSource(AVATAR);
+const AVATAR_SOURCE = resolveAssetDimensions(AVATAR);
 const IMAGE_CLIP_WIDTH_RATIO = 550 / AVATAR_SOURCE.width;
 const IMAGE_BOTTOM_OFFSET_RATIO = 11 / AVATAR_SOURCE.height;
 const { width: SCREEN_WIDTH } = Dimensions.get('window');

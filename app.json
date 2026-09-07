@@ -7,12 +7,6 @@
     "icon": "./assets/images/icon.png",
     "scheme": "mojasavrsenaproslava",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/images/logo.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#FFF8F4"
-    },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.mojasavrsenaproslava.app",
@@ -42,7 +36,8 @@
         {
           "backgroundColor": "#FFF8F4",
           "image": "./assets/images/logo.png",
-          "imageWidth": 220
+          "imageWidth": 220,
+          "resizeMode": "contain"
         }
       ],
       "expo-localization",
@@ -78,7 +73,8 @@
           "icon": "./assets/images/icon.png",
           "color": "#C9686F"
         }
-      ]
+      ],
+      "expo-image"
     ],
     "experiments": {
       "typedRoutes": true

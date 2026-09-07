@@ -1,24 +1,21 @@
 import { Platform, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { getEffectiveBottomInset } from '@/lib/safeAreaInsets';
-
 type BottomSystemBarFillProps = {
   color: string;
 };
 
 export function BottomSystemBarFill({ color }: BottomSystemBarFillProps) {
   const insets = useSafeAreaInsets();
-  const height = getEffectiveBottomInset(insets);
 
-  if (Platform.OS === 'web' || height <= 0) {
+  if (Platform.OS === 'web' || insets.bottom > 0) {
     return null;
   }
 
   return (
     <View
       pointerEvents="none"
-      style={[styles.fill, { height, backgroundColor: color }]}
+      style={[styles.fill, { height: insets.bottom, backgroundColor: color }]}
     />
   );
 }

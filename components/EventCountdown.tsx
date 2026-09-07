@@ -1,6 +1,8 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useMemo } from 'react';
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+
+import { AppImageBackground } from '@/components/AppImageBackground';
 
 import { Card } from '@/components/ui';
 import { formatDisplayDate, getEventCountdown } from '@/lib/dateUtils';
@@ -92,14 +94,14 @@ export function EventCountdown({ date, location, eventTheme }: EventCountdownPro
   return (
     <Card style={[showBackground ? styles.cardWithImage : styles.cardPlain, { backgroundColor: theme.surface }]}>
       {showBackground ? (
-        <ImageBackground
+        <AppImageBackground
           source={backgroundSource}
           style={styles.background}
           imageStyle={styles.backgroundImage}
           resizeMode="cover"
         >
           <View style={styles.content}>{content}</View>
-        </ImageBackground>
+        </AppImageBackground>
       ) : (
         <View style={styles.contentPlain}>{content}</View>
       )}
