@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 
 import { Button } from '@/components/ui';
+import { useBottomSheetPadding } from '@/hooks/useBottomSheetPadding';
 import { createShadowStyle } from '@/lib/shadowStyles';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
@@ -103,6 +104,7 @@ export function HexColorPicker({
   onChange,
 }: HexColorPickerProps) {
   const theme = useThemeColors();
+  const bottomSheetPadding = useBottomSheetPadding();
   const [open, setOpen] = useState(false);
   const [hsv, setHsv] = useState(() => hexToHsv(value));
   const [hexDraft, setHexDraft] = useState(() => normalizeHex(value) ?? '#3D3D3D');
@@ -221,7 +223,8 @@ export function HexColorPicker({
             {
               backgroundColor: theme.overlay,
               justifyContent: keyboardHeight > 0 ? 'flex-end' : 'center',
-              paddingBottom: keyboardHeight > 0 ? keyboardHeight + spacing.sm : spacing.xl,
+              paddingBottom:
+                keyboardHeight > 0 ? keyboardHeight + bottomSheetPadding : spacing.xl,
             },
           ]}
           onPress={() => setOpen(false)}

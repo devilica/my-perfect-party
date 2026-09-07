@@ -1,6 +1,5 @@
 import { DatePickerField } from '@/components/DatePickerField';
 import { BottomBannerAd } from '@/components/BottomBannerAd';
-import { BottomSystemBarFill } from '@/components/BottomSystemBarFill';
 import { OverviewNativeAd } from '@/components/OverviewNativeAd';
 import { StringListEditor } from '@/components/StringListEditor';
 import { FormScrollView } from '@/components/FormScrollView';
@@ -213,7 +212,6 @@ function AddEventForm({ existingEvent, theme, onThemeChange }: AddEventFormProps
         </View>
         <BottomBannerAd />
       </View>
-      <BottomSystemBarFill color={themeColors.background} />
     </ScreenContainer>
   );
 }

@@ -22,7 +22,6 @@ import { AppImage } from '@/components/AppImage';
 import { useTranslation } from '@/lib/i18n';
 import { resolveAssetDimensions } from '@/lib/resolveAssetDimensions';
 import { createShadowStyle } from '@/lib/shadowStyles';
-import { getEffectiveBottomInset } from '@/lib/safeAreaInsets';
 import { useWeddingStore } from '@/store/weddingStore';
 import { radius, spacing, typography } from '@/theme/colors';
 
@@ -82,7 +81,7 @@ export function WelcomeAvatarOverlay({
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
   const insets = useSafeAreaInsets();
-  const bottomInset = respectBottomInset ? getEffectiveBottomInset(insets) : 0;
+  const bottomInset = respectBottomInset ? insets.bottom : 0;
   const resolvedAspect = resolveAspectRatio(image, aspectRatio);
   const avatarHeight = Math.round(SCREEN_HEIGHT * heightRatio);
   const avatarWidth = Math.round(avatarHeight * resolvedAspect);

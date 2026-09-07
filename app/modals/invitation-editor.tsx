@@ -15,7 +15,6 @@ import {
   View,
 } from 'react-native';
 
-import { BottomSystemBarFill } from '@/components/BottomSystemBarFill';
 import { FormScrollView } from '@/components/FormScrollView';
 import { InvitationIconPicker } from '@/components/InvitationIconPicker';
 import {
@@ -473,7 +472,6 @@ function InvitationElementEditSheet({
             style={styles.sheetSaveBtn}
           />
         </View>
-        {sheetLift > 0 ? null : <BottomSystemBarFill color={theme.background} />}
       </View>
     </Modal>
   );
@@ -1025,7 +1023,6 @@ export default function InvitationEditorModal() {
           />
         </View>
       </FormScrollView>
-      <BottomSystemBarFill color={theme.background} />
       <InvitationElementEditSheet
         visible={editTarget != null}
         selection={editTarget}

@@ -2,7 +2,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import { BottomSystemBarFill } from '@/components/BottomSystemBarFill';
 import { INVITATION_ICONS } from '@/constants/invitationIcons';
 import { useBottomSheetPadding } from '@/hooks/useBottomSheetPadding';
 import { useTranslation } from '@/lib/i18n';
@@ -162,7 +161,6 @@ export function InvitationIconPicker({
               {iconGrid}
             </ScrollView>
           </View>
-          <BottomSystemBarFill color={theme.background} />
         </View>
       </Modal>
     </View>

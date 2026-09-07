@@ -2,7 +2,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { Dimensions, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import { BottomSystemBarFill } from '@/components/BottomSystemBarFill';
 import { InvitationFrameThumbnail } from '@/components/InvitationFrame';
 import { Button } from '@/components/ui';
 import { INVITATION_TEMPLATES, PREVIEW_INVITATION_TEMPLATE_COUNT, InvitationTemplate } from '@/constants/invitationTemplates';
@@ -140,7 +139,6 @@ export function InvitationTemplatePicker({
               ))}
             </ScrollView>
           </View>
-          <BottomSystemBarFill color={theme.background} />
         </View>
       </Modal>
     </View>

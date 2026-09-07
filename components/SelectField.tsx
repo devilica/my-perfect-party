@@ -79,7 +79,13 @@ export function SelectField<T extends string>({
 
       <Modal visible={open} transparent animationType="fade" onRequestClose={() => setOpen(false)}>
         <Pressable style={styles.backdrop} onPress={() => setOpen(false)}>
-          <Pressable style={[styles.sheet, { backgroundColor: theme.surface }]} onPress={() => {}}>
+          <Pressable
+            style={[
+              styles.sheet,
+              { backgroundColor: theme.surface, paddingBottom: bottomSheetPadding },
+            ]}
+            onPress={() => {}}
+          >
             <View style={[styles.sheetHeader, { borderBottomColor: theme.border }]}>
               <Text style={[styles.sheetTitle, { color: theme.text }]}>{label}</Text>
               <Pressable onPress={() => setOpen(false)} hitSlop={8}>
@@ -88,7 +94,7 @@ export function SelectField<T extends string>({
             </View>
             <ScrollView
               style={styles.optionsList}
-              contentContainerStyle={{ paddingBottom: bottomSheetPadding }}
+              contentContainerStyle={{ paddingBottom: spacing.sm }}
               keyboardShouldPersistTaps="handled"
             >
               {options.map((option) => {
