@@ -11,7 +11,7 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import { FAB_SIZE, useFabBottomOffset } from '@/hooks/useFabBottomOffset';
+import { FAB_SIZE, FabOffsetVariant, useFabBottomOffset } from '@/hooks/useFabBottomOffset';
 import { createShadowStyle } from '@/lib/shadowStyles';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
@@ -129,6 +129,7 @@ export function Fab({
   onPress,
   icon = 'add',
   stackIndex = 0,
+  variant = 'tab',
   color,
   accessibilityLabel,
   disabled,
@@ -137,13 +138,14 @@ export function Fab({
   onPress: () => void;
   icon?: keyof typeof Ionicons.glyphMap;
   stackIndex?: number;
+  variant?: FabOffsetVariant;
   color?: string;
   accessibilityLabel?: string;
   disabled?: boolean;
   loading?: boolean;
 }) {
   const theme = useThemeColors();
-  const fabBottom = useFabBottomOffset();
+  const fabBottom = useFabBottomOffset(variant);
 
   return (
     <Pressable

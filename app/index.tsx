@@ -18,7 +18,7 @@ export default function HomeScreen() {
   const events = useWeddingStore((s) => s.events);
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
-  const fabScrollPadding = useFabScrollPadding();
+  const fabScrollPadding = useFabScrollPadding(1, 'stack');
   const theme = useThemeColors();
 
   return (
@@ -63,7 +63,7 @@ export default function HomeScreen() {
         )}
       </View>
 
-      <Fab onPress={() => router.push('/modals/add-event')} />
+      <Fab onPress={() => router.push('/modals/add-event')} variant="stack" />
       </ScreenContainer>
       <EventsWelcomeAvatar />
     </View>

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, Alert, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { useIsOnline } from '@/hooks/useIsOnline';
-import { areAdsEnabled } from '@/lib/adsEnvironment';
+import { areAdsEnabled, isExpoGo } from '@/lib/adsEnvironment';
 import { exportEventPdf } from '@/lib/exportEventPdf';
 import { flexFill } from '@/lib/webLayout';
 import { useTranslation } from '@/lib/i18n';
@@ -213,7 +213,7 @@ export default function EventLayout() {
       <Tabs
         detachInactiveScreens={false}
         screenOptions={{
-          ...(Platform.OS === 'android' ? { headerStatusBarHeight: 0 } : {}),
+          ...(Platform.OS === 'android' && isExpoGo() ? { headerStatusBarHeight: 0 } : {}),
           tabBarActiveTintColor: theme.colors.primary,
           tabBarInactiveTintColor: theme.colors.textMuted,
           tabBarStyle: {
