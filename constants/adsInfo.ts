@@ -11,5 +11,7 @@ export const ADS_INFO_SECTIONS: LegalSection[] = [
   { titleKey: 'legal.ads.nativeListsTitle', bodyKey: 'legal.ads.nativeListsBody' },
   { titleKey: 'legal.ads.nativeFormsTitle', bodyKey: 'legal.ads.nativeFormsBody' },
   { titleKey: 'legal.ads.bannerTitle', bodyKey: 'legal.ads.bannerBody' },
+  { titleKey: 'legal.ads.hallTitle', bodyKey: 'legal.ads.hallBody' },
+  { titleKey: 'legal.ads.legalLinksTitle', bodyKey: 'legal.ads.legalLinksBody' },
   { titleKey: 'legal.ads.offlineTitle', bodyKey: 'legal.ads.offlineBody' },
 ];

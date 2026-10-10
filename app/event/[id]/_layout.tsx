@@ -8,6 +8,10 @@ import { areAdsEnabled, isExpoGo } from '@/lib/adsEnvironment';
 import { exportEventPdf } from '@/lib/exportEventPdf';
 import { flexFill } from '@/lib/webLayout';
 import { useTranslation } from '@/lib/i18n';
+import {
+  preloadHallInterstitial,
+  showHallInterstitial,
+} from '@/lib/hallInterstitialAd';
 import { preloadRewardedThemeAd, showRewardedThemeAd } from '@/lib/rewardedThemeAd';
 import { useEventId } from '@/lib/useEventId';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -28,6 +32,7 @@ export default function EventLayout() {
   const isOnline = useIsOnline();
   const [deleteAdLoading, setDeleteAdLoading] = useState(false);
   const [exportLoading, setExportLoading] = useState(false);
+  const [viewHallLoading, setViewHallLoading] = useState(false);
 
   const event = useMemo(
     () => events.find((item) => item.id === (id ?? '')),
@@ -48,8 +53,21 @@ export default function EventLayout() {
   useEffect(() => {
     if (areAdsEnabled() && isOnline) {
       preloadRewardedThemeAd();
+      preloadHallInterstitial();
     }
   }, [isOnline]);
+
+  const handleViewHall = async () => {
+    if (!id || viewHallLoading) return;
+
+    setViewHallLoading(true);
+    try {
+      await showHallInterstitial(isOnline);
+      router.push(`/modals/seating-overview?eventId=${id}`);
+    } finally {
+      setViewHallLoading(false);
+    }
+  };
 
   const handleDelete = () => {
     if (deleteAdLoading) return;
@@ -155,16 +173,22 @@ export default function EventLayout() {
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginRight: 16 }}>
         {options?.showSeatingPreview ? (
           <Pressable
-            onPress={() => router.push(`/modals/seating-overview?eventId=${id}`)}
+            onPress={handleViewHall}
+            disabled={viewHallLoading}
             hitSlop={8}
             accessibilityRole="button"
             accessibilityLabel={t('seating.viewHall')}
             style={[
               styles.viewHallButton,
               { backgroundColor: theme.colors.primaryLight },
+              viewHallLoading && styles.viewHallButtonDisabled,
             ]}
           >
-            <Ionicons name="eye" size={18} color={theme.colors.primary} />
+            {viewHallLoading ? (
+              <ActivityIndicator size="small" color={theme.colors.primary} />
+            ) : (
+              <Ionicons name="eye" size={18} color={theme.colors.primary} />
+            )}
             <Text
               style={[styles.viewHallLabel, { color: theme.colors.primary }]}
               numberOfLines={1}
@@ -318,5 +342,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     flexShrink: 1,
+  },
+  viewHallButtonDisabled: {
+    opacity: 0.65,
   },
 });

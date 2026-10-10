@@ -2,6 +2,10 @@ import * as DocumentPicker from 'expo-document-picker';
 import { Alert } from 'react-native';
 
 import { parseBackupFile } from '@/lib/backup';
+import {
+  backupDocumentPickerOptions,
+  readPickedDocumentText,
+} from '@/lib/readPickedDocumentText';
 import { useWeddingStore } from '@/store/weddingStore';
 
 type RestoreBackupMessages = {
@@ -15,10 +19,7 @@ type RestoreBackupMessages = {
 };
 
 export async function restoreBackup(messages: RestoreBackupMessages): Promise<boolean> {
-  const result = await DocumentPicker.getDocumentAsync({
-    type: 'application/json',
-    copyToCacheDirectory: true,
-  });
+  const result = await DocumentPicker.getDocumentAsync(backupDocumentPickerOptions);
 
   if (result.canceled || !result.assets?.[0]) {
     return false;
@@ -27,8 +28,7 @@ export async function restoreBackup(messages: RestoreBackupMessages): Promise<bo
   const asset = result.assets[0];
 
   try {
-    const response = await fetch(asset.uri);
-    const raw = await response.text();
+    const raw = await readPickedDocumentText(asset);
     const backup = parseBackupFile(raw);
 
     return await new Promise<boolean>((resolve) => {

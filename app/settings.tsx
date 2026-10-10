@@ -14,6 +14,9 @@ import { Button, Card, TextInputField } from '@/components/ui';
 import { getLanguageSelectOptions } from '@/constants/languages';
 import { INSTAGRAM_APP_URL, INSTAGRAM_USERNAME, INSTAGRAM_WEB_URL } from '@/constants/social';
 import { SUPPORT_EMAIL } from '@/constants/support';
+import { areAdsEnabled } from '@/lib/adsEnvironment';
+import { preloadInterstitialAd, showInterstitialAd } from '@/lib/hallInterstitialAd';
+import { useIsOnline } from '@/hooks/useIsOnline';
 import { openPlayStore } from '@/lib/openPlayStore';
 import { validateBackupEmail } from '@/lib/backup';
 import { formatDisplayDateTime } from '@/lib/dateUtils';
@@ -42,15 +45,34 @@ export default function SettingsScreen() {
   const setNotificationsEnabled = useWeddingStore((s) => s.setNotificationsEnabled);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
+  const isOnline = useIsOnline();
 
   const [emailDraft, setEmailDraft] = useState(backupEmail);
   const [emailError, setEmailError] = useState<string | undefined>();
   const [syncing, setSyncing] = useState(false);
   const [importing, setImporting] = useState(false);
+  const [legalNavLoading, setLegalNavLoading] = useState(false);
 
   useEffect(() => {
     setEmailDraft(backupEmail);
   }, [backupEmail]);
+
+  useEffect(() => {
+    if (areAdsEnabled() && isOnline) {
+      preloadInterstitialAd();
+    }
+  }, [isOnline]);
+
+  const openLegalScreen = async (href: '/legal/privacy' | '/legal/terms' | '/legal/ads' | '/legal/usage') => {
+    if (legalNavLoading) return;
+    setLegalNavLoading(true);
+    try {
+      await showInterstitialAd(isOnline);
+      router.push(href);
+    } finally {
+      setLegalNavLoading(false);
+    }
+  };
 
   const handleThemeChange = (themeId: CelebrationThemeId) => {
     if (themeId === appTheme) return;
@@ -311,8 +333,13 @@ export default function SettingsScreen() {
           </Text>
         </View>
         <Pressable
-          onPress={() => router.push('/legal/privacy')}
-          style={({ pressed }) => [styles.aboutLegalRow, pressed && styles.pressed]}
+          onPress={() => openLegalScreen('/legal/privacy')}
+          disabled={legalNavLoading}
+          style={({ pressed }) => [
+            styles.aboutLegalRow,
+            pressed && styles.pressed,
+            legalNavLoading && styles.aboutLegalRowDisabled,
+          ]}
           accessibilityRole="button"
         >
           <Ionicons name="shield-checkmark-outline" size={18} color={theme.primary} />
@@ -320,8 +347,13 @@ export default function SettingsScreen() {
           <Ionicons name="chevron-forward" size={18} color={theme.textMuted} />
         </Pressable>
         <Pressable
-          onPress={() => router.push('/legal/terms')}
-          style={({ pressed }) => [styles.aboutLegalRow, pressed && styles.pressed]}
+          onPress={() => openLegalScreen('/legal/terms')}
+          disabled={legalNavLoading}
+          style={({ pressed }) => [
+            styles.aboutLegalRow,
+            pressed && styles.pressed,
+            legalNavLoading && styles.aboutLegalRowDisabled,
+          ]}
           accessibilityRole="button"
         >
           <Ionicons name="document-text-outline" size={18} color={theme.primary} />
@@ -329,8 +361,13 @@ export default function SettingsScreen() {
           <Ionicons name="chevron-forward" size={18} color={theme.textMuted} />
         </Pressable>
         <Pressable
-          onPress={() => router.push('/legal/ads')}
-          style={({ pressed }) => [styles.aboutLegalRow, pressed && styles.pressed]}
+          onPress={() => openLegalScreen('/legal/ads')}
+          disabled={legalNavLoading}
+          style={({ pressed }) => [
+            styles.aboutLegalRow,
+            pressed && styles.pressed,
+            legalNavLoading && styles.aboutLegalRowDisabled,
+          ]}
           accessibilityRole="button"
         >
           <Ionicons name="megaphone-outline" size={18} color={theme.primary} />
@@ -338,8 +375,13 @@ export default function SettingsScreen() {
           <Ionicons name="chevron-forward" size={18} color={theme.textMuted} />
         </Pressable>
         <Pressable
-          onPress={() => router.push('/legal/usage')}
-          style={({ pressed }) => [styles.aboutLegalRow, pressed && styles.pressed]}
+          onPress={() => openLegalScreen('/legal/usage')}
+          disabled={legalNavLoading}
+          style={({ pressed }) => [
+            styles.aboutLegalRow,
+            pressed && styles.pressed,
+            legalNavLoading && styles.aboutLegalRowDisabled,
+          ]}
           accessibilityRole="button"
         >
           <Ionicons name="book-outline" size={18} color={theme.primary} />
@@ -530,6 +572,9 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
     paddingVertical: spacing.sm,
     marginTop: spacing.xs,
+  },
+  aboutLegalRowDisabled: {
+    opacity: 0.55,
   },
   aboutLegalText: {
     ...typography.body,

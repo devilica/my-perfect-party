@@ -1,6 +1,6 @@
 import { useRouter } from 'expo-router';
-import { useMemo, useState } from 'react';
-import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
+import { useMemo } from 'react';
+import { Alert, FlatList, StyleSheet, View } from 'react-native';
 
 import { ObligationCard } from '@/components/ObligationCard';
 import { ObligationsWelcomeAvatar } from '@/components/ObligationsWelcomeAvatar';
@@ -17,7 +17,7 @@ import { useTranslation } from '@/lib/i18n';
 import { useEventId } from '@/lib/useEventId';
 import { useWeddingStore } from '@/store/weddingStore';
 import { useThemeColors } from '@/theme/EventThemeContext';
-import { radius, spacing, typography } from '@/theme/colors';
+import { spacing } from '@/theme/colors';
 
 export default function ObligationsScreen() {
   const eventId = useEventId();
@@ -33,8 +33,6 @@ export default function ObligationsScreen() {
   const { scrollRef, onScroll, scrollEventThrottle } = useScrollRestoration(
     makeScrollKey('obligations', eventId)
   );
-  const [showTemplates, setShowTemplates] = useState(false);
-
   const obligations = useMemo(
     () => getObligationsForEvent(allObligations, eventId),
     [allObligations, eventId]
@@ -57,8 +55,6 @@ export default function ObligationsScreen() {
     return templateTitles.some((title) => !existingTitles.has(title.toLowerCase()));
   }, [obligations, templateTitles]);
 
-  const showTemplatesButton = hasAvailableTemplates || showTemplates;
-
   const handleDelete = (obligationId: string) => {
     Alert.alert(t('obligations.delete'), t('obligations.deleteConfirm'), [
       { text: t('common.cancel'), style: 'cancel' },
@@ -73,32 +69,13 @@ export default function ObligationsScreen() {
   const handleAddTemplates = () => {
     if (!eventId || !event) return;
 
-    if (showTemplates) {
-      setShowTemplates(false);
-      return;
-    }
-
-    setShowTemplates(true);
     const added = addObligationTemplates(eventId, templateTitles);
     if (added === 0) {
       Alert.alert(t('obligations.templates'), t('obligations.templatesAlreadyAdded'));
     }
   };
 
-  const templatesPanel = showTemplates ? (
-    <View style={[styles.templatesPanel, { backgroundColor: theme.primaryLight, borderColor: theme.border }]}>
-      <Text style={[styles.templatesTitle, { color: theme.primaryDark }]}>
-        {t('obligations.templates')}
-      </Text>
-      {templateTitles.map((title) => (
-        <Text key={title} style={[styles.templateItem, { color: theme.textSecondary }]}>
-          {title}
-        </Text>
-      ))}
-    </View>
-  ) : null;
-
-  const templatesButton = showTemplatesButton ? (
+  const templatesButton = hasAvailableTemplates ? (
     <Button
       label={t('obligations.addTemplates')}
       variant="secondary"
@@ -119,7 +96,6 @@ export default function ObligationsScreen() {
         />
       </View>
       {templatesButton}
-      {templatesPanel}
     </View>
   );
 
@@ -131,7 +107,6 @@ export default function ObligationsScreen() {
         subtitle={t('obligations.emptySubtitle')}
       />
       {templatesButton}
-      {templatesPanel}
     </View>
   );
 
@@ -195,21 +170,5 @@ const styles = StyleSheet.create({
   },
   templateBtn: {
     alignSelf: 'stretch',
-  },
-  templatesPanel: {
-    gap: spacing.xs,
-    padding: spacing.md,
-    borderRadius: radius.md,
-    borderWidth: 1,
-  },
-  templatesTitle: {
-    ...typography.caption,
-    fontWeight: '600',
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
-    marginBottom: spacing.xs,
-  },
-  templateItem: {
-    ...typography.body,
   },
 });

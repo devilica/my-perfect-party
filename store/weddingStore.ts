@@ -565,9 +565,9 @@ export const useWeddingStore = create<WeddingState>()(
             !table ||
             !canAssignGuestToTable(nextGuest, table, get().guests, nextGuest.tableId)
           ) {
-            return false;
-          }
-          if (existing.tableId !== nextGuest.tableId || nextGuest.seatOrder == null) {
+            nextGuest.tableId = undefined;
+            nextGuest.seatOrder = undefined;
+          } else if (existing.tableId !== nextGuest.tableId || nextGuest.seatOrder == null) {
             nextGuest.seatOrder = getNextSeatOrder(
               get().guests.filter((g) => g.id !== id),
               nextGuest.tableId

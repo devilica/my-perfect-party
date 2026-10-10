@@ -119,9 +119,9 @@ export function canAssignGuestToTable(
   if (!targetTableId) return true;
 
   const occupied = getTableOccupiedSeats(allGuests, targetTableId);
-  const currentOccupied =
-    guest.tableId === targetTableId ? guest.partySize : 0;
-  const remaining = table.capacity - occupied + currentOccupied;
+  const stored = allGuests.find((g) => g.id === guest.id);
+  const credit = stored?.tableId === targetTableId ? stored.partySize : 0;
+  const remaining = table.capacity - occupied + credit;
   return guest.partySize <= remaining;
 }
 
@@ -162,10 +162,9 @@ export function getAssignableTables(
   eventId: string,
   guest: Guest
 ): SeatingTable[] {
-  return getTablesForEvent(tables, eventId).filter((table) => {
-    if (guest.tableId === table.id) return true;
-    return canAssignGuestToTable(guest, table, guests, table.id);
-  });
+  return getTablesForEvent(tables, eventId).filter((table) =>
+    canAssignGuestToTable(guest, table, guests, table.id)
+  );
 }
 
 export function getAssignableGuestsForTable(

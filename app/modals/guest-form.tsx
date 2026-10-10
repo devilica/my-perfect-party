@@ -19,7 +19,10 @@ import { useIsOnline } from '@/hooks/useIsOnline';
 import { useModalScrollPadding } from '@/hooks/useModalScrollPadding';
 import { areAdsEnabled, shouldShowAdPreviews } from '@/lib/adsEnvironment';
 import { didCrossGuestAdMilestone, getGuestStats } from '@/lib/guestStats';
-import { getTablesForEvent } from '@/lib/seatingStats';
+import {
+  canAssignGuestToTable,
+  getAssignableTables,
+} from '@/lib/seatingStats';
 import { useTranslation } from '@/lib/i18n';
 import {
   preloadRewardedGuestAd,
@@ -27,7 +30,7 @@ import {
 } from '@/lib/rewardedGuestAd';
 import { getRouteParam } from '@/lib/routeParams';
 import { useWeddingStore } from '@/store/weddingStore';
-import { AttendanceStatus } from '@/types/models';
+import { AttendanceStatus, Guest } from '@/types/models';
 import { radius, spacing, typography } from '@/theme/colors';
 
 function canShowGuestMilestoneAd(isOnline: boolean): boolean {
@@ -95,10 +98,46 @@ export default function GuestFormModal() {
     }
   }, [isOnline]);
 
-  const eventTables = useMemo(
-    () => (eventId ? getTablesForEvent(tables, eventId) : []),
-    [tables, eventId]
-  );
+  const parsedPartySize = Math.max(1, parseInt(partySize, 10) || 1);
+
+  const draftGuest = useMemo((): Guest => {
+    if (existingGuest) {
+      return {
+        ...existingGuest,
+        partySize: parsedPartySize,
+        tableId,
+      };
+    }
+    return {
+      id: '__draft__',
+      eventId: eventId ?? '',
+      firstName: firstName.trim() || ' ',
+      lastName: lastName.trim(),
+      category: category ?? '',
+      attendanceStatus,
+      partySize: parsedPartySize,
+      tableId,
+      createdAt: '',
+    };
+  }, [
+    existingGuest,
+    eventId,
+    parsedPartySize,
+    tableId,
+    firstName,
+    lastName,
+    category,
+    attendanceStatus,
+  ]);
+
+  useEffect(() => {
+    if (!tableId || !eventId) return;
+    const table = tables.find((item) => item.id === tableId);
+    if (!table || !canAssignGuestToTable(draftGuest, table, allGuests, tableId)) {
+      setTableId(undefined);
+      setTableError('');
+    }
+  }, [tableId, eventId, draftGuest, tables, allGuests]);
 
   const handleSave = async () => {
     if (!firstName.trim()) {
@@ -107,7 +146,6 @@ export default function GuestFormModal() {
     }
     if (!eventId) return;
 
-    const parsedPartySize = Math.max(1, parseInt(partySize, 10) || 1);
     const oldTotalPeople = getGuestStats(allGuests, eventId).totalPeople;
     const oldPartySize = existingGuest?.partySize ?? 0;
     const payload = {
@@ -151,23 +189,16 @@ export default function GuestFormModal() {
   };
 
   const tableOptions = useMemo(() => {
-    const options = eventTables.map((table) => ({
+    if (!eventId) {
+      return [{ value: 'none', label: t('guests.noTable') }];
+    }
+    const assignable = getAssignableTables(tables, allGuests, eventId, draftGuest);
+    const options = assignable.map((table) => ({
       value: table.id,
       label: `${table.name} (${table.capacity})`,
     }));
-
-    if (tableId && !options.some((option) => option.value === tableId)) {
-      const currentTable = tables.find((table) => table.id === tableId);
-      if (currentTable) {
-        options.unshift({
-          value: currentTable.id,
-          label: `${currentTable.name} (${currentTable.capacity})`,
-        });
-      }
-    }
-
     return [{ value: 'none', label: t('guests.noTable') }, ...options];
-  }, [eventTables, tableId, tables, t]);
+  }, [tables, allGuests, eventId, draftGuest, t]);
 
   const showTableHint = tableOptions.length === 1;
 
@@ -178,8 +209,6 @@ export default function GuestFormModal() {
   };
 
   if (!eventId) return null;
-
-  const parsedPartySize = Math.max(1, parseInt(partySize, 10) || 1);
 
   return (
     <ThemedEventModal eventId={eventId} showBottomBanner>

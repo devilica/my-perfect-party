@@ -13,6 +13,7 @@ import { useFabScrollPadding } from '@/hooks/useFabBottomOffset';
 import { useScrollRestoration } from '@/hooks/useScrollRestoration';
 import { flexFill } from '@/lib/webLayout';
 import { filterGuests } from '@/lib/guestStats';
+import { interleaveNativeAds } from '@/lib/interleaveNativeAds';
 import { makeScrollKey } from '@/lib/scrollRestoration';
 import { getTablesForEvent } from '@/lib/seatingStats';
 import { useTranslation } from '@/lib/i18n';
@@ -48,6 +49,11 @@ export default function GuestsScreen() {
   const filteredGuests = useMemo(
     () => filterGuests(allGuests, eventId, filter, search, guestSort),
     [allGuests, eventId, filter, search, guestSort]
+  );
+
+  const guestListRows = useMemo(
+    () => interleaveNativeAds(filteredGuests, 15),
+    [filteredGuests]
   );
 
   const handleDelete = (guestId: string) => {
@@ -87,8 +93,8 @@ export default function GuestsScreen() {
       <View style={styles.screen}>
         <FlatList
           ref={scrollRef}
-          data={filteredGuests}
-          keyExtractor={(item) => item.id}
+          data={guestListRows}
+          keyExtractor={(row) => (row.kind === 'ad' ? row.id : row.item.id)}
           style={styles.list}
           onScroll={onScroll}
           scrollEventThrottle={scrollEventThrottle}
@@ -101,19 +107,25 @@ export default function GuestsScreen() {
               subtitle={t('guests.emptySubtitle')}
             />
           }
-          renderItem={({ item }) => (
-            <GuestCard
-              guest={item}
-              table={tables.find((table) => table.id === item.tableId)}
-              onPress={() =>
-                router.push(`/modals/guest-form?eventId=${eventId}&guestId=${item.id}`)
-              }
-              onViewSeat={() =>
-                router.push(`/modals/guest-seat?eventId=${eventId}&guestId=${item.id}`)
-              }
-              onDelete={() => handleDelete(item.id)}
-            />
-          )}
+          renderItem={({ item: row }) =>
+            row.kind === 'ad' ? (
+              <OverviewNativeAd />
+            ) : (
+              <GuestCard
+                guest={row.item}
+                table={tables.find((table) => table.id === row.item.tableId)}
+                onPress={() =>
+                  router.push(
+                    `/modals/guest-form?eventId=${eventId}&guestId=${row.item.id}`
+                  )
+                }
+                onViewSeat={() =>
+                  router.push(`/modals/guest-seat?eventId=${eventId}&guestId=${row.item.id}`)
+                }
+                onDelete={() => handleDelete(row.item.id)}
+              />
+            )
+          }
           contentContainerStyle={{
             flexGrow: 1,
             paddingHorizontal: spacing.md,
