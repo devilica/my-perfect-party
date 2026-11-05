@@ -12,7 +12,7 @@ import {
 
 import { FormScrollView } from '@/components/FormScrollView';
 import { GuestFilterBar } from '@/components/GuestFilterBar';
-import { OverviewNativeAd } from '@/components/OverviewNativeAd';
+import { OverviewNativeAdListFooter } from '@/components/OverviewNativeAdListFooter';
 import { SeatingAssignmentModal } from '@/components/SeatingAssignmentModal';
 import { SeatingWelcomeAvatar } from '@/components/SeatingWelcomeAvatar';
 import { TableCard } from '@/components/TableCard';
@@ -33,13 +33,13 @@ import {
   getTablesForEvent,
   type TableFilter,
 } from '@/lib/seatingStats';
-import { interleaveNativeAds } from '@/lib/interleaveNativeAds';
 import { flexFill } from '@/lib/webLayout';
 import { useTranslation } from '@/lib/i18n';
 import { useEventId } from '@/lib/useEventId';
 import { useWeddingStore } from '@/store/weddingStore';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { getGuestFullName, Guest, GuestFilter } from '@/types/models';
+
 import { radius, spacing, typography } from '@/theme/colors';
 
 export default function SeatingScreen() {
@@ -78,11 +78,6 @@ export default function SeatingScreen() {
   const filteredTables = useMemo(
     () => filterTablesByOccupancy(tables, eventGuests, tableFilter),
     [tables, eventGuests, tableFilter]
-  );
-
-  const tableListRows = useMemo(
-    () => interleaveNativeAds(filteredTables, 10),
-    [filteredTables]
   );
 
   const seatingStats = useMemo(
@@ -234,30 +229,24 @@ export default function SeatingScreen() {
             subtitle={t('seating.emptySubtitle')}
           />
         ) : (
-          tableListRows.map((row) =>
-            row.kind === 'ad' ? (
-              <OverviewNativeAd key={row.id} />
-            ) : (
+          filteredTables.map((table) => (
               <TableCard
-                key={row.item.id}
-                table={row.item}
+                key={table.id}
+                table={table}
                 guests={eventGuests}
                 onPreview={() =>
-                  router.push(
-                    `/modals/table-preview?eventId=${eventId}&tableId=${row.item.id}`
-                  )
+                  router.push(`/modals/table-preview?eventId=${eventId}&tableId=${table.id}`)
                 }
                 onEdit={() =>
-                  router.push(`/modals/table-form?eventId=${eventId}&tableId=${row.item.id}`)
+                  router.push(`/modals/table-form?eventId=${eventId}&tableId=${table.id}`)
                 }
-                onDelete={() => handleDeleteTable(row.item.id)}
+                onDelete={() => handleDeleteTable(table.id)}
                 onGuestPress={setAssignGuest}
               />
-            )
-          )
+            ))
         )}
 
-        <OverviewNativeAd />
+        <OverviewNativeAdListFooter />
         </FormScrollView>
 
         <Fab

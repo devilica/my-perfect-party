@@ -604,8 +604,6 @@ export default function InvitationEditorModal() {
     setSharing(true);
     await new Promise((resolve) => setTimeout(resolve, 32));
     try {
-      if (!(await ensureInvitationReward())) return;
-
       const result = await shareInvitationImage(
         previewRef,
         t('invitation.shareUnavailableWeb')

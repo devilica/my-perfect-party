@@ -1,14 +1,38 @@
-import { useEffect, useMemo, useState } from 'react';
-import { Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  Dimensions,
+  Modal,
+  PanResponder,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
+import Animated, {
+  runOnJS,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  withTiming,
+} from 'react-native-reanimated';
 
-import { Button } from '@/components/ui';
 import { useBottomSheetPadding } from '@/hooks/useBottomSheetPadding';
 import { sortGuests } from '@/lib/guestStats';
-import { getAssignableGuestsForTable, getTableRemainingSeats } from '@/lib/seatingStats';
+import { getAssignableGuestsForTable } from '@/lib/seatingStats';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
 import { getGuestFullName, SeatingTable } from '@/types/models';
 import { colors, radius, spacing, typography } from '@/theme/colors';
+
+const SCREEN_HEIGHT = Dimensions.get('window').height;
+const SHEET_EXPANDED = SCREEN_HEIGHT * 0.75;
+const DISMISS_OFFSET = SHEET_EXPANDED + spacing.lg;
+const DISMISS_DRAG_THRESHOLD = SHEET_EXPANDED * 0.28;
+
+const SPRING = { damping: 22, stiffness: 280, mass: 0.85 };
 
 type TableGuestPickerSheetProps = {
   visible: boolean;
@@ -35,11 +59,70 @@ export function TableGuestPickerSheet({
   const bottomSheetPadding = useBottomSheetPadding();
   const [search, setSearch] = useState('');
 
+  const translateY = useSharedValue(0);
+  const dragStartOffset = useSharedValue(0);
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
+
+  const notifyClosed = useCallback(() => {
+    onCloseRef.current();
+  }, []);
+
+  const dismissSheet = () => {
+    translateY.value = withTiming(DISMISS_OFFSET, { duration: 240 }, (finished) => {
+      if (finished) {
+        runOnJS(notifyClosed)();
+      }
+    });
+  };
+
+  const finishDrag = (y: number, velocityY: number) => {
+    const fastDismiss = velocityY > 1200;
+    const dismissByPosition = y > DISMISS_DRAG_THRESHOLD;
+
+    if (fastDismiss || dismissByPosition) {
+      translateY.value = withTiming(DISMISS_OFFSET, { duration: 220 }, (finished) => {
+        if (finished) {
+          runOnJS(notifyClosed)();
+        }
+      });
+      return;
+    }
+
+    translateY.value = withSpring(0, SPRING);
+  };
+
   useEffect(() => {
     if (!visible) {
       setSearch('');
+      return;
     }
-  }, [visible]);
+    translateY.value = 0;
+  }, [visible, translateY]);
+
+  const panResponder = useRef(
+    PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: (_, gesture) => Math.abs(gesture.dy) > 6,
+      onPanResponderGrant: () => {
+        dragStartOffset.value = translateY.value;
+      },
+      onPanResponderMove: (_, gesture) => {
+        const next = dragStartOffset.value + gesture.dy;
+        translateY.value = Math.min(DISMISS_OFFSET, Math.max(0, next));
+      },
+      onPanResponderRelease: (_, gesture) => {
+        finishDrag(translateY.value, gesture.vy);
+      },
+      onPanResponderTerminate: () => {
+        finishDrag(translateY.value, 0);
+      },
+    })
+  ).current;
+
+  const sheetAnimatedStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: translateY.value }],
+  }));
 
   const assignableGuests = useMemo(() => {
     if (!table) return [];
@@ -54,8 +137,6 @@ export function TableGuestPickerSheet({
 
   if (!table) return null;
 
-  const remainingSeats = getTableRemainingSeats(table, guests);
-
   const handleAssign = (guestId: string) => {
     const success = assignGuestToTable(guestId, table.id);
     if (success) {
@@ -64,19 +145,31 @@ export function TableGuestPickerSheet({
   };
 
   return (
-    <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
-      <Pressable style={styles.overlay} onPress={onClose}>
-        <Pressable
-          style={[styles.sheet, { paddingBottom: bottomSheetPadding }]}
-          onPress={(e) => e.stopPropagation()}
-        >
-          <View style={styles.sheetContent}>
-            <Text style={styles.title}>{t('seating.assignGuestTitle')}</Text>
-            <Text style={styles.tableName}>{table.name}</Text>
-            <Text style={styles.remaining}>
-              {t('seating.remaining', { count: remainingSeats })}
-            </Text>
+    <Modal visible={visible} transparent animationType="fade" onRequestClose={() => dismissSheet()}>
+      <View style={styles.overlay}>
+        <Pressable style={styles.backdrop} onPress={() => dismissSheet()} accessibilityRole="button" />
 
+        <Animated.View
+          style={[
+            styles.sheet,
+            { height: SHEET_EXPANDED, paddingBottom: bottomSheetPadding },
+            sheetAnimatedStyle,
+          ]}
+        >
+          <View style={styles.sheetHeader} {...panResponder.panHandlers}>
+            <View style={styles.dragHandle} accessibilityRole="adjustable" />
+            <Pressable
+              onPress={() => dismissSheet()}
+              hitSlop={12}
+              style={styles.closeButton}
+              accessibilityRole="button"
+              accessibilityLabel={t('common.close')}
+            >
+              <Ionicons name="close" size={22} color={colors.textSecondary} />
+            </Pressable>
+          </View>
+
+          <View style={styles.sheetContent}>
             <TextInput
               value={search}
               onChangeText={setSearch}
@@ -103,14 +196,12 @@ export function TableGuestPickerSheet({
                 </Pressable>
               ))}
               {assignableGuests.length === 0 ? (
-                <Text style={styles.empty}>{t('seating.capacityError')}</Text>
+                <Text style={styles.empty}>{t('seating.noUnassignedGuests')}</Text>
               ) : null}
             </ScrollView>
-
-            <Button label={t('common.close')} variant="ghost" onPress={onClose} />
           </View>
-        </Pressable>
-      </Pressable>
+        </Animated.View>
+      </View>
     </Modal>
   );
 }
@@ -118,34 +209,39 @@ export function TableGuestPickerSheet({
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: colors.overlay,
     justifyContent: 'flex-end',
+  },
+  backdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: colors.overlay,
   },
   sheet: {
     backgroundColor: colors.surface,
     borderTopLeftRadius: radius.xl,
     borderTopRightRadius: radius.xl,
-    padding: spacing.md,
-    height: '75%',
-    maxHeight: '75%',
+    paddingHorizontal: spacing.md,
+  },
+  sheetHeader: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.sm,
+    minHeight: 36,
+  },
+  dragHandle: {
+    width: 40,
+    height: 4,
+    borderRadius: radius.full,
+    backgroundColor: colors.border,
+  },
+  closeButton: {
+    position: 'absolute',
+    right: 0,
+    top: spacing.xs,
+    padding: spacing.xs,
   },
   sheetContent: {
     flex: 1,
-  },
-  title: {
-    ...typography.subheading,
-    color: colors.text,
-    marginBottom: spacing.xs,
-  },
-  tableName: {
-    ...typography.body,
-    color: colors.text,
-    fontWeight: '600',
-  },
-  remaining: {
-    ...typography.caption,
-    color: colors.textSecondary,
-    marginBottom: spacing.md,
   },
   search: {
     ...typography.body,
@@ -160,7 +256,6 @@ const styles = StyleSheet.create({
   },
   list: {
     flex: 1,
-    marginBottom: spacing.md,
   },
   listContent: {
     flexGrow: 1,

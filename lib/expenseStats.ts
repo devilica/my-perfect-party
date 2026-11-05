@@ -38,6 +38,28 @@ export function getExpenseBreakdown(
     .sort((a, b) => b.amount - a.amount);
 }
 
+export function getEventCustomExpenseCategories(
+  expenses: Expense[],
+  eventId: string
+): string[] {
+  const seen = new Set<string>();
+  const result: string[] = [];
+  const eventExpenses = expenses.filter((expense) => expense.eventId === eventId);
+
+  for (let index = eventExpenses.length - 1; index >= 0; index -= 1) {
+    const raw = eventExpenses[index].category.trim();
+    if (!raw || isPredefinedCategory(raw)) continue;
+
+    const key = raw.toLowerCase();
+    if (seen.has(key)) continue;
+
+    seen.add(key);
+    result.push(raw);
+  }
+
+  return result;
+}
+
 export function formatAmount(amount: number): string {
   return amount.toLocaleString('bs-BA', {
     minimumFractionDigits: 0,

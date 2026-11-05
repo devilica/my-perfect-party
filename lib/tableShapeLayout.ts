@@ -2,8 +2,8 @@ import { TableShape } from '@/types/models';
 
 const BASE_TABLE_SIZE = 120;
 const BASE_SEAT_SIZE = 28;
-/** Gap from seat edge to guest name anchor (at 320px diagram). */
-const BASE_LABEL_GAP = 2;
+/** Gap from seat edge to nearest guest-name line (at 320px diagram). */
+const BASE_LABEL_GAP = 15;
 
 export type RoundSeatSpacing = 'default' | 'compact';
 
@@ -315,16 +315,17 @@ function getSquareSeatPositions(
     return { seatX, seatY, labelX, labelY, labelRotation };
   });
 
-  // Left
+  // Left — anchor outward (180°); text upright (0°) for readability
   placeSide(perSide, (i, count) => {
     const seatX = body.left - gap - seatSize;
     const seatY = seatAlongVerticalEdge(i, count);
-    const labelRotation = 180;
+    const outwardDeg = 180;
+    const labelRotation = 0;
     const { labelX, labelY } = getLabelAnchorFromSeat(
       seatX,
       seatY,
       seatSize,
-      labelRotation,
+      outwardDeg,
       scale
     );
     return { seatX, seatY, labelX, labelY, labelRotation };
@@ -412,12 +413,13 @@ function getSquareSeatPositionsLegacy(
       count === 1
         ? body.top + body.height / 2 - seatSize / 2
         : body.top + ((body.height - seatSize) * i) / Math.max(count - 1, 1);
-    const labelRotation = 180;
+    const outwardDeg = 180;
+    const labelRotation = 0;
     const { labelX, labelY } = getLabelAnchorFromSeat(
       seatX,
       seatY,
       seatSize,
-      labelRotation,
+      outwardDeg,
       scale
     );
     return { seatX, seatY, labelX, labelY, labelRotation };

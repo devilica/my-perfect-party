@@ -13,6 +13,7 @@ import { LanguageSetupScreen } from '@/components/LanguageSetupScreen';
 import { androidStackScreenOptions } from '@/lib/androidStackScreenOptions';
 import { initMobileAds } from '@/lib/initMobileAds';
 import { maybeAskForReview } from '@/lib/maybeAskForReview';
+import { useTranslation } from '@/lib/i18n';
 import { syncAllNotifications } from '@/lib/notifications';
 import { flexFill, webViewportHeight } from '@/lib/webLayout';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -22,6 +23,8 @@ SplashScreen.preventAutoHideAsync();
 
 function ThemedRootStack() {
   const theme = useThemeColors();
+  const language = useWeddingStore((s) => s.language);
+  const { t } = useTranslation(language);
 
   return (
     <Stack
@@ -40,57 +43,57 @@ function ThemedRootStack() {
     >
       <Stack.Screen
         name="index"
-        options={{ title: 'Moja savršena proslava', contentStyle: { backgroundColor: 'transparent' } }}
+        options={{ title: t('app.name'), contentStyle: { backgroundColor: 'transparent' } }}
       />
       <Stack.Screen
         name="settings"
-        options={{ title: 'Postavke', contentStyle: { backgroundColor: 'transparent' } }}
+        options={{ title: t('settings.title'), contentStyle: { backgroundColor: 'transparent' } }}
       />
       <Stack.Screen name="legal" options={{ headerShown: false }} />
       <Stack.Screen name="event/[id]" options={{ headerShown: false }} />
       <Stack.Screen
         name="modals/guest-form"
-        options={{ presentation: 'modal', title: 'Guest' }}
+        options={{ presentation: 'modal', title: t('guests.add') }}
       />
       <Stack.Screen
         name="modals/table-form"
-        options={{ presentation: 'modal', title: 'Table' }}
+        options={{ presentation: 'modal', title: t('seating.addTable') }}
       />
       <Stack.Screen
         name="modals/table-preview"
-        options={{ presentation: 'modal', title: 'Preview' }}
+        options={{ presentation: 'modal', title: t('seating.previewTitle') }}
       />
       <Stack.Screen
         name="modals/guest-seat"
-        options={{ presentation: 'modal', title: 'Seat' }}
+        options={{ presentation: 'modal', title: t('guests.seatCard') }}
       />
       <Stack.Screen
         name="modals/seating-overview"
-        options={{ presentation: 'modal', title: 'Seating overview' }}
+        options={{ presentation: 'modal', title: t('seating.hallOverviewTitle') }}
       />
       <Stack.Screen
         name="modals/bulk-tables"
-        options={{ presentation: 'modal', title: 'Tables' }}
+        options={{ presentation: 'modal', title: t('seating.bulkCreateTitle') }}
       />
       <Stack.Screen
         name="modals/add-event"
         options={{
           presentation: 'modal',
-          title: 'Event',
+          title: t('events.add'),
           contentStyle: { backgroundColor: 'transparent' },
         }}
       />
       <Stack.Screen
         name="modals/add-expense"
-        options={{ presentation: 'modal', title: 'Expense' }}
+        options={{ presentation: 'modal', title: t('expenses.add') }}
       />
       <Stack.Screen
         name="modals/obligation-form"
-        options={{ presentation: 'modal', title: 'Task' }}
+        options={{ presentation: 'modal', title: t('obligations.add') }}
       />
       <Stack.Screen
         name="modals/invitation-editor"
-        options={{ presentation: 'modal', title: 'Invitation' }}
+        options={{ presentation: 'modal', title: t('invitation.editorTitle') }}
       />
     </Stack>
   );

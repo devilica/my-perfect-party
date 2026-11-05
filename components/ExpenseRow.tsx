@@ -2,7 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { Card } from '@/components/ui';
-import { isPredefinedCategory } from '@/constants/categories';
+import { getCategoryBadgeStyle, isPredefinedCategory } from '@/constants/categories';
 import { formatAmount } from '@/lib/expenseStats';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
@@ -24,6 +24,7 @@ export function ExpenseRow({ expense, onPress, onDelete }: ExpenseRowProps) {
   const categoryLabel = isPredefinedCategory(expense.category)
     ? t(`categories.${expense.category}`)
     : expense.category;
+  const categoryBadge = getCategoryBadgeStyle(expense.category);
 
   return (
     <Card style={styles.card}>
@@ -37,8 +38,8 @@ export function ExpenseRow({ expense, onPress, onDelete }: ExpenseRowProps) {
           </Text>
         </View>
         <View style={styles.bottomRow}>
-          <View style={[styles.categoryChip, { backgroundColor: theme.primaryLight }]}>
-            <Text style={[styles.categoryText, { color: theme.primaryDark }]}>
+          <View style={[styles.categoryChip, { backgroundColor: categoryBadge.backgroundColor }]}>
+            <Text style={[styles.categoryText, { color: categoryBadge.color }]}>
               {categoryLabel}
             </Text>
           </View>

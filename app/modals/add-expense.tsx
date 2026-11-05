@@ -61,7 +61,7 @@ export default function AddExpenseModal() {
       setCategory(existingExpense.category);
       setCustomCategory('');
     } else {
-      setCategory('other');
+      setCategory(existingExpense.category);
       setCustomCategory(existingExpense.category);
     }
   }, [existingExpense]);
@@ -150,6 +150,7 @@ export default function AddExpenseModal() {
       </View>
 
       <CategoryPicker
+        eventId={eventId}
         selected={category}
         customCategory={customCategory}
         onSelect={setCategory}

@@ -1,5 +1,5 @@
 import { areAdsEnabled, shouldShowAdPreviews } from '@/lib/adsEnvironment';
-import { showRewardedAdPreview } from '@/lib/rewardedAdPreviewController';
+import { showInterstitialAdPreview } from '@/lib/rewardedAdPreviewController';
 
 export function preloadInterstitialAd() {
   if (!areAdsEnabled()) return;
@@ -12,7 +12,7 @@ export function preloadInterstitialAd() {
 /** Full-screen interstitial before hall, legal pages, etc. */
 export async function showInterstitialAd(isOnline: boolean): Promise<void> {
   if (shouldShowAdPreviews()) {
-    await showRewardedAdPreview();
+    await showInterstitialAdPreview();
     return;
   }
 

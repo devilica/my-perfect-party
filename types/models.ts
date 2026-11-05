@@ -195,6 +195,32 @@ export function formatGuestSeatLabel(fullName: string, mode: GuestSeatNameMode):
   return initial ? `${firstNames} ${initial}.` : firstNames;
 }
 
+/** Given name(s) on first line, family name on second (when present). */
+export function splitGuestSeatName(fullName: string): {
+  firstLine: string;
+  secondLine: string | null;
+} {
+  const parts = fullName.trim().split(/\s+/).filter(Boolean);
+  if (parts.length <= 1) {
+    return { firstLine: parts[0] ?? fullName.trim(), secondLine: null };
+  }
+  return {
+    firstLine: parts.slice(0, -1).join(' '),
+    secondLine: parts[parts.length - 1],
+  };
+}
+
+/** Lines to render around a seat marker for the given display mode. */
+export function getGuestSeatLabelLines(fullName: string, mode: GuestSeatNameMode): string[] {
+  if (mode === 'hidden') return [];
+  if (mode === 'abbreviated') {
+    return [formatGuestSeatLabel(fullName, 'abbreviated')];
+  }
+  const { firstLine, secondLine } = splitGuestSeatName(fullName);
+  if (secondLine) return [firstLine, secondLine];
+  return [firstLine];
+}
+
 export type BulkTableBatch = {
   count: number;
   capacity: number;

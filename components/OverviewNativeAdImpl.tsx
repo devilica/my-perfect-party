@@ -6,18 +6,15 @@ import {
   NativeAsset,
   NativeAssetType,
   NativeMediaView,
-  TestIds,
 } from 'react-native-google-mobile-ads';
 
 import { OverviewNativeAdPlacement } from '@/components/OverviewNativeAdPlacement';
-import { OVERVIEW_NATIVE_AD_UNIT_ID } from '@/constants/ads';
+import { requestOverviewNativeAd } from '@/lib/requestOverviewNativeAd';
 import { useTranslation } from '@/lib/i18n';
 import { createShadowStyle } from '@/lib/shadowStyles';
 import { useWeddingStore } from '@/store/weddingStore';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { radius, spacing, typography } from '@/theme/colors';
-
-const adUnitId = __DEV__ ? TestIds.NATIVE : OVERVIEW_NATIVE_AD_UNIT_ID;
 
 type OverviewNativeAdImplProps = {
   placement?: OverviewNativeAdPlacement;
@@ -40,7 +37,7 @@ export function OverviewNativeAdImpl({ placement = 'list' }: OverviewNativeAdImp
     let mounted = true;
     let loadedAd: NativeAd | null = null;
 
-    NativeAd.createForAdRequest(adUnitId)
+    requestOverviewNativeAd()
       .then((ad) => {
         loadedAd = ad;
         if (mounted) {
@@ -49,8 +46,8 @@ export function OverviewNativeAdImpl({ placement = 'list' }: OverviewNativeAdImp
           ad.destroy();
         }
       })
-      .catch((error) => {
-        console.warn('Overview native ad failed to load:', error);
+      .catch(() => {
+        /* retry handled in requestOverviewNativeAd */
       });
 
     return () => {

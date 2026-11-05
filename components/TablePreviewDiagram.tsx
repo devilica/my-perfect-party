@@ -12,7 +12,7 @@ import {
 import { TableSeatSlot } from '@/lib/seatingStats';
 import { DEFAULT_TABLE_SHAPE } from '@/constants/tableShapes';
 import { useThemeColors } from '@/theme/EventThemeContext';
-import { formatGuestSeatLabel, GuestSeatNameMode, TableShape } from '@/types/models';
+import { getGuestSeatLabelLines, GuestSeatNameMode, TableShape } from '@/types/models';
 import { spacing, typography } from '@/theme/colors';
 
 const BASE_DIAGRAM_SIZE = 320;
@@ -156,24 +156,23 @@ export function TablePreviewDiagram({
         const outwardDx = position.labelX - seatCx;
         const outwardDy = position.labelY - seatCy;
         const outwardLen = Math.hypot(outwardDx, outwardDy) || 1;
-        const displayName = seat.guestName
-          ? formatGuestSeatLabel(seat.guestName, effectiveGuestNameMode)
-          : '';
-        // Size to content so empty max-width padding doesn't push names away from seats.
-        // Label anchor is already seat-edge + 2px; half-extent keeps the near glyph edge there.
-        // Generous char width so abbreviated "Name L." is never clipped to "…".
-        const contentWidth =
-          Math.max(guestLabelFontSize * 1.2, displayName.length * guestLabelFontSize * 0.65) +
-          guestLabelFontSize * 0.4;
-        const estimatedWidth =
+        const unitX = outwardDx / outwardLen;
+        const unitY = outwardDy / outwardLen;
+        const labelLines = seat.guestName
+          ? getGuestSeatLabelLines(seat.guestName, effectiveGuestNameMode)
+          : [];
+        const lineHeight = guestLabelFontSize * (compactHallText ? 1.0 : 1.05);
+        const blockHeight = lineHeight * Math.max(labelLines.length, 1);
+        const longestLine = labelLines.reduce((max, line) => Math.max(max, line.length), 0);
+        const labelBlockWidth =
           effectiveGuestNameMode === 'abbreviated'
-            ? contentWidth
-            : Math.min(guestLabelWidth, contentWidth);
-        const textHalfExtent = estimatedWidth / 2;
-        const labelLeft =
-          position.labelX + (textHalfExtent * outwardDx) / outwardLen;
-        const labelTop =
-          position.labelY + (textHalfExtent * outwardDy) / outwardLen;
+            ? Math.max(
+                guestLabelFontSize * 1.2,
+                longestLine * guestLabelFontSize * 0.65 + guestLabelFontSize * 0.4
+              )
+            : guestLabelWidth;
+        const blockCenterX = position.labelX + unitX * (blockHeight / 2);
+        const blockCenterY = position.labelY + unitY * (blockHeight / 2);
 
         const isSelected = !!selectedGuestId && seat.guestId === selectedGuestId;
         const isYouSeat = index === youSeatIndex;
@@ -226,27 +225,48 @@ export function TablePreviewDiagram({
                 ]}
               />
             )}
-            {seat.guestName && effectiveGuestNameMode !== 'hidden' ? (
-              <Text
+            {labelLines.length > 0 ? (
+              <View
                 style={[
-                  styles.label,
+                  styles.labelBlock,
                   {
-                    color: isSelected ? theme.primaryDark : theme.text,
-                    left: labelLeft,
-                    top: labelTop,
-                    width: estimatedWidth,
-                    fontSize: guestLabelFontSize,
-                    fontWeight: isSelected ? '700' : '600',
+                    left: blockCenterX,
+                    top: blockCenterY,
+                    width: labelBlockWidth,
                     transform: [
-                      { translateX: -estimatedWidth / 2 },
-                      { translateY: -guestLabelFontSize * 0.55 },
+                      { translateX: -labelBlockWidth / 2 },
+                      { translateY: -blockHeight / 2 },
                       { rotate: `${position.labelRotation}deg` },
                     ],
                   },
                 ]}
               >
-                {displayName}
-              </Text>
+                {labelLines.map((line, lineIndex) => (
+                  <Text
+                    key={lineIndex}
+                    style={[
+                      styles.label,
+                      {
+                        color: isSelected ? theme.primaryDark : theme.text,
+                        width: labelBlockWidth,
+                        fontSize: guestLabelFontSize,
+                        lineHeight,
+                        fontWeight:
+                          lineIndex === 0
+                            ? isSelected
+                              ? '700'
+                              : '600'
+                            : isSelected
+                              ? '600'
+                              : '500',
+                      },
+                    ]}
+                    numberOfLines={1}
+                  >
+                    {line}
+                  </Text>
+                ))}
+              </View>
             ) : null}
             {isYouSeat && youLabel ? (
               <View
@@ -294,9 +314,11 @@ const styles = StyleSheet.create({
   seat: {
     position: 'absolute',
   },
-  label: {
+  labelBlock: {
     position: 'absolute',
-    fontWeight: '600',
+    alignItems: 'center',
+  },
+  label: {
     textAlign: 'center',
   },
   youBadge: {

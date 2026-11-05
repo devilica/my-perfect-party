@@ -1,11 +1,11 @@
 import { shouldShowAdPreviews } from '@/lib/adsEnvironment';
-import { showRewardedAdPreview } from '@/lib/rewardedAdPreviewController';
+import { showInterstitialAdPreview } from '@/lib/rewardedAdPreviewController';
 
 export function preloadInterstitialAd() {}
 
 export async function showInterstitialAd(_isOnline: boolean): Promise<void> {
   if (shouldShowAdPreviews()) {
-    await showRewardedAdPreview();
+    await showInterstitialAdPreview();
   }
 }
 

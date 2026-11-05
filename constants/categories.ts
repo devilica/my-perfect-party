@@ -37,3 +37,20 @@ export function getCategoryColor(category: string): string {
 export function isPredefinedCategory(category: string): category is PredefinedCategory {
   return PREDEFINED_CATEGORIES.includes(category as PredefinedCategory);
 }
+
+export function getCategoryBadgeStyle(category: string): {
+  backgroundColor: string;
+  color: string;
+} {
+  const color = getCategoryColor(category);
+  if (color.startsWith('hsl')) {
+    return {
+      backgroundColor: color.replace(/55%\)/, '90%)'),
+      color: color.replace(/55%\)/, '32%)'),
+    };
+  }
+  return {
+    backgroundColor: `${color}22`,
+    color,
+  };
+}

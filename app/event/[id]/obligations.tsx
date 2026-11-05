@@ -4,7 +4,7 @@ import { Alert, FlatList, StyleSheet, View } from 'react-native';
 
 import { ObligationCard } from '@/components/ObligationCard';
 import { ObligationsWelcomeAvatar } from '@/components/ObligationsWelcomeAvatar';
-import { OverviewNativeAd } from '@/components/OverviewNativeAd';
+import { OverviewNativeAdListFooter } from '@/components/OverviewNativeAdListFooter';
 import { ThemedScreenContainer } from '@/components/ThemedScreenContainer';
 import { Button, EmptyState, Fab, StatCard } from '@/components/ui';
 import { OBLIGATION_TEMPLATE_KEYS } from '@/constants/obligationTemplates';
@@ -121,7 +121,7 @@ export default function ObligationsScreen() {
           onScroll={onScroll}
           scrollEventThrottle={scrollEventThrottle}
           ListHeaderComponent={obligations.length > 0 ? listHeader : null}
-          ListFooterComponent={OverviewNativeAd}
+          ListFooterComponent={OverviewNativeAdListFooter}
           ListEmptyComponent={emptyComponent}
           renderItem={({ item }) => (
             <ObligationCard

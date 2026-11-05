@@ -40,7 +40,7 @@ export async function restoreBackup(messages: RestoreBackupMessages): Promise<bo
         },
         {
           text: messages.confirm,
-          style: 'destructive',
+          style: 'default',
           onPress: () => {
             try {
               useWeddingStore.getState().importBackupData(backup.data);

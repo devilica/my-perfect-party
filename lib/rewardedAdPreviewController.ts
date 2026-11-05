@@ -1,9 +1,16 @@
 export type RewardedAdPreviewResult = 'rewarded' | 'closed';
 
+export type AdPreviewKind = 'rewarded' | 'interstitial';
+
 type RewardedAdPreviewListener = (visible: boolean) => void;
 
 let listeners: RewardedAdPreviewListener[] = [];
 let pendingResolve: ((result: RewardedAdPreviewResult) => void) | null = null;
+let previewKind: AdPreviewKind = 'rewarded';
+
+export function getAdPreviewKind(): AdPreviewKind {
+  return previewKind;
+}
 
 export function subscribeRewardedAdPreview(listener: RewardedAdPreviewListener): () => void {
   listeners.push(listener);
@@ -16,15 +23,24 @@ export function isRewardedAdPreviewVisible(): boolean {
   return pendingResolve !== null;
 }
 
-export function showRewardedAdPreview(): Promise<RewardedAdPreviewResult> {
+function showAdPreview(kind: AdPreviewKind): Promise<RewardedAdPreviewResult> {
   if (pendingResolve) {
     return Promise.resolve('closed');
   }
 
   return new Promise((resolve) => {
+    previewKind = kind;
     pendingResolve = resolve;
     listeners.forEach((listener) => listener(true));
   });
+}
+
+export function showRewardedAdPreview(): Promise<RewardedAdPreviewResult> {
+  return showAdPreview('rewarded');
+}
+
+export function showInterstitialAdPreview(): Promise<RewardedAdPreviewResult> {
+  return showAdPreview('interstitial');
 }
 
 export function finishRewardedAdPreview(result: RewardedAdPreviewResult): void {

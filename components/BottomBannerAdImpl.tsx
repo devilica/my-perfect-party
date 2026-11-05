@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   BannerAd,
@@ -12,23 +12,48 @@ import { BOTTOM_BANNER_UNIT_ID } from '@/constants/ads';
 import { colors } from '@/theme/colors';
 
 const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : BOTTOM_BANNER_UNIT_ID;
+const MAX_LOAD_RETRIES = 3;
+const RETRY_DELAY_MS = 30_000;
 
 export function BottomBannerAdImpl() {
   const insets = useSafeAreaInsets();
   const bannerRef = useRef<BannerAd>(null);
-  const [failed, setFailed] = useState(false);
+  const retryCountRef = useRef(0);
+  const retryTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [hidden, setHidden] = useState(false);
+
+  const clearRetryTimeout = () => {
+    if (retryTimeoutRef.current) {
+      clearTimeout(retryTimeoutRef.current);
+      retryTimeoutRef.current = null;
+    }
+  };
 
   useForeground(() => {
-    if (Platform.OS === 'ios') {
-      bannerRef.current?.load();
-    }
+    if (hidden) return;
+    retryCountRef.current = 0;
+    bannerRef.current?.load();
   });
 
   useEffect(() => {
-    setFailed(false);
+    return () => {
+      clearRetryTimeout();
+    };
   }, []);
 
-  if (failed) {
+  const scheduleRetry = () => {
+    clearRetryTimeout();
+    if (retryCountRef.current >= MAX_LOAD_RETRIES) {
+      setHidden(true);
+      return;
+    }
+    retryCountRef.current += 1;
+    retryTimeoutRef.current = setTimeout(() => {
+      bannerRef.current?.load();
+    }, RETRY_DELAY_MS);
+  };
+
+  if (hidden) {
     return null;
   }
 
@@ -38,9 +63,15 @@ export function BottomBannerAdImpl() {
         ref={bannerRef}
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+        onAdLoaded={() => {
+          retryCountRef.current = 0;
+          clearRetryTimeout();
+        }}
         onAdFailedToLoad={(error) => {
-          console.warn('Banner ad failed to load:', error);
-          setFailed(true);
+          if (__DEV__) {
+            console.warn('Banner ad failed to load:', error?.code, error);
+          }
+          scheduleRetry();
         }}
       />
     </View>

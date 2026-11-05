@@ -59,7 +59,7 @@
     "guestCategoryPlaceholder": "npr. Komšije",
     "guestSides": "Strane gostiju",
     "addGuestSide": "Dodaj stranu",
-    "guestSidePlaceholder": "npr. Strana mlade",
+    "guestSidePlaceholder": "npr. Porodica, Prijatelji",
     "themes": {
       "default": "Podrazumevano",
       "wedding": "Svadba",
@@ -263,7 +263,7 @@
       "other": "Ostalo"
     },
     "addSide": "Dodaj stranu",
-    "customSidePlaceholder": "npr. Strana mlade",
+    "customSidePlaceholder": "npr. Porodica",
     "side": "Strana",
     "attendance": "Status dolaska",
     "partySize": "Broj osoba",
@@ -396,7 +396,7 @@
     "delete": "Obriši trošak",
     "deleteConfirm": "Da li si siguran da želiš obrisati ovaj trošak?",
     "emptyTitle": "Nema troškova",
-    "emptySubtitle": "Dodaj troškove i prati budžet za svadbu.",
+    "emptySubtitle": "Dodaj troškove i prati budžet proslave.",
     "expenseTitle": "Naziv troška",
     "titlePlaceholder": "npr. Bend",
     "amount": "Iznos",
@@ -547,7 +547,7 @@
     "backupSyncCancelled": "Slanje sigurnosne kopije je otkazano.",
     "backupSyncFailed": "Sigurnosna kopija nije uspjela. Pokušaj ponovo.",
     "backupImportConfirmTitle": "Uvesti sigurnosnu kopiju?",
-    "backupImportConfirmMessage": "Ovo će zamijeniti sve postojeće podatke u aplikaciji podacima iz datoteke sigurnosne kopije.",
+    "backupImportConfirmMessage": "Događaji iz rezervne kopije biće dodati uz postojeće podatke. Ako događaj ima isti naziv kao postojeći, uvezeni događaj će dobiti naziv sa (1), (2) i sl.",
     "backupImportSuccess": "Sigurnosna kopija je uspješno uvezena.",
     "backupImportFailed": "Uvoz sigurnosne kopije nije uspio.",
     "backupInvalidFile": "Odabrani fajl nije ispravna datoteka sigurnosne kopije.",
@@ -590,7 +590,10 @@
     "rewardedTitle": "Test rewarded oglas",
     "rewardedPreviewNote": "Expo pregled — pravi oglasi u APK buildu.",
     "rewardedPlaying": "Oglas se reprodukuje…",
-    "rewardedClose": "Zatvori"
+    "rewardedClose": "Zatvori",
+    "interstitialTitle": "Test interstitial oglas",
+    "interstitialPreviewNote": "Expo pregled za Vidi salu — u APK-u ide puni interstitial, ne nagradni oglas.",
+    "interstitialClose": "Nastavi"
   },
   "notifications": {
     "channelName": "Podsetnici",
@@ -666,7 +669,7 @@
       "tablesTitle": "Dodavanje stolova",
       "tablesBody": "Prvih 9 stolova je besplatno. Nakon toga, svaki sledeći blok od 10 stolova zahteva gledanje kratke reklame pre dodavanja novih.",
       "invitationTitle": "Deljenje ili preuzimanje pozivnica",
-      "invitationBody": "Deljenje ili preuzimanje slike pozivnice može zahtevati gledanje kratke reklame kada ste online.",
+      "invitationBody": "Preuzimanje slike pozivnice može zahtevati gledanje kratke reklame kada ste online. Deljenje je besplatno.",
       "nativeTitle": "Nativne reklame",
       "nativeIntro": "Nativne reklame mogu se pojaviti u sadržaju koji se listom pregledava i jasno su označene kao reklame.",
       "nativeListsTitle": "Nativne reklame u karticama događaja",
@@ -675,6 +678,10 @@
       "nativeFormsBody": "Pri dodavanju ili uređivanju gosta, stola, troška ili zadatka, ili pri masovnom kreiranju stolova, nativna reklama može se pojaviti u formi.",
       "bannerTitle": "Banner reklame na formama",
       "bannerBody": "Banner reklama može se pojaviti na dnu formi za gosta, trošak, zadatak, stol i masovno kreiranje stolova.",
+      "hallTitle": "Vidi salu",
+      "hallBody": "Kada na kartici Raspored sedenja dodirnete Vidi salu, pre otvaranja plana sale može se prikazati puni interstitial oglas (ne nagradni).",
+      "legalLinksTitle": "Pravne stranice i pomoć",
+      "legalLinksBody": "Otvaranje Politike privatnosti, Uslova, Reklama u aplikaciji ili Kako koristiti aplikaciju iz Postavki može prvo prikazati puni interstitial oglas.",
       "offlineTitle": "Internet i Expo Go",
       "offlineBody": "Nagradne reklame zahtevaju internet vezu. Ako ste offline, radnja možda neće biti dostupna. U Expo Go-u prikazuju se testni pregledi reklama umesto pravih reklama."
     },

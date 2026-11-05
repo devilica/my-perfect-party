@@ -3,13 +3,15 @@ import { StyleSheet, View } from 'react-native';
 
 import { SelectField } from '@/components/SelectField';
 import { TextInputField } from '@/components/ui';
-import { PREDEFINED_CATEGORIES } from '@/constants/categories';
+import { isPredefinedCategory, PREDEFINED_CATEGORIES } from '@/constants/categories';
+import { getEventCustomExpenseCategories } from '@/lib/expenseStats';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
-import { ExpenseCategory, PredefinedCategory } from '@/types/models';
+import { ExpenseCategory } from '@/types/models';
 import { spacing } from '@/theme/colors';
 
 type CategoryPickerProps = {
+  eventId?: string;
   selected: ExpenseCategory;
   customCategory: string;
   onSelect: (category: ExpenseCategory) => void;
@@ -17,9 +19,28 @@ type CategoryPickerProps = {
   dense?: boolean;
 };
 
-type CategoryOption = PredefinedCategory | 'other';
+function mergeCustomCategoryOptions(typed: string, fromEvent: string[]): string[] {
+  const result: string[] = [];
+  const seen = new Set<string>();
+
+  const add = (name: string) => {
+    const trimmed = name.trim();
+    if (!trimmed || isPredefinedCategory(trimmed)) return;
+
+    const key = trimmed.toLowerCase();
+    if (seen.has(key)) return;
+
+    seen.add(key);
+    result.push(trimmed);
+  };
+
+  add(typed);
+  fromEvent.forEach(add);
+  return result;
+}
 
 export function CategoryPicker({
+  eventId,
   selected,
   customCategory,
   onSelect,
@@ -27,29 +48,48 @@ export function CategoryPicker({
   dense = false,
 }: CategoryPickerProps) {
   const language = useWeddingStore((s) => s.language);
+  const expenses = useWeddingStore((s) => s.expenses);
   const { t } = useTranslation(language);
 
-  const selectValue: CategoryOption = useMemo(() => {
-    if (PREDEFINED_CATEGORIES.includes(selected as PredefinedCategory)) {
-      return selected as PredefinedCategory;
+  const customFromEvent = useMemo(
+    () => (eventId ? getEventCustomExpenseCategories(expenses, eventId) : []),
+    [eventId, expenses]
+  );
+
+  const customOptions = useMemo(
+    () => mergeCustomCategoryOptions(customCategory, customFromEvent),
+    [customCategory, customFromEvent]
+  );
+
+  const selectValue = useMemo((): string => {
+    if (isPredefinedCategory(selected)) {
+      return selected;
+    }
+    if (typeof selected === 'string' && selected.trim() && selected !== 'other') {
+      return selected.trim();
     }
     return 'other';
   }, [selected]);
 
   const options = useMemo(
-    () =>
-      PREDEFINED_CATEGORIES.map((category) => ({
-        value: category as CategoryOption,
+    () => [
+      ...customOptions.map((category) => ({
+        value: category,
+        label: category,
+      })),
+      ...PREDEFINED_CATEGORIES.map((category) => ({
+        value: category,
         label: t(`categories.${category}`),
       })),
-    [t]
+    ],
+    [customOptions, t]
   );
 
   const showCustom = selectValue === 'other';
 
   return (
     <View style={[styles.container, dense && styles.containerDense]}>
-      <SelectField<CategoryOption>
+      <SelectField<string>
         label={t('expenses.category')}
         value={selectValue}
         options={options}
@@ -59,7 +99,15 @@ export function CategoryPicker({
             onSelect('other');
             return;
           }
+          if (isPredefinedCategory(category)) {
+            onSelect(category);
+            if (category !== 'other') {
+              onCustomChange('');
+            }
+            return;
+          }
           onSelect(category);
+          onCustomChange(category);
         }}
       />
       {showCustom ? (

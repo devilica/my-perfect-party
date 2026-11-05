@@ -7,6 +7,8 @@ export function initMobileAds() {
   return mobileAds()
     .initialize()
     .catch((error: unknown) => {
-      console.warn('Mobile ads initialization failed:', error);
+      if (__DEV__) {
+        console.warn('Mobile ads initialization failed:', error);
+      }
     });
 }

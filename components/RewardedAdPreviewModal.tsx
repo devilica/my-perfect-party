@@ -2,7 +2,10 @@ import { Ionicons } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { finishRewardedAdPreview } from '@/lib/rewardedAdPreviewController';
+import {
+  finishRewardedAdPreview,
+  getAdPreviewKind,
+} from '@/lib/rewardedAdPreviewController';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
 import { useThemeColors } from '@/theme/EventThemeContext';
@@ -18,15 +21,21 @@ export function RewardedAdPreviewModal({ visible }: RewardedAdPreviewModalProps)
   const language = useWeddingStore((s) => s.language);
   const { t } = useTranslation(language);
   const theme = useThemeColors();
-  const [secondsLeft, setSecondsLeft] = useState(COUNTDOWN_SECONDS);
+  const isInterstitial = getAdPreviewKind() === 'interstitial';
+  const countdownSeconds = isInterstitial ? 0 : COUNTDOWN_SECONDS;
+  const [secondsLeft, setSecondsLeft] = useState(countdownSeconds);
 
   useEffect(() => {
     if (!visible) {
-      setSecondsLeft(COUNTDOWN_SECONDS);
+      setSecondsLeft(countdownSeconds);
       return;
     }
 
-    setSecondsLeft(COUNTDOWN_SECONDS);
+    setSecondsLeft(countdownSeconds);
+    if (countdownSeconds === 0) {
+      return;
+    }
+
     const interval = setInterval(() => {
       setSecondsLeft((current) => {
         if (current <= 1) {
@@ -38,12 +47,12 @@ export function RewardedAdPreviewModal({ visible }: RewardedAdPreviewModalProps)
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [visible]);
+  }, [visible, countdownSeconds]);
 
   const canClose = secondsLeft === 0;
 
   const handleDismiss = () => {
-    finishRewardedAdPreview(canClose ? 'rewarded' : 'closed');
+    finishRewardedAdPreview(isInterstitial || canClose ? 'rewarded' : 'closed');
   };
 
   return (
@@ -53,15 +62,21 @@ export function RewardedAdPreviewModal({ visible }: RewardedAdPreviewModalProps)
           style={[styles.card, { backgroundColor: theme.surface, borderColor: theme.border }]}
           onPress={(event) => event.stopPropagation()}
         >
-          <Text style={[styles.title, { color: theme.text }]}>{t('ads.rewardedTitle')}</Text>
-          <Text style={[styles.note, { color: theme.textSecondary }]}>{t('ads.rewardedPreviewNote')}</Text>
+          <Text style={[styles.title, { color: theme.text }]}>
+            {t(isInterstitial ? 'ads.interstitialTitle' : 'ads.rewardedTitle')}
+          </Text>
+          <Text style={[styles.note, { color: theme.textSecondary }]}>
+            {t(isInterstitial ? 'ads.interstitialPreviewNote' : 'ads.rewardedPreviewNote')}
+          </Text>
 
           <View style={[styles.media, { backgroundColor: theme.background }]}>
             <Ionicons name="play-circle-outline" size={56} color={theme.textMuted} />
           </View>
 
           <Text style={[styles.status, { color: theme.textSecondary }]}>
-            {canClose ? t('ads.rewardedClose') : `${t('ads.rewardedPlaying')} ${secondsLeft}`}
+            {isInterstitial || canClose
+              ? t('ads.interstitialClose')
+              : `${t('ads.rewardedPlaying')} ${secondsLeft}`}
           </Text>
 
           <Pressable
@@ -78,7 +93,7 @@ export function RewardedAdPreviewModal({ visible }: RewardedAdPreviewModalProps)
                 { color: canClose ? theme.surface : theme.textMuted },
               ]}
             >
-              {t('ads.rewardedClose')}
+              {t(isInterstitial ? 'ads.interstitialClose' : 'ads.rewardedClose')}
             </Text>
           </Pressable>
         </Pressable>

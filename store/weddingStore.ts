@@ -8,6 +8,7 @@ import { isLanguage } from '@/constants/languages';
 import { normalizeAttendanceStatus } from '@/constants/guestAttendance';
 import { normalizeTableShape } from '@/constants/tableShapes';
 import { BackupData } from '@/lib/backup';
+import { mergeImportedBackup } from '@/lib/mergeImportedBackup';
 import { generateId } from '@/lib/generateId';
 import { getDefaultLanguage, translate } from '@/lib/i18n';
 import { syncAllNotifications } from '@/lib/notifications';
@@ -411,7 +412,27 @@ export const useWeddingStore = create<WeddingState>()(
 
       importBackupData: (data) => {
         const normalized = normalizeImportedState(data);
-        set(normalized);
+        set((state) => {
+          const merged = mergeImportedBackup(
+            {
+              events: state.events,
+              guests: state.guests,
+              tables: state.tables,
+              expenses: state.expenses,
+              obligations: state.obligations,
+              unlockedAppThemes: state.unlockedAppThemes,
+            },
+            normalized
+          );
+          return {
+            events: [...state.events, ...merged.events],
+            guests: [...state.guests, ...merged.guests],
+            tables: [...state.tables, ...merged.tables],
+            expenses: [...state.expenses, ...merged.expenses],
+            obligations: [...state.obligations, ...merged.obligations],
+            unlockedAppThemes: merged.unlockedAppThemes,
+          };
+        });
         triggerNotificationSync(get);
       },
 

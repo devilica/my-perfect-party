@@ -174,7 +174,7 @@ export function getAssignableGuestsForTable(
 ): Guest[] {
   return getGuestsForEvent(guests, eventId).filter(
     (guest) =>
-      guest.tableId !== table.id &&
+      !guest.tableId &&
       canAssignGuestToTable(guest, table, guests, table.id)
   );
 }
