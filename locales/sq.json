@@ -34,7 +34,7 @@
     "delete": "Fshi ngjarjen",
     "deleteConfirm": "Je i sigurt që dëshiron ta fshish këtë ngjarje? Të gjithë mysafirët, tavolinat, shpenzimet dhe detyrat do të hiqen. Kur je online, duhet të shikosh një reklamë të shkurtër për të fshirë.",
     "deleteAdUnavailable": "Reklama nuk është e disponueshme tani. Provo përsëri më vonë.",
-    "emptyTitle": "Ende nuk ka ngjarje",
+    "emptyTitle": "Ende nuk ke ngjarje",
     "emptySubtitle": "Shto ngjarjen të parë dhe fillo të planifikosh festën.",
     "name": "Emri i ngjarjes",
     "namePlaceholder": "p.sh. Festa Ana & Marko",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Eksporto PDF",
     "exportFailed": "PDF nuk mund të eksportohej. Provoni përsëri.",
-    "exportSharingUnavailable": "Ndarja nuk është e disponueshme në këtë pajisje."
+    "exportSharingUnavailable": "Ndarja nuk është e disponueshme në këtë pajisje.",
+    "emptyHeroHeadline": "Organizoni festën tuaj në mënyrë të thjeshtë"
   },
   "tabs": {
     "overview": "Përmbledhje",

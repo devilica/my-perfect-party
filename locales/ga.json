@@ -34,7 +34,7 @@
     "delete": "Scrios imeacht",
     "deleteConfirm": "An bhfuil tú cinnte gur mian leat an t-imeacht seo a scriosadh? Bainfear gach aoi, boird, costas agus tasc. Nuair atá tú ar líne, caithfidh tú fógra gearr a fheiceáil chun scriosadh.",
     "deleteAdUnavailable": "Níl an fógra ar fáil faoi láthair. Bain triail eile as níos déanaí.",
-    "emptyTitle": "Níl aon imeacht fós",
+    "emptyTitle": "Níl aon imeacht agat fós",
     "emptySubtitle": "Cuir do chéad imeacht leis agus cuir tús le pleanáil do cheiliúrtha.",
     "name": "Ainm an imeachta",
     "namePlaceholder": "m.sh. Cóisir Ana & Marko",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Easpórtáil PDF",
     "exportFailed": "Níorbh fhéidir an PDF a easpórtáil. Bain triail eile as.",
-    "exportSharingUnavailable": "Níl comhroinnt ar fáil ar an ngléas seo."
+    "exportSharingUnavailable": "Níl comhroinnt ar fáil ar an ngléas seo.",
+    "emptyHeroHeadline": "Eagraigh do cheiliúradh ar bhealach simplí"
   },
   "tabs": {
     "overview": "Forléargas",

@@ -34,7 +34,7 @@
     "delete": "删除活动",
     "deleteConfirm": "确定要删除此活动吗？所有宾客、餐桌、支出和任务都将被移除。在线状态下，删除前需观看一段短广告。",
     "deleteAdUnavailable": "当前无法显示广告，请稍后再试。",
-    "emptyTitle": "暂无活动",
+    "emptyTitle": "你还没有活动",
     "emptySubtitle": "添加第一个活动，开始规划您的庆典。",
     "name": "活动名称",
     "namePlaceholder": "例如：安娜与马可的派对",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "导出 PDF",
     "exportFailed": "无法导出 PDF，请重试。",
-    "exportSharingUnavailable": "此设备不支持分享功能。"
+    "exportSharingUnavailable": "此设备不支持分享功能。",
+    "emptyHeroHeadline": "轻松规划你的庆典"
   },
   "tabs": {
     "overview": "概览",

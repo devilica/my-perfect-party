@@ -34,7 +34,7 @@
     "delete": "Poista tapahtuma",
     "deleteConfirm": "Haluatko varmasti poistaa tämän tapahtuman? Kaikki vieraat, pöydät, kulut ja tehtävät poistetaan. Verkossa sinun on katsottava lyhyt mainos poistaaksesi.",
     "deleteAdUnavailable": "Mainos ei ole juuri nyt saatavilla. Yritä myöhemmin uudelleen.",
-    "emptyTitle": "Ei tapahtumia vielä",
+    "emptyTitle": "Sinulla ei ole vielä tapahtumia",
     "emptySubtitle": "Lisää ensimmäinen tapahtumasi ja aloita juhlan suunnittelu.",
     "name": "Tapahtuman nimi",
     "namePlaceholder": "esim. Anan ja Markon juhlat",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Vie PDF",
     "exportFailed": "PDF:ää ei voitu viedä. Yritä uudelleen.",
-    "exportSharingUnavailable": "Jakaminen ei ole käytettävissä tällä laitteella."
+    "exportSharingUnavailable": "Jakaminen ei ole käytettävissä tällä laitteella.",
+    "emptyHeroHeadline": "Järjestä juhlasi helposti"
   },
   "tabs": {
     "overview": "Yleiskatsaus",

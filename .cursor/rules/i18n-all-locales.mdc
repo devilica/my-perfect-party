@@ -1,0 +1,35 @@
+---
+description: Nova i18n ključeva moraju u svih 46 locale fajlova odjednom
+alwaysApply: true
+---
+
+# i18n — svi jezici
+
+Kad dodaješ ili mijenjaš **korisnički vidljiv tekst** u aplikaciji, **uvijek** ažuriraj **sve** locale datoteke u [`locales/`](locales/) (46 jezika: `en.json`, `bs.json`, `hr.json`, `sr.json`, `sr-cy.json`, …).
+
+## Obavezno
+
+1. **Ne ostavljaj** novi `t('…')` ključ samo u `en.json` / `sr.json` (ili jednom jeziku).
+2. Dodaj isti ključ u **svaki** `locales/*.json`, na isto mjesto u JSON hijerarhiji (`events.`, `legal.`, `tabs.`, itd.).
+3. Piši **smislen prevod** po jeziku; ako nemaš prevod, privremeno koristi engleski u tom locale fajlu — ali ključ mora postojati svuda.
+4. Ne mijenjaj ključeve u drugim sekcijama slučajno (npr. `guests.emptyTitle` vs `events.emptyTitle`).
+
+## Preferirani workflow
+
+Za veći broj jezika ili masovnu izmjenu:
+
+- Dodaj mapu prevoda u [`scripts/`](scripts/) (vidi `patch-empty-hero-headline.mjs`, `patch-empty-events-title.mjs`, `patch-backup-import-merge-message.mjs`).
+- Pokreni skriptu: `node scripts/patch-<ime>.mjs`.
+- U PR/opisu navedi da je i18n pokriven za sve locale.
+
+Za 1–2 ključa ručno je OK samo ako stvarno ažuriraš **svih 46** fajlova u istom zadatku.
+
+## Kod
+
+- Ključevi: kebab/camel u JSON-u kao postojeći (`emptyHeroHeadline`, `deleteConfirm`).
+- UI stringovi idu u locale; ne hardkoduj copy u komponente osim privremeno u dev (zatim i18n).
+- Nakon izmjena: po mogućnosti `npm run verify:i18n` ako skripta pokriva novi ključ; inače provjeri da svaki locale ima novi ključ (npr. grep po imenu ključa — 46 pogodaka u `locales/`).
+
+## Scope
+
+Vrijedi za nove labele, naslove, empty state, legal/ads copy, onboarding, greške koje korisnik vidi. Ne vrijedi za komentare, commit poruke ili docs osim ako korisnik eksplicitno traži prevod dokumentacije.

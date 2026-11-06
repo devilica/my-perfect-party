@@ -34,7 +34,7 @@
     "delete": "Kustuta sündmus",
     "deleteConfirm": "Kas oled kindel, et soovid selle sündmuse kustutada? Kõik külalised, lauad, kulud ja ülesanded eemaldatakse. Võrgus olles pead kustutamiseks vaatama lühikest reklaami.",
     "deleteAdUnavailable": "Reklaam pole praegu saadaval. Proovi hiljem uuesti.",
-    "emptyTitle": "Sündmusi pole veel",
+    "emptyTitle": "Sul pole veel sündmusi",
     "emptySubtitle": "Lisa esimene sündmus ja alusta peo planeerimist.",
     "name": "Sündmuse nimi",
     "namePlaceholder": "nt Ana ja Marko pidu",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Ekspordi PDF",
     "exportFailed": "PDF-i ei õnnestunud eksportida. Proovi uuesti.",
-    "exportSharingUnavailable": "Jagamine pole sellel seadmel saadaval."
+    "exportSharingUnavailable": "Jagamine pole sellel seadmel saadaval.",
+    "emptyHeroHeadline": "Korralda pidu lihtsal viisil"
   },
   "tabs": {
     "overview": "Ülevaade",

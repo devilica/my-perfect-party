@@ -34,7 +34,7 @@
     "delete": "Veranstaltung löschen",
     "deleteConfirm": "Möchten Sie diese Veranstaltung wirklich löschen? Alle Gäste, Tische, Ausgaben und Aufgaben werden entfernt. Bei Online-Verbindung müssen Sie eine kurze Werbung ansehen, um zu löschen.",
     "deleteAdUnavailable": "Werbung ist derzeit nicht verfügbar. Bitte versuchen Sie es später erneut.",
-    "emptyTitle": "Noch keine Veranstaltungen",
+    "emptyTitle": "Du hast noch keine Veranstaltungen",
     "emptySubtitle": "Fügen Sie Ihre erste Veranstaltung hinzu und beginnen Sie mit der Planung Ihrer Feier.",
     "name": "Name der Veranstaltung",
     "namePlaceholder": "z. B. Ana & Markos Party",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "PDF exportieren",
     "exportFailed": "PDF konnte nicht exportiert werden. Bitte erneut versuchen.",
-    "exportSharingUnavailable": "Teilen ist auf diesem Gerät nicht verfügbar."
+    "exportSharingUnavailable": "Teilen ist auf diesem Gerät nicht verfügbar.",
+    "emptyHeroHeadline": "Organisiere deine Feier ganz einfach"
   },
   "tabs": {
     "overview": "Übersicht",

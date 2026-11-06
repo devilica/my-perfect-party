@@ -319,18 +319,33 @@ export function EmptyState({
   icon,
   title,
   subtitle,
+  onPress,
+  actionLabel,
 }: {
   icon: keyof typeof Ionicons.glyphMap;
   title: string;
   subtitle: string;
+  onPress?: () => void;
+  actionLabel?: string;
 }) {
   const theme = useThemeColors();
 
   return (
-    <Card style={emptyStyles.container}>
-      <Ionicons name={icon} size={48} color={theme.primary} />
+    <Card
+      onPress={onPress}
+      style={[emptyStyles.container, onPress && emptyStyles.pressable]}
+    >
+      <View style={[emptyStyles.iconRing, { backgroundColor: theme.primaryLight }]}>
+        <Ionicons name={icon} size={40} color={theme.primary} />
+      </View>
       <Text style={[emptyStyles.title, { color: theme.text }]}>{title}</Text>
       <Text style={[emptyStyles.subtitle, { color: theme.textSecondary }]}>{subtitle}</Text>
+      {onPress && actionLabel ? (
+        <View style={[emptyStyles.actionRow, { backgroundColor: theme.primaryLight }]}>
+          <Ionicons name="add-circle-outline" size={20} color={theme.primaryDark} />
+          <Text style={[emptyStyles.actionLabel, { color: theme.primaryDark }]}>{actionLabel}</Text>
+        </View>
+      ) : null}
     </Card>
   );
 }
@@ -339,7 +354,20 @@ const emptyStyles = StyleSheet.create({
   container: {
     alignItems: 'center',
     paddingVertical: spacing.lg,
+    paddingHorizontal: spacing.md,
     gap: spacing.sm,
+  },
+  pressable: {
+    width: '100%',
+    maxWidth: 360,
+  },
+  iconRing: {
+    width: 72,
+    height: 72,
+    borderRadius: 36,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: spacing.xs,
   },
   title: {
     ...typography.subheading,
@@ -349,6 +377,19 @@ const emptyStyles = StyleSheet.create({
     ...typography.caption,
     textAlign: 'center',
     lineHeight: 20,
+  },
+  actionRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs,
+    marginTop: spacing.sm,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: radius.full,
+  },
+  actionLabel: {
+    ...typography.body,
+    fontWeight: '600',
   },
 });
 

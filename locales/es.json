@@ -34,7 +34,7 @@
     "delete": "Eliminar evento",
     "deleteConfirm": "¿Seguro que quieres eliminar este evento? Se eliminarán todos los invitados, mesas, gastos y tareas. En línea, deberás ver un anuncio breve para eliminar.",
     "deleteAdUnavailable": "El anuncio no está disponible ahora. Inténtalo más tarde.",
-    "emptyTitle": "Aún no hay eventos",
+    "emptyTitle": "Aún no tienes eventos",
     "emptySubtitle": "Añade tu primer evento y empieza a planificar tu celebración.",
     "name": "Nombre del evento",
     "namePlaceholder": "p. ej. Fiesta Ana y Marko",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Exportar PDF",
     "exportFailed": "No se pudo exportar el PDF. Inténtalo de nuevo.",
-    "exportSharingUnavailable": "Compartir no está disponible en este dispositivo."
+    "exportSharingUnavailable": "Compartir no está disponible en este dispositivo.",
+    "emptyHeroHeadline": "Organiza tu celebración de forma sencilla"
   },
   "tabs": {
     "overview": "Resumen",

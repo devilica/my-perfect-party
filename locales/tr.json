@@ -34,7 +34,7 @@
     "delete": "Etkinliği sil",
     "deleteConfirm": "Bu etkinliği silmek istediğinizden emin misiniz? Tüm misafirler, masalar, giderler ve görevler kaldırılacak. Çevrimiçiyken silmek için kısa bir reklam izlemeniz gerekir.",
     "deleteAdUnavailable": "Reklam şu anda kullanılamıyor. Daha sonra tekrar deneyin.",
-    "emptyTitle": "Henüz etkinlik yok",
+    "emptyTitle": "Henüz etkinliğin yok",
     "emptySubtitle": "İlk etkinliğinizi ekleyin ve kutlamanızı planlamaya başlayın.",
     "name": "Etkinlik adı",
     "namePlaceholder": "örn. Ana & Marko partisi",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "PDF dışa aktar",
     "exportFailed": "PDF dışa aktarılamadı. Lütfen tekrar deneyin.",
-    "exportSharingUnavailable": "Paylaşım bu cihazda kullanılamıyor."
+    "exportSharingUnavailable": "Paylaşım bu cihazda kullanılamıyor.",
+    "emptyHeroHeadline": "Kutlamanı kolayca planla"
   },
   "tabs": {
     "overview": "Genel bakış",

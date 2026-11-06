@@ -34,7 +34,7 @@
     "delete": "Ištrinti renginį",
     "deleteConfirm": "Ar tikrai norite ištrinti šį renginį? Visi svečiai, stalai, išlaidos ir užduotys bus pašalinti. Būdami prisijungę, norėdami ištrinti, turite peržiūrėti trumpą reklamą.",
     "deleteAdUnavailable": "Reklama šiuo metu nepasiekiama. Bandykite vėliau.",
-    "emptyTitle": "Renginių dar nėra",
+    "emptyTitle": "Dar neturi renginių",
     "emptySubtitle": "Pridėkite pirmą renginį ir pradėkite planuoti šventę.",
     "name": "Renginio pavadinimas",
     "namePlaceholder": "pvz. Ana ir Marko šventė",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Eksportuoti PDF",
     "exportFailed": "Nepavyko eksportuoti PDF. Bandykite dar kartą.",
-    "exportSharingUnavailable": "Bendrinimas šiame įrenginyje nepasiekiamas."
+    "exportSharingUnavailable": "Bendrinimas šiame įrenginyje nepasiekiamas.",
+    "emptyHeroHeadline": "Suplanuokite šventę paprastai"
   },
   "tabs": {
     "overview": "Apžvalga",

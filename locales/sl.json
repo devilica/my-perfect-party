@@ -34,7 +34,7 @@
     "delete": "Izbriši dogodek",
     "deleteConfirm": "Ali ste prepričani, da želite izbrisati ta dogodek? Vsi gostje, mize, stroški in naloge bodo odstranjeni. Če ste povezani, morate za brisanje ogledati kratko oglasno sporočilo.",
     "deleteAdUnavailable": "Oglas trenutno ni na voljo. Poskusite znova pozneje.",
-    "emptyTitle": "Še ni dogodkov",
+    "emptyTitle": "Še nimaš dogodkov",
     "emptySubtitle": "Dodajte prvi dogodek in začnite načrtovati proslavo.",
     "name": "Ime dogodka",
     "namePlaceholder": "npr. Proslava Ana in Marko",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Izvozi PDF",
     "exportFailed": "PDF-ja ni bilo mogoče izvoziti. Poskusite znova.",
-    "exportSharingUnavailable": "Skupna raba na tej napravi ni na voljo."
+    "exportSharingUnavailable": "Skupna raba na tej napravi ni na voljo.",
+    "emptyHeroHeadline": "Načrtuj proslavo na preprost način"
   },
   "tabs": {
     "overview": "Pregled",

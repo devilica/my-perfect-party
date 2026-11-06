@@ -34,7 +34,7 @@
     "delete": "Dzēst pasākumu",
     "deleteConfirm": "Vai tiešām vēlaties dzēst šo pasākumu? Visi viesi, galdi, izdevumi un uzdevumi tiks noņemti. Tiešsaistē dzēšanai jānoskatās īss reklāmas klips.",
     "deleteAdUnavailable": "Reklāma pašlaik nav pieejama. Mēģiniet vēlāk.",
-    "emptyTitle": "Vēl nav pasākumu",
+    "emptyTitle": "Tev vēl nav notikumu",
     "emptySubtitle": "Pievienojiet pirmo pasākumu un sāciet plānot svinības.",
     "name": "Pasākuma nosaukums",
     "namePlaceholder": "piem. Ana un Marko svinības",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Eksportēt PDF",
     "exportFailed": "Neizdevās eksportēt PDF. Mēģiniet vēlreiz.",
-    "exportSharingUnavailable": "Kopīgošana šajā ierīcē nav pieejama."
+    "exportSharingUnavailable": "Kopīgošana šajā ierīcē nav pieejama.",
+    "emptyHeroHeadline": "Plānojiet svinības vienkārši"
   },
   "tabs": {
     "overview": "Pārskats",

@@ -34,7 +34,7 @@
     "delete": "Xóa sự kiện",
     "deleteConfirm": "Bạn có chắc muốn xóa sự kiện này? Tất cả khách, bàn, chi phí và công việc sẽ bị xóa. Khi trực tuyến, bạn phải xem quảng cáo ngắn để xóa.",
     "deleteAdUnavailable": "Quảng cáo hiện không khả dụng. Thử lại sau.",
-    "emptyTitle": "Chưa có sự kiện",
+    "emptyTitle": "Bạn chưa có sự kiện nào",
     "emptySubtitle": "Thêm sự kiện đầu tiên và bắt đầu lên kế hoạch cho buổi tiệc.",
     "name": "Tên sự kiện",
     "namePlaceholder": "vd. Tiệc Ana & Marko",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Xuất PDF",
     "exportFailed": "Không thể xuất PDF. Vui lòng thử lại.",
-    "exportSharingUnavailable": "Chia sẻ không khả dụng trên thiết bị này."
+    "exportSharingUnavailable": "Chia sẻ không khả dụng trên thiết bị này.",
+    "emptyHeroHeadline": "Tổ chức lễ kỷ niệm một cách đơn giản"
   },
   "tabs": {
     "overview": "Tổng quan",

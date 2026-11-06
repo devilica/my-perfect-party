@@ -34,7 +34,7 @@
     "delete": "Ta bort evenemang",
     "deleteConfirm": "Är du säker på att du vill ta bort detta evenemang? Alla gäster, bord, utgifter och uppgifter tas bort. Online måste du titta på en kort annons för att ta bort.",
     "deleteAdUnavailable": "Annonsen är inte tillgänglig just nu. Försök igen senare.",
-    "emptyTitle": "Inga evenemang ännu",
+    "emptyTitle": "Du har inga evenemang än",
     "emptySubtitle": "Lägg till ditt första evenemang och börja planera ditt firande.",
     "name": "Evenemangsnamn",
     "namePlaceholder": "t.ex. Ana & Markos fest",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Exportera PDF",
     "exportFailed": "PDF kunde inte exporteras. Försök igen.",
-    "exportSharingUnavailable": "Delning är inte tillgänglig på den här enheten."
+    "exportSharingUnavailable": "Delning är inte tillgänglig på den här enheten.",
+    "emptyHeroHeadline": "Planera ditt firande på ett enkelt sätt"
   },
   "tabs": {
     "overview": "Översikt",

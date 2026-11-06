@@ -34,7 +34,7 @@
     "delete": "Padam acara",
     "deleteConfirm": "Adakah anda pasti mahu memadam acara ini? Semua tetamu, meja, perbelanjaan dan tugasan akan dibuang. Apabila dalam talian, anda mesti menonton iklan pendek untuk memadam.",
     "deleteAdUnavailable": "Iklan tidak tersedia buat masa ini. Cuba lagi nanti.",
-    "emptyTitle": "Tiada acara lagi",
+    "emptyTitle": "Anda belum ada acara",
     "emptySubtitle": "Tambah acara pertama anda dan mula merancang sambutan.",
     "name": "Nama acara",
     "namePlaceholder": "cth. Parti Ana & Marko",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Eksport PDF",
     "exportFailed": "Tidak dapat mengeksport PDF. Sila cuba lagi.",
-    "exportSharingUnavailable": "Perkongsian tidak tersedia pada peranti ini."
+    "exportSharingUnavailable": "Perkongsian tidak tersedia pada peranti ini.",
+    "emptyHeroHeadline": "Rancang perayaan anda dengan mudah"
   },
   "tabs": {
     "overview": "Ringkasan",

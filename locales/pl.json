@@ -34,7 +34,7 @@
     "delete": "Usuń wydarzenie",
     "deleteConfirm": "Czy na pewno chcesz usunąć to wydarzenie? Wszyscy goście, stoły, wydatki i zadania zostaną usunięte. Online musisz obejrzeć krótką reklamę, aby usunąć.",
     "deleteAdUnavailable": "Reklama jest teraz niedostępna. Spróbuj ponownie później.",
-    "emptyTitle": "Brak wydarzeń",
+    "emptyTitle": "Nie masz jeszcze wydarzeń",
     "emptySubtitle": "Dodaj pierwsze wydarzenie i zacznij planować swoją imprezę.",
     "name": "Nazwa wydarzenia",
     "namePlaceholder": "np. Impreza Ani i Marka",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Eksportuj PDF",
     "exportFailed": "Nie udało się wyeksportować PDF. Spróbuj ponownie.",
-    "exportSharingUnavailable": "Udostępnianie nie jest dostępne na tym urządzeniu."
+    "exportSharingUnavailable": "Udostępnianie nie jest dostępne na tym urządzeniu.",
+    "emptyHeroHeadline": "Zorganizuj swoją uroczystość w prosty sposób"
   },
   "tabs": {
     "overview": "Przegląd",

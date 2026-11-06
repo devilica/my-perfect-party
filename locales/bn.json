@@ -74,7 +74,8 @@
     },
     "exportPdf": "PDF রপ্তানি",
     "exportFailed": "PDF রপ্তানি করা যায়নি। আবার চেষ্টা করুন।",
-    "exportSharingUnavailable": "এই ডিভাইসে শেয়ারিং উপলব্ধ নয়।"
+    "exportSharingUnavailable": "এই ডিভাইসে শেয়ারিং উপলব্ধ নয়।",
+    "emptyHeroHeadline": "সহজ উপায়ে আপনার অনুষ্ঠানের পরিকল্পনা করুন"
   },
   "tabs": {
     "overview": "সারসংক্ষেপ",

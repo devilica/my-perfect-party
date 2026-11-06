@@ -34,7 +34,7 @@
     "delete": "Șterge evenimentul",
     "deleteConfirm": "Sigur vrei să ștergi acest eveniment? Toți invitații, mesele, cheltuielile și sarcinile vor fi eliminate. Când ești online, trebuie să vezi o reclamă scurtă pentru a șterge.",
     "deleteAdUnavailable": "Reclama nu este disponibilă momentan. Încearcă din nou mai târziu.",
-    "emptyTitle": "Niciun eveniment încă",
+    "emptyTitle": "Încă nu ai evenimente",
     "emptySubtitle": "Adaugă primul eveniment și începe să planifici petrecerea.",
     "name": "Numele evenimentului",
     "namePlaceholder": "ex. Petrecerea Ana & Marko",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Exportă PDF",
     "exportFailed": "PDF-ul nu a putut fi exportat. Încercați din nou.",
-    "exportSharingUnavailable": "Partajarea nu este disponibilă pe acest dispozitiv."
+    "exportSharingUnavailable": "Partajarea nu este disponibilă pe acest dispozitiv.",
+    "emptyHeroHeadline": "Organizează-ți petrecerea într-un mod simplu"
   },
   "tabs": {
     "overview": "Prezentare generală",

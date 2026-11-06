@@ -34,7 +34,7 @@
     "delete": "Slet begivenhed",
     "deleteConfirm": "Er du sikker på, at du vil slette denne begivenhed? Alle gæster, borde, udgifter og opgaver fjernes. Online skal du se en kort reklame for at slette.",
     "deleteAdUnavailable": "Reklamen er ikke tilgængelig lige nu. Prøv igen senere.",
-    "emptyTitle": "Ingen begivenheder endnu",
+    "emptyTitle": "Du har ingen begivenheder endnu",
     "emptySubtitle": "Tilføj din første begivenhed og begynd at planlægge din fest.",
     "name": "Begivenhedsnavn",
     "namePlaceholder": "f.eks. Ana & Markos fest",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Eksporter PDF",
     "exportFailed": "PDF kunne ikke eksporteres. Prøv igen.",
-    "exportSharingUnavailable": "Deling er ikke tilgængelig på denne enhed."
+    "exportSharingUnavailable": "Deling er ikke tilgængelig på denne enhed.",
+    "emptyHeroHeadline": "Planlæg din fest på den nemme måde"
   },
   "tabs": {
     "overview": "Overblik",

@@ -34,7 +34,7 @@
     "delete": "Hapus acara",
     "deleteConfirm": "Yakin ingin menghapus acara ini? Semua tamu, meja, pengeluaran, dan tugas akan dihapus. Saat online, Anda harus menonton iklan singkat untuk menghapus.",
     "deleteAdUnavailable": "Iklan tidak tersedia saat ini. Coba lagi nanti.",
-    "emptyTitle": "Belum ada acara",
+    "emptyTitle": "Kamu belum punya acara",
     "emptySubtitle": "Tambahkan acara pertama Anda dan mulai rencanakan pesta.",
     "name": "Nama acara",
     "namePlaceholder": "mis. Pesta Ana & Marko",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Ekspor PDF",
     "exportFailed": "Tidak dapat mengekspor PDF. Silakan coba lagi.",
-    "exportSharingUnavailable": "Berbagi tidak tersedia di perangkat ini."
+    "exportSharingUnavailable": "Berbagi tidak tersedia di perangkat ini.",
+    "emptyHeroHeadline": "Atur perayaanmu dengan mudah"
   },
   "tabs": {
     "overview": "Ringkasan",

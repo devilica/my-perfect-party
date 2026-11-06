@@ -19,26 +19,6 @@ type CategoryPickerProps = {
   dense?: boolean;
 };
 
-function mergeCustomCategoryOptions(typed: string, fromEvent: string[]): string[] {
-  const result: string[] = [];
-  const seen = new Set<string>();
-
-  const add = (name: string) => {
-    const trimmed = name.trim();
-    if (!trimmed || isPredefinedCategory(trimmed)) return;
-
-    const key = trimmed.toLowerCase();
-    if (seen.has(key)) return;
-
-    seen.add(key);
-    result.push(trimmed);
-  };
-
-  add(typed);
-  fromEvent.forEach(add);
-  return result;
-}
-
 export function CategoryPicker({
   eventId,
   selected,
@@ -56,10 +36,7 @@ export function CategoryPicker({
     [eventId, expenses]
   );
 
-  const customOptions = useMemo(
-    () => mergeCustomCategoryOptions(customCategory, customFromEvent),
-    [customCategory, customFromEvent]
-  );
+  const customOptions = customFromEvent;
 
   const selectValue = useMemo((): string => {
     if (isPredefinedCategory(selected)) {
@@ -116,7 +93,9 @@ export function CategoryPicker({
           value={customCategory}
           onChangeText={(text: string) => {
             onCustomChange(text);
-            if (text.trim()) onSelect(text.trim());
+            if (selectValue !== 'other') {
+              onSelect('other');
+            }
           }}
           placeholder={t('expenses.customCategoryPlaceholder')}
         />

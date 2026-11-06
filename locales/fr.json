@@ -34,7 +34,7 @@
     "delete": "Supprimer l'événement",
     "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cet événement ? Tous les invités, tables, dépenses et tâches seront supprimés. En ligne, vous devrez regarder une courte publicité pour supprimer.",
     "deleteAdUnavailable": "La publicité n'est pas disponible pour le moment. Réessayez plus tard.",
-    "emptyTitle": "Aucun événement pour l'instant",
+    "emptyTitle": "Vous n'avez pas encore d'événements",
     "emptySubtitle": "Ajoutez votre premier événement et commencez à planifier votre fête.",
     "name": "Nom de l'événement",
     "namePlaceholder": "ex. Fête Ana & Marko",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Exporter en PDF",
     "exportFailed": "Impossible d'exporter le PDF. Veuillez réessayer.",
-    "exportSharingUnavailable": "Le partage n'est pas disponible sur cet appareil."
+    "exportSharingUnavailable": "Le partage n'est pas disponible sur cet appareil.",
+    "emptyHeroHeadline": "Organisez votre fête en toute simplicité"
   },
   "tabs": {
     "overview": "Aperçu",

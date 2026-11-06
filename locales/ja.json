@@ -34,7 +34,7 @@
     "delete": "イベントを削除",
     "deleteConfirm": "このイベントを削除してもよろしいですか？ゲスト、テーブル、支出、タスクはすべて削除されます。オンライン時は、削除前に短い広告を視聴する必要があります。",
     "deleteAdUnavailable": "現在広告を表示できません。後でもう一度お試しください。",
-    "emptyTitle": "イベントがありません",
+    "emptyTitle": "まだイベントがありません",
     "emptySubtitle": "最初のイベントを追加して、お祝いの準備を始めましょう。",
     "name": "イベント名",
     "namePlaceholder": "例：アナ＆マルコのパーティー",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "PDFをエクスポート",
     "exportFailed": "PDFをエクスポートできませんでした。もう一度お試しください。",
-    "exportSharingUnavailable": "このデバイスでは共有機能を利用できません。"
+    "exportSharingUnavailable": "このデバイスでは共有機能を利用できません。",
+    "emptyHeroHeadline": "かんたんにお祝いを計画"
   },
   "tabs": {
     "overview": "概要",

@@ -5,22 +5,13 @@ import { StyleSheet, Text, View } from 'react-native';
 import { AppImageBackground } from '@/components/AppImageBackground';
 
 import { Card } from '@/components/ui';
+import { getCountdownBackground } from '@/lib/countdownBackground';
 import { formatDisplayDate, getEventCountdown } from '@/lib/dateUtils';
 import { useTranslation } from '@/lib/i18n';
 import { useWeddingStore } from '@/store/weddingStore';
 import { useThemeColors } from '@/theme/EventThemeContext';
 import { CelebrationThemeId } from '@/types/models';
 import { spacing, typography } from '@/theme/colors';
-
-const COUNTDOWN_WEDDING_BACKGROUND = require('@/assets/images/countdown.png');
-const COUNTDOWN_BIRTHDAY_BACKGROUND = require('@/assets/images/countdown3.png');
-const COUNTDOWN_DEFAULT_BACKGROUND = require('@/assets/images/countdown2.png');
-
-function getCountdownBackground(themeId: CelebrationThemeId) {
-  if (themeId === 'wedding') return COUNTDOWN_WEDDING_BACKGROUND;
-  if (themeId === 'birthday' || themeId === 'baptism') return COUNTDOWN_BIRTHDAY_BACKGROUND;
-  return COUNTDOWN_DEFAULT_BACKGROUND;
-}
 
 type EventCountdownProps = {
   date?: string;

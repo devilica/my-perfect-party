@@ -34,7 +34,7 @@
     "delete": "Ħassar avveniment",
     "deleteConfirm": "Inti ċert li trid tħassar dan l-avveniment? Kull mistieden, mejda, spejseż u kompiti se jitneħħew. Meta tkun online, trid tara reklam qasir biex tħassar.",
     "deleteAdUnavailable": "Ir-reklam mhux disponibbli bħalissa. Erġa' pprova aktar tard.",
-    "emptyTitle": "Għad m'hemmx avvenimenti",
+    "emptyTitle": "Għadek m'għandekx avvenimenti",
     "emptySubtitle": "Żid l-ewwel avveniment u ibda pplanifica l-festa tiegħek.",
     "name": "Isem tal-avveniment",
     "namePlaceholder": "eż. Festa Ana & Marko",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Esporta PDF",
     "exportFailed": "Il-PDF ma setax jiġi esportat. Erġa’ pprova.",
-    "exportSharingUnavailable": "Il-qsim mhux disponibbli fuq dan l-apparat."
+    "exportSharingUnavailable": "Il-qsim mhux disponibbli fuq dan l-apparat.",
+    "emptyHeroHeadline": "Organizza l-celebrazzjoni tiegħek b'mod sempliċi"
   },
   "tabs": {
     "overview": "Ħarsa ġenerali",

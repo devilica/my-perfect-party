@@ -34,7 +34,7 @@
     "delete": "Esemény törlése",
     "deleteConfirm": "Biztosan törölni szeretnéd ezt az eseményt? Minden vendég, asztal, kiadás és feladat törlődik. Online módban a törléshez egy rövid reklám megtekintése szükséges.",
     "deleteAdUnavailable": "A reklám jelenleg nem érhető el. Próbáld újra később.",
-    "emptyTitle": "Még nincsenek események",
+    "emptyTitle": "Még nincsenek eseményeid",
     "emptySubtitle": "Add hozzá az első eseményt, és kezdd el tervezni az ünnepséget.",
     "name": "Esemény neve",
     "namePlaceholder": "pl. Ana és Marko bulija",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "PDF exportálása",
     "exportFailed": "A PDF exportálása nem sikerült. Próbálja újra.",
-    "exportSharingUnavailable": "A megosztás nem érhető el ezen az eszközön."
+    "exportSharingUnavailable": "A megosztás nem érhető el ezen az eszközön.",
+    "emptyHeroHeadline": "Szervezd meg az ünnepet egyszerűen"
   },
   "tabs": {
     "overview": "Áttekintés",

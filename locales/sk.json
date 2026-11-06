@@ -34,7 +34,7 @@
     "delete": "Vymazať udalosť",
     "deleteConfirm": "Naozaj chcete vymazať túto udalosť? Všetci hostia, stoly, výdavky a úlohy budú odstránené. Pri pripojení k internetu musíte na vymazanie pozrieť krátku reklamu.",
     "deleteAdUnavailable": "Reklama momentálne nie je k dispozícii. Skúste to neskôr.",
-    "emptyTitle": "Zatiaľ žiadne udalosti",
+    "emptyTitle": "Zatiaľ nemáš žiadne udalosti",
     "emptySubtitle": "Pridajte prvú udalosť a začnite plánovať svoju oslavu.",
     "name": "Názov udalosti",
     "namePlaceholder": "napr. Oslava Ana a Marko",
@@ -74,7 +74,8 @@
     },
     "exportPdf": "Exportovať PDF",
     "exportFailed": "PDF sa nepodarilo exportovať. Skúste znova.",
-    "exportSharingUnavailable": "Zdieľanie nie je na tomto zariadení dostupné."
+    "exportSharingUnavailable": "Zdieľanie nie je na tomto zariadení dostupné.",
+    "emptyHeroHeadline": "Naplánujte oslavu jednoducho"
   },
   "tabs": {
     "overview": "Prehľad",
