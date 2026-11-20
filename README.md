@@ -12,6 +12,33 @@ A local-first wedding planner app for Bosnia and Herzegovina, built with **Expo*
 - **Languages** — Bosnian / Serbian / Croatian (BS) and English (EN)
 - **Offline & local** — no database, no account; data saved with AsyncStorage
 
+## Screenshots
+
+Guests, seating, expenses, tasks, PDF exports, and more — everything in one app.
+
+<p align="center">
+  <img src="readme-assets/promo-hero.png" alt="My Perfect Party — plan and organize your celebration" width="360" />
+</p>
+
+<table>
+  <tr>
+    <td align="center"><img src="readme-assets/screenshots/photo_2026-10-12_16-09-51.jpg" alt="Event overview with days left and invitation status" width="240" /></td>
+    <td align="center"><img src="readme-assets/screenshots/photo_2026-10-12_16-09-53.jpg" alt="Guest list with invitation status" width="240" /></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="readme-assets/screenshots/photo_2026-10-12_16-09-58.jpg" alt="Seating planner for each table" width="240" /></td>
+    <td align="center"><img src="readme-assets/screenshots/photo_2026-10-12_16-09-55.jpg" alt="A guest seat card for Round 2" width="240" /></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="readme-assets/screenshots/x-1.jpg" alt="Expenses by category and top costs" width="240" /></td>
+    <td align="center"><img src="readme-assets/screenshots/x-2.jpg" alt="Seating planner and hall overview" width="240" /></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="readme-assets/screenshots/photo_2026-10-12_16-21-31.jpg" alt="Export a PDF and create invitations" width="240" /></td>
+    <td align="center"><img src="readme-assets/screenshots/photo_2026-10-12_16-21-35.jpg" alt="Tasks for the celebration" width="240" /></td>
+  </tr>
+</table>
+
 ## Platforms
 
 - iOS
