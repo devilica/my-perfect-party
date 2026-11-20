@@ -16,10 +16,6 @@ A local-first wedding planner app for Bosnia and Herzegovina, built with **Expo*
 
 Guests, seating, expenses, tasks, PDF exports, and more — everything in one app.
 
-<p align="center">
-  <img src="readme-assets/promo-hero.png" alt="My Perfect Party — plan and organize your celebration" width="360" />
-</p>
-
 <table>
   <tr>
     <td align="center"><img src="readme-assets/screenshots/photo_2026-10-12_16-09-51.jpg" alt="Event overview with days left and invitation status" width="240" /></td>
